@@ -8,10 +8,16 @@ import {
     DialogContent,
     DialogContentText,
     DialogActions,
+    Paper,
+    Item,
 } from "@material-ui/core"
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
+import SimpleCard from "components/SimpleCard"
+import Grid from "components/Grid"
+import CardHeader from '@material-ui/core/CardHeader'
+import Header from "components/Header"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -54,8 +60,26 @@ function index({ classes }: Props) {
 
     return (
         <Fragment>
+            <Header />
             <Head><title>LexImpact</title></Head>
+            <div className={`moitie-gauche ${classes.root}`}>
+                <Paper className={classes.paper}>
+                    <Typography variant="h5" component="h3">
+                    Article - code général des impôts
+                    </Typography>
+                    <Typography component="p">
+                     blabla
+                    </Typography>
+                </Paper>
+            </div>
+            <div className={`moitie-droite ${classes.root}`}>
+                <Grid />
+            </div>
+
             <div className={`${classes.root} dorine`}>
+                <Typography variant="h1" gutterBottom>LexImpact</Typography>
+                <Plot />
+                <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
                 <Dialog open={open} onClose={handleClose}>
                     <DialogTitle>Combien ça coûte ?</DialogTitle>
                     <DialogContent>
@@ -65,9 +89,6 @@ function index({ classes }: Props) {
                         <Button color="primary" onClick={handleClose}>OK</Button>
                     </DialogActions>
                 </Dialog>
-                <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                <Plot />
-                <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
                 <div className={classes.dorine}>
                     asdsadf
                 </div>
