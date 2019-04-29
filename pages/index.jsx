@@ -12,6 +12,8 @@ import {
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
+import SimpleCard from "components/SimpleCard"
+import Grid from "components/Grid"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -55,7 +57,12 @@ function index({ classes }: Props) {
     return (
         <Fragment>
             <Head><title>LexImpact</title></Head>
+            <Grid />
             <div className={`${classes.root} dorine`}>
+                <SimpleCard />
+                <Typography variant="h1" gutterBottom>LexImpact</Typography>
+                <Plot />
+                <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
                 <Dialog open={open} onClose={handleClose}>
                     <DialogTitle>Combien ça coûte ?</DialogTitle>
                     <DialogContent>
@@ -65,9 +72,6 @@ function index({ classes }: Props) {
                         <Button color="primary" onClick={handleClose}>OK</Button>
                     </DialogActions>
                 </Dialog>
-                <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                <Plot />
-                <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
                 <div className={classes.dorine}>
                     asdsadf
                 </div>
