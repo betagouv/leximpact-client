@@ -14,6 +14,8 @@ import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
 import SimpleCard from "components/SimpleCard"
 import Grid from "components/Grid"
+import CardHeader from '@material-ui/core/CardHeader'
+import Header from "components/Header"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -56,10 +58,12 @@ function index({ classes }: Props) {
 
     return (
         <Fragment>
+            <Header />
             <Head><title>LexImpact</title></Head>
             <Grid />
             <div className={`${classes.root} dorine`}>
                 <SimpleCard />
+                <CardHeader />
                 <Typography variant="h1" gutterBottom>LexImpact</Typography>
                 <Plot />
                 <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
