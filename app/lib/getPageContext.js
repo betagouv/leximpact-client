@@ -8,7 +8,7 @@ const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
         fontFamily: [
-            "Comic Sans",
+            'Lato'
         ],
     },
     palette: {
