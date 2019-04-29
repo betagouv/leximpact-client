@@ -13,6 +13,8 @@ import {
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "../lib/withRoot"
+import SimpleCard from "../components/SimpleCard"
+import Grid from "../components/Grid"
 
 const Plot = dynamic(import("../components/Plot"), {
     ssr: false,
@@ -55,7 +57,12 @@ class Index extends React.Component {
         return (
             <Fragment>
                 <Head><title>LexImpact</title></Head>
+                <Grid></Grid>
                 <div className={classes.root}>
+                    <SimpleCard />
+                    <Typography variant="h1" gutterBottom>LexImpact</Typography>
+                    <Plot />
+                    <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
                     <Dialog open={open} onClose={this.handleClose}>
                         <DialogTitle>Combien ça coûte ?</DialogTitle>
                         <DialogContent>
@@ -65,9 +72,6 @@ class Index extends React.Component {
                             <Button color="primary" onClick={this.handleClose}>OK</Button>
                         </DialogActions>
                     </Dialog>
-                    <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                    <Plot />
-                    <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
                 </div>
             </Fragment>
         )
