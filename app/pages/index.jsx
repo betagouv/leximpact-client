@@ -19,6 +19,7 @@ import SimpleCard from "../components/SimpleCard"
 import Grid from "../components/Grid"
 import CardHeader from '@material-ui/core/CardHeader'
 import Header from "../components/Header"
+import Article from "../components/Article"
 
 const Plot = dynamic(import("../components/Plot"), {
     ssr: false,
@@ -64,12 +65,7 @@ class Index extends React.Component {
                 <Head><title>LexImpact</title></Head>
                     <div className={"moitie-gauche "+classes.root}>
                         <Paper className={classes.paper}>
-                            <Typography variant="h5" component="h3">
-                            Article - code général des impôts
-                            </Typography>
-                            <Typography component="p">
-                             blabla
-                            </Typography>
+                            <Article/>
                         </Paper>
                     </div>
                 
