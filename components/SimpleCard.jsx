@@ -7,6 +7,12 @@ import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
+
+
+//import { Icon, InlineIcon } from "@iconify/react";
+
 
 const styles = theme => ({
     root: {
@@ -24,46 +30,31 @@ const styles = theme => ({
         margin: "0 2px",
         transform: "scale(0.8)",
     },
-    title: {
-        fontSize: 14,
+    titre: {
+        fontSize: 11,
     },
     pos: {
         marginBottom: 12,
     },
 })
 
+
 function SimpleCard(props) {
     const { classes } = props
     const bull = <span className={classes.bullet}>•</span>
 
     return (
-        <Paper className={classes.root} elevation={1}>
+        
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-              Word of the Day
+                    <Chip label= "label"/>
+                    <Typography variant="h2" color="primary" gutterBottom>
+                    350 €
                     </Typography>
-                    <Typography variant="h5" component="h2">
-              be
-                        {bull}
-              nev
-                        {bull}o{bull}
-              lent
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-              adjective
-                    </Typography>
-                    <Typography component="p">
-              well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                    </Typography>
+                    
                 </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
             </Card>
-        </Paper>
+        
     )
 }
 

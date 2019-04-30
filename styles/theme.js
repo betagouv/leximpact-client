@@ -4,21 +4,82 @@ const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
         fontFamily: [
-            'Lato'
-        ],
+            '"Lato", sans-serif', 'serif'
+        ].join(','),
+    fontWeightMedium: 500,
+
+    //TYPOGRAPHIE SIMULATEUR
+
+    //h1: {},
+    //h3: {},
+    //h5: {},
+
+    subtitle1: {
+        fontSize: 12,
     },
+
+    body1: {
+        fontWeight: 500,
+    },
+
+    button: {
+        fontStyle: 'Italic',
+        fontWeight: 500,
+    },
+
+    caption: {
+        fontWeight: 500,
+    },
+
+    overline: {
+        fontWeight: 500,
+    },
+
+    //TYPOGRAPHIE ARTICLE
+
+    //h2: {},
+    //h4: {},
+    //h6: {},
+
+      body2: {
+      fontWeight: 500,
+    },
+
+
+     subtitle2: {
+      fontSize: 12,
+    },
+
+
+},
+
     palette: {
-        primary: {
-        // light: will be calculated from palette.primary.main,
-            main: "#ff4400",
-        // dark: will be calculated from palette.primary.main,
-        // contrastText: will be calculated to contrast with palette.primary.main
+        background:{
+            paper:"rgba(255, 255, 255, 0.7)",
+            default:"rgba(255, 255, 255, 1)"
         },
-        secondary: {
+        primary: {
+            light: "#FFFCB2",
+            main: "#E5DC07",
+            dark: "#A6A00C",
+            contrastText: "#FFFFFF",
+        },
+        reforme1: {
             light: "#0066ff",
-            main: "#0044ff",
+            main: "#00A3FF",
             // dark: will be calculated from palette.secondary.main,
             contrastText: "#ffcc00",
+        },
+        error:{
+            light:"#e57373",
+            main:"rgba(255, 48, 73, 1)",
+            dark:"#d32f2f","contrastText":"#fff"
+        },
+        text:{
+            primary:"rgba(29, 29, 29, 0.87)",
+            secondary:"rgba(24, 24, 24, 0.54)",
+            disabled:"rgba(90, 90, 90, 0.72)",
+            hint:"rgba(0, 0, 0, 0.38)",
         },
     },
 })

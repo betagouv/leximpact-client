@@ -20,6 +20,7 @@
         "test": "jest -c jest.config.js"
     },
     "dependencies": {
+        "@iconify/react": "^1.0.7",
         "@material-ui/core": "^3.9.3",
         "@zeit/next-sass": "^1.0.1",
         "@zeit/next-typescript": "^1.1.1",
