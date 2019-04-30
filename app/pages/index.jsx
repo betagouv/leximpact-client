@@ -9,6 +9,8 @@ import {
     DialogContent,
     DialogContentText,
     DialogActions,
+    Paper,
+    Item
 } from "@material-ui/core"
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
@@ -55,32 +57,47 @@ class Index extends React.Component {
     render() {
         const { classes } = this.props
         const { open } = this.state
-
+        console.log("coucou "+classes.root)
         return (
             <Fragment>
                 <Header/>
                 <Head><title>LexImpact</title></Head>
-                <Grid></Grid>
-                <div className={classes.root}>
-                    <SimpleCard />
-                    <CardHeader/>
-                    <Typography variant="h1" gutterBottom>LexImpact</Typography>
+                    <div className={"moitie-gauche "+classes.root}>
+                        <Paper className={classes.paper}>
+                            <Typography variant="h5" component="h3">
+                            Article - code général des impôts
+                            </Typography>
+                            <Typography component="p">
+                             blabla
+                            </Typography>
+                        </Paper>
+                    </div>
+                
+                <div className={"moitie-droite "+classes.root}>
+                    <Grid>
+                    </Grid>
+                </div>
+
+                <div>
+                   <Typography variant="h1" gutterBottom>LexImpact</Typography>
                     <Plot />
-                    <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
-                    <Dialog open={open} onClose={this.handleClose}>
-                        <DialogTitle>Combien ça coûte ?</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>1 000 000 €</DialogContentText>
-                        </DialogContent>
+                   <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
+                   <Dialog open={open} onClose={this.handleClose}>
+                 <DialogTitle>Combien ça coûte ?</DialogTitle>
+                      <DialogContent>
+                           <DialogContentText>1 000 000 €</DialogContentText>
+                       </DialogContent>
                         <DialogActions>
                             <Button color="primary" onClick={this.handleClose}>OK</Button>
                         </DialogActions>
-                    </Dialog>
-                </div>
+                        </Dialog>
+                 </div>
             </Fragment>
         )
     }
 }
+
+                   
 
 Index.propTypes = {
     classes: PropTypes.object.isRequired,
