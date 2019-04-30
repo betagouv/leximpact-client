@@ -11,7 +11,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 
 
-//import { Icon, InlineIcon } from "@iconify/react";
 
 
 const styles = theme => ({
@@ -47,6 +46,7 @@ function SimpleCard(props) {
         
             <Card className={classes.card}>
                 <CardContent>
+
                     <Chip label= "label"/>
                     <Typography variant="h2" color="primary" gutterBottom>
                     350 €
