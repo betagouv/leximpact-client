@@ -25,6 +25,7 @@
         "@babel/cli": "^7.4.4",
         "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
         "@babel/preset-flow": "^7.0.0",
+        "@iconify/react": "^1.0.7",
         "@material-ui/core": "^3.9.3",
         "@zeit/next-sass": "^1.0.1",
         "@zeit/next-typescript": "^1.1.1",
