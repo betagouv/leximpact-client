@@ -11,52 +11,52 @@ const theme = createMuiTheme({
         fontFamily: [
             '"Lato", sans-serif', 'serif'
         ].join(','),
-    fontWeightMedium: 500,
-    
-    //TYPOGRAPHIE SIMULATEUR
+        fontWeightMedium: 500,
+        
+        //TYPOGRAPHIE SIMULATEUR
 
-    //h1: {}, 
-    //h3: {},
-    //h5: {},
+        //h1: {}, 
+        //h3: {},
+        //h5: {},
 
-    subtitle1: {
-        fontSize: 12,
+        subtitle1: {
+            fontSize: 12,
+        },
+
+        body1: {
+            fontWeight: 500,
+        },
+      
+        button: {
+            fontStyle: 'Italic',
+            fontWeight: 500,
+        },
+
+        caption: {
+            fontWeight: 500,
+        },
+
+        overline: {
+            fontWeight: 500,
+        },
+
+        //TYPOGRAPHIE ARTICLE
+
+        //h2: {},
+        //h4: {},
+        //h6: {},
+
+        body2: {
+            fontWeight: 500,
+        },
+
+
+        subtitle2: {
+            fontSize: 12,
+        },
+
+
     },
-
-    body1: {
-        fontWeight: 500,
-    },
-  
-    button: {
-        fontStyle: 'Italic',
-        fontWeight: 500,
-    },
-
-    caption: {
-        fontWeight: 500,
-    },
-
-    overline: {
-        fontWeight: 500,
-    },
-
-    //TYPOGRAPHIE ARTICLE
-
-    //h2: {},
-    //h4: {},
-    //h6: {},
-
-      body2: {
-      fontWeight: 500,
-    },
-
-
-     subtitle2: {
-      fontSize: 12,
-    },
-
-
-},
 
     palette: {
         background:{
@@ -69,7 +69,7 @@ const theme = createMuiTheme({
             dark: "#A6A00C",
             contrastText: "#FFFFFF",
         },
-        reforme1: {
+        secondary: {
             light: "#0066ff",
             main: "#00A3FF",
             // dark: will be calculated from palette.secondary.main,
