@@ -2,6 +2,7 @@ import { SheetsRegistry } from "jss"
 import { createMuiTheme } from "@material-ui/core/styles"
 import { createGenerateClassName } from "@material-ui/core/styles"
 
+
 // A theme with custom primary and secondary color.
 // It's optional.
 const theme = createMuiTheme({
@@ -9,7 +10,7 @@ const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
         fontFamily: [
-            '"Lato", sans-serif', 'serif'
+            '"Lato", sans-serif', 'Lora'
         ].join(','),
         fontWeightMedium: 500,
         
@@ -42,7 +43,10 @@ const theme = createMuiTheme({
 
         //TYPOGRAPHIE ARTICLE
 
-        //h2: {},
+        h2: {
+            fontFamily: 'Lora',
+            fontSize: '32px'
+        },
         //h4: {},
         //h6: {},
 
@@ -74,6 +78,10 @@ const theme = createMuiTheme({
             main: "#00A3FF",
             // dark: will be calculated from palette.secondary.main,
             contrastText: "#ffcc00",
+        },
+        reforme1: { 
+            backgroundColor: '#E44D69',
+            color: '#000',
         },
         error:{
             light:"#e57373",

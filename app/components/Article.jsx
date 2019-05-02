@@ -62,6 +62,9 @@ class CustomizedExpansionPanel extends React.Component {
 
   render() {
     const { expanded } = this.state;
+    var styleExpansionpanel = {
+    	padding: '1px',
+    }
     return (
       <div>
 
@@ -73,16 +76,20 @@ class CustomizedExpansionPanel extends React.Component {
         <ExpansionPanel
           square
           expanded={expanded === 'panel1'}
-          onChange={this.handleChange('panel1')}
-        >
-          <ExpansionPanelSummary>
-            <Typography>I. En ce qui concerne les contribuables ... </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-               visés à l'article 4 B, il est fait application des règles suivantes pour le calcul de l'impôt sur le revenu :
-            </Typography>
-          </ExpansionPanelDetails>
+          onChange={this.handleChange('panel1')}>
+
+	          <ExpansionPanelSummary style={styleExpansionpanel}>
+		            <Typography variant='body2' color='inherit'>
+		            		I. En ce qui concerne les contribuables ... 
+		            </Typography>
+	          </ExpansionPanelSummary>
+
+	          <ExpansionPanelDetails style={styleExpansionpanel}>
+		            <Typography variant='body2' color='inherit'>
+		               visés à l'article 4 B, il est fait application des règles suivantes pour le calcul de l'impôt sur le revenu :
+		            </Typography>
+	          </ExpansionPanelDetails>
+	          
         </ExpansionPanel>
 
         <Typography variant="body2" color="inherit">
