@@ -41,6 +41,19 @@ function styles(theme) {
         dorine: {
             background: "red",
         },
+        dataviz: {
+            margin: "4em",
+            color: "blue",
+        },
+        article: {
+            margin: "1em",
+            padding: "2em",
+            opacity: 1,
+        },
+        main: {
+            background: "#FFFCB2",
+            margin: "0em",
+        },
     })
 }
 
@@ -63,30 +76,33 @@ function index({ classes }: Props) {
         <Fragment>
             <Header />
             <Head><title>LexImpact</title></Head>
-            <div className={`moitie-gauche ${classes.root}`}>
-                <Paper className={classes.paper}>
-                    <Article />
-                </Paper>
-            </div>
-            <div className={`moitie-droite ${classes.root}`}>
-                <Grid />
-            </div>
 
-            <div className={`${classes.root} dorine`}>
-                <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                <Plot />
-                <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Combien ça coûte ?</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>1 000 000 €</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button color="primary" onClick={handleClose}>OK</Button>
-                    </DialogActions>
-                </Dialog>
-                <div className={classes.dorine}>
-                    asdsadf
+            <div className={classes.main}>
+                <div className={`moitie-gauche ${classes.root}`}>
+                    <Paper className={classes.paper}>
+                        <Article />
+                    </Paper>
+                </div>
+                <div className={classes.dataviz}>
+                    <Grid />
+                </div>
+
+                <div className={`${classes.root} dorine`}>
+                    <Typography variant="h1" gutterBottom>LexImpact</Typography>
+                    <Plot />
+                    <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>Combien ça coûte ?</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>1 000 000 €</DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button color="primary" onClick={handleClose}>OK</Button>
+                        </DialogActions>
+                    </Dialog>
+                    <div className={classes.dorine}>
+                        asdsadf
+                    </div>
                 </div>
             </div>
         </Fragment>

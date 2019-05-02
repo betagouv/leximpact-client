@@ -4,54 +4,71 @@ const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
         fontFamily: [
-            '"Lato", sans-serif', 'serif'
+            '"Lato", sans-serif', 'Lora'
         ].join(','),
-    fontWeightMedium: 500,
+        fontWeightMedium: 500,
 
-    //TYPOGRAPHIE SIMULATEUR
+        //TYPOGRAPHIE SIMULATEUR
 
-    //h1: {},
-    //h3: {},
-    //h5: {},
+        h1: {fontFamily: 'Lato',
+            fontSize: '34px',
+            fontWeight: 'bold',
+            textTransform: 'uppercase'
+        },
 
-    subtitle1: {
-        fontSize: 12,
+        h3: {fontFamily: 'Lato',
+            fontSize: '40px',
+            fontWeight: 'bold'
+        },
+
+        h5: {fontFamily: 'Lato',
+            fontSize: '34px',
+            //fontWeight: 'light'
+        },
+
+        subtitle1: {
+            fontSize: 12,
+        },
+
+        body1: {
+            fontWeight: 500,
+        },
+
+        button: {
+            fontStyle: 'regular',
+            fontWeight: 500,
+        },
+
+        caption: {
+            fontWeight: 500,
+        },
+
+        overline: {
+            fontWeight: 500,
+        },
+
+        //TYPOGRAPHIE ARTICLE
+
+        h2: {
+            fontFamily: 'Lora',
+            fontSize: '32px',
+            fontWeight: 'bold'
+        },
+        //h4: {},
+        //h6: {},
+
+        body2: {
+            fontFamily: 'Lora',
+            fontSize: '18px'
+        },
+
+
+        subtitle2: {
+            fontSize: 12,
+        },
+
+
     },
-
-    body1: {
-        fontWeight: 500,
-    },
-
-    button: {
-        fontStyle: 'Italic',
-        fontWeight: 500,
-    },
-
-    caption: {
-        fontWeight: 500,
-    },
-
-    overline: {
-        fontWeight: 500,
-    },
-
-    //TYPOGRAPHIE ARTICLE
-
-    //h2: {},
-    //h4: {},
-    //h6: {},
-
-      body2: {
-      fontWeight: 500,
-    },
-
-
-     subtitle2: {
-      fontSize: 12,
-    },
-
-
-},
 
     palette: {
         background:{
@@ -64,11 +81,15 @@ const theme = createMuiTheme({
             dark: "#A6A00C",
             contrastText: "#FFFFFF",
         },
-        reforme1: {
-            light: "#0066ff",
+        secondary: {
+            light: "#FF6B6B",
             main: "#00A3FF",
             // dark: will be calculated from palette.secondary.main,
             contrastText: "#ffcc00",
+        },
+        reforme1: {
+            backgroundColor: '#E44D69',
+            color: '#000',
         },
         error:{
             light:"#e57373",

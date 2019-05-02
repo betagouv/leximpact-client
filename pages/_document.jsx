@@ -66,7 +66,7 @@ class MyDocument extends Document {
                     <meta name="theme-color" content={pageContext.theme.palette.primary[500]} />
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i"
+                        href="https://fonts.googleapis.com/css?family=Lato|Lora"
                     />
                 </Head>
                 <body>
