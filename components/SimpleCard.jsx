@@ -13,6 +13,7 @@ import Chip from '@material-ui/core/Chip';
 
 
 
+
 const styles = theme => ({
     root: {
         ...theme.mixins.gutters(),
@@ -46,10 +47,14 @@ function SimpleCard(props) {
         
             <Card className={classes.card}>
                 <CardContent>
-
+                    
                     <Chip label= "label"/>
-                    <Typography variant="h2" color="primary" gutterBottom>
-                    350 €
+                    <Typography variant="h3" color="primary" gutterBottom>
+                    350
+                    </Typography>
+
+                    <Typography variant="h5" color="primary" gutterBottom>
+                    €
                     </Typography>
                     
                 </CardContent>
