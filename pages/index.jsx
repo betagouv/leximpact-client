@@ -41,6 +41,10 @@ function styles(theme) {
         dorine: {
             background: "red",
         },
+        dataviz: {
+            margin: "10em",
+            color: "blue",
+        },
     })
 }
 
@@ -68,7 +72,7 @@ function index({ classes }: Props) {
                     <Article />
                 </Paper>
             </div>
-            <div className={`moitie-droite ${classes.root}`}>
+            <div className={classes.dataviz}>
                 <Grid />
             </div>
 
