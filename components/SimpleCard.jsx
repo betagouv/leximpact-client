@@ -48,7 +48,7 @@ function SimpleCard(props) {
                 <CardContent>
 
                     <Chip label= "label"/>
-                    <Typography variant="h2" color="secondary" gutterBottom>
+                    <Typography variant="h2" color="primary" gutterBottom>
                     350 €
                     </Typography>
                     
