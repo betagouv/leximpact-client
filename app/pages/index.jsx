@@ -59,6 +59,14 @@ class Index extends React.Component {
         const { classes } = this.props
         const { open } = this.state
         console.log("coucou "+classes.root)
+        
+        var styleDataviz = {
+            margin:'10em',
+            color :'blue'
+        }
+
+        //var styleArticle = 
+
         return (
             <Fragment>
                 <Header/>
@@ -69,7 +77,7 @@ class Index extends React.Component {
                         </Paper>
                     </div>
                 
-                <div className={"moitie-droite "+classes.root}>
+                <div style={styleDataviz}>
                     <Grid>
                     </Grid>
                 </div>
