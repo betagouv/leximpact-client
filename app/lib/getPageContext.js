@@ -17,8 +17,14 @@ const theme = createMuiTheme({
         //TYPOGRAPHIE SIMULATEUR
 
         //h1: {}, 
-        //h3: {},
-        //h5: {},
+
+        h3: {fontFamily: 'Lato',
+            fontSize: '40px',
+            fontWeight: 'bold'},
+
+        h5: {fontFamily: 'Lato',
+            fontSize: '34px',
+            fontWeight: 'light'},
 
         subtitle1: {
             fontSize: 12,
@@ -45,13 +51,15 @@ const theme = createMuiTheme({
 
         h2: {
             fontFamily: 'Lora',
-            fontSize: '32px'
+            fontSize: '32px',
+            fontWeight: 'bold'
         },
         //h4: {},
         //h6: {},
 
         body2: {
-            fontWeight: 500,
+            fontFamily: 'Lora',
+            fontSize: '18px'
         },
 
 
