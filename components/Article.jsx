@@ -4,6 +4,8 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const ExpansionPanel = withStyles({
   root: {
@@ -51,7 +53,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
 
 class CustomizedExpansionPanel extends React.Component {
   state = {
-    expanded: 'panel1',
+    expanded: 'null', // état de l'extansion panel null = contenu caché
   };
 
   handleChange = panel => (event, expanded) => {
@@ -68,37 +70,61 @@ class CustomizedExpansionPanel extends React.Component {
     return (
       <div>
 
-      	<Typography variant="h2" color="inherit">
-            Article 197 - code général des impôts
-        </Typography>
+		      	<Typography variant="h2" color="inherit">
+		            Article 197
+		        </Typography>
+
+		        <Typography variant="overline" color="inherit">
+		            - Code général des impôts
+		        </Typography>
 
 
-        <ExpansionPanel
-          square
-          expanded={expanded === 'panel1'}
-          onChange={this.handleChange('panel1')}>
 
-	          <ExpansionPanelSummary style={styleExpansionpanel}>
-		            <Typography variant='body2' color='inherit'>
-		            		I. En ce qui concerne les contribuables ... 
-		            </Typography>
-	          </ExpansionPanelSummary>
+		        <ExpansionPanel
+		          square
+		          expanded={expanded === 'panel1'}
+		          onChange={this.handleChange('panel1')}>
 
-	          <ExpansionPanelDetails style={styleExpansionpanel}>
-		            <Typography variant='body2' color='inherit'>
-		               visés à l'article 4 B, il est fait application des règles suivantes pour le calcul de l'impôt sur le revenu :
-		            </Typography>
-	          </ExpansionPanelDetails>
-	          
-        </ExpansionPanel>
+			          <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
+				            <Typography variant='body2' color='inherit'>
+				            		I. En ce qui concerne les contribuables ... 
+				            </Typography>
 
-        <Typography variant="body2" color="inherit">
-            1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 9 964€ le taux de :
-        </Typography>
+			          </ExpansionPanelSummary>
 
-      </div>
+			          <ExpansionPanelDetails style={styleExpansionpanel}>
+				            <Typography variant='body2' color='inherit'>
+				               visés à l'article 4 B, il est fait application des règles suivantes pour le calcul de l'impôt sur le revenu :
+				            </Typography>
+			          </ExpansionPanelDetails>
+
+		        </ExpansionPanel>
+
+		        <Typography variant="body2" color="inherit">
+		            1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 9 964€ le taux de :
+		        </Typography>
+
+		        <Typography variant="body2" color="inherit">
+		            – 14 % pour la fraction supérieure à 9 964 € et inférieure ou égale à 27 519 € ;
+		        </Typography>
+
+		        <Typography variant="body2" color="inherit">
+		            – 30 % pour la fraction supérieure à 27 519 €  et inférieure ou égale à 73 779 € ;
+		        </Typography>
+
+		        <Typography variant="body2" color="inherit">
+		            – 41 % pour la fraction supérieure à 73 779 €  et inférieure ou égale à 156 244 € ;
+		        </Typography>
+
+		        <Typography variant="body2" color="inherit">
+		            – 45 % pour la fraction supérieure à 156 244 €.
+		        </Typography>
+		 </div>
+
+
     );
   }
-}
+
+  }
 
 export default CustomizedExpansionPanel;
