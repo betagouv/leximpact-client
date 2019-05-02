@@ -21,6 +21,7 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Header from "../components/Header"
 import Article from "../components/Article"
 
+
 const Plot = dynamic(import("../components/Plot"), {
     ssr: false,
 })
@@ -61,8 +62,18 @@ class Index extends React.Component {
         console.log("coucou "+classes.root)
         
         var styleDataviz = {
-            margin:'10em',
+            margin:'4em',
             color :'blue'
+        }
+        var styleArticle = {
+            margin:'1em',
+            padding:'2em',
+            opacity: 1,
+        }
+
+        var styleMain = {
+            background: '#FFFCB2',
+            margin:'0em'
         }
 
         //var styleArticle = 
@@ -71,31 +82,36 @@ class Index extends React.Component {
             <Fragment>
                 <Header/>
                 <Head><title>LexImpact</title></Head>
-                    <div className={"moitie-gauche "+classes.root}>
-                        <Paper className={classes.paper}>
-                            <Article/>
-                        </Paper>
-                    </div>
                 
-                <div style={styleDataviz}>
-                    <Grid>
-                    </Grid>
+                <div style= {styleMain}>
+                    
+                            <div className={"moitie-gauche "}>
+                                <Paper style={styleArticle}>
+                                    <Article/>
+                                </Paper>
+                            </div>
+                        
+                            <div style={styleDataviz}>
+                                <Grid>
+                                </Grid>
+                            </div>
+
+                            <div>
+                               <Typography variant="h1" gutterBottom>LexImpact</Typography>
+                                <Plot />
+                               <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
+                               <Dialog open={open} onClose={this.handleClose}>
+                                    <DialogTitle>Combien ça coûte ?</DialogTitle>
+                                     <DialogContent>
+                                        <DialogContentText>1 000 000 €</DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button color="primary" onClick={this.handleClose}>OK</Button>
+                                    </DialogActions>
+                                </Dialog>
+                             </div>
                 </div>
 
-                <div>
-                   <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                    <Plot />
-                   <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
-                   <Dialog open={open} onClose={this.handleClose}>
-                 <DialogTitle>Combien ça coûte ?</DialogTitle>
-                      <DialogContent>
-                           <DialogContentText>1 000 000 €</DialogContentText>
-                       </DialogContent>
-                        <DialogActions>
-                            <Button color="primary" onClick={this.handleClose}>OK</Button>
-                        </DialogActions>
-                        </Dialog>
-                 </div>
             </Fragment>
         )
     }
