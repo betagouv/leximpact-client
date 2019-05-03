@@ -13,7 +13,6 @@ import Chip from '@material-ui/core/Chip';
 
 
 
-
 const styles = theme => ({
     root: {
         ...theme.mixins.gutters(),
@@ -25,17 +24,15 @@ const styles = theme => ({
     card: {
         minWidth: 275,
     },
-    bullet: {
-        display: "inline-block",
-        margin: "0 2px",
-        transform: "scale(0.8)",
-    },
+  
     titre: {
         fontSize: 11,
     },
     pos: {
         marginBottom: 12,
     },
+
+ 
 })
 
 
@@ -43,12 +40,19 @@ function SimpleCard(props) {
     const { classes } = props
     const bull = <span className={classes.bullet}>•</span>
 
+    var styleIcons = {
+        width: '10em'
+       
+    }
+
     return (
         
             <Card className={classes.card}>
                 <CardContent>
+
                     
                     <Chip label= "label"/>
+
                     <Typography variant="h3" color="primary" gutterBottom>
                     350
                     </Typography>

@@ -16,7 +16,10 @@ const theme = createMuiTheme({
         
         //TYPOGRAPHIE SIMULATEUR
 
-        //h1: {}, 
+        h1: {fontFamily: 'Lato',
+            fontSize: '34px',
+            fontWeight: 'bold',
+            textTransform: 'uppercase'}, 
 
         h3: {fontFamily: 'Lato',
             fontSize: '40px',
@@ -35,7 +38,7 @@ const theme = createMuiTheme({
         },
       
         button: {
-            fontStyle: 'Italic',
+            fontStyle: 'regular',
             fontWeight: 500,
         },
 

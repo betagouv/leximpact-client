@@ -23,6 +23,7 @@ import Article from "../components/Article"
 import ApiCall from "../components/ApiCall"
 
 
+
 const Plot = dynamic(import("../components/Plot"), {
     ssr: false,
 })
