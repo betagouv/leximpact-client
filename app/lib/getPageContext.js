@@ -35,7 +35,7 @@ const theme = createMuiTheme({
         },
       
         button: {
-            fontStyle: 'Italic',
+            fontStyle: 'regular',
             fontWeight: 500,
         },
 
