@@ -19,7 +19,7 @@ import Grid from "components/Grid"
 import CardHeader from '@material-ui/core/CardHeader'
 import Header from "components/Header"
 import Article from "components/Article"
-import ApiCall from "components/ApiCall"
+// import ApiCall from "components/ApiCall"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -75,7 +75,7 @@ function index({ classes }: Props) {
 
     return (
         <Fragment>
-            <ApiCall />
+            {/* <ApiCall/> */}
             <Header />
             <Head><title>LexImpact</title></Head>
 
