@@ -8,7 +8,7 @@ export default props =>
 
       <AppBar  position="static">
         <Toolbar>         
-          <Typography variant="h4" color="inherit">
+          <Typography variant="h1" color="inherit">
             Leximpact
           </Typography>
           
