@@ -29,6 +29,7 @@ class SwitchesGroup extends React.Component {
                 onChange={this.handleChange('tranche1')}
                 value="tranche1"
                 color="primary"
+                colorType='dark'
               />
             }
           
@@ -40,6 +41,7 @@ class SwitchesGroup extends React.Component {
                 onChange={this.handleChange('tranche2')}
                 value="tranche2"
                 color="primary"
+                colorType='light'
               />
             }
            
