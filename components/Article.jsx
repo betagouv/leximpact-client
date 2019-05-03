@@ -5,6 +5,7 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const ExpansionPanel = withStyles({
   root: {
@@ -52,7 +53,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
 
 class CustomizedExpansionPanel extends React.Component {
   state = {
-    expanded: 'panel1',
+    expanded: 'null', // état de l'extansion panel null = contenu caché
   };
 
   handleChange = panel => (event, expanded) => {
@@ -84,10 +85,11 @@ class CustomizedExpansionPanel extends React.Component {
 		          expanded={expanded === 'panel1'}
 		          onChange={this.handleChange('panel1')}>
 
-			          <ExpansionPanelSummary style={styleExpansionpanel}>
+			          <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
 				            <Typography variant='body2' color='inherit'>
 				            		I. En ce qui concerne les contribuables ... 
 				            </Typography>
+
 			          </ExpansionPanelSummary>
 
 			          <ExpansionPanelDetails style={styleExpansionpanel}>
