@@ -10,17 +10,6 @@ import Typography from "@material-ui/core/Typography"
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 
-import { Icon, InlineIcon } from '@iconify/react';
-import manCurlyHaired from '@iconify/react/twemoji/man-curly-haired';
-import babyIcon from '@iconify/react/twemoji/baby';
-import manWhiteHaired from '@iconify/react/twemoji/man-white-haired';
-import womanCurlyHaired from '@iconify/react/twemoji/woman-curly-haired';
-import womanWhiteHaired from '@iconify/react/twemoji/woman-white-haired';
-
-
-
-
-
 
 
 
@@ -35,11 +24,7 @@ const styles = theme => ({
     card: {
         minWidth: 275,
     },
-    bullet: {
-        display: "inline-block",
-        margin: "0 2px",
-        transform: "scale(0.8)",
-    },
+  
     titre: {
         fontSize: 11,
     },
@@ -47,13 +32,7 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
-    iconAdulte:{
-        fontSize: '60px',
-    },
-
-    iconEnfant:{
-        fontSize: '40px',
-    }
+ 
 })
 
 
@@ -70,12 +49,10 @@ function SimpleCard(props) {
         
             <Card className={classes.card}>
                 <CardContent>
-                    <Icon icon={babyIcon} className={classes.iconEnfant}/>
-                    <Icon icon={manCurlyHaired} className={classes.iconAdulte}/>
-                    <Icon icon={manWhiteHaired} className={classes.iconAdulte}/>
-                    <Icon icon={womanCurlyHaired} className={classes.iconAdulte}/>
-                    <Icon icon={womanWhiteHaired} className={classes.iconAdulte}/>
+
+                    
                     <Chip label= "label"/>
+
                     <Typography variant="h3" color="primary" gutterBottom>
                     350
                     </Typography>
