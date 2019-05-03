@@ -9,14 +9,22 @@ import Fab from '@material-ui/core/Fab';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import SelectControl from "../components/SelectControl"
-
+import textField from '@material-ui/core/TextField';
 
 
 const style = {
 	Typography:{padding: '5px'},
 	Typographybouton:{margin: '10px'},
 	Button:{padding:'3px',
-			margin:'10px'}
+			margin:'10px'},
+	VarCodeextistant:{fontWeight: 'bold',
+						color: '#A6A00C',
+						textDecoration: 'underline',
+						//lineHeight: '10px',
+						padding: '5px',
+						margin: '10px'
+					}
+
 }
 
 
@@ -121,11 +129,12 @@ class CustomizedExpansionPanel extends React.Component {
 		            1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 9 964€ le taux de :
 		        </Typography>
 
+
 		        <Typography variant="body2" color="inherit" style={style.Typography}>
 		            – 14 % pour la fraction supérieure à 9 964 € et inférieure ou égale à 27 519 € ;
 		        </Typography>
 
-		        <Typography variant="body2" color="inherit" style={style.Typography}>
+		        <Typography variant="body2" color="inherit" style={style.VarCodeextistant}>
 		            – 30 % pour la fraction supérieure à 27 519 €  et inférieure ou égale à 73 779 € ;
 		        </Typography>
 
@@ -169,6 +178,10 @@ class CustomizedExpansionPanel extends React.Component {
 			          </ExpansionPanelDetails>
 
 		        </ExpansionPanel>
+
+
+		  
+
 
 
 
