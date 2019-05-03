@@ -22,6 +22,7 @@ import Header from "../components/Header"
 import Article from "../components/Article"
 
 
+
 const Plot = dynamic(import("../components/Plot"), {
     ssr: false,
 })
