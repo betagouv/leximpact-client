@@ -13,6 +13,7 @@ import {
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "../lib/withRoot"
+import "../styles/index.scss"
 
 const Plot = dynamic(import("../components/Plot"), {
     ssr: false,
@@ -29,6 +30,9 @@ const styles = theme => ({
         paddingTop: theme.spacing.unit * 2,
         margin: "1em auto",
         width: "25em",
+    },
+    dorine: {
+        background: "red",
     },
 })
 
@@ -62,7 +66,7 @@ class Index extends React.Component {
         return (
             <Fragment>
                 <Head><title>LexImpact</title></Head>
-                <div className={classes.root}>
+                <div className={`${classes.root} dorine`}>
                     <Dialog open={open} onClose={this.handleClose}>
                         <DialogTitle>Combien ça coûte ?</DialogTitle>
                         <DialogContent>
@@ -75,6 +79,9 @@ class Index extends React.Component {
                     <Typography variant="h1" gutterBottom>LexImpact</Typography>
                     <Plot />
                     <Button variant="contained" color="secondary" onClick={this.handleClick}>Calculer</Button>
+                    <div className={classes.dorine}>
+                        asdsadf
+                    </div>
                 </div>
             </Fragment>
         )
