@@ -15,6 +15,8 @@ import manCurlyHaired from '@iconify/react/twemoji/man-curly-haired';
 import babyIcon from '@iconify/react/twemoji/baby';
 import manWhiteHaired from '@iconify/react/twemoji/man-white-haired';
 import womanCurlyHaired from '@iconify/react/twemoji/woman-curly-haired';
+import womanWhiteHaired from '@iconify/react/twemoji/woman-white-haired';
+
 
 
 
@@ -46,11 +48,11 @@ const styles = theme => ({
     },
 
     iconAdulte:{
-        fontSize: '40px',
+        fontSize: '60px',
     },
 
     iconEnfant:{
-        fontSize: '30px',
+        fontSize: '40px',
     }
 })
 
@@ -72,6 +74,7 @@ function SimpleCard(props) {
                     <Icon icon={manCurlyHaired} className={classes.iconAdulte}/>
                     <Icon icon={manWhiteHaired} className={classes.iconAdulte}/>
                     <Icon icon={womanCurlyHaired} className={classes.iconAdulte}/>
+                    <Icon icon={womanWhiteHaired} className={classes.iconAdulte}/>
                     <Chip label= "label"/>
                     <Typography variant="h3" color="primary" gutterBottom>
                     350
