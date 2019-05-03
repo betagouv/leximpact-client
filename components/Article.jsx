@@ -65,6 +65,7 @@ class CustomizedExpansionPanel extends React.Component {
     });
   };
 
+
   render() {
     const { expanded } = this.state;
     var styleExpansionpanel = {
@@ -125,13 +126,38 @@ class CustomizedExpansionPanel extends React.Component {
 		            – 45 % pour la fraction supérieure à 156 244 €.
 		        </Typography>
 
-		        <Fab size="small" color="primary" aria-label="Add" >
-         		 	<AddIcon />
-        		</Fab>
 
 		        <Button>
+				        <Fab size="small" color="primary" aria-label="Add">
+		         		 	<AddIcon />
+		        		</Fab>
             		Ajouter une tranche 
           		</Button>
+
+
+          		 <ExpansionPanel
+		          square
+		          expanded={expanded === 'panel1'}
+		          onChange={this.handleChange('panel1')}>
+
+			          <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
+				            <Typography variant='body2' color='inherit'>
+				            		2. La réduction d'impôt résultant de l'application du quotient familial ...
+				            </Typography>
+
+			          </ExpansionPanelSummary>
+
+			          <ExpansionPanelDetails style={styleExpansionpanel}>
+				            <Typography variant='body2' color='inherit'>
+				               ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme par quart de part s'ajoutant à une part pour les contribuables célibataires, divorcés, veufs ou soumis à l'imposition distincte prévue au 4 de l'article 6 et à deux parts pour les contribuables mariés soumis à une imposition commune.
+
+Toutefois, pour les contribuables célibataires, divorcés, ou soumis à l'imposition distincte prévue au 4 de l'article 6 qui répondent aux conditions fixées au II de l'article 194, la réduction d'impôt correspondant à la part accordée au titre du premier enfant à charge est limitée à 3 660 € Lorsque les contribuables entretiennent uniquement des enfants dont la charge est réputée également partagée entre l'un et l'autre des parents, la réduction d'impôt correspondant à la demi-part accordée au titre de chacun des deux premiers enfants est limitée à la moitié de cette somme.
+
+Par dérogation aux dispositions du premier alinéa, la réduction d'impôt résultant de l'application du quotient familial, accordée aux contribuables qui bénéficient des dispositions des a, b et e du 1 de l'article 195, ne peut excéder 927 € ;
+				            </Typography>
+			          </ExpansionPanelDetails>
+
+		        </ExpansionPanel>
 
 		 </div>
 
