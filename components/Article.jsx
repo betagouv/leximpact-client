@@ -5,7 +5,10 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AddIcon from '@material-ui/icons/Add';
+import SelectControl from "../components/SelectControl"
 
 const ExpansionPanel = withStyles({
   root: {
@@ -78,6 +81,8 @@ class CustomizedExpansionPanel extends React.Component {
 		            - Code général des impôts
 		        </Typography>
 
+		        <SelectControl/>
+
 
 
 		        <ExpansionPanel
@@ -119,6 +124,15 @@ class CustomizedExpansionPanel extends React.Component {
 		        <Typography variant="body2" color="inherit">
 		            – 45 % pour la fraction supérieure à 156 244 €.
 		        </Typography>
+
+		        <Fab size="small" color="primary" aria-label="Add" >
+         		 	<AddIcon />
+        		</Fab>
+
+		        <Button>
+            		Ajouter une tranche 
+          		</Button>
+
 		 </div>
 
 
