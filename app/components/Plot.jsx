@@ -8,55 +8,63 @@ import { bar, layout } from "plotly-js-material-design-theme"
 
 const Graph = createPlotComponent(Plotly)
 
-const styles = theme => ({
-    root: {
-        ...theme.mixins.gutters(),
-        paddingBottom: theme.spacing.unit * 2,
-        paddingTop: theme.spacing.unit * 2,
-        margin: `${theme.spacing.unit / 2}em auto`,
-        width: "25em",
-    },
-})
+function styles(theme) {
+    const { mixins, spacing } = theme
 
-const Plot = ({ classes }) => (
-    <Paper className={classes.root} elevation={1}>
-        <Graph
-            data={[
-                bar({
-                    type: "bar",
-                    x: ["Avant"],
-                    y: [700],
-                    marker: { color: "E5DC07" },
-                    showlegend: false,
-                    hoverinfo: ["y"],
-                }),
-                bar({
-                    type: "bar",
-                    x: ["Après"],
-                    y: [900],
-                    marker: { color: "00A3FF" },
-                    showlegend: false,
-                    hoverinfo: ["y"],
-                }),
-            ]}
+    return ({
+        root: {
+            ...mixins.gutters(),
+            paddingBottom: spacing.unit * 2,
+            paddingTop: spacing.unit * 2,
+            margin: `${spacing.unit / 2}em auto`,
+            width: "25em",
+        },
+    })
+}
 
-            layout={
-                layout({
-                    width: 320,
-                    height: 240,
-                    title: "Effet redistributif",
-                    legend: {
-                        orientation: "h",
-                    },
-                })
-            }
+function Plot(props) {
+    const { classes } = props
 
-            config={{
-                displayModeBar: false,
-            }}
-        />
-    </Paper>
-)
+    return (
+        <Paper className={classes.root} elevation={1}>
+            <Graph
+                data={[
+                    bar({
+                        type: "bar",
+                        x: ["Avant"],
+                        y: [700],
+                        marker: { color: "E5DC07" },
+                        showlegend: false,
+                        hoverinfo: ["y"],
+                    }),
+                    bar({
+                        type: "bar",
+                        x: ["Après"],
+                        y: [900],
+                        marker: { color: "00A3FF" },
+                        showlegend: false,
+                        hoverinfo: ["y"],
+                    }),
+                ]}
+
+                layout={
+                    layout({
+                        width: 320,
+                        height: 240,
+                        title: "Effet redistributif",
+                        legend: {
+                            orientation: "h",
+                        },
+                    })
+                }
+
+                config={{
+                    displayModeBar: false,
+                }}
+            />
+        </Paper>
+    )
+}
 
 Plot.propTypes = {
     classes: PropTypes.object.isRequired,

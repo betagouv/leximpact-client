@@ -1,8 +1,12 @@
 import PropTypes from "prop-types"
 
-const Theme = ({ children }) => (
-    <div>{children}</div>
-)
+function Theme(props) {
+    const { children } = props
+
+    return (
+        <div>{children}</div>
+    )
+}
 
 Theme.propTypes = {
     children: PropTypes.oneOfType([
