@@ -1,4 +1,4 @@
-import React, {Fragment} from "react"
+import React, { Fragment } from "react"
 import Head from "next/head"
 import dynamic from "next/dynamic"
 import PropTypes from "prop-types"
@@ -12,12 +12,10 @@ import {
 } from "@material-ui/core"
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
-import withRoot from "../lib/withRoot"
-import "../styles/index.scss"
+import withRoot from "lib/withRoot"
+import "styles/index.scss"
 
-const Plot = dynamic(import("../components/Plot"), {
-    ssr: false,
-})
+const Plot = dynamic(import("components/Plot"), { ssr: false })
 
 const styles = theme => ({
     root: {
@@ -92,4 +90,9 @@ Index.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withRoot(withStyles(styles)(Index))
+export default (
+    styles
+    |> withStyles
+    |> (_ => _(Index))
+    |> withRoot
+)

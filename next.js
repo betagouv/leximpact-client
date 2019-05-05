@@ -5,7 +5,7 @@ const dev = process.env.NODE_ENV !== "production"
 const app = next({ dev, dir: "./app" })
 const handle = app.getRequestHandler()
 
-module.exports = (async server => {
+module.exports = async (server) => {
     await app.prepare()
     // Middleware to insert app and handle inside the req object.
     server.use("/", (req, res, n) => {
@@ -23,4 +23,4 @@ module.exports = (async server => {
         server.originalListen(port)
     }
     return server
-})
+}
