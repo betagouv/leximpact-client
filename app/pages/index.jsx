@@ -1,7 +1,6 @@
 import { useState, Fragment } from "react"
 import Head from "next/head"
 import dynamic from "next/dynamic"
-import PropTypes from "prop-types"
 import Button from "@material-ui/core/Button"
 import {
     Dialog,
@@ -38,8 +37,11 @@ function styles(theme) {
     })
 }
 
-function Index(props) {
-    const { classes } = props
+type Props = {
+    classes: Object,
+}
+
+function Index({ classes }: Props) {
     const [open, setOpen] = useState(false)
 
     function handleClose() {
@@ -72,10 +74,6 @@ function Index(props) {
             </div>
         </Fragment>
     )
-}
-
-Index.propTypes = {
-    classes: PropTypes.object.isRequired,
 }
 
 export default (

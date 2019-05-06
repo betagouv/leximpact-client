@@ -2,16 +2,14 @@ module.exports = (api) => {
     api.cache(true)
 
     const presets = [
+        "@babel/preset-flow",
         "next/babel",
-        "@zeit/next-typescript/babel",
     ]
 
     const plugins = [
+        ["@babel/plugin-proposal-pipeline-operator", { proposal: "minimal" }],
+        ["flow-react-proptypes"],
         [
-            "@babel/plugin-proposal-pipeline-operator", {
-                proposal: "minimal",
-            },
-        ], [
             "module-resolver", {
                 alias: {
                     components: "./app/components",
@@ -20,11 +18,8 @@ module.exports = (api) => {
                     styles: "./app/styles",
                 },
             },
-        ], [
-            "wrap-in-js", {
-                extensions: ["scss$"],
-            },
         ],
+        ["wrap-in-js", { extensions: ["scss$"] }],
     ]
 
     return {

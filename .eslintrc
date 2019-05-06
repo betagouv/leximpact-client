@@ -13,6 +13,7 @@
         "node": true,
     },
     "plugins": [
+        "flowtype",
         "fp",
         "import",
         "jsx-a11y",
@@ -21,6 +22,7 @@
     "extends": [
         "airbnb",
         "plugin:fp/recommended",
+        "plugin:flowtype/recommended",
     ],
     "settings": {
         "react": {
@@ -30,6 +32,7 @@
     "rules": {
         "array-bracket-newline": ["error", { "multiline": true }],
         "array-element-newline": ["error", "consistent"],
+        "flowtype/no-types-missing-file-annotation": "off",
         "func-style": ["error", "declaration"],
         "fp/no-mutation": ["error", { "commonjs": true }],
         "fp/no-unused-expression": "off",

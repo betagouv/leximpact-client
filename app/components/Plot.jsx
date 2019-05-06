@@ -1,12 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
 import Paper from "@material-ui/core/Paper"
 import { withStyles } from "@material-ui/core/styles/"
 import Plotly from "plotly.js/dist/plotly"
 import createPlotComponent from "react-plotly.js/factory"
 import { bar, layout } from "plotly-js-material-design-theme"
 
-const Graph = createPlotComponent(Plotly)
+type Props = {
+    classes: Object,
+}
 
 function styles(theme) {
     const { mixins, spacing } = theme
@@ -22,8 +22,8 @@ function styles(theme) {
     })
 }
 
-function Plot(props) {
-    const { classes } = props
+function Plot({ classes }: Props) {
+    const Graph = createPlotComponent(Plotly)
 
     return (
         <Paper className={classes.root} elevation={1}>
@@ -64,10 +64,6 @@ function Plot(props) {
             />
         </Paper>
     )
-}
-
-Plot.propTypes = {
-    classes: PropTypes.object.isRequired,
 }
 
 export default (

@@ -1,18 +1,11 @@
-import PropTypes from "prop-types"
+import type { Node } from "react"
 
-function Theme(props) {
-    const { children } = props
-
-    return (
-        <div>{children}</div>
-    )
+type Props = {
+    children: Node,
 }
 
-Theme.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.element),
-        PropTypes.element,
-    ]).isRequired,
+function Theme({ children }: Props) {
+    return <div>{children}</div>
 }
 
 export default Theme
