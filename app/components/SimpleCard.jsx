@@ -32,6 +32,12 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
+    plusoumoins: {
+    // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
+        color: '#FF0000',
+        
+    }
+
  
 })
 
@@ -51,15 +57,31 @@ function SimpleCard(props) {
                 <CardContent>
 
                     
-                    <Chip label= "label"/>
+                    <div>
+                            <Chip label= "label"/>
+                    </div>
 
-                    <Typography variant="h3" color="primary" gutterBottom>
-                    350
-                    </Typography>
+                    <div>
+                            <Typography inline variant="h3" color="primary" gutterBottom>
+                                350
+                            </Typography>
 
-                    <Typography variant="h5" color="primary" gutterBottom>
-                    €
-                    </Typography>
+                            <Typography inline variant="h5" color="primary" gutterBottom>
+                                €
+                            </Typography>
+
+                            <Typography inline variant="h5" className={classes.plusoumoins} gutterBottom>
+                                +
+                            </Typography>
+
+                            <Typography inline variant="h3" color="secondary" gutterBottom>
+                                28
+                            </Typography>
+
+                            <Typography inline variant="h5" color="secondary" gutterBottom>
+                                €
+                            </Typography>
+                    </div>
                     
                 </CardContent>
             </Card>
