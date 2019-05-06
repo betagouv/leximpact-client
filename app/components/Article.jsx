@@ -16,7 +16,15 @@ const style = {
 	Typography:{padding: '5px'},
 	Typographybouton:{margin: '10px'},
 	Button:{padding:'3px',
-			margin:'10px'}
+			margin:'10px'},
+	VarCodeextistant:{fontWeight: 'bold',
+						color: '#A6A00C',
+						textDecoration: 'underline',
+						//lineHeight: '10px',
+						padding: '5px',
+						margin: '10px'
+					}
+
 }
 
 
@@ -126,7 +134,7 @@ class CustomizedExpansionPanel extends React.Component {
 		            – 14 % pour la fraction supérieure à 9 964 € et inférieure ou égale à 27 519 € ;
 		        </Typography>
 
-		        <Typography variant="body2" color="inherit" style={style.Typography}>
+		        <Typography variant="body2" color="inherit" style={style.VarCodeextistant}>
 		            – 30 % pour la fraction supérieure à 27 519 €  et inférieure ou égale à 73 779 € ;
 		        </Typography>
 
