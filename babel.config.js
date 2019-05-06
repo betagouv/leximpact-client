@@ -12,10 +12,10 @@ module.exports = (api) => {
         [
             "module-resolver", {
                 alias: {
-                    components: "./app/components",
-                    lib: "./app/lib",
-                    pages: "./app/pages",
-                    styles: "./app/styles",
+                    components: "./components",
+                    lib: "./lib",
+                    pages: "./pages",
+                    styles: "./styles",
                 },
             },
         ],

@@ -58,8 +58,8 @@ typings/
 .env
 
 # NextJS files
-app/build
-app/.next
+.next
+build
 
 # OS X junk
 .DS_Store

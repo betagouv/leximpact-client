@@ -16,6 +16,7 @@
         "flowtype",
         "fp",
         "import",
+        "jest",
         "jsx-a11y",
         "react",
     ],
@@ -23,6 +24,7 @@
         "airbnb",
         "plugin:fp/recommended",
         "plugin:flowtype/recommended",
+        "plugin:jest/recommended",
     ],
     "settings": {
         "react": {
@@ -39,7 +41,7 @@
         "import/no-unresolved": "off",
         "indent": ["error", 4],
         "max-nested-callbacks": ["error", 1],
-        "no-underscore-dangle": ["error", { "allow": ["__INIT_MATERIAL_UI__"] }],
+        "no-underscore-dangle": "error",
         "quotes": ["error", "double", { "avoidEscape": false }],
         "react/jsx-indent": ["error", 4, { checkAttributes: false, indentLogicalExpressions: true }],
         "react/jsx-indent-props": ["error", 4],
