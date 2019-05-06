@@ -37,7 +37,7 @@ const styles = theme => ({
 
 
 function SimpleCard(props) {
-    const { classes } = props
+    const { classes , revenu , impots_avant, delta } = props
     const bull = <span className={classes.bullet}>•</span>
 
     var styleIcons = {
@@ -49,15 +49,20 @@ function SimpleCard(props) {
         
             <Card className={classes.card}>
                 <CardContent>
-
-                    
-                    <Chip label= "label"/>
-
-                    <Typography variant="h3" color="primary" gutterBottom>
-                    350
+                    <div>
+                    <Chip label= {revenu + "€ bruts par an"}/>
+					</div>
+					
+                    <Typography inline variant="h3" color="primary" gutterBottom>
+						{-impots_avant}
                     </Typography>
-
-                    <Typography variant="h5" color="primary" gutterBottom>
+					<Typography inline variant="h5" className={classes.plusoumoins} gutterBottom>
+						{(delta>0?"-":"+")}
+					</Typography>
+					<Typography inline variant="h3" color="secondary" gutterBottom>
+					{Math.abs(delta)}
+					</Typography>
+                    <Typography inline variant="h5" color="primary" gutterBottom>
                     €
                     </Typography>
                     
