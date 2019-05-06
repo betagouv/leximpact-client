@@ -16,10 +16,10 @@ import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
 import SimpleCard from "components/SimpleCard"
 import Grid from "components/Grid"
-import CardHeader from '@material-ui/core/CardHeader'
+import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Article from "components/Article"
-// import ApiCall from "components/ApiCall"
+import Impact from "components/Impact"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -42,19 +42,13 @@ function styles(theme) {
         dorine: {
             background: "red",
         },
-        dataviz: {
-            margin: "4em",
-            color: "blue",
-        },
+        
         article: {
             margin: "1em",
             padding: "2em",
             opacity: 1,
         },
-        main: {
-            background: "#FFFCB2",
-            margin: "0em",
-        },
+       
     })
 }
 
@@ -75,41 +69,31 @@ function index({ classes }: Props) {
 
     return (
         <Fragment>
-            {/* <ApiCall/> */}
             <Header />
             <Head><title>LexImpact</title></Head>
 
-            <div className={classes.main}>
-                <div className={`moitie-gauche ${classes.root}`}>
-                    <Paper className={classes.paper}>
+            <div className="main-index">
+
+                <div className="moitie-gauche">
+                    <Paper className={classes.article}>
                         <Article />
                     </Paper>
                 </div>
-                <div className={classes.dataviz}>
-                    <Grid />
-                </div>
-
-                <div className={`${classes.root} dorine`}>
-                    <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                    <Plot />
-                    <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
-                    <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Combien ça coûte ?</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>1 000 000 €</DialogContentText>
-                        </DialogContent>
-                        <DialogActions>
-                            <Button color="primary" onClick={handleClose}>OK</Button>
-                        </DialogActions>
-                    </Dialog>
-                    <div className={classes.dorine}>
-                        asdsadf
+            
+                    <div className="moitie-droite">
+                        <Impact/>
                     </div>
-                </div>
+
+                <div className="clearfix"></div>
+                
             </div>
+
+
         </Fragment>
     )
 }
+
+
 
 export default (
     index

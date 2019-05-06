@@ -3,27 +3,28 @@ import { createMuiTheme } from "@material-ui/core/styles"
 const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
-        fontFamily: [
-            '"Lato", sans-serif', 'Lora'
-        ].join(','),
+        fontFamily: ["\"Lato\", sans-serif", "Lora"].join(","),
         fontWeightMedium: 500,
 
-        //TYPOGRAPHIE SIMULATEUR
+        // TYPOGRAPHIE SIMULATEUR
 
-        h1: {fontFamily: 'Lato',
-            fontSize: '34px',
-            fontWeight: 'bold',
-            textTransform: 'uppercase'
+        h1: {
+            fontFamily: "Lato",
+            fontSize: "34px",
+            fontWeight: "bold",
+            textTransform: "uppercase",
         },
 
-        h3: {fontFamily: 'Lato',
-            fontSize: '40px',
-            fontWeight: 'bold'
+        h3: {
+            fontFamily: "Lato",
+            fontSize: "40px",
+            fontWeight: "bold",
         },
 
-        h5: {fontFamily: 'Lato',
-            fontSize: '34px',
-            //fontWeight: 'light'
+        h5: {
+            fontFamily: "Lato",
+            fontSize: "34px",
+            // fontWeight: 'light'
         },
 
         subtitle1: {
@@ -35,7 +36,7 @@ const theme = createMuiTheme({
         },
 
         button: {
-            fontStyle: 'regular',
+            fontStyle: "regular",
             fontWeight: 500,
         },
 
@@ -47,19 +48,19 @@ const theme = createMuiTheme({
             fontWeight: 500,
         },
 
-        //TYPOGRAPHIE ARTICLE
+        // TYPOGRAPHIE ARTICLE
 
         h2: {
-            fontFamily: 'Lora',
-            fontSize: '32px',
-            fontWeight: 'bold'
+            fontFamily: "Lora",
+            fontSize: "32px",
+            fontWeight: "bold",
         },
-        //h4: {},
-        //h6: {},
+        // h4: {},
+        // h6: {},
 
         body2: {
-            fontFamily: 'Lora',
-            fontSize: '18px'
+            fontFamily: "Lora",
+            fontSize: "18px",
         },
 
 
@@ -71,9 +72,9 @@ const theme = createMuiTheme({
     },
 
     palette: {
-        background:{
-            paper:"rgba(255, 255, 255, 0.7)",
-            default:"rgba(255, 255, 255, 1)"
+        background: {
+            paper: "rgba(255, 255, 255, 0.7)",
+            default: "rgba(255, 255, 255, 1)",
         },
         primary: {
             light: "#FFFCB2",
@@ -88,19 +89,20 @@ const theme = createMuiTheme({
             contrastText: "#ffcc00",
         },
         reforme1: {
-            backgroundColor: '#E44D69',
-            color: '#000',
+            backgroundColor: "#E44D69",
+            color: "#000",
         },
-        error:{
-            light:"#e57373",
-            main:"rgba(255, 48, 73, 1)",
-            dark:"#d32f2f","contrastText":"#fff"
+        error: {
+            light: "#e57373",
+            main: "rgba(255, 48, 73, 1)",
+            dark: "#d32f2f",
+            contrastText: "#fff",
         },
-        text:{
-            primary:"rgba(29, 29, 29, 0.87)",
-            secondary:"rgba(24, 24, 24, 0.54)",
-            disabled:"rgba(90, 90, 90, 0.72)",
-            hint:"rgba(0, 0, 0, 0.38)",
+        text: {
+            primary: "rgba(29, 29, 29, 0.87)",
+            secondary: "rgba(24, 24, 24, 0.54)",
+            disabled: "rgba(90, 90, 90, 0.72)",
+            hint: "rgba(0, 0, 0, 0.38)",
         },
     },
 })

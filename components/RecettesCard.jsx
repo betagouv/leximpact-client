@@ -9,6 +9,12 @@ import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import Avatar from "@material-ui/core/Avatar"
 import Chip from "@material-ui/core/Chip"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import DialogTitle from "@material-ui/core/DialogTitle"
+import withMobileDialog from "@material-ui/core/withMobileDialog"
 
 
 const styles = theme => ({
@@ -20,8 +26,7 @@ const styles = theme => ({
         width: "25em",
     },
     card: {
-        minWidth: 100,
-        
+        minWidth: 275,
     },
 
     titre: {
@@ -34,6 +39,7 @@ const styles = theme => ({
     plusoumoins: {
     // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
         color: "#FF0000",
+
     },
 
     div: {
@@ -41,16 +47,15 @@ const styles = theme => ({
 
     },
 
+    button: {
+        margin: theme.spacing.unit,
+    },
+
 
 })
 
 
-function SimpleCard(props) {
-    const {
-        classes, revenu, impots_avant, delta,
-    } = props
-    const bull = <span className={classes.bullet}>•</span>
-
+function RecettesCard(props) {
     const styleIcons = {
         width: "10em",
 
@@ -60,30 +65,34 @@ function SimpleCard(props) {
 
     return (
 
-        <Card className={classes.card}>
+        <Card>
             <CardContent>
-                <div className={classes.div}>
-                            "Ici les icons"
+                <div>
+                            recettes état
                 </div>
 
-                <div className={classes.div}>
-                    <Chip label={`${revenu} €`} />
-                </div>
-
-                <div className={classes.div}>
+                <div>
                     <Typography inline variant="h3" color="primary" gutterBottom>
-                        {-impots_avant}
+                                78
                     </Typography>
-                    <Typography inline variant="h5" className={classes.plusoumoins} gutterBottom>
-                        {(delta > 0 ? "-" : "+")}
+                    <Typography inline variant="h5" gutterBottom>
+                                +
                     </Typography>
                     <Typography inline variant="h3" color="secondary" gutterBottom>
-                        {Math.abs(delta)}
+                               7
                     </Typography>
                     <Typography inline variant="h5" color="secondary" gutterBottom>
-                                €
+                                Md€
                     </Typography>
                 </div>
+
+                <div>
+                    <Button variant="contained" color="secondary">
+                        Lancer la simulation
+                    </Button>
+
+                </div>
+
 
             </CardContent>
         </Card>
@@ -91,8 +100,8 @@ function SimpleCard(props) {
     )
 }
 
-SimpleCard.propTypes = {
+RecettesCard.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(SimpleCard)
+export default withStyles(styles)(RecettesCard)
