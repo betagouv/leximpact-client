@@ -20,7 +20,7 @@ class SwitchesGroup extends React.Component {
   render() {
     return (
       <FormControl component="fieldset">
-     
+
         <FormGroup>
           <FormControlLabel
             control={
@@ -32,7 +32,7 @@ class SwitchesGroup extends React.Component {
                 colorType='dark'
               />
             }
-          
+
           />
           <FormControlLabel
             control={
@@ -44,10 +44,10 @@ class SwitchesGroup extends React.Component {
                 colorType='light'
               />
             }
-           
+
           />
         </FormGroup>
-       
+
       </FormControl>
     );
   }
