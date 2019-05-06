@@ -41,7 +41,7 @@ type Props = {
     classes: Object,
 }
 
-function Index({ classes }: Props) {
+function index({ classes }: Props) {
     const [open, setOpen] = useState(false)
 
     function handleClose() {
@@ -77,8 +77,7 @@ function Index({ classes }: Props) {
 }
 
 export default (
-    styles
-    |> withStyles
-    |> (_ => _(Index))
+    index
+    |> (_ => withStyles(styles)(_))
     |> withRoot
 )

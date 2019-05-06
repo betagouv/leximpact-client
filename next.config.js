@@ -1,15 +1,8 @@
-const withPlugins = require("next-compose-plugins")
 const withTranspileModules = require("next-transpile-modules")
 const withTypescript = require("@zeit/next-typescript")
 const withSass = require("@zeit/next-sass")
 
-const pluginsConfig = [
-    [withTranspileModules, { transpileModules: ["@iconify/react"] }],
-    [withTypescript],
-    [withSass],
-]
-
-const nextConfig = {
+const config = {
     exportPathMap() {
         return {
             "/": { page: "/" },
@@ -18,4 +11,9 @@ const nextConfig = {
     distDir: "build",
 }
 
-module.exports = withPlugins(pluginsConfig, nextConfig)
+module.exports = (
+    config
+    |> (_ => withTranspileModules({ ..._, transpileModules: ["@iconify/react"] }))
+    |> withTypescript
+    |> withSass
+)

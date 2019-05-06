@@ -12,7 +12,7 @@
     "license": "AGPL 3",
     "scripts": {
         "build": "next build",
-        "dev": "nodemon --watch server.js server.js",
+        "dev": "nodemon --watch server.js --exec babel-node server.js",
         "prod": "npm run build && env NODE_ENV=production node server.js",
         "style:check": "eslint -c .eslintrc --ext .js,.jsx --ignore-path .gitignore .",
         "style:format": "npm run style:check -- --fix",
@@ -28,7 +28,6 @@
         "express": "^4.16.4",
         "jss": "^9.8.7",
         "next": "^7.0.2",
-        "next-compose-plugins": "^2.2.0",
         "next-transpile-modules": "^1.3.0",
         "node-sass": "^4.12.0",
         "plotly-js-material-design-theme": "^1.1.3",
@@ -40,6 +39,7 @@
         "react-plotly.js": "^2.3.0"
     },
     "devDependencies": {
+        "@babel/node": "^7.2.2",
         "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
         "@babel/preset-flow": "^7.0.0",
         "babel-eslint": "^10.0.1",
