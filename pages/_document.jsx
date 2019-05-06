@@ -2,6 +2,7 @@ import React from "react"
 import Document, { Head, Main, NextScript } from "next/document"
 import JssProvider from "react-jss/lib/JssProvider"
 import getPageContext from "lib/getPageContext"
+import createPageContext from "lib/createPageContext"
 
 class MyDocument extends Document {
     static getInitialProps(ctx) {
@@ -23,7 +24,7 @@ class MyDocument extends Document {
         // 3. page.render
 
         // Get the context of the page to collected side effects.
-        const pageContext = getPageContext()
+        const pageContext = getPageContext(process.browser, createPageContext)
         const page = ctx.renderPage(Component => props => (
             <JssProvider
                 registry={pageContext.sheetsRegistry}

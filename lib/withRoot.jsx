@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { MuiThemeProvider } from "@material-ui/core/styles/"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import getPageContext from "lib/getPageContext"
+import createPageContext from "lib/createPageContext"
 
 function withRoot(Component) {
     let pageContext = null
@@ -10,7 +11,7 @@ function withRoot(Component) {
         constructor(props, context) {
             super(props, context)
 
-            pageContext = this.props.pageContext || getPageContext()
+            pageContext = this.props.pageContext || getPageContext(process.browser, createPageContext)
         }
 
         componentDidMount() {

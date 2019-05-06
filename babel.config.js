@@ -9,6 +9,7 @@ module.exports = (api) => {
     const plugins = [
         ["@babel/plugin-proposal-pipeline-operator", { proposal: "minimal" }],
         ["flow-react-proptypes"],
+        ["lodash"],
         [
             "module-resolver", {
                 alias: {
