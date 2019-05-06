@@ -32,6 +32,7 @@
         "array-element-newline": ["error", "consistent"],
         "func-style": ["error", "declaration"],
         "fp/no-mutation": ["error", { "commonjs": true }],
+        "fp/no-unused-expression": "off",
         "import/no-unresolved": "off",
         "indent": ["error", 4],
         "max-nested-callbacks": ["error", 1],
