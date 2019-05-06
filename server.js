@@ -1,8 +1,8 @@
-const next = require("next")
-const express = require("express")
-const bodyParser = require("body-parser")
-const cookieParser = require("cookie-parser")
-const path = require("path")
+import next from "next"
+import express from "express"
+import bodyParser from "body-parser"
+import cookieParser from "cookie-parser"
+import path from "path"
 
 const dev = process.env.NODE_ENV !== "production"
 const app = next({ dev })
