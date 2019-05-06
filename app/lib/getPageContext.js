@@ -19,15 +19,18 @@ const theme = createMuiTheme({
         h1: {fontFamily: 'Lato',
             fontSize: '34px',
             fontWeight: 'bold',
-            textTransform: 'uppercase'}, 
+            textTransform: 'uppercase'
+        }, 
 
         h3: {fontFamily: 'Lato',
             fontSize: '40px',
-            fontWeight: 'bold'},
+            fontWeight: 'bold'
+        },
 
         h5: {fontFamily: 'Lato',
             fontSize: '34px',
-            fontWeight: 'light'},
+            //fontWeight: 'light'
+        },
 
         subtitle1: {
             fontSize: 12,

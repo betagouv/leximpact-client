@@ -32,6 +32,12 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
+    plusoumoins: {
+    // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
+        color: '#FF0000',
+        
+    }
+
  
 })
 
