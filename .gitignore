@@ -57,6 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
-app/build
+# NextJS files
+.next
+build
+
+# OS X junk
 .DS_Store
-yarn.lock
