@@ -7,10 +7,8 @@ import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
-import Avatar from '@material-ui/core/Avatar';
-import Chip from '@material-ui/core/Chip';
-
-
+import Avatar from "@material-ui/core/Avatar"
+import Chip from "@material-ui/core/Chip"
 
 
 const styles = theme => ({
@@ -34,60 +32,62 @@ const styles = theme => ({
 
     plusoumoins: {
     // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
-        color: '#FF0000',
+        color: "#FF0000",
 
 
     },
 
     div: {
-        padding: 7
+        padding: 7,
 
-    }
+    },
 
 
 })
 
 
 function SimpleCard(props) {
-    const { classes , revenu , impots_avant, delta } = props
+    const {
+        classes, revenu, impots_avant, delta,
+    } = props
     const bull = <span className={classes.bullet}>•</span>
 
-    var styleIcons = {
-        width: '10em'
+    const styleIcons = {
+        width: "10em",
 
     }
 
-    //bruts par an
+    // bruts par an
 
     return (
 
-            <Card className={classes.card}>
-                <CardContent>
-                    <div className={classes.div}>
+        <Card className={classes.card}>
+            <CardContent>
+                <div className={classes.div}>
                             "Ici les icons"
-                    </div>
+                </div>
 
-                    <div className={classes.div}>
-                            <Chip label= {revenu + " €"}/>
-                    </div>
+                <div className={classes.div}>
+                    <Chip label={`${revenu} €`} />
+                </div>
 
-                    <div className={classes.div}>
-                            <Typography inline variant="h3" color="primary" gutterBottom>
-                                {-impots_avant}
-                            </Typography>
-                            <Typography inline variant="h5" className={classes.plusoumoins} gutterBottom>
-                                {(delta>0?"-":"+")}
-                            </Typography>
-                            <Typography inline variant="h3" color="secondary" gutterBottom>
-                               {Math.abs(delta)}
-                            </Typography>
-                            <Typography inline variant="h5" color="secondary" gutterBottom>
+                <div className={classes.div}>
+                    <Typography inline variant="h3" color="primary" gutterBottom>
+                        {-impots_avant}
+                    </Typography>
+                    <Typography inline variant="h5" className={classes.plusoumoins} gutterBottom>
+                        {(delta > 0 ? "-" : "+")}
+                    </Typography>
+                    <Typography inline variant="h3" color="secondary" gutterBottom>
+                        {Math.abs(delta)}
+                    </Typography>
+                    <Typography inline variant="h5" color="secondary" gutterBottom>
                                 €
-                            </Typography>
-                    </div>
+                    </Typography>
+                </div>
 
-                </CardContent>
-            </Card>
+            </CardContent>
+        </Card>
 
     )
 }
