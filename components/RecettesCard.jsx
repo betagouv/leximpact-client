@@ -7,15 +7,14 @@ import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
-import Avatar from '@material-ui/core/Avatar';
-import Chip from '@material-ui/core/Chip';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import withMobileDialog from '@material-ui/core/withMobileDialog';
-
+import Avatar from "@material-ui/core/Avatar"
+import Chip from "@material-ui/core/Chip"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import DialogTitle from "@material-ui/core/DialogTitle"
+import withMobileDialog from "@material-ui/core/withMobileDialog"
 
 
 const styles = theme => ({
@@ -39,67 +38,64 @@ const styles = theme => ({
 
     plusoumoins: {
     // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
-        color: '#FF0000',
+        color: "#FF0000",
 
     },
 
     div: {
-        padding: 7
+        padding: 7,
 
     },
 
     button: {
-    margin: theme.spacing.unit,
-  },
+        margin: theme.spacing.unit,
+    },
 
 
 })
 
 
-
 function RecettesCard(props) {
-
-    var styleIcons = {
-        width: '10em'
+    const styleIcons = {
+        width: "10em",
 
     }
 
-    //bruts par an
+    // bruts par an
 
     return (
 
-            <Card>
-                <CardContent>
-                    <div>
+        <Card>
+            <CardContent>
+                <div>
                             recettes état
-                    </div>
+                </div>
 
-                    <div>
-                            <Typography inline variant="h3" color="primary" gutterBottom>
+                <div>
+                    <Typography inline variant="h3" color="primary" gutterBottom>
                                 78
-                            </Typography>
-                            <Typography inline variant="h5" gutterBottom>
+                    </Typography>
+                    <Typography inline variant="h5" gutterBottom>
                                 +
-                            </Typography>
-                            <Typography inline variant="h3" color="secondary" gutterBottom>
+                    </Typography>
+                    <Typography inline variant="h3" color="secondary" gutterBottom>
                                7
-                            </Typography>
-                            <Typography inline variant="h5" color="secondary" gutterBottom>
+                    </Typography>
+                    <Typography inline variant="h5" color="secondary" gutterBottom>
                                 Md€
-                            </Typography>
-                    </div>
+                    </Typography>
+                </div>
 
-                    <div>
-                        <Button variant="contained" color="secondary">
+                <div>
+                    <Button variant="contained" color="secondary">
                         Lancer la simulation
-                        </Button>
+                    </Button>
 
-                    </div>
+                </div>
 
 
-
-                </CardContent>
-            </Card>
+            </CardContent>
+        </Card>
 
     )
 }
