@@ -85,7 +85,7 @@ function index({ classes }: Props) {
                     </Paper>
                 </div>
                 <div className={classes.dataviz}>
-                    <Grid />
+                    <Impact />
                 </div>
 
                 <div className={`${classes.root} dorine`}>
@@ -101,9 +101,6 @@ function index({ classes }: Props) {
                             <Button color="primary" onClick={handleClose}>OK</Button>
                         </DialogActions>
                     </Dialog>
-                    <div className={classes.dorine}>
-                        asdsadf
-                    </div>
                 </div>
             </div>
         </Fragment>
