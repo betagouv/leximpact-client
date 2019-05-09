@@ -18,7 +18,7 @@ import SimpleCard from "components/SimpleCard"
 import Grid from "components/Grid"
 import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
-import Article from "components/Article"
+import Reformeur from "components/Reformeur"
 import Impact from "components/Impact"
 import "styles/index.scss"
 
@@ -74,17 +74,7 @@ function index({ classes }: Props) {
 
             <div className="main-index">
 
-                <div className="moitie-gauche">
-                    <Paper className={classes.article}>
-                        <Article />
-                    </Paper>
-                </div>
-            
-                    <div className="moitie-droite">
-                        <Impact/>
-                    </div>
-
-                <div className="clearfix"></div>
+                        <Reformeur />
                 
             </div>
 
