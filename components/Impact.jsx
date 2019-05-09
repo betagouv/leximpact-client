@@ -1,9 +1,12 @@
 import { Component } from "react"
 import { render } from "react-dom"
 import { Grid } from "@material-ui/core"
+import { withStyles } from "@material-ui/core/styles"
 import fetch from "isomorphic-fetch"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
+
+
 
 
 class Impact extends Component {
@@ -74,7 +77,7 @@ class Impact extends Component {
                 <Grid container sm={12} spacing={32}>
                     {Object.values(revenus_cas_types).map((revenu, i) => (
                         <Grid item key={i} sm={6}>
-                            <SimpleCard revenu={revenu} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]} />
+                            <SimpleCard revenu={revenu} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]}/>
                         </Grid>
                     ))}
                     <Grid item sm={6}>
