@@ -84,16 +84,17 @@ class InputField extends React.Component{
   handleChange(e) {
 	  console.log(e.target.value);
 	  console.log(this.props);
-    this.props.onChange(e.target.value);
+    this.props.onChange(e);
   }
   
   render() {
     const value = this.props.value;
+    const name = this.props.name;
     return (
       <Typography inline>
-          <form>
+          <form inline>
             <div className= "form-group">
-              <input className="form-control container text-center" id="focusedInputed" type="number" value={value}
+              <input className="form-control container text-center" id="focusedInputed" type="number" value={value} name={name}
                      onChange={this.handleChange} />
             </div>
           </form>
@@ -106,17 +107,12 @@ class InputField extends React.Component{
 class OutputField extends React.Component{
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  
-  handleChange(e) {
-    this.props.onChange(e.target.value);
   }
   
   render() {
     const value = this.props.value;
     return (
-    	<Typography inline>{value}</Typography>
+    	<Typography inline style={this.props.style}>{value}</Typography>
     );
   }
 }
@@ -140,8 +136,22 @@ class CustomizedExpansionPanel extends React.Component {
 				
 			}
 					
-		}
-		
+		},		
+		basecode:{
+			impot_revenu:{
+				bareme:{
+					seuils:[9964,27519,73779,156244],
+					taux:[14,30,41,45]
+				},
+				decote:{
+					seuil_celib : 1196,
+					seuil_couple : 1906 
+				}
+				
+			}
+					
+		},
+		nbtranches:4
 	  };
 	this.handleS1Change=this.handleS1Change.bind(this);
 	this.handleSeuilChange=this.handleSeuilChange.bind(this);
@@ -165,7 +175,6 @@ class CustomizedExpansionPanel extends React.Component {
 	  ref.impot_revenu.bareme.seuils=list;
     this.setState({reforme:ref});
   };
-
   
   handleSeuilChange(i) {
 	  console.log("j'essaie");
@@ -176,11 +185,60 @@ class CustomizedExpansionPanel extends React.Component {
 	  return funcres;
   }
 
-  handleS1Change(value){
-	this.UpdateBareme(0,value);
+  handleS1Change(e){
+	const name=e.target.name;
+	if (name.substring(0,5)=="seuil"){
+		const numb= parseInt(name.substring(5),10);
+		this.UpdateBareme(numb,e.target.value);
+		console.log("j'ai reussi");
+	}
+	else{
+		console.log("j'ai echoue",e.target.name);
+	}
 	//this.handleSeuilChange(0)(value);
 	console.log(this.state);
   }
+  
+  gimmeIRPartsOfArticle(i){
+	const s=this.state.reforme.impot_revenu.bareme.seuils;
+	const t=this.state.reforme.impot_revenu.bareme.taux;
+	const bases=this.state.basecode.impot_revenu.bareme.seuils;
+	const baset=this.state.basecode.impot_revenu.bareme.taux;
+	const nbt=s.length;
+	//Part 1
+	if (i==0) {
+		return(
+			<Typography variant="body2" color="inherit" style={style.Typography}>
+                    1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
+					<OutputField value={bases[i]} style={style.VarCodeextistant}/> 
+					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i}/>€ le taux de :
+            </Typography>
+		);
+	}
+	//Last part
+	if (i==nbt){
+		return(
+              <Typography variant="body2" color="inherit" style={style.Typography}>
+                    – <OutputField value={baset[i-1]} style={style.VarCodeextistant}/> 
+					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à 
+					<OutputField value={bases[i]} style={style.VarCodeextistant}/>
+					<OutputField value={s[i-1]}/> €.
+              </Typography>
+		);
+	}
+	//Other parts :
+	return( <Typography variant="body2" color="inherit" style={style.Typography}>
+			– <OutputField value={baset[i-1]} style={style.VarCodeextistant}/> 
+				<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à 
+				<OutputField value={s[i-1]}/> €
+			et inférieure ou égale à 
+				<OutputField value={bases[i]} style={style.VarCodeextistant}/> 
+				<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)}/> € ;
+     </Typography>
+	);
+	
+  }
+  
   render() {
       const { expanded ,reforme} = this.state
       const styleExpansionpanel = {
@@ -221,30 +279,11 @@ class CustomizedExpansionPanel extends React.Component {
                   </ExpansionPanelDetails>
 
               </ExpansionPanel>
-
-              <Typography variant="body2" color="inherit" style={style.Typography}>
-                    1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède <InputField value={reforme.impot_revenu.bareme.seuils[0]} onChange={this.handleS1Change}/>€ le taux de :
-              </Typography>
-
-
-              <Typography variant="body2" color="inherit" style={style.Typography}>
-                    – 14 % pour la fraction supérieure à <OutputField value={reforme.impot_revenu.bareme.seuils[0]}/> € et inférieure ou égale à 27 519 € ;
-              </Typography>
-
-              <Typography variant="body2" color="inherit" style={style.VarCodeextistant}>
-                    – 30 % pour la fraction supérieure à 27 519 €
-et inférieure ou égale à 73 779 € ;
-              </Typography>
-
-              <Typography variant="body2" color="inherit" style={style.Typography}>
-                    – 41 % pour la fraction supérieure à 73 779 €
-et inférieure ou égale à 156 244 € ;
-              </Typography>
-
-              <Typography variant="body2" color="inherit" style={style.Typography}>
-                    – 45 % pour la fraction supérieure à 156 244 €.
-              </Typography>
-
+              {this.gimmeIRPartsOfArticle(0)}
+              {this.gimmeIRPartsOfArticle(1)}
+              {this.gimmeIRPartsOfArticle(2)}
+              {this.gimmeIRPartsOfArticle(3)}
+              {this.gimmeIRPartsOfArticle(4)}
 
               <Button style={style.Button}>
                   <Fab size="small" color="primary" aria-label="Add">
