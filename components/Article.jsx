@@ -137,7 +137,7 @@ class CustomizedExpansionPanel extends React.Component {
 			}
 					
 		},		
-		basecode:{
+		basecode:{ // Jamais modifié, utilisé pour montrer l'existant
 			impot_revenu:{
 				bareme:{
 					seuils:[9964,27519,73779,156244],
@@ -154,7 +154,6 @@ class CustomizedExpansionPanel extends React.Component {
 		nbtranches:4
 	  };
 	this.handleS1Change=this.handleS1Change.bind(this);
-	this.handleSeuilChange=this.handleSeuilChange.bind(this);
   }
   
 
@@ -175,6 +174,19 @@ class CustomizedExpansionPanel extends React.Component {
 	  ref.impot_revenu.bareme.seuils=list;
     this.setState({reforme:ref});
   };
+
+  UpdateTaux = (i,value) => {
+	  const ref= this.state.reforme
+      const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
+        if (j === i) {
+          return value;
+        } else {
+          return item;
+        }
+      });
+	  ref.impot_revenu.bareme.taux=list;
+    this.setState({reforme:ref});
+  };
   
   handleSeuilChange(i) {
 	  console.log("j'essaie");
@@ -187,10 +199,20 @@ class CustomizedExpansionPanel extends React.Component {
 
   handleS1Change(e){
 	const name=e.target.name;
+	const success=false;
 	if (name.substring(0,5)=="seuil"){
 		const numb= parseInt(name.substring(5),10);
 		this.UpdateBareme(numb,e.target.value);
+		//success=true;
+	}
+	if (name.substring(0,4)=="taux"){
+		const numb= parseInt(name.substring(4),10);
+		this.UpdateTaux(numb,e.target.value);
+		//success=true;
+	}
+	if (success){
 		console.log("j'ai reussi");
+		
 	}
 	else{
 		console.log("j'ai echoue",e.target.name);
