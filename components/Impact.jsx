@@ -45,6 +45,19 @@ class Impact extends Component {
                 },
             },
             loading: false,
+			reforme:{
+				impot_revenu:{
+					bareme:{
+						seuils:[9964,27519,73779,156244],
+						taux:[14,30,41,45]
+					},
+					decote:{
+						seuil_celib : 1196,
+						seuil_couple : 1906 
+					}
+					
+				}
+			}
         }
     }
 
@@ -67,7 +80,7 @@ class Impact extends Component {
 
 
     render() {
-        const { revenus_cas_types, res_brut, loading } = this.state
+        const { revenus_cas_types, res_brut, loading , reforme} = this.state
         return (loading)
             ? <div> Loading ...</div>
             : (
@@ -78,6 +91,7 @@ class Impact extends Component {
                         </Grid>
                     ))}
                     <Grid item sm={6}>
+						le seuil est : {reforme.impot_revenu.bareme.seuils[0]}
                         <RecettesCard />
                     </Grid>
 
