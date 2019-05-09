@@ -75,20 +75,114 @@ const ExpansionPanelDetails = withStyles(theme => ({
     },
 }))(MuiExpansionPanelDetails)
 
+class InputField extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
+  handleChange(e) {
+	  console.log(e.target.value);
+	  console.log(this.props);
+    this.props.onChange(e.target.value);
+  }
+  
+  render() {
+    const value = this.props.value;
+    return (
+      <Typography inline>
+          <form>
+            <div className= "form-group">
+              <input className="form-control container text-center" id="focusedInputed" type="number" value={value}
+                     onChange={this.handleChange} />
+            </div>
+          </form>
+        </Typography>
+      
+    );
+  }
+}
+
+class OutputField extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
+  handleChange(e) {
+    this.props.onChange(e.target.value);
+  }
+  
+  render() {
+    const value = this.props.value;
+    return (
+    	<Typography inline>{value}</Typography>
+    );
+  }
+}
+
 class CustomizedExpansionPanel extends React.Component {
-  state = {
-      expanded: "null", // état de l'extansion panel null = contenu caché
-  };
+	
+  constructor(props) {
+    super(props);
+	  this.state = {
+		expanded: 'null', // état de l'extansion panel null = contenu 
+		reforme:{
+			impot_revenu:{
+				bareme:{
+					seuils:[9964,27519,73779,156244],
+					taux:[14,30,41,45]
+				},
+				decote:{
+					seuil_celib : 1196,
+					seuil_couple : 1906 
+				}
+				
+			}
+					
+		}
+		
+	  };
+	this.handleS1Change=this.handleS1Change.bind(this);
+	this.handleSeuilChange=this.handleSeuilChange.bind(this);
+  }
+  
 
   handleChange = panel => (event, expanded) => {
       this.setState({
           expanded: expanded ? panel : false,
-      })
+  })};
+  
+  UpdateBareme = (i,value) => {
+	  const ref= this.state.reforme
+      const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
+        if (j === i) {
+          return value;
+        } else {
+          return item;
+        }
+      });
+	  ref.impot_revenu.bareme.seuils=list;
+    this.setState({reforme:ref});
   };
 
+  
+  handleSeuilChange(i) {
+	  console.log("j'essaie");
+	  function funcres(value){
+	  console.log("j'essaie vraiment");
+		this.UpdateBareme(i,value);
+	  }
+	  return funcres;
+  }
 
+  handleS1Change(value){
+	this.UpdateBareme(0,value);
+	//this.handleSeuilChange(0)(value);
+	console.log(this.state);
+  }
   render() {
-      const { expanded } = this.state
+      const { expanded ,reforme} = this.state
       const styleExpansionpanel = {
           padding: "1px",
       }
@@ -129,12 +223,12 @@ class CustomizedExpansionPanel extends React.Component {
               </ExpansionPanel>
 
               <Typography variant="body2" color="inherit" style={style.Typography}>
-                    1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 9 964€ le taux de :
+                    1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède <InputField value={reforme.impot_revenu.bareme.seuils[0]} onChange={this.handleS1Change}/>€ le taux de :
               </Typography>
 
 
               <Typography variant="body2" color="inherit" style={style.Typography}>
-                    – 14 % pour la fraction supérieure à 9 964 € et inférieure ou égale à 27 519 € ;
+                    – 14 % pour la fraction supérieure à <OutputField value={reforme.impot_revenu.bareme.seuils[0]}/> € et inférieure ou égale à 27 519 € ;
               </Typography>
 
               <Typography variant="body2" color="inherit" style={style.VarCodeextistant}>
