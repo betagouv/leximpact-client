@@ -19,7 +19,7 @@ const style = {
         padding: "3px",
         margin: "10px",
     },
-    VarCodeextistant: {
+    VarCodeexistant: {
         fontWeight: "bold",
         color: "#A6A00C",
         textDecoration: "underline",
@@ -117,7 +117,7 @@ class OutputField extends React.Component{
   }
 }
 
-class CustomizedExpansionPanel extends React.Component {
+class Article extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -232,7 +232,7 @@ class CustomizedExpansionPanel extends React.Component {
 		return(
 			<Typography variant="body2" color="inherit" style={style.Typography}>
                     1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
-					<OutputField value={bases[i]} style={style.VarCodeextistant}/> 
+					<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
 					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i}/>€ le taux de :
             </Typography>
 		);
@@ -241,20 +241,20 @@ class CustomizedExpansionPanel extends React.Component {
 	if (i==nbt){
 		return(
               <Typography variant="body2" color="inherit" style={style.Typography}>
-                    – <OutputField value={baset[i-1]} style={style.VarCodeextistant}/> 
+                    – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
 					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à 
-					<OutputField value={bases[i]} style={style.VarCodeextistant}/>
+					<OutputField value={bases[i]} style={style.VarCodeexistant}/>
 					<OutputField value={s[i-1]}/> €.
               </Typography>
 		);
 	}
 	//Other parts :
 	return( <Typography variant="body2" color="inherit" style={style.Typography}>
-			– <OutputField value={baset[i-1]} style={style.VarCodeextistant}/> 
+			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
 				<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à 
 				<OutputField value={s[i-1]}/> €
 			et inférieure ou égale à 
-				<OutputField value={bases[i]} style={style.VarCodeextistant}/> 
+				<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
 				<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)}/> € ;
      </Typography>
 	);
@@ -348,4 +348,4 @@ class CustomizedExpansionPanel extends React.Component {
   }
 }
 
-export default CustomizedExpansionPanel
+export default Article
