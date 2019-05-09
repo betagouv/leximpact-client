@@ -20,8 +20,7 @@ const styles = theme => ({
         width: "25em",
     },
     card: {
-        minWidth: 100,
-        
+        minWidth: 275,
     },
 
     titre: {
@@ -34,6 +33,8 @@ const styles = theme => ({
     plusoumoins: {
     // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
         color: "#FF0000",
+
+
     },
 
     div: {
