@@ -20,6 +20,7 @@ import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Article from "components/Article"
 import Impact from "components/Impact"
+import TabMobile from "components/TabMobile"
 import Drawer from "components/Drawer"
 import "styles/index.scss"
 
@@ -76,18 +77,8 @@ function index({ classes }: Props) {
 
             <div className="main-index">
 
-                <div className="moitie-gauche">
-                    <Paper className={classes.article} id="drawer-container">
-                        <Drawer/>
-                    </Paper>
-                </div>
-            
-                    <div className="moitie-droite">
-                        <Impact/>
-                    </div>
-
-                <div className="clearfix"></div>
-                
+               <TabMobile/>
+               
             </div>
 
 
