@@ -11,7 +11,15 @@ import {
     Paper,
     Item,
 } from "@material-ui/core"
+import { withStyles } from '@material-ui/core/styles';
 
+const styles = theme => ({
+        article: {
+            margin: "1em",
+            padding: "2em",
+            opacity: 1,
+        },
+})
 
 class Reformeur extends Component{
 	constructor(props) {
@@ -22,11 +30,12 @@ class Reformeur extends Component{
 				bareme:{
 					seuils:[9964,27519,73779,156244],
 					taux:[14,30,41,45]
-				},
+				}
+				/*,
 				decote:{
 					seuil_celib : 1196,
 					seuil_couple : 1906 
-				}
+				}*/
 				
 			}
 					
@@ -115,24 +124,27 @@ class Reformeur extends Component{
 			  }
 		  )
 		  .then(response => response.json())
-		  .then(json => {console.log("eh",json); this.setState({res_brut:json.res_brut});}) //console.log("euuuh",json) )
-		  //.then(response => {console.log(response.json()); /*this.setState({res_brut:response.json().res_brut});*/});
-	//this.handleSeuilChange(0)(value);
+		  .then(json => { this.setState({res_brut:json.res_brut});})
 	console.log(this.state);
   }
   
 	render(){
-		return(<Fragment><div className="moitie-gauche">
-                    <Paper>
+		return(
+		<Fragment>
+            <div className="main-index">
+				<div className="moitie-gauche">
+					<Paper className={this.props.classes.article}>
                         <Article reformebase={this.state.reforme} onChange={this.handleChange}/>
                     </Paper>
                 </div>
-                    <div className="moitie-droite">
-                        <Impact res_brut={this.state.res_brut}/>
-                    </div>
-				</Fragment>);
+				<div className="moitie-droite">
+					<Impact res_brut={this.state.res_brut}/>
+				</div>
+				<div className="clearfix"></div>
+			</div>
+		</Fragment>);
 	}
 	
 }
 
-export default Reformeur;
+export default withStyles(styles)(Reformeur);

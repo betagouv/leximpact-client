@@ -41,13 +41,7 @@ function styles(theme) {
         },
         dorine: {
             background: "red",
-        },
-        
-        article: {
-            margin: "1em",
-            padding: "2em",
-            opacity: 1,
-        },
+        }
        
     })
 }
@@ -71,14 +65,7 @@ function index({ classes }: Props) {
         <Fragment>
             <Header />
             <Head><title>LexImpact</title></Head>
-
-            <div className="main-index">
-
-                        <Reformeur />
-                
-            </div>
-
-
+			<Reformeur />
         </Fragment>
     )
 }
