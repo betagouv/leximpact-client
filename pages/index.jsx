@@ -20,7 +20,9 @@ import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Reformeur from "components/Reformeur"
 import Impact from "components/Impact"
+import TabMobile from "components/TabMobile"
 import Drawer from "components/Drawer"
+import MediaQuery from 'react-responsive';
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -47,7 +49,7 @@ function styles(theme) {
             margin: "1em",
             padding: "2em",
             opacity: 1,
-            position:"relative"
+            position: "relative",
         },
     })
 }
@@ -67,6 +69,14 @@ function index({ classes }: Props) {
         return setOpen(true)
     }
 
+    const desktop = 1025
+    const tablet = 768 //and max-width: 1024px
+    const phone = 767
+
+    //const hugeScreen = 1824
+    //const desktopServerRendering = 1600
+    //const phoneOrTablet = 1224
+
     return (
         <Fragment>
             <Header />
@@ -75,7 +85,6 @@ function index({ classes }: Props) {
         </Fragment>
     )
 }
-
 
 
 export default (

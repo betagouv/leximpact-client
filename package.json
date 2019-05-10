@@ -50,6 +50,8 @@
         "react-dom": "^16.8.6",
         "react-jss": "^8.6.1",
         "react-plotly.js": "^2.3.0",
+        "react-responsive": "^6.1.2",
+        "react-swipeable-views": "^0.13.3",
         "redux": "^4.0.1"
     },
     "devDependencies": {

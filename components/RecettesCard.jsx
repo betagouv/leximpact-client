@@ -15,89 +15,109 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import withMobileDialog from "@material-ui/core/withMobileDialog"
+import { Icon, InlineIcon } from '@iconify/react';
+import classicalBuilding from '@iconify/react/twemoji/classical-building';
 
 
 const styles = theme => ({
-    root: {
-        ...theme.mixins.gutters(),
-        paddingBottom: theme.spacing.unit * 2,
-        paddingTop: theme.spacing.unit * 2,
-        margin: `${theme.spacing.unit / 2}em auto`,
-        width: "25em",
-    },
-    card: {
-        minWidth: 275,
-    },
+    //root: {
+        //...theme.mixins.gutters(),
+        //paddingBottom: theme.spacing.unit * 2,
+        //paddingTop: theme.spacing.unit * 2,
+        //margin: `${theme.spacing.unit / 2}em auto`,
+        //width: "25em",
+    //},
+    //card: {
+       // minWidth: 275,
+    //},
 
-    titre: {
-        fontSize: 11,
-    },
-    pos: {
-        marginBottom: 12,
-    },
+    //titre: {
+       // fontSize: 11,
+    //},
+    //pos: {
+    //    marginBottom: 12,
+    //},
 
-    plusoumoins: {
-    // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
+    pom_rouge: {
         color: "#FF0000",
 
     },
-
+    pom_verte: {
+        color: "#00FF00",
+    },
     div: {
         padding: 7,
 
     },
 
-    button: {
-        margin: theme.spacing.unit,
-    },
+   // button: {
+  //      margin: theme.spacing.unit,
+   // },
 
+    iconEtat:{
+        fontSize: '50px',
+
+    },
 
 })
 
 
-function RecettesCard(props) {
-    const styleIcons = {
-        width: "10em",
 
+
+class RecettesCard extends React.Component{
+    constructor(props){
+        super(props);
+        this.updateStateRes=this.updateStateRes.bind(this);
+    }
+
+
+
+    updateStateRes(e){
+        this.props.onClick(e);
     }
 
     // bruts par an
 
-    return (
+    render(){
+        const {classes, delta} = this.props;
 
-        <Card>
-            <CardContent>
-                <div>
-                            recettes état
-                </div>
-
-                <div>
-                    <Typography inline variant="h3" color="primary" gutterBottom>
-                                78
+        return (
+            <Card>
+                <CardContent>
+                    <Icon icon={classicalBuilding} width="40" height="40" />
+                    <Typography variant="body1" >
+                                Recettes de l'État
                     </Typography>
-                    <Typography inline variant="h5" gutterBottom>
-                                +
-                    </Typography>
-                    <Typography inline variant="h3" color="secondary" gutterBottom>
-                               7
-                    </Typography>
-                    <Typography inline variant="h5" color="secondary" gutterBottom>
-                                Md€
-                    </Typography>
-                </div>
 
-                <div>
-                    <Button variant="contained" color="secondary">
-                        Lancer la simulation
-                    </Button>
+                    <div>
+                        <Typography inline variant="h3" color="primary" gutterBottom>
+                        {Math.round(this.props.impots_avant/100000000)/10}
+                        </Typography>
+                        <Typography inline variant="h5" className={delta > -0.01 ? this.props.classes.pom_verte : this.props.classes.pom_rouge} gutterBottom>
+                            {(delta > -0.01 ? "+" : "-")}
+                        </Typography>
+                        <Typography inline variant="h3" color="secondary" gutterBottom>
+                            {Math.round(Math.abs(this.props.delta/100000000))/10}
+                        </Typography>
+                        <Typography inline variant="h5" color="secondary" gutterBottom>
+                                    Md€
+                        </Typography>
+                    </div>
 
-                </div>
+                    <div>
+                        <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
+                            Lancer la simulation
+                        </Button>
+
+                    </div>
 
 
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
 
-    )
+        )
+    }
+
 }
 
 RecettesCard.propTypes = {

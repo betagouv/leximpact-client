@@ -1,6 +1,8 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
 const theme = createMuiTheme({
+
+
     typography: {
         useNextVariants: true,
         fontFamily: ["\"Lato\", sans-serif", "Lora"].join(","),
@@ -10,8 +12,8 @@ const theme = createMuiTheme({
 
         h1: {
             fontFamily: "Lato",
-            fontSize: "34px",
-            fontWeight: "bold",
+            fontSize: "24px",
+            fontWeight: "light",
             textTransform: "uppercase",
         },
 
@@ -21,11 +23,17 @@ const theme = createMuiTheme({
             fontWeight: "bold",
         },
 
-        h5: {
+        h4: {//header article//
+            fontFamily: "Lato",
+            fontSize: "20px"
+        },
+
+        h5: { //sert pour les +et- des cards//
             fontFamily: "Lato",
             fontSize: "34px",
-            // fontWeight: 'light'
+            // fontWeight: 'light' 
         },
+
 
         subtitle1: {
             fontSize: 12,
@@ -52,7 +60,7 @@ const theme = createMuiTheme({
 
         h2: {
             fontFamily: "Lora",
-            fontSize: "32px",
+            fontSize: "24px",
             fontWeight: "bold",
         },
         // h4: {},
@@ -78,7 +86,7 @@ const theme = createMuiTheme({
         },
         primary: {
             light: "#FFFCB2",
-            main: "#E5DC07",
+            main: "#DED500",
             dark: "#A6A00C",
             contrastText: "#FFFFFF",
         },
@@ -88,10 +96,7 @@ const theme = createMuiTheme({
             // dark: will be calculated from palette.secondary.main,
             contrastText: "#ffcc00",
         },
-        reforme1: {
-            backgroundColor: "#E44D69",
-            color: "#000",
-        },
+    
         error: {
             light: "#e57373",
             main: "rgba(255, 48, 73, 1)",
@@ -105,6 +110,9 @@ const theme = createMuiTheme({
             hint: "rgba(0, 0, 0, 0.38)",
         },
     },
+
+
 })
+
 
 export default theme

@@ -1,24 +1,47 @@
  $primary-color: grey;
 
-	.main-index {
+
+.main-index {
 	     background-color: #FFFCB2;
+	     width: auto;
+	     /*background-image: url("tramebackground.png");*/
 	}
 
+html {  
+	background-color: #FFFCB2;
+	//background-image: url(https://mdn.mozillademos.org/files/11991/startransparent.gif),
+}
+
+@media screen and (min-width: 500px) {
 	.moitie-gauche {
+	   box-sizing: border-box;
+	   position:absolute;
+	   width: 600px;
+	  
 	   float:left;
-	   width:40%;
-	   min-width: 600px;
+	    /*min-width: 500px;
 	   margin: 10px;
-	   display:inline-block;
+	   display:inline-block;*/
 	 }
 
 	.moitie-droite {
+		box-sizing: border-box;
+	   margin-left: 620px;
+	   margin-right: 32px;
+	   margin-top: 1em;
 	   float:left;
-	   width:55%;
+	   /* width: auto ;
+	  max-width:30%;
 	   min-width: 200px;
 	   margin: 10px;
-	   display:inline-block;
+	   display:inline-block;*/
 	 }
+ }
+
+
+
+
+
 
 	 .clearfix{
     	clear:both
