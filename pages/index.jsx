@@ -69,6 +69,14 @@ function index({ classes }: Props) {
         return setOpen(true)
     }
 
+    const desktop = 1025
+    const tablet = 768 //and max-width: 1024px
+    const phone = 767
+
+    //const hugeScreen = 1824
+    //const desktopServerRendering = 1600
+    //const phoneOrTablet = 1224
+
     return (
         <Fragment>
             <Header />
