@@ -2,22 +2,28 @@
 
 	.main-index {
 	     background-color: #FFFCB2;
+	     width: auto;
 	}
 
 	.moitie-gauche {
+	   box-sizing: border-box;
+	   width:50%;
 	   float:left;
-	   width:40%;
+	   /*width:40%;
 	   min-width: 600px;
 	   margin: 10px;
-	   display:inline-block;
+	   display:inline-block;*/
 	 }
 
 	.moitie-droite {
+		box-sizing: border-box;
+	   width:50%;
 	   float:left;
-	   width:55%;
+	   /* width: auto ;
+	  max-width:30%;
 	   min-width: 200px;
 	   margin: 10px;
-	   display:inline-block;
+	   display:inline-block;*/
 	 }
 
 	 .clearfix{

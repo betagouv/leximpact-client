@@ -20,7 +20,7 @@ const styles = theme => ({
         width: "25em",
     },
     card: {
-        minWidth: 100,
+        minWidth: 50,
         
     },
 
