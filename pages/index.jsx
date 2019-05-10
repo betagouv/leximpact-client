@@ -20,6 +20,7 @@ import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Reformeur from "components/Reformeur"
 import Impact from "components/Impact"
+import TabMobile from "components/TabMobile"
 import Drawer from "components/Drawer"
 import "styles/index.scss"
 
