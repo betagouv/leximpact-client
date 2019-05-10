@@ -22,6 +22,7 @@ import Article from "components/Article"
 import Impact from "components/Impact"
 import TabMobile from "components/TabMobile"
 import Drawer from "components/Drawer"
+import MediaQuery from 'react-responsive';
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -77,7 +78,39 @@ function index({ classes }: Props) {
 
             <div className="main-index">
 
-               <TabMobile/>
+    
+
+             <MediaQuery minDeviceWidth={800}>
+                  {(matches) => {
+                    if (matches) {
+                        console.log("grand-ecran")
+                        return <div>
+                            <div className="moitie-gauche">
+                                    <Paper className={classes.article} id="drawer-container">
+                                        <Article/>
+                                    </Paper>
+                            </div>
+                                        
+                            <div className="moitie-droite">
+                                    <Impact/>
+                            </div>
+
+                            <div className="clearfix"></div>
+
+
+                        </div>;
+                    
+                    } else {
+                        console.log("petio ecran")
+                        return <div>
+
+                            <TabMobile/>
+                        </div>;
+
+                    }
+                  }}
+                </MediaQuery>
+                
                
             </div>
 
