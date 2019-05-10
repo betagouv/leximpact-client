@@ -49,7 +49,7 @@ function styles(theme) {
             margin: "1em",
             padding: "2em",
             opacity: 1,
-            position:"relative"
+            position: "relative",
         },
     })
 }
@@ -77,7 +77,6 @@ function index({ classes }: Props) {
         </Fragment>
     )
 }
-
 
 
 export default (
