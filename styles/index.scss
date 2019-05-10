@@ -50,12 +50,18 @@
 	   }
  	}
 
-input {
-  size: 200%;
-  border: 1px solid #00A3FF;
-  border-radius: 4px;
-  background-color: white ;
-  color: #00A3FF;
-  font-size:18pt;
-}
+	input {
+		  max-width: 90px;
+		  border: 1px solid #00A3FF;
+		  border-radius: 4px;
+		  background-color: white ;
+		  color: #00A3FF;
+		  font-family: Lora; 
+		  font-size:14pt;
+		  font-weight: bold;
+		  display: inline ;
+		  float: inline ;
+		  box-sizing: border-box;
+
+	}
 

@@ -20,6 +20,7 @@ import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Reformeur from "components/Reformeur"
 import Impact from "components/Impact"
+import Drawer from "components/Drawer"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -41,8 +42,13 @@ function styles(theme) {
         },
         dorine: {
             background: "red",
-        }
-       
+        },
+        article: {
+            margin: "1em",
+            padding: "2em",
+            opacity: 1,
+            position:"relative"
+        },
     })
 }
 

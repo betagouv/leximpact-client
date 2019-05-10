@@ -215,7 +215,7 @@ class Article extends React.Component {
 		return(
               <Typography variant="body2" color="inherit" style={style.Typography}>
                     – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
-					<InputField style={style.Input} value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à 
+					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à 
 					<OutputField value={bases[i]} style={style.VarCodeexistant}/>
 					<OutputField value={s[i-1]}/> €.
               </Typography>
@@ -223,8 +223,7 @@ class Article extends React.Component {
 	}
 	//Other parts :
 	return( <Typography variant="body2" color="inherit" style={style.Typography}>
-			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
-				<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à 
+			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à 
 				<OutputField value={s[i-1]}/> €
 			et inférieure ou égale à 
 				<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
