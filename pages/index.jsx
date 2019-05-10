@@ -20,6 +20,7 @@ import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Article from "components/Article"
 import Impact from "components/Impact"
+import Drawer from "components/Drawer"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -47,6 +48,7 @@ function styles(theme) {
             margin: "1em",
             padding: "2em",
             opacity: 1,
+            position:"relative"
         },
        
     })
@@ -75,8 +77,8 @@ function index({ classes }: Props) {
             <div className="main-index">
 
                 <div className="moitie-gauche">
-                    <Paper className={classes.article}>
-                        <Article />
+                    <Paper className={classes.article} id="drawer-container">
+                        <Drawer/>
                     </Paper>
                 </div>
             
