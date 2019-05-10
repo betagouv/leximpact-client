@@ -66,9 +66,14 @@ class Reformeur extends Component{
 				5: 1,
 			},
 		},
+		total_pop:{
+			avant: 78000000000,
+			apres: 79000000000,
+		}
 	  };
 	this.handleChange=this.handleChange.bind(this);
 	this.addTranche=this.addTranche.bind(this);
+	this.simPop=this.simPop.bind(this);
 	}
   
   UpdateBareme = (i,value) => {
@@ -138,7 +143,24 @@ class Reformeur extends Component{
 		  .then(json => { this.setState({res_brut:json.res_brut});})
 	console.log(this.state);
   }
-  
+
+  simPop(e){
+	  fetch('http://127.0.0.1:5000/calculate/compare',{
+			  method:"POST",
+			  headers: {
+				'Content-Type': 'application/json'
+					  },
+			  body: JSON.stringify({
+				  deciles:true,
+				  reforme:this.state.reforme
+			  }),
+			  }
+		  )
+		  .then(response => response.json())
+		  .then(json => { this.setState({total_pop:json.total});})
+		console.log(this.state);
+  }
+
 	render(){
 		console.log("et je rends reformeur",this.state);
 		return(
@@ -150,7 +172,7 @@ class Reformeur extends Component{
                     </Paper>
                 </div>
 				<div className="moitie-droite">
-					<Impact res_brut={this.state.res_brut}/>
+					<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
 				</div>
 				<div className="clearfix"></div>
 			</div>
