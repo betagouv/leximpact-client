@@ -22,6 +22,7 @@ import Reformeur from "components/Reformeur"
 import Impact from "components/Impact"
 import TabMobile from "components/TabMobile"
 import Drawer from "components/Drawer"
+import MediaQuery from 'react-responsive';
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
