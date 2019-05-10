@@ -121,13 +121,15 @@ class CustomizedExpansionPanel extends React.Component {
 	
   constructor(props) {
     super(props);
+	const nbt= props.reformebase.impot_revenu.bareme.seuils.length;
+	console.log("I did stuff.",props,nbt);
 	  this.state = {
 		expanded: 'null', // état de l'extansion panel null = contenu 
 		reforme:props.reformebase,		
 		basecode:props.reformebase,// Jamais modifié, utilisé pour montrer l'existant,
-		nbtranches:4
 	  };
 	this.handleS1Change=this.handleS1Change.bind(this);
+	this.handleAddTranche=this.handleAddTranche.bind(this);
   }
   
 
@@ -167,6 +169,14 @@ class CustomizedExpansionPanel extends React.Component {
 	  console.log(this.props);
     this.props.onChange(e);
   }
+ 
+ handleAddTranche(e){
+	console.log("j'ajoute une tranche");
+	  console.log(this.props);
+    this.props.addTranche(e);
+	
+ }
+  
 /*  handleS1Change(e){
 	const name=e.target.name;
 	const success=false;
@@ -232,13 +242,14 @@ class CustomizedExpansionPanel extends React.Component {
   }
   
   render() {
-      const { expanded ,reforme,basecode,nbtranches} = this.state
+      const { expanded ,reforme,basecode} = this.state
+	  console.log("et je rends article",this.state);
       const styleExpansionpanel = {
           padding: "1px",
       }
 	  
 	  let articleTranches=[]
-	  for ( let i=0;i<=nbtranches;i++){
+	  for ( let i=0;i<=reforme.impot_revenu.bareme.seuils.length;i++){
 		articleTranches.push(this.gimmeIRPartsOfArticle(i));
 	  }
 	  
@@ -277,7 +288,7 @@ class CustomizedExpansionPanel extends React.Component {
 
               </ExpansionPanel>
               {articleTranches}
-              <Button style={style.Button}>
+              <Button style={style.Button} onClick={this.handleAddTranche}>
                   <Fab size="small" color="primary" aria-label="Add">
                       <AddIcon />
                   </Fab>

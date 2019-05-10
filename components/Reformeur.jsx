@@ -40,7 +40,6 @@ class Reformeur extends Component{
 			}
 					
 		},
-		nbtranches:4,
 		res_brut: {
 			apres: {
 				0: 0,
@@ -69,6 +68,7 @@ class Reformeur extends Component{
 		},
 	  };
 	this.handleChange=this.handleChange.bind(this);
+	this.addTranche=this.addTranche.bind(this);
 	}
   
   UpdateBareme = (i,value) => {
@@ -97,6 +97,17 @@ class Reformeur extends Component{
     this.setState({reforme:ref});
   };
   
+  addTranche(e){
+	 const refbase=this.state.reforme;
+	 const newnbt=refbase.impot_revenu.bareme.seuils.length+1;
+	 console.log(this.state, newnbt);
+	 const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt-2];
+	 refbase.impot_revenu.bareme.seuils = this.state.reforme.impot_revenu.bareme.seuils.concat(lastseuil+1);
+	 const lasttaux = refbase.impot_revenu.bareme.taux[newnbt-2];
+	 refbase.impot_revenu.bareme.taux = this.state.reforme.impot_revenu.bareme.taux.concat(lasttaux);
+	 this.setState({reforme:refbase});
+	 console.log("state changed ",this.state);
+  }
 
   handleChange(e){
 		const name=e.target.name;
@@ -129,12 +140,13 @@ class Reformeur extends Component{
   }
   
 	render(){
+		console.log("et je rends reformeur",this.state);
 		return(
 		<Fragment>
             <div className="main-index">
 				<div className="moitie-gauche">
 					<Paper className={this.props.classes.article}>
-                        <Article reformebase={this.state.reforme} onChange={this.handleChange}/>
+                        <Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
                     </Paper>
                 </div>
 				<div className="moitie-droite">
