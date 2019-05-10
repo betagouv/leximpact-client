@@ -36,12 +36,14 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
-    plusoumoins: {
-    // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
+    pom_plus: {
         color: "#FF0000",
 
-    },
 
+    },    
+	pom_moins: {
+        color: "#00FF00",
+    },
     div: {
         padding: 7,
 
@@ -55,49 +57,57 @@ const styles = theme => ({
 })
 
 
-function RecettesCard(props) {
-    const styleIcons = {
+class RecettesCard extends React.Component{
+	constructor(props){
+		super(props);
+		this.updateStateRes=this.updateStateRes.bind(this);
+	}
+	
+   /* const styleIcons = {
         width: "10em",
+    }*/
 
-    }
+	updateStateRes(e){
+		this.props.onClick(e);
+	}
 
     // bruts par an
+	render(){
+		const delta=this.props.delta;
+		return (
+			<Card>
+				<CardContent>
+					<div>
+								recettes état
+					</div>
+					<div>
+						<Typography inline variant="h3" color="primary" gutterBottom>
+						{Math.round(this.props.impots_avant/100000000)/10}
+						</Typography>
+						<Typography inline variant="h5" className={delta > 0 ? this.props.classes.pom_plus : this.props.classes.pom_moins} gutterBottom>
+							{(delta > 0 ? "-" : "+")}
+						</Typography>
+						<Typography inline variant="h3" color="secondary" gutterBottom>
+							{Math.round(Math.abs(this.props.delta/100000000))/10}
+						</Typography>
+						<Typography inline variant="h5" color="secondary" gutterBottom>
+									Md€
+						</Typography>
+					</div>
 
-    return (
+					<div>
+						<Button variant="contained" color="secondary" onClick={this.updateStateRes}>
+							Lancer la simulation
+						</Button>
 
-        <Card>
-            <CardContent>
-                <div>
-                            recettes état
-                </div>
-
-                <div>
-                    <Typography inline variant="h3" color="primary" gutterBottom>
-                                78
-                    </Typography>
-                    <Typography inline variant="h5" gutterBottom>
-                                +
-                    </Typography>
-                    <Typography inline variant="h3" color="secondary" gutterBottom>
-                               7
-                    </Typography>
-                    <Typography inline variant="h5" color="secondary" gutterBottom>
-                                Md€
-                    </Typography>
-                </div>
-
-                <div>
-                    <Button variant="contained" color="secondary">
-                        Lancer la simulation
-                    </Button>
-
-                </div>
+					</div>
 
 
-            </CardContent>
-        </Card>
+				</CardContent>
+			</Card>
 
-    )
+		)
+	}
 }
 
 RecettesCard.propTypes = {

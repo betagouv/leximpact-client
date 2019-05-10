@@ -20,6 +20,7 @@ class Impact extends Component {
 	
     constructor(props) {
         super(props);
+		this.handleClick=this.handleClick.bind(this);
     }
 
      componentDidMount(){
@@ -41,12 +42,17 @@ class Impact extends Component {
      /**/
 	}
 	
+	handleClick(e){
+		console.log("oui2",e,this.props);
+		this.props.onClick(e);
+	}
 
     render() {
-		
+		const includepopulation=true;
 		console.log("et un render");
         const { revenus_cas_types, loading} = this.state
 		const res_brut=this.props.res_brut;
+		const total_pop=this.props.total_pop;
         return (loading)
             ? <div> Loading ...</div>
             : (
@@ -58,8 +64,8 @@ class Impact extends Component {
                     ))}
                     <Grid item sm={6}>
 						
-                        <RecettesCard />
                     </Grid>
+                        {includepopulation?<RecettesCard impots_avant={total_pop.avant} delta = {total_pop.apres-total_pop.avant} onClick={this.handleClick}/>:<div/>}
 
                 </Grid>
             )
