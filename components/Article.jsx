@@ -28,9 +28,8 @@ const style = {
         margin: "10px",
     },
     Input: {
-        fontSize: "20px"
-    }
-
+        width:"50px",
+    },
 }
 
 
@@ -83,26 +82,20 @@ class InputField extends React.Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
   }
-  
+
   handleChange(e) {
 	  console.log(e.target.value);
 	  console.log(this.props);
     this.props.onChange(e);
   }
-  
+
   render() {
     const value = this.props.value;
     const name = this.props.name;
     return (
-      <Typography inline>
-          <form>
-            <div className= "form-group">
-              <input className="form-control container text-center" id="focusedInputed" type="number" value={value} name={name}
-                     onChange={this.handleChange} />
-            </div>
-          </form>
-        </Typography>
-      
+            <input type="text" value={value} name={name}
+                     onChange={this.handleChange} size="4" style={style.Input}/>
+
     );
   }
 }
@@ -111,7 +104,7 @@ class OutputField extends React.Component{
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     const value = this.props.value;
     return (
@@ -121,26 +114,26 @@ class OutputField extends React.Component{
 }
 
 class Article extends React.Component {
-	
+
   constructor(props) {
     super(props);
 	const nbt= props.reformebase.impot_revenu.bareme.seuils.length;
 	console.log("I did stuff.",props,nbt);
 	  this.state = {
-		expanded: 'null', // état de l'extansion panel null = contenu 
-		reforme:props.reformebase,		
+		expanded: 'null', // état de l'extansion panel null = contenu
+		reforme:props.reformebase,
 		basecode:props.reformebase,// Jamais modifié, utilisé pour montrer l'existant,
 	  };
 	this.handleS1Change=this.handleS1Change.bind(this);
 	this.handleAddTranche=this.handleAddTranche.bind(this);
   }
-  
+
 
   handleChange = panel => (event, expanded) => {
       this.setState({
           expanded: expanded ? panel : false,
   })};
-  
+
   UpdateBareme = (i,value) => {
 	  const ref= this.state.reforme
       const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
@@ -166,20 +159,20 @@ class Article extends React.Component {
 	  ref.impot_revenu.bareme.taux=list;
     this.setState({reforme:ref});
   };
-  
+
  handleS1Change(e) {
 	  console.log(e.target.value);
 	  console.log(this.props);
     this.props.onChange(e);
   }
- 
+
  handleAddTranche(e){
 	console.log("j'ajoute une tranche");
 	  console.log(this.props);
     this.props.addTranche(e);
-	
+
  }
-  
+
 /*  handleS1Change(e){
 	const name=e.target.name;
 	const success=false;
@@ -195,7 +188,7 @@ class Article extends React.Component {
 	}
 	if (success){
 		console.log("j'ai reussi");
-		
+
 	}
 	else{
 		console.log("j'ai echoue",e.target.name);
@@ -203,7 +196,7 @@ class Article extends React.Component {
 	//this.handleSeuilChange(0)(value);
 	console.log(this.state);
   }*/
-  
+
   gimmeIRPartsOfArticle(i){
 	const s=this.state.reforme.impot_revenu.bareme.seuils;
 	const t=this.state.reforme.impot_revenu.bareme.taux;
@@ -214,8 +207,8 @@ class Article extends React.Component {
 	if (i==0) {
 		return(
 			<Typography variant="body2" color="inherit" style={style.Typography}>
-                    1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
-					<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
+                    1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède
+					<OutputField value={bases[i]} style={style.VarCodeexistant}/>
 					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i}/>€ le taux de :
             </Typography>
 		);
@@ -224,8 +217,8 @@ class Article extends React.Component {
 	if (i==nbt){
 		return(
               <Typography variant="body2" color="inherit" style={style.Typography}>
-                    – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
-					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à 
+                    – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/>
+					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à
 					<OutputField value={bases[i]} style={style.VarCodeexistant}/>
 					<OutputField value={s[i-1]}/> €.
               </Typography>
@@ -233,28 +226,28 @@ class Article extends React.Component {
 	}
 	//Other parts :
 	return( <Typography variant="body2" color="inherit" style={style.Typography}>
-			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à 
+			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à
 				<OutputField value={s[i-1]}/> €
-			et inférieure ou égale à 
-				<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
+			et inférieure ou égale à
+				<OutputField value={bases[i]} style={style.VarCodeexistant}/>
 				<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)}/> € ;
      </Typography>
 	);
-	
+
   }
-  
+
   render() {
       const { expanded ,reforme,basecode} = this.state
 	  console.log("et je rends article",this.state);
       const styleExpansionpanel = {
           padding: "1px",
       }
-	  
+
 	  let articleTranches=[]
 	  for ( let i=0;i<=reforme.impot_revenu.bareme.seuils.length;i++){
 		articleTranches.push(this.gimmeIRPartsOfArticle(i));
 	  }
-	  
+
       return (
           <div>
 
