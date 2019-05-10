@@ -71,18 +71,38 @@ function index({ classes }: Props) {
         return setOpen(true)
     }
 
+    const desktop = 1025
+    const tablet = 768 //and max-width: 1024px
+    const phone = 767
+
+    //const hugeScreen = 1824
+    //const desktopServerRendering = 1600
+    //const phoneOrTablet = 1224
+
     return (
         <Fragment>
             <Header />
             <Head><title>LexImpact</title></Head>
 
             <div className="main-index">
-                <MediaQuery minDeviceWidth={100}>
-                    {(matches) => {
-                        if (matches) {
-                            console.log("grand-ecran")
+                <MediaQuery minDeviceWidth={phone} values={{ deviceWidth: tablet }}>
+                    <div>You are a desktop or laptop</div>
+                    <MediaQuery minDeviceWidth={1824}>
+                      <div>You also have a huge screen</div>
+                    </MediaQuery>
+                    <MediaQuery maxWidth={phone}>
+                        {(matches) => {
+                          if (matches) {
                             return (
                                 <div>
+                                    <div>You are sized like a tablet or mobile phone though</div>
+                                    <TabMobile/>
+                                </div>
+                            );
+                          } else {
+                            return (
+                                <div>
+                                    <div>You also have a good screen</div>
                                     <div className="moitie-gauche">
                                         <Paper className={classes.article} id="drawer-container">
                                             <Article/>
@@ -94,15 +114,27 @@ function index({ classes }: Props) {
                                     <div className="clearfix"></div>
                                 </div>
                             );
-                    } else {
-                        console.log("petio ecran")
-                        return (
-                            <div>
-                                <TabMobile/>
-                            </div>
-                        );
-                    }
-                  }}
+                          }
+                        }}
+                      
+                    </MediaQuery>
+                </MediaQuery>
+
+                <MediaQuery maxDeviceWidth={phone}>
+                  <div>You are a tablet or mobile phone</div>
+                  <TabMobile/>
+                </MediaQuery>
+
+                <MediaQuery orientation="portrait">
+                  <div>You are portrait</div>
+                </MediaQuery>
+
+                <MediaQuery orientation="landscape">
+                  <div>You are landscape</div>
+                </MediaQuery>
+
+                <MediaQuery minResolution="2dppx">
+                  <div>You are retina</div>
                 </MediaQuery>
             </div>
         </Fragment>
