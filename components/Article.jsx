@@ -204,7 +204,7 @@ class Article extends React.Component {
 	if (i==0) {
 		return(
 			<Typography variant="body2" color="inherit" style={style.Typography}>
-                    1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
+                    1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
 					<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
 					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i}/>€ le taux de :
             </Typography>
@@ -273,7 +273,7 @@ class Article extends React.Component {
 
                   <ExpansionPanelDetails style={styleExpansionpanel}>
                       <Typography variant="body2" color="inherit">
-                               visés à l'article 4 B, il est fait application des règles suivantes pour le calcul de l'impôt sur le revenu :
+                               visés à l&#39;article 4 B, il est fait application des règles suivantes pour le calcul de l&#39;impôt sur le revenu :
                       </Typography>
                   </ExpansionPanelDetails>
 
@@ -298,16 +298,16 @@ class Article extends React.Component {
 
                   <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
                       <Typography variant="body2" color="inherit">
-                                    2. La réduction d'impôt résultant de l'application du quotient familial ...
+                                    2. La réduction d&#39;impôt résultant de l&#39;application du quotient familial ...
                       </Typography>
 
                   </ExpansionPanelSummary>
 
                   <ExpansionPanelDetails style={styleExpansionpanel}>
                       <Typography variant="body2" color="inherit">
-                                ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme par quart de part s'ajoutant à une part pour les contribuables célibataires, divorcés, veufs ou soumis à l'imposition distincte prévue au 4 de l'article 6 et à deux parts pour les contribuables mariés soumis à une imposition commune.
-                                Toutefois, pour les contribuables célibataires, divorcés, ou soumis à l'imposition distincte prévue au 4 de l'article 6 qui répondent aux conditions fixées au II de l'article 194, la réduction d'impôt correspondant à la part accordée au titre du premier enfant à charge est limitée à 3 660 € Lorsque les contribuables entretiennent uniquement des enfants dont la charge est réputée également partagée entre l'un et l'autre des parents, la réduction d'impôt correspondant à la demi-part accordée au titre de chacun des deux premiers enfants est limitée à la moitié de cette somme.
-                                Par dérogation aux dispositions du premier alinéa, la réduction d'impôt résultant de l'application du quotient familial, accordée aux contribuables qui bénéficient des dispositions des a, b et e du 1 de l'article 195, ne peut excéder 927 € ;
+                                ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme par quart de part s&#39;ajoutant à une part pour les contribuables célibataires, divorcés, veufs ou soumis à l&#39;imposition distincte prévue au 4 de l&#39;article 6 et à deux parts pour les contribuables mariés soumis à une imposition commune.
+                                Toutefois, pour les contribuables célibataires, divorcés, ou soumis à l&#39;imposition distincte prévue au 4 de l&#39;article 6 qui répondent aux conditions fixées au II de l&#39;article 194, la réduction d&#39;impôt correspondant à la part accordée au titre du premier enfant à charge est limitée à 3 660 € Lorsque les contribuables entretiennent uniquement des enfants dont la charge est réputée également partagée entre l&#39;un et l&#39;autre des parents, la réduction d&#39;impôt correspondant à la demi-part accordée au titre de chacun des deux premiers enfants est limitée à la moitié de cette somme.
+                                Par dérogation aux dispositions du premier alinéa, la réduction d&#39;impôt résultant de l&#39;application du quotient familial, accordée aux contribuables qui bénéficient des dispositions des a, b et e du 1 de l&#39;article 195, ne peut excéder 927 € ;
                       </Typography>
                   </ExpansionPanelDetails>
 
