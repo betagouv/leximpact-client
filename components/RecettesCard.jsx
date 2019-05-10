@@ -85,7 +85,7 @@ class RecettesCard extends React.Component{
 						{Math.round(this.props.impots_avant/100000000)/10}
 						</Typography>
 						<Typography inline variant="h5" className={delta > 0 ? this.props.classes.pom_plus : this.props.classes.pom_moins} gutterBottom>
-							{(delta > 0 ? "-" : "+")}
+							{(delta > 0 ? "+" : "-")}
 						</Typography>
 						<Typography inline variant="h3" color="secondary" gutterBottom>
 							{Math.round(Math.abs(this.props.delta/100000000))/10}
