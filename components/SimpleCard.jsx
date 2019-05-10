@@ -30,11 +30,13 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
-    plusoumoins: {
-    // à changer : si c'est moins alors c'est vert et si c'est + alors c'est rouge
+    pom_plus: {
         color: "#FF0000",
 
 
+    },    
+	pom_moins: {
+        color: "#00FF00",
     },
 
     div: {
@@ -75,7 +77,7 @@ function SimpleCard(props) {
                     <Typography inline variant="h3" color="primary" gutterBottom>
                         {-impots_avant}
                     </Typography>
-                    <Typography inline variant="h5" className={classes.plusoumoins} gutterBottom>
+                    <Typography inline variant="h5" className={delta > 0 ? classes.pom_moins : classes.pom_plus} gutterBottom>
                         {(delta > 0 ? "-" : "+")}
                     </Typography>
                     <Typography inline variant="h3" color="secondary" gutterBottom>

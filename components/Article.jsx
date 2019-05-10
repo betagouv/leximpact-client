@@ -27,6 +27,9 @@ const style = {
         padding: "5px",
         margin: "10px",
     },
+	Input:{
+		width:"50px"
+	}
 
 }
 
@@ -91,14 +94,8 @@ class InputField extends React.Component{
     const value = this.props.value;
     const name = this.props.name;
     return (
-      <Typography inline>
-          <form>
-            <div className= "form-group">
-              <input className="form-control container text-center" id="focusedInputed" type="number" value={value} name={name}
-                     onChange={this.handleChange} />
-            </div>
-          </form>
-        </Typography>
+            <input type="text" value={value} name={name}
+                     onChange={this.handleChange} size="4" style={style.Input}/>
       
     );
   }
