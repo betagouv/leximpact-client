@@ -77,48 +77,37 @@ function index({ classes }: Props) {
             <Head><title>LexImpact</title></Head>
 
             <div className="main-index">
-
-    
-
-             <MediaQuery minDeviceWidth={800}>
-                  {(matches) => {
-                    if (matches) {
-                        console.log("grand-ecran")
-                        return <div>
-                            <div className="moitie-gauche">
-                                    <Paper className={classes.article} id="drawer-container">
-                                        <Article/>
-                                    </Paper>
-                            </div>
-                                        
-                            <div className="moitie-droite">
-                                    <Impact/>
-                            </div>
-
-                            <div className="clearfix"></div>
-
-
-                        </div>;
-                    
+                <MediaQuery minDeviceWidth={100}>
+                    {(matches) => {
+                        if (matches) {
+                            console.log("grand-ecran")
+                            return (
+                                <div>
+                                    <div className="moitie-gauche">
+                                        <Paper className={classes.article} id="drawer-container">
+                                            <Article/>
+                                        </Paper>
+                                    </div>
+                                    <div className="moitie-droite">
+                                        <Impact/>
+                                    </div>
+                                    <div className="clearfix"></div>
+                                </div>
+                            );
                     } else {
                         console.log("petio ecran")
-                        return <div>
-
-                            <TabMobile/>
-                        </div>;
-
+                        return (
+                            <div>
+                                <TabMobile/>
+                            </div>
+                        );
                     }
                   }}
                 </MediaQuery>
-                
-               
             </div>
-
-
         </Fragment>
     )
 }
-
 
 
 export default (
