@@ -34,7 +34,7 @@ const styles = theme => ({
         color: "#FF0000",
 
 
-    },    
+    },
 	pom_moins: {
         color: "#00FF00",
     },
