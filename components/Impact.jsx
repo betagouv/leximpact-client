@@ -66,9 +66,9 @@ class Impact extends Component {
                             <SimpleCard revenu={revenu} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]} />
                         </Grid>
                     ))}
-                        {includepopulation?<RecettesCard impots_avant={total_pop.avant} delta = {total_pop.apres-total_pop.avant} onClick={this.handleClick}/>:<div/>}
-
-
+						<Grid item xs={6} sm={12} md={6} lg={4} xl={3}>
+							{includepopulation?<RecettesCard impots_avant={total_pop.avant} delta = {total_pop.apres-total_pop.avant} onClick={this.handleClick}/>:<div/>}
+                        </Grid>
                 </Grid>
             )
         console.log("je suis là")

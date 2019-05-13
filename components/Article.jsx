@@ -123,7 +123,7 @@ class Article extends React.Component {
 	console.log("I did stuff.",props,nbt);
 	  this.state = {
 		expanded: 'null', // état de l'extansion panel null = contenu 
-		reforme:props.reformebase,		
+		reforme:props.reforme,		
 		basecode:props.reformebase,// Jamais modifié, utilisé pour montrer l'existant,
 	  };
 	this.handleS1Change=this.handleS1Change.bind(this);
@@ -147,6 +147,7 @@ class Article extends React.Component {
       });
 	  ref.impot_revenu.bareme.seuils=list;
     this.setState({reforme:ref});
+	console.log(this.state);
   };
 
   UpdateTaux = (i,value) => {

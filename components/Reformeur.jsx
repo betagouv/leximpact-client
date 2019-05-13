@@ -49,13 +49,30 @@ class Reformeur extends Component{
 
 	
 	constructor(props) {
-    super(props);
+	const baseseuils=[9964,27519,73779,156244];
+	const basetaux=[14,30,41,45];
+	  super(props);
 	  this.state = {
 		reforme:{
 			impot_revenu:{
 				bareme:{
-					seuils:[9964,27519,73779,156244],
-					taux:[14,30,41,45]
+					seuils:baseseuils,
+					taux:basetaux
+				}
+				/*,
+				decote:{
+					seuil_celib : 1196,
+					seuil_couple : 1906 
+				}*/
+				
+			}
+					
+		},
+		reformebase:{
+			impot_revenu:{
+				bareme:{
+					seuils:baseseuils,
+					taux:basetaux
 				}
 				/*,
 				decote:{
@@ -152,14 +169,15 @@ class Reformeur extends Component{
   handleChange(e){
 		const name=e.target.name;
 		const success=false;
+		const newvalue = (e.target.value== "") ? 0:e.target.value;
 		if (name.substring(0,5)=="seuil"){
 			const numb= parseInt(name.substring(5),10);
-			this.UpdateBareme(numb,e.target.value);
+			this.UpdateBareme(numb,newvalue);
 			//success=true;
 		}
 		if (name.substring(0,4)=="taux"){
 			const numb= parseInt(name.substring(4),10);
-			this.UpdateTaux(numb,e.target.value);
+			this.UpdateTaux(numb,newvalue);
 			//success=true;
 		}
 			  
@@ -252,7 +270,7 @@ class Reformeur extends Component{
 											  onChangeIndex={this.handleIndexChange}
 											>
 												  <TabContainer dir={theme.direction}>
-													  <Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
+													  <Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
 													  <Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
@@ -267,7 +285,7 @@ class Reformeur extends Component{
                                     <div>You also have a good screen</div>
                                     <div className="moitie-gauche">
 										<Paper className={this.props.classes.article}>
-											<Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
+											<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
                                         </Paper>
                                     </div>
                                     <div className="moitie-droite">
@@ -305,7 +323,7 @@ class Reformeur extends Component{
 											  onChangeIndex={this.handleIndexChange}
 											>
 												  <TabContainer dir={theme.direction}>
-													  <Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
+													  <Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
 													  <Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
