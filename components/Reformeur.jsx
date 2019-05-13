@@ -34,11 +34,11 @@ class Reformeur extends Component{
 				/*,
 				decote:{
 					seuil_celib : 1196,
-					seuil_couple : 1906 
+					seuil_couple : 1906
 				}*/
-				
+
 			}
-					
+
 		},
 		res_brut: {
 			apres: {
@@ -75,7 +75,7 @@ class Reformeur extends Component{
 	this.addTranche=this.addTranche.bind(this);
 	this.simPop=this.simPop.bind(this);
 	}
-  
+
   UpdateBareme = (i,value) => {
 	  const ref= this.state.reforme
       const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
@@ -101,7 +101,7 @@ class Reformeur extends Component{
 	  ref.impot_revenu.bareme.taux=list;
     this.setState({reforme:ref});
   };
-  
+
   addTranche(e){
 	 const refbase=this.state.reforme;
 	 const newnbt=refbase.impot_revenu.bareme.seuils.length+1;
@@ -127,7 +127,7 @@ class Reformeur extends Component{
 			this.UpdateTaux(numb,e.target.value);
 			//success=true;
 		}
-			  
+
 	  fetch('http://127.0.0.1:5000/calculate/compare',{
 			  method:"POST",
 			  headers: {
@@ -178,7 +178,7 @@ class Reformeur extends Component{
 			</div>
 		</Fragment>);
 	}
-	
+
 }
 
 export default withStyles(styles)(Reformeur);
