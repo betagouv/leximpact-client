@@ -51,13 +51,6 @@ const styles = theme => ({
 
     },
 
-    iconAdulte:{
-        fontSize: '50px',
-    },
-
-    iconEnfant:{
-        fontSize: '30px',
-    }
 
 })
 
@@ -80,11 +73,11 @@ function SimpleCard(props) {
         <Card className={classes.card}>
             <CardContent>
                 <div className={classes.div}>
-                    <Icon icon={babyIcon} className={classes.iconEnfant}/>
-                    <Icon icon={manCurlyHaired} className={classes.iconAdulte}/>
-                    <Icon icon={manWhiteHaired} className={classes.iconAdulte}/>
-                    <Icon icon={womanCurlyHaired} className={classes.iconAdulte}/>
-                    <Icon icon={womanWhiteHaired} className={classes.iconAdulte}/>
+                    <Icon icon={babyIcon} width="30" height="30"/>
+                    <Icon icon={manCurlyHaired} width="40" height="40"/>
+                    <Icon icon={manWhiteHaired} width="40" height="40"/>
+                    <Icon icon={womanCurlyHaired} width="40" height="40"/>
+                    <Icon icon={womanWhiteHaired} width="40" height="40"/>
                 </div>
 
                 <div className={classes.div}>

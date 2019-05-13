@@ -54,9 +54,10 @@ const styles = theme => ({
   //      margin: theme.spacing.unit,
    // },
 
-   // iconEtat:{
-    //    fontSize: '50px',
-    //},
+    iconEtat:{
+        fontSize: '50px',
+        
+    },
 
 })
 
@@ -78,13 +79,13 @@ class RecettesCard extends React.Component{
     // bruts par an
 
 	render(){
-		const delta=this.props.delta;
+		const {classes, delta} = this.props;
 
 		return (
 			<Card>
 				<CardContent>
-					<Icon icon={classicalBuilding}/>
-                    <Typography variant="body1">
+					<Icon icon={classicalBuilding} width="40" height="40" />
+                    <Typography variant="body1" >
                                 Recettes de l'État
                     </Typography>
 
