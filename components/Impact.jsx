@@ -89,11 +89,11 @@ class Impact extends Component {
             : (
                 <Grid container spacing={24}>
                     {Object.values(revenus_cas_types).map((revenu, i) => (
-                        <Grid item key={i} sm={12} md={6} lg={3} xl={3}>
+                        <Grid item key={i} xs={6} sm={12} md={6} lg={4} xl={3}>
                             <SimpleCard revenu={revenu} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]}/>
                         </Grid>
                     ))}
-                    <Grid item sm={12} md={6} lg={3} xl={3}>
+                    <Grid item xs={6} sm={12} md={6} lg={4} xl={3}>
 						le seuil est : {reforme.impot_revenu.bareme.seuils[0]}
                         <RecettesCard />
                     </Grid>

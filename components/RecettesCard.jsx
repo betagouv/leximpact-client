@@ -15,6 +15,8 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import withMobileDialog from "@material-ui/core/withMobileDialog"
+import { Icon, InlineIcon } from '@iconify/react';
+import classicalBuilding from '@iconify/react/twemoji/classical-building';
 
 
 const styles = theme => ({
@@ -51,11 +53,16 @@ const styles = theme => ({
         margin: theme.spacing.unit,
     },
 
+    iconEtat:{
+        fontSize: '50px',
+    },
 
 })
 
 
 function RecettesCard(props) {
+    const {
+        classes} = props
     const styleIcons = {
         width: "10em",
 
@@ -67,9 +74,10 @@ function RecettesCard(props) {
 
         <Card>
             <CardContent>
-                <div>
-                            recettes état
-                </div>
+                <Icon icon={classicalBuilding} classeName={classes.iconEtat}/>
+                <Typography variant="body1">
+                            Recettes de l'État
+                </Typography>
 
                 <div>
                     <Typography inline variant="h3" color="primary" gutterBottom>
