@@ -1,11 +1,14 @@
  $primary-color: grey;
 
+
+.main-index {
+	     background-color: #FFFCB2;
+	     width: auto;
+	}
+
 @media screen and (min-width: 500px) {
   
-	.main-index {
-	     background-color: #FFFCB2;
-	     width: auto;
-	}
+	
 
 	.moitie-gauche {
 	   box-sizing: border-box;
@@ -34,37 +37,7 @@
 
 
 
-@media screen and (min-width: 0px) {
-  
-	.main-index {
-	     background-color: #FFFCB2;
-	     width: auto;
-	}
 
-	.moitie-gauche {
-	   box-sizing: border-box;
-	   position:absolute;
-	   width: 600px;
-	  
-	   float:left;
-	    /*min-width: 500px;
-	   margin: 10px;
-	   display:inline-block;*/
-	 }
-
-	.moitie-droite {
-		box-sizing: border-box;
-	   margin-left: 620px;
-	   margin-right: 32px;
-	   margin-top: none;
-	   float:left;
-	   /* width: auto ;
-	  max-width:30%;
-	   min-width: 200px;
-	   margin: 10px;
-	   display:inline-block;*/
-	 }
- }
 
 
 	 .clearfix{
