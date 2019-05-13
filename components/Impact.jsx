@@ -48,6 +48,7 @@ class Impact extends Component {
 	}
 
     render() {
+		// include should be false to remove the graph of recettes
 		const includepopulation=true;
 		console.log("et un render");
         const { revenus_cas_types, loading} = this.state
