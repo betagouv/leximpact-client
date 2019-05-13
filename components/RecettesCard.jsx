@@ -20,27 +20,26 @@ import classicalBuilding from '@iconify/react/twemoji/classical-building';
 
 
 const styles = theme => ({
-    root: {
-        ...theme.mixins.gutters(),
-        paddingBottom: theme.spacing.unit * 2,
-        paddingTop: theme.spacing.unit * 2,
-        margin: `${theme.spacing.unit / 2}em auto`,
-        width: "25em",
-    },
-    card: {
-        minWidth: 275,
-    },
+    //root: {
+        //...theme.mixins.gutters(),
+        //paddingBottom: theme.spacing.unit * 2,
+        //paddingTop: theme.spacing.unit * 2,
+        //margin: `${theme.spacing.unit / 2}em auto`,
+        //width: "25em",
+    //},
+    //card: {
+       // minWidth: 275,
+    //},
 
-    titre: {
-        fontSize: 11,
-    },
-    pos: {
-        marginBottom: 12,
-    },
+    //titre: {
+       // fontSize: 11,
+    //},
+    //pos: {
+    //    marginBottom: 12,
+    //},
 
     pom_plus: {
         color: "#FF0000",
-
 
     },    
 	pom_moins: {
@@ -51,15 +50,17 @@ const styles = theme => ({
 
     },
 
-    button: {
-        margin: theme.spacing.unit,
-    },
+   // button: {
+  //      margin: theme.spacing.unit,
+   // },
 
     iconEtat:{
         fontSize: '50px',
+        
     },
 
 })
+
 
 
 
@@ -78,12 +79,13 @@ class RecettesCard extends React.Component{
     // bruts par an
 
 	render(){
-		const delta=this.props.delta;
+		const {classes, delta} = this.props;
+
 		return (
 			<Card>
 				<CardContent>
-					<Icon icon={classicalBuilding}/>
-                    <Typography variant="body1">
+					<Icon icon={classicalBuilding} width="40" height="40" />
+                    <Typography variant="body1" >
                                 Recettes de l'État
                     </Typography>
 
