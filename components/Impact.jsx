@@ -46,3 +46,10 @@ class Impact extends Component {
 }
 
 export default Impact
+
+
+/*
+render(
+    <CountryList />,
+    document.getElementById('react-container')
+) */
