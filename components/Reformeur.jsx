@@ -26,10 +26,7 @@ const styles = theme => ({
             padding: "2em",
             opacity: 1,
         },
-		root: {
-			backgroundColor: theme.palette.background.paper,
-			width: 500,
-		},
+		
 })
 
 
