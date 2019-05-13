@@ -15,6 +15,8 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import withMobileDialog from "@material-ui/core/withMobileDialog"
+import { Icon, InlineIcon } from '@iconify/react';
+import classicalBuilding from '@iconify/react/twemoji/classical-building';
 
 
 const styles = theme => ({
@@ -53,8 +55,12 @@ const styles = theme => ({
         margin: theme.spacing.unit,
     },
 
+    iconEtat:{
+        fontSize: '50px',
+    },
 
 })
+
 
 
 class RecettesCard extends React.Component{
@@ -63,23 +69,24 @@ class RecettesCard extends React.Component{
 		this.updateStateRes=this.updateStateRes.bind(this);
 	}
 	
-   /* const styleIcons = {
-        width: "10em",
-    }*/
+
 
 	updateStateRes(e){
 		this.props.onClick(e);
 	}
 
     // bruts par an
+
 	render(){
 		const delta=this.props.delta;
 		return (
 			<Card>
 				<CardContent>
-					<div>
-								recettes état
-					</div>
+					<Icon icon={classicalBuilding}/>
+                    <Typography variant="body1">
+                                Recettes de l'État
+                    </Typography>
+
 					<div>
 						<Typography inline variant="h3" color="primary" gutterBottom>
 						{Math.round(this.props.impots_avant/100000000)/10}
@@ -108,6 +115,7 @@ class RecettesCard extends React.Component{
 
 		)
 	}
+
 }
 
 RecettesCard.propTypes = {

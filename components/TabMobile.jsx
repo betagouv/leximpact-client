@@ -7,7 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Article from '../components/Article';
-import Impact from "components/Impact"
+import Impact from "components/Impact";
+import Paper from "@material-ui/core/Paper"
 
 function TabContainer({ children, dir }) {
   return (
@@ -23,10 +24,13 @@ TabContainer.propTypes = {
 };
 
 const styles = theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: 500,
-  },
+
+  paper: {
+    margin:1,
+    padding: 20
+  }
+
+
 });
 
 class FullWidthTabs extends React.Component {
@@ -65,7 +69,9 @@ class FullWidthTabs extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
               <TabContainer dir={theme.direction}>
+                  <Paper className={classes.paper}>
                   <Article/>
+                  </Paper>
               </TabContainer>
               <TabContainer dir={theme.direction}>
                   <Impact/>

@@ -1,11 +1,14 @@
  $primary-color: grey;
 
-@media screen and (min-width: 500px) {
-  
-	.main-index {
+
+.main-index {
 	     background-color: #FFFCB2;
 	     width: auto;
 	}
+
+@media screen and (min-width: 500px) {
+  
+	
 
 	.moitie-gauche {
 	   box-sizing: border-box;
@@ -31,6 +34,9 @@
 	   display:inline-block;*/
 	 }
  }
+
+
+
 
 
 

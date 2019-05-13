@@ -61,11 +61,13 @@ class Impact extends Component {
                 <Grid container spacing={24}>
                     {Object.values(revenus_cas_types).map((revenu, i) => (
 
-                        <Grid item key={i} sm={6} md={6} lg={3} xl={3}>
+
+                        <Grid item key={i} xs={6} sm={12} md={6} lg={4} xl={3}>
                             <SimpleCard revenu={revenu} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]} />
                         </Grid>
                     ))}
                         {includepopulation?<RecettesCard impots_avant={total_pop.avant} delta = {total_pop.apres-total_pop.avant} onClick={this.handleClick}/>:<div/>}
+
 
                 </Grid>
             )
