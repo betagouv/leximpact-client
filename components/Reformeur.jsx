@@ -26,6 +26,10 @@ const styles = theme => ({
             padding: "2em",
             opacity: 1,
         },
+
+        paper: {
+        	padding: 20
+        }
 		
 })
 
@@ -252,10 +256,12 @@ class Reformeur extends Component{
 											  onChangeIndex={this.handleIndexChange}
 											>
 												  <TabContainer dir={theme.direction}>
-													  <Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
+												  		<Paper className={classes.paper}>
+															<Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
+														</Paper>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
-													  <Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
+															<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
 												  </TabContainer>
 											</SwipeableViews>
 										  </div>

@@ -20,27 +20,26 @@ import classicalBuilding from '@iconify/react/twemoji/classical-building';
 
 
 const styles = theme => ({
-    root: {
-        ...theme.mixins.gutters(),
-        paddingBottom: theme.spacing.unit * 2,
-        paddingTop: theme.spacing.unit * 2,
-        margin: `${theme.spacing.unit / 2}em auto`,
-        width: "25em",
-    },
-    card: {
-        minWidth: 275,
-    },
+    //root: {
+        //...theme.mixins.gutters(),
+        //paddingBottom: theme.spacing.unit * 2,
+        //paddingTop: theme.spacing.unit * 2,
+        //margin: `${theme.spacing.unit / 2}em auto`,
+        //width: "25em",
+    //},
+    //card: {
+       // minWidth: 275,
+    //},
 
-    titre: {
-        fontSize: 11,
-    },
-    pos: {
-        marginBottom: 12,
-    },
+    //titre: {
+       // fontSize: 11,
+    //},
+    //pos: {
+    //    marginBottom: 12,
+    //},
 
     pom_plus: {
         color: "#FF0000",
-
 
     },    
 	pom_moins: {
@@ -51,15 +50,16 @@ const styles = theme => ({
 
     },
 
-    button: {
-        margin: theme.spacing.unit,
-    },
+   // button: {
+  //      margin: theme.spacing.unit,
+   // },
 
-    iconEtat:{
-        fontSize: '50px',
-    },
+   // iconEtat:{
+    //    fontSize: '50px',
+    //},
 
 })
+
 
 
 
@@ -79,6 +79,7 @@ class RecettesCard extends React.Component{
 
 	render(){
 		const delta=this.props.delta;
+
 		return (
 			<Card>
 				<CardContent>
