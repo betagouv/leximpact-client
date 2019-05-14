@@ -186,6 +186,12 @@ class Reformeur extends Component{
   handleIndexChange = index => {
     this.setState({ indextab: index });
   };
+  
+  endpoint= () => {
+	const execlocale=false;
+    return execlocale?'http://127.0.0.1:5000':'https://leximpact-server.scalingo.io';
+	
+  }
 
   handleChange(e){
 		const name=e.target.name;
@@ -202,7 +208,7 @@ class Reformeur extends Component{
 			//success=true;
 		}
 			  
-	  fetch('https://leximpact-server.scalingo.io/calculate/compare',{
+	  fetch(this.endpoint()+'/calculate/compare',{
 			  method:"POST",
 			  headers: {
 				'Content-Type': 'application/json'
@@ -219,7 +225,7 @@ class Reformeur extends Component{
   }
 
   simPop(e){
-	  fetch('https://leximpact-server.scalingo.io/calculate/compare',{
+	  fetch(this.endpoint()+'/calculate/compare',{
 			  method:"POST",
 			  headers: {
 				'Content-Type': 'application/json'

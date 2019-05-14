@@ -8,14 +8,50 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 
 class Impact extends Component {
-	state={revenus_cas_types: {
-                0: 19500,
-                1: 55200,
-                2: 55200,
-                3: 32000,
-                4: 31900,
-                5: 1505000,
-            },
+	state={cas_types:[
+			{
+				guadeloupe: false,
+				nombre_declarants: 1,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 0,
+				revenu: 190
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 2,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 2,
+				revenu: 55238
+			},
+			{
+				guadeloupe: true,
+				nombre_declarants: 2,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 2,
+				revenu: 55238
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 2,
+				nombre_declarants_retraites: 2,
+				nombre_personnes_a_charge: 0,
+				revenu: 32000
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 1,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 1,
+				revenu: 31914
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 1,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 1,
+				revenu: 150537
+			}
+		],
             loading: false
 			}
 	
@@ -25,8 +61,10 @@ class Impact extends Component {
     }
 
      componentDidMount(){
+      const execlocale=true;
+      const endpoint = execlocale?'http://127.0.0.1:5000':'https://leximpact-server.scalingo.io';
       this.setState({loading: true})
-      fetch('https://leximpact-server.scalingo.io/calculate/revenus',{
+      fetch(endpoint+'/metadata/description_cas_types',{
               method:"POST",
               headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +73,7 @@ class Impact extends Component {
               }
           )
           .then(response => response.json())
-          .then(json => this.setState({revenus_cas_types: json , loading : false} ))
+          .then(json => {this.setState({cas_types: json, loading : false} );})
           .catch(() => console.log("Can’t access  response. Blocked by browser?"))//json.map(country => country.name))
           //.then(countryNames => this.setState({countryNames, loading: false}))
       console.log("C'est fait ! ")
@@ -53,18 +91,17 @@ class Impact extends Component {
 		// include should be false to remove the graph of recettes
 		const includepopulation=true;
 		console.log("et un render");
-        const { revenus_cas_types, loading} = this.state
+        const { cas_types, loading} = this.state
 		const res_brut=this.props.res_brut;
 		const total_pop=this.props.total_pop;
         return (loading)
             ? <div> Loading ...</div>
             : (
                 <Grid container spacing={24}>
-                    {Object.values(revenus_cas_types).map((revenu, i) => (
-
+                    {cas_types.map((ct, i) => (
 
                         <Grid item key={i} xs={6} sm={12} md={6} lg={4} xl={3}>
-                            <SimpleCard revenu={revenu} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]} />
+                            <SimpleCard desc_cas_type={ct} impots_avant={res_brut.avant[i]} delta={res_brut.apres[i] - res_brut.avant[i]} />
                         </Grid>
                     ))}
 						<Grid item xs={6} sm={12} md={6} lg={4} xl={3}>
