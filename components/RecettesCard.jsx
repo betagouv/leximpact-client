@@ -38,11 +38,11 @@ const styles = theme => ({
     //    marginBottom: 12,
     //},
 
-    pom_plus: {
+    pom_rouge: {
         color: "#FF0000",
 
     },    
-	pom_moins: {
+	pom_verte: {
         color: "#00FF00",
     },
     div: {
@@ -93,8 +93,8 @@ class RecettesCard extends React.Component{
 						<Typography inline variant="h3" color="primary" gutterBottom>
 						{Math.round(this.props.impots_avant/100000000)/10}
 						</Typography>
-						<Typography inline variant="h5" className={delta > 0 ? this.props.classes.pom_plus : this.props.classes.pom_moins} gutterBottom>
-							{(delta > 0 ? "+" : "-")}
+						<Typography inline variant="h5" className={delta > -0.01 ? this.props.classes.pom_verte : this.props.classes.pom_rouge} gutterBottom>
+							{(delta > -0.01 ? "+" : "-")}
 						</Typography>
 						<Typography inline variant="h3" color="secondary" gutterBottom>
 							{Math.round(Math.abs(this.props.delta/100000000))/10}

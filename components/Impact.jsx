@@ -4,16 +4,17 @@ import { Grid } from "@material-ui/core"
 import fetch from "isomorphic-fetch"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 class Impact extends Component {
 	state={revenus_cas_types: {
-                0: 195,
-                1: 552,
-                2: 552,
-                3: 320,
-                4: 319,
-                5: 1505,
+                0: 19500,
+                1: 55200,
+                2: 55200,
+                3: 32000,
+                4: 31900,
+                5: 1505000,
             },
             loading: false
 			}

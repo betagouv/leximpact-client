@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import Avatar from "@material-ui/core/Avatar"
 import Chip from "@material-ui/core/Chip"
+import Tooltip from '@material-ui/core/Tooltip';
 
 import { Icon, InlineIcon } from '@iconify/react';
 import manCurlyHaired from '@iconify/react/twemoji/man-curly-haired';
@@ -37,12 +38,12 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
-    pom_plus: {
+    pom_rouge: {
         color: "#FF0000",
 
 
     },    
-	pom_moins: {
+	pom_verte: {
         color: "#00FF00",
     },
 
@@ -65,9 +66,10 @@ function SimpleCard(props) {
         width: "10em",
 
     }
+    const roundlevel = (revenu>21000) ? ((revenu>36000)? ((revenu>120000)? 10000:500):100):50;
 
+    const revtodisp = Math.round(revenu/12/roundlevel)*roundlevel + "€/mois"
     // bruts par an
-
     return (
 
         <Card className={classes.card}>
@@ -81,14 +83,16 @@ function SimpleCard(props) {
                 </div>
 
                 <div className={classes.div}>
-                    <Chip label={`${revenu} €`} />
+                    <Tooltip title="Ici on explique exactement le revenu utilisé même si c super superlong" enterDelay={300} leaveDelay={200}>
+                      <Chip label={revtodisp} />
+                    </Tooltip>
                 </div>
 
                 <div className={classes.div}>
                     <Typography inline variant="h3" color="primary" gutterBottom>
                         {-impots_avant}
                     </Typography>
-                    <Typography inline variant="h5" className={delta > 0 ? classes.pom_moins : classes.pom_plus} gutterBottom>
+                    <Typography inline variant="h5" className={delta > 0 ? classes.pom_verte : classes.pom_rouge} gutterBottom>
                         {(delta > 0 ? "-" : "+")}
                     </Typography>
                     <Typography inline variant="h3" color="secondary" gutterBottom>

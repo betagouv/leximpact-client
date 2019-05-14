@@ -15,6 +15,7 @@ import SelectControl from "./SelectControl"
 
 const style = {
     Typography: { padding: "5px" },
+    TypographyNouvelleTranche: { padding: "5px" , color: "#0000FF"},
     Typographybouton: { margin: "10px" },
     Button: {
         padding: "3px",
@@ -220,10 +221,11 @@ class Article extends React.Component {
 	const bases=this.state.basecode.impot_revenu.bareme.seuils;
 	const baset=this.state.basecode.impot_revenu.bareme.taux;
 	const nbt=s.length;
+  const styleAUtiliser = (i>4)? style.TypographyNouvelleTranche:style.Typography;
 	//Part 1
 	if (i==0) {
 		return(
-			<Typography variant="body2" color="inherit" style={style.Typography}>
+			<Typography variant="body2" color="inherit" style={styleAUtiliser}>
                     1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
 					<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
 					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i} style={style.InputSeuil}/>€ le taux de :
@@ -233,7 +235,7 @@ class Article extends React.Component {
 	//Last part
 	if (i==nbt){
 		return(
-              <Typography variant="body2" color="inherit" style={style.Typography}>
+              <Typography variant="body2" color="inherit" style={styleAUtiliser}>
                     – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
 					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/>% pour la fraction supérieure à 
 					{/*<OutputField value={bases[i-1]} style={style.VarCodeexistant}/>*/}
@@ -242,7 +244,7 @@ class Article extends React.Component {
 		);
 	}
 	//Other parts :
-	return( <Typography variant="body2" color="inherit" style={style.Typography}>
+	return( <Typography variant="body2" color="inherit" style={styleAUtiliser}>
 			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/> % pour la fraction supérieure à 
 				<OutputField value={s[i-1]}/> €
 			et inférieure ou égale à 
