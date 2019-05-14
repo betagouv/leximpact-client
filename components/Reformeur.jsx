@@ -262,16 +262,16 @@ class Reformeur extends Component{
 		<Fragment>
 	            <div className="main-index">
                 <MediaQuery minDeviceWidth={phone} values={{ deviceWidth: tablet }}>
-                    <div>You are a desktop or laptop</div>
+                    {/*<div>You are a desktop or laptop</div>*/}
                     <MediaQuery minDeviceWidth={1824}>
-                      <div>You also have a huge screen</div>
+                      {/*<div>You also have a huge screen</div>*/}
                     </MediaQuery>
                     <MediaQuery maxWidth={phone}>
                         {(matches) => {
                           if (matches) {
                             return (
                                 <div>
-                                    <div>You are sized like a tablet or mobile phone though</div>
+                                    {/*<div>You are sized like a tablet or mobile phone though</div>*/}
                                           <div className={classes.root}>
 											<AppBar position="static" color="default">
 											  <Tabs
@@ -305,7 +305,7 @@ class Reformeur extends Component{
                           } else {
                             return (
                                 <div>
-                                    <div>You also have a good screen</div>
+                                    {/*<div>You also have a good screen</div>*/}
                                     <div className="moitie-gauche">
 										<Paper className={this.props.classes.article}>
 											<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche} removeTranche={this.removeTranche}/>
@@ -324,9 +324,9 @@ class Reformeur extends Component{
                 </MediaQuery>
 
                 <MediaQuery maxDeviceWidth={phone}>
-                  <div>You are a tablet or mobile phone</div>
+                   {/*<div>You are a tablet or mobile phone</div>*/}
 						<div>
-                                    <div>You are sized like a tablet or mobile phone though</div>
+                                    {/*<div>You are sized like a tablet or mobile phone though</div>*/}
                                           <div className={classes.root}>
 											<AppBar position="static" color="default">
 											  <Tabs
