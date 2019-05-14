@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button"
 import Fab from "@material-ui/core/Fab"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import AddIcon from "@material-ui/icons/Add"
+import DeleteIcon from "@material-ui/icons/Delete"
 import textField from "@material-ui/core/TextField"
 import SelectControl from "./SelectControl"
 
@@ -27,9 +28,13 @@ const style = {
         padding: "5px",
         margin: "10px",
     },
-    Input: {
+    InputSeuil: {
         fontSize: "20px",
-		width:"50px"
+		    width:"70px"
+    },
+    InputTaux: {
+        fontSize: "20px",
+        width:"30px"
     }
 
 }
@@ -96,7 +101,7 @@ class InputField extends React.Component{
     const name = this.props.name;
     return (
             <input type="text" value={value} name={name}
-                     onChange={this.handleChange} size="4" style={style.Input}/>
+                     onChange={this.handleChange} size="4" style={this.props.style}/> 
       
     );
   }
@@ -110,7 +115,7 @@ class OutputField extends React.Component{
   render() {
     const value = this.props.value;
     return (
-    	<Typography inline style={this.props.style}>{value}</Typography>
+    	<Typography inline style={this.props.style}> {value}</Typography>
     );
   }
 }
@@ -128,6 +133,7 @@ class Article extends React.Component {
 	  };
 	this.handleS1Change=this.handleS1Change.bind(this);
 	this.handleAddTranche=this.handleAddTranche.bind(this);
+  this.handleRemoveTranche=this.handleRemoveTranche.bind(this);
   }
   
 
@@ -176,6 +182,14 @@ class Article extends React.Component {
 	
  }
   
+  handleRemoveTranche(e){
+  console.log("je retire une tranche");
+    console.log(this.props);
+    this.props.removeTranche(e);
+  
+ }
+
+
 /*  handleS1Change(e){
 	const name=e.target.name;
 	const success=false;
@@ -212,7 +226,7 @@ class Article extends React.Component {
 			<Typography variant="body2" color="inherit" style={style.Typography}>
                     1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
 					<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
-					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i}/>€ le taux de :
+					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i} style={style.InputSeuil}/>€ le taux de :
             </Typography>
 		);
 	}
@@ -221,19 +235,19 @@ class Article extends React.Component {
 		return(
               <Typography variant="body2" color="inherit" style={style.Typography}>
                     – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
-					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/>% pour la fraction supérieure à 
-					<OutputField value={bases[i]} style={style.VarCodeexistant}/>
-					<OutputField value={s[i-1]}/> €.
+					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/>% pour la fraction supérieure à 
+					{/*<OutputField value={bases[i-1]} style={style.VarCodeexistant}/>*/}
+					 <OutputField value={s[i-1]}/> €.
               </Typography>
 		);
 	}
 	//Other parts :
 	return( <Typography variant="body2" color="inherit" style={style.Typography}>
-			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)}/> % pour la fraction supérieure à 
+			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/> % pour la fraction supérieure à 
 				<OutputField value={s[i-1]}/> €
 			et inférieure ou égale à 
 				<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
-				<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)}/> € ;
+				<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)} style={style.InputSeuil}/> € ;
      </Typography>
 	);
 	
@@ -261,8 +275,8 @@ class Article extends React.Component {
               <Typography variant="overline" color="inherit">
                     - Code général des impôts
               </Typography>
-
-              <SelectControl />
+              {/*`
+              <SelectControl />*/}
 
               <ExpansionPanel
                   style={style.Typography}
@@ -287,7 +301,7 @@ class Article extends React.Component {
               </ExpansionPanel>
               {articleTranches}
               <Button style={style.Button} onClick={this.handleAddTranche}>
-                  <Fab size="small" color="primary" aria-label="Add">
+                  <Fab size="small" color="primary">
                       <AddIcon />
                   </Fab>
                   <Typography variant="overline" color="primary" style={style.Typographybouton}>
@@ -295,6 +309,14 @@ class Article extends React.Component {
                   </Typography>
               </Button>
 
+              <Button style={style.Button} onClick={this.handleRemoveTranche}>
+                  <Fab size="small" color="primary">
+                      <DeleteIcon />
+                  </Fab>
+                  <Typography variant="overline" color="primary" style={style.Typographybouton}>
+                            Supprimer une tranche
+                  </Typography>
+              </Button>
 
               <ExpansionPanel
                   style={style.Typography}

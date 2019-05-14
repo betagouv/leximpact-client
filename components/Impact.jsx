@@ -25,7 +25,7 @@ class Impact extends Component {
 
      componentDidMount(){
       this.setState({loading: true})
-      fetch('http://127.0.0.1:5000/calculate/revenus',{
+      fetch('https://leximpact-server.scalingo.io/calculate/revenus',{
               method:"POST",
               headers: {
                 'Content-Type': 'application/json'

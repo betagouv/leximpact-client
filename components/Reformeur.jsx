@@ -115,12 +115,13 @@ class Reformeur extends Component{
 		},
 		total_pop:{
 			avant: 78000000000,
-			apres: 79000000000,
+			apres: 78000000000,
 		},
 		indextab : 0
 	  };
 	this.handleChange=this.handleChange.bind(this);
 	this.addTranche=this.addTranche.bind(this);
+	this.removeTranche=this.removeTranche.bind(this);
 	this.simPop=this.simPop.bind(this);
 	}
   
@@ -128,7 +129,8 @@ class Reformeur extends Component{
 	  const ref= this.state.reforme
       const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
         if (j === i) {
-          return parseInt(value,10);
+        	const valchiffre=parseInt(value,10);
+          return isNaN(valchiffre)? item:valchiffre;
         } else {
           return item;
         }
@@ -141,7 +143,8 @@ class Reformeur extends Component{
 	  const ref= this.state.reforme
       const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
         if (j === i) {
-          return parseInt(value,10);
+        	const valchiffre=parseInt(value,10);
+          return isNaN(valchiffre)? item:valchiffre;
         } else {
           return item;
         }
@@ -161,6 +164,20 @@ class Reformeur extends Component{
 	 this.setState({reforme:refbase});
 	 console.log("state changed ",this.state);
   }
+
+  removeTranche(e){
+
+	 const refbase=this.state.reforme;
+	 const newnbt=refbase.impot_revenu.bareme.seuils.length-1;
+	 if (newnbt>0){
+		 refbase.impot_revenu.bareme.seuils = this.state.reforme.impot_revenu.bareme.seuils.slice(0,newnbt)
+		 refbase.impot_revenu.bareme.taux = this.state.reforme.impot_revenu.bareme.taux.slice(0,newnbt)
+		 this.setState({reforme:refbase});
+		 console.log("state changed ",this.state);
+	 }
+  }
+
+
 
   handleTabChange = (event, value) => {
     this.setState({ indextab: value });
@@ -185,7 +202,7 @@ class Reformeur extends Component{
 			//success=true;
 		}
 			  
-	  fetch('http://127.0.0.1:5000/calculate/compare',{
+	  fetch('https://leximpact-server.scalingo.io/calculate/compare',{
 			  method:"POST",
 			  headers: {
 				'Content-Type': 'application/json'
@@ -202,7 +219,7 @@ class Reformeur extends Component{
   }
 
   simPop(e){
-	  fetch('http://127.0.0.1:5000/calculate/compare',{
+	  fetch('https://leximpact-server.scalingo.io/calculate/compare',{
 			  method:"POST",
 			  headers: {
 				'Content-Type': 'application/json'
@@ -291,7 +308,7 @@ class Reformeur extends Component{
                                     <div>You also have a good screen</div>
                                     <div className="moitie-gauche">
 										<Paper className={this.props.classes.article}>
-											<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
+											<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche} removeTranche={this.removeTranche}/>
                                         </Paper>
                                     </div>
                                     <div className="moitie-droite">
