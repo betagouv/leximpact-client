@@ -4,7 +4,6 @@ import { Grid } from "@material-ui/core"
 import fetch from "isomorphic-fetch"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
-import Tooltip from '@material-ui/core/Tooltip';
 
 
 class Impact extends Component {
