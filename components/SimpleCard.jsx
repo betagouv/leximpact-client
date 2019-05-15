@@ -58,7 +58,7 @@ const styles = theme => ({
 
 function SimpleCard(props) {
     const {
-        classes, revenu, impots_avant, delta,
+        classes, desc_cas_type, impots_avant, delta,
     } = props
     const bull = <span className={classes.bullet}>•</span>
 
@@ -66,26 +66,38 @@ function SimpleCard(props) {
         width: "10em",
 
     }
+	const revenu=desc_cas_type.revenu
     const roundlevel = (revenu>21000) ? ((revenu>36000)? ((revenu>120000)? 10000:500):100):50;
 
-    const revtodisp = Math.round(revenu/12/roundlevel)*roundlevel + "€/mois"
+    const revtodisp = Math.round(revenu/12/roundlevel)*roundlevel + "€/mois";
+	const isret= !!(desc_cas_type.nombre_declarants_retraites);
+	const manfirst= Math.random()<0.49;
+	const aretwo=desc_cas_type.nombre_declarants>1;
+	const nbenfants=desc_cas_type.nombre_personnes_a_charge;
+	const isguadeloupe=desc_cas_type.guadeloupe;
+	console.log(isret,manfirst,aretwo,nbenfants,isguadeloupe);
     // bruts par an
+	const icon1=manfirst?(isret?manWhiteHaired:manCurlyHaired):(isret?womanWhiteHaired:womanCurlyHaired);
+	const icon2=(!manfirst)?(isret?manWhiteHaired:manCurlyHaired):(isret?womanWhiteHaired:womanCurlyHaired);
+	const babyicons=[...Array(nbenfants)].map((e, i) => <Icon icon={babyIcon} width="30" height="30"/>)
     return (
 
         <Card className={classes.card}>
             <CardContent>
                 <div className={classes.div}>
-                    <Icon icon={babyIcon} width="30" height="30"/>
-                    <Icon icon={manCurlyHaired} width="40" height="40"/>
-                    <Icon icon={manWhiteHaired} width="40" height="40"/>
-                    <Icon icon={womanCurlyHaired} width="40" height="40"/>
-                    <Icon icon={womanWhiteHaired} width="40" height="40"/>
+                    {<Icon icon={icon1} width="40" height="40"/>}
+					{aretwo?<Icon icon={icon2} width="40" height="40"/>:""}
+					{babyicons}
+                    {<Icon icon={babyIcon} width="30" height="30"/>}
                 </div>
 
                 <div className={classes.div}>
                     <Tooltip title="Ici on explique exactement le revenu utilisé même si c super superlong" enterDelay={300} leaveDelay={200}>
                       <Chip label={revtodisp} />
-                    </Tooltip>
+                    </Tooltip>                    
+					{isguadeloupe?<Chip label="Guadeloupe" />:""}
+					{isret?<Chip label="Retraités" />:""}
+  
                 </div>
 
                 <div className={classes.div}>
