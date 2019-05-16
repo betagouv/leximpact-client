@@ -88,7 +88,6 @@ function SimpleCard(props) {
                     {<Icon icon={icon1} width="40" height="40"/>}
 					{aretwo?<Icon icon={icon2} width="40" height="40"/>:""}
 					{babyicons}
-                    {<Icon icon={babyIcon} width="30" height="30"/>}
                 </div>
 
                 <div className={classes.div}>
