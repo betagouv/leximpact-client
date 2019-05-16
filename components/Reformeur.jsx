@@ -48,6 +48,7 @@ TabContainer.propTypes = {
 };
 
 
+
 class Reformeur extends Component{
 	
 
@@ -55,6 +56,8 @@ class Reformeur extends Component{
 	constructor(props) {
 	const baseseuils=[9964,27519,73779,156244];
 	const basetaux=[14,30,41,45];
+	
+	
 	  super(props);
 	  this.state = {
 		reforme:{
@@ -115,9 +118,54 @@ class Reformeur extends Component{
 		},
 		total_pop:{
 			avant: 78000000000,
-			apres: 78000000000,
+			apres: 78000000001,
 		},
-		indextab : 0
+		indextab : 0,
+		cas_types:[
+			{
+				guadeloupe: false,
+				nombre_declarants: 1,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 0,
+				revenu: 190
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 2,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 2,
+				revenu: 55238
+			},
+			{
+				guadeloupe: true,
+				nombre_declarants: 2,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 2,
+				revenu: 55238
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 2,
+				nombre_declarants_retraites: 2,
+				nombre_personnes_a_charge: 0,
+				revenu: 32000
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 1,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 1,
+				revenu: 31914
+			},
+			{
+				guadeloupe: false,
+				nombre_declarants: 1,
+				nombre_declarants_retraites: 0,
+				nombre_personnes_a_charge: 1,
+				revenu: 1505370
+			}
+		],
+		cas_types_defaut: true
 	  };
 	this.handleChange=this.handleChange.bind(this);
 	this.addTranche=this.addTranche.bind(this);
@@ -125,6 +173,25 @@ class Reformeur extends Component{
 	this.simPop=this.simPop.bind(this);
 	}
   
+     componentDidMount(){
+      const endpoint = this.endpoint();//execlocale?'http://127.0.0.1:5000':'https://leximpact-server.scalingo.io';
+      fetch(endpoint+'/metadata/description_cas_types',{
+              method:"POST",
+              headers: {
+                'Content-Type': 'application/json'
+                      },
+              body: JSON.stringify({}),
+              }
+          )
+          .then(response => response.json())
+          .then(json => {this.setState({cas_types: json} );})
+          .catch(() => console.log("Can’t access  response. Blocked by browser?"))//json.map(country => country.name))
+          //.then(countryNames => this.setState({countryNames, loading: false}))
+      console.log("C'est fait ! ")
+      //.then(json => this.setState({revenus_cas_types: json , loading : false} ))
+     /**/
+	}
+	
   UpdateBareme = (i,value) => {
 	  const ref= this.state.reforme
       const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
@@ -156,13 +223,11 @@ class Reformeur extends Component{
   addTranche(e){
 	 const refbase=this.state.reforme;
 	 const newnbt=refbase.impot_revenu.bareme.seuils.length+1;
-	 console.log(this.state, newnbt);
 	 const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt-2];
 	 refbase.impot_revenu.bareme.seuils = this.state.reforme.impot_revenu.bareme.seuils.concat(lastseuil+1);
 	 const lasttaux = refbase.impot_revenu.bareme.taux[newnbt-2];
 	 refbase.impot_revenu.bareme.taux = this.state.reforme.impot_revenu.bareme.taux.concat(lasttaux);
 	 this.setState({reforme:refbase});
-	 console.log("state changed ",this.state);
   }
 
   removeTranche(e){
@@ -173,7 +238,6 @@ class Reformeur extends Component{
 		 refbase.impot_revenu.bareme.seuils = this.state.reforme.impot_revenu.bareme.seuils.slice(0,newnbt)
 		 refbase.impot_revenu.bareme.taux = this.state.reforme.impot_revenu.bareme.taux.slice(0,newnbt)
 		 this.setState({reforme:refbase});
-		 console.log("state changed ",this.state);
 	 }
   }
 
@@ -188,7 +252,7 @@ class Reformeur extends Component{
   };
   
   endpoint= () => {
-	const execlocale=false;
+	const execlocale=true;
     return execlocale?'http://127.0.0.1:5000':'https://leximpact-server.scalingo.io';
 	
   }
@@ -207,21 +271,25 @@ class Reformeur extends Component{
 			this.UpdateTaux(numb,newvalue);
 			//success=true;
 		}
-			  
+		const bodyreq=false?JSON.stringify({
+			deciles:false,
+			reforme:this.state.reforme
+		}):
+		JSON.stringify({
+			reforme:this.state.reforme,
+			description_cas_types:this.state.cas_types
+		});
+		console.log(bodyreq)
 	  fetch(this.endpoint()+'/calculate/compare',{
 			  method:"POST",
 			  headers: {
 				'Content-Type': 'application/json'
 					  },
-			  body: JSON.stringify({
-				  deciles:false,
-				  reforme:this.state.reforme
-			  }),
+			  body: bodyreq,
 			  }
 		  )
 		  .then(response => response.json())
 		  .then(json => { this.setState({res_brut:json.res_brut});})
-	console.log(this.state);
   }
 
   simPop(e){
@@ -238,7 +306,6 @@ class Reformeur extends Component{
 		  )
 		  .then(response => response.json())
 		  .then(json => { this.setState({total_pop:json.total});})
-		console.log(this.state);
   }
 
 	/*render2(){
@@ -298,11 +365,11 @@ class Reformeur extends Component{
 											>
 												  <TabContainer dir={theme.direction}>
 												  		<Paper className={classes.paper}>
-															<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
+															<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}  removeTranche={this.removeTranche}/>
 														</Paper>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
-															<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
+															<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
 												  </TabContainer>
 											</SwipeableViews>
 										  </div>
@@ -318,7 +385,7 @@ class Reformeur extends Component{
                                         </Paper>
                                     </div>
                                     <div className="moitie-droite">
-										<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
+										<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
                                     </div>
                                     <div className="clearfix"></div>
                                 </div>
