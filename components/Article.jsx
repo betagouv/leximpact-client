@@ -25,7 +25,7 @@ const style = {
         fontWeight: "bold",
         color: "#A6A00C",
         textDecoration: "underline",
-        // lineHeight: '10px',
+        lineHeight: '10px',
         padding: "5px",
         margin: "10px",
     },
@@ -115,7 +115,7 @@ class OutputField extends React.Component{
   
   render() {
     const value = this.props.value;
-    return (<Typography inline style={this.props.style}>{value}</Typography>);
+    return (<Typography inline style={this.props.style} className={"output-field"}> {value} </Typography>);
   }
 }
 
@@ -224,26 +224,29 @@ class Article extends React.Component {
 	if (i==0) {
 		return(
 			<Typography variant="body2" color="inherit" style={styleAUtiliser}>
-                    1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède 
+                    {"1. L&#39;impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"} 
 					<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
-					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i} style={style.InputSeuil}/>€ le taux de :
+					<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i} style={style.InputSeuil}/>{"€ le taux de :"}
             </Typography>
 		);
 	}
 	//Last part
 	if (i==nbt){
 		return(
-              <Typography variant="body2" color="inherit" style={styleAUtiliser}>
-                    – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
-					<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/>% pour la 
-					fraction supérieure à <OutputField value={s[i-1]}/> €.
-              </Typography>
+          <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+            {"– "}
+            <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
+			<InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux" + (i-1)} style={style.InputTaux}/>{"% pour la fraction supérieure à"}
+            <OutputField value={s[i-1]}/>{" €."}
+          </Typography>
 		);
 	}
 	//Other parts :
 	return( <Typography variant="body2" color="inherit" style={styleAUtiliser}>
-			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/> % pour la fraction 
-			supérieure à <OutputField value={s[i-1]}/> €
+			– <OutputField value={baset[i-1]} style={style.VarCodeexistant}/> 
+            <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/> % pour la fraction 
+			supérieure à 
+            <OutputField value={s[i-1]}/> €
 			et inférieure ou égale à<OutputField value={bases[i]} style={style.VarCodeexistant}/> 
 				<InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)} style={style.InputSeuil}/> € ;
      </Typography>
