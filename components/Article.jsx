@@ -113,7 +113,7 @@ class OutputField extends React.Component{
   
   render() {
     const value = this.props.value;
-    return (<Typography inline style={this.props.style} className={"output-field"}> {value} </Typography>);
+    return (<span inline style={this.props.style} className={"output-field"}> {value} </span>);
   }
 }
 
