@@ -92,8 +92,6 @@ class InputField extends React.Component{
   }
   
   handleChange(e) {
-	  console.log(e.target.value);
-	  console.log(this.props);
     this.props.onChange(e);
   }
   
@@ -124,7 +122,6 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
 	const nbt= props.reformebase.impot_revenu.bareme.seuils.length;
-	console.log("I did stuff.",props,nbt);
 	  this.state = {
 		expanded: 'null', // état de l'extansion panel null = contenu 
 		reforme:props.reforme,		
@@ -152,7 +149,6 @@ class Article extends React.Component {
       });
 	  ref.impot_revenu.bareme.seuils=list;
     this.setState({reforme:ref});
-	console.log(this.state);
   };
 
   UpdateTaux = (i,value) => {
@@ -169,21 +165,15 @@ class Article extends React.Component {
   };
   
  handleS1Change(e) {
-	  console.log(e.target.value);
-	  console.log(this.props);
     this.props.onChange(e);
   }
  
  handleAddTranche(e){
-	console.log("j'ajoute une tranche");
-	  console.log(this.props);
     this.props.addTranche(e);
 	
  }
   
   handleRemoveTranche(e){
-  console.log("je retire une tranche");
-    console.log(this.props);
     this.props.removeTranche(e);
   
  }
@@ -253,7 +243,6 @@ class Article extends React.Component {
   
   render() {
       const { expanded ,reforme,basecode} = this.state
-	  console.log("et je rends article",this.state);
       const styleExpansionpanel = {
           padding: "1px",
       }
