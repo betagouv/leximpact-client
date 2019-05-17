@@ -171,6 +171,7 @@ class Reformeur extends Component{
 	this.addTranche=this.addTranche.bind(this);
 	this.removeTranche=this.removeTranche.bind(this);
 	this.simPop=this.simPop.bind(this);
+	this.handleRevenuChange=this.handleRevenuChange.bind(this);
 	}
   
      componentDidMount(){
@@ -255,7 +256,21 @@ class Reformeur extends Component{
 	const execlocale=true;
     return execlocale?'http://127.0.0.1:5000':'https://leximpact-server.scalingo.io';
 	
-  }
+	}
+	
+	updateCompare(bodyreq){
+		console.log(bodyreq)
+	  fetch(this.endpoint()+'/calculate/compare',{
+			  method:"POST",
+			  headers: {
+				'Content-Type': 'application/json'
+					  },
+			  body: bodyreq,
+			  }
+		  )
+		  .then(response => response.json())
+		  .then(json => { this.setState({res_brut:json.res_brut});})
+	}
 
   handleChange(e){
 		const name=e.target.name;
@@ -271,7 +286,7 @@ class Reformeur extends Component{
 			this.UpdateTaux(numb,newvalue);
 			//success=true;
 		}
-		const bodyreq=false?JSON.stringify({
+		const bodyreq=this.cas_types_defaut?JSON.stringify({
 			deciles:false,
 			reforme:this.state.reforme
 		}):
@@ -279,17 +294,7 @@ class Reformeur extends Component{
 			reforme:this.state.reforme,
 			description_cas_types:this.state.cas_types
 		});
-		console.log(bodyreq)
-	  fetch(this.endpoint()+'/calculate/compare',{
-			  method:"POST",
-			  headers: {
-				'Content-Type': 'application/json'
-					  },
-			  body: bodyreq,
-			  }
-		  )
-		  .then(response => response.json())
-		  .then(json => { this.setState({res_brut:json.res_brut});})
+		this.updateCompare(bodyreq);
   }
 
   simPop(e){
@@ -307,7 +312,16 @@ class Reformeur extends Component{
 		  .then(response => response.json())
 		  .then(json => { this.setState({total_pop:json.total});})
   }
-
+  handleRevenuChange = (i,value) => {
+		const arrayrev=this.state.cas_types;
+		arrayrev[i].revenu=value*12;
+		this.setState({cas_types:arrayrev,cas_types_defaut:false})
+		const bodyreq=JSON.stringify({
+			reforme:this.state.reforme,
+			description_cas_types:this.state.cas_types
+		});
+		this.updateCompare(bodyreq);
+	}
 	/*render2(){
 		console.log("et je rends reformeur",this.state);
 		return(
@@ -369,7 +383,7 @@ class Reformeur extends Component{
 														</Paper>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
-															<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
+															<Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
 												  </TabContainer>
 											</SwipeableViews>
 										  </div>
@@ -385,7 +399,7 @@ class Reformeur extends Component{
                                         </Paper>
                                     </div>
                                     <div className="moitie-droite">
-										<Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
+										<Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
                                     </div>
                                     <div className="clearfix"></div>
                                 </div>
