@@ -15,7 +15,7 @@ import SelectControl from "./SelectControl"
 
 const style = {
     Typography: { padding: "5px" },
-    TypographyNouvelleTranche: { padding: "5px" , color: "#0000FF"},
+    TypographyNouvelleTranche: { padding: "5px" , color: "#00A3FF"},
     Typographybouton: { margin: "10px" },
     Button: {
         padding: "3px",
@@ -26,16 +26,20 @@ const style = {
         color: "#A6A00C",
         textDecoration: "underline",
         lineHeight: '10px',
-        padding: "5px",
-        margin: "10px",
+        padding: "8px",
     },
     InputSeuil: {
         fontSize: "20px",
-		    width:"70px"
+		    width:"70px",
+        marginRight:"2px",
+        marginLeft: "2px",
+
     },
     InputTaux: {
         fontSize: "20px",
-        width:"30px"
+        width:"30px",
+        marginRight:"3px",
+        marginLeft: "0px",
     }
 
 }
