@@ -43,7 +43,10 @@ const style = {
     },
 
     Div: {
-        margin: "1.5em"
+        marginTop: "0.5em",
+        marginLeft: "1.5em",
+        marginRight: "1.5em",
+        marginBottom: "1.5em"
     }
 
 }
@@ -266,14 +269,14 @@ class Article extends React.Component {
 
           <div style={style.Div}>
 
-              <Typography variant="h2" color="inherit">
+             {/*` <Typography  inline variant="h2" color="#6C6C6C">
                     Article 197
               </Typography>
 
-              <Typography variant="overline" color="inherit">
+              <Typography inline variant="overline" color="inherit">
                     - Code général des impôts
               </Typography>
-              {/*`
+              
               <SelectControl />*/}
 
               <ExpansionPanel
