@@ -20,6 +20,7 @@ import {
 } from "@material-ui/core"
 import { withStyles } from '@material-ui/core/styles';
 import ArticleHeader from "components/ArticleHeader"
+import Divider from '@material-ui/core/Divider';
 
 const styles = theme => ({
     
@@ -378,7 +379,8 @@ class Reformeur extends Component{
 												  <TabContainer dir={theme.direction}>
 												  		
 												  		<Paper>
-												  		<ArticleHeader/>
+												  			<ArticleHeader/>
+												  			<Divider/>
 															<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}  removeTranche={this.removeTranche}/>
 														</Paper>
 												  </TabContainer>
@@ -395,9 +397,9 @@ class Reformeur extends Component{
                                     {/*<div>You also have a good screen</div>*/}
                                     <div className="moitie-gauche">
                                     	
-										<Paper className={this.props.classes.paper}>
-										 <ArticleHeader/>
-										
+										<Paper className={this.props.classes.paper}>											
+										 	<ArticleHeader/>
+										 	<Divider/>
 											<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche} removeTranche={this.removeTranche}/>
                                         </Paper>
                                     </div>

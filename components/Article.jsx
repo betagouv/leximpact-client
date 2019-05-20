@@ -43,7 +43,7 @@ const style = {
     },
 
     Div: {
-        marginTop: "0.5em",
+        marginTop: "1em",
         marginLeft: "1.5em",
         marginRight: "1.5em",
         marginBottom: "1.5em"

@@ -15,15 +15,16 @@ const styles = {
 
   typo1: {
     fontWeight: "bold",
-    paddingLeft: '6px',
+    textTransform: "uppercase",
     color: "#6C6C6C",
     
   },
 
    typo2: {
     color: "#6C6C6C",
+    paddingLeft: '6px',
     
-    textTransform: "uppercase"
+    
   }
 };
 
@@ -36,11 +37,11 @@ function SimpleAppBar(props) {
     <div className={classes.root}>
       <AppBar position="relative" color="#FFFFFF" style={{background: "#FFFFFF", boxShadow: "none"}}>
         <Toolbar>
-          <Typography className={classes.typo2} variant="h4" color="inherit">
+          <Typography className={classes.typo1} variant="h4" color="inherit">
               Tranches / décote 
           </Typography>
-           <Typography className={classes.typo1} variant="body2" color="inherit">
-              - Article 197  
+           <Typography className={classes.typo2} variant="body2" color="inherit">
+              - Article 197 du CGI
           </Typography>
         </Toolbar>
       </AppBar>
