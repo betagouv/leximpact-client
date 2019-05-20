@@ -19,16 +19,14 @@ import {
     Item,
 } from "@material-ui/core"
 import { withStyles } from '@material-ui/core/styles';
+import ArticleHeader from "components/ArticleHeader"
 
 const styles = theme => ({
-        article: {
-            margin: "1em",
-            padding: "2em",
-            opacity: 1,
-        },
+    
 
         paper: {
-        	padding: 20
+        	padding: 0,
+        	margin: "1em",  	
         }
 		
 })
@@ -378,7 +376,9 @@ class Reformeur extends Component{
 											  onChangeIndex={this.handleIndexChange}
 											>
 												  <TabContainer dir={theme.direction}>
-												  		<Paper className={classes.paper}>
+												  		
+												  		<Paper>
+												  		<ArticleHeader/>
 															<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}  removeTranche={this.removeTranche}/>
 														</Paper>
 												  </TabContainer>
@@ -394,7 +394,10 @@ class Reformeur extends Component{
                                 <div>
                                     {/*<div>You also have a good screen</div>*/}
                                     <div className="moitie-gauche">
-										<Paper className={this.props.classes.article}>
+                                    	
+										<Paper className={this.props.classes.paper}>
+										 <ArticleHeader/>
+										
 											<Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche} removeTranche={this.removeTranche}/>
                                         </Paper>
                                     </div>
@@ -433,6 +436,7 @@ class Reformeur extends Component{
 											  onChangeIndex={this.handleIndexChange}
 											>
 												  <TabContainer dir={theme.direction}>
+												  	<ArticleHeader/>
 													  <Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>

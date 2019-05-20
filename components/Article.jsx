@@ -40,6 +40,10 @@ const style = {
         width:"30px",
         marginRight:"3px",
         marginLeft: "0px",
+    },
+
+    Div: {
+        margin: "1.5em"
     }
 
 }
@@ -259,7 +263,8 @@ class Article extends React.Component {
 	  }
 	  
       return (
-          <div>
+
+          <div style={style.Div}>
 
               <Typography variant="h2" color="inherit">
                     Article 197
