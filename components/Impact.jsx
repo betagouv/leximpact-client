@@ -28,7 +28,7 @@ class Impact extends Component {
 
     render() {
 		// include should be false to remove the graph of recettes
-		const includepopulation=true;
+		const includepopulation=false;
 		console.log("et un render");
         const { loading} = this.state
 		const res_brut=this.props.res_brut;
