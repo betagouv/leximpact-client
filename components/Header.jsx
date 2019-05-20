@@ -57,7 +57,8 @@ const styles = theme => ({
     title: {
         display: "none",
         [theme.breakpoints.up("sm")]: {
-            display: "block",       
+            display: "block",
+                  
         },
     },
 
@@ -69,9 +70,10 @@ const styles = theme => ({
         textUnderlinePosition: "under",
         paddingleft: 30,
         paddingRight: 30,
+        marginLeft:30,
     },
 
-    search: {
+  /*  search: {
         position: "relative",
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -86,6 +88,9 @@ const styles = theme => ({
             width: "auto",
         },
     },
+
+    */
+
     searchIcon: {
         width: theme.spacing.unit * 9,
         height: "100%",
