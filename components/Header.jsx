@@ -46,6 +46,7 @@ const styles = theme => ({
     root: {
         width: "100%",
     },
+
     grow: {
         flexGrow: 1,
     },
@@ -56,15 +57,16 @@ const styles = theme => ({
     title: {
         display: "none",
         [theme.breakpoints.up("sm")]: {
-            display: "block",
+            display: "block",       
         },
     },
 
     impotsurlerevenu: {
-        fontSize: "20px",
-        fontWeight: "bold",
-        textTransform: "none",
+        fontSize: "16px",
+        fontWeight: "light",
+        textTransform: "uppercase",
         textDecoration: "underline",
+        textUnderlinePosition: "under",
         paddingleft: 30,
         paddingRight: 30,
     },
@@ -209,17 +211,17 @@ class PrimarySearchAppBar extends React.Component {
           <div className={classes.root}>
               <AppBar position="static">
                   <Toolbar>
-                      <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+                      {/*<IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                           <MenuIcon />
-                      </IconButton>
+                      </IconButton> */}
                       <Typography className={classes.title} variant="h1" color="inherit" noWrap>
-              LexImpact
+                          LexImpact
                       </Typography>
 
 
                       <div className={classes.search}>
-                          <Button color="inherit" className={classes.impotsurlerevenu}>
-                  Impôt sur le revenu
+                          <Button variant="button" color="inherit" className={classes.impotsurlerevenu}>
+                            Impôt sur le revenu
                           </Button>
                       </div>
 
