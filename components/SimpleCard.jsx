@@ -18,6 +18,9 @@ import babyIcon from '@iconify/react/twemoji/baby';
 import manWhiteHaired from '@iconify/react/twemoji/man-white-haired';
 import womanCurlyHaired from '@iconify/react/twemoji/woman-curly-haired';
 import womanWhiteHaired from '@iconify/react/twemoji/woman-white-haired';
+import palmTree from '@iconify/react/twemoji/palm-tree';
+
+
 
 
 const styles = theme => ({
@@ -119,7 +122,7 @@ class SimpleCard extends React.Component {
                             <option value={revrounded+100}>{(revrounded+100)+"€/mois"}</option>
                         </NativeSelect>
                         </Tooltip>                    
-                        {isguadeloupe?<Chip label="Guadeloupe" />:""}
+                        {isguadeloupe?<Chip icon={<Icon icon={palmTree} width="20" height="20"/>} label="Guadeloupe" />:""}
                         {isret?<Chip label="Retraités" />:""}
     
                     </div>
