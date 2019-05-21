@@ -18,7 +18,8 @@ import babyIcon from '@iconify/react/twemoji/baby';
 import manWhiteHaired from '@iconify/react/twemoji/man-white-haired';
 import womanCurlyHaired from '@iconify/react/twemoji/woman-curly-haired';
 import womanWhiteHaired from '@iconify/react/twemoji/woman-white-haired';
-import palmTree from '@iconify/react/twemoji/palm-tree';
+//import palmTree from '@iconify/react/twemoji/palm-tree';
+import desertIsland from '@iconify/react/twemoji/desert-island';
 
 
 
@@ -134,7 +135,7 @@ class SimpleCard extends React.Component {
                             {this.roundedRevenues(revrounded)}                            }
                         </NativeSelect>
                         </Tooltip>                    
-                        {isguadeloupe?<Chip icon={<Icon icon={palmTree} width="20" height="20"/>} label="Guadeloupe" />:""}
+                        {isguadeloupe?<Chip icon={<Icon icon={desertIsland} width="20" height="20"/>} label="Guadeloupe" />:""}
                         {isret?<Chip label="Retraités" />:""}
     
                     </div>
