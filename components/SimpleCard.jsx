@@ -125,7 +125,7 @@ class SimpleCard extends React.Component {
                     </div>
 
                     <div className={classes.div}>
-                        <Tooltip placement="top" title="Ici on explique exactement le revenu utilisé même si c super superlong" enterDelay={300} leaveDelay={200}>
+                        <Tooltip placement="top" title="Revenus bruts" enterDelay={300} leaveDelay={200}>
                         <NativeSelect
                             value={revrounded}
                             onChange={this.handleChange(index)}
