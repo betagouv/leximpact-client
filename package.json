@@ -1,8 +1,8 @@
 {
     "name": "leximpact-client",
     "engines": {
-    "node": "4.2.x",
-    "npm": "2.14.x"
+    "node": "10.15.3",
+    "npm": "6.4.x"
 	},
     "version": "0.0.1",
     "description": "Simuler l'impact d'une réforme socio-fiscale en moins d'une minute.",
