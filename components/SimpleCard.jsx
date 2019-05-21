@@ -70,12 +70,26 @@ class SimpleCard extends React.Component {
     
   constructor(props) {
     super(props);
-	this.handleChange=this.handleChange.bind(this);
+    this.handleChange=this.handleChange.bind(this);
   }
 
     handleChange = i => event => {
         this.props.onChange(i,event);
       };
+    
+    roundedRevenues(revenumensuel){
+        const roundlevel = [100,50,100,200,500,1000,5000,10000,100000]
+        const paliers = [900,2000,3000,4000,10000,15000,20000,100000,1000000]
+        //for now the rounded revenues do not depend on the current value
+        var currpal=0;
+        var res=[]
+        for (var i=500;currpal<paliers.length;i+=roundlevel[currpal]){
+            res.push( <option value={i}>{(i)+"€/mois"}</option>);
+            if (i>=paliers[currpal]) {currpal++;
+            }
+        }
+        return res;
+    }
     
 
     render(){
@@ -89,8 +103,7 @@ class SimpleCard extends React.Component {
 
         }
         const revenu=desc_cas_type.revenu
-        const roundlevel = (revenu>21000) ? ((revenu>36000)? ((revenu>120000)? 10000:500):100):50;
-        const revrounded=Math.round(revenu/12/roundlevel)*roundlevel
+        const revrounded=Math.round(revenu/12)
         const revtodisp = numberToRevenuparmois(revrounded);
         const isret= !!(desc_cas_type.nombre_declarants_retraites);
         const manfirst= Math.random()<0.49;
@@ -112,14 +125,13 @@ class SimpleCard extends React.Component {
                     </div>
 
                     <div className={classes.div}>
-                        <Tooltip title="Ici on explique exactement le revenu utilisé même si c super superlong" enterDelay={300} leaveDelay={200}>
+                        <Tooltip placement="top" title="Ici on explique exactement le revenu utilisé même si c super superlong" enterDelay={300} leaveDelay={200}>
                         <NativeSelect
                             value={revrounded}
                             onChange={this.handleChange(index)}
                         >
                             <option value={revrounded}>{(revrounded)+"€/mois"}</option>
-                            <option value={revrounded-100}>{(revrounded-100)+"€/mois"}</option>
-                            <option value={revrounded+100}>{(revrounded+100)+"€/mois"}</option>
+                            {this.roundedRevenues(revrounded)}                            }
                         </NativeSelect>
                         </Tooltip>                    
                         {isguadeloupe?<Chip icon={<Icon icon={palmTree} width="20" height="20"/>} label="Guadeloupe" />:""}
