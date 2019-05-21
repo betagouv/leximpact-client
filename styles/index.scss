@@ -2,15 +2,17 @@
 
 
 .main-index {
-	     /*background-color: #FFFCB2;*/
+	     background-color: #FFFCB2;
 	     width: auto;
 	     /*background-image: url("tramebackground.png");*/
 	}
 
-@media screen and (min-width: 500px) {
-  
-	
+html {  
+	background-color: #FFFCB2;
+	//background-image: url(https://mdn.mozillademos.org/files/11991/startransparent.gif),
+}
 
+@media screen and (min-width: 500px) {
 	.moitie-gauche {
 	   box-sizing: border-box;
 	   position:absolute;
@@ -86,7 +88,3 @@
 
 	}
 
-
-	html {
-		background-color: #FFFCB2;
-	}
