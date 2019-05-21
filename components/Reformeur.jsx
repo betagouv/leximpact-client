@@ -448,7 +448,7 @@ class Reformeur extends Component{
 										  </div>
                                 </div>
                 </MediaQuery>
-
+								{/*					
                 <MediaQuery orientation="portrait">
                   <div>You are portrait</div>
                 </MediaQuery>
@@ -459,8 +459,9 @@ class Reformeur extends Component{
 
                 <MediaQuery minResolution="2dppx">
                   <div>You are retina</div>
-                </MediaQuery>
-            </div>
+                </MediaQuery>*/}
+
+       </div>
 		</Fragment>);
 	}
 	
