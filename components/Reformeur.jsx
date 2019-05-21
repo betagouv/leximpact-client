@@ -385,7 +385,8 @@ class Reformeur extends Component{
 														</Paper>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
-															<Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
+															<Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} 
+															total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
 												  </TabContainer>
 											</SwipeableViews>
 										  </div>
@@ -404,7 +405,8 @@ class Reformeur extends Component{
                                         </Paper>
                                     </div>
                                     <div className="moitie-droite">
-										<Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop} cas_types={this.state.cas_types}/>
+										<Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} total_pop={this.state.total_pop} 
+											onClick={this.simPop} cas_types={this.state.cas_types}/>
                                     </div>
                                     <div className="clearfix"></div>
                                 </div>
@@ -442,7 +444,8 @@ class Reformeur extends Component{
 													  <Article reforme={this.state.reforme} reformebase={this.state.reformebase} onChange={this.handleChange} addTranche={this.addTranche}/>
 												  </TabContainer>
 												  <TabContainer dir={theme.direction}>
-													  <Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
+													  <Impact onRevenuChange={this.handleRevenuChange} res_brut={this.state.res_brut} total_pop={this.state.total_pop} 
+											onClick={this.simPop} cas_types={this.state.cas_types}/>
 												  </TabContainer>
 											</SwipeableViews>
 										  </div>
