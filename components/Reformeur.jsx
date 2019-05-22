@@ -361,7 +361,7 @@ class Reformeur extends Component {
             <Fragment>
                 <div className="main-index">
                         {/* <div>You are a desktop or laptop</div> */}
-                    <MediaQuery minDeviceWidth={phone}>
+                    <MediaQuery minDeviceWidth={phone+1}>
                         <MediaQuery minDeviceWidth={1824}>
                             {/* <div>You also have a huge screen</div> */}
                         </MediaQuery>
