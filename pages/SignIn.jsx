@@ -30,7 +30,8 @@ const styles = theme => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit
+            * 3}px`,
     },
     avatar: {
         margin: theme.spacing.unit,
@@ -56,7 +57,7 @@ function SignIn(props) {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-          Sign in
+                    Sign in
                 </Typography>
                 <form className={classes.form}>
                     <FormControl margin="normal" required fullWidth>
@@ -65,7 +66,12 @@ function SignIn(props) {
                     </FormControl>
                     <FormControl margin="normal" required fullWidth>
                         <InputLabel htmlFor="password">Password</InputLabel>
-                        <Input name="password" type="password" id="password" autoComplete="current-password" />
+                        <Input
+                            name="password"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                        />
                     </FormControl>
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -78,7 +84,7 @@ function SignIn(props) {
                         color="primary"
                         className={classes.submit}
                     >
-            Sign in
+                        Sign in
                     </Button>
                 </form>
             </Paper>

@@ -22,7 +22,7 @@ import Reformeur from "components/Reformeur"
 import Impact from "components/Impact"
 import TabMobile from "components/TabMobile"
 import Drawer from "components/Drawer"
-import MediaQuery from 'react-responsive';
+import MediaQuery from "react-responsive"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -30,7 +30,7 @@ const Plot = dynamic(import("components/Plot"), { ssr: false })
 function styles(theme) {
     const { mixins, spacing } = theme
 
-    return ({
+    return {
         root: {
             paddingTop: spacing.unit * 5,
             textAlign: "center",
@@ -51,7 +51,7 @@ function styles(theme) {
             opacity: 1,
             position: "relative",
         },
-    })
+    }
 }
 
 type Props = {
@@ -70,25 +70,22 @@ function index({ classes }: Props) {
     }
 
     const desktop = 1025
-    const tablet = 768 //and max-width: 1024px
+    const tablet = 768 // and max-width: 1024px
     const phone = 767
 
-    //const hugeScreen = 1824
-    //const desktopServerRendering = 1600
-    //const phoneOrTablet = 1224
+    // const hugeScreen = 1824
+    // const desktopServerRendering = 1600
+    // const phoneOrTablet = 1224
 
     return (
         <Fragment>
             <Header />
-            <Head><title>LexImpact</title></Head>
-			<Reformeur />
+            <Head>
+                <title>LexImpact</title>
+            </Head>
+            <Reformeur />
         </Fragment>
     )
 }
 
-
-export default (
-    index
-    |> (_ => withStyles(styles)(_))
-    |> withRoot
-)
+export default index |> (_ => withStyles(styles)(_)) |> withRoot

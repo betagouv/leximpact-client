@@ -3,12 +3,10 @@ module.exports = (api) => {
 
     const presets = [
         [
-            "@babel/preset-env", {
+            "@babel/preset-env",
+            {
                 targets: {
-                    browsers: [
-                        "> 1%",
-                        "last 4 versions",
-                    ],
+                    browsers: ["> 1%", "last 4 versions"],
                     node: 8,
                 },
             },
@@ -22,7 +20,8 @@ module.exports = (api) => {
         ["flow-react-proptypes"],
         ["lodash"],
         [
-            "module-resolver", {
+            "module-resolver",
+            {
                 alias: {
                     components: "./components",
                     lib: "./lib",
