@@ -1,6 +1,7 @@
 const withTranspileModules = require("next-transpile-modules")
 const withTypescript = require("@zeit/next-typescript")
 const withSass = require("@zeit/next-sass")
+const _ = require("lodash")
 
 const config = {
     exportPathMap() {
@@ -9,11 +10,7 @@ const config = {
         }
     },
     distDir: "build",
+    transpileModules: ["@iconify/react"],
 }
 
-module.exports = (
-    config
-    |> (_ => withTranspileModules({ ..._, transpileModules: ["@iconify/react"] }))
-    |> withTypescript
-    |> withSass
-)
+module.exports = _.flow([withTranspileModules, withTypescript, withSass])(config)

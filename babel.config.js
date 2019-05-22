@@ -2,8 +2,19 @@ module.exports = (api) => {
     api.cache(true)
 
     const presets = [
-        "@babel/preset-flow",
-        "next/babel",
+        [
+            "@babel/preset-env", {
+                targets: {
+                    browsers: [
+                        "> 1%",
+                        "last 4 versions",
+                    ],
+                    node: 8,
+                },
+            },
+        ],
+        ["@babel/preset-flow"],
+        ["next/babel"],
     ]
 
     const plugins = [
