@@ -11,7 +11,7 @@ type Props = {
 function styles(theme) {
     const { mixins, spacing } = theme
 
-    return ({
+    return {
         root: {
             ...mixins.gutters(),
             paddingBottom: spacing.unit * 2,
@@ -19,7 +19,7 @@ function styles(theme) {
             margin: `${spacing.unit / 2}em auto`,
             width: "25em",
         },
-    })
+    }
 }
 
 function Plot({ classes }: Props) {
@@ -46,18 +46,14 @@ function Plot({ classes }: Props) {
                         hoverinfo: ["y"],
                     }),
                 ]}
-
-                layout={
-                    layout({
-                        width: 320,
-                        height: 240,
-                        title: "Effet redistributif",
-                        legend: {
-                            orientation: "h",
-                        },
-                    })
-                }
-
+                layout={layout({
+                    width: 320,
+                    height: 240,
+                    title: "Effet redistributif",
+                    legend: {
+                        orientation: "h",
+                    },
+                })}
                 config={{
                     displayModeBar: false,
                 }}
@@ -66,8 +62,4 @@ function Plot({ classes }: Props) {
     )
 }
 
-export default (
-    styles
-    |> withStyles
-    |> (_ => _(Plot))
-)
+export default styles |> withStyles |> (_ => _(Plot))

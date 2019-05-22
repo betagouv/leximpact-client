@@ -1,8 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
 const theme = createMuiTheme({
-
-
     typography: {
         useNextVariants: true,
         fontFamily: ["\"Lato\", sans-serif", "Lora"].join(","),
@@ -23,17 +21,18 @@ const theme = createMuiTheme({
             fontWeight: "bold",
         },
 
-        h4: {//header article//
+        h4: {
+            // header article//
             fontFamily: "Lato",
-            fontSize: "20px"
+            fontSize: "20px",
         },
 
-        h5: { //sert pour les +et- des cards//
+        h5: {
+            // sert pour les +et- des cards//
             fontFamily: "Lato",
             fontSize: "34px",
-            // fontWeight: 'light' 
+            // fontWeight: 'light'
         },
-
 
         subtitle1: {
             fontSize: 12,
@@ -71,12 +70,9 @@ const theme = createMuiTheme({
             fontSize: "18px",
         },
 
-
         subtitle2: {
             fontSize: 12,
         },
-
-
     },
 
     palette: {
@@ -96,7 +92,7 @@ const theme = createMuiTheme({
             // dark: will be calculated from palette.secondary.main,
             contrastText: "#ffcc00",
         },
-    
+
         error: {
             light: "#e57373",
             main: "rgba(255, 48, 73, 1)",
@@ -110,9 +106,6 @@ const theme = createMuiTheme({
             hint: "rgba(0, 0, 0, 0.38)",
         },
     },
-
-
 })
-
 
 export default theme

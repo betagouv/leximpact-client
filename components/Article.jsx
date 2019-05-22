@@ -12,10 +12,9 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import textField from "@material-ui/core/TextField"
 import SelectControl from "./SelectControl"
 
-
 const style = {
     Typography: { padding: "5px" },
-    TypographyNouvelleTranche: { padding: "5px" , color: "#00A3FF"},
+    TypographyNouvelleTranche: { padding: "5px", color: "#00A3FF" },
     Typographybouton: { margin: "10px" },
     Button: {
         padding: "3px",
@@ -25,20 +24,19 @@ const style = {
         fontWeight: "bold",
         color: "#A6A00C",
         textDecoration: "underline",
-        lineHeight: '10px',
+        lineHeight: "10px",
         padding: "8px",
     },
     InputSeuil: {
         fontSize: "20px",
-            width:"70px",
-        marginRight:"2px",
+        width: "70px",
+        marginRight: "2px",
         marginLeft: "2px",
-
     },
     InputTaux: {
         fontSize: "20px",
-        width:"30px",
-        marginRight:"3px",
+        width: "30px",
+        marginRight: "3px",
         marginLeft: "0px",
     },
 
@@ -46,11 +44,9 @@ const style = {
         marginTop: "1em",
         marginLeft: "1.5em",
         marginRight: "1.5em",
-        marginBottom: "1.5em"
-    }
-
+        marginBottom: "1.5em",
+    },
 }
-
 
 const ExpansionPanel = withStyles({
     root: {
@@ -96,174 +92,223 @@ const ExpansionPanelDetails = withStyles(theme => ({
     },
 }))(MuiExpansionPanelDetails)
 
-class InputField extends React.Component{
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
+class InputField extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleChange = this.handleChange.bind(this)
+    }
 
-  handleChange(e) {
-    this.props.onChange(e);
-  }
+    handleChange(e) {
+        this.props.onChange(e)
+    }
 
-  render() {
-    const value = this.props.value;
-    const name = this.props.name;
-    return (
-            <input type="text" value={value} name={name}
-                     onChange={this.handleChange} size="4" style={this.props.style}/>
-
-    );
-  }
+    render() {
+        const { value } = this.props
+        const { name } = this.props
+        return (
+            <input
+                type="text"
+                value={value}
+                name={name}
+                onChange={this.handleChange}
+                size="4"
+                style={this.props.style}
+            />
+        )
+    }
 }
 
-class OutputField extends React.Component{
-  constructor(props) {
-    super(props);
-  }
+class OutputField extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-  render() {
-    const value = this.props.value;
-    return (<span inline style={this.props.style} className={"output-field"}>{value}</span>);
-  }
+    render() {
+        const { value } = this.props
+        return (
+            <span inline style={this.props.style} className="output-field">
+                {value}
+            </span>
+        )
+    }
 }
 
 class Article extends React.Component {
-
-  constructor(props) {
-    super(props);
-    const nbt= props.reformebase.impot_revenu.bareme.seuils.length;
-      this.state = {
-        expanded: 'null', // état de l'extansion panel null = contenu
-        reforme:props.reforme,
-        basecode:props.reformebase,// Jamais modifié, utilisé pour montrer l'existant,
-      };
-    this.handleS1Change=this.handleS1Change.bind(this);
-    this.handleAddTranche=this.handleAddTranche.bind(this);
-  this.handleRemoveTranche=this.handleRemoveTranche.bind(this);
-  }
-
-
-  handleChange = panel => (event, expanded) => {
-      this.setState({
-          expanded: expanded ? panel : false,
-  })};
-
-  UpdateBareme = (i,value) => {
-      const ref= this.state.reforme
-      const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
-        if (j === i) {
-          return value;
-        } else {
-          return item;
+    constructor(props) {
+        super(props)
+        const nbt = props.reformebase.impot_revenu.bareme.seuils.length
+        this.state = {
+            expanded: "null", // état de l'extansion panel null = contenu
+            reforme: props.reforme,
+            basecode: props.reformebase, // Jamais modifié, utilisé pour montrer l'existant,
         }
-      });
-      ref.impot_revenu.bareme.seuils=list;
-    this.setState({reforme:ref});
-  };
+        this.handleS1Change = this.handleS1Change.bind(this)
+        this.handleAddTranche = this.handleAddTranche.bind(this)
+        this.handleRemoveTranche = this.handleRemoveTranche.bind(this)
+    }
 
-  UpdateTaux = (i,value) => {
-      const ref= this.state.reforme
-      const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
-        if (j === i) {
-          return value;
-        } else {
-          return item;
-        }
-      });
-      ref.impot_revenu.bareme.taux=list;
-    this.setState({reforme:ref});
-  };
+    handleChange = panel => (event, expanded) => {
+        this.setState({
+            expanded: expanded ? panel : false,
+        })
+    }
 
- handleS1Change(e) {
-    this.props.onChange(e);
-  }
+    UpdateBareme = (i, value) => {
+        const ref = this.state.reforme
+        const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
+            if (j === i) {
+                return value
+            }
+            return item
+        })
+        ref.impot_revenu.bareme.seuils = list
+        this.setState({ reforme: ref })
+    }
 
- handleAddTranche(e){
-    this.props.addTranche(e);
+    UpdateTaux = (i, value) => {
+        const ref = this.state.reforme
+        const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
+            if (j === i) {
+                return value
+            }
+            return item
+        })
+        ref.impot_revenu.bareme.taux = list
+        this.setState({ reforme: ref })
+    }
 
- }
+    handleS1Change(e) {
+        this.props.onChange(e)
+    }
 
-  handleRemoveTranche(e){
-    this.props.removeTranche(e);
+    handleAddTranche(e) {
+        this.props.addTranche(e)
+    }
 
- }
+    handleRemoveTranche(e) {
+        this.props.removeTranche(e)
+    }
 
-  alinea4(){
+    alinea4() {
+        const scelib = this.state.reforme.impot_revenu.decote.seuil_celib
+        const scouple = this.state.reforme.impot_revenu.decote.seuil_couple
+        const basescelib = this.state.basecode.impot_revenu.decote.seuil_celib
+        const basescouple = this.state.basecode.impot_revenu.decote.seuil_couple
 
-    const scelib=this.state.reforme.impot_revenu.decote.seuil_celib;
-    const scouple=this.state.reforme.impot_revenu.decote.seuil_couple;
-    const basescelib=this.state.basecode.impot_revenu.decote.seuil_celib;
-    const basescouple=this.state.basecode.impot_revenu.decote.seuil_couple;
-
-    return(
- <Typography variant="body2" color="inherit">
- 4. a. Le montant de l'impôt résultant de l'application
- des dispositions précédentes est diminué, dans la limite de son
- montant, de la différence entre <OutputField value={basescelib} style={style.VarCodeexistant}/>
-                    <InputField value={scelib} onChange={this.handleS1Change} name={"decote.seuil_celib"} style={style.InputSeuil}/>
-           € et les trois quarts de
- son montant pour les contribuables célibataires, divorcés ou veufs et de la différence entre
- <OutputField value={basescouple} style={style.VarCodeexistant}/>
-                    <InputField value={scouple} onChange={this.handleS1Change} name={"decote.seuil_couple"} style={style.InputSeuil}/> € et les trois quarts de son montant pour les contribuables soumis à imposition commune.
-</Typography>);
-  }
-  gimmeIRPartsOfArticle(i){
-    const s=this.state.reforme.impot_revenu.bareme.seuils;
-    const t=this.state.reforme.impot_revenu.bareme.taux;
-    const bases=this.state.basecode.impot_revenu.bareme.seuils;
-    const baset=this.state.basecode.impot_revenu.bareme.taux;
-    const nbt=s.length;
-  const styleAUtiliser = (i>4)? style.TypographyNouvelleTranche:style.Typography;
-    //Part 1
-    if (i==0) {
-        return(
-            <Typography variant="body2" color="inherit" style={styleAUtiliser}>
-                    {"1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"}
-                    <OutputField value={bases[i]} style={style.VarCodeexistant}/>
-                    <InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+i} style={style.InputSeuil}/>{"€ le taux de :"}
+        return (
+            <Typography variant="body2" color="inherit">
+                4. a. Le montant de l'impôt résultant de l'application des dispositions précédentes
+                est diminué, dans la limite de son montant, de la différence entre
+                {" "}
+                <OutputField value={basescelib} style={style.VarCodeexistant} />
+                <InputField
+                    value={scelib}
+                    onChange={this.handleS1Change}
+                    name="decote.seuil_celib"
+                    style={style.InputSeuil}
+                />
+                € et les trois quarts de son montant pour les contribuables célibataires, divorcés
+                ou veufs et de la différence entre
+                <OutputField value={basescouple} style={style.VarCodeexistant} />
+                <InputField
+                    value={scouple}
+                    onChange={this.handleS1Change}
+                    name="decote.seuil_couple"
+                    style={style.InputSeuil}
+                />
+                {" "}
+                € et les trois quarts de son montant pour les contribuables soumis à imposition
+                commune.
             </Typography>
-        );
+        )
     }
-    //Last part
-    if (i==nbt){
-        return(
-          <Typography variant="body2" color="inherit" style={styleAUtiliser}>
-            {"– "}
-            <OutputField value={baset[i-1]} style={style.VarCodeexistant}/>
-            <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux" + (i-1)} style={style.InputTaux}/>{"% pour la fraction supérieure à "}
-            <OutputField value={s[i-1]}/>{"€."}
-          </Typography>
-        );
+
+    gimmeIRPartsOfArticle(i) {
+        const s = this.state.reforme.impot_revenu.bareme.seuils
+        const t = this.state.reforme.impot_revenu.bareme.taux
+        const bases = this.state.basecode.impot_revenu.bareme.seuils
+        const baset = this.state.basecode.impot_revenu.bareme.taux
+        const nbt = s.length
+        const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography
+        // Part 1
+        if (i == 0) {
+            return (
+                <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+                    {
+                        "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
+                    }
+                    <OutputField value={bases[i]} style={style.VarCodeexistant} />
+                    <InputField
+                        value={s[i]}
+                        onChange={this.handleS1Change}
+                        name={`seuil${i}`}
+                        style={style.InputSeuil}
+                    />
+                    {"€ le taux de :"}
+                </Typography>
+            )
+        }
+        // Last part
+        if (i == nbt) {
+            return (
+                <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+                    {"– "}
+                    <OutputField value={baset[i - 1]} style={style.VarCodeexistant} />
+                    <InputField
+                        value={t[i - 1]}
+                        onChange={this.handleS1Change}
+                        name={`taux${i - 1}`}
+                        style={style.InputTaux}
+                    />
+                    {"% pour la fraction supérieure à "}
+                    <OutputField value={s[i - 1]} />
+                    {"€."}
+                </Typography>
+            )
+        }
+        // Other parts :
+        return (
+            <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+                –
+                {" "}
+                <OutputField value={baset[i - 1]} style={style.VarCodeexistant} />
+                <InputField
+                    value={t[i - 1]}
+                    onChange={this.handleS1Change}
+                    name={`taux${i - 1}`}
+                    style={style.InputTaux}
+                />
+                % pour la fraction supérieure à
+                {" "}
+                <OutputField value={s[i - 1]} />
+                € et inférieure ou égale à
+                <OutputField value={bases[i]} style={style.VarCodeexistant} />
+                <InputField
+                    value={s[i]}
+                    onChange={this.handleS1Change}
+                    name={`seuil${i}`}
+                    style={style.InputSeuil}
+                />
+                {" "}
+                € ;
+            </Typography>
+        )
     }
-    //Other parts :
-    return( <Typography variant="body2" color="inherit" style={styleAUtiliser}>
-            – <OutputField value={baset[i-1]} style={style.VarCodeexistant}/>
-            <InputField value={t[i-1]} onChange={this.handleS1Change} name={"taux"+(i-1)} style={style.InputTaux}/>% pour la fraction
-            supérieure à <OutputField value={s[i-1]}/>€
-            et inférieure ou égale à<OutputField value={bases[i]} style={style.VarCodeexistant}/>
-                <InputField value={s[i]} onChange={this.handleS1Change} name={"seuil"+(i)} style={style.InputSeuil}/> € ;
-     </Typography>
-    );
 
-  }
+    render() {
+        const { expanded, reforme, basecode } = this.state
+        const styleExpansionpanel = {
+            padding: "1px",
+        }
 
-  render() {
-      const { expanded ,reforme,basecode} = this.state
-      const styleExpansionpanel = {
-          padding: "1px",
-      }
+        const articleTranches = []
+        for (let i = 0; i <= reforme.impot_revenu.bareme.seuils.length; i++) {
+            articleTranches.push(this.gimmeIRPartsOfArticle(i))
+        }
 
-      let articleTranches=[]
-      for ( let i=0;i<=reforme.impot_revenu.bareme.seuils.length;i++){
-        articleTranches.push(this.gimmeIRPartsOfArticle(i));
-      }
-
-      return (
-
-          <div style={style.Div}>
-
-             {/*` <Typography  inline variant="h2" color="#6C6C6C">
+        return (
+            <div style={style.Div}>
+                {/* ` <Typography  inline variant="h2" color="#6C6C6C">
                     Article 197
               </Typography>
 
@@ -271,102 +316,136 @@ class Article extends React.Component {
                     - Code général des impôts
               </Typography>
 
-              <SelectControl />*/}
+              <SelectControl /> */}
 
-              <ExpansionPanel
-                  style={style.Typography}
-                  square
-                  expanded={expanded === "panel1"}
-                  onChange={this.handleChange("panel1")}
-              >
+                <ExpansionPanel
+                    style={style.Typography}
+                    square
+                    expanded={expanded === "panel1"}
+                    onChange={this.handleChange("panel1")}
+                >
+                    <ExpansionPanelSummary
+                        style={styleExpansionpanel}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <Typography variant="body2" color="inherit">
+                            I. En ce qui concerne les contribuables ...
+                        </Typography>
+                    </ExpansionPanelSummary>
 
-                  <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
-                      <Typography variant="body2" color="inherit">
-                                    I. En ce qui concerne les contribuables ...
-                      </Typography>
+                    <ExpansionPanelDetails style={styleExpansionpanel}>
+                        <Typography variant="body2" color="inherit">
+                            visés à l&#39;article 4 B, il est fait application des règles suivantes
+                            pour le calcul de l&#39;impôt sur le revenu :
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+                {articleTranches}
+                <Button style={style.Button} onClick={this.handleAddTranche}>
+                    <Fab size="small" color="primary">
+                        <AddIcon />
+                    </Fab>
+                    <Typography variant="overline" color="primary" style={style.Typographybouton}>
+                        Ajouter une tranche
+                    </Typography>
+                </Button>
 
-                  </ExpansionPanelSummary>
+                <Button style={style.Button} onClick={this.handleRemoveTranche}>
+                    <Fab size="small" color="primary">
+                        <DeleteIcon />
+                    </Fab>
+                    <Typography variant="overline" color="primary" style={style.Typographybouton}>
+                        Supprimer une tranche
+                    </Typography>
+                </Button>
 
-                  <ExpansionPanelDetails style={styleExpansionpanel}>
-                      <Typography variant="body2" color="inherit">
-                               visés à l&#39;article 4 B, il est fait application des règles suivantes pour le calcul de l&#39;impôt sur le revenu :
-                      </Typography>
-                  </ExpansionPanelDetails>
+                <ExpansionPanel
+                    style={style.Typography}
+                    square
+                    expanded={expanded === "panel1"}
+                    onChange={this.handleChange("panel1")}
+                >
+                    <ExpansionPanelSummary
+                        style={styleExpansionpanel}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <Typography variant="body2" color="inherit">
+                            2. La réduction d&#39;impôt résultant de l&#39;application du quotient
+                            familial ...
+                        </Typography>
+                    </ExpansionPanelSummary>
 
-              </ExpansionPanel>
-              {articleTranches}
-              <Button style={style.Button} onClick={this.handleAddTranche}>
-                  <Fab size="small" color="primary">
-                      <AddIcon />
-                  </Fab>
-                  <Typography variant="overline" color="primary" style={style.Typographybouton}>
-                            Ajouter une tranche
-                  </Typography>
-              </Button>
+                    <ExpansionPanelDetails style={styleExpansionpanel}>
+                        <Typography variant="body2" color="inherit">
+                            ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme
+                            par quart de part s&#39;ajoutant à une part pour les contribuables
+                            célibataires, divorcés, veufs ou soumis à l&#39;imposition distincte
+                            prévue au 4 de l&#39;article 6 et à deux parts pour les contribuables
+                            mariés soumis à une imposition commune.
+                            <p />
+                            Toutefois, pour les contribuables célibataires, divorcés, ou soumis à
+                            l&#39;imposition distincte prévue au 4 de l&#39;article 6 qui répondent
+                            aux conditions fixées au II de l&#39;article 194, la réduction
+                            d&#39;impôt correspondant à la part accordée au titre du premier enfant
+                            à charge est limitée à 3 660 € Lorsque les contribuables entretiennent
+                            uniquement des enfants dont la charge est réputée également partagée
+                            entre l&#39;un et l&#39;autre des parents, la réduction d&#39;impôt
+                            correspondant à la demi-part accordée au titre de chacun des deux
+                            premiers enfants est limitée à la moitié de cette somme. Par dérogation
+                            aux dispositions du premier alinéa, la réduction d&#39;impôt résultant
+                            de l&#39;application du quotient familial, accordée aux contribuables
+                            qui bénéficient des dispositions des a, b et e du 1 de l&#39;article
+                            195, ne peut excéder 927 € ;
+                            <br />
+                            Les contribuables qui bénéficient d'une demi-part au titre des a, b, c,
+                            d, d bis, e et f du 1 ainsi que des 2 à 6 de l'article 195 ont droit à
+                            une réduction d'impôt égale à 1 547 € pour chacune de ces demi-parts
+                            lorsque la réduction de leur cotisation d'impôt est plafonnée en
+                            application du premier alinéa. La réduction d'impôt est égale à la
+                            moitié de cette somme lorsque la majoration visée au 2 de l'article 195
+                            est de un quart de part. Cette réduction d'impôt ne peut toutefois
+                            excéder l'augmentation de la cotisation d'impôt résultant du
+                            plafonnement. Les contribuables veufs ayant des enfants à charge qui
+                            bénéficient d'une part supplémentaire de quotient familial en
+                            application du I de l'article 194 ont droit à une réduction d'impôt
+                            égale à 1 728 € pour cette part supplémentaire lorsque la réduction de
+                            leur cotisation d'impôt est plafonnée en application du premier alinéa
+                            du présent 2. Cette réduction d'impôt ne peut toutefois excéder
+                            l'augmentation de la cotisation d'impôt résultant du plafonnement.
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
 
-              <Button style={style.Button} onClick={this.handleRemoveTranche}>
-                  <Fab size="small" color="primary">
-                      <DeleteIcon />
-                  </Fab>
-                  <Typography variant="overline" color="primary" style={style.Typographybouton}>
-                            Supprimer une tranche
-                  </Typography>
-              </Button>
+                <ExpansionPanel
+                    style={style.Typography}
+                    square
+                    expanded={expanded === "panel3"}
+                    onChange={this.handleChange("panel3")}
+                >
+                    <ExpansionPanelSummary
+                        style={styleExpansionpanel}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <Typography variant="body2" color="inherit">
+                            3. Le montant de l'impôt résultant de l'application des dispositions
+                            précédentes est réduit de 30 %, dans la limite de 2 450 €...
+                        </Typography>
+                    </ExpansionPanelSummary>
 
-              <ExpansionPanel
-                  style={style.Typography}
-                  square
-                  expanded={expanded === "panel1"}
-                  onChange={this.handleChange("panel1")}
-              >
+                    <ExpansionPanelDetails style={styleExpansionpanel}>
+                        <Typography variant="body2" color="inherit">
+                            ...pour les contribuables domiciliés dans les départements de la
+                            Guadeloupe, de la Martinique et de la Réunion ; cette réduction est
+                            égale à 40 %, dans la limite de 4 050 €, pour les contribuables
+                            domiciliés dans les départements de la Guyane et de Mayotte ;
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
 
-                  <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
-                      <Typography variant="body2" color="inherit">
-                                    2. La réduction d&#39;impôt résultant de l&#39;application du quotient familial ...
-                      </Typography>
-
-                  </ExpansionPanelSummary>
-
-                  <ExpansionPanelDetails style={styleExpansionpanel}>
-                      <Typography variant="body2" color="inherit">
-                      ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme par quart de part s&#39;ajoutant à une part pour les contribuables célibataires, divorcés, veufs ou soumis à l&#39;imposition distincte prévue au 4 de l&#39;article 6 et à deux parts pour les contribuables mariés soumis à une imposition commune.<p></p>
-                                Toutefois, pour les contribuables célibataires, divorcés, ou soumis à l&#39;imposition distincte prévue au 4 de l&#39;article 6 qui répondent aux conditions fixées au II de l&#39;article 194, la réduction d&#39;impôt correspondant à la part accordée au titre du premier enfant à charge est limitée à 3 660 € Lorsque les contribuables entretiennent uniquement des enfants dont la charge est réputée également partagée entre l&#39;un et l&#39;autre des parents, la réduction d&#39;impôt correspondant à la demi-part accordée au titre de chacun des deux premiers enfants est limitée à la moitié de cette somme.
-                                Par dérogation aux dispositions du premier alinéa, la réduction d&#39;impôt résultant de l&#39;application du quotient familial, accordée aux contribuables qui bénéficient des dispositions des a, b et e du 1 de l&#39;article 195, ne peut excéder 927 € ;<br/>
-                                Les contribuables qui bénéficient d'une demi-part au titre des a, b, c, d, d bis, e et f du 1 ainsi que des 2 à 6 de l'article 195 ont droit à une réduction d'impôt égale à 1 547 € pour chacune de ces demi-parts lorsque la réduction de leur cotisation d'impôt est plafonnée en application du premier alinéa. La réduction d'impôt est égale à la moitié de cette somme lorsque la majoration visée au 2 de l'article 195 est de un quart de part. Cette réduction d'impôt ne peut toutefois excéder l'augmentation de la cotisation d'impôt résultant du plafonnement.
-                                Les contribuables veufs ayant des enfants à charge qui bénéficient d'une part supplémentaire de quotient familial en application du I de l'article 194 ont droit à une réduction d'impôt égale à 1 728 € pour cette part supplémentaire lorsque la réduction de leur cotisation d'impôt est plafonnée en application du premier alinéa du présent 2. Cette réduction d'impôt ne peut toutefois excéder l'augmentation de la cotisation d'impôt résultant du plafonnement.
-                      </Typography>
-                  </ExpansionPanelDetails>
-
-
-                  </ExpansionPanel>
-
-                  <ExpansionPanel
-                  style={style.Typography}
-                  square
-                  expanded={expanded === "panel3"}
-                  onChange={this.handleChange("panel3")}
-              >
-                  <ExpansionPanelSummary style={styleExpansionpanel} expandIcon={<ExpandMoreIcon />}>
-                      <Typography variant="body2" color="inherit">
-                          3. Le montant de l'impôt résultant de l'application des dispositions précédentes est réduit de 30 %, dans la limite de 2 450 €...
-                      </Typography>
-                  </ExpansionPanelSummary>
-
-                  <ExpansionPanelDetails style={styleExpansionpanel}>
-                      <Typography variant="body2" color="inherit">
-                        ...pour les contribuables domiciliés dans les départements de la Guadeloupe, de la Martinique et de la Réunion ; cette réduction est égale à 40 %, dans la limite de 4 050 €, pour les contribuables domiciliés dans les départements de la Guyane et de Mayotte ;
-                      </Typography>
-                  </ExpansionPanelDetails>
-
-
-              </ExpansionPanel>
-
-              {this.alinea4()}
-
-          </div>
-
-      )
-  }
+                {this.alinea4()}
+            </div>
+        )
+    }
 }
 
 export default Article

@@ -1,6 +1,5 @@
 // import { AppBar, Toolbar, Typography,Button } from "@material-ui/core"
 
-
 // import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider';
 // import getPageContext from '../lib/getPageContext'
 
@@ -18,7 +17,6 @@
 
 //      </Toolbar>
 //   </AppBar>
-
 
 import React from "react"
 import PropTypes from "prop-types"
@@ -41,7 +39,6 @@ import NotificationsIcon from "@material-ui/icons/Notifications"
 import MoreIcon from "@material-ui/icons/MoreVert"
 import FormatListNumbered from "@material-ui/icons/FormatListNumbered"
 
-
 const styles = theme => ({
     root: {
         width: "100%",
@@ -58,7 +55,6 @@ const styles = theme => ({
         display: "none",
         [theme.breakpoints.up("sm")]: {
             display: "block",
-                  
         },
     },
 
@@ -70,10 +66,10 @@ const styles = theme => ({
         textUnderlinePosition: "under",
         paddingleft: 30,
         paddingRight: 30,
-        marginLeft:30,
+        marginLeft: 30,
     },
 
-  /*  search: {
+    /*  search: {
         position: "relative",
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -130,137 +126,140 @@ const styles = theme => ({
 })
 
 class PrimarySearchAppBar extends React.Component {
-  state = {
-      anchorEl: null,
-      mobileMoreAnchorEl: null,
-  };
+    state = {
+        anchorEl: null,
+        mobileMoreAnchorEl: null,
+    }
 
-  handleProfileMenuOpen = (event) => {
-      this.setState({ anchorEl: event.currentTarget })
-  };
+    handleProfileMenuOpen = (event) => {
+        this.setState({ anchorEl: event.currentTarget })
+    }
 
-  handleMenuClose = () => {
-      this.setState({ anchorEl: null })
-      this.handleMobileMenuClose()
-  };
+    handleMenuClose = () => {
+        this.setState({ anchorEl: null })
+        this.handleMobileMenuClose()
+    }
 
-  handleMobileMenuOpen = (event) => {
-      this.setState({ mobileMoreAnchorEl: event.currentTarget })
-  };
+    handleMobileMenuOpen = (event) => {
+        this.setState({ mobileMoreAnchorEl: event.currentTarget })
+    }
 
-  handleMobileMenuClose = () => {
-      this.setState({ mobileMoreAnchorEl: null })
-  };
+    handleMobileMenuClose = () => {
+        this.setState({ mobileMoreAnchorEl: null })
+    }
 
-  render() {
-      const { anchorEl, mobileMoreAnchorEl } = this.state
-      const { classes } = this.props
-      const isMenuOpen = Boolean(anchorEl)
-      const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
+    render() {
+        const { anchorEl, mobileMoreAnchorEl } = this.state
+        const { classes } = this.props
+        const isMenuOpen = Boolean(anchorEl)
+        const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
-      const renderMenu = (
-          <Menu
-              anchorEl={anchorEl}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-              open={isMenuOpen}
-              onClose={this.handleMenuClose}
-          >
-              <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
-              <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
-          </Menu>
-      )
+        const renderMenu = (
+            <Menu
+                anchorEl={anchorEl}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                transformOrigin={{ vertical: "top", horizontal: "right" }}
+                open={isMenuOpen}
+                onClose={this.handleMenuClose}
+            >
+                <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
+                <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
+            </Menu>
+        )
 
-      const renderMobileMenu = (
-          <Menu
-              anchorEl={mobileMoreAnchorEl}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-              open={isMobileMenuOpen}
-              onClose={this.handleMenuClose}
-          >
+        const renderMobileMenu = (
+            <Menu
+                anchorEl={mobileMoreAnchorEl}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                transformOrigin={{ vertical: "top", horizontal: "right" }}
+                open={isMobileMenuOpen}
+                onClose={this.handleMenuClose}
+            >
+                <MenuItem onClick={this.handleMobileMenuClose}>
+                    <IconButton color="inherit">
+                        <Badge badgeContent={11} color="secondary">
+                            <FormatListNumbered />
+                        </Badge>
+                    </IconButton>
+                    <p>Notifications</p>
+                </MenuItem>
+                <MenuItem onClick={this.handleProfileMenuOpen}>
+                    <IconButton color="inherit">
+                        <AccountCircle />
+                    </IconButton>
+                    <p>Compte personnel</p>
+                </MenuItem>
+            </Menu>
+        )
 
-              <MenuItem onClick={this.handleMobileMenuClose}>
-                  <IconButton color="inherit">
-                      <Badge badgeContent={11} color="secondary">
-                          <FormatListNumbered />
-                      </Badge>
-                  </IconButton>
-                  <p>Notifications</p>
-              </MenuItem>
-              <MenuItem onClick={this.handleProfileMenuOpen}>
-                  <IconButton color="inherit">
-                      <AccountCircle />
-                  </IconButton>
-                  <p>Compte personnel</p>
-              </MenuItem>
-          </Menu>
-      )
+        // A ajouter dans return si on veut une barre de recherche :
+        // <div className={classes.search}>
+        //  <div className={classes.searchIcon}>
+        //  <SearchIcon />
+        // </div>
+        // <InputBase
+        // placeholder="Rechercher…"
+        // classes={{
+        // root: classes.inputRoot,
+        // input: classes.inputInput,
+        // }}
+        //    />
+        // </div>
 
-
-      // A ajouter dans return si on veut une barre de recherche :
-      // <div className={classes.search}>
-      //  <div className={classes.searchIcon}>
-      //  <SearchIcon />
-      // </div>
-      // <InputBase
-      // placeholder="Rechercher…"
-      // classes={{
-      // root: classes.inputRoot,
-      // input: classes.inputInput,
-      // }}
-      //    />
-      // </div>
-
-      return (
-          <div className={classes.root}>
-              <AppBar position="static">
-                  <Toolbar>
-                      {/*<IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+        return (
+            <div className={classes.root}>
+                <AppBar position="static">
+                    <Toolbar>
+                        {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                           <MenuIcon />
                       </IconButton> */}
-                      <Typography className={classes.title} variant="h1" color="inherit" noWrap>
-                          LexImpact
-                      </Typography>
+                        <Typography className={classes.title} variant="h1" color="inherit" noWrap>
+                            LexImpact
+                        </Typography>
 
+                        <div className={classes.search}>
+                            <Button
+                                variant="button"
+                                color="inherit"
+                                className={classes.impotsurlerevenu}
+                            >
+                                Impôt sur le revenu
+                            </Button>
+                        </div>
 
-                      <div className={classes.search}>
-                          <Button variant="button" color="inherit" className={classes.impotsurlerevenu}>
-                            Impôt sur le revenu
-                          </Button>
-                      </div>
+                        <div className={classes.grow} />
+                        <div className={classes.sectionDesktop}>
+                            <IconButton color="inherit">
+                                <Badge badgeContent={3} color="secondary">
+                                    <FormatListNumbered />
+                                </Badge>
+                            </IconButton>
 
-                      <div className={classes.grow} />
-                      <div className={classes.sectionDesktop}>
-
-                          <IconButton color="inherit">
-                              <Badge badgeContent={3} color="secondary">
-                                  <FormatListNumbered />
-                              </Badge>
-                          </IconButton>
-
-                          <IconButton
-                              aria-owns={isMenuOpen ? "material-appbar" : undefined}
-                              aria-haspopup="true"
-                              onClick={this.handleProfileMenuOpen}
-                              color="inherit"
-                          >
-                              <AccountCircle />
-                          </IconButton>
-
-                      </div>
-                      <div className={classes.sectionMobile}>
-                          <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
-                              <MoreIcon />
-                          </IconButton>
-                      </div>
-                  </Toolbar>
-              </AppBar>
-              {renderMenu}
-              {renderMobileMenu}
-          </div>
-      )
-  }
+                            <IconButton
+                                aria-owns={isMenuOpen ? "material-appbar" : undefined}
+                                aria-haspopup="true"
+                                onClick={this.handleProfileMenuOpen}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        </div>
+                        <div className={classes.sectionMobile}>
+                            <IconButton
+                                aria-haspopup="true"
+                                onClick={this.handleMobileMenuOpen}
+                                color="inherit"
+                            >
+                                <MoreIcon />
+                            </IconButton>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+                {renderMenu}
+                {renderMobileMenu}
+            </div>
+        )
+    }
 }
 
 PrimarySearchAppBar.propTypes = {

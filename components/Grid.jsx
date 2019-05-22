@@ -26,7 +26,5 @@ export default props => (
         <Grid item sm={6}>
             <SimpleCard />
         </Grid>
-
-
     </Grid>
 )
