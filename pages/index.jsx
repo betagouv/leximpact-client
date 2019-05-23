@@ -8,10 +8,21 @@ import {
     DialogContent,
     DialogContentText,
     DialogActions,
+    Paper,
+    Item,
 } from "@material-ui/core"
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
+import SimpleCard from "components/SimpleCard"
+import Grid from "components/Grid"
+import CardHeader from "@material-ui/core/CardHeader"
+import Header from "components/Header"
+import Reformeur from "components/Reformeur"
+import Impact from "components/Impact"
+import TabMobile from "components/TabMobile"
+import Drawer from "components/Drawer"
+import MediaQuery from "react-responsive"
 import "styles/index.scss"
 
 const Plot = dynamic(import("components/Plot"), { ssr: false })
@@ -19,7 +30,7 @@ const Plot = dynamic(import("components/Plot"), { ssr: false })
 function styles(theme) {
     const { mixins, spacing } = theme
 
-    return ({
+    return {
         root: {
             paddingTop: spacing.unit * 5,
             textAlign: "center",
@@ -34,7 +45,13 @@ function styles(theme) {
         dorine: {
             background: "red",
         },
-    })
+        article: {
+            margin: "1em",
+            padding: "2em",
+            opacity: 1,
+            position: "relative",
+        },
+    }
 }
 
 type Props = {
@@ -52,32 +69,23 @@ function index({ classes }: Props) {
         return setOpen(true)
     }
 
+    const desktop = 1025
+    const tablet = 768 // and max-width: 1024px
+    const phone = 767
+
+    // const hugeScreen = 1824
+    // const desktopServerRendering = 1600
+    // const phoneOrTablet = 1224
+
     return (
         <Fragment>
-            <Head><title>LexImpact</title></Head>
-            <div className={`${classes.root} dorine`}>
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Combien ça coûte ?</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>1 000 000 €</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button color="primary" onClick={handleClose}>OK</Button>
-                    </DialogActions>
-                </Dialog>
-                <Typography variant="h1" gutterBottom>LexImpact</Typography>
-                <Plot />
-                <Button variant="contained" color="secondary" onClick={handleClick}>Calculer</Button>
-                <div className={classes.dorine}>
-                    asdsadf
-                </div>
-            </div>
+            <Header />
+            <Head>
+                <title>LexImpact</title>
+            </Head>
+            <Reformeur />
         </Fragment>
     )
 }
 
-export default (
-    index
-    |> (_ => withStyles(styles)(_))
-    |> withRoot
-)
+export default index |> (_ => withStyles(styles)(_)) |> withRoot
