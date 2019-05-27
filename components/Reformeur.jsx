@@ -244,6 +244,16 @@ class Reformeur extends Component {
                 newnbt,
             )
             this.setState({ reforme: refbase })
+            const bodyreq = this.cas_types_defaut
+                ? JSON.stringify({
+                    deciles: false,
+                    reforme: refbase,
+                })
+                : JSON.stringify({
+                    reforme: refbase,
+                    description_cas_types: this.state.cas_types,
+                })
+            this.updateCompare(bodyreq)
         }
     }
 
