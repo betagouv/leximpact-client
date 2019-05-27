@@ -366,14 +366,15 @@ class Reformeur extends Component {
         const desktop = 1280
         const tablet = 960 // and max-width: 1024px
         const phone = 600
+        const bigscreen=1920
         return (
             <Fragment>
                 <div className="main-index">
                         {/* <div>You are a desktop or laptop</div> */}
                     <MediaQuery minDeviceWidth={phone+1}>
-                        <MediaQuery minDeviceWidth={1920}>
-                            {/* <div>You also have a huge screen</div> */}
-                        </MediaQuery>
+                        {/*<MediaQuery minDeviceWidth={bigscreen}>
+                             <div>You also have a huge screen</div> 
+                        </MediaQuery> */}
                         <MediaQuery maxWidth={phone}>
                             {(matches) => {
                                 if (matches) {
