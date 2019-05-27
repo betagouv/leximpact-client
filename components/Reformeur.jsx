@@ -364,15 +364,15 @@ class Reformeur extends Component {
     render() {
         const { classes, theme } = this.props
         console.log("et je rends reformeur nouveau", this.state)
-        const desktop = 1025
-        const tablet = 768 // and max-width: 1024px
-        const phone = 767
+        const desktop = 1280
+        const tablet = 960 // and max-width: 1024px
+        const phone = 600
         return (
             <Fragment>
                 <div className="main-index">
                         {/* <div>You are a desktop or laptop</div> */}
                     <MediaQuery minDeviceWidth={phone+1}>
-                        <MediaQuery minDeviceWidth={1824}>
+                        <MediaQuery minDeviceWidth={1920}>
                             {/* <div>You also have a huge screen</div> */}
                         </MediaQuery>
                         <MediaQuery maxWidth={phone}>
@@ -509,6 +509,56 @@ class Reformeur extends Component {
                             </div>
                         </div>
                     </MediaQuery>
+
+
+
+                   {/* >>> Essayer de créer une média query spécial tablette 
+                   } <MediaQuery minDeviceWidth={768} maxDeviceWidth={1024} orientation={'portrait'}>
+                        {/* <div>You are a tablet or mobile phone</div> 
+                        <div>
+                            {/* <div>You are sized like a tablet or mobile phone though</div> 
+                            <div className={classes.root}>
+                                <AppBar position="static" color="default">
+                                    <Tabs
+                                        value={this.state.indextab}
+                                        onChange={this.handleTabChange}
+                                        indicatorColor="primary"
+                                        textColor="primary"
+                                        variant="fullWidth"
+                                    >
+                                        <Tab label="Loi" />
+                                        <Tab label="Impacts" />
+                                    </Tabs>
+                                </AppBar>
+                                <SwipeableViews
+                                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                                    index={this.state.indextab}
+                                    onChangeIndex={this.handleIndexChange}
+                                >
+                                    <TabContainer dir={theme.direction}>
+                                        <ArticleHeader />
+                                        <Article
+                                            reforme={this.state.reforme}
+                                            reformebase={this.state.reformebase}
+                                            onChange={this.handleChange}
+                                            addTranche={this.addTranche}
+                                        />
+                                    </TabContainer>
+                                    <TabContainer dir={theme.direction}>
+                                        <Impact
+                                            loading={this.state.loading}
+                                            onRevenuChange={this.handleRevenuChange}
+                                            res_brut={this.state.res_brut}
+                                            total_pop={this.state.total_pop}
+                                            onClick={this.simPop}
+                                            cas_types={this.state.cas_types}
+                                        />
+                                    </TabContainer>
+                                </SwipeableViews>
+                            </div>
+                        </div>
+                    </MediaQuery>
+
                     {/*
                 <MediaQuery orientation="portrait">
                   <div>You are portrait</div>
