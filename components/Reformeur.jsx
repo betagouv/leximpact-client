@@ -286,10 +286,9 @@ class Reformeur extends Component {
             })
     }
 
-    handleChange(e) {
-        const { name } = e.target
+    handleChange(value,name) {
         const success = false
-        const newvalue = e.target.value == "" ? 0 : e.target.value
+        const newvalue = value == "" ? 0 : value
         if (name.substring(0, 5) == "seuil") {
             const numb = parseInt(name.substring(5), 10)
             this.UpdateBareme(numb, newvalue)
