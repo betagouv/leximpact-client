@@ -42,13 +42,6 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
-    pom_rouge: {
-        color: "#FF0000",
-    },
-    pom_verte: {
-        color: "#00FF00",
-    },
-
     div: {
         padding: 7,
     },
@@ -86,7 +79,7 @@ class SimpleCard extends React.Component {
 
     render() {
         const {
-            classes, index, desc_cas_type, impots_avant, delta, loading,
+            classes, index, desc_cas_type, impots_avant, impots_apres, loading,
         } = this.props
         const bull = <span className={classes.bullet}>•</span>
 
@@ -152,29 +145,28 @@ class SimpleCard extends React.Component {
                         )}
                         {isret ? <Chip label="Retraités" /> : ""}
                     </div>
-                    {loading ? (
-                        <CircularProgress color="secondary" />
-                    ) : (
-                        <div className={classes.div}>
-                            <Typography inline variant="h3" color="primary" gutterBottom>
-                                {-impots_avant}
-                            </Typography>
-                            <Typography
-                                inline
-                                variant="h5"
-                                className={delta > 0 ? classes.pom_verte : classes.pom_rouge}
-                                gutterBottom
-                            >
-                                {delta > 0 ? "-" : "+"}
-                            </Typography>
-                            <Typography inline variant="h3" color="secondary" gutterBottom>
-                                {Math.abs(delta)}
-                            </Typography>
-                            <Typography inline variant="h5" color="secondary" gutterBottom>
-                                €
-                            </Typography>
-                        </div>
-                    )}
+                    
+                    <div className={classes.div}>
+                        <Typography inline variant="h3" color="primary" gutterBottom>
+                            {-impots_avant}
+                        </Typography>
+                        <Typography inline variant="h5" color="primary" gutterBottom>
+                            €
+                        </Typography>
+                        <br></br>
+                        {loading ? (
+                            <CircularProgress color="secondary" />
+                        ) : (
+                            <>
+                                <Typography inline variant="h3" color="secondary" gutterBottom>
+                                    {-impots_apres}
+                                </Typography>
+                                <Typography inline variant="h5" color="secondary" gutterBottom>
+                                    €
+                                </Typography>
+                            </>
+                        )}
+                    </div>
                 </CardContent>
             </Card>
         )

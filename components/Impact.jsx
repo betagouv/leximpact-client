@@ -38,7 +38,7 @@ class Impact extends Component {
                             index={i}
                             desc_cas_type={ct}
                             impots_avant={res_brut.avant[i]}
-                            delta={res_brut.apres[i] - res_brut.avant[i]}
+                            impots_apres={res_brut.apres[i]}
                         />
                     </Grid>
                 ))}
