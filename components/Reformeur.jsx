@@ -77,19 +77,19 @@ class Reformeur extends Component {
             res_brut: {
                 apres: {
                     0: 0,
-                    1: -492,
+                    1: -626,
                     2: 0,
-                    3: -233,
-                    4: -891,
-                    5: -29355,
+                    3: 0,
+                    4: -492,
+                    5: 0,
                 },
                 avant: {
                     0: 0,
-                    1: -492,
+                    1: -626,
                     2: 0,
-                    3: -233,
-                    4: -891,
-                    5: -29355,
+                    3: 0,
+                    4: -492,
+                    5: 0,
                 },
                 wprm: {
                     0: 1,
@@ -111,7 +111,28 @@ class Reformeur extends Component {
                     nombre_declarants: 1,
                     nombre_declarants_retraites: 0,
                     nombre_personnes_a_charge: 0,
-                    revenu: 19500,
+                    revenu: 15600,
+                },
+                {
+                    guadeloupe: false,
+                    nombre_declarants: 1,
+                    nombre_declarants_retraites: 0,
+                    nombre_personnes_a_charge: 1,
+                    revenu: 31200,
+                },
+                {
+                    guadeloupe: false,
+                    nombre_declarants: 2,
+                    nombre_declarants_retraites: 0,
+                    nombre_personnes_a_charge: 0,
+                    revenu: 38400,
+                },
+                {
+                    guadeloupe: false,
+                    nombre_declarants: 2,
+                    nombre_declarants_retraites: 2,
+                    nombre_personnes_a_charge: 0,
+                    revenu: 15600,
                 },
                 {
                     guadeloupe: false,
@@ -126,28 +147,7 @@ class Reformeur extends Component {
                     nombre_declarants_retraites: 0,
                     nombre_personnes_a_charge: 2,
                     revenu: 55200,
-                },
-                {
-                    guadeloupe: false,
-                    nombre_declarants: 2,
-                    nombre_declarants_retraites: 2,
-                    nombre_personnes_a_charge: 0,
-                    revenu: 32400,
-                },
-                {
-                    guadeloupe: false,
-                    nombre_declarants: 1,
-                    nombre_declarants_retraites: 0,
-                    nombre_personnes_a_charge: 1,
-                    revenu: 32400,
-                },
-                {
-                    guadeloupe: false,
-                    nombre_declarants: 1,
-                    nombre_declarants_retraites: 0,
-                    nombre_personnes_a_charge: 1,
-                    revenu: 144000,
-                },
+                }
             ],
             cas_types_defaut: true,
         }
@@ -266,7 +266,7 @@ class Reformeur extends Component {
     }
 
     endpoint = () => {
-        const execlocale = false
+        const execlocale = true
         return execlocale ? "http://127.0.0.1:5000" : "https://leximpact-server.scalingo.io"
     }
 
