@@ -136,10 +136,17 @@ class SimpleCard extends React.Component {
                             </NativeSelect>
                         </Tooltip>
                         {isguadeloupe ? (
+                             <Tooltip
+                                placement="bottom"
+                                title="Guadeloupe, Martinique ou Réunion"
+                                enterDelay={300}
+                                leaveDelay={200}
+                            >
                             <Chip
                                 icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                label="Guadeloupe"
+                                label="Outre-mer n° 1"
                             />
+                            </Tooltip>
                         ) : (
                             ""
                         )}
