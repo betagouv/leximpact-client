@@ -156,6 +156,7 @@ class Reformeur extends Component {
         this.removeTranche = this.removeTranche.bind(this)
         this.simPop = this.simPop.bind(this)
         this.handleRevenuChange = this.handleRevenuChange.bind(this)
+        this.handleOutreMerChange = this.handleOutreMerChange.bind(this)
     }
 
     componentDidMount() {
@@ -339,7 +340,19 @@ class Reformeur extends Component {
         this.setState({ cas_types: arrayrev, cas_types_defaut: false })
         const bodyreq = JSON.stringify({
             reforme: this.state.reforme,
-            description_cas_types: this.state.cas_types,
+            description_cas_types: arrayrev,
+        })
+        this.updateCompare(bodyreq)
+    }
+
+    handleOutreMerChange = (i, value) => {
+        const arrayrev = this.state.cas_types
+        arrayrev[i].outre_mer = value
+        console.log("om", arrayrev,value)
+        this.setState({ cas_types: arrayrev, cas_types_defaut: false })
+        const bodyreq = JSON.stringify({
+            reforme: this.state.reforme,
+            description_cas_types: arrayrev,
         })
         this.updateCompare(bodyreq)
     }
@@ -420,6 +433,7 @@ class Reformeur extends Component {
                                                         <Impact
                                                             loading={this.state.loading}
                                                             onRevenuChange={this.handleRevenuChange}
+                                                            onOutreMerChange={this.handleOutreMerChange}
                                                             res_brut={this.state.res_brut}
                                                             total_pop={this.state.total_pop}
                                                             onClick={this.simPop}
@@ -451,6 +465,7 @@ class Reformeur extends Component {
                                             <Impact
                                                 loading={this.state.loading}
                                                 onRevenuChange={this.handleRevenuChange}
+                                                onOutreMerChange={this.handleOutreMerChange}
                                                 res_brut={this.state.res_brut}
                                                 total_pop={this.state.total_pop}
                                                 onClick={this.simPop}
@@ -499,6 +514,7 @@ class Reformeur extends Component {
                                         <Impact
                                             loading={this.state.loading}
                                             onRevenuChange={this.handleRevenuChange}
+                                            onOutreMerChange={this.handleOutreMerChange}
                                             res_brut={this.state.res_brut}
                                             total_pop={this.state.total_pop}
                                             onClick={this.simPop}

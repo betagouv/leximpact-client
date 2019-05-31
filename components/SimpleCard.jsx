@@ -55,11 +55,17 @@ class SimpleCard extends React.Component {
     constructor(props) {
         super(props)
         this.handleChange = this.handleChange.bind(this)
+        this.handleOutreMerChange = this.handleOutreMerChange.bind(this)
         this.state = { loading: true }
     }
 
     handleChange = i => (event) => {
         this.props.onChange(i, event)
+    }
+
+    handleOutreMerChange = numcastype => (event) => {
+        //console.log("je suis dans l'outremer",numcastype,event,this.props.desc_cas_type.outre_mer)
+        this.props.onOutreMerChange(numcastype,3 - this.props.desc_cas_type.outre_mer)
     }
 
     roundedRevenues(revenumensuel) {
@@ -147,6 +153,8 @@ class SimpleCard extends React.Component {
                                 leaveDelay={200}
                             >
                             <Chip
+                                onClick={this.handleOutreMerChange(index)}
+                                clickable="true"
                                 icon={<Icon icon={desertIsland} width="20" height="20" />}
                                 label="Outre-mer n° 1"
                             />
@@ -161,6 +169,7 @@ class SimpleCard extends React.Component {
                            <Chip
                                icon={<Icon icon={desertIsland} width="20" height="20" />}
                                label="Outre-mer n° 2"
+                               onClick={this.handleOutreMerChange(index)}
                            />
                            </Tooltip>
                        ) : (
