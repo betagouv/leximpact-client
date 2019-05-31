@@ -91,6 +91,7 @@ class SimpleCard extends React.Component {
         const revtodisp = numberToRevenuparmois(revrounded)
         const isret = !!desc_cas_type.nombre_declarants_retraites
         const manfirst = Math.random() < 0.49
+        const coupledummsexe = Math.random() < 0.15
         const aretwo = desc_cas_type.nombre_declarants > 1
         const nbenfants = desc_cas_type.nombre_personnes_a_charge
         const isguadeloupe = desc_cas_type.guadeloupe
@@ -102,13 +103,15 @@ class SimpleCard extends React.Component {
             : isret
                 ? womanWhiteHaired
                 : womanCurlyHaired
-        const icon2 = !manfirst
-            ? isret
-                ? manWhiteHaired
-                : manCurlyHaired
-            : isret
-                ? womanWhiteHaired
-                : womanCurlyHaired
+        const icon2 = coupledummsexe ?
+            icon1
+            : !manfirst
+                ? isret
+                    ? manWhiteHaired
+                    : manCurlyHaired
+                : isret
+                    ? womanWhiteHaired
+                    : womanCurlyHaired
         const babyicons = [...Array(nbenfants)].map((e, i) => (
             <Icon icon={babyIcon} width="30" height="30" />
         ))
