@@ -94,7 +94,8 @@ class SimpleCard extends React.Component {
         const coupledummsexe = Math.random() < 0.15
         const aretwo = desc_cas_type.nombre_declarants > 1
         const nbenfants = desc_cas_type.nombre_personnes_a_charge
-        const isguadeloupe = desc_cas_type.guadeloupe
+        const isoutremer1 = (desc_cas_type.outre_mer == 1)
+        const isoutremer2 = (desc_cas_type.outre_mer == 2)
         // bruts par an
         const icon1 = manfirst
             ? isret
@@ -138,7 +139,7 @@ class SimpleCard extends React.Component {
 }
                             </NativeSelect>
                         </Tooltip>
-                        {isguadeloupe ? (
+                        {isoutremer1 ? (
                              <Tooltip
                                 placement="bottom"
                                 title="Guadeloupe, Martinique ou Réunion"
@@ -150,8 +151,21 @@ class SimpleCard extends React.Component {
                                 label="Outre-mer n° 1"
                             />
                             </Tooltip>
-                        ) : (
-                            ""
+                        ) : (isoutremer2 ? (
+                            <Tooltip
+                               placement="bottom"
+                               title="Guyane ou Mayotte"
+                               enterDelay={300}
+                               leaveDelay={200}
+                           >
+                           <Chip
+                               icon={<Icon icon={desertIsland} width="20" height="20" />}
+                               label="Outre-mer n° 2"
+                           />
+                           </Tooltip>
+                       ) : (
+                           ""
+                       )
                         )}
                         {isret ? <Chip label="Retraités" /> : ""}
                     </div>

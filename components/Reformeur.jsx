@@ -266,7 +266,7 @@ class Reformeur extends Component {
     }
 
     endpoint = () => {
-        const execlocale = true
+        const execlocale = false
         return execlocale ? "http://127.0.0.1:5000" : "https://leximpact-server.scalingo.io"
     }
 
