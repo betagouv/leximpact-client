@@ -10,6 +10,7 @@ class Impact extends Component {
         super(props)
         this.handleClick = this.handleClick.bind(this)
         this.handleChangeRevenu = this.handleChangeRevenu.bind(this)
+        this.handleChangeOutreMer = this.handleChangeOutreMer.bind(this)
     }
 
     handleClick(e) {
@@ -19,6 +20,10 @@ class Impact extends Component {
 
     handleChangeRevenu(i, e) {
         this.props.onRevenuChange(i, e.target.value)
+    }
+    
+    handleChangeOutreMer(i, v) {
+        this.props.onOutreMerChange(i, v)
     }
 
     render() {
@@ -35,10 +40,11 @@ class Impact extends Component {
                         <SimpleCard
                             loading={loading}
                             onChange={this.handleChangeRevenu}
+                            onOutreMerChange={this.handleChangeOutreMer}
                             index={i}
                             desc_cas_type={ct}
                             impots_avant={res_brut.avant[i]}
-                            delta={res_brut.apres[i] - res_brut.avant[i]}
+                            impots_apres={res_brut.apres[i]}
                         />
                     </Grid>
                 ))}

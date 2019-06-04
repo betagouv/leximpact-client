@@ -77,19 +77,19 @@ class Reformeur extends Component {
             res_brut: {
                 apres: {
                     0: 0,
-                    1: -522,
+                    1: -626,
                     2: 0,
-                    3: -188,
-                    4: -797,
-                    5: -31750,
+                    3: 0,
+                    4: -492,
+                    5: 0,
                 },
                 avant: {
                     0: 0,
-                    1: -522,
+                    1: -626,
                     2: 0,
-                    3: -188,
-                    4: -797,
-                    5: -31759,
+                    3: 0,
+                    4: -492,
+                    5: 0,
                 },
                 wprm: {
                     0: 1,
@@ -107,47 +107,47 @@ class Reformeur extends Component {
             indextab: 0,
             cas_types: [
                 {
-                    guadeloupe: false,
+                    outre_mer: 0,
                     nombre_declarants: 1,
                     nombre_declarants_retraites: 0,
                     nombre_personnes_a_charge: 0,
-                    revenu: 190,
+                    revenu: 15600,
                 },
                 {
-                    guadeloupe: false,
+                    outre_mer: 0,
+                    nombre_declarants: 1,
+                    nombre_declarants_retraites: 0,
+                    nombre_personnes_a_charge: 1,
+                    revenu: 31200,
+                },
+                {
+                    outre_mer: 0,
                     nombre_declarants: 2,
                     nombre_declarants_retraites: 0,
-                    nombre_personnes_a_charge: 2,
-                    revenu: 55238,
+                    nombre_personnes_a_charge: 0,
+                    revenu: 38400,
                 },
                 {
-                    guadeloupe: true,
-                    nombre_declarants: 2,
-                    nombre_declarants_retraites: 0,
-                    nombre_personnes_a_charge: 2,
-                    revenu: 55238,
-                },
-                {
-                    guadeloupe: false,
+                    outre_mer: 0,
                     nombre_declarants: 2,
                     nombre_declarants_retraites: 2,
                     nombre_personnes_a_charge: 0,
-                    revenu: 32000,
+                    revenu: 15600,
                 },
                 {
-                    guadeloupe: false,
-                    nombre_declarants: 1,
+                    outre_mer: 0,
+                    nombre_declarants: 2,
                     nombre_declarants_retraites: 0,
-                    nombre_personnes_a_charge: 1,
-                    revenu: 31914,
+                    nombre_personnes_a_charge: 2,
+                    revenu: 55200,
                 },
                 {
-                    guadeloupe: false,
-                    nombre_declarants: 1,
+                    outre_mer: 1,
+                    nombre_declarants: 2,
                     nombre_declarants_retraites: 0,
-                    nombre_personnes_a_charge: 1,
-                    revenu: 1505370,
-                },
+                    nombre_personnes_a_charge: 2,
+                    revenu: 55200,
+                }
             ],
             cas_types_defaut: true,
         }
@@ -156,6 +156,7 @@ class Reformeur extends Component {
         this.removeTranche = this.removeTranche.bind(this)
         this.simPop = this.simPop.bind(this)
         this.handleRevenuChange = this.handleRevenuChange.bind(this)
+        this.handleOutreMerChange = this.handleOutreMerChange.bind(this)
     }
 
     componentDidMount() {
@@ -244,6 +245,16 @@ class Reformeur extends Component {
                 newnbt,
             )
             this.setState({ reforme: refbase })
+            const bodyreq = this.cas_types_defaut
+                ? JSON.stringify({
+                    deciles: false,
+                    reforme: refbase,
+                })
+                : JSON.stringify({
+                    reforme: refbase,
+                    description_cas_types: this.state.cas_types,
+                })
+            this.updateCompare(bodyreq)
         }
     }
 
@@ -276,10 +287,9 @@ class Reformeur extends Component {
             })
     }
 
-    handleChange(e) {
-        const { name } = e.target
+    handleChange(value,name) {
         const success = false
-        const newvalue = e.target.value == "" ? 0 : e.target.value
+        const newvalue = value == "" ? 0 : value
         if (name.substring(0, 5) == "seuil") {
             const numb = parseInt(name.substring(5), 10)
             this.UpdateBareme(numb, newvalue)
@@ -330,7 +340,19 @@ class Reformeur extends Component {
         this.setState({ cas_types: arrayrev, cas_types_defaut: false })
         const bodyreq = JSON.stringify({
             reforme: this.state.reforme,
-            description_cas_types: this.state.cas_types,
+            description_cas_types: arrayrev,
+        })
+        this.updateCompare(bodyreq)
+    }
+
+    handleOutreMerChange = (i, value) => {
+        const arrayrev = this.state.cas_types
+        arrayrev[i].outre_mer = value
+        console.log("om", arrayrev,value)
+        this.setState({ cas_types: arrayrev, cas_types_defaut: false })
+        const bodyreq = JSON.stringify({
+            reforme: this.state.reforme,
+            description_cas_types: arrayrev,
         })
         this.updateCompare(bodyreq)
     }
@@ -354,17 +376,18 @@ class Reformeur extends Component {
     render() {
         const { classes, theme } = this.props
         console.log("et je rends reformeur nouveau", this.state)
-        const desktop = 1025
-        const tablet = 768 // and max-width: 1024px
-        const phone = 767
+        const desktop = 1280
+        const tablet = 960 // and max-width: 1024px
+        const phone = 600
+        const bigscreen=1920
         return (
             <Fragment>
                 <div className="main-index">
                         {/* <div>You are a desktop or laptop</div> */}
                     <MediaQuery minDeviceWidth={phone+1}>
-                        <MediaQuery minDeviceWidth={1824}>
-                            {/* <div>You also have a huge screen</div> */}
-                        </MediaQuery>
+                        {/*<MediaQuery minDeviceWidth={bigscreen}>
+                             <div>You also have a huge screen</div> 
+                        </MediaQuery> */}
                         <MediaQuery maxWidth={phone}>
                             {(matches) => {
                                 if (matches) {
@@ -410,6 +433,7 @@ class Reformeur extends Component {
                                                         <Impact
                                                             loading={this.state.loading}
                                                             onRevenuChange={this.handleRevenuChange}
+                                                            onOutreMerChange={this.handleOutreMerChange}
                                                             res_brut={this.state.res_brut}
                                                             total_pop={this.state.total_pop}
                                                             onClick={this.simPop}
@@ -441,6 +465,7 @@ class Reformeur extends Component {
                                             <Impact
                                                 loading={this.state.loading}
                                                 onRevenuChange={this.handleRevenuChange}
+                                                onOutreMerChange={this.handleOutreMerChange}
                                                 res_brut={this.state.res_brut}
                                                 total_pop={this.state.total_pop}
                                                 onClick={this.simPop}
@@ -489,6 +514,7 @@ class Reformeur extends Component {
                                         <Impact
                                             loading={this.state.loading}
                                             onRevenuChange={this.handleRevenuChange}
+                                            onOutreMerChange={this.handleOutreMerChange}
                                             res_brut={this.state.res_brut}
                                             total_pop={this.state.total_pop}
                                             onClick={this.simPop}
@@ -499,6 +525,56 @@ class Reformeur extends Component {
                             </div>
                         </div>
                     </MediaQuery>
+
+
+
+                   {/* >>> Essayer de créer une média query spécial tablette 
+                   } <MediaQuery minDeviceWidth={768} maxDeviceWidth={1024} orientation={'portrait'}>
+                        {/* <div>You are a tablet or mobile phone</div> 
+                        <div>
+                            {/* <div>You are sized like a tablet or mobile phone though</div> 
+                            <div className={classes.root}>
+                                <AppBar position="static" color="default">
+                                    <Tabs
+                                        value={this.state.indextab}
+                                        onChange={this.handleTabChange}
+                                        indicatorColor="primary"
+                                        textColor="primary"
+                                        variant="fullWidth"
+                                    >
+                                        <Tab label="Loi" />
+                                        <Tab label="Impacts" />
+                                    </Tabs>
+                                </AppBar>
+                                <SwipeableViews
+                                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                                    index={this.state.indextab}
+                                    onChangeIndex={this.handleIndexChange}
+                                >
+                                    <TabContainer dir={theme.direction}>
+                                        <ArticleHeader />
+                                        <Article
+                                            reforme={this.state.reforme}
+                                            reformebase={this.state.reformebase}
+                                            onChange={this.handleChange}
+                                            addTranche={this.addTranche}
+                                        />
+                                    </TabContainer>
+                                    <TabContainer dir={theme.direction}>
+                                        <Impact
+                                            loading={this.state.loading}
+                                            onRevenuChange={this.handleRevenuChange}
+                                            res_brut={this.state.res_brut}
+                                            total_pop={this.state.total_pop}
+                                            onClick={this.simPop}
+                                            cas_types={this.state.cas_types}
+                                        />
+                                    </TabContainer>
+                                </SwipeableViews>
+                            </div>
+                        </div>
+                    </MediaQuery>
+
                     {/*
                 <MediaQuery orientation="portrait">
                   <div>You are portrait</div>

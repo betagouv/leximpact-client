@@ -12,6 +12,12 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import textField from "@material-ui/core/TextField"
 import SelectControl from "./SelectControl"
 
+
+//attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
+const WAIT_INTERVAL = 1000;
+//Touche qui déclenche les calculs (13 = return)
+const ENTER_KEY = 13;
+
 const style = {
     Typography: { padding: "5px" },
     TypographyNouvelleTranche: { padding: "5px", color: "#00A3FF" },
@@ -96,21 +102,45 @@ class InputField extends React.Component {
     constructor(props) {
         super(props)
         this.handleChange = this.handleChange.bind(this)
+        this.triggerChange = this.triggerChange.bind(this)
+        this.handleKeyDown = this.handleKeyDown.bind(this)
+        this.state= {value : props.value}
     }
 
     handleChange(e) {
-        this.props.onChange(e)
+        
+        clearTimeout(this.timer);
+        this.setState({ value:e.target.value });
+        this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL,e.target.value,e.target.name);
+
+    }
+
+    triggerChange(value,name){
+        this.props.onChange(value,name);
+    }
+    
+    componentWillMount() {
+        this.timer = null;
+    }
+
+    handleKeyDown(e) {
+        if (e.keyCode === ENTER_KEY) {
+            clearTimeout(this.timer);
+            console.log("sending triggerchange meth2",this.state,this.props)
+            this.triggerChange(this.state.value,this.props.name);
+        }
     }
 
     render() {
-        const { value } = this.props
-        const { name } = this.props
+        const {  name } = this.props
+        const {value} = this.state
         return (
             <input
                 type="text"
                 value={value}
                 name={name}
                 onChange={this.handleChange}
+                onKeyDown={this.handleKeyDown}
                 size="4"
                 style={this.props.style}
             />
@@ -177,8 +207,8 @@ class Article extends React.Component {
         this.setState({ reforme: ref })
     }
 
-    handleS1Change(e) {
-        this.props.onChange(e)
+    handleS1Change(value,name) {
+        this.props.onChange(value,name)
     }
 
     handleAddTranche(e) {

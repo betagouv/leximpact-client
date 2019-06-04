@@ -42,13 +42,6 @@ const styles = theme => ({
         marginBottom: 12,
     },
 
-    pom_rouge: {
-        color: "#FF0000",
-    },
-    pom_verte: {
-        color: "#00FF00",
-    },
-
     div: {
         padding: 7,
     },
@@ -62,11 +55,17 @@ class SimpleCard extends React.Component {
     constructor(props) {
         super(props)
         this.handleChange = this.handleChange.bind(this)
+        this.handleOutreMerChange = this.handleOutreMerChange.bind(this)
         this.state = { loading: true }
     }
 
     handleChange = i => (event) => {
         this.props.onChange(i, event)
+    }
+
+    handleOutreMerChange = numcastype => (event) => {
+        //console.log("je suis dans l'outremer",numcastype,event,this.props.desc_cas_type.outre_mer)
+        this.props.onOutreMerChange(numcastype,3 - this.props.desc_cas_type.outre_mer)
     }
 
     roundedRevenues(revenumensuel) {
@@ -86,7 +85,7 @@ class SimpleCard extends React.Component {
 
     render() {
         const {
-            classes, index, desc_cas_type, impots_avant, delta, loading,
+            classes, index, desc_cas_type, impots_avant, impots_apres, loading,
         } = this.props
         const bull = <span className={classes.bullet}>•</span>
 
@@ -98,9 +97,11 @@ class SimpleCard extends React.Component {
         const revtodisp = numberToRevenuparmois(revrounded)
         const isret = !!desc_cas_type.nombre_declarants_retraites
         const manfirst = Math.random() < 0.49
+        const coupledummsexe = Math.random() < 0.15
         const aretwo = desc_cas_type.nombre_declarants > 1
         const nbenfants = desc_cas_type.nombre_personnes_a_charge
-        const isguadeloupe = desc_cas_type.guadeloupe
+        const isoutremer1 = (desc_cas_type.outre_mer == 1)
+        const isoutremer2 = (desc_cas_type.outre_mer == 2)
         // bruts par an
         const icon1 = manfirst
             ? isret
@@ -109,13 +110,15 @@ class SimpleCard extends React.Component {
             : isret
                 ? womanWhiteHaired
                 : womanCurlyHaired
-        const icon2 = !manfirst
-            ? isret
-                ? manWhiteHaired
-                : manCurlyHaired
-            : isret
-                ? womanWhiteHaired
-                : womanCurlyHaired
+        const icon2 = coupledummsexe ?
+            icon1
+            : !manfirst
+                ? isret
+                    ? manWhiteHaired
+                    : manCurlyHaired
+                : isret
+                    ? womanWhiteHaired
+                    : womanCurlyHaired
         const babyicons = [...Array(nbenfants)].map((e, i) => (
             <Icon icon={babyIcon} width="30" height="30" />
         ))
@@ -142,39 +145,61 @@ class SimpleCard extends React.Component {
 }
                             </NativeSelect>
                         </Tooltip>
-                        {isguadeloupe ? (
+                        {isoutremer1 ? (
+                             <Tooltip
+                                placement="bottom"
+                                title="Guadeloupe, Martinique ou Réunion"
+                                enterDelay={300}
+                                leaveDelay={200}
+                            >
                             <Chip
+                                onClick={this.handleOutreMerChange(index)}
+                                clickable="true"
                                 icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                label="Guadeloupe"
+                                label="Outre-mer n° 1"
                             />
-                        ) : (
-                            ""
+                            </Tooltip>
+                        ) : (isoutremer2 ? (
+                            <Tooltip
+                               placement="bottom"
+                               title="Guyane ou Mayotte"
+                               enterDelay={300}
+                               leaveDelay={200}
+                           >
+                           <Chip
+                               icon={<Icon icon={desertIsland} width="20" height="20" />}
+                               label="Outre-mer n° 2"
+                               onClick={this.handleOutreMerChange(index)}
+                           />
+                           </Tooltip>
+                       ) : (
+                           ""
+                       )
                         )}
                         {isret ? <Chip label="Retraités" /> : ""}
                     </div>
-                    {loading ? (
-                        <CircularProgress color="secondary" />
-                    ) : (
-                        <div className={classes.div}>
-                            <Typography inline variant="h3" color="primary" gutterBottom>
-                                {-impots_avant}
-                            </Typography>
-                            <Typography
-                                inline
-                                variant="h5"
-                                className={delta > 0 ? classes.pom_verte : classes.pom_rouge}
-                                gutterBottom
-                            >
-                                {delta > 0 ? "-" : "+"}
-                            </Typography>
-                            <Typography inline variant="h3" color="secondary" gutterBottom>
-                                {Math.abs(delta)}
-                            </Typography>
-                            <Typography inline variant="h5" color="secondary" gutterBottom>
-                                €
-                            </Typography>
-                        </div>
-                    )}
+                    
+                    <div className={classes.div}>
+                        <Typography inline variant="h3" color="primary" gutterBottom>
+                            {-impots_avant}
+                        </Typography>
+                        <Typography inline variant="h5" color="primary" gutterBottom>
+                            €
+                        </Typography>
+                        <br></br>
+                        {loading ? (
+                            <CircularProgress color="secondary" />
+                        ) : (
+                            <>
+                                <Typography inline variant="h3" color="secondary" gutterBottom>
+                                    {-impots_apres}
+                                </Typography>
+                                <Typography inline variant="h5" color="secondary" gutterBottom>
+                                    €
+                                </Typography>
+                            </>
+                        )}
+                    </div>
                 </CardContent>
             </Card>
         )
