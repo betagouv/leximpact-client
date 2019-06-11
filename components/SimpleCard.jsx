@@ -148,6 +148,8 @@ class SimpleCard extends React.Component {
     }
                                 </NativeSelect>
                             </Tooltip>
+                        </div>
+                        <div>
                             {isoutremer1 ? (
                                 <Tooltip
                                     placement="bottom"
