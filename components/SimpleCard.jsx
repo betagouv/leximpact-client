@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography"
 import Avatar from "@material-ui/core/Avatar"
 import Chip from "@material-ui/core/Chip"
 import Tooltip from "@material-ui/core/Tooltip"
+import Divider from '@material-ui/core/Divider';
 import NativeSelect from "@material-ui/core/NativeSelect"
 
 import { Icon, InlineIcon } from "@iconify/react"
@@ -24,27 +25,33 @@ import desertIsland from "@iconify/react/twemoji/desert-island"
 import CircularProgress from "@material-ui/core/CircularProgress"
 
 const styles = theme => ({
-    root: {
-        ...theme.mixins.gutters(),
-        paddingBottom: theme.spacing.unit * 2,
-        paddingTop: theme.spacing.unit * 2,
-        margin: `${theme.spacing.unit / 2}em auto`,
-        width: "25em",
-    },
     card: {
         minWidth: 50,
+        paddingBottom: 0
     },
-
+    cardcontent: {
+      padding: 0,
+      "&:last-child": {
+        paddingBottom: 0
+      }
+    },
     titre: {
         fontSize: 11,
     },
-    pos: {
-        marginBottom: 12,
+    nativeselect: {
     },
-
+    legende: {
+        fontSize: 12,
+        color: "#909090",
+        fontFamily: "Lato",
+        marginBottom: 10
+    },
     div: {
-        padding: 7,
+        padding: 15,
     },
+    chip: {
+        marginTop: 10,
+    }
 })
 
 function numberToRevenuparmois(rev) {
@@ -87,7 +94,6 @@ class SimpleCard extends React.Component {
         const {
             classes, index, desc_cas_type, impots_avant, impots_apres, loading,
         } = this.props
-        const bull = <span className={classes.bullet}>•</span>
 
         const styleIcons = {
             width: "10em",
@@ -124,62 +130,69 @@ class SimpleCard extends React.Component {
         ))
         return (
             <Card className={classes.card}>
-                <CardContent>
+                <CardContent className={classes.cardcontent}>
                     <div className={classes.div}>
-                        {<Icon icon={icon1} width="40" height="40" />}
-                        {aretwo ? <Icon icon={icon2} width="40" height="40" /> : ""}
-                        {babyicons}
-                    </div>
-
-                    <div className={classes.div}>
-                        <Tooltip
-                            placement="top"
-                            title="Revenus bruts"
-                            enterDelay={300}
-                            leaveDelay={200}
-                        >
-                            <NativeSelect value={revrounded} onChange={this.handleChange(index)}>
-                                <option value={revrounded}>{`${revrounded}€/mois`}</option>
-                                {this.roundedRevenues(revrounded)}
-                                {" "}
-}
-                            </NativeSelect>
-                        </Tooltip>
-                        {isoutremer1 ? (
-                             <Tooltip
+                        <div>
+                            {<Icon icon={icon1} width="40" height="40" />}
+                            {aretwo ? <Icon icon={icon2} width="40" height="40" /> : ""}
+                            {babyicons}
+                        </div>
+                        
+                        <div>
+                            <Tooltip
+                                placement="top"
+                                title="Revenus bruts"
+                                enterDelay={300}
+                                leaveDelay={200}
+                            >
+                                <NativeSelect className={classes.nativeselect} value={revrounded} onChange={this.handleChange(index)}>
+                                    <option value={revrounded}>{`${revrounded}€/mois`}</option>
+                                    {this.roundedRevenues(revrounded)}
+                                    {" "}
+    }
+                                </NativeSelect>
+                            </Tooltip>
+                            {isoutremer1 ? (
+                                <Tooltip
+                                    placement="bottom"
+                                    title="Guadeloupe, Martinique ou Réunion"
+                                    enterDelay={300}
+                                    leaveDelay={200}
+                                >
+                                <Chip
+                                    className={classes.chip}
+                                    onClick={this.handleOutreMerChange(index)}
+                                    clickable="true"
+                                    icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                    label="Outre-mer n° 1"
+                                />
+                                </Tooltip>
+                            ) : (isoutremer2 ? (
+                                <Tooltip
                                 placement="bottom"
-                                title="Guadeloupe, Martinique ou Réunion"
+                                title="Guyane ou Mayotte"
                                 enterDelay={300}
                                 leaveDelay={200}
                             >
                             <Chip
-                                onClick={this.handleOutreMerChange(index)}
-                                clickable="true"
+                                className={classes.chip}
                                 icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                label="Outre-mer n° 1"
+                                label="Outre-mer n° 2"
+                                onClick={this.handleOutreMerChange(index)}
                             />
                             </Tooltip>
-                        ) : (isoutremer2 ? (
-                            <Tooltip
-                               placement="bottom"
-                               title="Guyane ou Mayotte"
-                               enterDelay={300}
-                               leaveDelay={200}
-                           >
-                           <Chip
-                               icon={<Icon icon={desertIsland} width="20" height="20" />}
-                               label="Outre-mer n° 2"
-                               onClick={this.handleOutreMerChange(index)}
-                           />
-                           </Tooltip>
-                       ) : (
-                           ""
-                       )
-                        )}
-                        {isret ? <Chip label="Retraités" /> : ""}
+                        ) : (
+                            ""
+                        )
+                            )}
+                            {isret ? <Chip 
+                                    className={classes.chip} label="Retraités" /> : ""}
+                        </div>
                     </div>
+                    <Divider/>
                     
                     <div className={classes.div}>
+                        <Typography className={classes.legende}>Impôt sur le revenu par an</Typography>
                         <Typography inline variant="h3" color="primary" gutterBottom>
                             {-impots_avant}
                         </Typography>
