@@ -133,7 +133,6 @@ class SimpleCard extends React.Component {
                             {aretwo ? <Icon icon={icon2} width="40" height="40" /> : ""}
                             {babyicons}
                         </div>
-
                         <div>
                             <Tooltip
                                 placement="top"
@@ -188,7 +187,6 @@ class SimpleCard extends React.Component {
                         </div>
                     </div>
                     <Divider/>
-
                     <div className={classes.div}>
                         <Typography className={classes.legende}>Impôt sur le revenu par an</Typography>
                         <Typography inline variant="h3" color="primary" gutterBottom>
