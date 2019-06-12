@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core"
 import fetch from "isomorphic-fetch"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
+import CarteEtat from "./CarteEtat"
 
 class Impact extends Component {
     constructor(props) {
@@ -50,9 +51,13 @@ class Impact extends Component {
                 ))}
                 <Grid item xs={6} sm={12} md={6} lg={4} xl={3}>
                     {includepopulation ? (
-                        <RecettesCard
-                            impots_avant={total_pop.avant}
-                            delta={total_pop.apres - total_pop.avant}
+                        /*<RecettesCard
+                            impots_avant={total_pop.total.avant}
+                            delta={total_pop.total.apres - total_pop.total.avant}
+                            onClick={this.handleClick}
+                        />*/
+                        <CarteEtat
+                            resultat={total_pop}
                             onClick={this.handleClick}
                         />
                     ) : (
