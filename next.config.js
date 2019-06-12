@@ -1,8 +1,9 @@
 const env = process.env.NODE_ENV
 const withSass = require("@zeit/next-sass")
+const withImages = require('next-images')
 const DotenvPlugin = require("dotenv-webpack")
 const { EnvironmentPlugin } = require("webpack") // eslint-disable-line import/no-extraneous-dependencies
-const { assign, concat } = require("lodash/fp")
+const { assign, concat, flow } = require("lodash/fp")
 
 function envPlugin() {
     if (env === "production") {
@@ -25,4 +26,4 @@ const nextConfig = {
     distDir: "build",
 }
 
-module.exports = withSass(nextConfig)
+module.exports = flow([withSass, withImages])(nextConfig)
