@@ -38,8 +38,9 @@ class Impact extends Component {
         return (
             <Grid container spacing={24}>
                 {this.props.cas_types.map((ct, i) => (
-                    <Grid item key={i} xs={6} sm={12} md={6} lg={4} xl={3}>
+                    <Grid item key={"grid" + i} xs={6} sm={12} md={6} lg={4} xl={3}>
                         <SimpleCard
+                            key={"card" + i}
                             loading={loading}
                             onChange={this.handleChangeRevenu}
                             onOutreMerChange={this.handleChangeOutreMer}
@@ -50,9 +51,10 @@ class Impact extends Component {
                         />
                     </Grid>
                 ))}
-                <Grid item xs={6} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key="stateBudget" xs={6} sm={12} md={6} lg={4} xl={3}>
                     {includepopulation ? (
                         <RecettesCard
+                            key="recettes"
                             impots_avant={total_pop.avant}
                             delta={total_pop.apres - total_pop.avant}
                             onClick={this.handleClick}
@@ -60,7 +62,6 @@ class Impact extends Component {
                     ) : (
                         <div />
                     )}
-                    <BarChart />
                 </Grid>
             </Grid>
         )

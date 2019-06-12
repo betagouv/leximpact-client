@@ -30,7 +30,6 @@ function SimpleAppBar(props) {
         <div className={classes.root}>
             <AppBar
                 position="relative"
-                color="#FFFFFF"
                 style={{ background: "#FFFFFF", boxShadow: "none" }}
             >
                 <Toolbar>
