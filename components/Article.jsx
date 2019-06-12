@@ -151,7 +151,7 @@ class OutputField extends React.Component {
     render() {
         const { value } = this.props
         return (
-            <span inline style={this.props.style} className="output-field">
+            <span inline="true" style={this.props.style} className="output-field">
                 {value}
             </span>
         )
@@ -258,7 +258,7 @@ class Article extends React.Component {
         // Part 1
         if (i == 0) {
             return (
-                <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+                <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
                     {
                         "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
                     }
@@ -276,7 +276,7 @@ class Article extends React.Component {
         // Last part
         if (i == nbt) {
             return (
-                <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+                <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
                     {"– "}
                     <OutputField value={baset[i - 1]} style={style.VarCodeexistant} />
                     <InputField
@@ -293,7 +293,7 @@ class Article extends React.Component {
         }
         // Other parts :
         return (
-            <Typography variant="body2" color="inherit" style={styleAUtiliser}>
+            <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
                 –
                 {" "}
                 <OutputField value={baset[i - 1]} style={style.VarCodeexistant} />
@@ -366,23 +366,23 @@ class Article extends React.Component {
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
                 {articleTranches}
-                <Button style={style.Button} onClick={this.handleAddTranche}>
-                    <Fab size="small" color="primary">
+                <div>
+                    <Fab style={style.Button} size="small" onClick={this.handleAddTranche} color="primary">
                         <AddIcon />
                     </Fab>
-                    <Typography variant="overline" color="primary" style={style.Typographybouton}>
+                    <Typography inline={true} variant="overline" color="primary" style={style.Typographybouton}>
                         Ajouter une tranche
                     </Typography>
-                </Button>
+                </div>
 
-                <Button style={style.Button} onClick={this.handleRemoveTranche}>
-                    <Fab size="small" color="primary">
+                <div>
+                    <Fab style={style.Button} size="small" onClick={this.handleRemoveTranche} color="primary">
                         <DeleteIcon />
                     </Fab>
-                    <Typography variant="overline" color="primary" style={style.Typographybouton}>
+                    <Typography inline={true} variant="overline" color="primary" style={style.Typographybouton}>
                         Supprimer une tranche
                     </Typography>
-                </Button>
+                </div>
 
                 <ExpansionPanel
                     style={style.Typography}
@@ -407,7 +407,7 @@ class Article extends React.Component {
                             célibataires, divorcés, veufs ou soumis à l&#39;imposition distincte
                             prévue au 4 de l&#39;article 6 et à deux parts pour les contribuables
                             mariés soumis à une imposition commune.
-                            <p />
+                            <br />
                             Toutefois, pour les contribuables célibataires, divorcés, ou soumis à
                             l&#39;imposition distincte prévue au 4 de l&#39;article 6 qui répondent
                             aux conditions fixées au II de l&#39;article 194, la réduction
