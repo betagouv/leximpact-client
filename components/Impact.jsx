@@ -1,8 +1,10 @@
 import { Component } from "react"
 import { Grid } from "@material-ui/core"
-import SimpleCard from "./SimpleCard"
-import RecettesCard from "./RecettesCard"
-import CarteEtat from "./CarteEtat"
+import fetch from "isomorphic-fetch"
+import SimpleCard from "component/SimpleCard"
+import RecettesCard from "component/RecettesCard"
+import CarteEtat from "component/CarteEtat"
+import BarChart from "component/BarChart"
 
 class Impact extends Component {
     constructor(props) {
@@ -61,6 +63,7 @@ class Impact extends Component {
                     ) : (
                         <div />
                     )}
+                    <BarChart />
                 </Grid>
             </Grid>
         )
