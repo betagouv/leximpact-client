@@ -401,7 +401,7 @@ class Reformeur extends Component {
     handleOutreMerChange = (i, value) => {
         const arrayrev = this.state.cas_types
         arrayrev[i].outre_mer = value
-        console.log("om", arrayrev,value)
+        //console.log("om", arrayrev,value)
         this.setState({ cas_types: arrayrev, cas_types_defaut: false })
         const bodyreq = JSON.stringify({
             reforme: this.state.reforme,

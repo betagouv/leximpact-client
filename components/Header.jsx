@@ -219,7 +219,6 @@ class PrimarySearchAppBar extends React.Component {
 
                         <div className={classes.search}>
                             <Button
-                                variant="button"
                                 color="inherit"
                                 className={classes.impotsurlerevenu}
                             >

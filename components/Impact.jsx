@@ -15,7 +15,6 @@ class Impact extends Component {
     }
 
     handleClick(e) {
-        console.log("oui2", e, this.props)
         this.props.onClick(e)
     }
 
@@ -37,8 +36,9 @@ class Impact extends Component {
         return (
             <Grid container spacing={24}>
                 {this.props.cas_types.map((ct, i) => (
-                    <Grid item key={i} xs={6} sm={12} md={6} lg={4} xl={3}>
+                    <Grid item key={"grid" + i} xs={6} sm={12} md={6} lg={4} xl={3}>
                         <SimpleCard
+                            key={"card" + i}
                             loading={loading}
                             onChange={this.handleChangeRevenu}
                             onOutreMerChange={this.handleChangeOutreMer}
@@ -49,7 +49,7 @@ class Impact extends Component {
                         />
                     </Grid>
                 ))}
-                <Grid item xs={6} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key="stateBudget" xs={6} sm={12} md={6} lg={4} xl={3}>
                     {includepopulation ? (
                         /*<RecettesCard
                             impots_avant={total_pop.total.avant}
@@ -64,8 +64,7 @@ class Impact extends Component {
                         <div />
                     )}
                 </Grid>
-            </Grid>
-        )
+            </Grid>)
     }
 }
 

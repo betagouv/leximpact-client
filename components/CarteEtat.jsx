@@ -17,6 +17,7 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import withMobileDialog from "@material-ui/core/withMobileDialog"
 import { Icon, InlineIcon } from "@iconify/react"
 import classicalBuilding from "@iconify/react/twemoji/classical-building"
+import BarChart from "./BarChart"
 
 const styles = theme => ({
     // root: {
@@ -112,6 +113,7 @@ class RecettesCard extends React.Component {
                             Lancer la simulation
                         </Button>
                     </div>
+                    <BarChart/>
                 </CardContent>
             </Card>
         )
