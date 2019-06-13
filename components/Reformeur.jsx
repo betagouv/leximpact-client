@@ -361,6 +361,7 @@ class Reformeur extends Component {
     }
 
     simPop(e) {
+        console.log("launching simpop")
         fetch(`${this.endpoint()}/calculate/compare`, {
             method: "POST",
             headers: {

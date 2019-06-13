@@ -30,12 +30,12 @@ const styles = theme => ({
     // minWidth: 275,
     // },
 
-    // titre: {
-    // fontSize: 11,
-    // },
-    // pos: {
-    //    marginBottom: 12,
-    // },
+// titre: {
+// fontSize: 11,
+// },
+// pos: {
+//    marginBottom: 12,
+// },
 
     pom_rouge: {
         color: "#FF0000",
@@ -54,6 +54,9 @@ const styles = theme => ({
     iconEtat: {
         fontSize: "50px",
     },
+    card:{
+        maxWidth: 500,
+    },
 })
 
 class RecettesCard extends React.Component {
@@ -68,13 +71,13 @@ class RecettesCard extends React.Component {
 
     // bruts par an
 
+
+
     render() {
-        const { classes} = this.props
-
+        const { classes,resultat} = this.props
         const delta=this.props.resultat.total.avant - this.props.resultat.total.apres
-
         return (
-            <Card>
+            <Card className={this.props.classes.card}>
                 <CardContent>
                     <Icon icon={classicalBuilding} width="40" height="40" />
                     <Typography variant="body1">Recettes de l'État</Typography>
@@ -103,7 +106,7 @@ class RecettesCard extends React.Component {
                         </Typography>
                     </div>
 
-                    Aaah, le 9e decile, son avant de {this.props.resultat.deciles[8].avant}, 
+                    Aaah, le 9e decile, son avant de {this.props.resultat.deciles[8].avant},
                     son après de {this.props.resultat.deciles[8].apres},
                     mais aussi son poids de {this.props.resultat.deciles[8].poids}
 

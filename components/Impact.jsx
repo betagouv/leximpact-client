@@ -34,7 +34,7 @@ class Impact extends Component {
         const { loading } = this.props
         const { res_brut } = this.props
         const { total_pop } = this.props
-        return (<>
+        return (
             <BarChart/>
             <Grid container spacing={24}>
                 {this.props.cas_types.map((ct, i) => (
@@ -51,7 +51,7 @@ class Impact extends Component {
                         />
                     </Grid>
                 ))}
-                <Grid item key="stateBudget" xs={6} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key="stateBudget" xs={12} sm={12} md={12} lg={12} xl={12}>
                     {includepopulation ? (
                         <CarteEtat
                             resultat={total_pop}
@@ -62,7 +62,7 @@ class Impact extends Component {
                     )}
                 </Grid>
             </Grid>
-        </>)
+        )
     }
 }
 
