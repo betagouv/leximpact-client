@@ -117,6 +117,7 @@ class InputField extends React.Component {
 
     triggerChange(value,name){
         this.props.onChange(value,name);
+        this.props.onChange(value.replace(/\s+/g, ''),name);
     }
     
     componentWillMount() {
