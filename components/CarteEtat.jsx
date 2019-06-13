@@ -31,12 +31,12 @@ const styles = theme => ({
     // minWidth: 275,
     // },
 
-    // titre: {
-    // fontSize: 11,
-    // },
-    // pos: {
-    //    marginBottom: 12,
-    // },
+// titre: {
+// fontSize: 11,
+// },
+// pos: {
+//    marginBottom: 12,
+// },
 
     pom_rouge: {
         color: "#FF0000",
@@ -55,6 +55,9 @@ const styles = theme => ({
     iconEtat: {
         fontSize: "50px",
     },
+    card:{
+        maxWidth: 500,    
+    },
 })
 
 class RecettesCard extends React.Component {
@@ -69,13 +72,13 @@ class RecettesCard extends React.Component {
 
     // bruts par an
 
+    
+
     render() {
-        const { classes} = this.props
-
+        const { classes,resultat} = this.props
         const delta=this.props.resultat.total.avant - this.props.resultat.total.apres
-
         return (
-            <Card>
+            <Card className={this.props.classes.card}>
                 <CardContent>
                     <Icon icon={classicalBuilding} width="40" height="40" />
                     <Typography variant="body1">Recettes de l'État</Typography>
@@ -113,7 +116,7 @@ class RecettesCard extends React.Component {
                             Lancer la simulation
                         </Button>
                     </div>
-                    <BarChart/>
+                    <BarChart resultat={resultat}/>
                 </CardContent>
             </Card>
         )

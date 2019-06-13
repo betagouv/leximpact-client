@@ -5,6 +5,7 @@ import fetch from "isomorphic-fetch"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
 import CarteEtat from "./CarteEtat"
+import BarChart from "./BarChart"
 
 class Impact extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class Impact extends Component {
                         />
                     </Grid>
                 ))}
-                <Grid item key="stateBudget" xs={6} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key="stateBudget" xs={12} sm={12} md={12} lg={12} xl={12}>
                     {includepopulation ? (
                         /*<RecettesCard
                             impots_avant={total_pop.total.avant}
@@ -64,7 +65,8 @@ class Impact extends Component {
                         <div />
                     )}
                 </Grid>
-            </Grid>)
+            </Grid>
+        )
     }
 }
 
