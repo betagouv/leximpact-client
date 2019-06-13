@@ -110,8 +110,9 @@ class InputField extends React.Component {
         this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL, e.target.value, e.target.name)
     }
 
-    triggerChange(value, name) {
-        this.props.onChange(value, name)
+    triggerChange(value,name){
+        this.props.onChange(value,name)
+        this.props.onChange(value.replace(/\s+/g, ''),name)
     }
 
     componentWillMount() {
