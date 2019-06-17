@@ -19,19 +19,19 @@ class BarChart extends React.Component {
         const {total, deciles}=this.props.resultat
         const z=deciles.map((element) => element.avant)
         console.log("mon z",deciles, z)
-        const stavant = {"country" : "Avant réforme"}
+        const stavant = {"refid" : "Avant :"+Math.round(total.avant/10000000)/100 + "Md€"}
         const resavant=z.reduce(function(result, item, index, array) {
             result[keycols[index]] = item/1000000000; 
             return result;
           }, stavant)
         console.log(resavant)
-        const stapres = {"country" : "Après réforme"}
-        const resapres=z.reduce(function(result, item, index, array) {
+        const stapres = {"refid" : "Après :"+Math.round(total.apres/10000000)/100+ "Md€"}
+        const resapres=deciles.map((element) => element.apres).reduce(function(result, item, index, array) {
             result[keycols[index]] = item/1000000000; 
             return result;
           }, stapres)
-        console.log([resavant,resapres])
-        return [resavant,resapres]
+        console.log([resapres,resavant])
+        return [resapres,resavant]
     }
 
     render() {
@@ -44,7 +44,7 @@ class BarChart extends React.Component {
                 data={data}
                 keys={keycols}
                 /* */
-                indexBy="country"
+                indexBy="refid"
                 margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
             padding={0.15}
             colorBy="index"
@@ -75,7 +75,7 @@ class BarChart extends React.Component {
             borderRadius={4}
             borderColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
             axisTop={null}
-            axisRight={null}
+            axisLeft={null}
             axisBottom={{
                 tickSize: 5,
                 tickPadding: 7,
@@ -84,7 +84,9 @@ class BarChart extends React.Component {
                 legendPosition: 'middle',
                 legendOffset: 41
             }}
-            axisLeft={{legend:"IR"}}
+            axisRight={{
+                tickSize: 0
+            }}
             enableGridX={true}
             enableGridY={false}
             labelFormat=".2f"

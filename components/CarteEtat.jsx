@@ -76,12 +76,13 @@ class RecettesCard extends React.Component {
     render() {
         const { classes,resultat} = this.props
         const delta=this.props.resultat.total.avant - this.props.resultat.total.apres
+        console.log("resultat : ",resultat)
         return (
             <Card className={this.props.classes.card}>
                 <CardContent>
                     <Icon icon={classicalBuilding} width="40" height="40" />
-                    <Typography variant="body1">Recettes de l'État</Typography>
-
+                    <Typography inline variant="body1">Recettes de l'État sur l'impôt sur le revenu</Typography>
+                    <Typography variant="body1"> par décile de population et par an</Typography>
                     <div>
                         <Typography inline variant="h3" color="primary" gutterBottom>
                             {Math.round(this.props.resultat.total.avant / 100000000) / 10}
@@ -105,11 +106,6 @@ class RecettesCard extends React.Component {
                             Md€
                         </Typography>
                     </div>
-
-                    Aaah, le 9e decile, son avant de {this.props.resultat.deciles[8].avant},
-                    son après de {this.props.resultat.deciles[8].apres},
-                    mais aussi son poids de {this.props.resultat.deciles[8].poids}
-
                     <div>
                         <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
                             Lancer la simulation
