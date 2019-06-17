@@ -80,9 +80,21 @@ class RecettesCard extends React.Component {
         return (
             <Card className={this.props.classes.card}>
                 <CardContent>
-                    <Icon icon={classicalBuilding} width="40" height="40" />
-                    <Typography inline variant="body1">Recettes de l'État sur l'impôt sur le revenu</Typography>
-                    <Typography variant="body1"> par décile de population et par an</Typography>
+                    <table>
+                        <tr>
+                            <td rowSpan="2">
+                                <Icon icon={classicalBuilding} width="40" height="40" />
+                            </td>
+                            <td>
+                                <Typography inline variant="body1">Recettes de l'État sur l'impôt sur le revenu</Typography>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <Typography variant="body1"> par décile de population et par an</Typography>
+                            </td>
+                        </tr>
+                    </table>
                     <div>
                         <Typography inline variant="h3" color="primary" gutterBottom>
                             {Math.round(this.props.resultat.total.avant / 100000000) / 10}
