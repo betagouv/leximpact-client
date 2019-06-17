@@ -1,31 +1,10 @@
 import { useState, Fragment } from "react"
 import Head from "next/head"
-import dynamic from "next/dynamic"
-import Button from "@material-ui/core/Button"
-import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogContentText,
-    DialogActions,
-    Paper,
-    Item,
-} from "@material-ui/core"
-import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
-import SimpleCard from "components/SimpleCard"
-import Grid from "components/Grid"
-import CardHeader from "@material-ui/core/CardHeader"
 import Header from "components/Header"
 import Reformeur from "components/Reformeur"
-import Impact from "components/Impact"
-import TabMobile from "components/TabMobile"
-import Drawer from "components/Drawer"
-import MediaQuery from "react-responsive"
 import "styles/index.scss"
-
-const Plot = dynamic(import("components/Plot"), { ssr: false })
 
 function styles(theme) {
     const { mixins, spacing } = theme

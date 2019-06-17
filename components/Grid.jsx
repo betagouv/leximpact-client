@@ -1,5 +1,4 @@
-import PropTypes from "prop-types"
-import { Grid, Paper } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
 

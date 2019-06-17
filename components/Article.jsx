@@ -9,14 +9,11 @@ import Fab from "@material-ui/core/Fab"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import AddIcon from "@material-ui/icons/Add"
 import DeleteIcon from "@material-ui/icons/Delete"
-import textField from "@material-ui/core/TextField"
-import SelectControl from "./SelectControl"
 
-
-//attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
-const WAIT_INTERVAL = 1000;
-//Touche qui déclenche les calculs (13 = return)
-const ENTER_KEY = 13;
+// attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
+const WAIT_INTERVAL = 1000
+// Touche qui déclenche les calculs (13 = return)
+const ENTER_KEY = 13
 
 const style = {
     Typography: { padding: "5px" },
@@ -104,36 +101,34 @@ class InputField extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.triggerChange = this.triggerChange.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
-        this.state= {value : props.value}
+        this.state = { value: props.value }
     }
 
     handleChange(e) {
-        
-        clearTimeout(this.timer);
-        this.setState({ value:e.target.value });
-        this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL,e.target.value,e.target.name);
-
+        clearTimeout(this.timer)
+        this.setState({ value: e.target.value })
+        this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL, e.target.value, e.target.name)
     }
 
-    triggerChange(value,name){
-        this.props.onChange(value,name);
+    triggerChange(value, name) {
+        this.props.onChange(value, name)
     }
-    
+
     componentWillMount() {
-        this.timer = null;
+        this.timer = null
     }
 
     handleKeyDown(e) {
         if (e.keyCode === ENTER_KEY) {
-            clearTimeout(this.timer);
-            console.log("sending triggerchange meth2",this.state,this.props)
-            this.triggerChange(this.state.value,this.props.name);
+            clearTimeout(this.timer)
+            console.log("sending triggerchange meth2", this.state, this.props)
+            this.triggerChange(this.state.value, this.props.name)
         }
     }
 
     render() {
-        const {  name } = this.props
-        const {value} = this.state
+        const { name } = this.props
+        const { value } = this.state
         return (
             <input
                 type="text"
@@ -207,8 +202,8 @@ class Article extends React.Component {
         this.setState({ reforme: ref })
     }
 
-    handleS1Change(value,name) {
-        this.props.onChange(value,name)
+    handleS1Change(value, name) {
+        this.props.onChange(value, name)
     }
 
     handleAddTranche(e) {

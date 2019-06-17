@@ -7,20 +7,12 @@ import AppBar from "@material-ui/core/AppBar"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
-import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogContentText,
-    DialogActions,
-    Paper,
-    Item,
-} from "@material-ui/core"
+import { Paper } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
 import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
-import Impact from "../components/Impact"
-import Article from "../components/Article"
+import Impact from "components/Impact"
+import Article from "components/Article"
 
 const styles = theme => ({
     paper: {
@@ -147,7 +139,7 @@ class Reformeur extends Component {
                     nombre_declarants_retraites: 0,
                     nombre_personnes_a_charge: 2,
                     revenu: 55200,
-                }
+                },
             ],
             cas_types_defaut: true,
         }
@@ -160,7 +152,8 @@ class Reformeur extends Component {
     }
 
     componentDidMount() {
-        const endpoint = this.endpoint() // execlocale?'http://127.0.0.1:5000':'https://leximpact-server.scalingo.io';
+        const endpoint = this.endpoint()
+
         fetch(`${endpoint}/metadata/description_cas_types`, {
             method: "POST",
             headers: {
@@ -266,10 +259,7 @@ class Reformeur extends Component {
         this.setState({ indextab: index })
     }
 
-    endpoint = () => {
-        const execlocale = false
-        return execlocale ? "http://127.0.0.1:5000" : "https://leximpact-server.scalingo.io"
-    }
+    endpoint = () => process.env.API_URL
 
     updateCompare(bodyreq) {
         this.setState({ loading: true })
@@ -287,7 +277,7 @@ class Reformeur extends Component {
             })
     }
 
-    handleChange(value,name) {
+    handleChange(value, name) {
         const success = false
         const newvalue = value == "" ? 0 : value
         if (name.substring(0, 5) == "seuil") {
@@ -348,7 +338,7 @@ class Reformeur extends Component {
     handleOutreMerChange = (i, value) => {
         const arrayrev = this.state.cas_types
         arrayrev[i].outre_mer = value
-        console.log("om", arrayrev,value)
+        console.log("om", arrayrev, value)
         this.setState({ cas_types: arrayrev, cas_types_defaut: false })
         const bodyreq = JSON.stringify({
             reforme: this.state.reforme,
@@ -379,14 +369,14 @@ class Reformeur extends Component {
         const desktop = 1280
         const tablet = 960 // and max-width: 1024px
         const phone = 600
-        const bigscreen=1920
+        const bigscreen = 1920
         return (
             <Fragment>
                 <div className="main-index">
-                        {/* <div>You are a desktop or laptop</div> */}
-                    <MediaQuery minDeviceWidth={phone+1}>
-                        {/*<MediaQuery minDeviceWidth={bigscreen}>
-                             <div>You also have a huge screen</div> 
+                    {/* <div>You are a desktop or laptop</div> */}
+                    <MediaQuery minDeviceWidth={phone + 1}>
+                        {/* <MediaQuery minDeviceWidth={bigscreen}>
+                             <div>You also have a huge screen</div>
                         </MediaQuery> */}
                         <MediaQuery maxWidth={phone}>
                             {(matches) => {
@@ -433,7 +423,9 @@ class Reformeur extends Component {
                                                         <Impact
                                                             loading={this.state.loading}
                                                             onRevenuChange={this.handleRevenuChange}
-                                                            onOutreMerChange={this.handleOutreMerChange}
+                                                            onOutreMerChange={
+                                                                this.handleOutreMerChange
+                                                            }
                                                             res_brut={this.state.res_brut}
                                                             total_pop={this.state.total_pop}
                                                             onClick={this.simPop}
@@ -526,13 +518,11 @@ class Reformeur extends Component {
                         </div>
                     </MediaQuery>
 
-
-
-                   {/* >>> Essayer de créer une média query spécial tablette 
+                    {/* >>> Essayer de créer une média query spécial tablette
                    } <MediaQuery minDeviceWidth={768} maxDeviceWidth={1024} orientation={'portrait'}>
-                        {/* <div>You are a tablet or mobile phone</div> 
+                        {/* <div>You are a tablet or mobile phone</div>
                         <div>
-                            {/* <div>You are sized like a tablet or mobile phone though</div> 
+                            {/* <div>You are sized like a tablet or mobile phone though</div>
                             <div className={classes.root}>
                                 <AppBar position="static" color="default">
                                     <Tabs
