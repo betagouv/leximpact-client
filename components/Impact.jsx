@@ -1,7 +1,5 @@
 import { Component } from "react"
-import { render } from "react-dom"
 import { Grid } from "@material-ui/core"
-import fetch from "isomorphic-fetch"
 import SimpleCard from "./SimpleCard"
 import RecettesCard from "./RecettesCard"
 
@@ -21,7 +19,7 @@ class Impact extends Component {
     handleChangeRevenu(i, e) {
         this.props.onRevenuChange(i, e.target.value)
     }
-    
+
     handleChangeOutreMer(i, v) {
         this.props.onOutreMerChange(i, v)
     }

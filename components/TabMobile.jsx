@@ -8,7 +8,7 @@ import Tab from "@material-ui/core/Tab"
 import Typography from "@material-ui/core/Typography"
 import Impact from "components/Impact"
 import Paper from "@material-ui/core/Paper"
-import Article from "../components/Article"
+import Article from "components/Article"
 
 function TabContainer({ children, dir }) {
     return (

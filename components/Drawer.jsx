@@ -1,5 +1,4 @@
 import React from "react"
-
 import PropTypes from "prop-types"
 import classNames from "classnames"
 import { withStyles } from "@material-ui/core/styles"
@@ -19,7 +18,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
 import InboxIcon from "@material-ui/icons/MoveToInbox"
 import MailIcon from "@material-ui/icons/Mail"
-import Article from "../components/Article"
+import Article from "components/Article"
 
 const drawerWidth = 240
 
