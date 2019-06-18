@@ -17,6 +17,7 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import withMobileDialog from "@material-ui/core/withMobileDialog"
 import { Icon, InlineIcon } from "@iconify/react"
 import classicalBuilding from "@iconify/react/twemoji/classical-building"
+import BarChart from "component/BarChart"
 
 const styles = theme => ({
     // root: {
@@ -57,6 +58,14 @@ const styles = theme => ({
     card:{
         maxWidth: 500,
     },
+    titledadCarteEtat:{
+        fontFamily: "Lato",
+        fontWeight: "bold",
+        fontSize: "1.125em"
+    },
+    subtitleCarteEtat:{
+        fontFamily: "Lato"
+    }
 })
 
 class RecettesCard extends React.Component {
@@ -85,8 +94,8 @@ class RecettesCard extends React.Component {
                             <td rowSpan="2">
                                 <Icon icon={classicalBuilding} width="40" height="40" />
                             </td>
-                            <td>
-                                <Typography inline variant="body1">Recettes de l'État sur l'impôt sur le revenu</Typography>
+                            <td className="titleCarteEtat">
+                                Recettes de l'État sur l'impôt sur le revenu
                             </td>
                         </tr>
                         <tr>
@@ -95,33 +104,35 @@ class RecettesCard extends React.Component {
                             </td>
                         </tr>
                     </table>
+                    <table>
+                        <tr height="15%">
+                            <td rowSpan="4" width="150%">
+                                <BarChart resultat={resultat}/>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span className="legendeEtat avant chiffre">{Math.round(resultat.total.avant/100000000)/10}</span><span className="legendeEtat avant">Md€</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span className="legendeEtat apres chiffre">{Math.round(resultat.total.apres/100000000)/10}</span><span className="legendeEtat apres">Md€</span>
+                            </td>
+                        </tr>
+                        <tr height="15%">
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
                     <div>
-                        <Typography inline variant="h3" color="primary" gutterBottom>
-                            {Math.round(this.props.resultat.total.avant / 100000000) / 10}
-                        </Typography>
-                        <Typography
-                            inline
-                            variant="h5"
-                            className={
-                                delta > -0.01
-                                    ? this.props.classes.pom_verte
-                                    : this.props.classes.pom_rouge
-                            }
-                            gutterBottom
-                        >
-                            {delta > -0.01 ? "+" : "-"}
-                        </Typography>
-                        <Typography inline variant="h3" color="secondary" gutterBottom>
-                            {Math.round(Math.abs(delta / 100000000)) / 10}
-                        </Typography>
-                        <Typography inline variant="h5" color="secondary" gutterBottom>
-                            Md€
-                        </Typography>
-                    </div>
-                    <div>
-                        <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
-                            Lancer la simulation
-                        </Button>
+                        <center>
+                            <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
+                                Lancer la simulation
+                            </Button>
+                        </center>
                     </div>
                 </CardContent>
             </Card>

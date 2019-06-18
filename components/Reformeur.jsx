@@ -138,8 +138,8 @@ class Reformeur extends Component {
                         poids: 64349.98292025551
                     },
                     {
-                        apres: 5056.9815335,
-                        avant: 4583.6722295,
+                        apres: 505687176.9815335,
+                        avant: 458387176.6722295,
                         poids: 63775.046068296535
                     },
                     {
