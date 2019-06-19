@@ -128,12 +128,12 @@ class SimpleCard extends React.Component {
             <Card className={classes.card}>
                 <CardContent className={classes.cardcontent}>
                     <div className={classes.div}>
-                        {<Icon key="person1" icon={icon1} width="40" height="40" />}
-                        {aretwo ? <Icon key="person2" icon={icon2} width="40" height="40" /> : ""}
-                        {babyicons}
-                    </div>
-
-                    <div className={classes.div}>
+                        <div>
+                            {<Icon key="person1" icon={icon1} width="40" height="40" />}
+                            {aretwo ? <Icon key="person2" icon={icon2} width="40" height="40" /> : ""}
+                            {babyicons}
+                        </div>
+                        <div>
                         <Tooltip
                             key="revenus"
                             placement="top"
@@ -148,45 +148,46 @@ class SimpleCard extends React.Component {
 }
                             </NativeSelect>
                         </Tooltip>
-                    </div>
-                    <div>
-                        {isoutremer1 ? (
-                             <Tooltip
-                                key="outremer1"
-                                placement="bottom"
-                                title="Guadeloupe, Martinique ou Réunion"
-                                enterDelay={300}
-                                leaveDelay={200}
-                            >
+                        </div>
+                        <div>
+                            {isoutremer1 ? (
+                                <Tooltip
+                                    key="outremer1"
+                                    placement="bottom"
+                                    title="Guadeloupe, Martinique ou Réunion"
+                                    enterDelay={300}
+                                    leaveDelay={200}
+                                >
 
-                                <Chip
-                                    className={classes.chip}
-                                    onClick={this.handleOutreMerChange(index)}
-                                    icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                    label="Outre-mer n° 1"
-                                />
-                            </Tooltip>
-                        ) : (isoutremer2 ? (
-                            <Tooltip
-                                key="outremer2"
-                                placement="bottom"
-                                title="Guyane ou Mayotte"
-                                enterDelay={300}
-                                leaveDelay={200}
-                            >
-                                <Chip
-                                    className={classes.chip}
-                                    icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                    label="Outre-mer n° 2"
-                                    onClick={this.handleOutreMerChange(index)}
-                                />
-                            </Tooltip>
-                        ) : (
-                            ""
-                        )
-                            )}
-                            {isret ? <Chip
-                                    className={classes.chip} label="Retraités" /> : ""}
+                                    <Chip
+                                        className={classes.chip}
+                                        onClick={this.handleOutreMerChange(index)}
+                                        icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                        label="Outre-mer n° 1"
+                                    />
+                                </Tooltip>
+                            ) : (isoutremer2 ? (
+                                <Tooltip
+                                    key="outremer2"
+                                    placement="bottom"
+                                    title="Guyane ou Mayotte"
+                                    enterDelay={300}
+                                    leaveDelay={200}
+                                >
+                                    <Chip
+                                        className={classes.chip}
+                                        icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                        label="Outre-mer n° 2"
+                                        onClick={this.handleOutreMerChange(index)}
+                                    />
+                                </Tooltip>
+                            ) : (
+                                ""
+                            )
+                                )}
+                                {isret ? <Chip
+                                        className={classes.chip} label="Retraités" /> : ""}
+                        </div>
                     </div>
                     <Divider/>
                     <div className={classes.div}>
