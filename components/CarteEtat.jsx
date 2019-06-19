@@ -18,7 +18,7 @@ import withMobileDialog from "@material-ui/core/withMobileDialog"
 import { Icon, InlineIcon } from "@iconify/react"
 import classicalBuilding from "@iconify/icons-twemoji/classical-building"
 import BarChart from "components/BarChart"
-import "components/chart.scss"
+import "styles/chart.scss"
 
 const styles = theme => ({
     // root: {
@@ -86,7 +86,6 @@ class RecettesCard extends React.Component {
     render() {
         const { classes,resultat} = this.props
         const delta=this.props.resultat.total.avant - this.props.resultat.total.apres
-        console.log("resultat : ",resultat)
         return (
             <Card className={this.props.classes.card}>
                 <CardContent>
