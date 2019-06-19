@@ -54,6 +54,15 @@ function numberToRevenuparmois(rev) {
     return `${rev}€/mois`
 }
 
+const BlueTooltip = withStyles(theme => ({
+    tooltip: {
+      backgroundColor: '#00a3ff',
+      color: '#ffffff',
+      maxWidth: 220,
+      fontSize: theme.typography.pxToRem(12),
+    },
+  }))(Tooltip);
+
 class SimpleCard extends React.Component {
     constructor(props) {
         super(props)
@@ -190,6 +199,14 @@ class SimpleCard extends React.Component {
                         </div>
                     </div>
                     <Divider/>
+                        <BlueTooltip
+                            key="gain"
+                            placement="bottom"
+                            title={"Soit "+(-impots_apres+impots_avant>0?"+":"-")+
+                            Math.round(Math.abs(-impots_apres+impots_avant))+"€/an"}
+                            enterDelay={300}
+                            leaveDelay={200}
+                            >
                     <div className={classes.div}>
                         <Typography className={classes.legende}>Impôt sur le revenu par an</Typography>
                         <Typography inline={true} variant="h3" color="primary" gutterBottom>
@@ -212,6 +229,7 @@ class SimpleCard extends React.Component {
                             </>
                         )}
                     </div>
+                    </BlueTooltip>
                 </CardContent>
             </Card>
         )
