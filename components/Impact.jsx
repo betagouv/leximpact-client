@@ -1,10 +1,8 @@
 import { Component } from "react"
 import { Grid } from "@material-ui/core"
 import fetch from "isomorphic-fetch"
-import SimpleCard from "component/SimpleCard"
-import RecettesCard from "component/RecettesCard"
-import CarteEtat from "component/CarteEtat"
-import BarChart from "component/BarChart"
+import SimpleCard from "components/SimpleCard"
+import CarteEtat from "components/CarteEtat"
 
 class Impact extends Component {
     constructor(props) {
@@ -35,7 +33,6 @@ class Impact extends Component {
         const { res_brut } = this.props
         const { total_pop } = this.props
         return (
-            <BarChart/>
             <Grid container spacing={24}>
                 {this.props.cas_types.map((ct, i) => (
                     <Grid item key={"grid" + i} xs={6} sm={12} md={6} lg={4} xl={3}>

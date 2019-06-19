@@ -187,7 +187,6 @@ class SimpleCard extends React.Component {
                             )}
                             {isret ? <Chip
                                     className={classes.chip} label="Retraités" /> : ""}
-                        </div>
                     </div>
                     <Divider/>
                     <div className={classes.div}>
