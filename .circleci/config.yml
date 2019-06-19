@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:11.10
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-node11-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run:
+          name: Install dependencies
+          command: |
+            sudo npm install -g npm@6.9.0
+            npm install
+
+      - save_cache:
+          key: v1-node11-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+      - run:
+          name: Run tests
+          command: npm test
