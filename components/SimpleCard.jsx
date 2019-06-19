@@ -122,79 +122,80 @@ class SimpleCard extends React.Component {
                     ? womanWhiteHaired
                     : womanCurlyHaired
         const babyicons = [...Array(nbenfants)].map((e, i) => (
-            <Icon icon={babyIcon} width="30" height="30" />
+            <Icon key={"baby" + i} icon={babyIcon} width="30" height="30" />
         ))
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.cardcontent}>
                     <div className={classes.div}>
                         <div>
-                            {<Icon icon={icon1} width="40" height="40" />}
-                            {aretwo ? <Icon icon={icon2} width="40" height="40" /> : ""}
+                            {<Icon key="person1" icon={icon1} width="40" height="40" />}
+                            {aretwo ? <Icon key="person2" icon={icon2} width="40" height="40" /> : ""}
                             {babyicons}
                         </div>
-
                         <div>
-                            <Tooltip
-                                placement="top"
-                                title="Revenus bruts"
-                                enterDelay={300}
-                                leaveDelay={200}
-                            >
-                                <NativeSelect className={classes.nativeselect} value={revrounded} onChange={this.handleChange(index)}>
-                                    <option value={revrounded}>{`${revrounded}€/mois`}</option>
-                                    {this.roundedRevenues(revrounded)}
-                                    {" "}
-    }
-                                </NativeSelect>
-                            </Tooltip>
+                        <Tooltip
+                            key="revenus"
+                            placement="top"
+                            title="Revenus bruts"
+                            enterDelay={300}
+                            leaveDelay={200}
+                        >
+                            <NativeSelect className={classes.nativeselect} value={revrounded} onChange={this.handleChange(index)}>
+                                <option value={revrounded}>{`${revrounded}€/mois`}</option>
+                                {this.roundedRevenues(revrounded)}
+                                {" "}
+}
+                            </NativeSelect>
+                        </Tooltip>
                         </div>
                         <div>
                             {isoutremer1 ? (
                                 <Tooltip
+                                    key="outremer1"
                                     placement="bottom"
                                     title="Guadeloupe, Martinique ou Réunion"
                                     enterDelay={300}
                                     leaveDelay={200}
                                 >
-                                <Chip
-                                    className={classes.chip}
-                                    onClick={this.handleOutreMerChange(index)}
-                                    clickable="true"
-                                    icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                    label="Outre-mer n° 1"
-                                />
+
+                                    <Chip
+                                        className={classes.chip}
+                                        onClick={this.handleOutreMerChange(index)}
+                                        icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                        label="Outre-mer n° 1"
+                                    />
                                 </Tooltip>
                             ) : (isoutremer2 ? (
                                 <Tooltip
+                                    key="outremer2"
                                     placement="bottom"
                                     title="Guyane ou Mayotte"
                                     enterDelay={300}
                                     leaveDelay={200}
-                            >
-                            <Chip
-                                className={classes.chip}
-                                icon={<Icon icon={desertIsland} width="20" height="20" />}
-                                label="Outre-mer n° 2"
-                                onClick={this.handleOutreMerChange(index)}
-                            />
-                            </Tooltip>
-                        ) : (
-                            ""
-                        )
-                            )}
-                            {isret ? <Chip
-                                    className={classes.chip} label="Retraités" /> : ""}
+                                >
+                                    <Chip
+                                        className={classes.chip}
+                                        icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                        label="Outre-mer n° 2"
+                                        onClick={this.handleOutreMerChange(index)}
+                                    />
+                                </Tooltip>
+                            ) : (
+                                ""
+                            )
+                                )}
+                                {isret ? <Chip
+                                        className={classes.chip} label="Retraités" /> : ""}
                         </div>
                     </div>
                     <Divider/>
-
                     <div className={classes.div}>
                         <Typography className={classes.legende}>Impôt sur le revenu par an</Typography>
-                        <Typography inline variant="h3" color="primary" gutterBottom>
+                        <Typography inline={true} variant="h3" color="primary" gutterBottom>
                             {-impots_avant}
                         </Typography>
-                        <Typography inline variant="h5" color="primary" gutterBottom>
+                        <Typography inline={true} variant="h5" color="primary" gutterBottom>
                             €
                         </Typography>
                         <br />
@@ -202,10 +203,10 @@ class SimpleCard extends React.Component {
                             <CircularProgress color="secondary" />
                         ) : (
                             <>
-                                <Typography inline variant="h3" color="secondary" gutterBottom>
+                                <Typography inline={true} variant="h3" color="secondary" gutterBottom>
                                     {-impots_apres}
                                 </Typography>
-                                <Typography inline variant="h5" color="secondary" gutterBottom>
+                                <Typography inline={true} variant="h5" color="secondary" gutterBottom>
                                     €
                                 </Typography>
                             </>

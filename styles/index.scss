@@ -2,14 +2,15 @@
 
 
 .main-index {
-	     background-color: #FFFCB2;
+	     //background-color: #FFFCB2;
+		 background-image: url(../static/images/tramebackground.png);
 	     width: auto;
 	     /*background-image: url("tramebackground.png");*/
 	}
 
 html {  
-	background-color: #FFFCB2;
-	//background-image: url(https://mdn.mozillademos.org/files/11991/startransparent.gif),
+	//background-color: #FFFCB2;
+	background-image: url(../static/images/tramebackground.png);
 }
 
 @media screen and (min-width: 500px) {
