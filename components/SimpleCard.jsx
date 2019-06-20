@@ -61,6 +61,9 @@ const BlueTooltip = withStyles(theme => ({
       maxWidth: 220,
       fontSize: theme.typography.pxToRem(12),
     },
+    tooltipPlacementBottom: {
+        margin: '0px 0',
+      },
   }))(Tooltip);
 
 class SimpleCard extends React.Component {
@@ -199,14 +202,6 @@ class SimpleCard extends React.Component {
                         </div>
                     </div>
                     <Divider/>
-                        <BlueTooltip
-                            key="gain"
-                            placement="bottom"
-                            title={"Soit "+(-impots_apres+impots_avant>0?"+":"-")+
-                            Math.round(Math.abs(-impots_apres+impots_avant))+"€/an"}
-                            enterDelay={300}
-                            leaveDelay={200}
-                            >
                     <div className={classes.div}>
                         <Typography className={classes.legende}>Impôt sur le revenu par an</Typography>
                         <Typography inline={true} variant="h3" color="primary" gutterBottom>
@@ -216,20 +211,33 @@ class SimpleCard extends React.Component {
                             €
                         </Typography>
                         <br />
-                        {loading ? (
-                            <CircularProgress color="secondary" />
-                        ) : (
-                            <>
-                                <Typography inline={true} variant="h3" color="secondary" gutterBottom>
-                                    {-impots_apres}
-                                </Typography>
-                                <Typography inline={true} variant="h5" color="secondary" gutterBottom>
-                                    €
-                                </Typography>
-                            </>
-                        )}
+                        <BlueTooltip
+                            key="gain"
+                            placement="bottom-start"
+                            title=<React.Fragment>
+                            {"Soit "}<b>{(-impots_apres+impots_avant>0?"+":"-")+
+                            Math.round(Math.abs(-impots_apres+impots_avant))+"€"}</b>
+                            {"/an"}
+                            </React.Fragment>
+                            enterDelay={300}
+                            leaveDelay={200}
+                            >
+                            <div>
+                            {loading ? (
+                                <CircularProgress color="secondary" />
+                            ) : (
+                                <>
+                                    <Typography inline={true} variant="h3" color="secondary" gutterBottom>
+                                        {-impots_apres}
+                                    </Typography>
+                                    <Typography inline={true} variant="h5" color="secondary" gutterBottom>
+                                        €
+                                    </Typography>
+                                </>
+                            )}
+                            </div>
+                        </BlueTooltip>
                     </div>
-                    </BlueTooltip>
                 </CardContent>
             </Card>
         )
