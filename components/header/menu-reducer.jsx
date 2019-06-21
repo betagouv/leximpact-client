@@ -1,12 +1,12 @@
 function open(anchorEl = false) {
     return {
-        type: "Header/Menu/open",
+        type: "header/menu/open",
         anchorEl,
     }
 }
 
 function close() {
-    return { type: "Header/Menu/close" }
+    return { type: "header/menu/close" }
 }
 
 function reducer(state, { type, anchorEl }) {
@@ -24,4 +24,13 @@ function reducer(state, { type, anchorEl }) {
     return state
 }
 
-export { open, close, reducer }
+function initialState() {
+    return { open: false }
+}
+
+export {
+    open,
+    close,
+    reducer,
+    initialState,
+}

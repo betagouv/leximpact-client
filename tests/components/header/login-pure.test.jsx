@@ -1,7 +1,7 @@
 /* eslint-disable fp/no-nil */
 
 import { create } from "react-test-renderer"
-import Login from "components/Header/Login"
+import Login from "components/header/login-pure"
 
 test("Login renders correctly", () => {
     const renderer = create(<Login />)

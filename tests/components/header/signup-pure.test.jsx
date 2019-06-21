@@ -1,7 +1,7 @@
 /* eslint-disable fp/no-nil */
 
 import { create } from "react-test-renderer"
-import Signup from "components/Header/Signup"
+import Signup from "components/header/signup-pure"
 
 test("Signup renders correctly", () => {
     const renderer = create(<Signup />)

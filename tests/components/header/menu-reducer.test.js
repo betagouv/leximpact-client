@@ -1,6 +1,6 @@
 /* eslint-disable fp/no-nil */
 
-import { open, close, reducer } from "components/Header/Menu.reducer"
+import { open, close, reducer } from "components/header/menu-reducer"
 
 describe("reducer", () => {
     it("when passed open(), state is set to open", () => {
