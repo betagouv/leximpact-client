@@ -57,6 +57,7 @@
         "react-jss": "^8.6.1",
         "react-plotly.js": "^2.3.0",
         "react-responsive": "^6.1.2",
+        "react-socks": "^1.0.1",
         "react-swipeable-views": "^0.13.3",
         "redux": "^4.0.1"
     },
@@ -75,7 +76,8 @@
         "jest": "^24.8.0",
         "nodemon": "^1.19.1",
         "prettier-eslint": "^9.0.0",
-        "prettier-eslint-cli": "^5.0.0"
+        "prettier-eslint-cli": "^5.0.0",
+        "react-test-renderer": "^16.8.6"
     },
     "engines": {
         "node": "11.10.0",
