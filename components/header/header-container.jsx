@@ -38,10 +38,7 @@ function styles(theme) {
 
 function Header({ classes }: Props) {
     const {
-        root,
-        title,
-        ir,
-        grow,
+        root, title, ir, grow,
     } = classes
 
     return (

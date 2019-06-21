@@ -1,9 +1,6 @@
 import Breakpoint, { BreakpointProvider } from "react-socks"
 import {
-    open,
-    close,
-    reducer,
-    initialState,
+    open, close, reducer, initialState,
 } from "components/header/menu-reducer"
 import { useReducer } from "react"
 import { withStyles } from "@material-ui/core/styles"
@@ -57,11 +54,7 @@ function Menu({ classes }: Props) {
                     >
                         <MaterialMoreIcon />
                     </MaterialIconButton>
-                    <MaterialMenu
-                        anchorEl={anchorEl}
-                        open={isOpen}
-                        onClose={closeMenu}
-                    >
+                    <MaterialMenu anchorEl={anchorEl} open={isOpen} onClose={closeMenu}>
                         <MaterialMenuItem onClick={closeMenu}>
                             <Login />
                         </MaterialMenuItem>

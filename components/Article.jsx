@@ -110,9 +110,9 @@ class InputField extends React.Component {
         this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL, e.target.value, e.target.name)
     }
 
-    triggerChange(value,name){
-        this.props.onChange(value,name)
-        this.props.onChange(value.replace(/\s+/g, ''),name)
+    triggerChange(value, name) {
+        this.props.onChange(value, name)
+        this.props.onChange(value.replace(/\s+/g, ""), name)
     }
 
     componentWillMount() {
@@ -367,19 +367,39 @@ class Article extends React.Component {
                 </ExpansionPanel>
                 {articleTranches}
                 <div>
-                    <Fab style={style.Button} size="small" onClick={this.handleAddTranche} color="primary">
+                    <Fab
+                        style={style.Button}
+                        size="small"
+                        onClick={this.handleAddTranche}
+                        color="primary"
+                    >
                         <AddIcon />
                     </Fab>
-                    <Typography inline={true} variant="overline" color="primary" style={style.Typographybouton}>
+                    <Typography
+                        inline
+                        variant="overline"
+                        color="primary"
+                        style={style.Typographybouton}
+                    >
                         Ajouter une tranche
                     </Typography>
                 </div>
 
                 <div>
-                    <Fab style={style.Button} size="small" onClick={this.handleRemoveTranche} color="primary">
+                    <Fab
+                        style={style.Button}
+                        size="small"
+                        onClick={this.handleRemoveTranche}
+                        color="primary"
+                    >
                         <DeleteIcon />
                     </Fab>
-                    <Typography inline={true} variant="overline" color="primary" style={style.Typographybouton}>
+                    <Typography
+                        inline
+                        variant="overline"
+                        color="primary"
+                        style={style.Typographybouton}
+                    >
                         Supprimer une tranche
                     </Typography>
                 </div>
