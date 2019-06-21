@@ -13,7 +13,6 @@ class Impact extends Component {
     }
 
     handleClick(e) {
-        console.log("oui2", e, this.props)
         this.props.onClick(e)
     }
 
@@ -28,7 +27,6 @@ class Impact extends Component {
     render() {
         // include should be false to remove the graph of recettes
         const includepopulation = false
-        console.log("et un render")
         const { loading } = this.props
         const { res_brut } = this.props
         const { total_pop } = this.props

@@ -220,7 +220,6 @@ class Reformeur extends Component {
             })
             .catch(() => console.log("Can’t access  response. Blocked by browser?")) // json.map(country => country.name))
         // .then(countryNames => this.setState({countryNames, loading: false}))
-        console.log("C'est fait ! ")
         // .then(json => this.setState({revenus_cas_types: json , loading : false} ))
         /**/
     }
@@ -252,7 +251,6 @@ class Reformeur extends Component {
     }
 
     UpdateDecote = (dectype, value) => {
-        console.log("ppffff", dectype, value)
         const ref = this.state.reforme
         if (dectype == "seuil_couple") {
             ref.impot_revenu.decote.seuil_couple = parseInt(value, 10)
@@ -261,7 +259,6 @@ class Reformeur extends Component {
             ref.impot_revenu.decote.seuil_celib = parseInt(value, 10)
         }
         this.setState({ reforme: ref })
-        console.log(this.state)
     }
 
     addTranche(e) {
@@ -316,7 +313,6 @@ class Reformeur extends Component {
 
     updateCompare(bodyreq) {
         this.setState({ loading: true })
-        console.log(bodyreq)
         fetch(`${this.endpoint()}/calculate/compare`, {
             method: "POST",
             headers: {
@@ -361,7 +357,6 @@ class Reformeur extends Component {
     }
 
     simPop(e) {
-        console.log("launching simpop")
         fetch(`${this.endpoint()}/calculate/compare`, {
             method: "POST",
             headers: {
@@ -392,7 +387,6 @@ class Reformeur extends Component {
     handleOutreMerChange = (i, value) => {
         const arrayrev = this.state.cas_types
         arrayrev[i].outre_mer = value
-        console.log("om", arrayrev, value)
         this.setState({ cas_types: arrayrev, cas_types_defaut: false })
         const bodyreq = JSON.stringify({
             reforme: this.state.reforme,
@@ -419,7 +413,6 @@ class Reformeur extends Component {
 
     render() {
         const { classes, theme } = this.props
-        console.log("et je rends reformeur nouveau", this.state)
         const desktop = 1280
         const tablet = 960 // and max-width: 1024px
         const phone = 600

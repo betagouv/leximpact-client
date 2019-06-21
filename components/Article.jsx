@@ -122,7 +122,6 @@ class InputField extends React.Component {
     handleKeyDown(e) {
         if (e.keyCode === ENTER_KEY) {
             clearTimeout(this.timer)
-            console.log("sending triggerchange meth2", this.state, this.props)
             this.triggerChange(this.state.value, this.props.name)
         }
     }

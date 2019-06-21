@@ -16,19 +16,16 @@ class BarChart extends React.Component {
         const keycols= ['1','2','3','4','5','6','7','8','9','10']
         const {total, deciles}=this.props.resultat
         const z=deciles.map((element) => element.avant)
-        console.log("mon z",deciles, z)
         const stavant = {"refid" : " "}
         const resavant=z.reduce(function(result, item, index, array) {
             result[keycols[index]] = Math.round(item/10000000)/100;  
             return result;
           }, stavant)
-        console.log(resavant)
         const stapres = {"refid" : ""/*+Math.round(total.apres/10000000)/100+ "Md€"*/}
         const resapres=deciles.map((element) => element.apres).reduce(function(result, item, index, array) {
             result[keycols[index]] = Math.round(item/10000000)/100; 
             return result;
           }, stapres)
-        console.log([resapres,resavant])
         return [resapres,resavant]
     }
 
@@ -38,7 +35,6 @@ class BarChart extends React.Component {
         const Image = ({ bars }) => {
             let size = 24
             let images = bars.map(({ key, x, y, width, height }) => {
-                console.log( key, key.substring(0,key.indexOf(".")), x, y, width, height)
                 //const iddecile=key.substring(0,key.indexOf(".")
               return (
                 <image
