@@ -23,6 +23,7 @@ const nextConfig = {
         const plugins = concat(webpackConfig.plugins, [envPlugin()])
         return assign(webpackConfig, { plugins })
     },
+    cssModules: true,
     distDir: "build",
 }
 
