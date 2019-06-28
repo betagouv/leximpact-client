@@ -17,8 +17,10 @@
         "build": "npm run build:client && npm run build:server",
         "start": "NODE_ENV=production node build/dist/server.js",
         "code:check": "eslint -c .eslintrc --ext .js,.jsx --ignore-path .gitignore .",
-        "code:format": "prettier-eslint --write '**/*.{js,jsx}' --ignore-path .gitignore",
+        "code:fix": "prettier-eslint --write '**/*.{js,jsx}' --ignore-path .gitignore",
         "code:static": "flow",
+        "style:check": "stylelint --config stylelint.config.js --ignore-path .gitignore **/*.scss",
+        "style:fix": "prettier-stylelint --write styles/**/*.scss --ignore-path .gitignore --syntax scss --quiet",
         "test": "jest -c jest.config.js"
     },
     "dependencies": {
@@ -51,6 +53,7 @@
         "plotly-js-material-design-theme": "^1.1.3",
         "plotly.js": "^1.48.3",
         "postcss": "^7.0.17",
+        "prettier-stylelint": "^0.4.2",
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
@@ -67,7 +70,7 @@
         "babel-jest": "^24.8.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
-        "eslint": "^5.16.0",
+        "eslint": "^6.0.1",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-plugin-flowtype": "^3.10.3",
         "eslint-plugin-fp": "^2.3.0",
@@ -78,8 +81,15 @@
         "flow-bin": "^0.102.0",
         "jest": "^24.8.0",
         "nodemon": "^1.19.1",
+        "prettier": "^1.18.2",
         "prettier-eslint": "^9.0.0",
-        "prettier-eslint-cli": "^5.0.0"
+        "prettier-eslint-cli": "^5.0.0",
+        "stylelint": "^10.1.0",
+        "stylelint-config-css-modules": "^1.4.0",
+        "stylelint-config-prettier": "^5.2.0",
+        "stylelint-config-standard": "^18.3.0",
+        "stylelint-prettier": "^1.1.1",
+        "stylelint-selector-bem-pattern": "^2.1.0"
     },
     "engines": {
         "node": "11.10.0",

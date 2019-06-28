@@ -19,7 +19,9 @@ class BarChart extends React.Component {
             result[keycols[index]] = Math.round(item / 10000000) / 100
             return result
         }, stavant)
-        const stapres = { refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */ }
+        const stapres = {
+            refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */,
+        }
         const resapres = deciles
             .map(element => element.apres)
             .reduce((result, item, index, array) => {

@@ -1,48 +1,45 @@
 .chart {
-    height:30vh;
-    width:100%;
-   // background: white;
-   //  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-   //    transition: 0.3s;
-      
-   }
-   
-  //  .chart:hover {
-   //   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-   // }  
-
-.titleCarteEtat{
-  font-family: "Lato";
-  font-weight: bold;
-  font-size: 1.125em;
-  color: #565656;
+    height: 30vh;
+    width: 100%;
+    // background: white;
+    //  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    //    transition: 0.3s;
 }
 
+//  .chart:hover {
+//   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+// }
 
-.subtitleCarteEtat{
-  font-family: "Lato";
-  color: #565656;
-  font-size: 0.875em;
+.titleCarteEtat {
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 1.125em;
+    color: #565656;
+}
+
+.subtitleCarteEtat {
+    font-family: "Lato";
+    color: #565656;
+    font-size: 0.875em;
 }
 
 .legendeEtat {
-  font-family: "Lato";
-  color: #565656;
-  font-size: 1.875em;
-  &.avant{
-
-    &.chiffre{
-      background: rgba(222, 213, 0, 0.5);
-      background-blend-mode: darken;
+    font-family: "Lato";
+    color: #565656;
+    font-size: 1.875em;
+    &.avant {
+        &.chiffre {
+            background: rgba(222, 213, 0, 0.5);
+            background-blend-mode: darken;
+        }
     }
-  }
 
-  &.apres{
-    filter: blur(1.25px);
-    color: #00a3ff
-  }
+    &.apres {
+        filter: blur(1.25px);
+        color: #00a3ff;
+    }
 }
 
-.nobreak{
-  overflow: hidden;
+.nobreak {
+    overflow: hidden;
 }
