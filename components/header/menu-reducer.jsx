@@ -1,31 +1,47 @@
-function open(anchorEl = false) {
+/* @flow */
+
+type AnchorEl =
+    | HTMLButtonElement
+    | false
+
+type State = {
+    +isOpen: boolean,
+    +anchorEl?: AnchorEl,
+}
+
+type Action = {
+    +type: string,
+    +anchorEl?: AnchorEl,
+}
+
+function initialState(): State {
+    return { isOpen: false }
+}
+
+function open(anchorEl?: AnchorEl = false): Action {
     return {
         type: "header/menu/open",
         anchorEl,
     }
 }
 
-function close() {
+function close(): Action {
     return { type: "header/menu/close" }
 }
 
-function reducer(state, { type, anchorEl }) {
+function reducer(state: State, { type, anchorEl }: Action): State {
     if (type === open().type) {
         return {
-            open: true,
+            isOpen: true,
             anchorEl,
         }
     }
 
     if (type === close().type) {
-        return { open: false }
+        return { isOpen: false }
     }
 
     return state
-}
-
-function initialState() {
-    return { open: false }
 }
 
 export {

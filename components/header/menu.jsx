@@ -1,14 +1,38 @@
+/* @flow */
+
+import React, { Children, type Node } from "react"
+import { withStyles } from "@material-ui/core/styles"
 import Breakpoint, { BreakpointProvider } from "react-socks"
 import MaterialMenu from "@material-ui/core/Menu"
 import MaterialMoreIcon from "@material-ui/icons/MoreVert"
 import MaterialMenuItem from "@material-ui/core/MenuItem"
 import MaterialIconButton from "@material-ui/core/IconButton"
 
+type AnchorEl =
+    | HTMLButtonElement
+    | false
+
+type State = {
+    +isOpen: boolean,
+    +anchorEl?: AnchorEl,
+}
+
+type Actions = {
+    +openMenu: (SyntheticEvent<HTMLButtonElement>) => void,
+    +closeMenu: () => void,
+}
+
 type Props = {
-    classes: Object,
-    state: Object,
-    actions: Array,
-    children: Array,
+    +classes: Object,
+    +state: State,
+    +actions: Actions,
+    +children: any,
+}
+
+const styles = {
+    menu: {
+        display: "flex",
+    },
 }
 
 function Menu({
@@ -16,9 +40,9 @@ function Menu({
     state,
     actions,
     children,
-}: Props) {
+}: Props): Node {
     const { isOpen, anchorEl } = state
-    const [openMenu, closeMenu] = actions
+    const { openMenu, closeMenu } = actions
 
     return (
         <BreakpointProvider>
@@ -38,7 +62,7 @@ function Menu({
                         <MaterialMoreIcon />
                     </MaterialIconButton>
                     <MaterialMenu anchorEl={anchorEl} open={isOpen} onClose={closeMenu}>
-                        {children.map(child => (
+                        {Children.map(children, child => (
                             <MaterialMenuItem key={child.type} onClick={closeMenu}>
                                 {child}
                             </MaterialMenuItem>
@@ -50,4 +74,4 @@ function Menu({
     )
 }
 
-export default Menu
+export default withStyles(styles)(Menu)

@@ -4,20 +4,15 @@ import { shallow } from "enzyme"
 import Menu from "components/header/menu"
 
 test("Menu renders correctly", () => {
-    const classes = { menu: false }
-    const state = { open: false, anchorEl: false }
-    const actions = [() => {}, () => {}]
+    const state = { isOpen: false, anchorEl: false }
+    const actions = { openMenu: () => {}, closeMenu: () => {} }
 
     const child1 = <div>Smoke!</div>
     const child2 = <div>Drink!</div>
     const child3 = <div>Dance!</div>
 
     const component = shallow(
-        <Menu
-            classes={classes}
-            state={state}
-            actions={actions}
-        >
+        <Menu state={state} actions={actions}>
             {child1}
             {child2}
             {child3}
