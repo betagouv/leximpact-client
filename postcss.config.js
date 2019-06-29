@@ -1,6 +1,6 @@
 const autoprefixer = require("autoprefixer")
 
-module.exports = {
+const postcssConfig = {
     plugins: [
         autoprefixer({
             browsers: ["> 1%", "last 4 versions"],
@@ -8,3 +8,5 @@ module.exports = {
         }),
     ],
 }
+
+module.exports = postcssConfig

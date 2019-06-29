@@ -1,4 +1,4 @@
-module.exports = (api) => {
+function babelConfig(api) {
     api.cache(true)
 
     const presets = [
@@ -38,3 +38,5 @@ module.exports = (api) => {
         plugins,
     }
 }
+
+module.exports = babelConfig

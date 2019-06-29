@@ -1,12 +1,11 @@
 /* eslint-disable fp/no-nil */
 
-import { create } from "react-test-renderer"
+import { shallow } from "enzyme"
 import Login from "components/header/login"
 
 test("Login renders correctly", () => {
-    const renderer = create(<Login />)
-    const instance = renderer.root
-    const [text] = instance.findByType("p").children
+    const component = shallow(<Login />)
+    const element = <p>Connexion</p>
 
-    expect(text).toEqual("Connexion")
+    expect(component.contains(element)).toBe(true)
 })

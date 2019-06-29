@@ -1,6 +1,6 @@
 /* eslint-disable fp/no-nil */
 
-import { create } from "react-test-renderer"
+import { shallow } from "enzyme"
 import Menu from "components/header/menu"
 
 test("Menu renders correctly", () => {
@@ -8,20 +8,23 @@ test("Menu renders correctly", () => {
     const state = { open: false, anchorEl: false }
     const actions = [() => {}, () => {}]
 
-    const renderer = create(
+    const child1 = <div>Smoke!</div>
+    const child2 = <div>Drink!</div>
+    const child3 = <div>Dance!</div>
+
+    const component = shallow(
         <Menu
             classes={classes}
             state={state}
             actions={actions}
         >
-            <div className="smoke">Smoke!</div>
-            <div className="drink">Drink!</div>
-            <div className="dance">Dance!</div>
+            {child1}
+            {child2}
+            {child3}
         </Menu>,
     )
 
-    const instance = renderer.root
-    const [text] = instance.findByProps({ className: "dance" }).children
-
-    expect(text).toEqual("Dance!")
+    expect(component.contains(child1)).toBe(true)
+    expect(component.contains(child2)).toBe(true)
+    expect(component.contains(child3)).toBe(true)
 })

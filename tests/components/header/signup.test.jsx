@@ -1,12 +1,11 @@
 /* eslint-disable fp/no-nil */
 
-import { create } from "react-test-renderer"
+import { shallow } from "enzyme"
 import Signup from "components/header/signup"
 
-test("Signup renders correctly", () => {
-    const renderer = create(<Signup />)
-    const instance = renderer.root
-    const [text] = instance.findByType("p").children
+test("Login renders correctly", () => {
+    const component = shallow(<Signup />)
+    const element = <p>S’enregistrer</p>
 
-    expect(text).toEqual("S’enregistrer")
+    expect(component.contains(element)).toBe(true)
 })
