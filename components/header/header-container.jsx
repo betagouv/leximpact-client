@@ -11,16 +11,16 @@ type Props = {
 
 function styles(theme) {
     return {
-        root: {
+        header: {
             width: "100%",
         },
-        title: {
+        header__title: {
             display: "none",
             [theme.breakpoints.up("sm")]: {
                 display: "block",
             },
         },
-        ir: {
+        header__button: {
             fontSize: "16px",
             fontWeight: "light",
             textTransform: "uppercase",
@@ -30,32 +30,28 @@ function styles(theme) {
             paddingRight: 30,
             marginLeft: 30,
         },
-        grow: {
+        header__space: {
             flexGrow: 1,
         },
     }
 }
 
-function Header({ classes }: Props) {
-    const {
-        root, title, ir, grow,
-    } = classes
-
+function HeaderContainer({ classes }: Props) {
     return (
-        <div className={root}>
+        <div className={classes.header}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography className={title} variant="h1" color="inherit" noWrap>
+                    <Typography className={classes.header__title} variant="h1" color="inherit" noWrap>
                         LexImpact
                     </Typography>
 
                     <div>
-                        <Button color="inherit" className={ir}>
+                        <Button color="inherit" className={classes.header__button}>
                             Impôt sur le revenu
                         </Button>
                     </div>
 
-                    <div className={grow} />
+                    <div className={classes.header__space} />
 
                     <Menu />
                 </Toolbar>
@@ -64,4 +60,4 @@ function Header({ classes }: Props) {
     )
 }
 
-export default styles |> withStyles |> (_ => _(Header))
+export default styles |> withStyles |> (_ => _(HeaderContainer))

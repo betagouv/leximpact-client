@@ -1,15 +1,14 @@
-import Breakpoint, { BreakpointProvider } from "react-socks"
 import {
-    open, close, reducer, initialState,
+    open,
+    close,
+    reducer,
+    initialState,
 } from "components/header/menu-reducer"
 import { useReducer } from "react"
 import { withStyles } from "@material-ui/core/styles"
-import MaterialMenu from "@material-ui/core/Menu"
-import MaterialMoreIcon from "@material-ui/icons/MoreVert"
-import MaterialMenuItem from "@material-ui/core/MenuItem"
-import MaterialIconButton from "@material-ui/core/IconButton"
-import Login from "components/header/login-pure"
-import Signup from "components/header/signup-pure"
+import Menu from "components/header/menu"
+import Login from "components/header/login"
+import Signup from "components/header/signup"
 
 type Props = {
     classes: Object,
@@ -17,14 +16,13 @@ type Props = {
 
 function styles() {
     return {
-        root: {
+        menu: {
             display: "flex",
         },
     }
 }
 
-function Menu({ classes }: Props) {
-    const { root } = classes
+function MenuContainer({ classes }: Props) {
     const [state, dispatch] = useReducer(reducer, initialState)
     const { open: isOpen, anchorEl } = state
 
@@ -37,35 +35,15 @@ function Menu({ classes }: Props) {
     }
 
     return (
-        <BreakpointProvider>
-            <Breakpoint medium up>
-                <div className={root}>
-                    <Login />
-                    <Signup />
-                </div>
-            </Breakpoint>
-            <Breakpoint small down>
-                <div className={root}>
-                    <MaterialIconButton
-                        aria-owns={isOpen && "material-appbar"}
-                        aria-haspopup="true"
-                        onClick={openMenu}
-                        color="inherit"
-                    >
-                        <MaterialMoreIcon />
-                    </MaterialIconButton>
-                    <MaterialMenu anchorEl={anchorEl} open={isOpen} onClose={closeMenu}>
-                        <MaterialMenuItem onClick={closeMenu}>
-                            <Login />
-                        </MaterialMenuItem>
-                        <MaterialMenuItem onClick={closeMenu}>
-                            <Signup />
-                        </MaterialMenuItem>
-                    </MaterialMenu>
-                </div>
-            </Breakpoint>
-        </BreakpointProvider>
+        <Menu
+            classes={classes}
+            state={{ isOpen, anchorEl }}
+            actions={[openMenu, closeMenu]}
+        >
+            <Login />
+            <Signup />
+        </Menu>
     )
 }
 
-export default styles |> withStyles |> (_ => _(Menu))
+export default styles |> withStyles |> (_ => _(MenuContainer))

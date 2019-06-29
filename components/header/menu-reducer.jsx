@@ -29,5 +29,8 @@ function initialState() {
 }
 
 export {
-    open, close, reducer, initialState,
+    open,
+    close,
+    reducer,
+    initialState,
 }
