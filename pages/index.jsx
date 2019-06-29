@@ -2,7 +2,7 @@ import { useState, Fragment } from "react"
 import Head from "next/head"
 import { withStyles } from "@material-ui/core/styles/"
 import withRoot from "lib/withRoot"
-import Header from "components/Header"
+import Header from "components/header/header-container"
 import Reformeur from "components/Reformeur"
 import "styles/index.scss"
 

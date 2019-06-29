@@ -68,11 +68,11 @@ class RecettesCard extends React.Component {
                     <Typography variant="body1">Recettes de l&#39;État</Typography>
 
                     <div>
-                        <Typography inline={true} variant="h3" color="primary" gutterBottom>
+                        <Typography inline variant="h3" color="primary" gutterBottom>
                             {Math.round(this.props.impots_avant / 100000000) / 10}
                         </Typography>
                         <Typography
-                            inline={true}
+                            inline
                             variant="h5"
                             className={
                                 delta > -0.01
@@ -83,10 +83,10 @@ class RecettesCard extends React.Component {
                         >
                             {delta > -0.01 ? "+" : "-"}
                         </Typography>
-                        <Typography inline={true} variant="h3" color="secondary" gutterBottom>
+                        <Typography inline variant="h3" color="secondary" gutterBottom>
                             {Math.round(Math.abs(this.props.delta / 100000000)) / 10}
                         </Typography>
-                        <Typography inline={true} variant="h5" color="secondary" gutterBottom>
+                        <Typography inline variant="h5" color="secondary" gutterBottom>
                             Md€
                         </Typography>
                     </div>

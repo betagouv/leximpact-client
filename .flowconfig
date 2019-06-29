@@ -1,0 +1,13 @@
+[ignore]
+.*/.circleci/.*
+.*/.git/.*
+.*/build/.*
+.*/node_modules/@choojs/.*
+.*/node_modules/@mapbox/.*
+.*/public/.*
+.*/static/.*
+.*/styles/.*
+.*/tests/.*
+
+[options]
+module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/components/\1'

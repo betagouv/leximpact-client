@@ -32,12 +32,12 @@ const styles = theme => ({
     // minWidth: 275,
     // },
 
-// titre: {
-// fontSize: 11,
-// },
-// pos: {
-//    marginBottom: 12,
-// },
+    // titre: {
+    // fontSize: 11,
+    // },
+    // pos: {
+    //    marginBottom: 12,
+    // },
 
     pom_rouge: {
         color: "#FF0000",
@@ -56,17 +56,17 @@ const styles = theme => ({
     iconEtat: {
         fontSize: "50px",
     },
-    card:{
+    card: {
         maxWidth: 500,
     },
-    titledadCarteEtat:{
+    titledadCarteEtat: {
         fontFamily: "Lato",
         fontWeight: "bold",
-        fontSize: "1.125em"
+        fontSize: "1.125em",
     },
-    subtitleCarteEtat:{
-        fontFamily: "Lato"
-    }
+    subtitleCarteEtat: {
+        fontFamily: "Lato",
+    },
 })
 
 class RecettesCard extends React.Component {
@@ -81,11 +81,9 @@ class RecettesCard extends React.Component {
 
     // bruts par an
 
-
-
     render() {
-        const { classes,resultat} = this.props
-        const delta=this.props.resultat.total.avant - this.props.resultat.total.apres
+        const { classes, resultat } = this.props
+        const delta = this.props.resultat.total.avant - this.props.resultat.total.apres
         return (
             <Card className={this.props.classes.card}>
                 <CardContent>
@@ -100,36 +98,47 @@ class RecettesCard extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <Typography variant="body1"> par décile de population et par an</Typography>
+                                <Typography variant="body1">
+                                    {" "}
+                                    par décile de population et par an
+                                </Typography>
                             </td>
                         </tr>
                     </table>
                     <table>
                         <tr height="15%">
                             <td rowSpan="4" width="150%">
-                                <BarChart resultat={resultat}/>
+                                <BarChart resultat={resultat} />
                             </td>
+                            <td />
+                        </tr>
+                        <tr>
                             <td>
+                                <span className="legendeEtat avant chiffre">
+                                    {Math.round(resultat.total.avant / 100000000) / 10}
+                                </span>
+                                <span className="legendeEtat avant">Md€</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <span className="legendeEtat avant chiffre">{Math.round(resultat.total.avant/100000000)/10}</span><span className="legendeEtat avant">Md€</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span className="legendeEtat apres chiffre">{Math.round(resultat.total.apres/100000000)/10}</span><span className="legendeEtat apres">Md€</span>
+                                <span className="legendeEtat apres chiffre">
+                                    {Math.round(resultat.total.apres / 100000000) / 10}
+                                </span>
+                                <span className="legendeEtat apres">Md€</span>
                             </td>
                         </tr>
                         <tr height="15%">
-                            <td>
-                            </td>
+                            <td />
                         </tr>
                     </table>
                     <div>
                         <center>
-                            <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                onClick={this.updateStateRes}
+                            >
                                 Lancer la simulation
                             </Button>
                         </center>

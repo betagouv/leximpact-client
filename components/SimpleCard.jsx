@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 import Chip from "@material-ui/core/Chip"
 import Tooltip from "@material-ui/core/Tooltip"
-import Divider from '@material-ui/core/Divider';
+import Divider from "@material-ui/core/Divider"
 import NativeSelect from "@material-ui/core/NativeSelect"
 
 import { Icon } from "@iconify/react"
@@ -23,31 +23,30 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 const styles = theme => ({
     card: {
         minWidth: 50,
-        paddingBottom: 0
+        paddingBottom: 0,
     },
     cardcontent: {
-      padding: 0,
-      "&:last-child": {
-        paddingBottom: 0
-      }
+        padding: 0,
+        "&:last-child": {
+            paddingBottom: 0,
+        },
     },
     titre: {
         fontSize: 11,
     },
-    nativeselect: {
-    },
+    nativeselect: {},
     legende: {
         fontSize: 12,
         color: "#909090",
         fontFamily: "Lato",
-        marginBottom: 10
+        marginBottom: 10,
     },
     div: {
         padding: 15,
     },
     chip: {
         marginTop: 10,
-    }
+    },
 })
 
 function numberToRevenuparmois(rev) {
@@ -56,15 +55,15 @@ function numberToRevenuparmois(rev) {
 
 const BlueTooltip = withStyles(theme => ({
     tooltip: {
-      backgroundColor: '#00a3ff',
-      color: '#ffffff',
-      maxWidth: 220,
-      fontSize: theme.typography.pxToRem(12),
+        backgroundColor: "#00a3ff",
+        color: "#ffffff",
+        maxWidth: 220,
+        fontSize: theme.typography.pxToRem(12),
     },
     tooltipPlacementBottom: {
-        margin: '0px 0',
-      },
-  }))(Tooltip);
+        margin: "0px 0",
+    },
+}))(Tooltip)
 
 class SimpleCard extends React.Component {
     constructor(props) {
@@ -134,7 +133,7 @@ class SimpleCard extends React.Component {
                     ? womanWhiteHaired
                     : womanCurlyHaired
         const babyicons = [...Array(nbenfants)].map((e, i) => (
-            <Icon key={"baby" + i} icon={babyIcon} width="30" height="30" />
+            <Icon key={`baby${i}`} icon={babyIcon} width="30" height="30" />
         ))
         return (
             <Card className={classes.card}>
@@ -142,24 +141,32 @@ class SimpleCard extends React.Component {
                     <div className={classes.div}>
                         <div>
                             {<Icon key="person1" icon={icon1} width="40" height="40" />}
-                            {aretwo ? <Icon key="person2" icon={icon2} width="40" height="40" /> : ""}
+                            {aretwo ? (
+                                <Icon key="person2" icon={icon2} width="40" height="40" />
+                            ) : (
+                                ""
+                            )}
                             {babyicons}
                         </div>
                         <div>
-                        <Tooltip
-                            key="revenus"
-                            placement="top"
-                            title="Revenus bruts"
-                            enterDelay={300}
-                            leaveDelay={200}
-                        >
-                            <NativeSelect className={classes.nativeselect} value={revrounded} onChange={this.handleChange(index)}>
-                                <option value={revrounded}>{`${revrounded}€/mois`}</option>
-                                {this.roundedRevenues(revrounded)}
-                                {" "}
+                            <Tooltip
+                                key="revenus"
+                                placement="top"
+                                title="Revenus bruts"
+                                enterDelay={300}
+                                leaveDelay={200}
+                            >
+                                <NativeSelect
+                                    className={classes.nativeselect}
+                                    value={revrounded}
+                                    onChange={this.handleChange(index)}
+                                >
+                                    <option value={revrounded}>{`${revrounded}€/mois`}</option>
+                                    {this.roundedRevenues(revrounded)}
+                                    {" "}
 }
-                            </NativeSelect>
-                        </Tooltip>
+                                </NativeSelect>
+                            </Tooltip>
                         </div>
                         <div>
                             {isoutremer1 ? (
@@ -170,7 +177,6 @@ class SimpleCard extends React.Component {
                                     enterDelay={300}
                                     leaveDelay={200}
                                 >
-
                                     <Chip
                                         className={classes.chip}
                                         onClick={this.handleOutreMerChange(index)}
@@ -178,7 +184,7 @@ class SimpleCard extends React.Component {
                                         label="Outre-mer n° 1"
                                     />
                                 </Tooltip>
-                            ) : (isoutremer2 ? (
+                            ) : isoutremer2 ? (
                                 <Tooltip
                                     key="outremer2"
                                     placement="bottom"
@@ -195,19 +201,19 @@ class SimpleCard extends React.Component {
                                 </Tooltip>
                             ) : (
                                 ""
-                            )
-                                )}
-                                {isret ? <Chip
-                                        className={classes.chip} label="Retraités" /> : ""}
+                            )}
+                            {isret ? <Chip className={classes.chip} label="Retraités" /> : ""}
                         </div>
                     </div>
-                    <Divider/>
+                    <Divider />
                     <div className={classes.div}>
-                        <Typography className={classes.legende}>Impôt sur le revenu par an</Typography>
-                        <Typography inline={true} variant="h3" color="primary" gutterBottom>
+                        <Typography className={classes.legende}>
+                            Impôt sur le revenu par an
+                        </Typography>
+                        <Typography inline variant="h3" color="primary" gutterBottom>
                             {-impots_avant}
                         </Typography>
-                        <Typography inline={true} variant="h5" color="primary" gutterBottom>
+                        <Typography inline variant="h5" color="primary" gutterBottom>
                             €
                         </Typography>
                         <br />
@@ -215,26 +221,40 @@ class SimpleCard extends React.Component {
                             key="gain"
                             placement="bottom-start"
                             title=<React.Fragment>
-                            {"Soit "}<b>{(-impots_apres+impots_avant>0?"+":"-")+
-                            Math.round(Math.abs(-impots_apres+impots_avant))+"€"}</b>
-                            {"/an"}
+                                {"Soit "}
+                                <b>
+                                    {`${(-impots_apres + impots_avant > 0 ? "+" : "-")
+                                        + Math.round(Math.abs(-impots_apres + impots_avant))
+                                    }€`}
+                                </b>
+                                {"/an"}
                             </React.Fragment>
                             enterDelay={300}
                             leaveDelay={200}
-                            >
+                        >
                             <div>
-                            {loading ? (
-                                <CircularProgress color="secondary" />
-                            ) : (
-                                <>
-                                    <Typography inline={true} variant="h3" color="secondary" gutterBottom>
-                                        {-impots_apres}
-                                    </Typography>
-                                    <Typography inline={true} variant="h5" color="secondary" gutterBottom>
-                                        €
-                                    </Typography>
-                                </>
-                            )}
+                                {loading ? (
+                                    <CircularProgress color="secondary" />
+                                ) : (
+                                    <>
+                                        <Typography
+                                            inline
+                                            variant="h3"
+                                            color="secondary"
+                                            gutterBottom
+                                        >
+                                            {-impots_apres}
+                                        </Typography>
+                                        <Typography
+                                            inline
+                                            variant="h5"
+                                            color="secondary"
+                                            gutterBottom
+                                        >
+                                            €
+                                        </Typography>
+                                    </>
+                                )}
                             </div>
                         </BlueTooltip>
                     </div>
