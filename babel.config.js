@@ -25,7 +25,6 @@ function babelConfig(api) {
                 extensions: [".js", ".jsx", ".scss"],
                 alias: {
                     components: "./components",
-                    lib: "./lib",
                     pages: "./pages",
                     styles: "./styles",
                 },
