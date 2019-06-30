@@ -14,8 +14,8 @@ type Action = {
     +anchorEl?: AnchorEl,
 }
 
-function initialState(): State {
-    return { isOpen: false }
+const initialState: State = {
+    isOpen: false,
 }
 
 function open(anchorEl?: AnchorEl = false): Action {
@@ -38,15 +38,11 @@ function reducer(state: State, { type, anchorEl }: Action): State {
     }
 
     if (type === close().type) {
-        return { isOpen: false }
+        return initialState
     }
 
     return state
 }
 
-export {
-    open,
-    close,
-    reducer,
-    initialState,
-}
+export default reducer
+export { initialState, open, close }

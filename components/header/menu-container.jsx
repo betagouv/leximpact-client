@@ -6,15 +6,10 @@ import Menu from "components/header/menu"
 import Login from "components/header/login"
 import Signup from "components/header/signup"
 import Contact from "components/header/contact"
-import {
-    open,
-    close,
-    reducer,
-    initialState,
-} from "components/header/menu-reducer"
+import reducer, { initialState, open, close } from "components/header/menu-reducer"
 
 function MenuContainer(): Node {
-    const [state, dispatch] = useReducer(reducer, initialState())
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     function openMenu({ currentTarget }: SyntheticEvent<HTMLButtonElement>): void {
         return flow([open, dispatch])(currentTarget)
