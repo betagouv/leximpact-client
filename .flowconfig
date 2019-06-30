@@ -10,4 +10,8 @@
 .*/tests/.*
 
 [options]
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.scss
+module.name_mapper.extension='scss' -> 'empty/object'
 module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/components/\1'

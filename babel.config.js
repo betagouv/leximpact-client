@@ -22,6 +22,7 @@ function babelConfig(api) {
         [
             "module-resolver",
             {
+                extensions: [".js", ".jsx", ".scss"],
                 alias: {
                     components: "./components",
                     lib: "./lib",
