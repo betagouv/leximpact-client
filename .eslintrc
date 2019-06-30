@@ -19,13 +19,14 @@
         "jest",
         "jsx-a11y",
         "react",
+        "react-hooks",
     ],
     extends: [
         "airbnb",
         "plugin:fp/recommended",
         "plugin:flowtype/recommended",
         "plugin:jest/recommended",
-      ],
+    ],
     settings: {
         react: {
             version: "detect",
@@ -51,6 +52,8 @@
         "react/jsx-indent-props": ["error", 4],
         "react/react-in-jsx-scope": "off",
         "react/require-default-props": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
         semi: ["error", "never"],
     }
 }
