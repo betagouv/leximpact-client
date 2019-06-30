@@ -50,6 +50,7 @@
         ],
         "react/jsx-indent-props": ["error", 4],
         "react/react-in-jsx-scope": "off",
+        "react/require-default-props": "off",
         semi: ["error", "never"],
     }
 }
