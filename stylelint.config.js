@@ -20,7 +20,6 @@ const config = {
         indentation: 4,
         "string-quotes": "double",
         "selector-attribute-quotes": "always",
-        "selector-class-pattern": false,
         "prettier/prettier": [true, {}],
         "plugin/selector-bem-pattern": {
             implicitComponents: true,
