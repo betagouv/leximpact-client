@@ -5,6 +5,7 @@ import { flow } from "lodash/fp"
 import Menu from "components/header/menu"
 import Login from "components/header/login"
 import Signup from "components/header/signup"
+import Contact from "components/header/contact"
 import {
     open,
     close,
@@ -25,6 +26,7 @@ function MenuContainer(): Node {
 
     return (
         <Menu state={state} actions={{ openMenu, closeMenu }}>
+            <Contact />
             <Login />
             <Signup />
         </Menu>
