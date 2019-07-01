@@ -1,81 +1,68 @@
-import React from "react"
-import Document, { Head, Main, NextScript } from "next/document"
-import JssProvider from "react-jss/lib/JssProvider"
-import getPageContext from "lib/getPageContext"
-import createPageContext from "lib/createPageContext"
+/* @flow */
 
-class MyDocument extends Document {
-    static getInitialProps(ctx) {
-        // Resolution order
-        //
-        // On the server:
-        // 1. page.getInitialProps
-        // 2. document.getInitialProps
-        // 3. page.render
-        // 4. document.render
-        //
-        // On the server with error:
-        // 2. document.getInitialProps
-        // 3. page.render
-        // 4. document.render
-        //
-        // On the client
-        // 1. page.getInitialProps
-        // 3. page.render
+import React, { type ComponentType, type Node } from "react"
+import { ServerStyleSheets } from "@material-ui/styles"
+import flush from "styled-jsx/server"
+import theme from "styles/theme"
+import Document, {
+    Head,
+    Main,
+    NextScript,
+    type DocumentComponentContext as Context,
+} from "next/document"
 
-        // Get the context of the page to collected side effects.
-        const pageContext = getPageContext(process.browser, createPageContext)
-        const page = ctx.renderPage(Component => props => (
-            <JssProvider
-                registry={pageContext.sheetsRegistry}
-                generateClassName={pageContext.generateClassName}
-            >
-                <Component pageContext={pageContext} {...props} />
-            </JssProvider>
-        ))
-
-        return {
-            ...page,
-            pageContext,
-            styles: (
-                <style
-                    id="jss-server-side"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: pageContext.sheetsRegistry.toString(),
-                    }}
-                />
-            ),
-        }
-    }
-
-    render() {
-        const { pageContext } = this.props
-
-        return (
-            <html lang="en" dir="ltr">
-                <Head>
-                    <meta charSet="utf-8" />
-                    {/* Use minimum-scale=1 to enable GPU rasterization */}
-                    <meta
-                        name="viewport"
-                        content={`user-scalable=0, initial-scale=1,
-                             minimum-scale=1, width=device-width, height=device-height`}
-                    />
-                    {/* PWA primary color */}
-                    <meta name="theme-color" content={pageContext.theme.palette.primary[500]} />
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Lato|Lora"
-                    />
-                </Head>
-                <body>
-                    <Main />
-                    <NextScript />
-                </body>
-            </html>
-        )
-    }
+type Sheets = {
+    +collect: Function,
+    +getStyleElement: Function,
 }
 
-export default MyDocument
+type Props = { +Component: Node }
+type Component = ComponentType<Props>
+type WithStyles = Component => Props => Component
+type InitialProps = Promise<{ +styles: Node }>
+
+function withStyles(sheets: Sheets): WithStyles {
+    return App => props => sheets.collect(<App {...props} />)
+}
+
+function render(): Node {
+    return (
+        <html lang="fr">
+            <Head>
+                <meta charSet="utf-8" />
+                <meta
+                    name="viewport"
+                    content="user-scalable=0, initial-scale=1, minimum-scale=1, width=device-width, height=device-height"
+                />
+                <meta name="theme-color" content={theme.palette.primary[500]} />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Lato|Lora"
+                />
+            </Head>
+
+            <body>
+                <Main />
+                <NextScript />
+            </body>
+        </html>
+    )
+}
+
+async function getInitialProps({ renderPage }: Context): InitialProps {
+    const sheets: Sheets = new ServerStyleSheets()
+    const { html, head } = await renderPage({ enhanceApp: withStyles(sheets) })
+    const styles = (
+        <>
+            {flush()}
+            {sheets.getStyleElement()}
+        </>
+    )
+
+    return { html, head, styles }
+}
+
+Document.render = render /* eslint-disable-line fp/no-mutation */
+Document.getInitialProps = getInitialProps /* eslint-disable-line fp/no-mutation */
+
+export default Document

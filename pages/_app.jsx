@@ -10,16 +10,15 @@ type Props = {
     +pageProps?: Object,
 }
 
-/* eslint-disable fp/no-nil */
 function removeStyles(): void {
-    // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side")
 
     if (jssStyles && jssStyles.parentNode) {
         jssStyles.parentNode.removeChild(jssStyles)
     }
+
+    return undefined /* eslint-disable-line fp/no-nil */
 }
-/* eslint-enable fp/no-nil */
 
 function App({ Component, pageProps }: Props): Node {
     useEffect(removeStyles, [])

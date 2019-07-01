@@ -61,7 +61,8 @@
         "react-plotly.js": "^2.3.0",
         "react-responsive": "^7.0.0",
         "react-socks": "^1.0.1",
-        "react-swipeable-views": "^0.13.3"
+        "react-swipeable-views": "^0.13.3",
+        "styled-jsx": "^3.2.1"
     },
     "devDependencies": {
         "@babel/node": "^7.4.5",

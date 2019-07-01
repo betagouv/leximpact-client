@@ -1,17 +1,7 @@
-[ignore]
-.*/.circleci/.*
-.*/.git/.*
-.*/build/.*
-.*/node_modules/@choojs/.*
-.*/node_modules/@mapbox/.*
-.*/public/.*
-.*/static/.*
-.*/styles/.*
-.*/tests/.*
-
 [options]
 module.file_ext=.js
 module.file_ext=.jsx
 module.file_ext=.scss
 module.name_mapper.extension='scss' -> 'empty/object'
 module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/components/\1'
+module.name_mapper='^styles\/\(.*\)$' -> '<PROJECT_ROOT>/styles/\1'
