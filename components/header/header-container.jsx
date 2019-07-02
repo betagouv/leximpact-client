@@ -1,39 +1,23 @@
-/* @flow */
-
-import React, { type Node } from "react"
-import { withStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
-import Home from "components/header/home"
-import Links from "components/header/links"
-import MenuContainer from "components/header/menu-container"
+import Home from "components/header/home-view"
+import Links from "components/header/links-view"
+import Menu from "components/header/menu-container"
+import styles from "components/header/header.scss"
 
-type Props = {
-    +classes: Object,
-}
-
-const styles = {
-    header: {
-        width: "100%",
-    },
-    header__space: {
-        flexGrow: 1,
-    },
-}
-
-function HeaderContainer({ classes }: Props): Node {
+function HeaderContainer() {
     return (
-        <div className={classes.header}>
+        <div className={styles.Header}>
             <AppBar position="static">
                 <Toolbar>
                     <Home />
                     <Links />
-                    <div className={classes.header__space} />
-                    <MenuContainer />
+                    <div className="expander" />
+                    <Menu />
                 </Toolbar>
             </AppBar>
         </div>
     )
 }
 
-export default withStyles(styles)(HeaderContainer)
+export default HeaderContainer

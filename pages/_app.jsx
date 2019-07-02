@@ -1,26 +1,19 @@
-/* @flow */
-
-import React, { useEffect, type ComponentType, type Node } from "react"
+import { useEffect } from "react"
 import { ThemeProvider, StylesProvider } from "@material-ui/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import theme from "styles/theme"
 
-type Props = {
-    +Component: ComponentType<any>,
-    +pageProps?: Object,
-}
-
-function removeStyles(): void {
+function removeStyles() {
     const jssStyles = document.querySelector("#jss-server-side")
 
     if (jssStyles && jssStyles.parentNode) {
         jssStyles.parentNode.removeChild(jssStyles)
     }
 
-    return undefined /* eslint-disable-line fp/no-nil */
+    return jssStyles
 }
 
-function App({ Component, pageProps }: Props): Node {
+function App({ Component, pageProps }) {
     useEffect(removeStyles, [])
 
     return (

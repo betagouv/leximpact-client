@@ -1,7 +1,7 @@
 /* eslint-disable fp/no-nil */
 
 import { render } from "enzyme"
-import Links from "components/header/links"
+import Links from "components/header/links-view"
 
 test("Links renders correctly", () => {
     const component = render(<Links />)

@@ -1,0 +1,48 @@
+:global html {
+    background-image: url("/static/images/tramebackground.png");
+}
+
+:global input {
+    max-width: 90px;
+    border: 1px solid #00a3ff;
+    border-radius: 4px;
+    background-color: white;
+    color: #00a3ff;
+    font-family: "Lora", "Trebuchet", "Tahoma", "Arial", sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    display: inline;
+    float: inline;
+    box-sizing: border-box;
+}
+
+:global .clearfix {
+    clear: both;
+}
+
+// @media screen and (min-width: 500px) {
+//     .moitie-gauche {
+//         box-sizing: border-box;
+//         position: absolute;
+//         width: 600px;
+//         float: left;
+
+//         /* min-width: 500px;
+// 	   margin: 10px;
+// 	   display:inline-block; */
+//     }
+
+//     .moitie-droite {
+//         box-sizing: border-box;
+//         margin-left: 620px;
+//         margin-right: 32px;
+//         margin-top: 1em;
+//         float: left;
+
+//         /* width: auto ;
+// 	  max-width:30%;
+// 	   min-width: 200px;
+// 	   margin: 10px;
+// 	   display:inline-block; */
+//     }
+// }

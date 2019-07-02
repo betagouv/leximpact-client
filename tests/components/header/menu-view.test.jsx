@@ -1,7 +1,7 @@
 /* eslint-disable fp/no-nil */
 
 import { shallow } from "enzyme"
-import Menu from "components/header/menu"
+import Menu from "components/header/menu-view"
 
 test("Menu renders correctly", () => {
     const state = { isOpen: false, anchorEl: false }

@@ -1,6 +1,3 @@
-/* @flow */
-
-import React, { type ComponentType, type Node } from "react"
 import { ServerStyleSheets } from "@material-ui/styles"
 import flush from "styled-jsx/server"
 import theme from "styles/theme"
@@ -8,24 +5,13 @@ import Document, {
     Head,
     Main,
     NextScript,
-    type DocumentComponentContext as Context,
 } from "next/document"
 
-type Sheets = {
-    +collect: Function,
-    +getStyleElement: Function,
-}
-
-type Props = { +Component: Node }
-type Component = ComponentType<Props>
-type WithStyles = Component => Props => Component
-type InitialProps = Promise<{ +styles: Node }>
-
-function withStyles(sheets: Sheets): WithStyles {
+function withStyles(sheets) {
     return App => props => sheets.collect(<App {...props} />)
 }
 
-function render(): Node {
+function render() {
     return (
         <html lang="fr">
             <Head>
@@ -49,8 +35,8 @@ function render(): Node {
     )
 }
 
-async function getInitialProps({ renderPage }: Context): InitialProps {
-    const sheets: Sheets = new ServerStyleSheets()
+async function getInitialProps({ renderPage }) {
+    const sheets = new ServerStyleSheets()
     const { html, head } = await renderPage({ enhanceApp: withStyles(sheets) })
     const styles = (
         <>

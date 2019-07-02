@@ -1,7 +1,7 @@
 /* eslint-disable fp/no-nil */
 
 import { shallow } from "enzyme"
-import Signup from "components/header/signup"
+import Signup from "components/header/signup-view"
 
 test("Login renders correctly", () => {
     const component = shallow(<Signup />)

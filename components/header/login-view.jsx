@@ -1,9 +1,6 @@
-/* @flow */
-
-import React, { type Node } from "react"
 import Button from "@material-ui/core/Button"
 
-function Login(): Node {
+function LoginView() {
     return (
         <Button color="inherit">
             <p>Connexion</p>
@@ -11,4 +8,4 @@ function Login(): Node {
     )
 }
 
-export default Login
+export default LoginView

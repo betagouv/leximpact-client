@@ -1,10 +1,7 @@
-/* @flow */
-
-import React, { type Node } from "react"
 import Breakpoint, { BreakpointProvider } from "react-socks"
 import Typography from "@material-ui/core/Typography"
 
-function Home(): Node {
+function HomeView() {
     return (
         <BreakpointProvider>
             <Breakpoint medium up>
@@ -16,4 +13,4 @@ function Home(): Node {
     )
 }
 
-export default Home
+export default HomeView
