@@ -140,12 +140,22 @@ class SimpleCard extends React.Component {
                 <CardContent className={classes.cardcontent}>
                     <div className={classes.div}>
                         <div>
+                            <Tooltip
+                                    key="revenus"
+                                    placement="top"
+                                    title={isret?"Plus de 65 ans":"Moins de 65 ans"}
+                                    enterDelay={300}
+                                    leaveDelay={200}
+                                >
+                            <span>
                             {<Icon key="person1" icon={icon1} width="40" height="40" />}
                             {aretwo ? (
                                 <Icon key="person2" icon={icon2} width="40" height="40" />
                             ) : (
                                 ""
                             )}
+                            </span>
+                            </Tooltip>
                             {babyicons}
                         </div>
                         <div>
@@ -202,7 +212,6 @@ class SimpleCard extends React.Component {
                             ) : (
                                 ""
                             )}
-                            {isret ? <Chip className={classes.chip} label="Retraités" /> : ""}
                         </div>
                     </div>
                     <Divider />
