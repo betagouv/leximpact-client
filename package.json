@@ -19,7 +19,7 @@
         "code:check": "eslint -c .eslintrc --ext .js,.jsx --ignore-path .gitignore .",
         "code:fix": "prettier-eslint --write '**/*.{js,jsx}' --ignore-path .gitignore",
         "code:static": "flow",
-        "style:check": "stylelint --config stylelint.config.js --ignore-path .gitignore **/*.scss",
+        "style:check": "stylelint --config stylelint.config.js --ignore-path .gitignore '**/*.scss'",
         "style:fix": "prettier-stylelint --write styles/**/*.scss --ignore-path .gitignore --syntax scss --quiet",
         "test": "jest -c jest.config.js"
     },
