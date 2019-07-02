@@ -11,18 +11,11 @@ import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
 import Impact from "components/Impact"
 import Article from "components/Article"
-import Tab from "components/reformeur/tab"
+import Tab from "components/reformeur/tab-view"
 import initialState from "components/reformeur/reformeur-reducer"
-import css from "components/reformeur/reformeur-styles.scss"
+import styles from "components/reformeur/reformeur.scss"
 
-const styles = theme => ({
-    paper: {
-        padding: 0,
-        margin: "1em",
-    },
-})
-
-class Reformeur extends Component {
+class ReformeurContainer extends Component {
     constructor(props) {
         super(props)
         this.state = initialState
@@ -224,22 +217,6 @@ class Reformeur extends Component {
         })
         this.updateCompare(bodyreq)
     }
-    /* render2(){
-        console.log("et je rends reformeur",this.state);
-        return(
-        <Fragment>
-            <div className="main-index">
-                <div className="moitie-gauche">
-                    <Paper className={this.props.classes.article}>
-                        <Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
-                    </Paper>
-                </div>
-                <div className="moitie-droite">
-                    <Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
-                </div>
-                <div className="clearfix"></div>
-            </div>
-    } */
 
     render() {
         const { classes, theme } = this.props
@@ -249,7 +226,7 @@ class Reformeur extends Component {
         const bigscreen = 1920
         return (
             <Fragment>
-                <div className={css.reformeur}>
+                <div className={styles.Reformeur}>
                     {/* <div>You are a desktop or laptop</div> */}
                     <MediaQuery minDeviceWidth={phone + 1}>
                         {/* <MediaQuery minDeviceWidth={bigscreen}>
@@ -261,7 +238,7 @@ class Reformeur extends Component {
                                     return (
                                         <div>
                                             {/* <div>You are sized like a tablet or mobile phone though</div> */}
-                                            <div className={classes.root}>
+                                            <div>
                                                 <AppBar position="static" color="default">
                                                     <MaterialTabs
                                                         value={this.state.indextab}
@@ -317,8 +294,8 @@ class Reformeur extends Component {
                                 return (
                                     <div>
                                         {/* <div>You also have a good screen</div> */}
-                                        <div className="moitie-gauche">
-                                            <Paper className={this.props.classes.paper}>
+                                        <div className={styles.Reformeur_moitieGauche}>
+                                            <Paper className={styles.Reformeur_paper}>
                                                 <ArticleHeader />
                                                 <Divider />
                                                 <Article
@@ -330,7 +307,7 @@ class Reformeur extends Component {
                                                 />
                                             </Paper>
                                         </div>
-                                        <div className="moitie-droite">
+                                        <div className={styles.Reformeur_moitieDroite}>
                                             <Impact
                                                 loading={this.state.loading}
                                                 onRevenuChange={this.handleRevenuChange}
@@ -352,7 +329,7 @@ class Reformeur extends Component {
                         {/* <div>You are a tablet or mobile phone</div> */}
                         <div>
                             {/* <div>You are sized like a tablet or mobile phone though</div> */}
-                            <div className={classes.root}>
+                            <div>
                                 <AppBar position="static" color="default">
                                     <MaterialTabs
                                         value={this.state.indextab}
@@ -400,4 +377,4 @@ class Reformeur extends Component {
     }
 }
 
-export default withStyles(styles, { withTheme: true })(Reformeur)
+export default withStyles({}, { withTheme: true })(ReformeurContainer)

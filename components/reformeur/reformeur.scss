@@ -1,0 +1,28 @@
+.Reformeur {
+    background-image: url("/static/images/tramebackground.png");
+    width: auto;
+}
+
+@media screen and (min-width: 500px) {
+    .Reformeur_moitieGauche {
+        box-sizing: border-box;
+        position: absolute;
+        width: 600px;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .Reformeur_moitieDroite {
+        box-sizing: border-box;
+        margin-left: 620px;
+        margin-right: 32px;
+        margin-top: 1em;
+        float: left;
+    }
+}
+
+.Reformeur_paper {
+    padding: 0;
+    margin: 1em;
+}

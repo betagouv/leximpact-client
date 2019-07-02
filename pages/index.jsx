@@ -33,12 +33,8 @@ function styles(theme) {
     }
 }
 
-type Props = {
-    classes: Object,
-}
-
-function index({ classes }: Props) {
-    const [open, setOpen] = useState(false)
+function index({ classes }) {
+    const [, setOpen] = useState(false)
 
     function handleClose() {
         return setOpen(false)
