@@ -1,7 +1,15 @@
-function bemSelector() {
-    const block = "[a-z]*"
-    const element = "(?:__[a-z]*)?"
-    const modifier = "(?:--[a-z]*)?"
+function toUpperCase(_match, _p1, p2) {
+    return p2.toUpperCase()
+}
+
+function toTitleCase(callback) {
+    return component => component.replace(/(-|^)([^-]?)/g, callback)
+}
+
+function bemSelector(component) {
+    const block = toTitleCase(toUpperCase)(component)
+    const element = "(?:_[a-z][a-zA-Z0-9]*)?"
+    const modifier = "(?:___[a-z][a-zA-Z0-9]*)?"
     const attribute = "(?:\\[.+\\])?"
 
     return new RegExp(`^\\.${block}${element}${modifier}${attribute}$`)
