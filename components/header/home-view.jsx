@@ -9,6 +9,7 @@ function HomeView() {
                     LexImpact
                 </Typography>
             </Breakpoint>
+            <Breakpoint small down />
         </BreakpointProvider>
     )
 }
