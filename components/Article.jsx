@@ -224,9 +224,16 @@ class Article extends React.Component {
                     value={newval}
                     onChange={this.handleS1Change}
                     name={name}
-                    style={style.InputSeuil}
+                    style={tx?style.InputTaux:style.InputSeuil}
                 />
                 </>)
+    }
+
+    baseOutput(name){
+        var regextaux=RegExp("taux")
+        const tx=regextaux.test(name)
+        const baseval=eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        return (<OutputField value={baseval} style={style.VarCodeexistant} />)
     }
 
     alinea2ext() {
@@ -309,6 +316,56 @@ class Article extends React.Component {
                 € et les trois quarts de son montant pour les contribuables soumis à imposition
                 commune.
             </Typography>
+        )
+    }
+
+    alinea4bext(){
+
+        return (
+        <Typography variant="body2" color="inherit">
+        ...au sixième alinéa du présent b pour les contribuables dont le montant des revenus du foyer fiscal, 
+        au sens du 1° du IV de l'article 1417, est inférieur à 21 037 €, pour la première part de 
+        quotient familial des personnes célibataires, veuves ou divorcées, et à 42 074 €, pour les deux
+         premières parts de quotient familial des personnes soumises à une imposition commune. Ces seuils 
+         sont majorés de 3 797 € pour chacune des demi-parts suivantes et de la moitié de ce montant pour 
+         chacun des quarts de part suivants.
+        <br/>
+        Pour l'application des seuils mentionnés au premier alinéa du présent b, le montant des revenus du foyer fiscal est majoré :
+        <br/>
+        1° Du montant des plus-values, déterminées le cas échéant avant application des abattements pour durée
+         de détention mentionnés au 1 de l'article 150-0 D ou à l'article 150-0 D ter et pour lesquelles il est 
+         mis fin au report d'imposition dans les conditions prévues à l'article 150-0 D bis, dans leur rédaction
+          en vigueur jusqu'au 31 décembre 2013 ;
+          <br/>
+        2° Du montant des plus-values, déterminées le cas échéant avant application des abattements pour durée 
+        de détention mentionnés aux 1 ter ou 1 quater de l'article 150-0 D ou à l'article 150-0 D ter, et des
+         créances mentionnées aux I et II de l'article 167 bis, pour la seule détermination du premier terme de
+         la différence mentionnée au deuxième alinéa du 1 du II bis du même article 167 bis ;
+         <br/>
+        3° Du montant des plus-values mentionnées au I de l'article 150-0 B ter, déterminées le cas échéant avant
+         application de l'abattement pour durée de détention mentionné aux 1 ter ou 1 quater de l'article 150-0
+          D, pour la seule détermination du premier terme de la différence mentionné au deuxième alinéa du 2° du 
+          a du 2 ter de l'article 200 A pour l'application de la seconde phrase du 3° du même a.
+        <br/>
+        Le taux de la réduction prévue au premier alinéa du présent b est de 20 %. Toutefois, pour les contribuables 
+        dont les revenus du foyer fiscal, au sens du 1° du IV de l'article 1417, excèdent 18 985 €, pour la première
+         part de quotient familial des personnes célibataires, veuves ou divorcées, ou 37 970 €, pour les deux premières
+        parts de quotient familial des personnes soumises à une imposition commune, ces seuils étant majorés le cas
+        échéant dans les conditions prévues au même premier alinéa, le taux de la réduction d'impôt est égal à
+         20 % multiplié par le rapport entre :
+        <br/>
+        – au numérateur, la différence entre 21 037 €, pour les personnes célibataires, veuves ou divorcées, ou 
+        42 074 €, pour les personnes soumises à une imposition commune, ces seuils étant majorés le cas échéant
+         dans les conditions prévues audit premier alinéa, et le montant des revenus mentionnés au troisième alinéa 
+         du présent b, et ;
+        <br/>
+        – au dénominateur, 2 052 €, pour les personnes célibataires, veuves ou divorcées, ou 4 104 €, pour les
+         personnes soumises à une imposition commune.
+        <br/>
+        Les montants de revenus mentionnés au présent b sont révisés chaque année dans la même proportion que la limite
+        supérieure de la première tranche du barème de l'impôt sur le revenu. Les montants obtenus sont arrondis, 
+        s'il y a lieu, à l'euro supérieur.
+        </Typography>
         )
     }
 
@@ -473,8 +530,8 @@ class Article extends React.Component {
                 <ExpansionPanel
                     style={style.Typography}
                     square
-                    expanded={expanded === "panel1"}
-                    onChange={this.handleChange("panel1")}
+                    expanded={expanded === "panel2"}
+                    onChange={this.handleChange("panel2")}
                 >
                     <ExpansionPanelSummary
                         style={styleExpansionpanel}
@@ -513,6 +570,26 @@ class Article extends React.Component {
                 </ExpansionPanel>
 
                 {this.alinea4a()}
+                <ExpansionPanel
+                    style={style.Typography}
+                    square
+                    expanded={expanded === "panel4b"}
+                    onChange={this.handleChange("panel4b")}
+                >
+                    <ExpansionPanelSummary
+                        style={styleExpansionpanel}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <Typography variant="body2" color="inherit">
+                        b. Le montant de l'impôt résultant du a est réduit 
+                        dans les conditions prévues...
+                        </Typography>
+                    </ExpansionPanelSummary>
+
+                    <ExpansionPanelDetails style={styleExpansionpanel}>
+                    {this.alinea4bext()}
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
             </div>
         )
     }
