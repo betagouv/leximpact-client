@@ -215,9 +215,10 @@ class Article extends React.Component {
     }
 
     baseOutputInput(name){
-        console.log(name)
-        const baseval=eval("this.state.basecode.impot_revenu."+name)
-        const newval=eval("this.state.reforme.impot_revenu."+name)
+        var regextaux=RegExp("taux")
+        const tx=regextaux.test(name)
+        const baseval=eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval=eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
         return (<><OutputField value={baseval} style={style.VarCodeexistant} />
                 <InputField
                     value={newval}
@@ -229,11 +230,6 @@ class Article extends React.Component {
     }
 
     alinea2ext() {
-        const scelib = this.state.reforme.impot_revenu.decote.seuil_celib
-        const scouple = this.state.reforme.impot_revenu.decote.seuil_couple
-        const basescelib = this.state.basecode.impot_revenu.decote.seuil_celib
-        const basescouple = this.state.basecode.impot_revenu.decote.seuil_couple
-
         return (
             <Typography variant="body2" color="inherit">
                ... ne peut excéder 
@@ -264,6 +260,20 @@ class Article extends React.Component {
             {this.baseOutputInput("plafond_qf.reduc_postplafond_veuf")}€ pour cette part supplémentaire lorsque la réduction de leur cotisation d'impôt est plafonnée
             en application du premier alinéa du présent 2. Cette réduction d'impôt ne peut toutefois excéder
             l'augmentation de la cotisation d'impôt résultant du plafonnement.
+        </Typography>
+        )
+    }
+
+    alinea3ext(){
+
+        return (
+        <Typography variant="body2" color="inherit">
+        ...{this.baseOutputInput("plafond_qf.abat_dom.taux_GuadMarReu")}%, dans la limite de 
+        {this.baseOutputInput("plafond_qf.abat_dom.plaf_GuadMarReu")}€ pour les contribuables domiciliés 
+        dans les départements de la Guadeloupe, de la Martinique et de la Réunion ; cette réduction est
+        égale à {this.baseOutputInput("plafond_qf.abat_dom.taux_GuyMay")}%, dans la limite de 
+        {this.baseOutputInput("plafond_qf.abat_dom.plaf_GuyMay")}€, pour les contribuables
+        domiciliés dans les départements de la Guyane et de Mayotte ;
         </Typography>
         )
     }
@@ -493,17 +503,12 @@ class Article extends React.Component {
                     >
                         <Typography variant="body2" color="inherit">
                             3. Le montant de l'impôt résultant de l'application des dispositions
-                            précédentes est réduit de 30 %, dans la limite de 2 450 €...
+                            précédentes est réduit de...
                         </Typography>
                     </ExpansionPanelSummary>
 
                     <ExpansionPanelDetails style={styleExpansionpanel}>
-                        <Typography variant="body2" color="inherit">
-                            ...pour les contribuables domiciliés dans les départements de la
-                            Guadeloupe, de la Martinique et de la Réunion ; cette réduction est
-                            égale à 40 %, dans la limite de 4 050 €, pour les contribuables
-                            domiciliés dans les départements de la Guyane et de Mayotte ;
-                        </Typography>
+                    {this.alinea3ext()}
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
 

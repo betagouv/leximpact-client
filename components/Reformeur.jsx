@@ -303,12 +303,19 @@ class Reformeur extends Component {
 
     //Classy but evil ?
     UpdatePlafond = (dectype, value) => {
-        console.log("oui ca marche",dectype)
         const ref = this.state.reforme
         var regex=RegExp("^[0-9a-zA-Z_\.]+$")
+        var regextaux=RegExp("taux") // Tous les noms de variables qui contiennent taux
+        // sont divisés par 100. Je vois vraiment pas ce qui pourrait poser probleme avec ça.
         if (regex.test(dectype)){
             const pathref="ref.impot_revenu.plafond_qf"+dectype
-            eval(pathref+" = parseInt(value, 10)")
+            if (regextaux.test(dectype)){
+                const newval = value/100;
+                eval(pathref+" = parseFloat(newval, 10)")
+            }
+            else {
+                eval(pathref+" = parseInt(value, 10)")    
+            }
             console.log(ref)
             this.setState({ reforme: ref })
         }
