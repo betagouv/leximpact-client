@@ -214,7 +214,61 @@ class Article extends React.Component {
         this.props.removeTranche(e)
     }
 
-    alinea4() {
+    baseOutputInput(name){
+        console.log(name)
+        const baseval=eval("this.state.basecode.impot_revenu."+name)
+        const newval=eval("this.state.reforme.impot_revenu."+name)
+        return (<><OutputField value={baseval} style={style.VarCodeexistant} />
+                <InputField
+                    value={newval}
+                    onChange={this.handleS1Change}
+                    name={name}
+                    style={style.InputSeuil}
+                />
+                </>)
+    }
+
+    alinea2ext() {
+        const scelib = this.state.reforme.impot_revenu.decote.seuil_celib
+        const scouple = this.state.reforme.impot_revenu.decote.seuil_couple
+        const basescelib = this.state.basecode.impot_revenu.decote.seuil_celib
+        const basescouple = this.state.basecode.impot_revenu.decote.seuil_couple
+
+        return (
+            <Typography variant="body2" color="inherit">
+               ... ne peut excéder 
+               {this.baseOutputInput("plafond_qf.maries_ou_pacses")}
+               € par demi-part ou la moitié de cette somme par quart de part
+               s'ajoutant à une part pour les contribuables célibataires, divorcés, veufs ou soumis à
+               l'imposition distincte prévue au 4 de l'article 6 et à deux parts pour les contribuables
+               mariés soumis à une imposition commune.
+            
+            Toutefois, pour les contribuables célibataires, divorcés, ou soumis à l'imposition distincte
+            prévue au 4 de l'article 6 qui répondent aux conditions fixées au II de l'article 194,
+            la réduction d'impôt correspondant à la part accordée au titre du premier enfant à charge est limitée
+            à {this.baseOutputInput("plafond_qf.celib_enf")} € Lorsque les contribuables entretiennent uniquement des enfants dont la charge est réputée
+            également partagée entre l'un et l'autre des parents, la réduction d'impôt correspondant à la
+            demi-part accordée au titre de chacun des deux premiers enfants est limitée à la moitié de cette
+            somme. Par dérogation aux dispositions du premier alinéa, la réduction d'impôt résultant de
+            l'application du quotient familial, accordée aux contribuables qui bénéficient des dispositions
+            des a, b et e du 1 de l'article 195, ne peut excéder {this.baseOutputInput("plafond_qf.celib")}€ ;
+            <br/>
+            Les contribuables qui bénéficient d'une demi-part au titre des a, b, c, d, d bis, e et f du 1
+            ainsi que des 2 à 6 de l'article 195 ont droit à une réduction d'impôt égale à {this.baseOutputInput("plafond_qf.reduc_postplafond")}pour
+            chacune de ces demi-parts lorsque la réduction de leur cotisation d'impôt est plafonnée en
+            application du premier alinéa. La réduction d'impôt est égale à la moitié de cette somme lorsque
+            la majoration visée au 2 de l'article 195 est de un quart de part. Cette réduction d'impôt ne peut
+            toutefois excéder l'augmentation de la cotisation d'impôt résultant du plafonnement. Les
+            contribuables veufs ayant des enfants à charge qui bénéficient d'une part supplémentaire de
+            quotient familial en application du I de l'article 194 ont droit à une réduction d'impôt égale à
+            {this.baseOutputInput("plafond_qf.reduc_postplafond_veuf")}€ pour cette part supplémentaire lorsque la réduction de leur cotisation d'impôt est plafonnée
+            en application du premier alinéa du présent 2. Cette réduction d'impôt ne peut toutefois excéder
+            l'augmentation de la cotisation d'impôt résultant du plafonnement.
+        </Typography>
+        )
+    }
+
+    alinea4a() {
         const scelib = this.state.reforme.impot_revenu.decote.seuil_celib
         const scouple = this.state.reforme.impot_revenu.decote.seuil_couple
         const basescelib = this.state.basecode.impot_revenu.decote.seuil_celib
@@ -320,6 +374,8 @@ class Article extends React.Component {
         )
     }
 
+
+
     render() {
         const { expanded, reforme, basecode } = this.state
         const styleExpansionpanel = {
@@ -421,43 +477,7 @@ class Article extends React.Component {
                     </ExpansionPanelSummary>
 
                     <ExpansionPanelDetails style={styleExpansionpanel}>
-                        <Typography variant="body2" color="inherit">
-                            ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme
-                            par quart de part s&#39;ajoutant à une part pour les contribuables
-                            célibataires, divorcés, veufs ou soumis à l&#39;imposition distincte
-                            prévue au 4 de l&#39;article 6 et à deux parts pour les contribuables
-                            mariés soumis à une imposition commune.
-                            <br />
-                            Toutefois, pour les contribuables célibataires, divorcés, ou soumis à
-                            l&#39;imposition distincte prévue au 4 de l&#39;article 6 qui répondent
-                            aux conditions fixées au II de l&#39;article 194, la réduction
-                            d&#39;impôt correspondant à la part accordée au titre du premier enfant
-                            à charge est limitée à 3 660 € Lorsque les contribuables entretiennent
-                            uniquement des enfants dont la charge est réputée également partagée
-                            entre l&#39;un et l&#39;autre des parents, la réduction d&#39;impôt
-                            correspondant à la demi-part accordée au titre de chacun des deux
-                            premiers enfants est limitée à la moitié de cette somme. Par dérogation
-                            aux dispositions du premier alinéa, la réduction d&#39;impôt résultant
-                            de l&#39;application du quotient familial, accordée aux contribuables
-                            qui bénéficient des dispositions des a, b et e du 1 de l&#39;article
-                            195, ne peut excéder 927 € ;
-                            <br />
-                            Les contribuables qui bénéficient d'une demi-part au titre des a, b, c,
-                            d, d bis, e et f du 1 ainsi que des 2 à 6 de l'article 195 ont droit à
-                            une réduction d'impôt égale à 1 547 € pour chacune de ces demi-parts
-                            lorsque la réduction de leur cotisation d'impôt est plafonnée en
-                            application du premier alinéa. La réduction d'impôt est égale à la
-                            moitié de cette somme lorsque la majoration visée au 2 de l'article 195
-                            est de un quart de part. Cette réduction d'impôt ne peut toutefois
-                            excéder l'augmentation de la cotisation d'impôt résultant du
-                            plafonnement. Les contribuables veufs ayant des enfants à charge qui
-                            bénéficient d'une part supplémentaire de quotient familial en
-                            application du I de l'article 194 ont droit à une réduction d'impôt
-                            égale à 1 728 € pour cette part supplémentaire lorsque la réduction de
-                            leur cotisation d'impôt est plafonnée en application du premier alinéa
-                            du présent 2. Cette réduction d'impôt ne peut toutefois excéder
-                            l'augmentation de la cotisation d'impôt résultant du plafonnement.
-                        </Typography>
+                        {this.alinea2ext()}
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
 
@@ -487,7 +507,7 @@ class Article extends React.Component {
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
 
-                {this.alinea4()}
+                {this.alinea4a()}
             </div>
         )
     }

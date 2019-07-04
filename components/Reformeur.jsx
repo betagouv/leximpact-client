@@ -52,6 +52,26 @@ class Reformeur extends Component {
                         seuil_celib: 1196,
                         seuil_couple: 1970,
                     },
+                    plafond_qf:{
+                        abat_dom:{
+                            taux_GuadMarReu : 0.3,
+                            plaf_GuadMarReu : 2450,
+                            taux_GuyMay : 0.4,
+                            plaf_GuyMay : 4050
+                        },
+                        maries_ou_pacses : 1551,
+                        celib_enf : 3660,
+                        celib : 927,
+                        reduc_postplafond : 1547,
+                        reduc_postplafond_veuf: 1728,
+                        reduction_ss_condition_revenus :{
+                            seuil_maj_enf: 3797, 
+                            seuil1 : 18984, 
+                            seuil2:21036, 
+                            taux:0.20
+                        }
+                    }
+
                 },
             },
             reformebase: {
@@ -64,6 +84,25 @@ class Reformeur extends Component {
                         seuil_celib: 1196,
                         seuil_couple: 1970,
                     },
+                    plafond_qf:{
+                        abat_dom:{
+                            taux_GuadMarReu : 0.3,
+                            plaf_GuadMarReu : 2450,
+                            taux_GuyMay : 0.4,
+                            plaf_GuyMay : 4050
+                        },
+                        maries_ou_pacses : 1551,
+                        celib_enf : 3660,
+                        celib : 927,
+                        reduc_postplafond : 1547,
+                        reduc_postplafond_veuf: 1728,
+                        reduction_ss_condition_revenus :{
+                            seuil_maj_enf: 3797, 
+                            seuil1 : 18984, 
+                            seuil2:21036, 
+                            taux:0.20
+                        }
+                    }
                 },
             },
             res_brut: {
@@ -262,6 +301,19 @@ class Reformeur extends Component {
         this.setState({ reforme: ref })
     }
 
+    //Classy but evil ?
+    UpdatePlafond = (dectype, value) => {
+        console.log("oui ca marche",dectype)
+        const ref = this.state.reforme
+        var regex=RegExp("^[0-9a-zA-Z_\.]+$")
+        if (regex.test(dectype)){
+            const pathref="ref.impot_revenu.plafond_qf"+dectype
+            eval(pathref+" = parseInt(value, 10)")
+            console.log(ref)
+            this.setState({ reforme: ref })
+        }
+    }
+
     addTranche(e) {
         const refbase = this.state.reforme
         const newnbt = refbase.impot_revenu.bareme.seuils.length + 1
@@ -343,6 +395,11 @@ class Reformeur extends Component {
         if (name.substring(0, 6) == "decote") {
             const whichdecote = name.substring(7)
             this.UpdateDecote(whichdecote, newvalue)
+            // success=true;
+        }
+        if (name.substring(0, 10) == "plafond_qf") {
+            const whichplaf = name.substring(10)
+            this.UpdatePlafond(whichplaf, newvalue)
             // success=true;
         }
         const bodyreq = this.cas_types_defaut
