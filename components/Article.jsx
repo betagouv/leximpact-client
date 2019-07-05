@@ -313,8 +313,7 @@ class Article extends React.Component {
 
         return (
             <Typography variant="body2" color="inherit">
-                4. a. Le montant de l'impôt résultant de l'application des dispositions précédentes
-                est diminué, dans la limite de son montant, de la différence entre
+                ...la limite de son montant, de la différence entre
                 {" "}
                 <OutputField value={basescelib} style={style.VarCodeexistant} />
                 <InputField
@@ -492,8 +491,8 @@ class Article extends React.Component {
                 <ExpansionPanel
                     style={style.Typography}
                     square
-                    expanded={expanded === "panel1"}
-                    onChange={this.handleChange("panel1")}
+                    expanded={expanded === "panel0"}
+                    onChange={this.handleChange("panel0")}
                 >
                     <ExpansionPanelSummary
                         style={styleExpansionpanel}
@@ -511,6 +510,8 @@ class Article extends React.Component {
                         </Typography>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
+
+                
                 {articleTranches}
                 <div>
                     <Fab
@@ -592,7 +593,25 @@ class Article extends React.Component {
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
 
-                {this.alinea4a()}
+                <ExpansionPanel
+                    style={style.Typography}
+                    square
+                    expanded={expanded === "panel4a"}
+                    onChange={this.handleChange("panel4a")}
+                >
+                    <ExpansionPanelSummary
+                        style={styleExpansionpanel}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <Typography variant="body2" color="inherit">
+                        4. a. Le montant de l'impôt résultant de l'application des dispositions précédentes
+                        est diminué, dans...
+                        </Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails style={styleExpansionpanel}>
+                        {this.alinea4a()}
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
                 <ExpansionPanel
                     style={style.Typography}
                     square
