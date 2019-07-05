@@ -30,6 +30,12 @@ const style = {
         lineHeight: "10px",
         padding: "8px",
     },
+    VarCodeNew: {
+        fontWeight: "bold",
+        color: "#00A3FF",
+        lineHeight: "10px",
+        padding: "8px",
+    },
     InputSeuil: {
         fontSize: "20px",
         width: "70px",
@@ -236,6 +242,20 @@ class Article extends React.Component {
         return (<OutputField value={baseval} style={style.VarCodeexistant} />)
     }
 
+    formulaOutputInput(name){
+        const baseval=eval("this.state.basecode.impot_revenu."+name) 
+        const newval=eval("this.state.reforme.impot_revenu."+name)
+        return (<><OutputField value={baseval} style={style.VarCodeexistant} />
+        <OutputField value={newval} style={style.VarCodeNew} /></>)
+    }
+
+    formulaOutputInputCombiLin(name1,fact1,name2,fact2){
+        const baseval=eval("this.state.basecode.impot_revenu."+name1 + "* fact1 + this.state.basecode.impot_revenu." + name2 +" * fact2") 
+        const newval=eval("this.state.reforme.impot_revenu."+name1 + "* fact1 + this.state.reforme.impot_revenu." + name2 +" * fact2") 
+        return (<><OutputField value={baseval} style={style.VarCodeexistant} />
+        <OutputField value={newval} style={style.VarCodeNew} /></>)
+    }
+
     alinea2ext() {
         return (
             <Typography variant="body2" color="inherit">
@@ -324,11 +344,12 @@ class Article extends React.Component {
         return (
         <Typography variant="body2" color="inherit">
         ...au sixième alinéa du présent b pour les contribuables dont le montant des revenus du foyer fiscal, 
-        au sens du 1° du IV de l'article 1417, est inférieur à 21 037 €, pour la première part de 
-        quotient familial des personnes célibataires, veuves ou divorcées, et à 42 074 €, pour les deux
+        au sens du 1° du IV de l'article 1417, est inférieur à {this.baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")} €, pour la première part de 
+        quotient familial des personnes célibataires, veuves ou divorcées, et à 
+        {this.formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2 * 2")}€, pour les deux
          premières parts de quotient familial des personnes soumises à une imposition commune. Ces seuils 
-         sont majorés de 3 797 € pour chacune des demi-parts suivantes et de la moitié de ce montant pour 
-         chacun des quarts de part suivants.
+         sont majorés de {this.baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil_maj_enf")}€ 
+         pour chacune des demi-parts suivantes et de la moitié de ce montant pour chacun des quarts de part suivants.
         <br/>
         Pour l'application des seuils mentionnés au premier alinéa du présent b, le montant des revenus du foyer fiscal est majoré :
         <br/>
@@ -348,18 +369,20 @@ class Article extends React.Component {
           a du 2 ter de l'article 200 A pour l'application de la seconde phrase du 3° du même a.
         <br/>
         Le taux de la réduction prévue au premier alinéa du présent b est de 20 %. Toutefois, pour les contribuables 
-        dont les revenus du foyer fiscal, au sens du 1° du IV de l'article 1417, excèdent 18 985 €, pour la première
-         part de quotient familial des personnes célibataires, veuves ou divorcées, ou 37 970 €, pour les deux premières
+        dont les revenus du foyer fiscal, au sens du 1° du IV de l'article 1417, excèdent {this.baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil1")} €, pour la première
+         part de quotient familial des personnes célibataires, veuves ou divorcées, ou {this.formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil1 * 2")}€, pour les deux premières
         parts de quotient familial des personnes soumises à une imposition commune, ces seuils étant majorés le cas
         échéant dans les conditions prévues au même premier alinéa, le taux de la réduction d'impôt est égal à
-         20 % multiplié par le rapport entre :
+        {this.baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}% multiplié par le rapport entre :
         <br/>
-        – au numérateur, la différence entre 21 037 €, pour les personnes célibataires, veuves ou divorcées, ou 
-        42 074 €, pour les personnes soumises à une imposition commune, ces seuils étant majorés le cas échéant
+        – au numérateur, la différence entre {this.formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}€, 
+        pour les personnes célibataires, veuves ou divorcées, ou 
+        {this.formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2 * 2")}€, pour les personnes soumises à une imposition commune, ces seuils étant majorés le cas échéant
          dans les conditions prévues audit premier alinéa, et le montant des revenus mentionnés au troisième alinéa 
          du présent b, et ;
         <br/>
-        – au dénominateur, 2 052 €, pour les personnes célibataires, veuves ou divorcées, ou 4 104 €, pour les
+        – au dénominateur, {this.formulaOutputInputCombiLin("plafond_qf.reduction_ss_condition_revenus.seuil2",1,"plafond_qf.reduction_ss_condition_revenus.seuil1",-1)}€, 
+        pour les personnes célibataires, veuves ou divorcées, ou {this.formulaOutputInputCombiLin("plafond_qf.reduction_ss_condition_revenus.seuil2",2,"plafond_qf.reduction_ss_condition_revenus.seuil1",-2)}€, pour les
          personnes soumises à une imposition commune.
         <br/>
         Les montants de revenus mentionnés au présent b sont révisés chaque année dans la même proportion que la limite
