@@ -1,9 +1,6 @@
-/* @flow */
-
-import React, { type Node } from "react"
 import Button from "@material-ui/core/Button"
 
-function Signup(): Node {
+function Signup() {
     return (
         <Button color="inherit">
             <p>S’enregistrer</p>

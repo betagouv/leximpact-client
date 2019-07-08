@@ -11,13 +11,11 @@ function babelConfig(api) {
                 },
             },
         ],
-        ["@babel/preset-flow"],
         ["next/babel"],
     ]
 
     const plugins = [
         ["@babel/plugin-proposal-pipeline-operator", { proposal: "minimal" }],
-        ["flow-react-proptypes"],
         ["lodash"],
         [
             "module-resolver",
