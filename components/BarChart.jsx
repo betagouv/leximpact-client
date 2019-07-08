@@ -34,20 +34,17 @@ class BarChart extends React.Component {
             const size = 24
             const images = bars.map(({
                 key, x, y, width, height,
-            }) =>
+            }) => (
                 // const iddecile=key.substring(0,key.indexOf(".")
-                (
-                    <image
-                        key={key}
-                        xlinkHref={
-                            `../static/images/decile${key.substring(0, key.indexOf("."))}.png`
-                        }
-                        x={x + width / 2 - size / 2}
-                        y={y + height / 2 - size / 2}
-                        height={width > 15 ? size : 0}
-                        width={width > 15 ? size : 0}
-                    />
-                ))
+                <image
+                    key={key}
+                    xlinkHref={`../static/images/decile${key.substring(0, key.indexOf("."))}.png`}
+                    x={x + width / 2 - size / 2}
+                    y={y + height / 2 - size / 2}
+                    height={width > 15 ? size : 0}
+                    width={width > 15 ? size : 0}
+                />
+            ))
             return <g>{images}</g>
         }
         const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -61,7 +58,10 @@ class BarChart extends React.Component {
                     /* */
                     indexBy="refid"
                     margin={{
-                        top: 20, right: 10, bottom: 30, left: 20,
+                        top: 20,
+                        right: 10,
+                        bottom: 30,
+                        left: 20,
                     }}
                     padding={0.05}
                     colorBy="index"
@@ -81,7 +81,7 @@ class BarChart extends React.Component {
                             <br />
                             {`${Math.round(
                                 (content.value * 1000000000)
-                                        / this.props.resultat.deciles[content.id - 1].poids,
+                                    / this.props.resultat.deciles[content.id - 1].poids,
                             )}€ par foyer fiscal`}
                         </>
                     )}

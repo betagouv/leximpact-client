@@ -5,7 +5,6 @@ import MaterialMoreIcon from "@material-ui/icons/MoreVert"
 import MaterialMenuItem from "@material-ui/core/MenuItem"
 import MaterialIconButton from "@material-ui/core/IconButton"
 
-
 const styles = {
     menu: {
         display: "flex",
@@ -13,10 +12,7 @@ const styles = {
 }
 
 function Menu({
-    classes,
-    state,
-    actions,
-    children,
+    classes, state, actions, children,
 }) {
     const { isOpen, anchorEl } = state
     const { openMenu, closeMenu } = actions
@@ -24,9 +20,7 @@ function Menu({
     return (
         <BreakpointProvider>
             <Breakpoint medium up>
-                <div className={classes.menu}>
-                    {children}
-                </div>
+                <div className={classes.menu}>{children}</div>
             </Breakpoint>
             <Breakpoint small down>
                 <div className={classes.menu}>

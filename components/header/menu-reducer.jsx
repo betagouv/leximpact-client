@@ -29,8 +29,5 @@ function reducer(state, { type, anchorEl }) {
 }
 
 export {
-    open,
-    close,
-    reducer,
-    initialState,
+    open, close, reducer, initialState,
 }
