@@ -69,7 +69,7 @@ class Reformeur extends Component {
             res_brut: {
                 apres: {
                     0: 0,
-                    1: -626,
+                    1: -600,
                     2: 0,
                     3: 0,
                     4: -492,
@@ -77,7 +77,7 @@ class Reformeur extends Component {
                 },
                 avant: {
                     0: 0,
-                    1: -626,
+                    1: -600,
                     2: 0,
                     3: 0,
                     4: -492,
