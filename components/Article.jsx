@@ -243,8 +243,10 @@ class Article extends React.Component {
     }
 
     formulaOutputInput(name){
-        const baseval=eval("this.state.basecode.impot_revenu."+name) 
-        const newval=eval("this.state.reforme.impot_revenu."+name)
+        var regextaux=RegExp("taux")
+        const tx=regextaux.test(name)
+        const baseval=eval("this.state.basecode.impot_revenu."+name)  * (tx?100:1)
+        const newval=eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
         return (<><OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} /></>)
     }
@@ -332,7 +334,7 @@ class Article extends React.Component {
                     style={style.InputSeuil}
                 />
                 {" "}
-                € et les trois quarts de son montant pour les contribuables soumis à imposition
+                € et les <OutputField value={"trois quarts"} style={style.VarCodeexistant} /> [{this.formulaOutputInput("decote.taux")}%] de son montant pour les contribuables soumis à imposition
                 commune.
             </Typography>
         )

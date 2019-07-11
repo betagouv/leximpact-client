@@ -293,12 +293,16 @@ class Reformeur extends Component {
     }
 
     UpdateDecote = (dectype, value) => {
+        //Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
         const ref = this.state.reforme
         if (dectype == "seuil_couple") {
             ref.impot_revenu.decote.seuil_couple = parseInt(value, 10)
         }
         if (dectype == "seuil_celib") {
             ref.impot_revenu.decote.seuil_celib = parseInt(value, 10)
+        }
+        if (dectype == "taux") {
+            ref.impot_revenu.decote.taux = Math.round(parseFloat(value)*10)/1000
         }
         this.setState({ reforme: ref })
     }
