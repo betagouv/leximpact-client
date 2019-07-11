@@ -322,7 +322,7 @@ class Article extends React.Component {
                     name="decote.seuil_celib"
                     style={style.InputSeuil}
                 />
-                € et les trois quarts de son montant pour les contribuables célibataires, divorcés
+                € et les <OutputField value={"trois quarts"} style={style.VarCodeexistant} /> [{this.baseOutputInput("decote.taux")}%] de son montant pour les contribuables célibataires, divorcés
                 ou veufs et de la différence entre
                 <OutputField value={basescouple} style={style.VarCodeexistant} />
                 <InputField

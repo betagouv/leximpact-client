@@ -51,6 +51,7 @@ class Reformeur extends Component {
                     decote: {
                         seuil_celib: 1196,
                         seuil_couple: 1970,
+                        taux: 0.75
                     },
                     plafond_qf:{
                         abat_dom:{
@@ -83,6 +84,7 @@ class Reformeur extends Component {
                     decote: {
                         seuil_celib: 1196,
                         seuil_couple: 1970,
+                        taux: 0.75
                     },
                     plafond_qf:{
                         abat_dom:{
