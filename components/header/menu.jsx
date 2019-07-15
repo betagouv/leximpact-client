@@ -33,7 +33,7 @@ function Menu({
                         <MaterialMoreIcon />
                     </MaterialIconButton>
                     <MaterialMenu anchorEl={anchorEl} open={isOpen} onClose={closeMenu}>
-                        {Children.map(children, child => (
+                        {children.map(child => (
                             <MaterialMenuItem key={child.type} onClick={closeMenu}>
                                 {child}
                             </MaterialMenuItem>
