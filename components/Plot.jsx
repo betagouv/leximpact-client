@@ -4,10 +4,6 @@ import Plotly from "plotly.js/dist/plotly"
 import createPlotComponent from "react-plotly.js/factory"
 import { bar, layout } from "plotly-js-material-design-theme"
 
-type Props = {
-    classes: Object,
-}
-
 function styles(theme) {
     const { mixins, spacing } = theme
 
@@ -22,7 +18,7 @@ function styles(theme) {
     }
 }
 
-function Plot({ classes }: Props) {
+function Plot({ classes }) {
     const Graph = createPlotComponent(Plotly)
 
     return (

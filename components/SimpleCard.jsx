@@ -233,8 +233,7 @@ class SimpleCard extends React.Component {
                                 {"Soit "}
                                 <b>
                                     {`${(-impots_apres + impots_avant > 0 ? "+" : "-")
-                                        + Math.round(Math.abs(-impots_apres + impots_avant))
-                                    }€`}
+                                        + Math.round(Math.abs(-impots_apres + impots_avant))}€`}
                                 </b>
                                 {"/an"}
                             </React.Fragment>

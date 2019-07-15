@@ -1,26 +1,21 @@
-/* @flow */
-
-import React, { useReducer, type Node } from "react"
+import { useReducer } from "react"
 import { flow } from "lodash/fp"
 import Menu from "components/header/menu"
 import Login from "components/header/login"
 import Signup from "components/header/signup"
 import Contact from "components/header/contact"
 import {
-    open,
-    close,
-    reducer,
-    initialState,
+    open, close, reducer, initialState,
 } from "components/header/menu-reducer"
 
-function MenuContainer(): Node {
+function MenuContainer() {
     const [state, dispatch] = useReducer(reducer, initialState())
 
-    function openMenu({ currentTarget }: SyntheticEvent<HTMLButtonElement>): void {
+    function openMenu({ currentTarget }) {
         return flow([open, dispatch])(currentTarget)
     }
 
-    function closeMenu(): void {
+    function closeMenu() {
         return dispatch(close())
     }
 

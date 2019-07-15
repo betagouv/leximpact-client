@@ -1,12 +1,5 @@
-/* @flow */
-
-import React, { type Node } from "react"
 import { withStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-
-type Props = {
-    +classes: Object,
-}
 
 const styles = {
     links: {
@@ -21,7 +14,7 @@ const styles = {
     },
 }
 
-function Links({ classes }: Props): Node {
+function Links({ classes }) {
     return (
         <div>
             <Button color="inherit" className={classes.links}>
