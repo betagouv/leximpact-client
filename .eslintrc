@@ -3,46 +3,38 @@
     "parserOptions": {
         "ecmaVersion": 9,
         "ecmaFeatures": {
-            "jsx": true,
+            "jsx": true
         },
-        "sourceType": "module",
+        "sourceType": "module"
     },
     "env": {
         "browser": true,
         "es6": true,
-        "node": true,
+        "node": true
     },
-    "plugins": [
-        "fp",
-        "import",
-        "jest",
-        "jsx-a11y",
-        "react",
-    ],
-    "extends": [
-        "airbnb",
-        "plugin:fp/recommended",
-        "plugin:jest/recommended",
-    ],
+    "plugins": ["import", "jest", "jsx-a11y", "react"],
+    "extends": ["airbnb", "plugin:jest/recommended"],
     "settings": {
         "react": {
-            "version": "detect",
-        },
+            "version": "detect"
+        }
     },
     "rules": {
         "array-bracket-newline": ["error", { "multiline": true }],
         "array-element-newline": ["error", "consistent"],
         "func-style": ["error", "declaration"],
-        "fp/no-mutation": ["error", { "commonjs": true }],
-        "fp/no-unused-expression": "off",
         "import/no-unresolved": "off",
         "indent": ["error", 4],
         "max-nested-callbacks": ["error", 2],
         "no-underscore-dangle": "error",
         "quotes": ["error", "double", { "avoidEscape": false }],
-        "react/jsx-indent": ["error", 4, { checkAttributes: false, indentLogicalExpressions: true }],
+        "react/jsx-indent": [
+            "error",
+            4,
+            { "checkAttributes": false, "indentLogicalExpressions": true }
+        ],
         "react/jsx-indent-props": ["error", 4],
         "react/react-in-jsx-scope": "off",
-        "semi": ["error", "never"],
-    },
+        "semi": ["error", "never"]
+    }
 }
