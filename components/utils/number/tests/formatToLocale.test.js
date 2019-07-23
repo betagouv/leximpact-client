@@ -19,6 +19,10 @@ describe("components | utils | number | formatToLocale", () => {
             given = "10000000.42";
             result = formatToLocale(given);
             expect(result).toStrictEqual(given);
+
+            given = Number.NaN;
+            result = formatToLocale(given);
+            expect(result).toStrictEqual(given);
         });
     });
 
