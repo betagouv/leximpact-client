@@ -90,7 +90,11 @@ class RecettesCard extends React.Component {
                     <table>
                         <tr>
                             <td rowSpan="2">
-                                <Icon icon={classicalBuilding} width="40" height="40" />
+                                <Icon
+                                    icon={classicalBuilding}
+                                    width="40"
+                                    height="40"
+                                />
                             </td>
                             <td className="titleCarteEtat">
                                 Recettes de l'État sur l'impôt sur le revenu
@@ -115,7 +119,9 @@ class RecettesCard extends React.Component {
                         <tr>
                             <td>
                                 <span className="legendeEtat avant chiffre">
-                                    {Math.round(resultat.total.avant / 100000000) / 10}
+                                    {Math.round(
+                                        resultat.total.avant / 100000000,
+                                    ) / 10}
                                 </span>
                                 <span className="legendeEtat avant">Md€</span>
                             </td>
@@ -123,7 +129,9 @@ class RecettesCard extends React.Component {
                         <tr>
                             <td>
                                 <span className="legendeEtat apres chiffre">
-                                    {Math.round(resultat.total.apres / 100000000) / 10}
+                                    {Math.round(
+                                        resultat.total.apres / 100000000,
+                                    ) / 10}
                                 </span>
                                 <span className="legendeEtat apres">Md€</span>
                             </td>

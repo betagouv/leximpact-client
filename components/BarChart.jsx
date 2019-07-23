@@ -19,7 +19,9 @@ class BarChart extends React.Component {
             result[keycols[index]] = Math.round(item / 10000000) / 100
             return result
         }, stavant)
-        const stapres = { refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */ }
+        const stapres = {
+            refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */,
+        }
         const resapres = deciles
             .map(element => element.apres)
             .reduce((result, item, index, array) => {
@@ -38,7 +40,10 @@ class BarChart extends React.Component {
                 // const iddecile=key.substring(0,key.indexOf(".")
                 <image
                     key={key}
-                    xlinkHref={`../static/images/decile${key.substring(0, key.indexOf("."))}.png`}
+                    xlinkHref={`../static/images/decile${key.substring(
+                        0,
+                        key.indexOf("."),
+                    )}.png`}
                     x={x + width / 2 - size / 2}
                     y={y + height / 2 - size / 2}
                     height={width > 15 ? size : 0}
@@ -52,7 +57,15 @@ class BarChart extends React.Component {
         return (
             <div className="chart">
                 <ResponsiveBar
-                    layers={["grid", "axes", "bars", Image, "markers", "legends", "annotations"]}
+                    layers={[
+                        "grid",
+                        "axes",
+                        "bars",
+                        Image,
+                        "markers",
+                        "legends",
+                        "annotations",
+                    ]}
                     data={data}
                     keys={keycols}
                     /* */
@@ -77,18 +90,23 @@ class BarChart extends React.Component {
                                 width="30"
                                 height="30"
                             />
-                            {`décile : ${Math.round(content.value * 10) / 10}Md€`}
+                            {`décile : ${Math.round(content.value * 10)
+                                / 10}Md€`}
                             <br />
                             {`${Math.round(
                                 (content.value * 1000000000)
-                                    / this.props.resultat.deciles[content.id - 1].poids,
+                                    / this.props.resultat.deciles[content.id - 1]
+                                        .poids,
                             )}€ par foyer fiscal`}
                         </>
                     )}
                     defs={[]}
                     fill={[]}
                     borderRadius={4}
-                    borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+                    borderColor={{
+                        from: "color",
+                        modifiers: [["darker", 1.6]],
+                    }}
                     axisTop={null}
                     axisLeft={null}
                     axisBottom={{
@@ -107,7 +125,10 @@ class BarChart extends React.Component {
                     labelFormat={v => `${v}Md€`}
                     labelSkipWidth={1000}
                     labelSkipHeight={1000}
-                    labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+                    labelTextColor={{
+                        from: "color",
+                        modifiers: [["darker", 1.6]],
+                    }}
                     legends={[]}
                     animate
                     motionStiffness={90}

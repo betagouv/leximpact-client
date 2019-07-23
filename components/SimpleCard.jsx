@@ -79,12 +79,25 @@ class SimpleCard extends React.Component {
 
     handleOutreMerChange = numcastype => (event) => {
         // console.log("je suis dans l'outremer",numcastype,event,this.props.desc_cas_type.outre_mer)
-        this.props.onOutreMerChange(numcastype, 3 - this.props.desc_cas_type.outre_mer)
+        this.props.onOutreMerChange(
+            numcastype,
+            3 - this.props.desc_cas_type.outre_mer,
+        )
     }
 
     roundedRevenues(revenumensuel) {
         const roundlevel = [100, 50, 100, 200, 500, 1000, 5000, 10000, 100000]
-        const paliers = [900, 2000, 3000, 4000, 10000, 15000, 20000, 100000, 1000000]
+        const paliers = [
+            900,
+            2000,
+            3000,
+            4000,
+            10000,
+            15000,
+            20000,
+            100000,
+            1000000,
+        ]
         // for now the rounded revenues do not depend on the current value
         let currpal = 0
         const res = []
@@ -99,7 +112,12 @@ class SimpleCard extends React.Component {
 
     render() {
         const {
-            classes, index, desc_cas_type, impots_avant, impots_apres, loading,
+            classes,
+            index,
+            desc_cas_type,
+            impots_avant,
+            impots_apres,
+            loading,
         } = this.props
 
         const styleIcons = {
@@ -141,20 +159,34 @@ class SimpleCard extends React.Component {
                     <div className={classes.div}>
                         <div>
                             <Tooltip
-                                    key="revenus"
-                                    placement="top"
-                                    title={isret?"Plus de 65 ans":"Moins de 65 ans"}
-                                    enterDelay={300}
-                                    leaveDelay={200}
-                                >
-                            <span>
-                            {<Icon key="person1" icon={icon1} width="40" height="40" />}
-                            {aretwo ? (
-                                <Icon key="person2" icon={icon2} width="40" height="40" />
-                            ) : (
-                                ""
-                            )}
-                            </span>
+                                key="revenus"
+                                placement="top"
+                                title={
+                                    isret ? "Plus de 65 ans" : "Moins de 65 ans"
+                                }
+                                enterDelay={300}
+                                leaveDelay={200}
+                            >
+                                <span>
+                                    {
+                                        <Icon
+                                            key="person1"
+                                            icon={icon1}
+                                            width="40"
+                                            height="40"
+                                        />
+                                    }
+                                    {aretwo ? (
+                                        <Icon
+                                            key="person2"
+                                            icon={icon2}
+                                            width="40"
+                                            height="40"
+                                        />
+                                    ) : (
+                                        ""
+                                    )}
+                                </span>
                             </Tooltip>
                             {babyicons}
                         </div>
@@ -171,7 +203,13 @@ class SimpleCard extends React.Component {
                                     value={revrounded}
                                     onChange={this.handleChange(index)}
                                 >
-                                    <option value={revrounded}>{`${revrounded}€/mois`}</option>
+                                    <option
+                                        value={
+                                            revrounded
+                                        }
+                                    >
+                                        {`${revrounded}€/mois`}
+                                    </option>
                                     {this.roundedRevenues(revrounded)}
                                     {" "}
 }
@@ -189,8 +227,16 @@ class SimpleCard extends React.Component {
                                 >
                                     <Chip
                                         className={classes.chip}
-                                        onClick={this.handleOutreMerChange(index)}
-                                        icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                        onClick={this.handleOutreMerChange(
+                                            index,
+                                        )}
+                                        icon={(
+                                            <Icon
+                                                icon={desertIsland}
+                                                width="20"
+                                                height="20"
+                                            />
+                                        )}
                                         label="Outre-mer n° 1"
                                     />
                                 </Tooltip>
@@ -204,9 +250,17 @@ class SimpleCard extends React.Component {
                                 >
                                     <Chip
                                         className={classes.chip}
-                                        icon={<Icon icon={desertIsland} width="20" height="20" />}
+                                        icon={(
+                                            <Icon
+                                                icon={desertIsland}
+                                                width="20"
+                                                height="20"
+                                            />
+                                        )}
                                         label="Outre-mer n° 2"
-                                        onClick={this.handleOutreMerChange(index)}
+                                        onClick={this.handleOutreMerChange(
+                                            index,
+                                        )}
                                     />
                                 </Tooltip>
                             ) : (
@@ -219,10 +273,20 @@ class SimpleCard extends React.Component {
                         <Typography className={classes.legende}>
                             Impôt sur le revenu par an
                         </Typography>
-                        <Typography inline variant="h3" color="primary" gutterBottom>
+                        <Typography
+                            inline
+                            variant="h3"
+                            color="primary"
+                            gutterBottom
+                        >
                             {-impots_avant}
                         </Typography>
-                        <Typography inline variant="h5" color="primary" gutterBottom>
+                        <Typography
+                            inline
+                            variant="h5"
+                            color="primary"
+                            gutterBottom
+                        >
                             €
                         </Typography>
                         <br />
@@ -232,8 +296,14 @@ class SimpleCard extends React.Component {
                             title=<React.Fragment>
                                 {"Soit "}
                                 <b>
-                                    {`${(-impots_apres + impots_avant > 0 ? "+" : "-")
-                                        + Math.round(Math.abs(-impots_apres + impots_avant))}€`}
+                                    {`${(-impots_apres + impots_avant > 0
+                                        ? "+"
+                                        : "-")
+                                        + Math.round(
+                                            Math.abs(
+                                                -impots_apres + impots_avant,
+                                            ),
+                                        )}€`}
                                 </b>
                                 {"/an"}
                             </React.Fragment>

@@ -227,26 +227,30 @@ class Reformeur extends Component {
 
     UpdateBareme = (i, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
-            if (j === i) {
-                const valchiffre = parseInt(value, 10)
-                return isNaN(valchiffre) ? item : valchiffre
-            }
-            return item
-        })
+        const list = this.state.reforme.impot_revenu.bareme.seuils.map(
+            (item, j) => {
+                if (j === i) {
+                    const valchiffre = parseInt(value, 10)
+                    return isNaN(valchiffre) ? item : valchiffre
+                }
+                return item
+            },
+        )
         ref.impot_revenu.bareme.seuils = list
         this.setState({ reforme: ref })
     }
 
     UpdateTaux = (i, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
-            if (j === i) {
-                const valchiffre = parseInt(value, 10)
-                return isNaN(valchiffre) ? item : valchiffre
-            }
-            return item
-        })
+        const list = this.state.reforme.impot_revenu.bareme.taux.map(
+            (item, j) => {
+                if (j === i) {
+                    const valchiffre = parseInt(value, 10)
+                    return isNaN(valchiffre) ? item : valchiffre
+                }
+                return item
+            },
+        )
         ref.impot_revenu.bareme.taux = list
         this.setState({ reforme: ref })
     }
@@ -433,10 +437,17 @@ class Reformeur extends Component {
                                         <div>
                                             {/* <div>You are sized like a tablet or mobile phone though</div> */}
                                             <div className={classes.root}>
-                                                <AppBar position="static" color="default">
+                                                <AppBar
+                                                    position="static"
+                                                    color="default"
+                                                >
                                                     <Tabs
-                                                        value={this.state.indextab}
-                                                        onChange={this.handleTabChange}
+                                                        value={
+                                                            this.state.indextab
+                                                        }
+                                                        onChange={
+                                                            this.handleTabChange
+                                                        }
                                                         indicatorColor="primary"
                                                         textColor="primary"
                                                         variant="fullWidth"
@@ -447,37 +458,77 @@ class Reformeur extends Component {
                                                 </AppBar>
                                                 <SwipeableViews
                                                     axis={
-                                                        theme.direction === "rtl"
+                                                        theme.direction
+                                                        === "rtl"
                                                             ? "x-reverse"
                                                             : "x"
                                                     }
                                                     index={this.state.indextab}
-                                                    onChangeIndex={this.handleIndexChange}
+                                                    onChangeIndex={
+                                                        this.handleIndexChange
+                                                    }
                                                 >
-                                                    <TabContainer dir={theme.direction}>
+                                                    <TabContainer
+                                                        dir={theme.direction}
+                                                    >
                                                         <Paper>
                                                             <ArticleHeader />
                                                             <Divider />
                                                             <Article
-                                                                reforme={this.state.reforme}
-                                                                reformebase={this.state.reformebase}
-                                                                onChange={this.handleChange}
-                                                                addTranche={this.addTranche}
-                                                                removeTranche={this.removeTranche}
+                                                                reforme={
+                                                                    this.state
+                                                                        .reforme
+                                                                }
+                                                                reformebase={
+                                                                    this.state
+                                                                        .reformebase
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleChange
+                                                                }
+                                                                addTranche={
+                                                                    this
+                                                                        .addTranche
+                                                                }
+                                                                removeTranche={
+                                                                    this
+                                                                        .removeTranche
+                                                                }
                                                             />
                                                         </Paper>
                                                     </TabContainer>
-                                                    <TabContainer dir={theme.direction}>
+                                                    <TabContainer
+                                                        dir={theme.direction}
+                                                    >
                                                         <Impact
-                                                            loading={this.state.loading}
-                                                            onRevenuChange={this.handleRevenuChange}
-                                                            onOutreMerChange={
-                                                                this.handleOutreMerChange
+                                                            loading={
+                                                                this.state
+                                                                    .loading
                                                             }
-                                                            res_brut={this.state.res_brut}
-                                                            total_pop={this.state.total_pop}
-                                                            onClick={this.simPop}
-                                                            cas_types={this.state.cas_types}
+                                                            onRevenuChange={
+                                                                this
+                                                                    .handleRevenuChange
+                                                            }
+                                                            onOutreMerChange={
+                                                                this
+                                                                    .handleOutreMerChange
+                                                            }
+                                                            res_brut={
+                                                                this.state
+                                                                    .res_brut
+                                                            }
+                                                            total_pop={
+                                                                this.state
+                                                                    .total_pop
+                                                            }
+                                                            onClick={
+                                                                this.simPop
+                                                            }
+                                                            cas_types={
+                                                                this.state
+                                                                    .cas_types
+                                                            }
                                                         />
                                                     </TabContainer>
                                                 </SwipeableViews>
@@ -489,23 +540,35 @@ class Reformeur extends Component {
                                     <div>
                                         {/* <div>You also have a good screen</div> */}
                                         <div className="moitie-gauche">
-                                            <Paper className={this.props.classes.paper}>
+                                            <Paper
+                                                className={
+                                                    this.props.classes.paper
+                                                }
+                                            >
                                                 <ArticleHeader />
                                                 <Divider />
                                                 <Article
                                                     reforme={this.state.reforme}
-                                                    reformebase={this.state.reformebase}
+                                                    reformebase={
+                                                        this.state.reformebase
+                                                    }
                                                     onChange={this.handleChange}
                                                     addTranche={this.addTranche}
-                                                    removeTranche={this.removeTranche}
+                                                    removeTranche={
+                                                        this.removeTranche
+                                                    }
                                                 />
                                             </Paper>
                                         </div>
                                         <div className="moitie-droite">
                                             <Impact
                                                 loading={this.state.loading}
-                                                onRevenuChange={this.handleRevenuChange}
-                                                onOutreMerChange={this.handleOutreMerChange}
+                                                onRevenuChange={
+                                                    this.handleRevenuChange
+                                                }
+                                                onOutreMerChange={
+                                                    this.handleOutreMerChange
+                                                }
                                                 res_brut={this.state.res_brut}
                                                 total_pop={this.state.total_pop}
                                                 onClick={this.simPop}
@@ -537,7 +600,11 @@ class Reformeur extends Component {
                                     </Tabs>
                                 </AppBar>
                                 <SwipeableViews
-                                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                                    axis={
+                                        theme.direction === "rtl"
+                                            ? "x-reverse"
+                                            : "x"
+                                    }
                                     index={this.state.indextab}
                                     onChangeIndex={this.handleIndexChange}
                                 >
@@ -553,8 +620,12 @@ class Reformeur extends Component {
                                     <TabContainer dir={theme.direction}>
                                         <Impact
                                             loading={this.state.loading}
-                                            onRevenuChange={this.handleRevenuChange}
-                                            onOutreMerChange={this.handleOutreMerChange}
+                                            onRevenuChange={
+                                                this.handleRevenuChange
+                                            }
+                                            onOutreMerChange={
+                                                this.handleOutreMerChange
+                                            }
                                             res_brut={this.state.res_brut}
                                             total_pop={this.state.total_pop}
                                             onClick={this.simPop}

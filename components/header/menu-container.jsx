@@ -5,7 +5,10 @@ import Login from "components/header/login"
 import Signup from "components/header/signup"
 import Contact from "components/header/contact"
 import {
-    open, close, reducer, initialState,
+    open,
+    close,
+    reducer,
+    initialState,
 } from "components/header/menu-reducer"
 
 function MenuContainer() {

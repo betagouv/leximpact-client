@@ -32,9 +32,16 @@ function Menu({
                     >
                         <MaterialMoreIcon />
                     </MaterialIconButton>
-                    <MaterialMenu anchorEl={anchorEl} open={isOpen} onClose={closeMenu}>
+                    <MaterialMenu
+                        anchorEl={anchorEl}
+                        open={isOpen}
+                        onClose={closeMenu}
+                    >
                         {children.map(child => (
-                            <MaterialMenuItem key={child.type} onClick={closeMenu}>
+                            <MaterialMenuItem
+                                key={child.type}
+                                onClick={closeMenu}
+                            >
                                 {child}
                             </MaterialMenuItem>
                         ))}

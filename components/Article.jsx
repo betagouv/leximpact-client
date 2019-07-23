@@ -107,7 +107,12 @@ class InputField extends React.Component {
     handleChange(e) {
         clearTimeout(this.timer)
         this.setState({ value: e.target.value })
-        this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL, e.target.value, e.target.name)
+        this.timer = setTimeout(
+            this.triggerChange,
+            WAIT_INTERVAL,
+            e.target.value,
+            e.target.name,
+        )
     }
 
     triggerChange(value, name) {
@@ -151,7 +156,11 @@ class OutputField extends React.Component {
     render() {
         const { value } = this.props
         return (
-            <span inline="true" style={this.props.style} className="output-field">
+            <span
+                inline="true"
+                style={this.props.style}
+                className="output-field"
+            >
                 {value}
             </span>
         )
@@ -180,24 +189,28 @@ class Article extends React.Component {
 
     UpdateBareme = (i, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
-            if (j === i) {
-                return value
-            }
-            return item
-        })
+        const list = this.state.reforme.impot_revenu.bareme.seuils.map(
+            (item, j) => {
+                if (j === i) {
+                    return value
+                }
+                return item
+            },
+        )
         ref.impot_revenu.bareme.seuils = list
         this.setState({ reforme: ref })
     }
 
     UpdateTaux = (i, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
-            if (j === i) {
-                return value
-            }
-            return item
-        })
+        const list = this.state.reforme.impot_revenu.bareme.taux.map(
+            (item, j) => {
+                if (j === i) {
+                    return value
+                }
+                return item
+            },
+        )
         ref.impot_revenu.bareme.taux = list
         this.setState({ reforme: ref })
     }
@@ -222,8 +235,9 @@ class Article extends React.Component {
 
         return (
             <Typography variant="body2" color="inherit">
-                4. a. Le montant de l'impôt résultant de l'application des dispositions précédentes
-                est diminué, dans la limite de son montant, de la différence entre
+                4. a. Le montant de l'impôt résultant de l'application des
+                dispositions précédentes est diminué, dans la limite de son
+                montant, de la différence entre
                 {" "}
                 <OutputField value={basescelib} style={style.VarCodeexistant} />
                 <InputField
@@ -232,9 +246,12 @@ class Article extends React.Component {
                     name="decote.seuil_celib"
                     style={style.InputSeuil}
                 />
-                € et les trois quarts de son montant pour les contribuables célibataires, divorcés
-                ou veufs et de la différence entre
-                <OutputField value={basescouple} style={style.VarCodeexistant} />
+                € et les trois quarts de son montant pour les contribuables
+                célibataires, divorcés ou veufs et de la différence entre
+                <OutputField
+                    value={basescouple}
+                    style={style.VarCodeexistant}
+                />
                 <InputField
                     value={scouple}
                     onChange={this.handleS1Change}
@@ -242,8 +259,8 @@ class Article extends React.Component {
                     style={style.InputSeuil}
                 />
                 {" "}
-                € et les trois quarts de son montant pour les contribuables soumis à imposition
-                commune.
+                € et les trois quarts de son montant pour les contribuables
+                soumis à imposition commune.
             </Typography>
         )
     }
@@ -258,11 +275,19 @@ class Article extends React.Component {
         // Part 1
         if (i == 0) {
             return (
-                <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
+                <Typography
+                    key={i}
+                    variant="body2"
+                    color="inherit"
+                    style={styleAUtiliser}
+                >
                     {
                         "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
                     }
-                    <OutputField value={bases[i]} style={style.VarCodeexistant} />
+                    <OutputField
+                        value={bases[i]}
+                        style={style.VarCodeexistant}
+                    />
                     <InputField
                         value={s[i]}
                         onChange={this.handleS1Change}
@@ -276,9 +301,17 @@ class Article extends React.Component {
         // Last part
         if (i == nbt) {
             return (
-                <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
+                <Typography
+                    key={i}
+                    variant="body2"
+                    color="inherit"
+                    style={styleAUtiliser}
+                >
                     {"– "}
-                    <OutputField value={baset[i - 1]} style={style.VarCodeexistant} />
+                    <OutputField
+                        value={baset[i - 1]}
+                        style={style.VarCodeexistant}
+                    />
                     <InputField
                         value={t[i - 1]}
                         onChange={this.handleS1Change}
@@ -293,10 +326,18 @@ class Article extends React.Component {
         }
         // Other parts :
         return (
-            <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
+            <Typography
+                key={i}
+                variant="body2"
+                color="inherit"
+                style={styleAUtiliser}
+            >
                 –
                 {" "}
-                <OutputField value={baset[i - 1]} style={style.VarCodeexistant} />
+                <OutputField
+                    value={baset[i - 1]}
+                    style={style.VarCodeexistant}
+                />
                 <InputField
                     value={t[i - 1]}
                     onChange={this.handleS1Change}
@@ -360,8 +401,9 @@ class Article extends React.Component {
 
                     <ExpansionPanelDetails style={styleExpansionpanel}>
                         <Typography variant="body2" color="inherit">
-                            visés à l&#39;article 4 B, il est fait application des règles suivantes
-                            pour le calcul de l&#39;impôt sur le revenu :
+                            visés à l&#39;article 4 B, il est fait application
+                            des règles suivantes pour le calcul de l&#39;impôt
+                            sur le revenu :
                         </Typography>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
@@ -415,48 +457,62 @@ class Article extends React.Component {
                         expandIcon={<ExpandMoreIcon />}
                     >
                         <Typography variant="body2" color="inherit">
-                            2. La réduction d&#39;impôt résultant de l&#39;application du quotient
-                            familial ...
+                            2. La réduction d&#39;impôt résultant de
+                            l&#39;application du quotient familial ...
                         </Typography>
                     </ExpansionPanelSummary>
 
                     <ExpansionPanelDetails style={styleExpansionpanel}>
                         <Typography variant="body2" color="inherit">
-                            ... ne peut excéder 1 551 € par demi-part ou la moitié de cette somme
-                            par quart de part s&#39;ajoutant à une part pour les contribuables
-                            célibataires, divorcés, veufs ou soumis à l&#39;imposition distincte
-                            prévue au 4 de l&#39;article 6 et à deux parts pour les contribuables
-                            mariés soumis à une imposition commune.
+                            ... ne peut excéder 1 551 € par demi-part ou la
+                            moitié de cette somme par quart de part
+                            s&#39;ajoutant à une part pour les contribuables
+                            célibataires, divorcés, veufs ou soumis à
+                            l&#39;imposition distincte prévue au 4 de
+                            l&#39;article 6 et à deux parts pour les
+                            contribuables mariés soumis à une imposition
+                            commune.
                             <br />
-                            Toutefois, pour les contribuables célibataires, divorcés, ou soumis à
-                            l&#39;imposition distincte prévue au 4 de l&#39;article 6 qui répondent
-                            aux conditions fixées au II de l&#39;article 194, la réduction
-                            d&#39;impôt correspondant à la part accordée au titre du premier enfant
-                            à charge est limitée à 3 660 € Lorsque les contribuables entretiennent
-                            uniquement des enfants dont la charge est réputée également partagée
-                            entre l&#39;un et l&#39;autre des parents, la réduction d&#39;impôt
-                            correspondant à la demi-part accordée au titre de chacun des deux
-                            premiers enfants est limitée à la moitié de cette somme. Par dérogation
-                            aux dispositions du premier alinéa, la réduction d&#39;impôt résultant
-                            de l&#39;application du quotient familial, accordée aux contribuables
-                            qui bénéficient des dispositions des a, b et e du 1 de l&#39;article
-                            195, ne peut excéder 927 € ;
+                            Toutefois, pour les contribuables célibataires,
+                            divorcés, ou soumis à l&#39;imposition distincte
+                            prévue au 4 de l&#39;article 6 qui répondent aux
+                            conditions fixées au II de l&#39;article 194, la
+                            réduction d&#39;impôt correspondant à la part
+                            accordée au titre du premier enfant à charge est
+                            limitée à 3 660 € Lorsque les contribuables
+                            entretiennent uniquement des enfants dont la charge
+                            est réputée également partagée entre l&#39;un et
+                            l&#39;autre des parents, la réduction d&#39;impôt
+                            correspondant à la demi-part accordée au titre de
+                            chacun des deux premiers enfants est limitée à la
+                            moitié de cette somme. Par dérogation aux
+                            dispositions du premier alinéa, la réduction
+                            d&#39;impôt résultant de l&#39;application du
+                            quotient familial, accordée aux contribuables qui
+                            bénéficient des dispositions des a, b et e du 1 de
+                            l&#39;article 195, ne peut excéder 927 € ;
                             <br />
-                            Les contribuables qui bénéficient d'une demi-part au titre des a, b, c,
-                            d, d bis, e et f du 1 ainsi que des 2 à 6 de l'article 195 ont droit à
-                            une réduction d'impôt égale à 1 547 € pour chacune de ces demi-parts
-                            lorsque la réduction de leur cotisation d'impôt est plafonnée en
-                            application du premier alinéa. La réduction d'impôt est égale à la
-                            moitié de cette somme lorsque la majoration visée au 2 de l'article 195
-                            est de un quart de part. Cette réduction d'impôt ne peut toutefois
-                            excéder l'augmentation de la cotisation d'impôt résultant du
-                            plafonnement. Les contribuables veufs ayant des enfants à charge qui
-                            bénéficient d'une part supplémentaire de quotient familial en
-                            application du I de l'article 194 ont droit à une réduction d'impôt
-                            égale à 1 728 € pour cette part supplémentaire lorsque la réduction de
-                            leur cotisation d'impôt est plafonnée en application du premier alinéa
-                            du présent 2. Cette réduction d'impôt ne peut toutefois excéder
-                            l'augmentation de la cotisation d'impôt résultant du plafonnement.
+                            Les contribuables qui bénéficient d'une demi-part au
+                            titre des a, b, c, d, d bis, e et f du 1 ainsi que
+                            des 2 à 6 de l'article 195 ont droit à une réduction
+                            d'impôt égale à 1 547 € pour chacune de ces
+                            demi-parts lorsque la réduction de leur cotisation
+                            d'impôt est plafonnée en application du premier
+                            alinéa. La réduction d'impôt est égale à la moitié
+                            de cette somme lorsque la majoration visée au 2 de
+                            l'article 195 est de un quart de part. Cette
+                            réduction d'impôt ne peut toutefois excéder
+                            l'augmentation de la cotisation d'impôt résultant du
+                            plafonnement. Les contribuables veufs ayant des
+                            enfants à charge qui bénéficient d'une part
+                            supplémentaire de quotient familial en application
+                            du I de l'article 194 ont droit à une réduction
+                            d'impôt égale à 1 728 € pour cette part
+                            supplémentaire lorsque la réduction de leur
+                            cotisation d'impôt est plafonnée en application du
+                            premier alinéa du présent 2. Cette réduction d'impôt
+                            ne peut toutefois excéder l'augmentation de la
+                            cotisation d'impôt résultant du plafonnement.
                         </Typography>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
@@ -472,17 +528,20 @@ class Article extends React.Component {
                         expandIcon={<ExpandMoreIcon />}
                     >
                         <Typography variant="body2" color="inherit">
-                            3. Le montant de l'impôt résultant de l'application des dispositions
-                            précédentes est réduit de 30 %, dans la limite de 2 450 €...
+                            3. Le montant de l'impôt résultant de l'application
+                            des dispositions précédentes est réduit de 30 %,
+                            dans la limite de 2 450 €...
                         </Typography>
                     </ExpansionPanelSummary>
 
                     <ExpansionPanelDetails style={styleExpansionpanel}>
                         <Typography variant="body2" color="inherit">
-                            ...pour les contribuables domiciliés dans les départements de la
-                            Guadeloupe, de la Martinique et de la Réunion ; cette réduction est
-                            égale à 40 %, dans la limite de 4 050 €, pour les contribuables
-                            domiciliés dans les départements de la Guyane et de Mayotte ;
+                            ...pour les contribuables domiciliés dans les
+                            départements de la Guadeloupe, de la Martinique et
+                            de la Réunion ; cette réduction est égale à 40 %,
+                            dans la limite de 4 050 €, pour les contribuables
+                            domiciliés dans les départements de la Guyane et de
+                            Mayotte ;
                         </Typography>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>

@@ -65,11 +65,19 @@ class RecettesCard extends React.Component {
             <Card>
                 <CardContent>
                     <Icon icon={classicalBuilding} width="40" height="40" />
-                    <Typography variant="body1">Recettes de l&#39;État</Typography>
+                    <Typography variant="body1">
+                        Recettes de l&#39;État
+                    </Typography>
 
                     <div>
-                        <Typography inline variant="h3" color="primary" gutterBottom>
-                            {Math.round(this.props.impots_avant / 100000000) / 10}
+                        <Typography
+                            inline
+                            variant="h3"
+                            color="primary"
+                            gutterBottom
+                        >
+                            {Math.round(this.props.impots_avant / 100000000)
+                                / 10}
                         </Typography>
                         <Typography
                             inline
@@ -83,16 +91,32 @@ class RecettesCard extends React.Component {
                         >
                             {delta > -0.01 ? "+" : "-"}
                         </Typography>
-                        <Typography inline variant="h3" color="secondary" gutterBottom>
-                            {Math.round(Math.abs(this.props.delta / 100000000)) / 10}
+                        <Typography
+                            inline
+                            variant="h3"
+                            color="secondary"
+                            gutterBottom
+                        >
+                            {Math.round(
+                                Math.abs(this.props.delta / 100000000),
+                            ) / 10}
                         </Typography>
-                        <Typography inline variant="h5" color="secondary" gutterBottom>
+                        <Typography
+                            inline
+                            variant="h5"
+                            color="secondary"
+                            gutterBottom
+                        >
                             Md€
                         </Typography>
                     </div>
 
                     <div>
-                        <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={this.updateStateRes}
+                        >
                             Lancer la simulation
                         </Button>
                     </div>
