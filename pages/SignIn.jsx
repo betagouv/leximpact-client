@@ -30,8 +30,8 @@ const styles = theme => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit
-            * 3}px`,
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit
+            * 3}px ${theme.spacing.unit * 3}px`,
     },
     avatar: {
         margin: theme.spacing.unit,
@@ -62,7 +62,12 @@ function SignIn(props) {
                 <form className={classes.form}>
                     <FormControl margin="normal" required fullWidth>
                         <InputLabel htmlFor="email">Email Address</InputLabel>
-                        <Input id="email" name="email" autoComplete="email" autoFocus />
+                        <Input
+                            id="email"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                        />
                     </FormControl>
                     <FormControl margin="normal" required fullWidth>
                         <InputLabel htmlFor="password">Password</InputLabel>

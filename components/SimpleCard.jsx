@@ -203,11 +203,7 @@ class SimpleCard extends React.Component {
                                     value={revrounded}
                                     onChange={this.handleChange(index)}
                                 >
-                                    <option
-                                        value={
-                                            revrounded
-                                        }
-                                    >
+                                    <option value={revrounded}>
                                         {`${revrounded}€/mois`}
                                     </option>
                                     {this.roundedRevenues(revrounded)}

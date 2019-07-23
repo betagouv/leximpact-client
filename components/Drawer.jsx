@@ -84,6 +84,23 @@ const styles = theme => ({
     },
 })
 
+function IndexIcon({ index }) {
+    function isEven(index) {
+        return index % 2 === 0
+    }
+
+    function isOdd(index) {
+        return !isEven(index)
+    }
+
+    return (
+        <ListItemIcon>
+            {isEven(index) && <InboxIcon />}
+            {isOdd(index) && <MailIcon />}
+        </ListItemIcon>
+    )
+}
+
 class MiniDrawer extends React.Component {
     state = {
         open: false,
@@ -149,8 +166,8 @@ class MiniDrawer extends React.Component {
                 >
                     <div className={classes.toolbar}>
                         <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === "rtl"  && <ChevronRightIcon />}
-                            {theme.direction !== "rtl"  && <ChevronLeftIcon />}
+                            {theme.direction === "rtl" && <ChevronRightIcon />}
+                            {theme.direction !== "rtl" && <ChevronLeftIcon />}
                         </IconButton>
                     </div>
                     <Divider />
@@ -158,13 +175,7 @@ class MiniDrawer extends React.Component {
                         {["Inbox", "Starred", "Send email", "Drafts"].map(
                             (text, index) => (
                                 <ListItem button key={text}>
-                                    <ListItemIcon>
-                                        {index % 2 === 0 ? (
-                                            <InboxIcon />
-                                        ) : (
-                                            <MailIcon />
-                                        )}
-                                    </ListItemIcon>
+                                    <IndexIcon index={index} />
                                     <ListItemText primary={text} />
                                 </ListItem>
                             ),
@@ -174,13 +185,7 @@ class MiniDrawer extends React.Component {
                     <List>
                         {["All mail", "Trash", "Spam"].map((text, index) => (
                             <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? (
-                                        <InboxIcon />
-                                    ) : (
-                                        <MailIcon />
-                                    )}
-                                </ListItemIcon>
+                                <IndexIcon index={index} />
                                 <ListItemText primary={text} />
                             </ListItem>
                         ))}
