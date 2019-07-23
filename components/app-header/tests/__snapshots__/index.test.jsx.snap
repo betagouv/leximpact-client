@@ -33,7 +33,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <div />
+    <WithStyles(LoginButton) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -71,7 +71,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <div />
+    <WithStyles(LoginButton) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;

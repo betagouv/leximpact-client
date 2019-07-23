@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | login-form | roles-input snapshot doit correspondre avec les props requises 1`] = `
+<RolesInput
+  classes={
+    Object {
+      "formControl": "RolesInput-formControl-3",
+      "formLegend": "RolesInput-formLegend-1",
+      "formLegendAsterisk": "RolesInput-formLegendAsterisk-2",
+      "radioGroup": "RolesInput-radioGroup-5",
+      "radioItem": "RolesInput-radioItem-4",
+      "radioLabel": "RolesInput-radioLabel-6",
+      "radioWrapper": "RolesInput-radioWrapper-7",
+    }
+  }
+  defaultValue="depute"
+  roles={
+    Object {
+      "admin": Object {
+        "default": false,
+        "disabled": false,
+        "domains": Array [
+          "@assemblee-nationale.fr",
+        ],
+        "label": "Administrat·eur·rice Assemblée nationale",
+      },
+      "collab": Object {
+        "default": false,
+        "disabled": false,
+        "domains": Array [
+          "@clb-an.fr",
+          "@clb-dep.fr",
+        ],
+        "label": "Collaborat·eur·rice Assemblée nationale",
+      },
+      "depute": Object {
+        "default": true,
+        "disabled": false,
+        "domains": Array [
+          "@assemblee-nationale.fr",
+        ],
+        "label": "Député·e",
+      },
+      "senat": Object {
+        "default": false,
+        "disabled": true,
+        "domains": Array [],
+        "label": "Sénat·eur·rice",
+      },
+      "senatcollab": Object {
+        "default": false,
+        "disabled": true,
+        "domains": Array [],
+        "label": "Collaborat·eur·rice Sénat",
+      },
+    }
+  }
+/>
+`;

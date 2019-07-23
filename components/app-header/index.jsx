@@ -14,6 +14,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
 import HeaderMenuButton from "./menu-button";
+import LoginButton from "./login-button";
 
 const styles = () => ({
   toolbarRoot: {
@@ -54,7 +55,7 @@ class HeaderContainer extends PureComponent {
               </span>
             )}
           </Typography>
-          <div>{/* LoginButton */}</div>
+          <LoginButton />
         </Toolbar>
       </AppBar>
     );
