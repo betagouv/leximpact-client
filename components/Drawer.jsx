@@ -149,11 +149,8 @@ class MiniDrawer extends React.Component {
                 >
                     <div className={classes.toolbar}>
                         <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === "rtl" ? (
-                                <ChevronRightIcon />
-                            ) : (
-                                <ChevronLeftIcon />
-                            )}
+                            {theme.direction === "rtl"  && <ChevronRightIcon />}
+                            {theme.direction !== "rtl"  && <ChevronLeftIcon />}
                         </IconButton>
                     </div>
                     <Divider />
