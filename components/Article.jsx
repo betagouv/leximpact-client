@@ -9,6 +9,7 @@ import Fab from "@material-ui/core/Fab"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import AddIcon from "@material-ui/icons/Add"
 import DeleteIcon from "@material-ui/icons/Delete"
+const _ = require('lodash');
 
 // attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
 const WAIT_INTERVAL = 1000
@@ -223,8 +224,9 @@ class Article extends React.Component {
     baseOutputInput(name){
         var regextaux=RegExp("taux")
         const tx=regextaux.test(name)
-        const baseval=eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
-        const newval=eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        const baseval= _.get(this.state.basecode.impot_revenu,name)*(tx?100:1)//eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval=_.get(this.state.reforme.impot_revenu,name)*(tx?100:1)//eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        
         return (<><OutputField value={baseval} style={style.VarCodeexistant} />
                 <InputField
                     value={newval}
@@ -238,22 +240,23 @@ class Article extends React.Component {
     baseOutput(name){
         var regextaux=RegExp("taux")
         const tx=regextaux.test(name)
-        const baseval=eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const baseval=_.get(this.state.basecode.impot_revenu,name)*(tx?100:1)//eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
         return (<OutputField value={baseval} style={style.VarCodeexistant} />)
     }
 
     formulaOutputInput(name){
         var regextaux=RegExp("taux")
         const tx=regextaux.test(name)
-        const baseval=eval("this.state.basecode.impot_revenu."+name)  * (tx?100:1)
-        const newval=eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        const baseval= _.get(this.state.basecode.impot_revenu,name)*(tx?100:1)//eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval=_.get(this.state.reforme.impot_revenu,name)*(tx?100:1)//eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
         return (<><OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} /></>)
     }
 
     formulaOutputInputCombiLin(name1,fact1,name2,fact2){
-        const baseval=eval("this.state.basecode.impot_revenu."+name1 + "* fact1 + this.state.basecode.impot_revenu." + name2 +" * fact2") 
-        const newval=eval("this.state.reforme.impot_revenu."+name1 + "* fact1 + this.state.reforme.impot_revenu." + name2 +" * fact2") 
+        const baseval= _.get(this.state.basecode.impot_revenu,name1)*fact1 + _.get(this.state.basecode.impot_revenu,name2)*fact2 
+        const newval=_.get(this.state.reforme.impot_revenu,name1)*fact1 + _.get(this.state.reforme.impot_revenu,name2)*fact2 
+        
         return (<><OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} /></>)
     }
@@ -401,7 +404,7 @@ class Article extends React.Component {
         const nbt = s.length
         const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography
         // Part 1
-        if (i == 0) {
+        if (i === 0) {
             return (
                 <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
                     {
@@ -419,7 +422,7 @@ class Article extends React.Component {
             )
         }
         // Last part
-        if (i == nbt) {
+        if (i === nbt) {
             return (
                 <Typography key={i} variant="body2" color="inherit" style={styleAUtiliser}>
                     {"– "}

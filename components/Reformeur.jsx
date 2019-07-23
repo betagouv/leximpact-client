@@ -13,6 +13,7 @@ import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
 import Impact from "components/Impact"
 import Article from "components/Article"
+const _ = require('lodash');
 
 const styles = theme => ({
     paper: {
@@ -295,34 +296,30 @@ class Reformeur extends Component {
     UpdateDecote = (dectype, value) => {
         //Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
         const ref = this.state.reforme
-        if (dectype == "seuil_couple") {
+        if (dectype === "") {
             ref.impot_revenu.decote.seuil_couple = parseInt(value, 10)
         }
-        if (dectype == "seuil_celib") {
+        if (dectype === "seuil_celib") {
             ref.impot_revenu.decote.seuil_celib = parseInt(value, 10)
         }
-        if (dectype == "taux") {
+        if (dectype === "taux") {
             ref.impot_revenu.decote.taux = Math.round(parseFloat(value)*10)/1000
         }
         this.setState({ reforme: ref })
     }
 
-    //Classy but evil ?
+
+    //eval("ref.impot_revenu.plafond_qf.maries_ou_pacses = 10000")
+    //lodash.set(ref,"impot_revenu.plafond_qf.maries_ou_pacses", 10000)
+
     UpdatePlafond = (dectype, value) => {
         const ref = this.state.reforme
         var regex=RegExp("^[0-9a-zA-Z_\.]+$")
         var regextaux=RegExp("taux") // Tous les noms de variables qui contiennent taux
         // sont divisés par 100. Je vois vraiment pas ce qui pourrait poser probleme avec ça.
         if (regex.test(dectype)){
-            const pathref="ref.impot_revenu.plafond_qf"+dectype
-            if (regextaux.test(dectype)){
-                const newval = value/100;
-                eval(pathref+" = parseFloat(newval, 10)")
-            }
-            else {
-                eval(pathref+" = parseInt(value, 10)")    
-            }
-            console.log(ref)
+            const pathref="impot_revenu.plafond_qf"+dectype
+            _.set(ref,pathref,value * (regextaux.test(dectype)?0.01:1))
             this.setState({ reforme: ref })
         }
     }
@@ -394,23 +391,23 @@ class Reformeur extends Component {
 
     handleChange(value, name) {
         const success = false
-        const newvalue = value == "" ? 0 : value
-        if (name.substring(0, 5) == "seuil") {
+        const newvalue = value === "" ? 0 : value
+        if (name.substring(0, 5) === "seuil") {
             const numb = parseInt(name.substring(5), 10)
             this.UpdateBareme(numb, newvalue)
             // success=true;
         }
-        if (name.substring(0, 4) == "taux") {
+        if (name.substring(0, 4) === "taux") {
             const numb = parseInt(name.substring(4), 10)
             this.UpdateTaux(numb, newvalue)
             // success=true;
         }
-        if (name.substring(0, 6) == "decote") {
+        if (name.substring(0, 6) === "decote") {
             const whichdecote = name.substring(7)
             this.UpdateDecote(whichdecote, newvalue)
             // success=true;
         }
-        if (name.substring(0, 10) == "plafond_qf") {
+        if (name.substring(0, 10) === "plafond_qf") {
             const whichplaf = name.substring(10)
             this.UpdatePlafond(whichplaf, newvalue)
             // success=true;
