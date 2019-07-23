@@ -13,7 +13,7 @@ import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
 import Impact from "components/Impact"
 import Article from "components/Article"
-const _ = require('lodash');
+import { set } from "lodash/fp"
 
 const styles = theme => ({
     paper: {
@@ -52,28 +52,27 @@ class Reformeur extends Component {
                     decote: {
                         seuil_celib: 1196,
                         seuil_couple: 1970,
-                        taux: 0.75
+                        taux: 0.75,
                     },
-                    plafond_qf:{
-                        abat_dom:{
-                            taux_GuadMarReu : 0.3,
-                            plaf_GuadMarReu : 2450,
-                            taux_GuyMay : 0.4,
-                            plaf_GuyMay : 4050
+                    plafond_qf: {
+                        abat_dom: {
+                            taux_GuadMarReu: 0.3,
+                            plaf_GuadMarReu: 2450,
+                            taux_GuyMay: 0.4,
+                            plaf_GuyMay: 4050,
                         },
-                        maries_ou_pacses : 1551,
-                        celib_enf : 3660,
-                        celib : 927,
-                        reduc_postplafond : 1547,
+                        maries_ou_pacses: 1551,
+                        celib_enf: 3660,
+                        celib: 927,
+                        reduc_postplafond: 1547,
                         reduc_postplafond_veuf: 1728,
-                        reduction_ss_condition_revenus :{
-                            seuil_maj_enf: 3797, 
-                            seuil1 : 18984, 
-                            seuil2:21036, 
-                            taux:0.20
-                        }
-                    }
-
+                        reduction_ss_condition_revenus: {
+                            seuil_maj_enf: 3797,
+                            seuil1: 18984,
+                            seuil2: 21036,
+                            taux: 0.2,
+                        },
+                    },
                 },
             },
             reformebase: {
@@ -85,27 +84,27 @@ class Reformeur extends Component {
                     decote: {
                         seuil_celib: 1196,
                         seuil_couple: 1970,
-                        taux: 0.75
+                        taux: 0.75,
                     },
-                    plafond_qf:{
-                        abat_dom:{
-                            taux_GuadMarReu : 0.3,
-                            plaf_GuadMarReu : 2450,
-                            taux_GuyMay : 0.4,
-                            plaf_GuyMay : 4050
+                    plafond_qf: {
+                        abat_dom: {
+                            taux_GuadMarReu: 0.3,
+                            plaf_GuadMarReu: 2450,
+                            taux_GuyMay: 0.4,
+                            plaf_GuyMay: 4050,
                         },
-                        maries_ou_pacses : 1551,
-                        celib_enf : 3660,
-                        celib : 927,
-                        reduc_postplafond : 1547,
+                        maries_ou_pacses: 1551,
+                        celib_enf: 3660,
+                        celib: 927,
+                        reduc_postplafond: 1547,
                         reduc_postplafond_veuf: 1728,
-                        reduction_ss_condition_revenus :{
-                            seuil_maj_enf: 3797, 
-                            seuil1 : 18984, 
-                            seuil2:21036, 
-                            taux:0.20
-                        }
-                    }
+                        reduction_ss_condition_revenus: {
+                            seuil_maj_enf: 3797,
+                            seuil1: 18984,
+                            seuil2: 21036,
+                            taux: 0.2,
+                        },
+                    },
                 },
             },
             res_brut: {
@@ -269,32 +268,36 @@ class Reformeur extends Component {
 
     UpdateBareme = (i, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.seuils.map((item, j) => {
-            if (j === i) {
-                const valchiffre = parseInt(value, 10)
-                return isNaN(valchiffre) ? item : valchiffre
-            }
-            return item
-        })
+        const list = this.state.reforme.impot_revenu.bareme.seuils.map(
+            (item, j) => {
+                if (j === i) {
+                    const valchiffre = parseInt(value, 10)
+                    return isNaN(valchiffre) ? item : valchiffre
+                }
+                return item
+            },
+        )
         ref.impot_revenu.bareme.seuils = list
         this.setState({ reforme: ref })
     }
 
     UpdateTaux = (i, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
-            if (j === i) {
-                const valchiffre = parseInt(value, 10)
-                return isNaN(valchiffre) ? item : valchiffre
-            }
-            return item
-        })
+        const list = this.state.reforme.impot_revenu.bareme.taux.map(
+            (item, j) => {
+                if (j === i) {
+                    const valchiffre = parseInt(value, 10)
+                    return isNaN(valchiffre) ? item : valchiffre
+                }
+                return item
+            },
+        )
         ref.impot_revenu.bareme.taux = list
         this.setState({ reforme: ref })
     }
 
     UpdateDecote = (dectype, value) => {
-        //Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
+        // Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
         const ref = this.state.reforme
         if (dectype === "") {
             ref.impot_revenu.decote.seuil_couple = parseInt(value, 10)
@@ -303,23 +306,22 @@ class Reformeur extends Component {
             ref.impot_revenu.decote.seuil_celib = parseInt(value, 10)
         }
         if (dectype === "taux") {
-            ref.impot_revenu.decote.taux = Math.round(parseFloat(value)*10)/1000
+            ref.impot_revenu.decote.taux = Math.round(parseFloat(value) * 10) / 1000
         }
         this.setState({ reforme: ref })
     }
 
-
-    //eval("ref.impot_revenu.plafond_qf.maries_ou_pacses = 10000")
-    //lodash.set(ref,"impot_revenu.plafond_qf.maries_ou_pacses", 10000)
+    // eval("ref.impot_revenu.plafond_qf.maries_ou_pacses = 10000")
+    // lodash.set(ref,"impot_revenu.plafond_qf.maries_ou_pacses", 10000)
 
     UpdatePlafond = (dectype, value) => {
         const ref = this.state.reforme
-        var regex=RegExp("^[0-9a-zA-Z_\.]+$")
-        var regextaux=RegExp("taux") // Tous les noms de variables qui contiennent taux
+        const regex = RegExp("^[0-9a-zA-Z_.]+$")
+        const regextaux = RegExp("taux") // Tous les noms de variables qui contiennent taux
         // sont divisés par 100. Je vois vraiment pas ce qui pourrait poser probleme avec ça.
-        if (regex.test(dectype)){
-            const pathref="impot_revenu.plafond_qf"+dectype
-            _.set(ref,pathref,value * (regextaux.test(dectype)?0.01:1))
+        if (regex.test(dectype)) {
+            const pathref = `impot_revenu.plafond_qf${dectype}`
+            set(ref, pathref, value * (regextaux.test(dectype) ? 0.01 : 1))
             this.setState({ reforme: ref })
         }
     }
@@ -500,10 +502,17 @@ class Reformeur extends Component {
                                         <div>
                                             {/* <div>You are sized like a tablet or mobile phone though</div> */}
                                             <div className={classes.root}>
-                                                <AppBar position="static" color="default">
+                                                <AppBar
+                                                    position="static"
+                                                    color="default"
+                                                >
                                                     <Tabs
-                                                        value={this.state.indextab}
-                                                        onChange={this.handleTabChange}
+                                                        value={
+                                                            this.state.indextab
+                                                        }
+                                                        onChange={
+                                                            this.handleTabChange
+                                                        }
                                                         indicatorColor="primary"
                                                         textColor="primary"
                                                         variant="fullWidth"
@@ -514,37 +523,77 @@ class Reformeur extends Component {
                                                 </AppBar>
                                                 <SwipeableViews
                                                     axis={
-                                                        theme.direction === "rtl"
+                                                        theme.direction
+                                                        === "rtl"
                                                             ? "x-reverse"
                                                             : "x"
                                                     }
                                                     index={this.state.indextab}
-                                                    onChangeIndex={this.handleIndexChange}
+                                                    onChangeIndex={
+                                                        this.handleIndexChange
+                                                    }
                                                 >
-                                                    <TabContainer dir={theme.direction}>
+                                                    <TabContainer
+                                                        dir={theme.direction}
+                                                    >
                                                         <Paper>
                                                             <ArticleHeader />
                                                             <Divider />
                                                             <Article
-                                                                reforme={this.state.reforme}
-                                                                reformebase={this.state.reformebase}
-                                                                onChange={this.handleChange}
-                                                                addTranche={this.addTranche}
-                                                                removeTranche={this.removeTranche}
+                                                                reforme={
+                                                                    this.state
+                                                                        .reforme
+                                                                }
+                                                                reformebase={
+                                                                    this.state
+                                                                        .reformebase
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleChange
+                                                                }
+                                                                addTranche={
+                                                                    this
+                                                                        .addTranche
+                                                                }
+                                                                removeTranche={
+                                                                    this
+                                                                        .removeTranche
+                                                                }
                                                             />
                                                         </Paper>
                                                     </TabContainer>
-                                                    <TabContainer dir={theme.direction}>
+                                                    <TabContainer
+                                                        dir={theme.direction}
+                                                    >
                                                         <Impact
-                                                            loading={this.state.loading}
-                                                            onRevenuChange={this.handleRevenuChange}
-                                                            onOutreMerChange={
-                                                                this.handleOutreMerChange
+                                                            loading={
+                                                                this.state
+                                                                    .loading
                                                             }
-                                                            res_brut={this.state.res_brut}
-                                                            total_pop={this.state.total_pop}
-                                                            onClick={this.simPop}
-                                                            cas_types={this.state.cas_types}
+                                                            onRevenuChange={
+                                                                this
+                                                                    .handleRevenuChange
+                                                            }
+                                                            onOutreMerChange={
+                                                                this
+                                                                    .handleOutreMerChange
+                                                            }
+                                                            res_brut={
+                                                                this.state
+                                                                    .res_brut
+                                                            }
+                                                            total_pop={
+                                                                this.state
+                                                                    .total_pop
+                                                            }
+                                                            onClick={
+                                                                this.simPop
+                                                            }
+                                                            cas_types={
+                                                                this.state
+                                                                    .cas_types
+                                                            }
                                                         />
                                                     </TabContainer>
                                                 </SwipeableViews>
@@ -556,23 +605,35 @@ class Reformeur extends Component {
                                     <div>
                                         {/* <div>You also have a good screen</div> */}
                                         <div className="moitie-gauche">
-                                            <Paper className={this.props.classes.paper}>
+                                            <Paper
+                                                className={
+                                                    this.props.classes.paper
+                                                }
+                                            >
                                                 <ArticleHeader />
                                                 <Divider />
                                                 <Article
                                                     reforme={this.state.reforme}
-                                                    reformebase={this.state.reformebase}
+                                                    reformebase={
+                                                        this.state.reformebase
+                                                    }
                                                     onChange={this.handleChange}
                                                     addTranche={this.addTranche}
-                                                    removeTranche={this.removeTranche}
+                                                    removeTranche={
+                                                        this.removeTranche
+                                                    }
                                                 />
                                             </Paper>
                                         </div>
                                         <div className="moitie-droite">
                                             <Impact
                                                 loading={this.state.loading}
-                                                onRevenuChange={this.handleRevenuChange}
-                                                onOutreMerChange={this.handleOutreMerChange}
+                                                onRevenuChange={
+                                                    this.handleRevenuChange
+                                                }
+                                                onOutreMerChange={
+                                                    this.handleOutreMerChange
+                                                }
                                                 res_brut={this.state.res_brut}
                                                 total_pop={this.state.total_pop}
                                                 onClick={this.simPop}
@@ -604,7 +665,11 @@ class Reformeur extends Component {
                                     </Tabs>
                                 </AppBar>
                                 <SwipeableViews
-                                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                                    axis={
+                                        theme.direction === "rtl"
+                                            ? "x-reverse"
+                                            : "x"
+                                    }
                                     index={this.state.indextab}
                                     onChangeIndex={this.handleIndexChange}
                                 >
@@ -620,8 +685,12 @@ class Reformeur extends Component {
                                     <TabContainer dir={theme.direction}>
                                         <Impact
                                             loading={this.state.loading}
-                                            onRevenuChange={this.handleRevenuChange}
-                                            onOutreMerChange={this.handleOutreMerChange}
+                                            onRevenuChange={
+                                                this.handleRevenuChange
+                                            }
+                                            onOutreMerChange={
+                                                this.handleOutreMerChange
+                                            }
                                             res_brut={this.state.res_brut}
                                             total_pop={this.state.total_pop}
                                             onClick={this.simPop}
