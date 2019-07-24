@@ -194,7 +194,7 @@ class Article extends React.Component {
         const ref = this.state.reforme
         const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
             if (j === i) {
-                return value
+                return value*0.01
             }
             return item
         })
