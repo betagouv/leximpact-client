@@ -9,7 +9,7 @@ import Fab from "@material-ui/core/Fab"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import AddIcon from "@material-ui/icons/Add"
 import DeleteIcon from "@material-ui/icons/Delete"
-import { get } from "lodash/fp"
+import { get } from "lodash"
 
 // attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
 const WAIT_INTERVAL = 1000
@@ -253,6 +253,20 @@ class Article extends React.Component {
         )
     }
 
+    formulaOutputInputFacteur(name,fact) {
+        const regextaux = RegExp("taux")
+        const tx = regextaux.test(name)
+        const baseval = get(this.state.basecode.impot_revenu, name) * fact * (tx ? 100 : 1) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval = get(this.state.reforme.impot_revenu, name) * fact * (tx ? 100 : 1) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        return (
+            <>
+                <OutputField value={baseval} style={style.VarCodeexistant} />
+                <OutputField value={newval} style={style.VarCodeNew} />
+            </>
+        )
+    }
+
+
     baseOutput(name) {
         const regextaux = RegExp("taux")
         const tx = regextaux.test(name)
@@ -438,8 +452,8 @@ pour
                 {" "}
                 €, pour la première part de quotient familial des personnes
                 célibataires, veuves ou divorcées, et à
-                {this.formulaOutputInput(
-                    "plafond_qf.reduction_ss_condition_revenus.seuil2 * 2",
+                {this.formulaOutputInputFacteur(
+                    "plafond_qf.reduction_ss_condition_revenus.seuil2",2
                 )}
                 €, pour les deux premières parts de quotient familial des
                 personnes soumises à une imposition commune. Ces seuils sont
@@ -488,8 +502,8 @@ pour
                 €, pour la première part de quotient familial des personnes
                 célibataires, veuves ou divorcées, ou
                 {" "}
-                {this.formulaOutputInput(
-                    "plafond_qf.reduction_ss_condition_revenus.seuil1 * 2",
+                {this.formulaOutputInputFacteur(
+                    "plafond_qf.reduction_ss_condition_revenus.seuil1",2
                 )}
                 €, pour les deux premières parts de quotient familial des
                 personnes soumises à une imposition commune, ces seuils étant
@@ -506,8 +520,8 @@ pour
                     "plafond_qf.reduction_ss_condition_revenus.seuil2",
                 )}
                 €, pour les personnes célibataires, veuves ou divorcées, ou
-                {this.formulaOutputInput(
-                    "plafond_qf.reduction_ss_condition_revenus.seuil2 * 2",
+                {this.formulaOutputInputFacteur(
+                    "plafond_qf.reduction_ss_condition_revenus.seuil2",2
                 )}
                 €, pour les personnes soumises à une imposition commune, ces
                 seuils étant majorés le cas échéant dans les conditions prévues

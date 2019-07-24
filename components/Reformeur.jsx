@@ -13,7 +13,7 @@ import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
 import Impact from "components/Impact"
 import Article from "components/Article"
-import { set } from "lodash/fp"
+import { set } from "lodash"
 
 const styles = theme => ({
     paper: {
