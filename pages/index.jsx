@@ -1,66 +1,100 @@
-import { useState, Fragment } from "react"
-import Head from "next/head"
-import { withStyles } from "@material-ui/core/styles/"
-import withRoot from "lib/withRoot"
-import Header from "components/header/header-container"
-import Reformeur from "components/Reformeur"
-import "styles/index.scss"
+/* eslint
+    indent: [2, 2],
+    semi: [2, "always"],
+    react/jsx-indent: [2, 2],
+    react/jsx-indent-props: [2, 2]
+*/
+import PropTypes from "prop-types";
+import { Fragment, PureComponent } from "react";
+import Head from "next/head";
+import { flow, get } from "lodash";
+import Router, { withRouter } from "next/router";
+import { Drawer } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles/";
+
+import withRoot from "lib/withRoot";
+import AppHeader from "components/app-header";
+import Reformeur from "components/Reformeur";
+import MentionsLegales from "components/mentions-legales";
+import "styles/index.scss";
 
 function styles(theme) {
-    const { mixins, spacing } = theme
+  const { mixins, spacing } = theme;
 
-    return {
-        root: {
-            paddingTop: spacing.unit * 5,
-            textAlign: "center",
-        },
-        paper: {
-            ...mixins.gutters(),
-            paddingBottom: spacing.unit * 2,
-            paddingTop: spacing.unit * 2,
-            margin: "1em auto",
-            width: "25em",
-        },
-        dorine: {
-            background: "red",
-        },
-        article: {
-            margin: "1em",
-            padding: "2em",
-            opacity: 1,
-            position: "relative",
-        },
-    }
+  return {
+    root: {
+      paddingTop: spacing.unit * 5,
+      textAlign: "center",
+    },
+    paper: {
+      ...mixins.gutters(),
+      paddingBottom: spacing.unit * 2,
+      paddingTop: spacing.unit * 2,
+      margin: "1em auto",
+      width: "25em",
+    },
+    dorine: {
+      background: "red",
+    },
+    article: {
+      margin: "1em",
+      padding: "2em",
+      opacity: 1,
+      position: "relative",
+    },
+  };
 }
 
-function index({ classes }) {
-    const [, setOpen] = useState(false)
+function shouldShowMentionsLegales(routerObject) {
+  const showMentionsLegales = get(
+    routerObject,
+    "query.showMentionsLegales",
+    false,
+  );
+  return showMentionsLegales === "1";
+}
 
-    function handleClose() {
-        return setOpen(false)
-    }
+class IndexPage extends PureComponent {
+  handleCloseMentionsLegales = () => {
+    Router.push("/");
+  }
 
-    function handleClick() {
-        return setOpen(true)
-    }
-
-    const desktop = 1025
-    const tablet = 768 // and max-width: 1024px
-    const phone = 767
-
-    // const hugeScreen = 1824
-    // const desktopServerRendering = 1600
-    // const phoneOrTablet = 1224
-
+  renderMentionsLegales = () => {
+    const { router } = this.props;
+    const showMentionsLegales = shouldShowMentionsLegales(router);
     return (
-        <Fragment>
-            <Header />
-            <Head>
-                <title>LexImpact</title>
-            </Head>
-            <Reformeur />
-        </Fragment>
-    )
+      <Drawer
+        anchor="bottom"
+        variant="temporary"
+        open={showMentionsLegales}
+        onClose={this.handleCloseMentionsLegales}
+      >
+        <MentionsLegales />
+      </Drawer>
+    );
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <Head>
+          <title>LexImpact</title>
+        </Head>
+        <AppHeader />
+        <Reformeur />
+        {this.renderMentionsLegales()}
+      </Fragment>
+    );
+  }
 }
 
-export default index |> (_ => withStyles(styles)(_)) |> withRoot
+IndexPage.propTypes = {
+  // classes: PropTypes.shape().isRequired,
+  router: PropTypes.shape().isRequired,
+};
+
+export default flow(
+  withStyles(styles),
+  withRouter,
+  withRoot,
+)(IndexPage);

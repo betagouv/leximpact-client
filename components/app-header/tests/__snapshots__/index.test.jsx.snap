@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté 1`] = `
+<WithStyles(AppBar)
+  position="static"
+>
+  <WithStyles(Toolbar)
+    classes={
+      Object {
+        "root": "HeaderContainer-toolbarRoot-1",
+      }
+    }
+  >
+    <WithStyles(Button)
+      classes={
+        Object {
+          "root": "HeaderContainer-menuButtonRoot-2",
+        }
+      }
+      onClick={[Function]}
+    >
+      <pure(MenuIcon)
+        fontSize="small"
+      />
+       Menu
+    </WithStyles(Button)>
+    <WithStyles(Typography)
+      classes={
+        Object {
+          "root": "HeaderContainer-titleRoot-3",
+        }
+      }
+      component="div"
+    >
+      <span>
+        <span
+          className="HeaderContainer-lighterTitle-4"
+        >
+          LEXIMPACT 
+        </span>
+        <span
+          className="HeaderContainer-bolderTitle-5"
+        >
+          POP
+        </span>
+      </span>
+    </WithStyles(Typography)>
+    <div />
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;
+
+exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté 1`] = `
+<WithStyles(AppBar)
+  position="static"
+>
+  <WithStyles(Toolbar)
+    classes={
+      Object {
+        "root": "HeaderContainer-toolbarRoot-1",
+      }
+    }
+  >
+    <WithStyles(Button)
+      classes={
+        Object {
+          "root": "HeaderContainer-menuButtonRoot-2",
+        }
+      }
+      onClick={[Function]}
+    >
+      <pure(MenuIcon)
+        fontSize="small"
+      />
+       Menu
+    </WithStyles(Button)>
+    <WithStyles(Typography)
+      classes={
+        Object {
+          "root": "HeaderContainer-titleRoot-3",
+        }
+      }
+      component="div"
+    >
+      <span>
+        <span
+          className="HeaderContainer-bolderTitle-5"
+        >
+          OPEN 
+        </span>
+        <span
+          className="HeaderContainer-lighterTitle-4"
+        >
+          LEXIMPACT
+        </span>
+      </span>
+    </WithStyles(Typography)>
+    <div />
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté 1`] = `
+<div
+  className="MentionsLegales-container-1"
+>
+  <WithStyles(Grid)
+    alignItems="flex-start"
+    container={true}
+    direction="row"
+    justify="space-between"
+  >
+    <WithStyles(Grid)
+      item={true}
+      xs={6}
+    >
+      <WithStyles(Typography)>
+        LexImpact POP est un service dédié aux collaborateurs parlementaires et à leurs députés. Il permet d'évaluer, de façon rapide, l'impact des réformes socio-fiscales ; au travers d'un simulateur dédié à l'impôt sur le revenu et d'un service de conciergerie.
+      </WithStyles(Typography)>
+    </WithStyles(Grid)>
+    <WithStyles(Grid)
+      item={true}
+      xs={6}
+    >
+      <div>
+        <button
+          type="button"
+        >
+          En savoir plus sur LexImpact
+        </button>
+        <button
+          type="button"
+        >
+          Nos conditions d'utilisation
+        </button>
+        <button
+          type="button"
+        >
+          Vos données: notre priorités
+        </button>
+        <button
+          type="button"
+        >
+          Vos retours sont précieux
+        </button>
+      </div>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</div>
+`;
