@@ -89,7 +89,8 @@ class SimpleCard extends React.Component {
         let currpal = 0
         const res = []
         for (let i = 500; currpal < paliers.length; i += roundlevel[currpal]) {
-            res.push(<option value={i}>{`${i}€/mois`}</option>)
+            const uniqKey = `palier_${i}`
+            res.push(<option key={uniqKey} value={i}>{`${i}€/mois`}</option>)
             if (i >= paliers[currpal]) {
                 currpal++
             }
