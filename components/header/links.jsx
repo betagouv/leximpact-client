@@ -33,7 +33,7 @@ function Links({ classes }) {
 }
 
 Links.propTypes = {
-  classes: PropTypes.hape().isRequired,
+  classes: PropTypes.shape().isRequired,
 };
 
 export default withStyles(styles)(Links);
