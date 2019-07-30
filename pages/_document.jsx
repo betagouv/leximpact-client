@@ -69,7 +69,7 @@ class MyDocument extends Document {
                     />
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Lato|Lora"
+                        href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Lora"
                     />
                 </Head>
                 <body>
