@@ -85,104 +85,108 @@ const styles = theme => ({
 })
 
 class MiniDrawer extends React.Component {
-    state = {
-        open: false,
-    }
+  state = {
+      open: false,
+  }
 
-    handleDrawerOpen = () => {
-        this.setState({ open: true })
-    }
+  handleDrawerOpen = () => {
+      this.setState({ open: true })
+  }
 
-    handleDrawerClose = () => {
-        this.setState({ open: false })
-    }
+  handleDrawerClose = () => {
+      this.setState({ open: false })
+  }
 
-    render() {
-        const { classes, theme } = this.props
+  render() {
+      const { classes, theme } = this.props
 
-        return (
-            <div className={classes.root}>
-                <CssBaseline />
-                <AppBar
-                    position="fixed"
-                    className={classNames(classes.appBar, {
-                        [classes.appBarShift]: this.state.open,
-                    })}
-                >
-                    <Toolbar disableGutters={!this.state.open}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, {
-                                [classes.hide]: this.state.open,
-                            })}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" noWrap>
-                            Mini variant drawer
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+      return (
+          <div className={classes.root}>
+              <CssBaseline />
+              <AppBar
+                  position="fixed"
+                  className={classNames(classes.appBar, {
+                      [classes.appBarShift]: this.state.open,
+                  })}
+              >
+                  <Toolbar disableGutters={!this.state.open}>
+                      <IconButton
+                          color="inherit"
+                          aria-label="Open drawer"
+                          onClick={this.handleDrawerOpen}
+                          className={classNames(classes.menuButton, {
+                              [classes.hide]: this.state.open,
+                          })}
+                      >
+                          <MenuIcon />
+                      </IconButton>
+                      <Typography variant="h6" color="inherit" noWrap>
+              Mini variant drawer
+                      </Typography>
+                  </Toolbar>
+              </AppBar>
 
-                <Drawer
-                    onClose={() => {}}
-                    PaperProps={{ style: { position: "absolute" } }}
-                    BackdropProps={{ style: { position: "absolute" } }}
-                    ModalProps={{
-                        //    container: document.getElementById('drawer-container'),
-                        style: { position: "absolute" },
-                    }}
-                    variant="temporary"
-                    className={classNames(classes.drawer, {
-                        [classes.drawerOpen]: this.state.open,
-                        [classes.drawerClose]: !this.state.open,
-                    })}
-                    classes={{
-                        paper: classNames({
-                            [classes.drawerOpen]: this.state.open,
-                            [classes.drawerClose]: !this.state.open,
-                        }),
-                    }}
-                    open={this.state.open}
-                >
-                    <div className={classes.toolbar}>
-                        <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                        </IconButton>
-                    </div>
-                    <Divider />
-                    <List>
-                        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {["All mail", "Trash", "Spam"].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
+              <Drawer
+                  onClose={() => {}}
+                  PaperProps={{ style: { position: "absolute" } }}
+                  BackdropProps={{ style: { position: "absolute" } }}
+                  ModalProps={{
+                      //    container: document.getElementById('drawer-container'),
+                      style: { position: "absolute" },
+                  }}
+                  variant="temporary"
+                  className={classNames(classes.drawer, {
+                      [classes.drawerOpen]: this.state.open,
+                      [classes.drawerClose]: !this.state.open,
+                  })}
+                  classes={{
+                      paper: classNames({
+                          [classes.drawerOpen]: this.state.open,
+                          [classes.drawerClose]: !this.state.open,
+                      }),
+                  }}
+                  open={this.state.open}
+              >
+                  <div className={classes.toolbar}>
+                      <IconButton onClick={this.handleDrawerClose}>
+                          {theme.direction === "rtl" ? (
+                              <ChevronRightIcon />
+                          ) : (
+                              <ChevronLeftIcon />
+                          )}
+                      </IconButton>
+                  </div>
+                  <Divider />
+                  <List>
+                      {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+                          <ListItem button key={text}>
+                              <ListItemIcon>
+                                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                              </ListItemIcon>
+                              <ListItemText primary={text} />
+                          </ListItem>
+                      ))}
+                  </List>
+                  <Divider />
+                  <List>
+                      {["All mail", "Trash", "Spam"].map((text, index) => (
+                          <ListItem button key={text}>
+                              <ListItemIcon>
+                                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                              </ListItemIcon>
+                              <ListItemText primary={text} />
+                          </ListItem>
+                      ))}
+                  </List>
+              </Drawer>
 
-                <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Article />
-                </main>
-            </div>
-        )
-    }
+              <main className={classes.content}>
+                  <div className={classes.toolbar} />
+                  <Article />
+              </main>
+          </div>
+      )
+  }
 }
 
 MiniDrawer.propTypes = {

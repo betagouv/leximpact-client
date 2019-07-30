@@ -93,14 +93,14 @@ class RecettesCard extends React.Component {
                                 <Icon icon={classicalBuilding} width="40" height="40" />
                             </td>
                             <td className="titleCarteEtat">
-                                Recettes de l'État sur l'impôt sur le revenu
+                Recettes de l'État sur l'impôt sur le revenu
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <Typography variant="body1">
                                     {" "}
-                                    par décile de population et par an
+                  par décile de population et par an
                                 </Typography>
                             </td>
                         </tr>
@@ -139,7 +139,7 @@ class RecettesCard extends React.Component {
                                 color="secondary"
                                 onClick={this.updateStateRes}
                             >
-                                Lancer la simulation
+                Lancer la simulation
                             </Button>
                         </center>
                     </div>

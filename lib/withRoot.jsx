@@ -11,7 +11,8 @@ function withRoot(Component) {
         constructor(props, context) {
             super(props, context)
 
-            pageContext = this.props.pageContext || getPageContext(process.browser, createPageContext)
+            pageContext = this.props.pageContext
+        || getPageContext(process.browser, createPageContext)
         }
 
         componentDidMount() {

@@ -87,13 +87,17 @@ class RecettesCard extends React.Component {
                             {Math.round(Math.abs(this.props.delta / 100000000)) / 10}
                         </Typography>
                         <Typography inline variant="h5" color="secondary" gutterBottom>
-                            Md€
+              Md€
                         </Typography>
                     </div>
 
                     <div>
-                        <Button variant="contained" color="secondary" onClick={this.updateStateRes}>
-                            Lancer la simulation
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={this.updateStateRes}
+                        >
+              Lancer la simulation
                         </Button>
                     </div>
                 </CardContent>

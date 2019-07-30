@@ -74,7 +74,7 @@ function Album(props) {
                 <Toolbar>
                     <CameraIcon className={classes.icon} />
                     <Typography variant="h6" color="inherit" noWrap>
-                        Album layout
+            Album layout
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -89,23 +89,28 @@ function Album(props) {
                             color="textPrimary"
                             gutterBottom
                         >
-                            Album layout
+              Album layout
                         </Typography>
-                        <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                            Something short and leading about the collection below—its contents, the
-                            creator, etc. Make it short and sweet, but not too short so folks
-                            don&apos;t simply skip over it entirely.
+                        <Typography
+                            variant="h6"
+                            align="center"
+                            color="textSecondary"
+                            paragraph
+                        >
+              Something short and leading about the collection below—its
+              contents, the creator, etc. Make it short and sweet, but not too
+              short so folks don&apos;t simply skip over it entirely.
                         </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={16} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
-                                        Main call to action
+                    Main call to action
                                     </Button>
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" color="primary">
-                                        Secondary action
+                    Secondary action
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -125,19 +130,19 @@ function Album(props) {
                                     />
                                     <CardContent className={classes.cardContent}>
                                         <Typography gutterBottom variant="h5" component="h2">
-                                            Heading
+                      Heading
                                         </Typography>
                                         <Typography>
-                                            This is a media card. You can use this section to
-                                            describe the content.
+                      This is a media card. You can use this section to describe
+                      the content.
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
                                         <Button size="small" color="primary">
-                                            View
+                      View
                                         </Button>
                                         <Button size="small" color="primary">
-                                            Edit
+                      Edit
                                         </Button>
                                     </CardActions>
                                 </Card>
@@ -149,10 +154,15 @@ function Album(props) {
             {/* Footer */}
             <footer className={classes.footer}>
                 <Typography variant="h6" align="center" gutterBottom>
-                    Footer
+          Footer
                 </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                <Typography
+                    variant="subtitle1"
+                    align="center"
+                    color="textSecondary"
+                    component="p"
+                >
+          Something here to give the footer a purpose!
                 </Typography>
             </footer>
             {/* End footer */}

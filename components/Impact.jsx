@@ -1,6 +1,5 @@
 import { Component } from "react"
 import { Grid } from "@material-ui/core"
-import fetch from "isomorphic-fetch"
 import SimpleCard from "components/SimpleCard"
 import CarteEtat from "components/CarteEtat"
 
@@ -25,7 +24,7 @@ class Impact extends Component {
     }
 
     render() {
-        // include should be false to remove the graph of recettes
+    // include should be false to remove the graph of recettes
         const includepopulation = false
         const { loading } = this.props
         const { res_brut } = this.props

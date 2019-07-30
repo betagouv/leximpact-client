@@ -31,52 +31,52 @@ const styles = theme => ({
 })
 
 class FullWidthTabs extends React.Component {
-    state = {
-        value: 0,
-    }
+  state = {
+      value: 0,
+  }
 
-    handleChange = (event, value) => {
-        this.setState({ value })
-    }
+  handleChange = (event, value) => {
+      this.setState({ value })
+  }
 
-    handleChangeIndex = (index) => {
-        this.setState({ value: index })
-    }
+  handleChangeIndex = (index) => {
+      this.setState({ value: index })
+  }
 
-    render() {
-        const { classes, theme } = this.props
+  render() {
+      const { classes, theme } = this.props
 
-        return (
-            <div className={classes.root}>
-                <AppBar position="static" color="default">
-                    <Tabs
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                        indicatorColor="primary"
-                        textColor="primary"
-                        variant="fullWidth"
-                    >
-                        <Tab label="Loi" />
-                        <Tab label="Impacts" />
-                    </Tabs>
-                </AppBar>
-                <SwipeableViews
-                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                    index={this.state.value}
-                    onChangeIndex={this.handleChangeIndex}
-                >
-                    <TabContainer dir={theme.direction}>
-                        <Paper className={classes.paper}>
-                            <Article />
-                        </Paper>
-                    </TabContainer>
-                    <TabContainer dir={theme.direction}>
-                        <Impact />
-                    </TabContainer>
-                </SwipeableViews>
-            </div>
-        )
-    }
+      return (
+          <div className={classes.root}>
+              <AppBar position="static" color="default">
+                  <Tabs
+                      value={this.state.value}
+                      onChange={this.handleChange}
+                      indicatorColor="primary"
+                      textColor="primary"
+                      variant="fullWidth"
+                  >
+                      <Tab label="Loi" />
+                      <Tab label="Impacts" />
+                  </Tabs>
+              </AppBar>
+              <SwipeableViews
+                  axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                  index={this.state.value}
+                  onChangeIndex={this.handleChangeIndex}
+              >
+                  <TabContainer dir={theme.direction}>
+                      <Paper className={classes.paper}>
+                          <Article />
+                      </Paper>
+                  </TabContainer>
+                  <TabContainer dir={theme.direction}>
+                      <Impact />
+                  </TabContainer>
+              </SwipeableViews>
+          </div>
+      )
+  }
 }
 
 FullWidthTabs.propTypes = {

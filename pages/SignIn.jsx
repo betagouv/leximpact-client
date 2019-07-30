@@ -30,8 +30,8 @@ const styles = theme => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit
-            * 3}px`,
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
+            .spacing.unit * 3}px`,
     },
     avatar: {
         margin: theme.spacing.unit,
@@ -57,7 +57,7 @@ function SignIn(props) {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Sign in
+          Sign in
                 </Typography>
                 <form className={classes.form}>
                     <FormControl margin="normal" required fullWidth>
@@ -84,7 +84,7 @@ function SignIn(props) {
                         color="primary"
                         className={classes.submit}
                     >
-                        Sign in
+            Sign in
                     </Button>
                 </form>
             </Paper>
@@ -93,7 +93,7 @@ function SignIn(props) {
 }
 
 SignIn.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.shape().isRequired,
 }
 
 export default withStyles(styles)(SignIn)

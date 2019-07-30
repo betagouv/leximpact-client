@@ -1,40 +1,40 @@
 {
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaVersion": 9,
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "sourceType": "module"
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
-    "plugins": ["import", "jest", "jsx-a11y", "react"],
-    "extends": ["airbnb", "plugin:jest/recommended"],
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
-    "rules": {
-        "array-bracket-newline": ["error", { "multiline": true }],
-        "array-element-newline": ["error", "consistent"],
-        "func-style": ["error", "declaration"],
-        "import/no-unresolved": "off",
-        "indent": ["error", 4],
-        "max-nested-callbacks": ["error", 2],
-        "no-underscore-dangle": "error",
-        "quotes": ["error", "double", { "avoidEscape": false }],
-        "react/jsx-indent": [
-            "error",
-            4,
-            { "checkAttributes": false, "indentLogicalExpressions": true }
-        ],
-        "react/jsx-indent-props": ["error", 4],
-        "react/react-in-jsx-scope": "off",
-        "semi": ["error", "never"]
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["import", "jest", "jsx-a11y", "react"],
+  "extends": ["airbnb", "plugin:jest/recommended"],
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  },
+  "rules": {
+    "array-bracket-newline": ["error", { "multiline": true }],
+    "array-element-newline": ["error", "consistent"],
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "import/no-unresolved": "off",
+    "indent": ["error", 4],
+    "max-nested-callbacks": ["error", 2],
+    "no-underscore-dangle": "error",
+    "quotes": ["error", "double", { "avoidEscape": false }],
+    "react/jsx-indent": [
+      "error",
+      4,
+      { "checkAttributes": false, "indentLogicalExpressions": true }
+    ],
+    "react/jsx-indent-props": ["error", 4],
+    "react/react-in-jsx-scope": "off",
+    "semi": ["error", "never"]
+  }
 }

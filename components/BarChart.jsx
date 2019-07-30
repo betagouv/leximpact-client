@@ -1,8 +1,6 @@
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import React from "react"
 import { ResponsiveBar } from "@nivo/bar"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
 
 class BarChart extends React.Component {
     constructor(props) {
@@ -19,7 +17,9 @@ class BarChart extends React.Component {
             result[keycols[index]] = Math.round(item / 10000000) / 100
             return result
         }, stavant)
-        const stapres = { refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */ }
+        const stapres = {
+            refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */,
+        }
         const resapres = deciles
             .map(element => element.apres)
             .reduce((result, item, index, array) => {
@@ -38,7 +38,10 @@ class BarChart extends React.Component {
                 // const iddecile=key.substring(0,key.indexOf(".")
                 <image
                     key={key}
-                    xlinkHref={`../static/images/decile${key.substring(0, key.indexOf("."))}.png`}
+                    xlinkHref={`../static/images/decile${key.substring(
+                        0,
+                        key.indexOf("."),
+                    )}.png`}
                     x={x + width / 2 - size / 2}
                     y={y + height / 2 - size / 2}
                     height={width > 15 ? size : 0}
@@ -52,7 +55,15 @@ class BarChart extends React.Component {
         return (
             <div className="chart">
                 <ResponsiveBar
-                    layers={["grid", "axes", "bars", Image, "markers", "legends", "annotations"]}
+                    layers={[
+                        "grid",
+                        "axes",
+                        "bars",
+                        Image,
+                        "markers",
+                        "legends",
+                        "annotations",
+                    ]}
                     data={data}
                     keys={keycols}
                     /* */
@@ -81,7 +92,7 @@ class BarChart extends React.Component {
                             <br />
                             {`${Math.round(
                                 (content.value * 1000000000)
-                                    / this.props.resultat.deciles[content.id - 1].poids,
+                  / this.props.resultat.deciles[content.id - 1].poids,
                             )}€ par foyer fiscal`}
                         </>
                     )}
