@@ -17,6 +17,8 @@ const WAIT_INTERVAL = 1000
 const ENTER_KEY = 13
 
 
+// prend un nombre, et retourne l'arrondi avec le moins de chiffres qui a moins de limdiff 
+// de différence avec le nombre initial.
 const makeNumberGoodLooking = (initialNumber) => {
     var  currfact=1
     var nbchiffres=0

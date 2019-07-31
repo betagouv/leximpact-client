@@ -31,7 +31,7 @@ function TabContainer({ children, dir }) {
 }
 
 
-
+// renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
 const changeValueArray = (arrayToChange, indexToChange, newValue) => {
     return arrayToChange.map(
         (item, numeroitem) => {
