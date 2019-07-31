@@ -4,7 +4,6 @@
   react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
   react/jsx-indent-props: [2, 2]
 */
-import { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { withStyles } from "@material-ui/core/styles"
 

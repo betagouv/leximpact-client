@@ -11,41 +11,29 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
       }
     }
   >
-    <WithStyles(Button)
-      classes={
-        Object {
-          "root": "HeaderContainer-menuButtonRoot-2",
-        }
-      }
-      onClick={[Function]}
-    >
-      <pure(MenuIcon)
-        fontSize="small"
-      />
-       Menu
-    </WithStyles(Button)>
+    <WithStyles(HeaderMenuButton) />
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "HeaderContainer-titleRoot-3",
+          "root": "HeaderContainer-titleRoot-2",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="HeaderContainer-lighterTitle-4"
+          className="HeaderContainer-lighterTitle-3"
         >
           LEXIMPACT 
         </span>
         <span
-          className="HeaderContainer-bolderTitle-5"
+          className="HeaderContainer-bolderTitle-4"
         >
           POP
         </span>
       </span>
     </WithStyles(Typography)>
-    <div />
+    <WithStyles(LoginButton) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -61,41 +49,29 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
       }
     }
   >
-    <WithStyles(Button)
-      classes={
-        Object {
-          "root": "HeaderContainer-menuButtonRoot-2",
-        }
-      }
-      onClick={[Function]}
-    >
-      <pure(MenuIcon)
-        fontSize="small"
-      />
-       Menu
-    </WithStyles(Button)>
+    <WithStyles(HeaderMenuButton) />
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "HeaderContainer-titleRoot-3",
+          "root": "HeaderContainer-titleRoot-2",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="HeaderContainer-bolderTitle-5"
+          className="HeaderContainer-bolderTitle-4"
         >
           OPEN 
         </span>
         <span
-          className="HeaderContainer-lighterTitle-4"
+          className="HeaderContainer-lighterTitle-3"
         >
           LEXIMPACT
         </span>
       </span>
     </WithStyles(Typography)>
-    <div />
+    <WithStyles(LoginButton) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;

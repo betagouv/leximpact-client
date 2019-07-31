@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | login-form | email-input snapshot doit correspondre avec les props requises 1`] = `
+<EmailTextInput
+  classes={
+    Object {
+      "fieldsContainer": "EmailTextInput-fieldsContainer-3",
+      "formGroup": "EmailTextInput-formGroup-1",
+      "formLabel": "EmailTextInput-formLabel-2",
+      "inputContainer": "EmailTextInput-inputContainer-4",
+      "inputError": "EmailTextInput-inputError-7",
+      "inputField": "EmailTextInput-inputField-6",
+      "inputRoot": "EmailTextInput-inputRoot-5",
+      "selectRoot": "EmailTextInput-selectRoot-8",
+    }
+  }
+  domains={
+    Array [
+      "@any-domain",
+    ]
+  }
+/>
+`;

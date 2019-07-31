@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | login-form | submit-button snapshot correspond a l'etat disabled 1`] = `
+<SubmitButton
+  classes={
+    Object {
+      "circularProgress": "SubmitButton-circularProgress-3",
+      "container": "SubmitButton-container-1",
+      "fab": "SubmitButton-fab-2",
+    }
+  }
+  disabled={true}
+  isLoading={false}
+/>
+`;
+
+exports[`components | login-form | submit-button snapshot correspond a l'etat loading 1`] = `
+<SubmitButton
+  classes={
+    Object {
+      "circularProgress": "SubmitButton-circularProgress-3",
+      "container": "SubmitButton-container-1",
+      "fab": "SubmitButton-fab-2",
+    }
+  }
+  disabled={false}
+  isLoading={true}
+/>
+`;
+
+exports[`components | login-form | submit-button snapshot correspond a l'etat normal 1`] = `
+<SubmitButton
+  classes={
+    Object {
+      "circularProgress": "SubmitButton-circularProgress-3",
+      "container": "SubmitButton-container-1",
+      "fab": "SubmitButton-fab-2",
+    }
+  }
+  disabled={false}
+  isLoading={false}
+/>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | login-form | index snapshot doit correspondre avec les props requises 1`] = `
+<RequestTokenForm
+  classes={
+    Object {
+      "avatar": "RequestTokenForm-avatar-2",
+      "avatarIcon": "RequestTokenForm-avatarIcon-3",
+      "container": "RequestTokenForm-container-1",
+      "form": "RequestTokenForm-form-4",
+      "spanBolder": "RequestTokenForm-spanBolder-7",
+      "spanLighter": "RequestTokenForm-spanLighter-6",
+      "submit": "RequestTokenForm-submit-5",
+    }
+  }
+  initialValues={
+    Object {
+      "domains": Array [
+        "@assemblee-nationale.fr",
+      ],
+      "role": "depute",
+      "username": null,
+    }
+  }
+/>
+`;

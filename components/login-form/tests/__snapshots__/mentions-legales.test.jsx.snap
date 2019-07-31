@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | login-form | mentions-legales-text snapshot doit correspondre avec les props requises 1`] = `
+<MentionsLegales
+  classes={
+    Object {
+      "link": "MentionsLegales-link-2",
+      "mentionsLegales": "MentionsLegales-mentionsLegales-1",
+    }
+  }
+/>
+`;

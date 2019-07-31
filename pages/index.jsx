@@ -2,75 +2,66 @@
     indent: [2, 2],
     semi: [2, "always"],
     react/jsx-indent: [2, 2],
-    react/jsx-indent-props: [2, 2]
+    react/jsx-indent-props: [2, 2],
+    import/order: [2, {
+      newlines-between: "always",
+      groups: ["builtin", "external", "parent", "sibling", "index"]
+    }]
 */
-import PropTypes from "prop-types";
-import { Fragment, PureComponent } from "react";
 import Head from "next/head";
+import PropTypes from "prop-types";
 import { flow, get } from "lodash";
+import { Fragment, PureComponent } from "react";
 import Router, { withRouter } from "next/router";
-import { Drawer } from "@material-ui/core";
+import { DialogContent, Dialog } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles/";
+import RequestTokenForm from "components/login-form";
 
-import withRoot from "lib/withRoot";
-import AppHeader from "components/app-header";
-import Reformeur from "components/Reformeur";
-import MentionsLegales from "components/mentions-legales";
-import "styles/index.scss";
+import withRoot from "../lib/withRoot";
+import Reformeur from "../components/Reformeur";
+import AppHeader from "../components/app-header";
+import PopinManager from "../components/PopinManager";
+import "../styles/index.scss";
 
-function styles(theme) {
-  const { mixins, spacing } = theme;
+const styles = () => ({
+  dialog: {
+    width: "100%",
+    backgroundColor: "rgba(229, 220, 0, 0.5)",
+  },
+  dialogPaper: {
+    width: "800px",
+    maxWidth: "800px",
+    minWidth: "630px",
+    backgroundColor: "#FFFFFF",
+  },
+  dialogContent: {
+    padding: "45px 45px 0 45px",
+  },
+});
 
-  return {
-    root: {
-      paddingTop: spacing.unit * 5,
-      textAlign: "center",
-    },
-    paper: {
-      ...mixins.gutters(),
-      paddingBottom: spacing.unit * 2,
-      paddingTop: spacing.unit * 2,
-      margin: "1em auto",
-      width: "25em",
-    },
-    dorine: {
-      background: "red",
-    },
-    article: {
-      margin: "1em",
-      padding: "2em",
-      opacity: 1,
-      position: "relative",
-    },
-  };
-}
-
-function shouldShowMentionsLegales(routerObject) {
-  const showMentionsLegales = get(
-    routerObject,
-    "query.showMentionsLegales",
-    false,
-  );
-  return showMentionsLegales === "1";
+function shouldShowLoginPopup(routerObject) {
+  const showLoginPopup = get(routerObject, "query.showLoginPopup", false);
+  return showLoginPopup === "1";
 }
 
 class IndexPage extends PureComponent {
-  handleCloseMentionsLegales = () => {
+  handleCloseLoginPopup = () => {
     Router.push("/");
   }
 
-  renderMentionsLegales = () => {
-    const { router } = this.props;
-    const showMentionsLegales = shouldShowMentionsLegales(router);
+  renderLoginModal = () => {
+    const { classes, router } = this.props;
+    const showLoginPopup = shouldShowLoginPopup(router);
     return (
-      <Drawer
-        anchor="bottom"
-        variant="temporary"
-        open={showMentionsLegales}
-        onClose={this.handleCloseMentionsLegales}
+      <Dialog
+        open={showLoginPopup}
+        onClose={this.handleCloseLoginPopup}
+        classes={{ root: classes.dialog, paper: classes.dialogPaper }}
       >
-        <MentionsLegales />
-      </Drawer>
+        <DialogContent classes={{ root: classes.dialogContent }}>
+          <RequestTokenForm />
+        </DialogContent>
+      </Dialog>
     );
   }
 
@@ -82,14 +73,15 @@ class IndexPage extends PureComponent {
         </Head>
         <AppHeader />
         <Reformeur />
-        {this.renderMentionsLegales()}
+        <PopinManager />
+        {this.renderLoginModal()}
       </Fragment>
     );
   }
 }
 
 IndexPage.propTypes = {
-  // classes: PropTypes.shape().isRequired,
+  classes: PropTypes.shape().isRequired,
   router: PropTypes.shape().isRequired,
 };
 

@@ -1,0 +1,38 @@
+{
+  "formErrors": {
+    "emptyEmailUsername": "Ce champs est requis",
+    "invalidEmail": "Le @ et le nom de domaine de votre adresse est déjà inscrit par défaut, merci de ne pas l'écrire dans le champ"
+  },
+  "roles": {
+    "depute": {
+      "default": true,
+      "disabled": false,
+      "label": "Député·e",
+      "domains": ["@assemblee-nationale.fr"]
+    },
+    "collab": {
+      "default": false,
+      "disabled": false,
+      "label": "Collaborat·eur·rice Assemblée nationale",
+      "domains": ["@clb-an.fr", "@clb-dep.fr"]
+    },
+    "admin": {
+      "default": false,
+      "disabled": false,
+      "label": "Administrat·eur·rice Assemblée nationale",
+      "domains": ["@assemblee-nationale.fr"]
+    },
+    "senat": {
+      "default": false,
+      "disabled": true,
+      "label": "Sénat·eur·rice",
+      "domains": []
+    },
+    "senatcollab": {
+      "default": false,
+      "disabled": true,
+      "label": "Collaborat·eur·rice Sénat",
+      "domains": []
+    }
+  }
+}
