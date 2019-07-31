@@ -288,7 +288,6 @@ class Reformeur extends Component {
   }
 
   UpdateTaux = (indexToChange, value) => {
-      console.log("non je passe par là")
       const ref = this.state.reforme
       const list = changeValueArray(ref.impot_revenu.bareme.taux, indexToChange, value*0.01)
       ref.impot_revenu.bareme.taux = list
@@ -377,7 +376,6 @@ class Reformeur extends Component {
 
   updateCompare(bodyreq) {
       this.setState({ loading: true })
-      console.log("bodyreq",bodyreq)
       fetch(`${this.endpoint()}/calculate/compare`, {
           method: "POST",
           headers: {
@@ -392,7 +390,6 @@ class Reformeur extends Component {
   }
 
   handleChange(value, name) {
-      console.log("handling change",name,value,name.substring(0, 4) === "taux")
       const success = false
       const newvalue = value === "" ? 0 : value
       if (name.substring(0, 5) === "seuil") {
