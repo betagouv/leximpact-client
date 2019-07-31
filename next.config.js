@@ -1,12 +1,21 @@
 /* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2],
-  import/order: [2, {
-    newlines-between: "always",
-    groups: ["builtin", "external", "parent", "sibling", "index"]
-  }]
+    indent: [2, 2],
+    semi: [2, "always"],
+    react/jsx-indent: [2, 2],
+    react/jsx-indent-props: [2, 2],
+    max-nested-callbacks: [2, { "max": 4 }],
+    react/jsx-closing-bracket-location: [2, {
+        "nonEmpty": false,
+        "selfClosing": false
+    }],
+    "jsx-a11y/anchor-is-valid": [2, {
+      "components": ["Link"],
+      "specialLink": ["hrefLeft", "hrefRight"]
+    }],
+    import/order: [2, {
+      newlines-between: "always",
+      groups: ["builtin", "external", "parent", "sibling", "index"]
+    }]
 */
 const env = process.env.NODE_ENV;
 const withSass = require("@zeit/next-sass");
@@ -16,25 +25,19 @@ const { assign, concat, flow } = require("lodash/fp");
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { EnvironmentPlugin } = require("webpack");
 
-function envPlugin() {
-  if (env === "production") {
-    return new EnvironmentPlugin(process.env);
-  }
-
-  return new DotenvPlugin();
-}
+const { internalStaticNextJSRoutes } = require("./routes");
 
 const nextConfig = {
-  exportPathMap() {
-    return {
-      "/": { page: "/" },
-      // popins qui peuvent etre ouverte via l'URL du navigateur
-      "/connection": { page: "/", query: { showPopin: "connection" } },
-      "/en-savoir-plus": { page: "/", query: { showPopin: "en-savoir-plus" } },
-    };
-  },
-  webpack(webpackConfig) {
-    const plugins = concat(webpackConfig.plugins, [envPlugin()]);
+  exportPathMap: defaults => ({
+    ...defaults,
+    ...internalStaticNextJSRoutes,
+  }),
+  webpack: (webpackConfig) => {
+    const isProductionEnvironment = env === "production";
+    const envPlugin = !isProductionEnvironment
+      ? new DotenvPlugin()
+      : new EnvironmentPlugin(process.env);
+    const plugins = concat(webpackConfig.plugins, [envPlugin]);
     return assign(webpackConfig, { plugins });
   },
   distDir: "build",

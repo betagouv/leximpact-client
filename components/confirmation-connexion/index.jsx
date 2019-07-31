@@ -24,10 +24,20 @@ import Cookies from "js-cookie";
 import { withRouter } from "next/router";
 import { withStyles } from "@material-ui/core/styles";
 import { Icon } from "@iconify/react";
-import openMailboxWithRaisedFlag from "@iconify/icons-twemoji/open-mailbox-with-raised-flag";
+import partyPopper from "@iconify/icons-twemoji/party-popper";
+import peopleHoldingHands from "@iconify/icons-twemoji/people-holding-hands";
+import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+/* * import parachuteIcon from "@iconify/icons-twemoji/parachute"; * */
 
 const styles = {
-
+  h1Style: {
+    fontFamily: "Lato",
+    fontSize: "24px",
+    fontWeight: "bold",
+    color: "#000000",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
   pStyle: {
     fontFamily: "Lato",
     fontSize: "18px",
@@ -37,7 +47,7 @@ const styles = {
   },
 };
 
-class ConnexionFormSuccess extends PureComponent {
+class ConfirmationConnexion extends PureComponent {
   componentDidMount() {
     const { router } = this.props;
     const pathString = "query.token";
@@ -49,21 +59,29 @@ class ConnexionFormSuccess extends PureComponent {
     const { classes } = this.props;
     return (
       <div>
+        <h1 inline className={classes.h1Style}>
+          <Icon inline icon={partyPopper} width="40" />
+            &nbsp;Vous êtes bien connectés à LexImpact POP&nbsp;
+        </h1>
         <p className={classes.pStyle}>
-          <Icon inline icon={openMailboxWithRaisedFlag} width="25" />
+        Vous pouvez désormais
           <b>
-          &nbsp;Nous venons juste de vous envoyer par mail
-          un lien de confirmation.
+          &nbsp;simuler les impacts macros&nbsp;
           </b>
+        d’une réforme
           <br />
-          Cliquez sur le lien du courriel pour vous connecter.
+        sur la population&nbsp;
+          <Icon inline icon={peopleHoldingHands} width="25" />
+          &nbsp;et les recettes de l’État&nbsp;
+          <Icon inline icon={classicalBuilding} width="25" />
+          .
         </p>
       </div>
     );
   }
 }
 
-ConnexionFormSuccess.propTypes = {
+ConfirmationConnexion.propTypes = {
   classes: PropTypes.shape().isRequired,
   router: PropTypes.shape().isRequired,
 };
@@ -71,4 +89,4 @@ ConnexionFormSuccess.propTypes = {
 export default flow(
   withStyles(styles),
   withRouter,
-)(ConnexionFormSuccess);
+)(ConfirmationConnexion);
