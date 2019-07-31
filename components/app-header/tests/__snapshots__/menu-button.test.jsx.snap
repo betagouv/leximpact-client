@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | app-header | index snapshot doit correspondre au snapshot existant 1`] = `
+<WithStyles(Button)
+  classes={
+    Object {
+      "root": "HeaderMenuButton-menuButtonRoot-1",
+    }
+  }
+  onClick={[MockFunction]}
+>
+  <pure(MenuIcon)
+    fontSize="small"
+  />
+   Menu
+</WithStyles(Button)>
+`;
