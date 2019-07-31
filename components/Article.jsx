@@ -16,6 +16,35 @@ const WAIT_INTERVAL = 1000
 // Touche qui déclenche les calculs (13 = return)
 const ENTER_KEY = 13
 
+
+const makeNumberGoodLooking = (initialNumber) => {
+    var  currfact=1
+    var nbchiffres=0
+    const limdiff = 0.00001
+    while (true){
+        const numnow = Math.round(initialNumber * currfact) / currfact
+        if (Math.abs(numnow-initialNumber)<limdiff || nbchiffres>=5){
+            return initialNumber.toFixed(nbchiffres)
+        }
+        currfact*=10
+        nbchiffres+=1
+    }    
+}
+
+
+
+const changeValueArray = (arrayToChange, indexToChange, newValue) => {
+    return arrayToChange.map(
+        (item, numeroitem) => {
+            if (numeroitem === indexToChange) {
+                return newValue
+            }
+            return item
+        }
+    )
+}
+
+
 const style = {
     Typography: { padding: "5px" },
     TypographyNouvelleTranche: { padding: "5px", color: "#00A3FF" },
@@ -174,6 +203,9 @@ class OutputField extends React.Component {
     }
 }
 
+
+
+
 class Article extends React.Component {
     constructor(props) {
         super(props)
@@ -194,33 +226,22 @@ class Article extends React.Component {
         })
     }
 
-    UpdateBareme = (i, value) => {
+    /*
+    UpdateBareme = (indexToChange, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.seuils.map(
-            (item, j) => {
-                if (j === i) {
-                    return value
-                }
-                return item
-            },
-        )
+        const list = changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, value)
         ref.impot_revenu.bareme.seuils = list
         this.setState({ reforme: ref })
     }
 
-    UpdateTaux = (i, value) => {
+    UpdateTaux = (indexToChange, value) => {
         const ref = this.state.reforme
-        const list = this.state.reforme.impot_revenu.bareme.taux.map(
-            (item, j) => {
-                if (j === i) {
-                    return value
-                }
-                return item
-            },
-        )
+        print("je passe par la",value,value*0.01)
+        const list = changeValueArray(ref.impot_revenu.bareme.taux, indexToChange, value*0.01)
         ref.impot_revenu.bareme.taux = list
         this.setState({ reforme: ref })
     }
+    */
 
     handleS1Change(value, name) {
         this.props.onChange(value, name)
@@ -252,6 +273,7 @@ class Article extends React.Component {
             </>
         )
     }
+
 
     formulaOutputInputFacteur(name,fact) {
         const regextaux = RegExp("taux")
@@ -598,12 +620,13 @@ pour
                     style={styleAUtiliser}
                 >
                     {"– "}
+                    
                     <OutputField
-                        value={baset[i - 1]}
+                        value={makeNumberGoodLooking(baset[i - 1] * 100)}
                         style={style.VarCodeexistant}
                     />
                     <InputField
-                        value={t[i - 1]}
+                        value={t[i - 1] * 100}
                         onChange={this.handleS1Change}
                         name={`taux${i - 1}`}
                         style={style.InputTaux}
@@ -625,11 +648,11 @@ pour
                 –
                 {" "}
                 <OutputField
-                    value={baset[i - 1]}
+                    value={makeNumberGoodLooking(baset[i - 1] * 100)}
                     style={style.VarCodeexistant}
                 />
                 <InputField
-                    value={t[i - 1]}
+                    value={makeNumberGoodLooking(t[i - 1] * 100)}
                     onChange={this.handleS1Change}
                     name={`taux${i - 1}`}
                     style={style.InputTaux}
