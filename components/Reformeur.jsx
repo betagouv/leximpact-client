@@ -30,6 +30,20 @@ function TabContainer({ children, dir }) {
     )
 }
 
+
+// renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
+const changeValueArray = (arrayToChange, indexToChange, newValue) => {
+    return arrayToChange.map(
+        (item, numeroitem) => {
+            if (numeroitem === indexToChange) {
+                return newValue
+            }
+            return item
+        }
+    )
+}
+
+
 TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
     dir: PropTypes.string.isRequired,
@@ -38,7 +52,7 @@ TabContainer.propTypes = {
 class Reformeur extends Component {
     constructor(props) {
         const baseseuils = [9964, 27519, 73779, 156244]
-        const basetaux = [14, 30, 41, 45]
+        const basetaux = [0.14, 0.30, 0.41, 0.45]
 
         super(props)
         this.state = {
@@ -266,30 +280,16 @@ class Reformeur extends Component {
     /**/
     }
 
-  UpdateBareme = (i, value) => {
+  UpdateBareme = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = this.state.reforme.impot_revenu.bareme.seuils.map(
-          (item, j) => {
-              if (j === i) {
-                  const valchiffre = parseInt(value, 10)
-                  return isNaN(valchiffre) ? item : valchiffre
-              }
-              return item
-          },
-      )
+      const list = changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, value)
       ref.impot_revenu.bareme.seuils = list
       this.setState({ reforme: ref })
   }
 
-  UpdateTaux = (i, value) => {
+  UpdateTaux = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = this.state.reforme.impot_revenu.bareme.taux.map((item, j) => {
-          if (j === i) {
-              const valchiffre = parseInt(value, 10)
-              return isNaN(valchiffre) ? item : valchiffre
-          }
-          return item
-      })
+      const list = changeValueArray(ref.impot_revenu.bareme.taux, indexToChange, value*0.01)
       ref.impot_revenu.bareme.taux = list
       this.setState({ reforme: ref })
   }
