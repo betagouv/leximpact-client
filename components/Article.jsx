@@ -246,8 +246,8 @@ class Article extends React.Component {
     baseOutputInput(name) {
         const regextaux = RegExp("taux")
         const tx = regextaux.test(name)
-        const baseval = get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
-        const newval = get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        const baseval = makeNumberGoodLooking(get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1)) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval = makeNumberGoodLooking(get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1)) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
 
         return (
             <>
@@ -266,8 +266,8 @@ class Article extends React.Component {
     formulaOutputInputFacteur(name,fact) {
         const regextaux = RegExp("taux")
         const tx = regextaux.test(name)
-        const baseval = get(this.state.basecode.impot_revenu, name) * fact * (tx ? 100 : 1) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
-        const newval = get(this.state.reforme.impot_revenu, name) * fact * (tx ? 100 : 1) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        const baseval = makeNumberGoodLooking(get(this.state.basecode.impot_revenu, name) * fact * (tx ? 100 : 1)) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval = makeNumberGoodLooking(get(this.state.reforme.impot_revenu, name) * fact * (tx ? 100 : 1)) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
         return (
             <>
                 <OutputField value={baseval} style={style.VarCodeexistant} />
@@ -280,15 +280,15 @@ class Article extends React.Component {
     baseOutput(name) {
         const regextaux = RegExp("taux")
         const tx = regextaux.test(name)
-        const baseval = get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const baseval = makeNumberGoodLooking(get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1)) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
         return <OutputField value={baseval} style={style.VarCodeexistant} />
     }
 
     formulaOutputInput(name) {
         const regextaux = RegExp("taux")
         const tx = regextaux.test(name)
-        const baseval = get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
-        const newval = get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+        const baseval = makeNumberGoodLooking(get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1)) // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+        const newval = makeNumberGoodLooking(get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1)) // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
         return (
             <>
                 <OutputField value={baseval} style={style.VarCodeexistant} />
@@ -298,10 +298,10 @@ class Article extends React.Component {
     }
 
     formulaOutputInputCombiLin(name1, fact1, name2, fact2) {
-        const baseval = get(this.state.basecode.impot_revenu, name1) * fact1
-            + get(this.state.basecode.impot_revenu, name2) * fact2
-        const newval = get(this.state.reforme.impot_revenu, name1) * fact1
-            + get(this.state.reforme.impot_revenu, name2) * fact2
+        const baseval = makeNumberGoodLooking(get(this.state.basecode.impot_revenu, name1) * fact1
+            + get(this.state.basecode.impot_revenu, name2) * fact2)
+        const newval = makeNumberGoodLooking(get(this.state.reforme.impot_revenu, name1) * fact1
+            + get(this.state.reforme.impot_revenu, name2) * fact2)
 
         return (
             <>
