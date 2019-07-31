@@ -8,11 +8,11 @@ import {
   shouldShowFieldError,
   updateDomainsWhenRoleChange,
   validateEmailInputField,
-} from "../helpers";
+} from "../utils";
 
 import { roles as AVAILABLE_ROLES } from "../config.json";
 
-describe("components | login-form | helpers", () => {
+describe("components | connexion | utils", () => {
   describe("parseFormValuesUserEmail", () => {
     it("retourne un email composé par les valeurs du form", () => {
       const given = { domain: "@mail.com", username: "username" };

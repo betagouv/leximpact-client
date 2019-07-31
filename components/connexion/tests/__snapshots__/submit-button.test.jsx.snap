@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components | login-form | submit-button snapshot correspond a l'etat disabled 1`] = `
+exports[`components | connexion | submit-button snapshot correspond a l'etat disabled 1`] = `
 <SubmitButton
   classes={
     Object {
@@ -14,7 +14,7 @@ exports[`components | login-form | submit-button snapshot correspond a l'etat di
 />
 `;
 
-exports[`components | login-form | submit-button snapshot correspond a l'etat loading 1`] = `
+exports[`components | connexion | submit-button snapshot correspond a l'etat loading 1`] = `
 <SubmitButton
   classes={
     Object {
@@ -28,7 +28,7 @@ exports[`components | login-form | submit-button snapshot correspond a l'etat lo
 />
 `;
 
-exports[`components | login-form | submit-button snapshot correspond a l'etat normal 1`] = `
+exports[`components | connexion | submit-button snapshot correspond a l'etat normal 1`] = `
 <SubmitButton
   classes={
     Object {

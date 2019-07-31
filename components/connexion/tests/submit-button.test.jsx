@@ -9,7 +9,7 @@ import { createShallow } from "@material-ui/core/test-utils";
 
 import SubmitButton from "../submit-button";
 
-describe("components | login-form | submit-button", () => {
+describe("components | connexion | submit-button", () => {
   let shallow;
   beforeAll(() => {
     shallow = createShallow();
