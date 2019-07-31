@@ -31,20 +31,6 @@ const makeNumberGoodLooking = (initialNumber) => {
     }    
 }
 
-
-
-const changeValueArray = (arrayToChange, indexToChange, newValue) => {
-    return arrayToChange.map(
-        (item, numeroitem) => {
-            if (numeroitem === indexToChange) {
-                return newValue
-            }
-            return item
-        }
-    )
-}
-
-
 const style = {
     Typography: { padding: "5px" },
     TypographyNouvelleTranche: { padding: "5px", color: "#00A3FF" },
