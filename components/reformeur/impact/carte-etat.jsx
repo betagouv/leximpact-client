@@ -17,7 +17,7 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import withMobileDialog from "@material-ui/core/withMobileDialog"
 import { Icon, InlineIcon } from "@iconify/react"
 import classicalBuilding from "@iconify/icons-twemoji/classical-building"
-import BarChart from "components/BarChart"
+import BarChart from "./bar-chart"
 import "styles/chart.scss"
 
 const styles = theme => ({

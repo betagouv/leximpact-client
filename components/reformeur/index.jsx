@@ -1,6 +1,7 @@
 import { Component, Fragment } from "react"
 import fetch from "isomorphic-fetch"
 import PropTypes from "prop-types"
+import { set } from "lodash"
 import Typography from "@material-ui/core/Typography"
 import MediaQuery from "react-responsive"
 import AppBar from "@material-ui/core/AppBar"
@@ -9,11 +10,10 @@ import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
 import { Paper } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
-import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
-import Impact from "components/Impact"
-import Article from "components/Article"
-import { set } from "lodash"
+import Impact from "./impact"
+import Article from "./article"
+import ArticleHeader from "./article-header"
 
 const styles = theme => ({
     paper: {
@@ -30,19 +30,13 @@ function TabContainer({ children, dir }) {
     )
 }
 
-
 // renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
-const changeValueArray = (arrayToChange, indexToChange, newValue) => {
-    return arrayToChange.map(
-        (item, numeroitem) => {
-            if (numeroitem === indexToChange) {
-                return newValue
-            }
-            return item
-        }
-    )
-}
-
+const changeValueArray = (arrayToChange, indexToChange, newValue) => arrayToChange.map((item, numeroitem) => {
+    if (numeroitem === indexToChange) {
+        return newValue
+    }
+    return item
+})
 
 TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
@@ -52,7 +46,7 @@ TabContainer.propTypes = {
 class Reformeur extends Component {
     constructor(props) {
         const baseseuils = [9964, 27519, 73779, 156244]
-        const basetaux = [0.14, 0.30, 0.41, 0.45]
+        const basetaux = [0.14, 0.3, 0.41, 0.45]
 
         super(props)
         this.state = {
@@ -282,14 +276,22 @@ class Reformeur extends Component {
 
   UpdateBareme = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, value)
+      const list = changeValueArray(
+          ref.impot_revenu.bareme.seuils,
+          indexToChange,
+          value,
+      )
       ref.impot_revenu.bareme.seuils = list
       this.setState({ reforme: ref })
   }
 
   UpdateTaux = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = changeValueArray(ref.impot_revenu.bareme.taux, indexToChange, value*0.01)
+      const list = changeValueArray(
+          ref.impot_revenu.bareme.taux,
+          indexToChange,
+          value * 0.01,
+      )
       ref.impot_revenu.bareme.taux = list
       this.setState({ reforme: ref })
   }

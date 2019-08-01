@@ -18,7 +18,7 @@ import { withStyles } from "@material-ui/core/styles/";
 import RequestTokenForm from "components/login-form";
 
 import withRoot from "../lib/withRoot";
-import Reformeur from "../components/Reformeur";
+import Reformeur from "../components/reformeur";
 import AppHeader from "../components/app-header";
 import PopinManager from "../components/PopinManager";
 import "../styles/index.scss";

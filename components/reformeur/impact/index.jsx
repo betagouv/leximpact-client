@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { Grid } from "@material-ui/core"
-import SimpleCard from "components/SimpleCard"
-import CarteEtat from "components/CarteEtat"
+import SimpleCard from "./simple-card"
+import CarteEtat from "./carte-etat"
 
 class Impact extends Component {
     constructor(props) {
