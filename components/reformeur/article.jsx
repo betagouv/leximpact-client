@@ -1,13 +1,17 @@
 import React from "react"
 import { withStyles } from "@material-ui/core/styles"
-import MuiExpansionPanel from "@material-ui/core/ExpansionPanel"
-import MuiExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
-import MuiExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
-import Typography from "@material-ui/core/Typography"
-import Fab from "@material-ui/core/Fab"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import AddIcon from "@material-ui/icons/Add"
-import DeleteIcon from "@material-ui/icons/Delete"
+import {
+    ExpansionPanel as MuiExpansionPanel,
+    ExpansionPanelSummary as MuiExpansionPanelSummary,
+    ExpansionPanelDetails as MuiExpansionPanelDetails,
+    Fab,
+    Typography,
+} from "@material-ui/core"
+import {
+    Add as AddIcon,
+    Delete as DeleteIcon,
+    ExpandMore as ExpandMoreIcon,
+} from "@material-ui/icons"
 import { get } from "lodash"
 
 // attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul

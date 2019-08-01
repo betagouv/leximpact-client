@@ -1,13 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { withStyles } from "@material-ui/core/styles"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import Typography from "@material-ui/core/Typography"
-import Chip from "@material-ui/core/Chip"
-import Tooltip from "@material-ui/core/Tooltip"
-import Divider from "@material-ui/core/Divider"
-import NativeSelect from "@material-ui/core/NativeSelect"
+import {
+    Card,
+    Chip,
+    CircularProgress,
+    CardContent,
+    Divider,
+    NativeSelect,
+    Typography,
+    Tooltip,
+} from "@material-ui/core"
 
 import { Icon } from "@iconify/react"
 import manCurlyHaired from "@iconify/icons-twemoji/man-curly-haired"
@@ -17,8 +20,6 @@ import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired"
 import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired"
 // import palmTree from '@iconify/icons-twemoji/palm-tree';
 import desertIsland from "@iconify/icons-twemoji/desert-island"
-
-import CircularProgress from "@material-ui/core/CircularProgress"
 
 const styles = () => ({
     card: {
