@@ -1,6 +1,7 @@
 import { Component, Fragment } from "react"
 import fetch from "isomorphic-fetch"
 import PropTypes from "prop-types"
+import { set } from "lodash"
 import Typography from "@material-ui/core/Typography"
 import MediaQuery from "react-responsive"
 import AppBar from "@material-ui/core/AppBar"
@@ -9,11 +10,10 @@ import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
 import { Paper } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
-import ArticleHeader from "components/ArticleHeader"
 import Divider from "@material-ui/core/Divider"
-import Impact from "components/Impact"
-import Article from "components/Article"
-import { set } from "lodash"
+import Impact from "./impact"
+import Article from "./article"
+import ArticleHeader from "./article-header"
 
 const styles = theme => ({
     paper: {
@@ -276,13 +276,11 @@ class Reformeur extends Component {
 
   UpdateBareme = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = isNaN(value)
-          ? ref.impot_revenu.bareme.seuils
-          : changeValueArray(
-              ref.impot_revenu.bareme.seuils,
-              indexToChange,
-              parseInt(value, 10),
-          )
+      const list = changeValueArray(
+          ref.impot_revenu.bareme.seuils,
+          indexToChange,
+          value,
+      )
       ref.impot_revenu.bareme.seuils = list
       this.setState({ reforme: ref })
   }
