@@ -29,18 +29,16 @@ class MentionsLegales extends PureComponent {
         >
           <Grid item xs={6}>
             <Typography>
-              LexImpact POP est un service dédié aux collaborateurs
-              parlementaires et à leurs députés. Il permet d&apos;évaluer, de
-              façon rapide, l&apos;impact des réformes socio-fiscales ; au
-              travers d&apos;un simulateur dédié à l&apos;impôt sur le revenu et
-              d&apos;un service de conciergerie.
+              OPEN LexImpact est une interface qui permet de simuler, de façon
+              rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
+              sur le revenu sur des foyers fiscaux types.
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <div>
               <button type="button">En savoir plus sur LexImpact</button>
               <button type="button">Nos conditions d&apos;utilisation</button>
-              <button type="button">Vos données: notre priorités</button>
+              <button type="button">Mentions légales</button>
               <button type="button">Vos retours sont précieux</button>
             </div>
           </Grid>
