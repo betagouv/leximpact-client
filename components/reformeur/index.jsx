@@ -268,12 +268,6 @@ class Reformeur extends Component {
       ],
       cas_types_defaut: true,
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.addTranche = this.addTranche.bind(this);
-    this.removeTranche = this.removeTranche.bind(this);
-    this.simPop = this.simPop.bind(this);
-    this.handleRevenuChange = this.handleRevenuChange.bind(this);
-    this.handleOutreMerChange = this.handleOutreMerChange.bind(this);
   }
 
   componentDidMount() {
@@ -333,9 +327,6 @@ class Reformeur extends Component {
     this.setState({ reforme: ref });
   }
 
-  // eval("ref.impot_revenu.plafond_qf.maries_ou_pacses = 10000")
-  // lodash.set(ref,"impot_revenu.plafond_qf.maries_ou_pacses", 10000)
-
   UpdatePlafond = (dectype, value) => {
     const ref = this.state.reforme;
     const regex = RegExp("^[0-9a-zA-Z_.]+$");
@@ -348,7 +339,7 @@ class Reformeur extends Component {
     }
   }
 
-  addTranche(e) {
+  addTranche = () => {
     const refbase = this.state.reforme;
     const newnbt = refbase.impot_revenu.bareme.seuils.length + 1;
     const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt - 2];
@@ -362,7 +353,7 @@ class Reformeur extends Component {
     this.setState({ reforme: refbase });
   }
 
-  removeTranche(e) {
+  removeTranche = () => {
     const refbase = this.state.reforme;
     const newnbt = refbase.impot_revenu.bareme.seuils.length - 1;
     if (newnbt > 0) {
@@ -398,7 +389,7 @@ class Reformeur extends Component {
 
   endpoint = () => process.env.API_URL
 
-  updateCompare(bodyreq) {
+  updateCompare = (bodyreq) => {
     this.setState({ loading: true });
     fetch(`${this.endpoint()}/calculate/compare`, {
       method: "POST",
@@ -413,7 +404,7 @@ class Reformeur extends Component {
       });
   }
 
-  handleChange(value, name) {
+  handleChange = (value, name) => {
     const success = false;
     const newvalue = value === "" ? 0 : value;
     if (name.substring(0, 5) === "seuil") {
@@ -448,7 +439,7 @@ class Reformeur extends Component {
     this.updateCompare(bodyreq);
   }
 
-  simPop(e) {
+  simPop = (e) => {
     fetch(`${this.endpoint()}/calculate/compare`, {
       method: "POST",
       headers: {
@@ -646,66 +637,6 @@ class Reformeur extends Component {
               </div>
             </div>
           </MediaQuery>
-
-          {/* >>> Essayer de créer une média query spécial tablette
-                   } <MediaQuery minDeviceWidth={768} maxDeviceWidth={1024} orientation={'portrait'}>
-                        {/* <div>You are a tablet or mobile phone</div>
-                        <div>
-                            {/* <div>You are sized like a tablet or mobile phone though</div>
-                            <div className={classes.root}>
-                                <AppBar position="static" color="default">
-                                    <Tabs
-                                        value={this.state.indextab}
-                                        onChange={this.handleTabChange}
-                                        indicatorColor="primary"
-                                        textColor="primary"
-                                        variant="fullWidth"
-                                    >
-                                        <Tab label="Loi" />
-                                        <Tab label="Impacts" />
-                                    </Tabs>
-                                </AppBar>
-                                <SwipeableViews
-                                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                                    index={this.state.indextab}
-                                    onChangeIndex={this.handleIndexChange}
-                                >
-                                    <TabContainer dir={theme.direction}>
-                                        <ArticleHeader />
-                                        <Article
-                                            reforme={this.state.reforme}
-                                            reformebase={this.state.reformebase}
-                                            onChange={this.handleChange}
-                                            addTranche={this.addTranche}
-                                        />
-                                    </TabContainer>
-                                    <TabContainer dir={theme.direction}>
-                                        <Impact
-                                            loading={this.state.loading}
-                                            onRevenuChange={this.handleRevenuChange}
-                                            res_brut={this.state.res_brut}
-                                            total_pop={this.state.total_pop}
-                                            onClick={this.simPop}
-                                            cas_types={this.state.cas_types}
-                                        />
-                                    </TabContainer>
-                                </SwipeableViews>
-                            </div>
-                        </div>
-                    </MediaQuery>
-
-                    {/*
-                <MediaQuery orientation="portrait">
-                  <div>You are portrait</div>
-                </MediaQuery>
-
-                <MediaQuery orientation="landscape">
-                  <div>You are landscape</div>
-                </MediaQuery>
-
-                <MediaQuery minResolution="2dppx">
-                  <div>You are retina</div>
-                </MediaQuery> */}
         </div>
       </Fragment>
     );

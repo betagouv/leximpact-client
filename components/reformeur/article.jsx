@@ -217,9 +217,6 @@ class Article extends React.Component {
       reforme: props.reforme,
       basecode: props.reformebase, // Jamais modifié, utilisé pour montrer l'existant,
     };
-    this.handleS1Change = this.handleS1Change.bind(this);
-    this.handleAddTranche = this.handleAddTranche.bind(this);
-    this.handleRemoveTranche = this.handleRemoveTranche.bind(this);
   }
 
   handleChange = panel => (event, expanded) => {
@@ -228,32 +225,15 @@ class Article extends React.Component {
     });
   }
 
-  /*
-    UpdateBareme = (indexToChange, value) => {
-        const ref = this.state.reforme
-        const list = changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, value)
-        ref.impot_revenu.bareme.seuils = list
-        this.setState({ reforme: ref })
-    }
-
-    UpdateTaux = (indexToChange, value) => {
-        const ref = this.state.reforme
-        print("je passe par la",value,value*0.01)
-        const list = changeValueArray(ref.impot_revenu.bareme.taux, indexToChange, value*0.01)
-        ref.impot_revenu.bareme.taux = list
-        this.setState({ reforme: ref })
-    }
-    */
-
-  handleS1Change(value, name) {
+  handleS1Change = (value, name) => {
     this.props.onChange(value, name);
   }
 
-  handleAddTranche(e) {
+  handleAddTranche = (e) => {
     this.props.addTranche(e);
   }
 
-  handleRemoveTranche(e) {
+  handleRemoveTranche = (e) => {
     this.props.removeTranche(e);
   }
 
@@ -675,16 +655,6 @@ class Article extends React.Component {
 
     return (
       <div style={style.Div}>
-        {/* ` <Typography  inline variant="h2" color="#6C6C6C">
-                    Article 197
-              </Typography>
-
-              <Typography inline variant="overline" color="inherit">
-                    - Code général des impôts
-              </Typography>
-
-              <SelectControl /> */}
-
         <ExpansionPanel
           style={style.Typography}
           square
