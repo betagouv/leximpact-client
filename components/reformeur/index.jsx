@@ -2,15 +2,18 @@ import { Component, Fragment } from "react"
 import fetch from "isomorphic-fetch"
 import PropTypes from "prop-types"
 import { set } from "lodash"
-import Typography from "@material-ui/core/Typography"
 import MediaQuery from "react-responsive"
-import AppBar from "@material-ui/core/AppBar"
-import Tabs from "@material-ui/core/Tabs"
-import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
-import { Paper } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
-import Divider from "@material-ui/core/Divider"
+import {
+    AppBar,
+    Divider,
+    Paper,
+    Tab,
+    Tabs,
+    Typography,
+} from "@material-ui/core"
+
 import Impact from "./impact"
 import Article from "./article"
 import ArticleHeader from "./article-header"
