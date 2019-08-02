@@ -13,7 +13,13 @@ const styles = theme => ({
   container: {
     flexGrow: 1,
     padding: theme.spacing.unit * 4,
+    backgroundColor: "#FFFFFF",
   },
+  spanTitreIntro: {
+    fontFamily: "Lato",
+    fontSize: "36px",
+    fontWeight: "bold",
+    color: "#565656"},
 });
 
 class MentionsLegales extends PureComponent {
@@ -28,6 +34,9 @@ class MentionsLegales extends PureComponent {
           justify="space-between"
         >
           <Grid item xs={6}>
+            <Typography>
+            <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est quoi ?</span>
+            </Typography>
             <Typography>
               OPEN LexImpact est une interface qui permet de simuler, de façon
               rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
