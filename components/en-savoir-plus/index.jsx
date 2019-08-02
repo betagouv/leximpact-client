@@ -8,6 +8,8 @@ import { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
+import SubmitButton from "./submit-button";
+
 
 const styles = theme => ({
   container: {
@@ -49,6 +51,7 @@ class MentionsLegales extends PureComponent {
               <button type="button">Nos conditions d&apos;utilisation</button>
               <button type="button">Mentions légales</button>
               <button type="button">Vos retours sont précieux</button>
+              <SubmitButton> hello </SubmitButton>
             </div>
           </Grid>
         </Grid>
