@@ -15,7 +15,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
       xs={6}
     >
       <WithStyles(Typography)>
-        LexImpact POP est un service dédié aux collaborateurs parlementaires et à leurs députés. Il permet d'évaluer, de façon rapide, l'impact des réformes socio-fiscales ; au travers d'un simulateur dédié à l'impôt sur le revenu et d'un service de conciergerie.
+        OPEN LexImpact est une interface qui permet de simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu sur des foyers fiscaux types.
       </WithStyles(Typography)>
     </WithStyles(Grid)>
     <WithStyles(Grid)
@@ -36,7 +36,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         <button
           type="button"
         >
-          Vos données: notre priorités
+          Mentions légales
         </button>
         <button
           type="button"
