@@ -282,7 +282,7 @@ class Reformeur extends Component {
 
   UpdateBareme = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, value)
+      const list = isNaN(value) ? ref.impot_revenu.bareme.seuils : changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, parseInt(value, 10))
       ref.impot_revenu.bareme.seuils = list
       this.setState({ reforme: ref })
   }
