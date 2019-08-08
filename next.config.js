@@ -29,6 +29,7 @@ const nextConfig = {
     return {
       "/": { page: "/" },
       "/en-savoir-plus": { page: "/", query: { showPopin: "en-savoir-plus" } },
+      "/nos-conditions-d-utilisation": { page: "/", query: { showPopin: "nos-conditions-d-utilisation" } },
     };
   },
   webpack(webpackConfig) {
