@@ -2,12 +2,17 @@
   indent: [2, 2],
   semi: [2, "always"],
   react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2]
+  react/jsx-indent-props: [2, 2],
+  "jsx-a11y/anchor-is-valid": [2, {
+    "components": ["Link"],
+    "specialLink": ["hrefLeft", "hrefRight"]
+  }]
 */
 import { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
+import Link from "next/link";
 
 const styles = theme => ({
   container: {
@@ -40,6 +45,9 @@ class MentionsLegales extends PureComponent {
               <button type="button">Nos conditions d&apos;utilisation</button>
               <button type="button">Mentions légales</button>
               <button type="button">Vos retours sont précieux</button>
+              <Link href="/example">
+                <a>Example</a>
+              </Link>
             </div>
           </Grid>
         </Grid>
