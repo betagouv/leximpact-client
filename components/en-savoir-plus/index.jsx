@@ -66,7 +66,7 @@ class MentionsLegales extends PureComponent {
         >
           <Grid item xs={6} className={classes.gridItemText}>
               <Typography>
-                    <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est quoi ?</span>
+                    <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est&#xA0;quoi&#xA0;?</span>
               </Typography>
               <Typography>
                     OPEN LexImpact est une interface qui permet de simuler, de façon
@@ -83,19 +83,19 @@ class MentionsLegales extends PureComponent {
 
               <div className={classes.divButton}>
                 <Link href="/presentation-et-cgu">
-                    <Button variant="outlined" color="inherit" fullWidth="true">Présentation et conditions d'utilisation</Button>
+                    <Button variant="outlined" color="inherit" size="large" fullWidth="true">Présentation et conditions d'utilisation</Button>
                 </Link>
               </div>
 
               <div className={classes.divButton}>
                 <Link href="/mentions-legales">
-                    <Button variant="outlined" color="inherit" fullWidth="true">Mentions légales</Button>
+                    <Button disabled="true" variant="outlined" color="inherit" size="large" fullWidth="true">Mentions légales</Button>
                 </Link>
               </div>
 
               <div className={classes.divButton}>
                 <Link href="/vos-retours">
-                    <Button variant="outlined" color="inherit" fullWidth="true">Vos retours sont précieux</Button>
+                    <Button disabled="true" variant="outlined" color="inherit" size="large" fullWidth="true">Vos retours sont précieux</Button>
                 </Link> 
               </div>
             </div>
