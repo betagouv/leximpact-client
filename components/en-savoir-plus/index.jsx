@@ -42,7 +42,7 @@ class MentionsLegales extends PureComponent {
           <Grid item xs={6}>
             <div>
               <Link href="/presentation-et-cgu">
-                  <button type="button">Service et conditions d'utilisation</button>
+                  <button type="button">Présentation et conditions d'utilisation</button>
               </Link>
               <Link href="/mentions-legales">
                 <button type="button">Mentions légales</button>
