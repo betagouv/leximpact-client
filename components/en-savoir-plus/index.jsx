@@ -48,6 +48,9 @@ class MentionsLegales extends PureComponent {
               <Link href="/example">
                 <a>Example</a>
               </Link>
+              <Link href="/nos-conditions-d-utilisation">
+                <button type="button">Nos conditions d&apos;utilisation</button>
+              </Link>
             </div>
           </Grid>
         </Grid>
