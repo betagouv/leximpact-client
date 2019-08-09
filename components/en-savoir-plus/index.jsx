@@ -32,8 +32,23 @@ const styles = theme => ({
     fontFamily: "Lora",
     fontSize: "18px",
     color: "#565656",
+  },
 
-    }
+  gridItemText: {
+    maxWidth: "600px",
+    padding:"30px",
+  },
+
+  gridItemButtons: {
+    maxWidth: "600px",
+    padding:"30px",
+  },
+
+  divButton: {
+    padding:"10px"
+
+  }
+
 });
 
 
@@ -49,30 +64,40 @@ class MentionsLegales extends PureComponent {
           alignItems="flex-start"
           justify="space-between"
         >
-          <Grid item xs={6}>
-            <Typography>
-            <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est quoi ?</span>
-            </Typography>
-            <Typography>
-              OPEN LexImpact est une interface qui permet de simuler, de façon
-              rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
-              sur le revenu sur des foyers fiscaux types.
-            </Typography>
-            <Link href="/presentation-et-cgu">
-              <a className={classes.alink}>en savoir plus</a>
-            </Link>
-          </Grid>
-          <Grid item xs={6}>
-            <div>
+          <Grid item xs={6} className={classes.gridItemText}>
+              <Typography>
+                    <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est quoi ?</span>
+              </Typography>
+              <Typography>
+                    OPEN LexImpact est une interface qui permet de simuler, de façon
+                    rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
+                    sur le revenu sur des foyers fiscaux types.
+              </Typography>
               <Link href="/presentation-et-cgu">
-                  <button type="button">Présentation et conditions d'utilisation</button>
+                    <a className={classes.alink}>en savoir plus</a>
               </Link>
-              <Link href="/mentions-legales">
-                <button type="button">Mentions légales</button>
-              </Link>
-              <Link href="/vos-retours">
-              <button type="button">Vos retours sont précieux</button>
-              </Link> 
+          </Grid>
+
+          <Grid item xs={6} className={classes.gridItemButtons}>
+            <div>
+
+              <div className={classes.divButton}>
+                <Link href="/presentation-et-cgu">
+                    <Button variant="outlined" color="inherit" fullWidth="true">Présentation et conditions d'utilisation</Button>
+                </Link>
+              </div>
+
+              <div className={classes.divButton}>
+                <Link href="/mentions-legales">
+                    <Button variant="outlined" color="inherit" fullWidth="true">Mentions légales</Button>
+                </Link>
+              </div>
+
+              <div className={classes.divButton}>
+                <Link href="/vos-retours">
+                    <Button variant="outlined" color="inherit" fullWidth="true">Vos retours sont précieux</Button>
+                </Link> 
+              </div>
             </div>
           </Grid>
         </Grid>
