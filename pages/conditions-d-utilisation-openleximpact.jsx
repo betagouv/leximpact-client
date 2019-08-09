@@ -44,7 +44,7 @@ class ExamplePage extends PureComponent {
           <title>LexImpact</title>
         </Head>
         <AppHeader />
-        <h1>Nos conditions générales d'utilisation</h1>
+        <h1>Conditions générales d'utilisation d'OPEN LexImpact</h1>
       </Fragment>
     );
   }

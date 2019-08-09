@@ -41,16 +41,21 @@ class MentionsLegales extends PureComponent {
           </Grid>
           <Grid item xs={6}>
             <div>
-              <button type="button">En savoir plus sur LexImpact</button>
-              <button type="button">Nos conditions d&apos;utilisation</button>
-              <button type="button">Mentions légales</button>
+              <Link href="/presentation-leximpact">
+                  <button type="button">Présentation du service</button>
+              </Link>
+              <Link href="/conditions-d-utilisation-openleximpact">
+                <button type="button">conditions d&apos;utilisation OPEN LexImpact</button>
+              </Link>
+              <Link href="/conditions-d-utilisation-leximpactpop">
+                <button type="button">conditions d&apos;utilisation LexImpact POP</button>
+              </Link>
+              <Link href="/mentions-legales">
+                <button type="button">Mentions légales</button>
+              </Link>
+              <Link href="/vos-retours">
               <button type="button">Vos retours sont précieux</button>
-              <Link href="/example">
-                <a>Example</a>
-              </Link>
-              <Link href="/nos-conditions-d-utilisation">
-                <button type="button">Nos conditions d&apos;utilisation</button>
-              </Link>
+              </Link> 
             </div>
           </Grid>
         </Grid>
