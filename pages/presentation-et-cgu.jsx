@@ -16,9 +16,9 @@ import { withStyles } from "@material-ui/core/styles/";
 
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
-import "../styles/index.scss";
+import "../styles/pages-textes.scss";
 import Link from "next/link";
-import Paper from "@material-ui/core"
+import { Paper, Grid } from "@material-ui/core"
 
 const styles = () => ({
   dialog: {
@@ -34,6 +34,35 @@ const styles = () => ({
   dialogContent: {
     padding: "45px 45px 0 45px",
   },
+   sectionText: {
+    maxWidth: "800px",
+    margin: "0 auto",
+    paddingRight: "30px",
+    paddingLeft: "30px",
+    paddingTop: "30px",
+  },
+
+  gridSection: {
+    maxWidth: "800px",
+    margin: "0 auto",
+    paddingRight: "30px",
+    paddingLeft: "30px",
+    paddingTop: "10px",
+    paddingBottom: "30px",
+  },
+
+   griditemOpen: {
+    paddingRight: "10px",
+  },
+
+  griditemPop: {
+    paddingLeft: "10px",
+  },
+
+  paperItem: {
+    padding: "20px",
+  }
+   
 });
 
 class ExamplePage extends PureComponent {
@@ -46,8 +75,8 @@ class ExamplePage extends PureComponent {
           <title>LexImpact</title>
         </Head>
         <AppHeader/>
-        <section>
-        <h1>Présentation du service et conditions générales d&apos;utilisation</h1>
+        <section className={classes.sectionText}>
+        <h1>Présentation du service et conditions d&apos;utilisation</h1>
 
             <h2>Contexte</h2>
 
@@ -75,12 +104,12 @@ class ExamplePage extends PureComponent {
                 le montant des impôts payés par des foyers fiscaux types, 
                 avant et après la réforme qu&apos;ils ont entré dans l’interface.</p>
 
-                <p>Le service s&apos;appuie sur <a href="https://fr.openfisca.org/">OpenFisca</a>, 
+                <p>Le service s&apos;appuie sur <a href="https://fr.openfisca.org/"target="_blank">OpenFisca</a>, 
                 logiciel libre créé en 2012 
-                et maintenu par la <a href="https://www.numerique.gouv.fr/dinsic/">DINSIC</a>, 
+                et maintenu par la <a href="https://www.numerique.gouv.fr/dinsic/"target="_blank">DINSIC</a>, 
                 qui transforme le code législatif en code informatique.</p>
 
-                <p><a href="https://github.com/betagouv/leximpact-client">Le code de LexImpact est libre</a>, 
+                <p><a href="https://github.com/betagouv/leximpact-client"target="_blank">Le code de LexImpact est libre</a>, 
                 sous licence AGPL-3.0, et peut donc être vérifié et amélioré par toutes et tous.</p>
 
                 <p>LexImpact se décline en deux services distincts qui s&apos;adressent à deux usagers différents :</p>
@@ -93,8 +122,16 @@ class ExamplePage extends PureComponent {
                 <p>Vous trouverez ci-dessous le détail complet des fonctionnalités disponibles 
                 dans chacune des versions du service :</p>
           </section>
-          <section>
-                <div>
+         
+          <Grid
+          container
+          direction="row"
+          alignItems="flex-start"
+          justify="space-between"
+          className={classes.gridSection}
+          >
+          <Grid item xs={6} className={classes.griditemOpen}>
+                <Paper className={classes.paperItem}>
                     <h2>OPEN LexImpact</h2>
                         <p>OPEN Leximpact est un service accessible à toutes et tous. </p>
 
@@ -134,10 +171,12 @@ class ExamplePage extends PureComponent {
                         <Link href="/conditions-d-utilisation-openleximpact">
                             <button type="button">conditions d&apos;utilisation OPEN LexImpact</button>
                         </Link>
+                      </Paper>
 
-                </div>
+                </Grid>
 
-                <div>
+                <Grid item xs={6} className={classes.griditemPop}>
+                  <Paper className={classes.paperItem}>
                     <h2>LexImpact POP</h2>
                      <p>LexImpact POP est uniquement accessible à des personnes habilitées, 
                      parties prenantes de l&apos;élaboration de la loi.</p>
@@ -184,8 +223,10 @@ class ExamplePage extends PureComponent {
                         <Link href="/conditions-d-utilisation-leximpactpop">
                               <button type="button">conditions d&apos;utilisation LexImpact POP</button>
                         </Link>
-                  </div>
-              </section>
+                      </Paper>
+                  </Grid>
+
+              </Grid>
       </Fragment>
     );
   }

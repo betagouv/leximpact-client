@@ -16,7 +16,7 @@ import { withStyles } from "@material-ui/core/styles/";
 
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
-import "../styles/index.scss";
+import "../styles/pages-textes.scss";
 
 const styles = () => ({
   dialog: {
@@ -32,6 +32,14 @@ const styles = () => ({
   dialogContent: {
     padding: "45px 45px 0 45px",
   },
+
+  sectionText: {
+    maxWidth: "800px",
+    margin: "0 auto",
+    padding: "30px",
+
+  }
+    
 });
 
 class ExamplePage extends PureComponent {
@@ -44,18 +52,18 @@ class ExamplePage extends PureComponent {
           <title>LexImpact</title>
         </Head>
         <AppHeader />
-          <section>
+          <section className={classes.sectionText}>
               <h1>Conditions d'utilisation de LexImpact POP</h1>
 
                 <p>Pour fournir les impacts agrégés sur le budget de l’État 
                 et leurs effets sur des déciles de population, 
                 LexImpact s’appuie sur une base de données, la&nbsp; 
-                <a href="https://www.insee.fr/fr/metadonnees/source/serie/s1231/documentation-methodologique">base ERFS FPR</a>, 
+                <a href="https://www.insee.fr/fr/metadonnees/source/serie/s1231/documentation-methodologique" target="_blank">base ERFS FPR</a>, 
                 dont le service producteur est l’<a href="https://insee.fr">INSEE</a>. 
                 Ces données sont couvertes par des secrets protégés par la loi, 
                 et notamment le secret statistique.</p>
 
-                <p>Dans le cadre de ce partenariat et afin de préserver le secret statistique, 
+                <p>Dans le cadre de ce partenariat et afin de préserver le secret statistique,&nbsp;  
                 <strong>ce service est uniquement ouvert aux personnes habilitées suivantes</strong>&nbsp;:</p>
                     <ul> 
                         <li>les députés et députées de l’Assemblée nationale, </li>
@@ -69,7 +77,8 @@ class ExamplePage extends PureComponent {
                 <p><strong>Il est absolument nécessaire de préserver la confidentialité 
                 des données auxquelles le service vous donne accès. 
                 Toute violation de cette confidentialité vous expose à des sanctions pénales</strong>&nbsp;
-                comme stipulées dans l’<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000006417945&cidTexte=LEGITEXT000006070719&categorieLien=id&dateTexte=">
+                comme stipulées dans l’<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000006417945&cidTexte=LEGITEXT000006070719&categorieLien=id&dateTexte="
+                target="_blank">
                 Article 226-13 du Code pénal</a>.</p>
 
 
@@ -82,7 +91,8 @@ class ExamplePage extends PureComponent {
 
                     <p>Si vous effectuez une simulation LexImpact POP, 
                     vous acceptez ces conditions d&apos;utilisation, 
-                    comme indiqué dans l&apos;<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000031367350&cidTexte=LEGITEXT000031366350&categorieLien=id&dateTexte=">
+                    comme indiqué dans l&apos;<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000031367350&cidTexte=LEGITEXT000031366350&categorieLien=id&dateTexte="
+                    target="_blank">
                     article L. 112-9 du Code des relations entre le public et l&apos;administration</a>.</p>
 
                     <p>L&apos;utilisation de LexImpact POP requiert une connexion internet 

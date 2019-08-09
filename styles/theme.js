@@ -10,7 +10,7 @@ const theme = createMuiTheme({
 
         h1: {
             fontFamily: "Lato",
-            fontSize: "24px",
+            fontSize: "36px",
             fontWeight: "light",
             textTransform: "uppercase",
         },

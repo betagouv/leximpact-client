@@ -16,7 +16,7 @@ import { withStyles } from "@material-ui/core/styles/";
 
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
-import "../styles/index.scss";
+import "../styles/pages-textes.scss";
 
 const styles = () => ({
   dialog: {
@@ -32,6 +32,13 @@ const styles = () => ({
   dialogContent: {
     padding: "45px 45px 0 45px",
   },
+
+   sectionText: {
+    maxWidth: "800px",
+    margin: "0 auto",
+    padding: "30px",
+
+  }
 });
 
 class ExamplePage extends PureComponent {
@@ -44,7 +51,7 @@ class ExamplePage extends PureComponent {
           <title>LexImpact</title>
         </Head>
         <AppHeader />
-        <section>
+        <section className={classes.sectionText}>
               <h1>Conditions d'utilisation d&apos;OPEN LexImpact</h1>
 
                 <h2>Vocabulaire</h2>
@@ -55,7 +62,7 @@ class ExamplePage extends PureComponent {
                 <h2>Utilisation</h2>
 
                     <p>OPEN LexImpact est en accès libre à l&apos;adresse&nbsp;  
-                    <a href="https://www.leximpact.beta.gouv.fr">leximpact.beta.gouv.fr</a>. 
+                    <a href="https://www.leximpact.beta.gouv.fr"target="_blank">leximpact.beta.gouv.fr</a>. 
                     Son utilisation est gratuite et facultative.</p>
 
                     <p>Si vous effectuez une simulation, vous acceptez ces conditions d&apos;utilisation, 
@@ -117,7 +124,7 @@ class ExamplePage extends PureComponent {
                     Les résultats calculés par ce simulateur ont une valeur informative 
                     et ne représentent en aucun cas une décision d&apos;ouverture de droits. 
                     Pour une simulation de votre impôt sur le revenu personnel,&nbsp;
-                    <a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/index.htm">
+                    <a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/index.htm"target="_blank">
                     le service de la DGFIP</a> est disponible.</p>
 
                  <h2>Évolutions</h2>

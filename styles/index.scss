@@ -1,5 +1,10 @@
 $primary-color: grey;
 
+.p {
+  font-family: "Lato";
+}
+
+
 .main-index {
   //background-color: #FFFCB2;
   background-image: url(../static/images/tramebackground.png);
@@ -80,3 +85,4 @@ input {
   float: inline;
   box-sizing: border-box;
 }
+
