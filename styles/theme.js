@@ -44,7 +44,7 @@ const theme = createMuiTheme({
 
         button: {
             fontStyle: "regular",
-            fontWeight: 500,
+            fontWeight: 700,
         },
 
         caption: {
@@ -90,7 +90,7 @@ const theme = createMuiTheme({
             light: "#FF6B6B",
             main: "#00A3FF",
             // dark: will be calculated from palette.secondary.main,
-            contrastText: "#ffcc00",
+            contrastText: "#FFFFFF",
         },
 
         error: {
