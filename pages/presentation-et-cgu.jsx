@@ -80,7 +80,10 @@ class ExamplePage extends PureComponent {
         <h1>Présentation du service <br />
         et conditions d&apos;utilisation</h1>
 
+
+
             <h2>Contexte</h2>
+            <Divider light={false}/>
 
                 <p>Chaque année, toute ou partie de la population française est concernée par des changements fiscaux, 
                 hérités de modifications législatives régulières.</p> 
@@ -99,6 +102,7 @@ class ExamplePage extends PureComponent {
                 sur un périmètre actuellement limité à l&apos;impôt sur le revenu, qui vise à s&apos;élargir progressivement.</p>
 
             <h2>Service actuel</h2> 
+            <Divider/>
 
                 <p>LexImpact est une interface qui permet d’évaluer, de façon rapide, 
                 l&apos;impact des réformes paramétriques de l'impôt sur le revenu. 
@@ -121,7 +125,7 @@ class ExamplePage extends PureComponent {
                         à l&apos;élaboration de la loi (LexImpact POP).</li>
                     </ul> 
 
-                <Divider light />
+                <Divider/>
 
                 <p>Vous trouverez ci-dessous le détail complet des fonctionnalités disponibles 
                 dans chacune des versions du service :</p>

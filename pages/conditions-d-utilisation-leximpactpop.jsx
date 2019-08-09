@@ -38,7 +38,7 @@ const styles = () => ({
     margin: "0 auto",
     padding: "30px",
 
-  }
+  },
     
 });
 
@@ -54,6 +54,8 @@ class ExamplePage extends PureComponent {
         <AppHeader />
           <section className={classes.sectionText}>
               <h1>Conditions d'utilisation de LexImpact POP</h1>
+
+
 
                 <p>Pour fournir les impacts agrégés sur le budget de l’État 
                 et leurs effets sur des déciles de population, 
@@ -117,8 +119,8 @@ class ExamplePage extends PureComponent {
                             <li>les administrateurs et administratrices de l&apos;Assemblée nationale.</li>
                         </ul>
 
-                    <p><i>Si vous faîtes partie des personnes telles que listées au paragraphe précédent 
-                    et que vous n&apos;arrivez pas à vous connecter à LexImpact POP :</i></p>
+                    <p><b>Si vous faîtes partie des personnes telles que listées au paragraphe précédent 
+                    et que vous n&apos;arrivez pas à vous connecter à LexImpact POP :</b></p>
 
                         <ol> 
                             <li>Veuillez vérifier que vous avez bien utilisé votre adresse mail 
@@ -139,9 +141,9 @@ class ExamplePage extends PureComponent {
                         </ol>
 
 
-                    <p><i>Si vous ne faîtes pas partie des personnes habilitées, 
+                    <p><b>Si vous ne faîtes pas partie des personnes habilitées, 
                     que vous participez professionnellement à l&apos;élaboration de la loi 
-                    et que vous souhaitez accéder au service :</i></p>
+                    et que vous souhaitez accéder au service :</b></p>
                     
                     <p>L&apos;accord de l&apos;INSEE est indispensable pour étendre 
                     l&apos;accès de l&apos;outil LexImpact POP à tout nouvel organisme. 
@@ -153,10 +155,6 @@ class ExamplePage extends PureComponent {
                     d&apos;une acceptation d&apos;habilitation.</p>
 
                     
-                    
-
-
-
                 <h2>Vos données</h2>
 
                     <p>Dans le cadre du partenariat avec l&apos;INSEE et 

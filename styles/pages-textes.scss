@@ -16,15 +16,15 @@ h2 {
 	color : #000000;
 	font-size:24px;
 	padding-top: 0px;
+	margin-bottom: 5px;
 }
 
 p {
 	font-family : "Lato";
 	color : #000000;
 	font-size:16px;
-	padding-left: 30px;
-	padding-right: 30px;
 	text-align: justify;
+	margin-bottom: 0px;
 
 }
 
@@ -34,15 +34,16 @@ li {
 
 }
 ul {
-	padding-left: 80px;
+	padding-left: 60px;
 	padding-right: 30px;
+	margin-top: 0px;
 }
 
 ol {
-	padding-left: 80px;
+	padding-left: 60px;
 	padding-right: 30px;
 	text-align: justify;
-
+	margin-top: 0px;
 }
 
 a:hover {

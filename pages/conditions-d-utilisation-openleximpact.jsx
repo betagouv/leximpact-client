@@ -54,6 +54,8 @@ class ExamplePage extends PureComponent {
         <section className={classes.sectionText}>
               <h1>Conditions d'utilisation d&apos;OPEN LexImpact</h1>
 
+              
+
                 <h2>Vocabulaire</h2>
 
                     <p>« Nous » se réfère à l&apos;éditeur d&apos;OPEN LexImpact.</p>
