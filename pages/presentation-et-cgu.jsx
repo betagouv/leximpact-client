@@ -62,10 +62,6 @@ const styles = () => ({
   paperItem: {
     padding: "20px",
   },
-
-  alink: {
-    color: "#00A3FF",
-  }
    
 });
 
