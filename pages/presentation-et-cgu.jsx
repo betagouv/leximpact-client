@@ -18,6 +18,7 @@ import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
 import "../styles/index.scss";
 import Link from "next/link";
+import Paper from "@material-ui/core"
 
 const styles = () => ({
   dialog: {
@@ -46,14 +47,14 @@ class ExamplePage extends PureComponent {
         </Head>
         <AppHeader/>
         <section>
-        <h1>Présentation du service et conditions générales d'utilisation</h1>
+        <h1>Présentation du service et conditions générales d&apos;utilisation</h1>
 
             <h2>Contexte</h2>
 
                 <p>Chaque année, toute ou partie de la population française est concernée par des changements fiscaux, 
                 hérités de modifications législatives régulières.</p> 
 
-                <p>Aujourd’hui, le Parlement dispose de peu de moyens d’évaluation des amendements 
+                <p>Aujourd’hui, le Parlement dispose de peu de moyens d&apos;évaluation des amendements 
                 et propositions avant de voter la loi. Les impacts sur la population 
                 et les recettes sont donc trop souvent découverts pendant les débats, 
                 voire une fois la loi votée et mise à exécution.</p>
@@ -64,17 +65,17 @@ class ExamplePage extends PureComponent {
                 et les impacts sur la population française.</p>
 
                 <p>Pour cela, LexImpact apporte une capacité de simulation ex ante 
-                sur un périmètre actuellement limité à l’impôt sur le revenu, qui vise à s’élargir progressivement.</p>
+                sur un périmètre actuellement limité à l&apos;impôt sur le revenu, qui vise à s&apos;élargir progressivement.</p>
 
             <h2>Service actuel</h2> 
 
                 <p>LexImpact est une interface qui permet d’évaluer, de façon rapide, 
-                l’impact des réformes paramétriques de l'impôt sur le revenu. 
+                l&apos;impact des réformes paramétriques de l'impôt sur le revenu. 
                 Par exemple, les usagers du service peuvent découvrir en quasi temps réel, 
                 le montant des impôts payés par des foyers fiscaux types, 
-                avant et après la réforme qu’ils ont entré dans l’interface.</p>
+                avant et après la réforme qu&apos;ils ont entré dans l’interface.</p>
 
-                <p>Le service s’appuie sur <a href="https://fr.openfisca.org/">OpenFisca</a>, 
+                <p>Le service s&apos;appuie sur <a href="https://fr.openfisca.org/">OpenFisca</a>, 
                 logiciel libre créé en 2012 
                 et maintenu par la <a href="https://www.numerique.gouv.fr/dinsic/">DINSIC</a>, 
                 qui transforme le code législatif en code informatique.</p>
@@ -82,11 +83,11 @@ class ExamplePage extends PureComponent {
                 <p><a href="https://github.com/betagouv/leximpact-client">Le code de LexImpact est libre</a>, 
                 sous licence AGPL-3.0, et peut donc être vérifié et amélioré par toutes et tous.</p>
 
-                <p>LexImpact se décline en deux services distincts qui s’adressent à deux usagers différents :</p>
+                <p>LexImpact se décline en deux services distincts qui s&apos;adressent à deux usagers différents :</p>
                     <ul> 
                         <li>le grand public (OPEN LexImpact) ;</li>
                         <li>des personnes dûment habilitées participant 
-                        à l’élaboration de la loi (LexImpact POP).</li>
+                        à l&apos;élaboration de la loi (LexImpact POP).</li>
                     </ul> 
 
                 <p>Vous trouverez ci-dessous le détail complet des fonctionnalités disponibles 
@@ -97,24 +98,24 @@ class ExamplePage extends PureComponent {
                     <h2>OPEN LexImpact</h2>
                         <p>OPEN Leximpact est un service accessible à toutes et tous. </p>
 
-                        <p>Il vous permet de simuler les impacts d’une réforme 
+                        <p>Il vous permet de simuler les impacts d&apos;une réforme 
                         sur des foyers fiscaux types. Le service ne vous permet pas 
                         de simuler votre situation personnelle.</p>
 
-                        <p>Dans le cadre de l’actuel périmètre, limité à l’Article 197 
-                        du Code général des impôts, concernant spécifiquement l’impôt sur le revenu, 
+                        <p>Dans le cadre de l&apos;actuel périmètre, limité à l&apos;Article 197 
+                        du Code général des impôts, concernant spécifiquement l&apos;impôt sur le revenu, 
                         OPEN LexImpact permet de simuler et de comparer :</p>
                             <ul> 
                                 <li>les impacts du code existant,</li>
-                                <li>les impacts d’un amendement en faisant 
+                                <li>les impacts d&apos;un amendement en faisant 
                                 directement varier les paramètres du texte de loi,</li>
-                                <li>les impacts du projet de loi de finance pour l’année N+1,</li>
+                                <li>les impacts du projet de loi de finance pour l&apos;année N+1,</li>
                             </ul>
                         <p>sur des foyers fiscaux types.</p>
 
-                        <p>Les paramètres modifiables dans l’Article 197 du CGI sont :</p>
+                        <p>Les paramètres modifiables dans l&apos;Article 197 du CGI sont :</p>
                             <ul>
-                                <li>le barème de l’impôt sur le revenu,</li>
+                                <li>le barème de l&apos;impôt sur le revenu,</li>
                                 <li>les plafonds du quotient familial,</li>
                                 <li>la décote,</li>
                                 <li>la réfaction foyers modestes,</li>
@@ -123,11 +124,11 @@ class ExamplePage extends PureComponent {
 
                         <p>OPEN LexImpact permet également de modifier 
                         le revenu net à déclarer des foyers fiscaux types 
-                        prédéfinis sur l’interface.</p>
+                        prédéfinis sur l&apos;interface.</p>
 
-                        <p>L’utilisation d’OPEN LexImpact est libre, facultative et gratuite ; 
-                        toute utilisation du service est subordonnée à l'acceptation préalable
-                         et au respect intégral des conditions générales d’utilisation 
+                        <p>L&apos;utilisation d&apos;OPEN LexImpact est libre, facultative et gratuite ; 
+                        toute utilisation du service est subordonnée à l&apos;acceptation préalable
+                         et au respect intégral des conditions générales d&apos;utilisation 
                          (CGU) disponibles ci-après :</p>
                         
                         <Link href="/conditions-d-utilisation-openleximpact">
@@ -139,45 +140,45 @@ class ExamplePage extends PureComponent {
                 <div>
                     <h2>LexImpact POP</h2>
                      <p>LexImpact POP est uniquement accessible à des personnes habilitées, 
-                     parties prenantes de l’élaboration de la loi.</p>
+                     parties prenantes de l&apos;élaboration de la loi.</p>
 
                         <p>En plus de ce que permet de faire OPEN LexImpact, 
                         LexImpact POP vous permet de simuler les impacts macros 
-                        d’une réforme sur la population et les recettes de l’État.</p>
+                        d&apos;une réforme sur la population et les recettes de l&apos;État.</p>
 
-                        <p>Dans le cadre de l’actuel périmètre, 
-                        limité à l’Article 197 du Code général des impôts, 
-                        concernant spécifiquement l’impôt sur le revenu, 
-                        LexImpact POP permet d’évaluer et de comparer : </p>
+                        <p>Dans le cadre de l&apos;actuel périmètre, 
+                        limité à l&apos;Article 197 du Code général des impôts, 
+                        concernant spécifiquement l&apos;impôt sur le revenu, 
+                        LexImpact POP permet d&apos;évaluer et de comparer : </p>
                             <ul> 
                                 <li>les impacts du code existant,</li>
-                                <li>les impacts d’un amendement en faisant 
+                                <li>les impacts d&apos;un amendement en faisant 
                                 directement varier les paramètres du texte de loi,</li>
-                                <li>les impacts du projet de loi de finance pour l’année N+1,</li>
+                                <li>les impacts du projet de loi de finance pour l&apos;année N+1,</li>
                             </ul>
                         <p>sur :</p>
                             <ul> 
                                   <li>des foyers fiscaux types,</li>
-                                  <li>les recettes de l’État,</li>
-                                  <li>la répartition des recettes de l’État par décile de population.</li>
+                                  <li>les recettes de l&apos;État,</li>
+                                  <li>la répartition des recettes de l&apos;État par décile de population.</li>
                             </ul>
 
-                        <p>Les paramètres modifiables dans l’Article 197 du CGI sont : </p>
+                        <p>Les paramètres modifiables dans l&apos;Article 197 du CGI sont : </p>
                             <ul>
-                                <li>le barème de l’impôt sur le revenu,</li>
+                                <li>le barème de l&apos;impôt sur le revenu,</li>
                                 <li>les plafonds du quotient familial,</li>
                                 <li>la décote,</li>
                                 <li>la réfaction foyers modestes,</li>
                                 <li>la réfaction outre-mers.</li>
                             </ul>
 
-                        <p>Afin de pouvoir chiffrer les impacts sur le budget de l’État notamment, 
-                        LexImpact POP s’appuie sur des données représentatives de la population, 
+                        <p>Afin de pouvoir chiffrer les impacts sur le budget de l&apos;État notamment, 
+                        LexImpact POP s&apos;appuie sur des données représentatives de la population, 
                         couvertes par des secrets protégés par la loi. Ainsi, seules les personnes 
                         dûment habilitées peuvent y avoir accès. </p>
 
-                        <p>Toute utilisation du service est subordonnée à l'acceptation préalable 
-                        et au respect intégral des conditions générales d’utilisation (CGU), 
+                        <p>Toute utilisation du service est subordonnée à l&apos;acceptation préalable 
+                        et au respect intégral des conditions générales d&apos;utilisation (CGU), 
                         disponibles ci-après : </p>
 
                         <Link href="/conditions-d-utilisation-leximpactpop">
