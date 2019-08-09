@@ -18,7 +18,7 @@ import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
 import "../styles/pages-textes.scss";
 import Link from "next/link";
-import { Paper, Grid } from "@material-ui/core"
+import { Paper, Grid, Button } from "@material-ui/core"
 
 const styles = () => ({
   dialog: {
@@ -61,7 +61,7 @@ const styles = () => ({
 
   paperItem: {
     padding: "20px",
-  }
+  },
    
 });
 
@@ -169,7 +169,7 @@ class ExamplePage extends PureComponent {
                          (CGU) disponibles ci-après :</p>
                         
                         <Link href="/conditions-d-utilisation-openleximpact">
-                            <button type="button">conditions d&apos;utilisation OPEN LexImpact</button>
+                            <Button variant="contained" color="secondary" size= "large" fullWidth="true">CGU OPEN LexImpact</Button>
                         </Link>
                       </Paper>
 
@@ -221,7 +221,7 @@ class ExamplePage extends PureComponent {
                         disponibles ci-après : </p>
 
                         <Link href="/conditions-d-utilisation-leximpactpop">
-                              <button type="button">conditions d&apos;utilisation LexImpact POP</button>
+                              <Button variant="contained" color="secondary" size= "large" fullWidth="true"> CGU LexImpact POP</Button>
                         </Link>
                       </Paper>
                   </Grid>
