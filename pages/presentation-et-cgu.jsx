@@ -17,6 +17,7 @@ import { withStyles } from "@material-ui/core/styles/";
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
 import "../styles/index.scss";
+import Link from "next/link";
 
 const styles = () => ({
   dialog: {
@@ -43,8 +44,15 @@ class ExamplePage extends PureComponent {
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader />
+        <AppHeader/>
         <h1>presentation LexImpact</h1>
+        <Link href="/conditions-d-utilisation-openleximpact">
+                <button type="button">conditions d&apos;utilisation OPEN LexImpact</button>
+        </Link>
+        <Link href="/conditions-d-utilisation-leximpactpop">
+                <button type="button">conditions d&apos;utilisation LexImpact POP</button>
+        </Link>
+
       </Fragment>
     );
   }
