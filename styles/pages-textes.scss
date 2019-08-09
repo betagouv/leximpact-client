@@ -22,10 +22,27 @@ p {
 	font-family : "Lato";
 	color : #000000;
 	font-size:16px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: justify;
+
 }
 
 li {
-	font-family : "Lato"
+	font-family : "Lato";
+	padding-top: 10px;
+
+}
+ul {
+	padding-left: 80px;
+	padding-right: 30px;
+}
+
+ol {
+	padding-left: 80px;
+	padding-right: 30px;
+	text-align: justify;
+
 }
 
 a:hover {

@@ -60,7 +60,7 @@ class ExamplePage extends PureComponent {
                 LexImpact s’appuie sur une base de données, la&nbsp; 
                 <a href="https://www.insee.fr/fr/metadonnees/source/serie/s1231/documentation-methodologique" target="_blank">base ERFS FPR</a>, 
                 dont le service producteur est l’<a href="https://insee.fr">INSEE</a>. 
-                Ces données sont couvertes par des secrets protégés par la loi, 
+                Ces&#xA0;données sont couvertes par des secrets protégés par la loi, 
                 et notamment le secret statistique.</p>
 
                 <p>Dans le cadre de ce partenariat et afin de préserver le secret statistique,&nbsp;  

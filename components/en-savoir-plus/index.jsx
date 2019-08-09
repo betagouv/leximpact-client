@@ -69,7 +69,7 @@ class MentionsLegales extends PureComponent {
                     <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est&#xA0;quoi&#xA0;?</span>
               </Typography>
               <Typography>
-                    OPEN LexImpact est une interface qui permet de simuler, de façon
+                    OPEN LexImpact est une interface qui permet de simuler, de&#xA0;façon
                     rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
                     sur le revenu sur des foyers fiscaux types.
               </Typography>
