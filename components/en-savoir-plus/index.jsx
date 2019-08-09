@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
 import Link from "next/link";
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   container: {
@@ -24,8 +25,16 @@ const styles = theme => ({
     fontFamily: "Lato",
     fontSize: "36px",
     fontWeight: "bold",
+    color: "#565656",
+  },
+
+    alink: {
+    fontFamily: "Lora",
+    fontSize: "18px",
     color: "#565656"},
 });
+
+
 
 class MentionsLegales extends PureComponent {
   render() {
@@ -47,6 +56,9 @@ class MentionsLegales extends PureComponent {
               rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
               sur le revenu sur des foyers fiscaux types.
             </Typography>
+            <Link href="/presentation-et-cgu">
+              <a className={classes.alink}>en savoir plus</a>
+            </Link>
           </Grid>
           <Grid item xs={6}>
             <div>
