@@ -2,7 +2,8 @@
 
 h1 {
 	font-family: "lato";
-	font-size:"36px";
+	color : #000000;
+	font-size:36px;
 
 }
 
@@ -10,16 +11,21 @@ h1 {
 
 h2 {
 	font-family: "lato";
-	font-size:"36px";
-
+	color : #000000;
+	font-size:24px;
 }
 
 p {
 	font-family : "Lato";
-	color : "#565656";
-	font-size:"9px";
+	color : #000000;
+	font-size:16px;
 }
 
 li {
 	font-family : "Lato"
 }
+
+a:hover {
+	color: #00A3FF;
+}
+

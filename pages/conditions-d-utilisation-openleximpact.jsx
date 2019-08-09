@@ -62,7 +62,7 @@ class ExamplePage extends PureComponent {
                 <h2>Utilisation</h2>
 
                     <p>OPEN LexImpact est en accès libre à l&apos;adresse&nbsp;  
-                    <a href="https://www.leximpact.beta.gouv.fr"target="_blank">leximpact.beta.gouv.fr</a>. 
+                    <a href="https://leximpact.beta.gouv.fr/"target="_blank">leximpact.beta.gouv.fr</a>. 
                     Son utilisation est gratuite et facultative.</p>
 
                     <p>Si vous effectuez une simulation, vous acceptez ces conditions d&apos;utilisation, 

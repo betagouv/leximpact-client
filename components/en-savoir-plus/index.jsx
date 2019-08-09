@@ -31,7 +31,9 @@ const styles = theme => ({
     alink: {
     fontFamily: "Lora",
     fontSize: "18px",
-    color: "#565656"},
+    color: "#565656",
+
+    }
 });
 
 
