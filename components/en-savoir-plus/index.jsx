@@ -70,7 +70,6 @@ class MentionsLegales extends PureComponent {
             </Typography>
             <a href="/presentation-et-cgu" className={classes.alink}>en savoir plus</a>
           </Grid>
-
           <Grid item xs={6} className={classes.gridItemButtons}>
             <div>
 
@@ -87,9 +86,16 @@ class MentionsLegales extends PureComponent {
               </div>
 
               <div className={classes.divButton}>
-                <Link href="/vos-retours">
-                  <Button disabled="true" variant="outlined" color="inherit" size="large" fullWidth="true">Vos retours sont précieux</Button>
-                </Link>
+                <Button
+                  href="mailto:contact@leximpact.beta.gouv.fr"
+                  variant="outlined"
+                  color="inherit"
+                  size="large"
+                  fullWidth="true"
+                >
+                Une question ? Un bug ? Un avis ?
+                </Button>
+                <p> Écrivez-nous à contact@leximpact.beta.gouv.fr !</p>
               </div>
             </div>
           </Grid>
