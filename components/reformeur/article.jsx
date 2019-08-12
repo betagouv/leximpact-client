@@ -34,6 +34,9 @@ import {
 } from "@material-ui/icons";
 import { get } from "lodash";
 
+import InputField from "./article/input-field";
+import OutputField from "./article/output-field";
+
 // attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
 const WAIT_INTERVAL = 1000;
 // Touche qui déclenche les calculs (13 = return)
@@ -141,73 +144,74 @@ const ExpansionPanelDetails = withStyles(theme => ({
   },
 }))(MuiExpansionPanelDetails);
 
-class InputField extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.triggerChange = this.triggerChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.state = { value: props.value };
-  }
+// class InputField extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.handleChange = this.handleChange.bind(this)
+//     this.triggerChange = this.triggerChange.bind(this)
+//     this.handleKeyDown = this.handleKeyDown.bind(this)
+//     this.state = { value: props.value }
+//   }
+//
+//   handleChange(e) {
+//     clearTimeout(this.timer)
+//     this.setState({ value: e.target.value })
+//     this.timer = setTimeout(
+//       this.triggerChange,
+//       WAIT_INTERVAL,
+//       e.target.value,
+//       e.target.name
+//     )
+//   }
+//
+//   triggerChange(value, name) {
+//     this.props.onChange(value, name)
+//     this.props.onChange(value.replace(/\s+/g, ""), name)
+//   }
+//
+//   componentWillMount() {
+//     this.timer = null
+//   }
+//
+//   handleKeyDown(e) {
+//     if (e.keyCode === ENTER_KEY) {
+//       clearTimeout(this.timer)
+//       this.triggerChange(this.state.value, this.props.name)
+//     }
+//   }
+//
+//   render() {
+//     const { name } = this.props
+//     const { value } = this.state
+//     console.log("value", typeof value)
+//     return (
+//       <input
+//         type="text"
+//         value={value}
+//         name={name}
+//         onChange={this.handleChange}
+//         onKeyDown={this.handleKeyDown}
+//         size="4"
+//         style={this.props.style}
+//       />
+//     )
+//   }
+// }
 
-  handleChange(e) {
-    clearTimeout(this.timer);
-    this.setState({ value: e.target.value });
-    this.timer = setTimeout(
-      this.triggerChange,
-      WAIT_INTERVAL,
-      e.target.value,
-      e.target.name,
-    );
-  }
-
-  triggerChange(value, name) {
-    this.props.onChange(value, name);
-    this.props.onChange(value.replace(/\s+/g, ""), name);
-  }
-
-  componentWillMount() {
-    this.timer = null;
-  }
-
-  handleKeyDown(e) {
-    if (e.keyCode === ENTER_KEY) {
-      clearTimeout(this.timer);
-      this.triggerChange(this.state.value, this.props.name);
-    }
-  }
-
-  render() {
-    const { name } = this.props;
-    const { value } = this.state;
-    return (
-      <input
-        type="text"
-        value={value}
-        name={name}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
-        size="4"
-        style={this.props.style}
-      />
-    );
-  }
-}
-
-class OutputField extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { value } = this.props;
-    return (
-      <span inline="true" style={this.props.style} className="output-field">
-        {value}
-      </span>
-    );
-  }
-}
+// class OutputField extends React.Component {
+//   constructor(props) {
+//     super(props)
+//   }
+//
+//   render() {
+//     const { value } = this.props
+//     return (
+//       <span inline="true" style={this.props.style} className="output-field">
+//         {value}
+//       </span>
+//     )
+//   }
+// }
 
 class Article extends React.Component {
   constructor(props) {
