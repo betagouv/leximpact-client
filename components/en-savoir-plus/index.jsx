@@ -36,13 +36,15 @@ const styles = theme => ({
     maxWidth: "600px",
     padding: "30px",
   },
-
   gridItemButtons: {
     maxWidth: "600px",
     padding: "30px",
   },
   divButton: {
     padding: "10px",
+  },
+  pAdresseMail: {
+    textAlign: "center",
   },
 });
 
@@ -95,7 +97,9 @@ class MentionsLegales extends PureComponent {
                 >
                 Une question ? Un bug ? Un avis ?
                 </Button>
-                <p> Écrivez-nous à contact@leximpact.beta.gouv.fr !</p>
+                <p className={classes.pAdresseMail}>
+                Écrivez-nous à contact@leximpact.beta.gouv.fr !
+                </p>
               </div>
             </div>
           </Grid>
