@@ -63,7 +63,15 @@ const styles = () => ({
   paperItem: {
     padding: "20px",
   },
-   
+
+  dividerMarge: {
+    marginTop: "20px",
+  },
+
+  espaceVide: {
+    height: "20px",
+  },
+
 });
 
 class ExamplePage extends PureComponent {
@@ -83,7 +91,7 @@ class ExamplePage extends PureComponent {
 
 
             <h2>Contexte</h2>
-            <Divider light={false}/>
+            <hr /> 
 
                 <p>Chaque année, toute ou partie de la population française est concernée par des changements fiscaux, 
                 hérités de modifications législatives régulières.</p> 
@@ -101,8 +109,10 @@ class ExamplePage extends PureComponent {
                 <p>Pour cela, LexImpact apporte une capacité de simulation ex ante 
                 sur un périmètre actuellement limité à l&apos;impôt sur le revenu, qui vise à s&apos;élargir progressivement.</p>
 
+                 <div className={classes.espaceVide}/>
+
             <h2>Service actuel</h2> 
-            <Divider/>
+            <hr /> 
 
                 <p>LexImpact est une interface qui permet d’évaluer, de façon rapide, 
                 l&apos;impact des réformes paramétriques de l'impôt sur le revenu. 
@@ -125,10 +135,14 @@ class ExamplePage extends PureComponent {
                         à l&apos;élaboration de la loi (LexImpact POP).</li>
                     </ul> 
 
-                <Divider/>
+
+                <Divider className={classes.dividerMarge}/>
 
                 <p>Vous trouverez ci-dessous le détail complet des fonctionnalités disponibles 
                 dans chacune des versions du service :</p>
+
+                <div className={classes.espaceVide}/>
+
           </section>
          
           <Grid
@@ -147,7 +161,7 @@ class ExamplePage extends PureComponent {
                         sur des foyers fiscaux types. Le service ne vous permet pas 
                         de simuler votre situation personnelle.</p>
 
-                        <Divider variant="middle" />
+                        <Divider className={classes.dividerMarge} />
 
                         <p>Dans le cadre de l&apos;actuel périmètre, limité à l&apos;Article 197 
                         du Code général des impôts, concernant spécifiquement l&apos;impôt sur le revenu, 
@@ -160,7 +174,7 @@ class ExamplePage extends PureComponent {
                             </ul>
                         <p>sur des foyers fiscaux types.</p>
 
-                        <Divider variant="middle" />
+                        <Divider className={classes.dividerMarge} />
 
                         <p>Les paramètres modifiables dans l&apos;Article 197 du CGI sont :</p>
                             <ul>
@@ -175,12 +189,14 @@ class ExamplePage extends PureComponent {
                         le revenu net à déclarer des foyers fiscaux types 
                         prédéfinis sur l&apos;interface.</p>
 
-                        <Divider variant="middle" />
+                        <Divider className={classes.dividerMarge}/>
 
                         <p>L&apos;utilisation d&apos;OPEN LexImpact est libre, facultative et gratuite ; 
                         toute utilisation du service est subordonnée à l&apos;acceptation préalable
                          et au respect intégral des conditions générales d&apos;utilisation 
                          (CGU) disponibles ci-après :</p>
+
+                         <div className={classes.espaceVide}/>
                         
                         <Link href="/conditions-d-utilisation-openleximpact">
                             <Button variant="contained" color="secondary" size= "large" fullWidth="true">CGU OPEN LexImpact</Button>
@@ -199,7 +215,7 @@ class ExamplePage extends PureComponent {
                         LexImpact POP vous permet de simuler les impacts macros 
                         d&apos;une réforme sur la population et les recettes de l&apos;État.</p>
 
-                        <Divider variant="middle" />
+                        <Divider className={classes.dividerMarge}/>
 
                         <p>Dans le cadre de l&apos;actuel périmètre, 
                         limité à l&apos;Article 197 du Code général des impôts, 
@@ -218,7 +234,7 @@ class ExamplePage extends PureComponent {
                                   <li>la répartition des recettes de l&apos;État par décile de population.</li>
                             </ul>
 
-                        <Divider variant="middle" />
+                        <Divider className={classes.dividerMarge}/>
 
                         <p>Les paramètres modifiables dans l&apos;Article 197 du CGI sont : </p>
                             <ul>
@@ -229,7 +245,7 @@ class ExamplePage extends PureComponent {
                                 <li>la réfaction outre-mers.</li>
                             </ul>
 
-                        <Divider variant="middle" />
+                        <Divider className={classes.dividerMarge}/>
 
                         <p>Afin de pouvoir chiffrer les impacts sur le budget de l&apos;État notamment, 
                         LexImpact POP s&apos;appuie sur des données représentatives de la population, 
@@ -239,6 +255,9 @@ class ExamplePage extends PureComponent {
                         <p>Toute utilisation du service est subordonnée à l&apos;acceptation préalable 
                         et au respect intégral des conditions générales d&apos;utilisation (CGU), 
                         disponibles ci-après : </p>
+
+                        <div className={classes.espaceVide}/>
+                        
 
                         <Link href="/conditions-d-utilisation-leximpactpop">
                               <Button variant="contained" color="secondary" size= "large" fullWidth="true"> CGU LexImpact POP</Button>
