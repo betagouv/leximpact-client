@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
 import Link from "next/link";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   container: {
@@ -27,31 +27,24 @@ const styles = theme => ({
     fontWeight: "bold",
     color: "#565656",
   },
-
-    alink: {
+  alink: {
     fontFamily: "Lora",
     fontSize: "18px",
     color: "#565656",
   },
-
   gridItemText: {
     maxWidth: "600px",
-    padding:"30px",
+    padding: "30px",
   },
 
   gridItemButtons: {
     maxWidth: "600px",
-    padding:"30px",
+    padding: "30px",
   },
-
   divButton: {
-    padding:"10px"
-
-  }
-
+    padding: "10px",
+  },
 });
-
-
 
 class MentionsLegales extends PureComponent {
   render() {
@@ -65,17 +58,17 @@ class MentionsLegales extends PureComponent {
           justify="space-between"
         >
           <Grid item xs={6} className={classes.gridItemText}>
-              <Typography>
-                    <span className={classes.spanTitreIntro}>OPEN LexImpact, c'est&#xA0;quoi&#xA0;?</span>
-              </Typography>
-              <Typography>
+            <Typography>
+              <span className={classes.spanTitreIntro}>
+              OPEN LexImpact, c&apos;est&nbsp;quoi&nbsp;?
+              </span>
+            </Typography>
+            <Typography>
                     OPEN LexImpact est une interface qui permet de simuler, de&#xA0;façon
                     rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
                     sur le revenu sur des foyers fiscaux types.
-              </Typography>
-              <Link href="/presentation-et-cgu">
-                    <a className={classes.alink}>en savoir plus</a>
-              </Link>
+            </Typography>
+            <a href="/presentation-et-cgu" className={classes.alink}>en savoir plus</a>
           </Grid>
 
           <Grid item xs={6} className={classes.gridItemButtons}>
@@ -83,20 +76,20 @@ class MentionsLegales extends PureComponent {
 
               <div className={classes.divButton}>
                 <Link href="/presentation-et-cgu">
-                    <Button variant="outlined" color="inherit" size="large" fullWidth="true">Présentation et conditions d'utilisation</Button>
+                  <Button variant="outlined" color="inherit" size="large" fullWidth="true">Présentation et conditions d&apos;utilisation</Button>
                 </Link>
               </div>
 
               <div className={classes.divButton}>
                 <Link href="/mentions-legales">
-                    <Button variant="outlined" color="inherit" size="large" fullWidth="true">Mentions légales</Button>
+                  <Button variant="outlined" color="inherit" size="large" fullWidth="true">Mentions légales</Button>
                 </Link>
               </div>
 
               <div className={classes.divButton}>
                 <Link href="/vos-retours">
-                    <Button disabled="true" variant="outlined" color="inherit" size="large" fullWidth="true">Vos retours sont précieux</Button>
-                </Link> 
+                  <Button disabled="true" variant="outlined" color="inherit" size="large" fullWidth="true">Vos retours sont précieux</Button>
+                </Link>
               </div>
             </div>
           </Grid>
