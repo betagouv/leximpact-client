@@ -9,7 +9,6 @@
     }]
 */
 import Head from "next/head";
-import PropTypes from "prop-types";
 import { flow } from "lodash";
 import { Fragment, PureComponent } from "react";
 
@@ -31,9 +30,5 @@ class ExamplePage extends PureComponent {
     );
   }
 }
-
-ExamplePage.propTypes = {
-  classes: PropTypes.shape().isRequired,
-};
 
 export default flow(withRoot)(ExamplePage);
