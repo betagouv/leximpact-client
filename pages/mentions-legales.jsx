@@ -17,7 +17,7 @@ import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
 import "../styles/pages-textes.scss";
 
-class ExamplePage extends PureComponent {
+class PageMentionsLegales extends PureComponent {
   render() {
     return (
       <Fragment>
@@ -31,4 +31,4 @@ class ExamplePage extends PureComponent {
   }
 }
 
-export default flow(withRoot)(ExamplePage);
+export default flow(withRoot)(PageMentionsLegales);

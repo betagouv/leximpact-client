@@ -24,7 +24,7 @@ const styles = {
   },
 };
 
-function MyComponent({ classes }) {
+function TextePresentationGenerale({ classes }) {
   return (
     <section className={classes.sectionText}>
       <h1>
@@ -135,8 +135,8 @@ function MyComponent({ classes }) {
   );
 }
 
-MyComponent.propTypes = {
+TextePresentationGenerale.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(MyComponent);
+export default withStyles(styles)(TextePresentationGenerale);

@@ -24,7 +24,7 @@ const styles = {
   },
 };
 
-function MyComponent({ classes }) {
+function TextePresentationOpenLeximpact({ classes }) {
   return (
     <Paper className={classes.paperItem}>
       <h2>OPEN LexImpact</h2>
@@ -94,8 +94,8 @@ function MyComponent({ classes }) {
   );
 }
 
-MyComponent.propTypes = {
+TextePresentationOpenLeximpact.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(MyComponent);
+export default withStyles(styles)(TextePresentationOpenLeximpact);

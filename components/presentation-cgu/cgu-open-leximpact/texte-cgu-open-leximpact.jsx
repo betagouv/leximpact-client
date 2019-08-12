@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function MyComponent({ classes }) {
+function TexteCguOpenLeximpact({ classes }) {
   return (
     <section className={classes.sectionText}>
       <h1>Conditions d&apos;utilisation d&apos;OPEN LexImpact</h1>
@@ -181,8 +181,8 @@ function MyComponent({ classes }) {
   );
 }
 
-MyComponent.propTypes = {
+TexteCguOpenLeximpact.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(MyComponent);
+export default withStyles(styles)(TexteCguOpenLeximpact);

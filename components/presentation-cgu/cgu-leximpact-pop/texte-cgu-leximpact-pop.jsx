@@ -24,7 +24,7 @@ const styles = {
   },
 };
 
-function MyComponent({ classes }) {
+function TexteCguLeximpactPop({ classes }) {
   return (
     <section className={classes.sectionText}>
       <h1>Conditions d&apos;utilisation de LexImpact POP</h1>
@@ -350,8 +350,8 @@ function MyComponent({ classes }) {
   );
 }
 
-MyComponent.propTypes = {
+TexteCguLeximpactPop.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(MyComponent);
+export default withStyles(styles)(TexteCguLeximpactPop);

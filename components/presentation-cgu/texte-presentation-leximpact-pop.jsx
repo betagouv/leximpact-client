@@ -24,7 +24,7 @@ const styles = {
   },
 };
 
-function MyComponent({ classes }) {
+function TextePresentationLeximpactPop({ classes }) {
   return (
     <Paper className={classes.paperItem}>
       <h2>LexImpact POP</h2>
@@ -113,8 +113,8 @@ function MyComponent({ classes }) {
   );
 }
 
-MyComponent.propTypes = {
+TextePresentationLeximpactPop.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(MyComponent);
+export default withStyles(styles)(TextePresentationLeximpactPop);
