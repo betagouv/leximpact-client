@@ -477,166 +477,44 @@ class Reformeur extends Component {
     });
     this.updateCompare(bodyreq);
   }
-  /* render2(){
-        console.log("et je rends reformeur",this.state);
-        return(
-        <Fragment>
-            <div className="main-index">
-                <div className="moitie-gauche">
-                    <Paper className={this.props.classes.article}>
-                        <Article reformebase={this.state.reforme} onChange={this.handleChange} addTranche={this.addTranche}/>
-                    </Paper>
-                </div>
-                <div className="moitie-droite">
-                    <Impact res_brut={this.state.res_brut} total_pop={this.state.total_pop} onClick={this.simPop}/>
-                </div>
-                <div className="clearfix"></div>
-            </div>
-    } */
 
   render() {
     const { classes, theme } = this.props;
-    const desktop = 1280;
-    const tablet = 960; // and max-width: 1024px
-    const phone = 600;
-    const bigscreen = 1920;
+    // const desktop = 1280;
+    // const tablet = 960; // and max-width: 1024px
+    // const phone = 600;
+    // const bigscreen = 1920;
     return (
       <Fragment>
         <div className="main-index">
-          {/* <div>You are a desktop or laptop</div> */}
-          <MediaQuery minDeviceWidth={phone + 1}>
-            {/* <MediaQuery minDeviceWidth={bigscreen}>
-                             <div>You also have a huge screen</div>
-                        </MediaQuery> */}
-            <MediaQuery maxWidth={phone}>
-              {(matches) => {
-                if (matches) {
-                  return (
-                    <div>
-                      {/* <div>You are sized like a tablet or mobile phone though</div> */}
-                      <div className={classes.root}>
-                        <AppBar position="static" color="default">
-                          <Tabs
-                            value={this.state.indextab}
-                            onChange={this.handleTabChange}
-                            indicatorColor="primary"
-                            textColor="primary"
-                            variant="fullWidth">
-                            <Tab label="Loi" />
-                            <Tab label="Impacts" />
-                          </Tabs>
-                        </AppBar>
-                        <SwipeableViews
-                          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                          index={this.state.indextab}
-                          onChangeIndex={this.handleIndexChange}>
-                          <TabContainer dir={theme.direction}>
-                            <Paper>
-                              <ArticleHeader />
-                              <Divider />
-                              <Article
-                                reforme={this.state.reforme}
-                                reformebase={this.state.reformebase}
-                                onChange={this.handleChange}
-                                addTranche={this.addTranche}
-                                removeTranche={this.removeTranche}
-                              />
-                            </Paper>
-                          </TabContainer>
-                          <TabContainer dir={theme.direction}>
-                            <Impact
-                              loading={this.state.loading}
-                              onRevenuChange={this.handleRevenuChange}
-                              onOutreMerChange={this.handleOutreMerChange}
-                              res_brut={this.state.res_brut}
-                              total_pop={this.state.total_pop}
-                              onClick={this.simPop}
-                              cas_types={this.state.cas_types}
-                            />
-                          </TabContainer>
-                        </SwipeableViews>
-                      </div>
-                    </div>
-                  );
-                }
-                return (
-                  <div>
-                    {/* <div>You also have a good screen</div> */}
-                    <div className="moitie-gauche">
-                      <Paper className={this.props.classes.paper}>
-                        <ArticleHeader />
-                        <Divider />
-                        <Article
-                          reforme={this.state.reforme}
-                          reformebase={this.state.reformebase}
-                          onChange={this.handleChange}
-                          addTranche={this.addTranche}
-                          removeTranche={this.removeTranche}
-                        />
-                      </Paper>
-                    </div>
-                    <div className="moitie-droite">
-                      <Impact
-                        loading={this.state.loading}
-                        onRevenuChange={this.handleRevenuChange}
-                        onOutreMerChange={this.handleOutreMerChange}
-                        res_brut={this.state.res_brut}
-                        total_pop={this.state.total_pop}
-                        onClick={this.simPop}
-                        cas_types={this.state.cas_types}
-                      />
-                    </div>
-                    <div className="clearfix" />
-                  </div>
-                );
-              }}
-            </MediaQuery>
-          </MediaQuery>
-
-          <MediaQuery maxDeviceWidth={phone}>
-            {/* <div>You are a tablet or mobile phone</div> */}
-            <div>
-              {/* <div>You are sized like a tablet or mobile phone though</div> */}
-              <div className={classes.root}>
-                <AppBar position="static" color="default">
-                  <Tabs
-                    value={this.state.indextab}
-                    onChange={this.handleTabChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth">
-                    <Tab label="Loi" />
-                    <Tab label="Impacts" />
-                  </Tabs>
-                </AppBar>
-                <SwipeableViews
-                  axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                  index={this.state.indextab}
-                  onChangeIndex={this.handleIndexChange}>
-                  <TabContainer dir={theme.direction}>
-                    <ArticleHeader />
-                    <Article
-                      reforme={this.state.reforme}
-                      reformebase={this.state.reformebase}
-                      onChange={this.handleChange}
-                      addTranche={this.addTranche}
-                    />
-                  </TabContainer>
-                  <TabContainer dir={theme.direction}>
-                    <Impact
-                      loading={this.state.loading}
-                      onRevenuChange={this.handleRevenuChange}
-                      onOutreMerChange={this.handleOutreMerChange}
-                      res_brut={this.state.res_brut}
-                      total_pop={this.state.total_pop}
-                      onClick={this.simPop}
-                      cas_types={this.state.cas_types}
-                    />
-                  </TabContainer>
-                </SwipeableViews>
-              </div>
+          <div>
+            {/* <div>You also have a good screen</div> */}
+            <div className="moitie-gauche">
+              <Paper className={this.props.classes.paper}>
+                <ArticleHeader />
+                <Divider />
+                <Article
+                  reforme={this.state.reforme}
+                  reformebase={this.state.reformebase}
+                  onChange={this.handleChange}
+                  addTranche={this.addTranche}
+                  removeTranche={this.removeTranche}
+                />
+              </Paper>
             </div>
-          </MediaQuery>
+            <div className="moitie-droite">
+              <Impact
+                loading={this.state.loading}
+                onRevenuChange={this.handleRevenuChange}
+                onOutreMerChange={this.handleOutreMerChange}
+                res_brut={this.state.res_brut}
+                total_pop={this.state.total_pop}
+                onClick={this.simPop}
+                cas_types={this.state.cas_types}
+              />
+            </div>
+            <div className="clearfix" />
+          </div>
         </div>
       </Fragment>
     );

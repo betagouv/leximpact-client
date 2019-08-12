@@ -46,12 +46,13 @@ class Impact extends Component {
   render() {
     // include should be false to remove the graph of recettes
     const includepopulation = false;
-    const { loading } = this.props;
-    const { res_brut } = this.props;
-    const { total_pop } = this.props;
+    const {
+      cas_types, loading, res_brut, total_pop,
+    } = this.props;
+    console.log("this.props", this.props);
     return (
       <Grid container spacing={24}>
-        {this.props.cas_types.map((ct, i) => (
+        {cas_types.map((ct, i) => (
           <Grid item key={`grid${i}`} xs={6} sm={12} md={6} lg={4} xl={3}>
             <SimpleCard
               key={`card${i}`}
