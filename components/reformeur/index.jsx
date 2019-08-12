@@ -15,29 +15,21 @@
     import/order: [2, {
       newlines-between: "always",
       groups: ["builtin", "external", "parent", "sibling", "index"]
-    }]
+    }],
+    camelcase: 0,
 */
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import fetch from "isomorphic-fetch";
 import PropTypes from "prop-types";
 import { set } from "lodash";
-import MediaQuery from "react-responsive";
-import SwipeableViews from "react-swipeable-views";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Divider,
-  Paper,
-  Tab,
-  Tabs,
-  Typography,
-} from "@material-ui/core";
+import { Divider, Paper, Typography } from "@material-ui/core";
 
 import Impact from "./impact";
 import Article from "./article";
 import ArticleHeader from "./article-header";
 
-const styles = theme => ({
+const styles = () => ({
   paper: {
     padding: 0,
     margin: "1em",
@@ -53,12 +45,15 @@ function TabContainer({ children, dir }) {
 }
 
 // renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
-const changeValueArray = (arrayToChange, indexToChange, newValue) => arrayToChange.map((item, numeroitem) => {
-  if (numeroitem === indexToChange) {
-    return newValue;
-  }
-  return item;
-});
+const changeValueArray = (arrayToChange, indexToChange, newValue) => {
+  const list = arrayToChange.map((item, numeroitem) => {
+    if (numeroitem === indexToChange) {
+      return newValue;
+    }
+    return item;
+  });
+  return list;
+};
 
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
@@ -221,7 +216,7 @@ class Reformeur extends Component {
           },
         ],
       },
-      indextab: 0,
+      // indextab: 0,
       cas_types: [
         {
           outre_mer: 0,
@@ -266,7 +261,7 @@ class Reformeur extends Component {
           revenu: 55200,
         },
       ],
-      cas_types_defaut: true,
+      // cas_types_defaut: true,
     };
   }
 
@@ -284,14 +279,18 @@ class Reformeur extends Component {
       .then((json) => {
         this.setState({ cas_types: json });
       })
-      .catch(() => console.log("Can’t access  response. Blocked by browser?")); // json.map(country => country.name))
+      .catch(() => {
+        // eslint-disable-next-line no-console
+        console.log("Can’t access  response. Blocked by browser?");
+      });
+    // json.map(country => country.name))
     // .then(countryNames => this.setState({countryNames, loading: false}))
     // .then(json => this.setState({revenus_cas_types: json , loading : false} ))
-    /**/
   }
 
   UpdateBareme = (indexToChange, value) => {
-    const ref = this.state.reforme;
+    const { reforme } = this.state;
+    const ref = reforme;
     const list = changeValueArray(
       ref.impot_revenu.bareme.seuils,
       indexToChange,
@@ -302,7 +301,8 @@ class Reformeur extends Component {
   }
 
   UpdateTaux = (indexToChange, value) => {
-    const ref = this.state.reforme;
+    const { reforme } = this.state;
+    const ref = reforme;
     const list = changeValueArray(
       ref.impot_revenu.bareme.taux,
       indexToChange,
@@ -314,7 +314,8 @@ class Reformeur extends Component {
 
   UpdateDecote = (dectype, value) => {
     // Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
-    const ref = this.state.reforme;
+    const { reforme } = this.state;
+    const ref = reforme;
     if (dectype === "") {
       ref.impot_revenu.decote.seuil_couple = parseInt(value, 10);
     }
@@ -328,7 +329,8 @@ class Reformeur extends Component {
   }
 
   UpdatePlafond = (dectype, value) => {
-    const ref = this.state.reforme;
+    const { reforme } = this.state;
+    const ref = reforme;
     const regex = RegExp("^[0-9a-zA-Z_.]+$");
     const regextaux = RegExp("taux"); // Tous les noms de variables qui contiennent taux
     // sont divisés par 100. Je vois vraiment pas ce qui pourrait poser probleme avec ça.
@@ -340,28 +342,30 @@ class Reformeur extends Component {
   }
 
   addTranche = () => {
-    const refbase = this.state.reforme;
+    const { reforme } = this.state;
+    const refbase = reforme;
     const newnbt = refbase.impot_revenu.bareme.seuils.length + 1;
     const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt - 2];
-    refbase.impot_revenu.bareme.seuils = this.state.reforme.impot_revenu.bareme.seuils.concat(
+    refbase.impot_revenu.bareme.seuils = reforme.impot_revenu.bareme.seuils.concat(
       lastseuil + 1,
     );
     const lasttaux = refbase.impot_revenu.bareme.taux[newnbt - 2];
-    refbase.impot_revenu.bareme.taux = this.state.reforme.impot_revenu.bareme.taux.concat(
+    refbase.impot_revenu.bareme.taux = reforme.impot_revenu.bareme.taux.concat(
       lasttaux,
     );
     this.setState({ reforme: refbase });
   }
 
   removeTranche = () => {
-    const refbase = this.state.reforme;
+    const { cas_types, reforme } = this.state;
+    const refbase = reforme;
     const newnbt = refbase.impot_revenu.bareme.seuils.length - 1;
     if (newnbt > 0) {
-      refbase.impot_revenu.bareme.seuils = this.state.reforme.impot_revenu.bareme.seuils.slice(
+      refbase.impot_revenu.bareme.seuils = reforme.impot_revenu.bareme.seuils.slice(
         0,
         newnbt,
       );
-      refbase.impot_revenu.bareme.taux = this.state.reforme.impot_revenu.bareme.taux.slice(
+      refbase.impot_revenu.bareme.taux = reforme.impot_revenu.bareme.taux.slice(
         0,
         newnbt,
       );
@@ -373,19 +377,19 @@ class Reformeur extends Component {
         })
         : JSON.stringify({
           reforme: refbase,
-          description_cas_types: this.state.cas_types,
+          description_cas_types: cas_types,
         });
       this.updateCompare(bodyreq);
     }
   }
 
-  handleTabChange = (event, value) => {
-    this.setState({ indextab: value });
-  }
+  // handleTabChange = (event, value) => {
+  //   this.setState({ indextab: value });
+  // }
 
-  handleIndexChange = (index) => {
-    this.setState({ indextab: index });
-  }
+  // handleIndexChange = (index) => {
+  //   this.setState({ indextab: index });
+  // }
 
   endpoint = () => process.env.API_URL
 
@@ -405,41 +409,38 @@ class Reformeur extends Component {
   }
 
   handleChange = (value, name) => {
-    const success = false;
+    const { cas_types, reforme } = this.state;
     const newvalue = value === "" ? 0 : value;
     if (name.substring(0, 5) === "seuil") {
       const numb = parseInt(name.substring(5), 10);
       this.UpdateBareme(numb, newvalue);
-      // success=true;
     }
     if (name.substring(0, 4) === "taux") {
       const numb = parseInt(name.substring(4), 10);
       this.UpdateTaux(numb, newvalue);
-      // success=true;
     }
     if (name.substring(0, 6) === "decote") {
       const whichdecote = name.substring(7);
       this.UpdateDecote(whichdecote, newvalue);
-      // success=true;
     }
     if (name.substring(0, 10) === "plafond_qf") {
       const whichplaf = name.substring(10);
       this.UpdatePlafond(whichplaf, newvalue);
-      // success=true;
     }
     const bodyreq = this.cas_types_defaut
       ? JSON.stringify({
         deciles: false,
-        reforme: this.state.reforme,
+        reforme,
       })
       : JSON.stringify({
-        reforme: this.state.reforme,
-        description_cas_types: this.state.cas_types,
+        reforme,
+        description_cas_types: cas_types,
       });
     this.updateCompare(bodyreq);
   }
 
-  simPop = (e) => {
+  simPop = () => {
+    const { reforme } = this.state;
     fetch(`${this.endpoint()}/calculate/compare`, {
       method: "POST",
       headers: {
@@ -447,7 +448,7 @@ class Reformeur extends Component {
       },
       body: JSON.stringify({
         deciles: true,
-        reforme: this.state.reforme,
+        reforme,
       }),
     })
       .then(response => response.json())
@@ -457,68 +458,76 @@ class Reformeur extends Component {
   }
 
   handleRevenuChange = (i, value) => {
-    const arrayrev = this.state.cas_types;
+    const { cas_types, reforme } = this.state;
+    const arrayrev = cas_types;
     arrayrev[i].revenu = value * 12;
-    this.setState({ cas_types: arrayrev, cas_types_defaut: false });
+    this.setState({ cas_types: arrayrev });
+    // this.setState({ cas_types: arrayrev, cas_types_defaut: false });
     const bodyreq = JSON.stringify({
-      reforme: this.state.reforme,
+      reforme,
       description_cas_types: arrayrev,
     });
     this.updateCompare(bodyreq);
   }
 
   handleOutreMerChange = (i, value) => {
-    const arrayrev = this.state.cas_types;
+    const { cas_types, reforme } = this.state;
+    const arrayrev = cas_types;
     arrayrev[i].outre_mer = value;
-    this.setState({ cas_types: arrayrev, cas_types_defaut: false });
+    this.setState({ cas_types: arrayrev });
+    // this.setState({ cas_types: arrayrev, cas_types_defaut: false });
     const bodyreq = JSON.stringify({
-      reforme: this.state.reforme,
+      reforme,
       description_cas_types: arrayrev,
     });
     this.updateCompare(bodyreq);
   }
 
   render() {
-    const { classes, theme } = this.props;
-    // const desktop = 1280;
-    // const tablet = 960; // and max-width: 1024px
-    // const phone = 600;
-    // const bigscreen = 1920;
+    const { classes } = this.props;
+    const {
+      cas_types,
+      loading,
+      reforme,
+      reformebase,
+      res_brut,
+      total_pop,
+    } = this.state;
     return (
-      <Fragment>
-        <div className="main-index">
-          <div>
-            {/* <div>You also have a good screen</div> */}
-            <div className="moitie-gauche">
-              <Paper className={this.props.classes.paper}>
-                <ArticleHeader />
-                <Divider />
-                <Article
-                  reforme={this.state.reforme}
-                  reformebase={this.state.reformebase}
-                  onChange={this.handleChange}
-                  addTranche={this.addTranche}
-                  removeTranche={this.removeTranche}
-                />
-              </Paper>
-            </div>
-            <div className="moitie-droite">
-              <Impact
-                loading={this.state.loading}
-                onRevenuChange={this.handleRevenuChange}
-                onOutreMerChange={this.handleOutreMerChange}
-                res_brut={this.state.res_brut}
-                total_pop={this.state.total_pop}
-                onClick={this.simPop}
-                cas_types={this.state.cas_types}
+      <div className="main-index">
+        <div className="clearfix">
+          <div className="moitie-gauche">
+            <Paper className={classes.paper}>
+              <ArticleHeader />
+              <Divider />
+              <Article
+                reforme={reforme}
+                reformebase={reformebase}
+                onChange={this.handleChange}
+                addTranche={this.addTranche}
+                removeTranche={this.removeTranche}
               />
-            </div>
-            <div className="clearfix" />
+            </Paper>
+          </div>
+          <div className="moitie-droite">
+            <Impact
+              loading={loading}
+              onRevenuChange={this.handleRevenuChange}
+              onOutreMerChange={this.handleOutreMerChange}
+              res_brut={res_brut}
+              total_pop={total_pop}
+              onClick={this.simPop}
+              cas_types={cas_types}
+            />
           </div>
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
+
+Reformeur.propTypes = {
+  classes: PropTypes.shape().isRequired,
+};
 
 export default withStyles(styles, { withTheme: true })(Reformeur);

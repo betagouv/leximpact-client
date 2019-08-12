@@ -32,8 +32,12 @@ class OutputField extends PureComponent {
   }
 }
 
+OutputField.defaultProps = {
+  style: {},
+};
+
 OutputField.propTypes = {
-  style: PropTypes.shape().isRequired,
+  style: PropTypes.shape(),
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
