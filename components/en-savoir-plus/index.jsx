@@ -89,7 +89,7 @@ class MentionsLegales extends PureComponent {
 
               <div className={classes.divButton}>
                 <Link href="/mentions-legales">
-                    <Button disabled="true" variant="outlined" color="inherit" size="large" fullWidth="true">Mentions légales</Button>
+                    <Button variant="outlined" color="inherit" size="large" fullWidth="true">Mentions légales</Button>
                 </Link>
               </div>
 

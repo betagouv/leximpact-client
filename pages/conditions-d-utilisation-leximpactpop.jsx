@@ -17,6 +17,7 @@ import { withStyles } from "@material-ui/core/styles/";
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
 import "../styles/pages-textes.scss";
+import Divider from '@material-ui/core/Divider';
 
 const styles = () => ({
   dialog: {
@@ -37,7 +38,14 @@ const styles = () => ({
     maxWidth: "800px",
     margin: "0 auto",
     padding: "30px",
+  },
 
+  dividerSansMarge: {
+    marginTop: "5px",
+  },
+
+  espaceVide: {
+    height: "20px",
   },
     
 });
@@ -61,7 +69,7 @@ class ExamplePage extends PureComponent {
                 et leurs effets sur des déciles de population, 
                 LexImpact s’appuie sur une base de données, la&nbsp; 
                 <a href="https://www.insee.fr/fr/metadonnees/source/serie/s1231/documentation-methodologique" target="_blank">base ERFS FPR</a>, 
-                dont le service producteur est l’<a href="https://insee.fr">INSEE</a>. 
+                dont le service producteur est l’<a href="https://insee.fr" target="_blank">INSEE</a>. 
                 Ces&#xA0;données sont couvertes par des secrets protégés par la loi, 
                 et notamment le secret statistique.</p>
 
@@ -80,22 +88,25 @@ class ExamplePage extends PureComponent {
                 des données auxquelles le service vous donne accès. 
                 Toute violation de cette confidentialité vous expose à des sanctions pénales</strong>&nbsp;
                 comme stipulées dans l’<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000006417945&cidTexte=LEGITEXT000006070719&categorieLien=id&dateTexte="
-                target="_blank">
-                Article 226-13 du Code pénal</a>.</p>
+                target="_blank">Article 226-13 du Code pénal</a>.</p>
 
+                <div className={classes.espaceVide}/>
 
                 <h2>Vocabulaire</h2>
+                <hr />
 
                     <p>« Nous » se réfère à l'éditeur de LexImpact POP</p>
                     <p>« Vous » se réfère à un·e usager habilité·e de LexImpact POP</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Utilisation</h2>
+                <hr />
 
                     <p>Si vous effectuez une simulation LexImpact POP, 
                     vous acceptez ces conditions d&apos;utilisation, 
                     comme indiqué dans l&apos;<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000031367350&cidTexte=LEGITEXT000031366350&categorieLien=id&dateTexte="
-                    target="_blank">
-                    article L. 112-9 du Code des relations entre le public et l&apos;administration</a>.</p>
+                    target="_blank">Article L. 112-9 du Code des relations entre le public et l&apos;administration</a>.</p>
 
                     <p>L&apos;utilisation de LexImpact POP requiert une connexion internet 
                     et un navigateur récent, LexImpact POP ne fonctionne pas sur Internet Explorer. 
@@ -107,9 +118,12 @@ class ExamplePage extends PureComponent {
                     du logiciel par d&apos;autres usagers.
                     Cela nous permet d&apos;anticiper d&apos;éventuelles attaques par déni de service.</p>
 
+                    <div className={classes.espaceVide}/>
+
 
 
                 <h2>Conditions d&apos;accès au service</h2>
+                <hr />
 
                     <p>Actuellement, seulement les personnes dûment habilitées 
                     ci-dessous sont autorisées à accéder au service :</p>
@@ -119,8 +133,9 @@ class ExamplePage extends PureComponent {
                             <li>les administrateurs et administratrices de l&apos;Assemblée nationale.</li>
                         </ul>
 
-                    <p><b>Si vous faîtes partie des personnes telles que listées au paragraphe précédent 
+                    <p><b>Si vous faîtes partie des personnes telles que listées au paragraphe précédent <br />
                     et que vous n&apos;arrivez pas à vous connecter à LexImpact POP :</b></p>
+                    <Divider className={classes.dividerSansMarge} />
 
                         <ol> 
                             <li>Veuillez vérifier que vous avez bien utilisé votre adresse mail 
@@ -142,20 +157,27 @@ class ExamplePage extends PureComponent {
 
 
                     <p><b>Si vous ne faîtes pas partie des personnes habilitées, 
-                    que vous participez professionnellement à l&apos;élaboration de la loi 
+                    que vous participez professionnellement <br /> à l&apos;élaboration de la loi 
                     et que vous souhaitez accéder au service :</b></p>
+                    <Divider className={classes.dividerSansMarge} />
                     
-                    <p>L&apos;accord de l&apos;INSEE est indispensable pour étendre 
-                    l&apos;accès de l&apos;outil LexImpact POP à tout nouvel organisme. 
-                    Merci de bien vouloir nous transmettre une demande 
-                    par le biais de notre formulaire de contact en indiquant 
-                    dans l&apos;objet « demande d’accès LexImpact POP ».</p> 
+                        <ul>
+                            <li>L&apos;accord de l&apos;INSEE est indispensable pour étendre 
+                            l&apos;accès de l&apos;outil LexImpact POP à tout nouvel organisme. </li>
+                            
+                            <li>Merci de bien vouloir nous transmettre une demande 
+                            par le biais de notre formulaire de contact en indiquant 
+                            dans l&apos;objet « demande d’accès LexImpact POP ».</li> 
+                        </ul>
                     
                     <p>L&apos;envoi de cette demande ne vaut en aucun cas garantie 
                     d&apos;une acceptation d&apos;habilitation.</p>
 
+                    <div className={classes.espaceVide}/>
+
                     
                 <h2>Vos données</h2>
+                <hr />
 
                     <p>Dans le cadre du partenariat avec l&apos;INSEE et 
                     afin de préserver le secret statistique, la liste des personnes 
@@ -181,13 +203,19 @@ class ExamplePage extends PureComponent {
                     nous collectons également des données anonymes d&apos;audience, 
                     indépendamment des simulations effectuées.</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Absence de garantie de service</h2>
+                <hr />
 
                     <p>Nous mettons LexImpact POP à disposition sans garantie sur sa disponibilité, 
                     en « best effort ». Cela signifie que d&apos;éventuelles indisponibilités 
                     n&apos;ouvriront pas droit à compensation financière.</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Absence de garantie de résultat</h2>
+                <hr />
 
                     <p> Les résultats calculés par ce simulateur ont une valeur informative 
                     et ne présentent en aucun cas une garantie pour l&apos;usager.</p>
@@ -222,7 +250,10 @@ class ExamplePage extends PureComponent {
                     qui sont seulement données à titre indicatif. 
                     Les résultats obtenus sont à considérer comme un ordre de grandeur.</p>
 
+                    <div className={classes.espaceVide}/>
+
                  <h2>Évolutions</h2>
+                 <hr />
 
                     <p>Nous pouvons faire évoluer LexImpact POP sans information préalable.
                     Nous ajoutons régulièrement des variables, 
@@ -239,7 +270,6 @@ class ExamplePage extends PureComponent {
 
           </section>
           
-
       </Fragment>
     );
   }

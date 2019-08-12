@@ -33,12 +33,20 @@ const styles = () => ({
     padding: "45px 45px 0 45px",
   },
 
-   sectionText: {
+  sectionText: {
     maxWidth: "800px",
     margin: "0 auto",
     padding: "30px",
+  },
 
-  }
+  dividerMarge: {
+    marginTop: "20px",
+  },
+
+  espaceVide: {
+    height: "20px",
+  },
+
 });
 
 class ExamplePage extends PureComponent {
@@ -57,11 +65,15 @@ class ExamplePage extends PureComponent {
               
 
                 <h2>Vocabulaire</h2>
+                 <hr />
 
                     <p>« Nous » se réfère à l&apos;éditeur d&apos;OPEN LexImpact.</p>
                     <p>« Vous » se réfère à un·e usager d&apos;OPEN LexImpact.</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Utilisation</h2>
+                <hr />
 
                     <p>OPEN LexImpact est en accès libre à l&apos;adresse&nbsp;  
                     <a href="https://leximpact.beta.gouv.fr/"target="_blank">leximpact.beta.gouv.fr</a>. 
@@ -81,7 +93,10 @@ class ExamplePage extends PureComponent {
                     du logiciel par d&apos;autres usagers.
                     Cela nous permet d&apos;anticiper d&apos;éventuelles attaques par déni de service.</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Vos données</h2>
+                <hr />
 
                     <p>Lors de l&apos;utilisation du service, OPEN LexImpact ne vous demande 
                     ni ne stocke d&apos;information nominative telle que noms, prénoms ou adresses.</p>
@@ -102,13 +117,19 @@ class ExamplePage extends PureComponent {
                     nous collectons également des données anonymes d&apos;audience, 
                     indépendamment des simulations effectuées.</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Absence de garantie de service</h2>
+                <hr />
 
                     <p>Nous mettons OPEN LexImpact à disposition sans garantie sur sa disponibilité, 
                     en « best effort ». Cela signifie que d&apos;éventuelles indisponibilités 
                     n&apos;ouvriront pas droit à compensation financière.</p>
 
+                    <div className={classes.espaceVide}/>
+
                 <h2>Absence de garantie de résultat</h2>
+                <hr />
 
                     <p> Les résultats calculés par ce simulateur ont une valeur informative 
                     et ne présentent en aucun cas une garantie pour l&apos;usager.</p>
@@ -129,7 +150,10 @@ class ExamplePage extends PureComponent {
                     <a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/index.htm"target="_blank">
                     le service de la DGFIP</a> est disponible.</p>
 
+                    <div className={classes.espaceVide}/>
+
                  <h2>Évolutions</h2>
+                 <hr />
 
                     <p>Nous pouvons faire évoluer OPEN LexImpact sans information préalable.
                     Nous ajoutons régulièrement des variables, 
