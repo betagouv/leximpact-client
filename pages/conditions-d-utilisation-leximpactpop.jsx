@@ -109,7 +109,7 @@ class ExamplePage extends PureComponent {
                     target="_blank">Article L. 112-9 du Code des relations entre le public et l&apos;administration</a>.</p>
 
                     <p>L&apos;utilisation de LexImpact POP requiert une connexion internet 
-                    et un navigateur récent, LexImpact POP ne fonctionne pas sur Internet Explorer. 
+                    et un navigateur récent, LexImpact POP ne&nbsp;fonctionne pas sur Internet Explorer. 
                     Vous pouvez installer en autonomie Chrome ou Firefox, 
                     sans droits d&apos;administration sur votre poste.</p>
 
@@ -152,7 +152,7 @@ class ExamplePage extends PureComponent {
                             de l&apos;Assemblée nationale.</li>
 
                             <li>En dernier recours, n&apos;hésitez pas à nous envoyer une demande 
-                            par le biais du formulaire de contact.</li>
+                            par le biais du formulaire de&nbsp;contact.</li>
                         </ol>
 
 
@@ -166,8 +166,8 @@ class ExamplePage extends PureComponent {
                             l&apos;accès de l&apos;outil LexImpact POP à tout nouvel organisme. </li>
                             
                             <li>Merci de bien vouloir nous transmettre une demande 
-                            par le biais de notre formulaire de contact en indiquant 
-                            dans l&apos;objet « demande d’accès LexImpact POP ».</li> 
+                            par le biais de notre formulaire de&nbsp;contact en indiquant 
+                            dans l&apos;objet «&nbsp;demande d’accès LexImpact POP&nbsp;».</li> 
                         </ul>
                     
                     <p>L&apos;envoi de cette demande ne vaut en aucun cas garantie 
@@ -181,8 +181,8 @@ class ExamplePage extends PureComponent {
 
                     <p>Dans le cadre du partenariat avec l&apos;INSEE et 
                     afin de préserver le secret statistique, la liste des personnes 
-                    ayant accès à l&apos;outil de simulation est stockée, tenue à jour 
-                    en permanence et transmise régulièrement à l&apos;INSEE. Pour accéder au service, 
+                    ayant accès à l&apos;outil de simulation est stockée, tenue à&nbsp;jour 
+                    en permanence et transmise régulièrement à&nbsp;l&apos;INSEE. Pour accéder au service, 
                     LexImpact POP vous demande votre adresse mail. Afin d&apos;éviter les usages abusifs, 
                     LexImpact POP conserve également des données sur le nombre de simulations 
                     effectuées par usager. Ces informations ne seront en aucun cas utilisées 
@@ -218,7 +218,7 @@ class ExamplePage extends PureComponent {
                 <hr />
 
                     <p> Les résultats calculés par ce simulateur ont une valeur informative 
-                    et ne présentent en aucun cas une garantie pour l&apos;usager.</p>
+                    et ne présentent en aucun cas une&nbsp;garantie pour l&apos;usager.</p>
 
                     <p> La simulation d&apos;impact sur un foyer fiscal type dépend 
                     à la fois de l’interface LexImpact POP mais également 
@@ -232,16 +232,16 @@ class ExamplePage extends PureComponent {
                     c&apos;est un outil de chiffrage conçu pour évaluer les impacts d&apos;une réforme. 
                     Les résultats calculés par ce simulateur ont une valeur informative 
                     et ne représentent en aucun cas une décision d&apos;ouverture de droits. 
-                    Pour une simulation de votre impôt sur le revenu personnel,&nbsp;
+                    Pour une simulation de votre impôt sur le&nbsp;revenu personnel,&nbsp;
                     <a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/index.htm">
                     le service de la DGFIP</a> est disponible.</p>
 
                     <p> Par ailleurs, concernant les impacts agrégés sur le budget de l&apos;État 
-                    et leurs effets sur des déciles de population, LexImpact POP ne propose 
+                    et leurs effets sur des déciles de&nbsp;population, LexImpact POP ne propose 
                     pas une analyse des effets comportementaux. Cela signifie que LexImpact POP 
                     se tient stricto sensu aux effets théoriques de l&apos;application de la loi, 
-                    sans prendre en compte les éventuels changements de comportements des contribuables 
-                    (par exemple, le départ de français à l&apos;étranger ou le retour de non résidents fiscaux).</p>
+                    sans prendre en&nbsp;compte les éventuels changements de comportements des contribuables 
+                    (par exemple, le départ de&nbsp;français à l&apos;étranger ou le retour de non résidents fiscaux).</p>
 
                     <p>En raison des limites inhérentes à l&apos;échantillon employé 
                     et aux méthodes utilisées pour extraire de cette base de données 
@@ -266,7 +266,7 @@ class ExamplePage extends PureComponent {
                     L&apos;indisponibilité ne dépasse généralement pas une dizaine de secondes.</p>
 
                     <p>Nous pouvons aussi amender ces conditions d&apos;utilisation sans préavis. 
-                    Les utilisateurs sont tenus de consulter régulièrement les CGU à jour.</p>
+                    Les utilisateurs sont tenus de&nbsp;consulter régulièrement les CGU à jour.</p>
 
           </section>
           

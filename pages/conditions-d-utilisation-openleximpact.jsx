@@ -77,16 +77,16 @@ class ExamplePage extends PureComponent {
 
                     <p>OPEN LexImpact est en accès libre à l&apos;adresse&nbsp;  
                     <a href="https://leximpact.beta.gouv.fr/"target="_blank">leximpact.beta.gouv.fr</a>. 
-                    Son utilisation est gratuite et facultative.</p>
+                    Son utilisation est gratuite et&nbsp;facultative.</p>
 
                     <p>Si vous effectuez une simulation, vous acceptez ces conditions d&apos;utilisation, 
-                    comme indiqué dans l&apos;article L. 112-9 du Code des relations 
+                    comme indiqué dans l&apos;Article&nbsp;L.&nbsp;112-9 du Code des relations 
                     entre le public et l&apos;administration.</p>
 
                     <p>L&apos;utilisation d&apos;OPEN LexImpact requiert une connexion internet 
                     et un navigateur récent, OPEN LexImpact ne fonctionne pas sur Internet Explorer. 
                     Vous pouvez installer en autonomie Chrome ou Firefox, 
-                    sans droits d&apos;administration sur votre poste.</p>
+                    sans&nbsp;droits d&apos;administration sur votre poste.</p>
 
                     <p>Nous nous réservons le droit de bloquer, sans information préalable 
                     ni compensation financière, les usages mettant en péril l&apos;utilisation 
@@ -102,7 +102,7 @@ class ExamplePage extends PureComponent {
                     ni ne stocke d&apos;information nominative telle que noms, prénoms ou adresses.</p>
 
                     <p>Toutefois, nous mettons à disposition un formulaire de contact 
-                    dans le cas où vous auriez une demande ou bien un retour d&apos;expérience
+                    dans le cas où vous auriez une demande ou&nbsp;bien un retour d&apos;expérience
                     à nous partager. Dans ce cadre, nous nous engageons à ne conserver 
                     que les données anonymisées de nos échanges. Ces informations 
                     nous permettront d&apos;améliorer le service. Toutes les données 
@@ -123,7 +123,7 @@ class ExamplePage extends PureComponent {
                 <hr />
 
                     <p>Nous mettons OPEN LexImpact à disposition sans garantie sur sa disponibilité, 
-                    en « best effort ». Cela signifie que d&apos;éventuelles indisponibilités 
+                    en « best effort ». Cela&nbsp;signifie que d&apos;éventuelles indisponibilités 
                     n&apos;ouvriront pas droit à compensation financière.</p>
 
                     <div className={classes.espaceVide}/>
@@ -132,7 +132,7 @@ class ExamplePage extends PureComponent {
                 <hr />
 
                     <p> Les résultats calculés par ce simulateur ont une valeur informative 
-                    et ne présentent en aucun cas une garantie pour l&apos;usager.</p>
+                    et ne présentent en aucun cas une&nbsp;garantie pour l&apos;usager.</p>
 
                     <p> La simulation d&apos;impact sur un foyer fiscal type dépend 
                     à la fois de l’interface OPEN LexImpact mais également 

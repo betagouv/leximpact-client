@@ -98,16 +98,17 @@ class ExamplePage extends PureComponent {
 
                 <p>Aujourd’hui, le Parlement dispose de peu de moyens d&apos;évaluation des amendements 
                 et propositions avant de voter la loi. Les impacts sur la population 
-                et les recettes sont donc trop souvent découverts pendant les débats, 
+                et les recettes sont donc trop souvent découverts pendant les&nbsp;débats, 
                 voire une fois la loi votée et mise à exécution.</p>
 
                 <p>Là où le Parlement détient une expertise politique et juridique, 
                 LexImpact apporte un soutien en chiffrage, permettant de vérifier, 
                 dans une certaine mesure, la corrélation entre la vision politique souhaitée 
-                et les impacts sur la population française.</p>
+                et&nbsp;les&nbsp;impacts sur la population française.</p>
 
                 <p>Pour cela, LexImpact apporte une capacité de simulation ex ante 
-                sur un périmètre actuellement limité à l&apos;impôt sur le revenu, qui vise à s&apos;élargir progressivement.</p>
+                sur un périmètre actuellement limité à&nbsp;l&apos;impôt sur le revenu, 
+                qui vise à s&apos;élargir progressivement.</p>
 
                  <div className={classes.espaceVide}/>
 
@@ -115,18 +116,18 @@ class ExamplePage extends PureComponent {
             <hr /> 
 
                 <p>LexImpact est une interface qui permet d’évaluer, de façon rapide, 
-                l&apos;impact des réformes paramétriques de l'impôt sur le revenu. 
+                l&apos;impact des réformes paramétriques de&nbsp;l'impôt sur le revenu. 
                 Par exemple, les usagers du service peuvent découvrir en quasi temps réel, 
-                le montant des impôts payés par des foyers fiscaux types, 
-                avant et après la réforme qu&apos;ils ont entré dans l’interface.</p>
+                le&nbsp;montant des impôts payés par des foyers fiscaux types, 
+                avant et après la réforme qu&apos;ils ont entré dans&nbsp;l’interface.</p>
 
                 <p>Le service s&apos;appuie sur <a href="https://fr.openfisca.org/"target="_blank">OpenFisca</a>, 
                 logiciel libre créé en 2012 
                 et maintenu par la <a href="https://www.numerique.gouv.fr/dinsic/"target="_blank">DINSIC</a>, 
-                qui transforme le code législatif en code informatique.</p>
+                qui transforme le&nbsp;code législatif en code informatique.</p>
 
                 <p><a href="https://github.com/betagouv/leximpact-client"target="_blank">Le code de LexImpact est libre</a>, 
-                sous licence AGPL-3.0, et peut donc être vérifié et amélioré par toutes et tous.</p>
+                sous licence AGPL-3.0, et peut donc être vérifié et amélioré par toutes et&nbsp;tous.</p>
 
                 <p>LexImpact se décline en deux services distincts qui s&apos;adressent à deux usagers différents :</p>
                     <ul> 
@@ -139,7 +140,7 @@ class ExamplePage extends PureComponent {
                 <Divider className={classes.dividerMarge}/>
 
                 <p>Vous trouverez ci-dessous le détail complet des fonctionnalités disponibles 
-                dans chacune des versions du service :</p>
+                dans chacune des versions du&nbsp;service :</p>
 
                 <div className={classes.espaceVide}/>
 
@@ -155,15 +156,15 @@ class ExamplePage extends PureComponent {
           <Grid item xs={6} className={classes.griditemOpen}>
                 <Paper className={classes.paperItem}>
                     <h2>OPEN LexImpact</h2>
-                        <p>OPEN Leximpact est un service accessible à toutes et tous. </p>
+                        <p>OPEN Leximpact est un service accessible à&nbsp;toutes et tous. </p>
 
                         <p>Il vous permet de simuler les impacts d&apos;une réforme 
-                        sur des foyers fiscaux types. Le service ne vous permet pas 
+                        sur des foyers fiscaux types. Le&nbsp;service ne vous permet pas 
                         de simuler votre situation personnelle.</p>
 
                         <Divider className={classes.dividerMarge} />
 
-                        <p>Dans le cadre de l&apos;actuel périmètre, limité à l&apos;Article 197 
+                        <p>Dans le cadre de l&apos;actuel périmètre, limité à&nbsp;l&apos;Article 197 
                         du Code général des impôts, concernant spécifiquement l&apos;impôt sur le revenu, 
                         OPEN LexImpact permet de simuler et de comparer :</p>
                             <ul> 
@@ -192,9 +193,9 @@ class ExamplePage extends PureComponent {
                         <Divider className={classes.dividerMarge}/>
 
                         <p>L&apos;utilisation d&apos;OPEN LexImpact est libre, facultative et gratuite ; 
-                        toute utilisation du service est subordonnée à l&apos;acceptation préalable
+                        toute utilisation du&nbsp;service est subordonnée à l&apos;acceptation préalable
                          et au respect intégral des conditions générales d&apos;utilisation 
-                         (CGU) disponibles ci-après :</p>
+                         (CGU) disponibles ci-après&nbsp;:</p>
 
                          <div className={classes.espaceVide}/>
                         
@@ -208,19 +209,19 @@ class ExamplePage extends PureComponent {
                 <Grid item xs={6} className={classes.griditemPop}>
                   <Paper className={classes.paperItem}>
                     <h2>LexImpact POP</h2>
-                     <p>LexImpact POP est uniquement accessible à des personnes habilitées, 
-                     parties prenantes de l&apos;élaboration de la loi.</p>
+                     <p>LexImpact POP est <b>uniquement accessible à&nbsp;des personnes habilitées, 
+                     parties prenantes de l&apos;élaboration de la loi.</b></p>
 
                         <p>En plus de ce que permet de faire OPEN LexImpact, 
-                        LexImpact POP vous permet de simuler les impacts macros 
+                        LexImpact POP vous permet de&nbsp;simuler les impacts macros 
                         d&apos;une réforme sur la population et les recettes de l&apos;État.</p>
 
                         <Divider className={classes.dividerMarge}/>
 
                         <p>Dans le cadre de l&apos;actuel périmètre, 
-                        limité à l&apos;Article 197 du Code général des impôts, 
+                        limité à&nbsp;l&apos;Article 197 du Code général des impôts, 
                         concernant spécifiquement l&apos;impôt sur le revenu, 
-                        LexImpact POP permet d&apos;évaluer et de comparer : </p>
+                        LexImpact POP permet d&apos;évaluer et&nbsp;de comparer : </p>
                             <ul> 
                                 <li>les impacts du code existant,</li>
                                 <li>les impacts d&apos;un amendement en faisant 
@@ -252,9 +253,9 @@ class ExamplePage extends PureComponent {
                         couvertes par des secrets protégés par la loi. Ainsi, seules les personnes 
                         dûment habilitées peuvent y avoir accès. </p>
 
-                        <p>Toute utilisation du service est subordonnée à l&apos;acceptation préalable 
+                        <p>Toute utilisation du service est subordonnée à&nbsp;l&apos;acceptation préalable 
                         et au respect intégral des conditions générales d&apos;utilisation (CGU), 
-                        disponibles ci-après : </p>
+                        disponibles ci-après&nbsp;: </p>
 
                         <div className={classes.espaceVide}/>
                         
