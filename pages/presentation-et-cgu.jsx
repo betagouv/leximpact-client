@@ -17,9 +17,9 @@ import { Grid } from "@material-ui/core";
 
 import withRoot from "../lib/withRoot";
 import AppHeader from "../components/app-header";
-import PresentationOpenLeximpact from "../components/presentation-cgu/presentation-open-leximpact";
-import PresentationGenerale from "../components/presentation-cgu/presentation-generale";
-import PresentationLeximpactPop from "../components/presentation-cgu/presentation-leximpact-pop";
+import TextePresentationOpenLeximpact from "../components/presentation-cgu/texte-presentation-open-leximpact";
+import TextePresentationLeximpactPop from "../components/presentation-cgu/texte-presentation-leximpact-pop";
+import TextePresentationGenerale from "../components/presentation-cgu/texte-presentation-generale";
 import "../styles/pages-textes.scss";
 
 const styles = () => ({
@@ -50,7 +50,7 @@ class ExamplePage extends PureComponent {
           <title>LexImpact</title>
         </Head>
         <AppHeader />
-        <PresentationGenerale />
+        <TextePresentationGenerale />
         <Grid
           container
           direction="row"
@@ -59,11 +59,11 @@ class ExamplePage extends PureComponent {
           className={classes.gridSection}
         >
           <Grid item xs={6} className={classes.griditemOpen}>
-            <PresentationOpenLeximpact />
+            <TextePresentationOpenLeximpact />
           </Grid>
 
           <Grid item xs={6} className={classes.griditemPop}>
-            <PresentationLeximpactPop />
+            <TextePresentationLeximpactPop />
           </Grid>
         </Grid>
       </Fragment>

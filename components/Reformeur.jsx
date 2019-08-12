@@ -30,19 +30,13 @@ function TabContainer({ children, dir }) {
     )
 }
 
-
 // renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
-const changeValueArray = (arrayToChange, indexToChange, newValue) => {
-    return arrayToChange.map(
-        (item, numeroitem) => {
-            if (numeroitem === indexToChange) {
-                return newValue
-            }
-            return item
-        }
-    )
-}
-
+const changeValueArray = (arrayToChange, indexToChange, newValue) => arrayToChange.map((item, numeroitem) => {
+    if (numeroitem === indexToChange) {
+        return newValue
+    }
+    return item
+})
 
 TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
@@ -52,7 +46,7 @@ TabContainer.propTypes = {
 class Reformeur extends Component {
     constructor(props) {
         const baseseuils = [9964, 27519, 73779, 156244]
-        const basetaux = [0.14, 0.30, 0.41, 0.45]
+        const basetaux = [0.14, 0.3, 0.41, 0.45]
 
         super(props)
         this.state = {
@@ -282,14 +276,24 @@ class Reformeur extends Component {
 
   UpdateBareme = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = isNaN(value) ? ref.impot_revenu.bareme.seuils : changeValueArray(ref.impot_revenu.bareme.seuils, indexToChange, parseInt(value, 10))
+      const list = isNaN(value)
+          ? ref.impot_revenu.bareme.seuils
+          : changeValueArray(
+              ref.impot_revenu.bareme.seuils,
+              indexToChange,
+              parseInt(value, 10),
+          )
       ref.impot_revenu.bareme.seuils = list
       this.setState({ reforme: ref })
   }
 
   UpdateTaux = (indexToChange, value) => {
       const ref = this.state.reforme
-      const list = changeValueArray(ref.impot_revenu.bareme.taux, indexToChange, value*0.01)
+      const list = changeValueArray(
+          ref.impot_revenu.bareme.taux,
+          indexToChange,
+          value * 0.01,
+      )
       ref.impot_revenu.bareme.taux = list
       this.setState({ reforme: ref })
   }
