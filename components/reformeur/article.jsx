@@ -1,6 +1,7 @@
 /* eslint
     indent: [2, 2],
     semi: [2, "always"],
+    react/jsx-fragments: [2, "element"],
     react/jsx-indent: [2, 2],
     react/jsx-indent-props: [2, 2],
     max-nested-callbacks: [2, { "max": 4 }],
@@ -248,7 +249,7 @@ class Article extends React.Component {
     ); // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
 
     return (
-      <>
+      <React.Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <InputField
           value={newval}
@@ -256,7 +257,7 @@ class Article extends React.Component {
           name={name}
           style={tx ? style.InputTaux : style.InputSeuil}
         />
-      </>
+      </React.Fragment>
     );
   }
 
@@ -270,10 +271,10 @@ class Article extends React.Component {
       get(this.state.reforme.impot_revenu, name) * fact * (tx ? 100 : 1),
     ); // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
     return (
-      <>
+      <React.Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} />
-      </>
+      </React.Fragment>
     );
   }
 
@@ -296,10 +297,10 @@ class Article extends React.Component {
       get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1),
     ); // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
     return (
-      <>
+      <React.Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} />
-      </>
+      </React.Fragment>
     );
   }
 
@@ -314,10 +315,10 @@ class Article extends React.Component {
     );
 
     return (
-      <>
+      <React.Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} />
-      </>
+      </React.Fragment>
     );
   }
 

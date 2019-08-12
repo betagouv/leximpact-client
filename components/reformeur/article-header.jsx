@@ -1,6 +1,7 @@
 /* eslint
     indent: [2, 2],
     semi: [2, "always"],
+    react/jsx-fragments: [2, "element"],
     react/jsx-indent: [2, 2],
     react/jsx-indent-props: [2, 2],
     max-nested-callbacks: [2, { "max": 4 }],
@@ -34,8 +35,10 @@ const styles = {
     color: "#6C6C6C",
   },
 
-  typo2: {
+  titleArticleCGI: {
     color: "#6C6C6C",
+    fontSize: "18px",
+    fontFamily: "Lora",
     paddingLeft: "6px",
   },
 };
@@ -52,7 +55,10 @@ function SimpleAppBar(props) {
           <Typography className={classes.typo1} variant="h4" color="inherit">
             Tranches / décote
           </Typography>
-          <Typography className={classes.typo2} variant="body2" color="inherit">
+          <Typography
+            className={classes.titleArticleCGI}
+            variant="body2"
+            color="inherit">
             - Article 197 du CGI
           </Typography>
         </Toolbar>

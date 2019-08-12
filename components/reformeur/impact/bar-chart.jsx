@@ -1,6 +1,7 @@
 /* eslint
     indent: [2, 2],
     semi: [2, "always"],
+    react/jsx-fragments: [2, "element"],
     react/jsx-indent: [2, 2],
     react/jsx-indent-props: [2, 2],
     max-nested-callbacks: [2, { "max": 4 }],
@@ -15,7 +16,8 @@
     import/order: [2, {
       newlines-between: "always",
       groups: ["builtin", "external", "parent", "sibling", "index"]
-    }]
+    }],
+    react/jsx-fragments: [2, "element"]
 */
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import React from "react";
@@ -99,7 +101,7 @@ class BarChart extends React.Component {
           layout="horizontal"
           colors={["#00a3ff", "#ded500"]}
           tooltip={(content, event) => (
-            <>
+            <React.Fragment>
               {"Total"}
               {" "}
               <img
@@ -113,7 +115,7 @@ class BarChart extends React.Component {
                 (content.value * 1000000000)
                   / this.props.resultat.deciles[content.id - 1].poids,
               )}€ par foyer fiscal`}
-            </>
+            </React.Fragment>
           )}
           defs={[]}
           fill={[]}
