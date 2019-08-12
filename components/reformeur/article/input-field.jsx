@@ -35,21 +35,20 @@ class InputField extends PureComponent {
     this.state = { value };
   }
 
-  handleChange = (e) => {
-    clearTimeout(this.timer);
-    this.setState({ value: e.target.value });
-    this.timer = setTimeout(
-      this.triggerChange,
-      WAIT_INTERVAL,
-      e.target.value,
-      e.target.name,
-    );
-  }
-
   triggerChange = (value, name) => {
     const { onChange } = this.props;
-    onChange(value, name);
-    onChange(value.replace(/\s+/g, ""), name);
+    const noSpacesValue = value.replace(/\s+/g, "");
+    const numberValue = Number(noSpacesValue);
+    onChange(numberValue, name);
+  }
+
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    if (this.timer) clearTimeout(this.timer);
+    this.setState({ value });
+    this.timer = setTimeout(() => {
+      this.triggerChange(value, name);
+    }, WAIT_INTERVAL);
   }
 
   handleKeyDown = (e) => {
@@ -77,5 +76,12 @@ class InputField extends PureComponent {
     );
   }
 }
+
+InputField.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  style: PropTypes.shape().isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default InputField;
