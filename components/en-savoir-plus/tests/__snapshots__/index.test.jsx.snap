@@ -11,38 +11,83 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     justify="space-between"
   >
     <WithStyles(Grid)
+      className="MentionsLegales-gridItemText-4"
       item={true}
       xs={6}
     >
       <WithStyles(Typography)>
-        OPEN LexImpact est une interface qui permet de simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu sur des foyers fiscaux types.
+        <span
+          className="MentionsLegales-spanTitreIntro-2"
+        >
+          OPEN LexImpact, c'est quoi ?
+        </span>
       </WithStyles(Typography)>
+      <WithStyles(Typography)>
+        OPEN LexImpact est une interface qui permet de simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu sur des foyers fiscaux types.
+      </WithStyles(Typography)>
+      <a
+        className="MentionsLegales-alink-3"
+        href="/presentation-et-cgu"
+      >
+        en savoir plus
+      </a>
     </WithStyles(Grid)>
     <WithStyles(Grid)
+      className="MentionsLegales-gridItemButtons-5"
       item={true}
       xs={6}
     >
       <div>
-        <button
-          type="button"
+        <div
+          className="MentionsLegales-divButton-6"
         >
-          En savoir plus sur LexImpact
-        </button>
-        <button
-          type="button"
+          <Link
+            href="/presentation-et-cgu"
+          >
+            <WithStyles(Button)
+              color="inherit"
+              fullWidth="true"
+              size="large"
+              variant="outlined"
+            >
+              Présentation et conditions d'utilisation
+            </WithStyles(Button)>
+          </Link>
+        </div>
+        <div
+          className="MentionsLegales-divButton-6"
         >
-          Nos conditions d'utilisation
-        </button>
-        <button
-          type="button"
+          <Link
+            href="/mentions-legales"
+          >
+            <WithStyles(Button)
+              color="inherit"
+              fullWidth="true"
+              size="large"
+              variant="outlined"
+            >
+              Mentions légales
+            </WithStyles(Button)>
+          </Link>
+        </div>
+        <div
+          className="MentionsLegales-divButton-6"
         >
-          Mentions légales
-        </button>
-        <button
-          type="button"
-        >
-          Vos retours sont précieux
-        </button>
+          <WithStyles(Button)
+            color="inherit"
+            fullWidth="true"
+            href="mailto:contact@leximpact.beta.gouv.fr"
+            size="large"
+            variant="outlined"
+          >
+            Une question ? Un bug ? Un avis ?
+          </WithStyles(Button)>
+          <p
+            className="MentionsLegales-pAdresseMail-7"
+          >
+            Écrivez-nous à contact@leximpact.beta.gouv.fr !
+          </p>
+        </div>
       </div>
     </WithStyles(Grid)>
   </WithStyles(Grid)>
