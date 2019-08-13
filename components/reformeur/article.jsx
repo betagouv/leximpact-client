@@ -19,6 +19,7 @@
     }]
 */
 import React from "react";
+import PropTyoes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import {
   ExpansionPanel as MuiExpansionPanel,
@@ -34,15 +35,13 @@ import {
 } from "@material-ui/icons";
 import { get } from "lodash";
 
+import fillArrayWith from "../utils/array/fillArrayWith";
+
 import InputField from "./article/input-field";
 import OutputField from "./article/output-field";
 
-// attente minimum (si l'usage n'appuye pas sur Entrée) avant qu'une saisie ne déclenche un calcul
-const WAIT_INTERVAL = 1000;
-// Touche qui déclenche les calculs (13 = return)
-const ENTER_KEY = 13;
-
-// prend un nombre, et retourne l'arrondi avec le moins de chiffres qui a moins de limdiff
+// prend un nombre, et retourne l'arrondi
+// avec le moins de chiffres qui a moins de limdiff
 // de différence avec le nombre initial.
 const makeNumberGoodLooking = (initialNumber) => {
   let currfact = 1;
@@ -144,83 +143,15 @@ const ExpansionPanelDetails = withStyles(theme => ({
   },
 }))(MuiExpansionPanelDetails);
 
-// class InputField extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.handleChange = this.handleChange.bind(this)
-//     this.triggerChange = this.triggerChange.bind(this)
-//     this.handleKeyDown = this.handleKeyDown.bind(this)
-//     this.state = { value: props.value }
-//   }
-//
-//   handleChange(e) {
-//     clearTimeout(this.timer)
-//     this.setState({ value: e.target.value })
-//     this.timer = setTimeout(
-//       this.triggerChange,
-//       WAIT_INTERVAL,
-//       e.target.value,
-//       e.target.name
-//     )
-//   }
-//
-//   triggerChange(value, name) {
-//     this.props.onChange(value, name)
-//     this.props.onChange(value.replace(/\s+/g, ""), name)
-//   }
-//
-//   componentWillMount() {
-//     this.timer = null
-//   }
-//
-//   handleKeyDown(e) {
-//     if (e.keyCode === ENTER_KEY) {
-//       clearTimeout(this.timer)
-//       this.triggerChange(this.state.value, this.props.name)
-//     }
-//   }
-//
-//   render() {
-//     const { name } = this.props
-//     const { value } = this.state
-//     console.log("value", typeof value)
-//     return (
-//       <input
-//         type="text"
-//         value={value}
-//         name={name}
-//         onChange={this.handleChange}
-//         onKeyDown={this.handleKeyDown}
-//         size="4"
-//         style={this.props.style}
-//       />
-//     )
-//   }
-// }
-
-// class OutputField extends React.Component {
-//   constructor(props) {
-//     super(props)
-//   }
-//
-//   render() {
-//     const { value } = this.props
-//     return (
-//       <span inline="true" style={this.props.style} className="output-field">
-//         {value}
-//       </span>
-//     )
-//   }
-// }
-
 class Article extends React.Component {
   constructor(props) {
     super(props);
-    const nbt = props.reformebase.impot_revenu.bareme.seuils.length;
+    const { reforme, reformebase } = props;
+    // const nbt = props.reformebase.impot_revenu.bareme.seuils.length;
     this.state = {
       expanded: "null", // état de l'extansion panel null = contenu
-      reforme: props.reforme,
-      basecode: props.reformebase, // Jamais modifié, utilisé pour montrer l'existant,
+      reforme,
+      basecode: reformebase, // Jamais modifié, utilisé pour montrer l'existant,
     };
   }
 
@@ -231,26 +162,33 @@ class Article extends React.Component {
   }
 
   handleS1Change = (value, name) => {
-    this.props.onChange(value, name);
+    const { onChange } = this.props;
+    onChange(value, name);
   }
 
   handleAddTranche = (e) => {
-    this.props.addTranche(e);
+    const { addTranche } = this.props;
+    addTranche(e);
   }
 
   handleRemoveTranche = (e) => {
-    this.props.removeTranche(e);
+    const { removeTranche } = this.props;
+    removeTranche(e);
   }
 
   baseOutputInput(name) {
+    const { basecode, reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
-    const baseval = makeNumberGoodLooking(
-      get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1),
-    ); // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
-    const newval = makeNumberGoodLooking(
-      get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1),
-    ); // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+    const multip = tx ? 100 : 1;
+
+    let baseval = get(basecode.impot_revenu, name);
+    baseval *= multip;
+    baseval = makeNumberGoodLooking(baseval);
+
+    let newval = get(reforme.impot_revenu, name);
+    newval *= multip;
+    newval = makeNumberGoodLooking(newval);
 
     return (
       <React.Fragment>
@@ -266,14 +204,19 @@ class Article extends React.Component {
   }
 
   formulaOutputInputFacteur(name, fact) {
+    const { basecode, reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
-    const baseval = makeNumberGoodLooking(
-      get(this.state.basecode.impot_revenu, name) * fact * (tx ? 100 : 1),
-    ); // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
-    const newval = makeNumberGoodLooking(
-      get(this.state.reforme.impot_revenu, name) * fact * (tx ? 100 : 1),
-    ); // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+    const multip = tx ? 100 : 1;
+
+    let baseval = get(basecode.impot_revenu, name);
+    baseval = baseval * fact * multip;
+    baseval = makeNumberGoodLooking(baseval);
+
+    let newval = get(reforme.impot_revenu, name);
+    newval = newval * fact * multip;
+    newval = makeNumberGoodLooking(newval);
+
     return (
       <React.Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
@@ -332,50 +275,52 @@ class Article extends React.Component {
         ... ne peut excéder
         {this.baseOutputInput("plafond_qf.maries_ou_pacses")}
 € par demi-part ou
-        la moitié de cette somme par quart de part s'ajoutant à une part pour
-        les contribuables célibataires, divorcés, veufs ou soumis à l'imposition
-        distincte prévue au 4 de l'article 6 et à deux parts pour les
-        contribuables mariés soumis à une imposition commune. Toutefois, pour
-        les contribuables célibataires, divorcés, ou soumis à l'imposition
-        distincte prévue au 4 de l'article 6 qui répondent aux conditions fixées
-        au II de l'article 194, la réduction d'impôt correspondant à la part
-        accordée au titre du premier enfant à charge est limitée à
+        la moitié de cette somme par quart de part s&apos;ajoutant à une part
+        pour les contribuables célibataires, divorcés, veufs ou soumis à
+        l&apos;imposition distincte prévue au 4 de l&apos;article 6 et à deux
+        parts pour les contribuables mariés soumis à une imposition commune.
+        Toutefois, pour les contribuables célibataires, divorcés, ou soumis à
+        l&apos;imposition distincte prévue au 4 de l&apos;article 6 qui
+        répondent aux conditions fixées au II de l&apos;article 194, la
+        réduction d&apos;impôt correspondant à la part accordée au titre du
+        premier enfant à charge est limitée à
         {" "}
         {this.baseOutputInput("plafond_qf.celib_enf")}
         {" "}
 € Lorsque les
         contribuables entretiennent uniquement des enfants dont la charge est
-        réputée également partagée entre l'un et l'autre des parents, la
-        réduction d'impôt correspondant à la demi-part accordée au titre de
-        chacun des deux premiers enfants est limitée à la moitié de cette somme.
-        Par dérogation aux dispositions du premier alinéa, la réduction d'impôt
-        résultant de l'application du quotient familial, accordée aux
-        contribuables qui bénéficient des dispositions des a, b et e du 1 de
-        l'article 195, ne peut excéder
+        réputée également partagée entre l&apos;un et l&apos;autre des parents,
+        la réduction d&apos;impôt correspondant à la demi-part accordée au titre
+        de chacun des deux premiers enfants est limitée à la moitié de cette
+        somme. Par dérogation aux dispositions du premier alinéa, la réduction
+        d&apos;impôt résultant de l&apos;application du quotient familial,
+        accordée aux contribuables qui bénéficient des dispositions des a, b et
+        e du 1 de l&apos;article 195, ne peut excéder
         {" "}
         {this.baseOutputInput("plafond_qf.celib")}
         € ;
         <br />
-        Les contribuables qui bénéficient d'une demi-part au titre des a, b, c,
-        d, d bis, e et f du 1 ainsi que des 2 à 6 de l'article 195 ont droit à
-        une réduction d'impôt égale à
+        Les contribuables qui bénéficient d&apos;une demi-part au titre des a,
+        b, c, d, d bis, e et f du 1 ainsi que des 2 à 6 de l&apos;article 195
+        ont droit à une réduction d&apos;impôt égale à
         {" "}
         {this.baseOutputInput("plafond_qf.reduc_postplafond")}
         pour chacune de ces demi-parts lorsque la réduction de leur cotisation
-        d'impôt est plafonnée en application du premier alinéa. La réduction
-        d'impôt est égale à la moitié de cette somme lorsque la majoration visée
-        au 2 de l'article 195 est de un quart de part. Cette réduction d'impôt
-        ne peut toutefois excéder l'augmentation de la cotisation d'impôt
-        résultant du plafonnement. Les contribuables veufs ayant des enfants à
-        charge qui bénéficient d'une part supplémentaire de quotient familial en
-        application du I de l'article 194 ont droit à une réduction d'impôt
-        égale à
+        d&apos;impôt est plafonnée en application du premier alinéa. La
+        réduction d&apos;impôt est égale à la moitié de cette somme lorsque la
+        majoration visée au 2 de l&apos;article 195 est de un quart de part.
+        Cette réduction d&apos;impôt ne peut toutefois excéder
+        l&apos;augmentation de la cotisation d&apos;impôt résultant du
+        plafonnement. Les contribuables veufs ayant des enfants à charge qui
+        bénéficient d&apos;une part supplémentaire de quotient familial en
+        application du I de l&apos;article 194 ont droit à une réduction
+        d&apos;impôt égale à
         {this.baseOutputInput("plafond_qf.reduc_postplafond_veuf")}
-€ pour
-        cette part supplémentaire lorsque la réduction de leur cotisation
-        d'impôt est plafonnée en application du premier alinéa du présent 2.
-        Cette réduction d'impôt ne peut toutefois excéder l'augmentation de la
-        cotisation d'impôt résultant du plafonnement.
+€ pour cette
+        part supplémentaire lorsque la réduction de leur cotisation d&apos;impôt
+        est plafonnée en application du premier alinéa du présent 2. Cette
+        réduction d&apos;impôt ne peut toutefois excéder l&apos;augmentation de
+        la cotisation d&apos;impôt résultant du plafonnement.
       </Typography>
     );
   }
@@ -401,10 +346,11 @@ class Article extends React.Component {
   }
 
   alinea4a() {
-    const scelib = this.state.reforme.impot_revenu.decote.seuil_celib;
-    const scouple = this.state.reforme.impot_revenu.decote.seuil_couple;
-    const basescelib = this.state.basecode.impot_revenu.decote.seuil_celib;
-    const basescouple = this.state.basecode.impot_revenu.decote.seuil_couple;
+    const { basecode, reforme } = this.state;
+    const scelib = reforme.impot_revenu.decote.seuil_celib;
+    const scouple = reforme.impot_revenu.decote.seuil_couple;
+    const basescelib = basecode.impot_revenu.decote.seuil_celib;
+    const basescouple = basecode.impot_revenu.decote.seuil_couple;
 
     return (
       <Typography variant="body2" color="inherit">
@@ -448,8 +394,8 @@ class Article extends React.Component {
     return (
       <Typography variant="body2" color="inherit">
         ...au sixième alinéa du présent b pour les contribuables dont le montant
-        des revenus du foyer fiscal, au sens du 1° du IV de l'article 1417, est
-        inférieur à
+        des revenus du foyer fiscal, au sens du 1° du IV de l&apos;article 1417,
+        est inférieur à
         {" "}
         {this.baseOutputInput(
           "plafond_qf.reduction_ss_condition_revenus.seuil2",
@@ -470,32 +416,34 @@ class Article extends React.Component {
         € pour chacune des demi-parts suivantes et de la moitié de ce montant
         pour chacun des quarts de part suivants.
         <br />
-        Pour l'application des seuils mentionnés au premier alinéa du présent b,
-        le montant des revenus du foyer fiscal est majoré :
+        Pour l&apos;application des seuils mentionnés au premier alinéa du
+        présent b, le montant des revenus du foyer fiscal est majoré :
         <br />
         1° Du montant des plus-values, déterminées le cas échéant avant
         application des abattements pour durée de détention mentionnés au 1 de
-        l'article 150-0 D ou à l'article 150-0 D ter et pour lesquelles il est
-        mis fin au report d'imposition dans les conditions prévues à l'article
-        150-0 D bis, dans leur rédaction en vigueur jusqu'au 31 décembre 2013 ;
+        l&apos;article 150-0 D ou à l&apos;article 150-0 D ter et pour
+        lesquelles il est mis fin au report d&apos;imposition dans les
+        conditions prévues à l&apos;article 150-0 D bis, dans leur rédaction en
+        vigueur jusqu&apos;au 31 décembre 2013 ;
         <br />
         2° Du montant des plus-values, déterminées le cas échéant avant
         application des abattements pour durée de détention mentionnés aux 1 ter
-        ou 1 quater de l'article 150-0 D ou à l'article 150-0 D ter, et des
-        créances mentionnées aux I et II de l'article 167 bis, pour la seule
-        détermination du premier terme de la différence mentionnée au deuxième
-        alinéa du 1 du II bis du même article 167 bis ;
+        ou 1 quater de l&apos;article 150-0 D ou à l&apos;article 150-0 D ter,
+        et des créances mentionnées aux I et II de l&apos;article 167 bis, pour
+        la seule détermination du premier terme de la différence mentionnée au
+        deuxième alinéa du 1 du II bis du même article 167 bis ;
         <br />
-        3° Du montant des plus-values mentionnées au I de l'article 150-0 B ter,
-        déterminées le cas échéant avant application de l'abattement pour durée
-        de détention mentionné aux 1 ter ou 1 quater de l'article 150-0 D, pour
-        la seule détermination du premier terme de la différence mentionné au
-        deuxième alinéa du 2° du a du 2 ter de l'article 200 A pour
-        l'application de la seconde phrase du 3° du même a.
+        3° Du montant des plus-values mentionnées au I de l&apos;article 150-0 B
+        ter, déterminées le cas échéant avant application de l&apos;abattement
+        pour durée de détention mentionné aux 1 ter ou 1 quater de
+        l&apos;article 150-0 D, pour la seule détermination du premier terme de
+        la différence mentionné au deuxième alinéa du 2° du a du 2 ter de
+        l&apos;article 200 A pour l&apos;application de la seconde phrase du 3°
+        du même a.
         <br />
         Le taux de la réduction prévue au premier alinéa du présent b est de 20
         %. Toutefois, pour les contribuables dont les revenus du foyer fiscal,
-        au sens du 1° du IV de l'article 1417, excèdent
+        au sens du 1° du IV de l&apos;article 1417, excèdent
         {" "}
         {this.baseOutputInput(
           "plafond_qf.reduction_ss_condition_revenus.seuil1",
@@ -511,7 +459,7 @@ class Article extends React.Component {
         €, pour les deux premières parts de quotient familial des personnes
         soumises à une imposition commune, ces seuils étant majorés le cas
         échéant dans les conditions prévues au même premier alinéa, le taux de
-        la réduction d'impôt est égal à
+        la réduction d&apos;impôt est égal à
         {this.baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}
         % multiplié par le rapport entre :
         <br />
@@ -550,13 +498,13 @@ class Article extends React.Component {
         <br />
         Les montants de revenus mentionnés au présent b sont révisés chaque
         année dans la même proportion que la limite supérieure de la première
-        tranche du barème de l'impôt sur le revenu. Les montants obtenus sont
-        arrondis, s'il y a lieu, à l'euro supérieur.
+        tranche du barème de l&apos;impôt sur le revenu. Les montants obtenus
+        sont arrondis, s&apos;il y a lieu, à l&apos;euro supérieur.
       </Typography>
     );
   }
 
-  gimmeIRPartsOfArticle(i) {
+  gimmeIRPartsOfArticle = (i) => {
     const s = this.state.reforme.impot_revenu.bareme.seuils;
     const t = this.state.reforme.impot_revenu.bareme.taux;
     const bases = this.state.basecode.impot_revenu.bareme.seuils;
@@ -653,10 +601,8 @@ class Article extends React.Component {
       padding: "1px",
     };
 
-    const articleTranches = [];
-    for (let i = 0; i <= reforme.impot_revenu.bareme.seuils.length; i++) {
-      articleTranches.push(this.gimmeIRPartsOfArticle(i));
-    }
+    const count = reforme.impot_revenu.bareme.seuils.length + 1;
+    const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
       <div style={style.Div}>
@@ -672,7 +618,6 @@ class Article extends React.Component {
               I. En ce qui concerne les contribuables ...
             </Typography>
           </ExpansionPanelSummary>
-
           <ExpansionPanelDetails style={styleExpansionpanel}>
             <Typography variant="body2" color="inherit">
               visés à l&#39;article 4 B, il est fait application des règles
@@ -744,7 +689,7 @@ class Article extends React.Component {
             style={styleExpansionpanel}
             expandIcon={<ExpandMoreIcon />}>
             <Typography variant="body2" color="inherit">
-              3. Le montant de l'impôt résultant de l'application des
+              3. Le montant de l&apos;impôt résultant de l&apos;application des
               dispositions précédentes est réduit de...
             </Typography>
           </ExpansionPanelSummary>
@@ -763,8 +708,8 @@ class Article extends React.Component {
             style={styleExpansionpanel}
             expandIcon={<ExpandMoreIcon />}>
             <Typography variant="body2" color="inherit">
-              4. a. Le montant de l'impôt résultant de l'application des
-              dispositions précédentes est diminué, dans...
+              4. a. Le montant de l&apos;impôt résultant de l&apos;application
+              des dispositions précédentes est diminué, dans...
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails style={styleExpansionpanel}>
@@ -780,7 +725,7 @@ class Article extends React.Component {
             style={styleExpansionpanel}
             expandIcon={<ExpandMoreIcon />}>
             <Typography variant="body2" color="inherit">
-              b. Le montant de l'impôt résultant du a est réduit dans les
+              b. Le montant de l&apos;impôt résultant du a est réduit dans les
               conditions prévues...
             </Typography>
           </ExpansionPanelSummary>
@@ -793,5 +738,13 @@ class Article extends React.Component {
     );
   }
 }
+
+Article.propTypes = {
+  reforme: PropTyoes.shape().isRequired,
+  reformebase: PropTyoes.shape().isRequired,
+  onChange: PropTyoes.func.isRequired,
+  addTranche: PropTyoes.func.isRequired,
+  removeTranche: PropTyoes.func.isRequired,
+};
 
 export default Article;
