@@ -19,7 +19,7 @@
     }]
 */
 import React from "react";
-import PropTyoes from "prop-types";
+import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import {
   ExpansionPanel as MuiExpansionPanel,
@@ -740,11 +740,23 @@ class Article extends React.Component {
 }
 
 Article.propTypes = {
-  reforme: PropTyoes.shape().isRequired,
-  reformebase: PropTyoes.shape().isRequired,
-  onChange: PropTyoes.func.isRequired,
-  addTranche: PropTyoes.func.isRequired,
-  removeTranche: PropTyoes.func.isRequired,
+  reforme: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
+  reformebase: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
+  onChange: PropTypes.func.isRequired,
+  addTranche: PropTypes.func.isRequired,
+  removeTranche: PropTypes.func.isRequired,
 };
 
 export default Article;

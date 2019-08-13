@@ -21,13 +21,14 @@
 import { Component } from "react";
 import fetch from "isomorphic-fetch";
 import PropTypes from "prop-types";
-import { set } from "lodash";
+import { cloneDeep, set } from "lodash";
 import { withStyles } from "@material-ui/core/styles";
 import { Divider, Paper, Typography } from "@material-ui/core";
 
 import Impact from "./impact";
 import Article from "./article";
 import ArticleHeader from "./article-header";
+import ReformeDefaultData from "./reforme-default-data";
 
 const styles = () => ({
   paper: {
@@ -62,76 +63,13 @@ TabContainer.propTypes = {
 
 class Reformeur extends Component {
   constructor(props) {
-    const baseseuils = [9964, 27519, 73779, 156244];
-    const basetaux = [0.14, 0.3, 0.41, 0.45];
-
     super(props);
+    const reforme = cloneDeep(ReformeDefaultData);
+    const reformebase = cloneDeep(ReformeDefaultData);
     this.state = {
       loading: false,
-      reforme: {
-        impot_revenu: {
-          bareme: {
-            seuils: baseseuils,
-            taux: basetaux,
-          },
-          decote: {
-            seuil_celib: 1196,
-            seuil_couple: 1970,
-            taux: 0.75,
-          },
-          plafond_qf: {
-            abat_dom: {
-              taux_GuadMarReu: 0.3,
-              plaf_GuadMarReu: 2450,
-              taux_GuyMay: 0.4,
-              plaf_GuyMay: 4050,
-            },
-            maries_ou_pacses: 1551,
-            celib_enf: 3660,
-            celib: 927,
-            reduc_postplafond: 1547,
-            reduc_postplafond_veuf: 1728,
-            reduction_ss_condition_revenus: {
-              seuil_maj_enf: 3797,
-              seuil1: 18984,
-              seuil2: 21036,
-              taux: 0.2,
-            },
-          },
-        },
-      },
-      reformebase: {
-        impot_revenu: {
-          bareme: {
-            seuils: baseseuils,
-            taux: basetaux,
-          },
-          decote: {
-            seuil_celib: 1196,
-            seuil_couple: 1970,
-            taux: 0.75,
-          },
-          plafond_qf: {
-            abat_dom: {
-              taux_GuadMarReu: 0.3,
-              plaf_GuadMarReu: 2450,
-              taux_GuyMay: 0.4,
-              plaf_GuyMay: 4050,
-            },
-            maries_ou_pacses: 1551,
-            celib_enf: 3660,
-            celib: 927,
-            reduc_postplafond: 1547,
-            reduc_postplafond_veuf: 1728,
-            reduction_ss_condition_revenus: {
-              seuil_maj_enf: 3797,
-              seuil1: 18984,
-              seuil2: 21036,
-              taux: 0.2,
-            },
-          },
-        },
-      },
+      reforme,
+      reformebase,
       res_brut: {
         apres: {
           0: 0,
