@@ -37,6 +37,10 @@ import { get } from "lodash";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
 
+import Alinea0 from "./article/alinea-0";
+import Alinea2 from "./article/alinea-2";
+import Alinea3 from "./article/alinea-3";
+import Alinea4a from "./article/alinea-4a";
 import InputField from "./article/input-field";
 import OutputField from "./article/output-field";
 
@@ -176,7 +180,7 @@ class Article extends React.Component {
     removeTranche(e);
   }
 
-  baseOutputInput(name) {
+  baseOutputInput = (name) => {
     const { basecode, reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
@@ -225,7 +229,7 @@ class Article extends React.Component {
     );
   }
 
-  baseOutput(name) {
+  baseOutput = (name) => {
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
@@ -234,7 +238,7 @@ class Article extends React.Component {
     return <OutputField value={baseval} style={style.VarCodeexistant} />;
   }
 
-  formulaOutputInput(name) {
+  formulaOutputInput = (name) => {
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
@@ -251,7 +255,7 @@ class Article extends React.Component {
     );
   }
 
-  formulaOutputInputCombiLin(name1, fact1, name2, fact2) {
+  formulaOutputInputCombiLin = (name1, fact1, name2, fact2) => {
     const baseval = makeNumberGoodLooking(
       get(this.state.basecode.impot_revenu, name1) * fact1
         + get(this.state.basecode.impot_revenu, name2) * fact2,
@@ -269,126 +273,16 @@ class Article extends React.Component {
     );
   }
 
-  alinea2ext() {
-    return (
-      <Typography variant="body2" color="inherit">
-        ... ne peut excéder
-        {this.baseOutputInput("plafond_qf.maries_ou_pacses")}
-€ par demi-part ou
-        la moitié de cette somme par quart de part s&apos;ajoutant à une part
-        pour les contribuables célibataires, divorcés, veufs ou soumis à
-        l&apos;imposition distincte prévue au 4 de l&apos;article 6 et à deux
-        parts pour les contribuables mariés soumis à une imposition commune.
-        Toutefois, pour les contribuables célibataires, divorcés, ou soumis à
-        l&apos;imposition distincte prévue au 4 de l&apos;article 6 qui
-        répondent aux conditions fixées au II de l&apos;article 194, la
-        réduction d&apos;impôt correspondant à la part accordée au titre du
-        premier enfant à charge est limitée à
-        {" "}
-        {this.baseOutputInput("plafond_qf.celib_enf")}
-        {" "}
-€ Lorsque les
-        contribuables entretiennent uniquement des enfants dont la charge est
-        réputée également partagée entre l&apos;un et l&apos;autre des parents,
-        la réduction d&apos;impôt correspondant à la demi-part accordée au titre
-        de chacun des deux premiers enfants est limitée à la moitié de cette
-        somme. Par dérogation aux dispositions du premier alinéa, la réduction
-        d&apos;impôt résultant de l&apos;application du quotient familial,
-        accordée aux contribuables qui bénéficient des dispositions des a, b et
-        e du 1 de l&apos;article 195, ne peut excéder
-        {" "}
-        {this.baseOutputInput("plafond_qf.celib")}
-        € ;
-        <br />
-        Les contribuables qui bénéficient d&apos;une demi-part au titre des a,
-        b, c, d, d bis, e et f du 1 ainsi que des 2 à 6 de l&apos;article 195
-        ont droit à une réduction d&apos;impôt égale à
-        {" "}
-        {this.baseOutputInput("plafond_qf.reduc_postplafond")}
-        pour chacune de ces demi-parts lorsque la réduction de leur cotisation
-        d&apos;impôt est plafonnée en application du premier alinéa. La
-        réduction d&apos;impôt est égale à la moitié de cette somme lorsque la
-        majoration visée au 2 de l&apos;article 195 est de un quart de part.
-        Cette réduction d&apos;impôt ne peut toutefois excéder
-        l&apos;augmentation de la cotisation d&apos;impôt résultant du
-        plafonnement. Les contribuables veufs ayant des enfants à charge qui
-        bénéficient d&apos;une part supplémentaire de quotient familial en
-        application du I de l&apos;article 194 ont droit à une réduction
-        d&apos;impôt égale à
-        {this.baseOutputInput("plafond_qf.reduc_postplafond_veuf")}
-€ pour cette
-        part supplémentaire lorsque la réduction de leur cotisation d&apos;impôt
-        est plafonnée en application du premier alinéa du présent 2. Cette
-        réduction d&apos;impôt ne peut toutefois excéder l&apos;augmentation de
-        la cotisation d&apos;impôt résultant du plafonnement.
-      </Typography>
-    );
-  }
-
-  alinea3ext() {
-    return (
-      <Typography variant="body2" color="inherit">
-        ...
-        {this.baseOutputInput("plafond_qf.abat_dom.taux_GuadMarReu")}
-        %, dans la limite de
-        {this.baseOutputInput("plafond_qf.abat_dom.plaf_GuadMarReu")}
-€ pour les
-        contribuables domiciliés dans les départements de la Guadeloupe, de la
-        Martinique et de la Réunion ; cette réduction est égale à
-        {" "}
-        {this.baseOutputInput("plafond_qf.abat_dom.taux_GuyMay")}
-        %, dans la limite de
-        {this.baseOutputInput("plafond_qf.abat_dom.plaf_GuyMay")}
-        €, pour les contribuables domiciliés dans les départements de la Guyane
-        et de Mayotte ;
-      </Typography>
-    );
-  }
-
-  alinea4a() {
-    const { basecode, reforme } = this.state;
-    const scelib = reforme.impot_revenu.decote.seuil_celib;
-    const scouple = reforme.impot_revenu.decote.seuil_couple;
-    const basescelib = basecode.impot_revenu.decote.seuil_celib;
-    const basescouple = basecode.impot_revenu.decote.seuil_couple;
-
-    return (
-      <Typography variant="body2" color="inherit">
-        ...la limite de son montant, de la différence entre
-        {" "}
-        <OutputField value={basescelib} style={style.VarCodeexistant} />
-        <InputField
-          value={scelib}
-          onChange={this.handleS1Change}
-          name="decote.seuil_celib"
-          style={style.InputSeuil}
-        />
-        € et les
-        {" "}
-        <OutputField value="trois quarts" style={style.VarCodeexistant} />
-        {" "}
-[
-        {this.baseOutputInput("decote.taux")}
-        %] de son montant pour les contribuables célibataires, divorcés ou veufs
-        et de la différence entre
-        <OutputField value={basescouple} style={style.VarCodeexistant} />
-        <InputField
-          value={scouple}
-          onChange={this.handleS1Change}
-          name="decote.seuil_couple"
-          style={style.InputSeuil}
-        />
-        {" "}
-        € et les
-        {" "}
-        <OutputField value="trois quarts" style={style.VarCodeexistant} />
-        {" "}
-[
-        {this.formulaOutputInput("decote.taux")}
-        %] de son montant pour les contribuables soumis à imposition commune.
-      </Typography>
-    );
-  }
+  // alinea4a() {
+  //   const { basecode, reforme } = this.state;
+  //   const scelib = reforme.impot_revenu.decote.seuil_celib;
+  //   const scouple = reforme.impot_revenu.decote.seuil_couple;
+  //   const basescelib = basecode.impot_revenu.decote.seuil_celib;
+  //   const basescouple = basecode.impot_revenu.decote.seuil_couple;
+  //
+  //   return (
+  //   );
+  // }
 
   alinea4bext() {
     return (
@@ -606,25 +500,7 @@ class Article extends React.Component {
 
     return (
       <div style={style.Div}>
-        <ExpansionPanel
-          style={style.Typography}
-          square
-          expanded={expanded === "panel0"}
-          onChange={this.handleChange("panel0")}>
-          <ExpansionPanelSummary
-            style={styleExpansionpanel}
-            expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="body2" color="inherit">
-              I. En ce qui concerne les contribuables ...
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails style={styleExpansionpanel}>
-            <Typography variant="body2" color="inherit">
-              visés à l&#39;article 4 B, il est fait application des règles
-              suivantes pour le calcul de l&#39;impôt sur le revenu :
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <Alinea0 style={style} />
 
         {articleTranches}
         <div>
@@ -661,45 +537,11 @@ class Article extends React.Component {
           </Typography>
         </div>
 
-        <ExpansionPanel
-          style={style.Typography}
-          square
-          expanded={expanded === "panel2"}
-          onChange={this.handleChange("panel2")}>
-          <ExpansionPanelSummary
-            style={styleExpansionpanel}
-            expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="body2" color="inherit">
-              2. La réduction d&#39;impôt résultant de l&#39;application du
-              quotient familial ...
-            </Typography>
-          </ExpansionPanelSummary>
+        <Alinea2 style={style} baseOutputInput={this.baseOutputInput} />
+        <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
+        <Alinea4a style={style} reforme={reforme} basecode={basecode} />
 
-          <ExpansionPanelDetails style={styleExpansionpanel}>
-            {this.alinea2ext()}
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-
-        <ExpansionPanel
-          style={style.Typography}
-          square
-          expanded={expanded === "panel3"}
-          onChange={this.handleChange("panel3")}>
-          <ExpansionPanelSummary
-            style={styleExpansionpanel}
-            expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="body2" color="inherit">
-              3. Le montant de l&apos;impôt résultant de l&apos;application des
-              dispositions précédentes est réduit de...
-            </Typography>
-          </ExpansionPanelSummary>
-
-          <ExpansionPanelDetails style={styleExpansionpanel}>
-            {this.alinea3ext()}
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-
-        <ExpansionPanel
+        {/* <ExpansionPanel
           style={style.Typography}
           square
           expanded={expanded === "panel4a"}
@@ -715,7 +557,8 @@ class Article extends React.Component {
           <ExpansionPanelDetails style={styleExpansionpanel}>
             {this.alinea4a()}
           </ExpansionPanelDetails>
-        </ExpansionPanel>
+        </ExpansionPanel> */}
+
         <ExpansionPanel
           style={style.Typography}
           square
