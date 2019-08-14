@@ -1,8 +1,20 @@
 /* eslint
     indent: [2, 2],
     semi: [2, "always"],
-    react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-    react/jsx-indent-props: [2, 2]
+    react/jsx-indent: [2, 2],
+    react/jsx-indent-props: [2, 2],
+    react/jsx-closing-bracket-location: [2, {
+        "nonEmpty": false,
+        "selfClosing": false
+    }],
+    "jsx-a11y/anchor-is-valid": [2, {
+      "components": ["Link"],
+      "specialLink": ["hrefLeft", "hrefRight"]
+    }],
+    import/order: [2, {
+      newlines-between: "always",
+      groups: ["builtin", "external", "parent", "sibling", "index"]
+    }]
 */
 import { PureComponent } from "react";
 import PropTypes from "prop-types";
@@ -16,7 +28,7 @@ import {
   Select,
 } from "@material-ui/core";
 
-import { validateEmailInputField } from "./helpers";
+import { validateEmailInputField } from "./utils";
 
 const styles = () => ({
   formGroup: { marginTop: "28px" },
@@ -66,8 +78,7 @@ class EmailTextInput extends PureComponent {
         value={value}
         inputProps={rest}
         onChange={onChange}
-        classes={{ root: classes.selectRoot }}
-      >
+        classes={{ root: classes.selectRoot }}>
         {domains.map(domainLabel => (
           <MenuItem key={domainLabel} value={domainLabel}>
             {domainLabel}
@@ -100,8 +111,7 @@ class EmailTextInput extends PureComponent {
         <FormLabel
           focused={false}
           component="legend"
-          classes={{ root: classes.formLabel }}
-        >
+          classes={{ root: classes.formLabel }}>
           <b>Mon adresse e-mail officielle</b>
         </FormLabel>
         <div className={classes.fieldsContainer}>

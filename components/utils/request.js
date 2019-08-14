@@ -4,6 +4,7 @@
 */
 const API_ENDPOINT = process.env.API_URL;
 const DEFAULT_HEADERS = { "Content-Type": "application/json" };
+const DEFAULT_API_ERROR_MESSAGE = "Une erreur est survenue";
 
 function callEndpoint(method, pathWithStartingSlash, bodyObject = {}) {
   return new Promise((resolve, reject) => {
@@ -13,7 +14,11 @@ function callEndpoint(method, pathWithStartingSlash, bodyObject = {}) {
       headers: DEFAULT_HEADERS,
       body: JSON.stringify(bodyObject),
     })
-      .then(response => response.json())
+      .then((response) => {
+        const responseIsSuccess = response.status === 200;
+        if (responseIsSuccess) return response.json();
+        throw new Error(DEFAULT_API_ERROR_MESSAGE);
+      })
       .then(resolve)
       .catch(err => reject(err.message || err));
   });

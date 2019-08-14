@@ -1,12 +1,20 @@
 /* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2],
-  "jsx-a11y/anchor-is-valid": [2, {
-    "components": ["Link"],
-    "specialLink": ["hrefLeft", "hrefRight"]
-  }]
+    indent: [2, 2],
+    semi: [2, "always"],
+    react/jsx-indent: [2, 2],
+    react/jsx-indent-props: [2, 2],
+    react/jsx-closing-bracket-location: [2, {
+        "nonEmpty": false,
+        "selfClosing": false
+    }],
+    "jsx-a11y/anchor-is-valid": [2, {
+      "components": ["Link"],
+      "specialLink": ["hrefLeft", "hrefRight"]
+    }],
+    import/order: [2, {
+      newlines-between: "always",
+      groups: ["builtin", "external", "parent", "sibling", "index"]
+    }]
 */
 import { PureComponent } from "react";
 import PropTypes from "prop-types";
@@ -57,33 +65,45 @@ class MentionsLegales extends PureComponent {
           container
           direction="row"
           alignItems="flex-start"
-          justify="space-between"
-        >
+          justify="space-between">
           <Grid item xs={6} className={classes.gridItemText}>
             <Typography>
               <span className={classes.spanTitreIntro}>
-              OPEN LexImpact, c&apos;est&nbsp;quoi&nbsp;?
+                OPEN LexImpact, c&apos;est&nbsp;quoi&nbsp;?
               </span>
             </Typography>
             <Typography>
-                    OPEN LexImpact est une interface qui permet de simuler, de&#xA0;façon
-                    rapide, l&apos;impact des réformes paramétriques de l&apos;impôt
-                    sur le revenu sur des foyers fiscaux types.
+              OPEN LexImpact est une interface qui permet de simuler,
+              de&#xA0;façon rapide, l&apos;impact des réformes paramétriques de
+              l&apos;impôt sur le revenu sur des foyers fiscaux types.
             </Typography>
-            <a href="/presentation-et-cgu" className={classes.alink}>en savoir plus</a>
+            <a href="/presentation-et-cgu" className={classes.alink}>
+              en savoir plus
+            </a>
           </Grid>
           <Grid item xs={6} className={classes.gridItemButtons}>
             <div>
-
               <div className={classes.divButton}>
                 <Link href="/presentation-et-cgu">
-                  <Button variant="outlined" color="inherit" size="large" fullWidth="true">Présentation et conditions d&apos;utilisation</Button>
+                  <Button
+                    variant="outlined"
+                    color="inherit"
+                    size="large"
+                    fullWidth="true">
+                    Présentation et conditions d&apos;utilisation
+                  </Button>
                 </Link>
               </div>
 
               <div className={classes.divButton}>
                 <Link href="/mentions-legales">
-                  <Button variant="outlined" color="inherit" size="large" fullWidth="true">Mentions légales</Button>
+                  <Button
+                    variant="outlined"
+                    color="inherit"
+                    size="large"
+                    fullWidth="true">
+                    Mentions légales
+                  </Button>
                 </Link>
               </div>
 
@@ -93,12 +113,11 @@ class MentionsLegales extends PureComponent {
                   variant="outlined"
                   color="inherit"
                   size="large"
-                  fullWidth="true"
-                >
-                Une question ? Un bug ? Un avis ?
+                  fullWidth="true">
+                  Une question ? Un bug ? Un avis ?
                 </Button>
                 <p className={classes.pAdresseMail}>
-                Écrivez-nous à contact@leximpact.beta.gouv.fr !
+                  Écrivez-nous à contact@leximpact.beta.gouv.fr !
                 </p>
               </div>
             </div>

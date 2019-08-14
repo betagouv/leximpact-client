@@ -6,6 +6,14 @@
     react/jsx-closing-bracket-location: [2, {
         "nonEmpty": false,
         "selfClosing": false
+    }],
+    "jsx-a11y/anchor-is-valid": [2, {
+      "components": ["Link"],
+      "specialLink": ["hrefLeft", "hrefRight"]
+    }],
+    import/order: [2, {
+      newlines-between: "always",
+      groups: ["builtin", "external", "parent", "sibling", "index"]
     }]
 */
 import { PureComponent } from "react";

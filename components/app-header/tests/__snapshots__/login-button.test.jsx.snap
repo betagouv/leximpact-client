@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | app-header | index snapshot doit correspondre au snapshot existant 1`] = `
+<WithStyles(Button)
+  className="LoginButton-button-2"
+  color="primary"
+  onClick={[MockFunction]}
+  size="medium"
+  variant="contained"
+>
+  <pure(VpnKeyIcon)
+    classes={
+      Object {
+        "root": "LoginButton-avatarIcon-1",
+      }
+    }
+  />
+  <span>
+    leximpact 
+  </span>
+  <b>
+    pop
+  </b>
+</WithStyles(Button)>
+`;

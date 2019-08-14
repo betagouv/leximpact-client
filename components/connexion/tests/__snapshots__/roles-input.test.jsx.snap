@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components | login-form | roles-input snapshot doit correspondre avec les props requises 1`] = `
+exports[`components | connexion | roles-input snapshot doit correspondre avec les props requises 1`] = `
 <RolesInput
   classes={
     Object {

@@ -37,6 +37,7 @@ const styles = () => ({
 class HeaderContainer extends PureComponent {
   render() {
     const { classes, isUserLogged } = this.props;
+    const showLoginButton = process.env.NODE_ENV === "development";
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
@@ -55,7 +56,7 @@ class HeaderContainer extends PureComponent {
               </span>
             )}
           </Typography>
-          <LoginButton />
+          {showLoginButton && <LoginButton />}
         </Toolbar>
       </AppBar>
     );

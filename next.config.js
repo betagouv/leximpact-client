@@ -28,6 +28,8 @@ const nextConfig = {
   exportPathMap() {
     return {
       "/": { page: "/" },
+      // popins qui peuvent etre ouverte via l'URL du navigateur
+      "/connection": { page: "/", query: { showPopin: "connection" } },
       "/en-savoir-plus": { page: "/", query: { showPopin: "en-savoir-plus" } },
     };
   },

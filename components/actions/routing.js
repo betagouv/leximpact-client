@@ -10,6 +10,10 @@
 */
 import Router from "next/router";
 
+export function showConnexionPopin() {
+  Router.push("/?showPopin=connection", "/connection");
+}
+
 export function showEnSavoirPlusPopin() {
   Router.push("/?showPopin=en-savoir-plus", "/en-savoir-plus");
 }
