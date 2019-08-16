@@ -25,15 +25,10 @@ import { Grid } from "@material-ui/core";
 import SimpleCard from "./simple-card";
 import CarteEtat from "./carte-etat";
 
-class Impact extends PureComponent {
+class ImpactComponent extends PureComponent {
   handleClick = (e) => {
     const { onClick } = this.props;
     onClick(e);
-  }
-
-  handleChangeRevenu = (i, e) => {
-    const { onRevenuChange } = this.props;
-    onRevenuChange(i, e.target.value);
   }
 
   handleChangeOutreMer = (i, v) => {
@@ -45,17 +40,16 @@ class Impact extends PureComponent {
     // include should be false to remove the graph of recettes
     const includepopulation = false;
     const {
-      cas_types, loading, res_brut, total_pop,
+      casTypes, changeRevenuHandler, res_brut, total_pop,
     } = this.props;
     return (
       <Grid container spacing={24}>
-        {cas_types.map((ct, i) => {
+        {casTypes.map((ct, i) => {
           const itemKey = `grid${i}`;
           return (
             <Grid item key={itemKey} xs={6} sm={12} md={6} lg={4} xl={3}>
               <SimpleCard
-                loading={loading}
-                onChange={this.handleChangeRevenu}
+                onChange={changeRevenuHandler}
                 onOutreMerChange={this.handleChangeOutreMer}
                 index={i}
                 desc_cas_type={ct}
@@ -77,13 +71,12 @@ class Impact extends PureComponent {
   }
 }
 
-Impact.propTypes = {
-  loading: PropTypes.bool.isRequired,
+ImpactComponent.propTypes = {
   total_pop: PropTypes.shape({
     total: PropTypes.shape(),
     deciles: PropTypes.arrayOf(PropTypes.shape()),
   }).isRequired,
-  cas_types: PropTypes.arrayOf(
+  casTypes: PropTypes.arrayOf(
     PropTypes.shape({
       outre_mer: PropTypes.number,
       nombre_declarants: PropTypes.number,
@@ -95,7 +88,7 @@ Impact.propTypes = {
   res_brut: PropTypes.shape().isRequired,
   onClick: PropTypes.func.isRequired,
   onOutreMerChange: PropTypes.func.isRequired,
-  onRevenuChange: PropTypes.func.isRequired,
+  changeRevenuHandler: PropTypes.func.isRequired,
 };
 
-export default Impact;
+export default ImpactComponent;

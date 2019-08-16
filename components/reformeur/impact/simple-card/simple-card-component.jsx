@@ -89,7 +89,6 @@ class SimpleCard extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleOutreMerChange = this.handleOutreMerChange.bind(this);
-    this.state = { loading: true };
   }
 
   handleChange = i => (event) => {
@@ -137,7 +136,7 @@ class SimpleCard extends React.Component {
       desc_cas_type,
       impots_avant,
       impots_apres,
-      loading,
+      isLoading,
     } = this.props;
 
     const styleIcons = {
@@ -273,7 +272,7 @@ class SimpleCard extends React.Component {
               enterDelay={300}
               leaveDelay={200}>
               <div>
-                {loading ? (
+                {isLoading ? (
                   <CircularProgress color="secondary" />
                 ) : (
                   <>
@@ -303,6 +302,7 @@ class SimpleCard extends React.Component {
 }
 SimpleCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);
