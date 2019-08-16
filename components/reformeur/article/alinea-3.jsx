@@ -30,7 +30,7 @@ const styleExpansionpanel = {
   padding: "1px",
 };
 
-class Alinea2 extends PureComponent {
+class Alinea3 extends PureComponent {
   constructor(props) {
     super(props);
     this.name = "panel3";
@@ -82,9 +82,9 @@ class Alinea2 extends PureComponent {
   }
 }
 
-Alinea2.propTypes = {
+Alinea3.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
   style: PropTypes.shape().isRequired,
 };
 
-export default Alinea2;
+export default Alinea3;
