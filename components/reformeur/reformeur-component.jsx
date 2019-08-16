@@ -61,13 +61,12 @@ TabContainer.propTypes = {
   dir: PropTypes.string.isRequired,
 };
 
-class Reformeur extends Component {
+class ReformeurComponent extends Component {
   constructor(props) {
     super(props);
     const reforme = cloneDeep(ReformeDefaultData);
     const reformebase = cloneDeep(ReformeDefaultData);
     this.state = {
-      loading: false,
       reforme,
       reformebase,
       res_brut: {
@@ -155,75 +154,13 @@ class Reformeur extends Component {
         ],
       },
       // indextab: 0,
-      cas_types: [
-        {
-          outre_mer: 0,
-          nombre_declarants: 1,
-          nombre_declarants_retraites: 0,
-          nombre_personnes_a_charge: 0,
-          revenu: 15600,
-        },
-        {
-          outre_mer: 0,
-          nombre_declarants: 1,
-          nombre_declarants_retraites: 0,
-          nombre_personnes_a_charge: 1,
-          revenu: 31200,
-        },
-        {
-          outre_mer: 0,
-          nombre_declarants: 2,
-          nombre_declarants_retraites: 0,
-          nombre_personnes_a_charge: 0,
-          revenu: 38400,
-        },
-        {
-          outre_mer: 0,
-          nombre_declarants: 2,
-          nombre_declarants_retraites: 2,
-          nombre_personnes_a_charge: 0,
-          revenu: 15600,
-        },
-        {
-          outre_mer: 0,
-          nombre_declarants: 2,
-          nombre_declarants_retraites: 0,
-          nombre_personnes_a_charge: 2,
-          revenu: 55200,
-        },
-        {
-          outre_mer: 1,
-          nombre_declarants: 2,
-          nombre_declarants_retraites: 0,
-          nombre_personnes_a_charge: 2,
-          revenu: 55200,
-        },
-      ],
       // cas_types_defaut: true,
     };
   }
 
   componentDidMount() {
-    const endpoint = this.endpoint();
-
-    fetch(`${endpoint}/metadata/description_cas_types`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-    })
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({ cas_types: json });
-      })
-      .catch(() => {
-        // eslint-disable-next-line no-console
-        console.log("Can’t access  response. Blocked by browser?");
-      });
-    // json.map(country => country.name))
-    // .then(countryNames => this.setState({countryNames, loading: false}))
-    // .then(json => this.setState({revenus_cas_types: json , loading : false} ))
+    const { fetchMetadataCasTypesHandler } = this.props;
+    fetchMetadataCasTypesHandler();
   }
 
   UpdateBareme = (indexToChange, value) => {
@@ -295,7 +232,8 @@ class Reformeur extends Component {
   }
 
   removeTranche = () => {
-    const { cas_types, reforme } = this.state;
+    const { casTypes } = this.props;
+    const { reforme } = this.state;
     const refbase = reforme;
     const newnbt = refbase.impot_revenu.bareme.seuils.length - 1;
     if (newnbt > 0) {
@@ -315,7 +253,7 @@ class Reformeur extends Component {
         })
         : JSON.stringify({
           reforme: refbase,
-          description_cas_types: cas_types,
+          description_cas_types: casTypes,
         });
       this.updateCompare(bodyreq);
     }
@@ -325,7 +263,6 @@ class Reformeur extends Component {
 
   updateCompare = (bodyreq) => {
     const endpoint = this.endpoint();
-    this.setState({ loading: true });
     fetch(`${endpoint}/calculate/compare`, {
       method: "POST",
       headers: {
@@ -335,12 +272,13 @@ class Reformeur extends Component {
     })
       .then(response => response.json())
       .then((json) => {
-        this.setState({ res_brut: json.res_brut, loading: false });
+        this.setState({ res_brut: json.res_brut });
       });
   }
 
   handleChange = (value, name) => {
-    const { cas_types, reforme } = this.state;
+    const { reforme } = this.state;
+    const { casTypes } = this.props;
     const newvalue = value === "" ? 0 : value;
     if (name.substring(0, 5) === "seuil") {
       const numb = parseInt(name.substring(5), 10);
@@ -365,7 +303,7 @@ class Reformeur extends Component {
       })
       : JSON.stringify({
         reforme,
-        description_cas_types: cas_types,
+        description_cas_types: casTypes,
       });
     this.updateCompare(bodyreq);
   }
@@ -389,41 +327,32 @@ class Reformeur extends Component {
       });
   }
 
-  handleRevenuChange = (i, value) => {
-    const { cas_types, reforme } = this.state;
-    const arrayrev = cas_types;
-    arrayrev[i].revenu = value * 12;
-    this.setState({ cas_types: arrayrev });
-    // this.setState({ cas_types: arrayrev, cas_types_defaut: false });
-    const bodyreq = JSON.stringify({
-      reforme,
-      description_cas_types: arrayrev,
-    });
-    this.updateCompare(bodyreq);
+  handleCardRevenuAnnuelChange = (casTypeIndex, inputEvent) => {
+    const { reforme } = this.state;
+    const { updateCompareHandler, updateCasTypeRevenusHandler } = this.props;
+    const casTypeRevenuMensuel = Number(inputEvent.target.value);
+    updateCasTypeRevenusHandler(casTypeIndex, casTypeRevenuMensuel);
+    updateCompareHandler({ reforme });
   }
 
   handleOutreMerChange = (i, value) => {
-    const { cas_types, reforme } = this.state;
-    const arrayrev = cas_types;
-    arrayrev[i].outre_mer = value;
-    this.setState({ cas_types: arrayrev });
-    // this.setState({ cas_types: arrayrev, cas_types_defaut: false });
-    const bodyreq = JSON.stringify({
-      reforme,
-      description_cas_types: arrayrev,
-    });
-    this.updateCompare(bodyreq);
+    // const { casTypes } = this.props;
+    // const { reforme } = this.state;
+    // const arrayrev = casTypes;
+    // arrayrev[i].outre_mer = value;
+    // this.setState({ cas_types: arrayrev });
+    // // this.setState({ cas_types: arrayrev, cas_types_defaut: false });
+    // const bodyreq = JSON.stringify({
+    //   reforme,
+    //   description_cas_types: arrayrev,
+    // });
+    // this.updateCompare(bodyreq);
   }
 
   render() {
     const { classes } = this.props;
     const {
-      cas_types,
-      loading,
-      reforme,
-      reformebase,
-      res_brut,
-      total_pop,
+      reforme, reformebase, res_brut, total_pop,
     } = this.state;
     return (
       <div className="main-index">
@@ -443,13 +372,11 @@ class Reformeur extends Component {
           </div>
           <div className="moitie-droite">
             <Impact
-              loading={loading}
-              onRevenuChange={this.handleRevenuChange}
+              changeRevenuHandler={this.handleCardRevenuAnnuelChange}
               onOutreMerChange={this.handleOutreMerChange}
               res_brut={res_brut}
               total_pop={total_pop}
               onClick={this.simPop}
-              cas_types={cas_types}
             />
           </div>
         </div>
@@ -458,8 +385,12 @@ class Reformeur extends Component {
   }
 }
 
-Reformeur.propTypes = {
+ReformeurComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
+  casTypes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  updateCompareHandler: PropTypes.func.isRequired,
+  updateCasTypeRevenusHandler: PropTypes.func.isRequired,
+  fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(Reformeur);
+export default withStyles(styles, { withTheme: true })(ReformeurComponent);

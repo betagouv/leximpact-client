@@ -17,14 +17,13 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
-import { combineReducers } from "redux";
+const updateCasTypeRevenusAnnuel = (casTypeIndex, casTypeRevenusMensuel) => {
+  const casTypeRevenusAnnuel = casTypeRevenusMensuel * 12;
+  return {
+    type: "onUpdateCasTypeRevenusAnnuel",
+    casTypeIndex,
+    casTypeRevenusAnnuel,
+  };
+};
 
-import * as casTypes from "./cas-types";
-import loading from "./loading";
-import currentExpandedArticlePanel from "./current-expanded-article-panel";
-
-export default combineReducers({
-  ...casTypes,
-  loading,
-  currentExpandedArticlePanel,
-});
+export default updateCasTypeRevenusAnnuel;

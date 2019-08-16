@@ -17,14 +17,17 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
-import { combineReducers } from "redux";
+const DEFAULT_STATE = false;
 
-import * as casTypes from "./cas-types";
-import loading from "./loading";
-import currentExpandedArticlePanel from "./current-expanded-article-panel";
+const loading = (state = DEFAULT_STATE, action) => {
+  switch (action.type) {
+  case "onLoadingStart":
+    return true;
+  case "onLoadingComplete":
+    return false;
+  default:
+    return state;
+  }
+};
 
-export default combineReducers({
-  ...casTypes,
-  loading,
-  currentExpandedArticlePanel,
-});
+export default loading;
