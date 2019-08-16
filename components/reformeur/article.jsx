@@ -26,11 +26,11 @@ import { get } from "lodash";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
 
-import Alinea0 from "./article-alinea0";
-import Alinea2 from "./article/alinea-2";
-import Alinea3 from "./article/alinea-3";
-import Alinea4a from "./article/alinea-4a";
-import Alinea4b from "./article/alinea-4b";
+import Alinea0 from "./article-alinea-0";
+import Alinea2 from "./article-alinea-2";
+import Alinea3 from "./article-alinea-3";
+import Alinea4a from "./article-alinea-4a";
+import Alinea4b from "./article-alinea-4b";
 import InputField from "./article/input-field";
 import OutputField from "./article/output-field";
 
@@ -99,16 +99,9 @@ class Article extends React.Component {
     const { reforme, reformebase } = props;
     // const nbt = props.reformebase.impot_revenu.bareme.seuils.length;
     this.state = {
-      expanded: "null", // état de l'extansion panel null = contenu
       reforme,
       basecode: reformebase, // Jamais modifié, utilisé pour montrer l'existant,
     };
-  }
-
-  handleChange = panel => (event, expanded) => {
-    this.setState({
-      expanded: expanded ? panel : false,
-    });
   }
 
   handleS1Change = (value, name) => {

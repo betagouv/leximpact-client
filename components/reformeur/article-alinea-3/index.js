@@ -21,9 +21,9 @@ import { connect } from "react-redux";
 
 import { expandArticlePanel } from "../../actions";
 
-import ArticleAlinea0 from "./article-alinea0-component";
+import ArticleAlinea3 from "./article-alinea-3-component";
 
-const PANEL_NAME = "panel0";
+const PANEL_NAME = "panel3";
 
 const mapStateToProps = ({ currentExpandedArticlePanel }) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
@@ -39,4 +39,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ArticleAlinea0);
+)(ArticleAlinea3);

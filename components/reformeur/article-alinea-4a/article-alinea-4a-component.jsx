@@ -22,32 +22,23 @@ import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
-import InputField from "./input-field";
-import OutputField from "./output-field";
-import LexExpansionPanel from "./panels/expansion-panel";
-import LexExpansionPanelDetails from "./panels/expansion-panel-details";
-import LexExpansionPanelSummary from "./panels/expansion-panel-summary";
+import InputField from "../article/input-field";
+import OutputField from "../article/output-field";
+import LexExpansionPanel from "../article/panels/expansion-panel";
+import LexExpansionPanelDetails from "../article/panels/expansion-panel-details";
+import LexExpansionPanelSummary from "../article/panels/expansion-panel-summary";
 
 const styleExpansionpanel = {
   padding: "1px",
 };
 
 class Alinea4a extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.name = "panel4a";
-    this.state = { expanded: false };
-  }
-
-  handleChange = () => {
-    this.setState(({ expanded }) => ({ expanded: !expanded }));
-  }
-
   render() {
-    const { expanded } = this.state;
     const {
       formulaOutputInput,
       baseOutputInput,
+      isPanelExpanded,
+      expandArticlePanelHandler,
       style,
       basecode,
       reforme,
@@ -56,13 +47,12 @@ class Alinea4a extends PureComponent {
     const scouple = reforme.impot_revenu.decote.seuil_couple;
     const basescelib = basecode.impot_revenu.decote.seuil_celib;
     const basescouple = basecode.impot_revenu.decote.seuil_couple;
-    // const isExpanded = expanded === this.name;
     return (
       <LexExpansionPanel
         style={style.Typography}
         square
-        expanded={expanded}
-        onChange={this.handleChange}>
+        expanded={isPanelExpanded}
+        onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
           style={styleExpansionpanel}
           expandIcon={<ExpandMoreIcon />}>
@@ -117,6 +107,8 @@ class Alinea4a extends PureComponent {
 Alinea4a.propTypes = {
   formulaOutputInput: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
+  expandArticlePanelHandler: PropTypes.func.isRequired,
+  isPanelExpanded: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,
   reforme: PropTypes.shape().isRequired,
   basecode: PropTypes.shape().isRequired,

@@ -22,35 +22,23 @@ import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
-import LexExpansionPanel from "./panels/expansion-panel";
-import LexExpansionPanelDetails from "./panels/expansion-panel-details";
-import LexExpansionPanelSummary from "./panels/expansion-panel-summary";
+import LexExpansionPanel from "../article/panels/expansion-panel";
+import LexExpansionPanelDetails from "../article/panels/expansion-panel-details";
+import LexExpansionPanelSummary from "../article/panels/expansion-panel-summary";
 
 const styleExpansionpanel = {
   padding: "1px",
 };
 
 class Alinea2 extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.name = "panel0";
-    this.state = { expanded: false };
-  }
-
-  handleChange = () => {
-    this.setState(({ expanded }) => ({ expanded: !expanded }));
-  }
-
   render() {
-    const { expanded } = this.state;
-    const { style } = this.props;
-    // const isExpanded = expanded === this.name;
+    const { isPanelExpanded, expandArticlePanelHandler, style } = this.props;
     return (
       <LexExpansionPanel
         style={style.Typography}
         square
-        expanded={expanded}
-        onChange={this.handleChange}>
+        expanded={isPanelExpanded}
+        onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
           style={styleExpansionpanel}
           expandIcon={<ExpandMoreIcon />}>
@@ -71,6 +59,8 @@ class Alinea2 extends PureComponent {
 }
 
 Alinea2.propTypes = {
+  expandArticlePanelHandler: PropTypes.func.isRequired,
+  isPanelExpanded: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,
 };
 

@@ -22,22 +22,15 @@ import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
-import InputField from "./input-field";
-import OutputField from "./output-field";
-import LexExpansionPanel from "./panels/expansion-panel";
-import LexExpansionPanelDetails from "./panels/expansion-panel-details";
-import LexExpansionPanelSummary from "./panels/expansion-panel-summary";
+import LexExpansionPanel from "../article/panels/expansion-panel";
+import LexExpansionPanelDetails from "../article/panels/expansion-panel-details";
+import LexExpansionPanelSummary from "../article/panels/expansion-panel-summary";
 
 const styleExpansionpanel = {
   padding: "1px",
 };
 
 class Alinea4b extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.name = "panel4b";
-  }
-
   alinea4bext() {
     const {
       baseOutputInput,
@@ -155,13 +148,13 @@ class Alinea4b extends PureComponent {
   }
 
   render() {
-    const { style } = this.props;
+    const { isPanelExpanded, expandArticlePanelHandler, style } = this.props;
     return (
       <LexExpansionPanel
         style={style.Typography}
         square
-        expanded={false}
-        onChange={() => {}}>
+        expanded={isPanelExpanded}
+        onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
           style={styleExpansionpanel}
           expandIcon={<ExpandMoreIcon />}>
@@ -180,10 +173,13 @@ class Alinea4b extends PureComponent {
 }
 
 Alinea4b.propTypes = {
+  isPanelExpanded: PropTypes.bool.isRequired,
+  expandArticlePanelHandler: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   formulaOutputInputFacteur: PropTypes.func.isRequired,
   formulaOutputInputCombiLin: PropTypes.func.isRequired,
+  style: PropTypes.shape().isRequired,
 };
 
 export default Alinea4b;
