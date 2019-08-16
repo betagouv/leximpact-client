@@ -100,7 +100,9 @@ class Article extends React.Component {
     // const nbt = props.reformebase.impot_revenu.bareme.seuils.length;
     this.state = {
       reforme,
-      basecode: reformebase, // Jamais modifié, utilisé pour montrer l'existant,
+      // Jamais modifié, utilisé pour montrer l'existant
+      // dans les article s'affiche dans les chiffres en jaunes
+      basecode: reformebase,
     };
   }
 
