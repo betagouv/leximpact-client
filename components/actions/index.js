@@ -11,3 +11,4 @@
 export { default as closeCurrentPopin } from "./close-current-popin";
 export { default as showEnSavoirPlusPopin } from "./show-en-savoir-plus-popin";
 export { default as showConnexionPopin } from "./show-connexion-popin";
+export { default as expandArticlePanel } from "./expand-article-panel";

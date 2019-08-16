@@ -26,7 +26,7 @@ import { get } from "lodash";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
 
-import Alinea0 from "./article/alinea-0";
+import Alinea0 from "./article-alinea0";
 import Alinea2 from "./article/alinea-2";
 import Alinea3 from "./article/alinea-3";
 import Alinea4a from "./article/alinea-4a";
