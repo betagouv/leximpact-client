@@ -33,23 +33,7 @@ import Alinea4a from "./article-alinea-4a";
 import Alinea4b from "./article-alinea-4b";
 import InputField from "./article/input-field";
 import OutputField from "./article/output-field";
-
-// prend un nombre, et retourne l'arrondi
-// avec le moins de chiffres qui a moins de limdiff
-// de différence avec le nombre initial.
-const makeNumberGoodLooking = (initialNumber) => {
-  let currfact = 1;
-  let nbchiffres = 0;
-  const limdiff = 0.00001;
-  while (true) {
-    const numnow = Math.round(initialNumber * currfact) / currfact;
-    if (Math.abs(numnow - initialNumber) < limdiff || nbchiffres >= 5) {
-      return initialNumber.toFixed(nbchiffres);
-    }
-    currfact *= 10;
-    nbchiffres += 1;
-  }
-};
+import makeNumberGoodLooking from "./utils/make-number-good-looking";
 
 const style = {
   Typography: { padding: "5px" },
@@ -171,23 +155,25 @@ class Article extends React.Component {
   }
 
   baseOutput = (name) => {
+    const { basecode } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
-      get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1),
+      get(basecode.impot_revenu, name) * (tx ? 100 : 1),
     ); // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
     return <OutputField value={baseval} style={style.VarCodeexistant} />;
   }
 
   formulaOutputInput = (name) => {
+    const { basecode, reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
-      get(this.state.basecode.impot_revenu, name) * (tx ? 100 : 1),
-    ); // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+      get(basecode.impot_revenu, name) * (tx ? 100 : 1),
+    );
     const newval = makeNumberGoodLooking(
-      get(this.state.reforme.impot_revenu, name) * (tx ? 100 : 1),
-    ); // eval("this.state.reforme.impot_revenu."+name) * (tx?100:1)
+      get(reforme.impot_revenu, name) * (tx ? 100 : 1),
+    );
     return (
       <React.Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
@@ -197,13 +183,14 @@ class Article extends React.Component {
   }
 
   formulaOutputInputCombiLin = (name1, fact1, name2, fact2) => {
+    const { basecode, reforme } = this.state;
     const baseval = makeNumberGoodLooking(
-      get(this.state.basecode.impot_revenu, name1) * fact1
-        + get(this.state.basecode.impot_revenu, name2) * fact2,
+      get(basecode.impot_revenu, name1) * fact1
+        + get(basecode.impot_revenu, name2) * fact2,
     );
     const newval = makeNumberGoodLooking(
-      get(this.state.reforme.impot_revenu, name1) * fact1
-        + get(this.state.reforme.impot_revenu, name2) * fact2,
+      get(reforme.impot_revenu, name1) * fact1
+        + get(reforme.impot_revenu, name2) * fact2,
     );
 
     return (
@@ -215,10 +202,11 @@ class Article extends React.Component {
   }
 
   gimmeIRPartsOfArticle = (i) => {
-    const s = this.state.reforme.impot_revenu.bareme.seuils;
-    const t = this.state.reforme.impot_revenu.bareme.taux;
-    const bases = this.state.basecode.impot_revenu.bareme.seuils;
-    const baset = this.state.basecode.impot_revenu.bareme.taux;
+    const { reforme, basecode } = this.state;
+    const s = reforme.impot_revenu.bareme.seuils;
+    const t = reforme.impot_revenu.bareme.taux;
+    const bases = basecode.impot_revenu.bareme.seuils;
+    const baset = basecode.impot_revenu.bareme.taux;
     const nbt = s.length;
     const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
     // Part 1
