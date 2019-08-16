@@ -11,46 +11,57 @@ exports[`components | reformeur | article snapshot doit correspondre avec les pr
     }
   }
 >
-  <WithStyles(WithStyles(ExpansionPanel))
-    expanded={false}
-    onChange={[Function]}
-    square={true}
+  <Connect(Alinea2)
     style={
       Object {
-        "padding": "5px",
+        "Button": Object {
+          "margin": "10px",
+          "padding": "3px",
+        },
+        "Div": Object {
+          "marginBottom": "1.5em",
+          "marginLeft": "1.5em",
+          "marginRight": "1.5em",
+          "marginTop": "1em",
+        },
+        "InputSeuil": Object {
+          "fontSize": "20px",
+          "marginLeft": "2px",
+          "marginRight": "2px",
+          "width": "70px",
+        },
+        "InputTaux": Object {
+          "fontSize": "20px",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "width": "30px",
+        },
+        "Typography": Object {
+          "padding": "5px",
+        },
+        "TypographyNouvelleTranche": Object {
+          "color": "#00A3FF",
+          "padding": "5px",
+        },
+        "Typographybouton": Object {
+          "margin": "10px",
+        },
+        "VarCodeNew": Object {
+          "color": "#00A3FF",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+        },
+        "VarCodeexistant": Object {
+          "color": "#A6A00C",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+          "textDecoration": "underline",
+        },
       }
     }
-  >
-    <WithStyles(Component)
-      expandIcon={<pure(ExpandMoreIcon) />}
-      style={
-        Object {
-          "padding": "1px",
-        }
-      }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        I. En ce qui concerne les contribuables ...
-      </WithStyles(Typography)>
-    </WithStyles(Component)>
-    <WithStyles(WithStyles(ExpansionPanelDetails))
-      style={
-        Object {
-          "padding": "1px",
-        }
-      }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        visés à l'article 4 B, il est fait application des règles suivantes pour le calcul de l'impôt sur le revenu :
-      </WithStyles(Typography)>
-    </WithStyles(WithStyles(ExpansionPanelDetails))>
-  </WithStyles(WithStyles(ExpansionPanel))>
+  />
   <WithStyles(Typography)
     color="inherit"
     key="0"
@@ -402,813 +413,393 @@ exports[`components | reformeur | article snapshot doit correspondre avec les pr
       Supprimer une tranche
     </WithStyles(Typography)>
   </div>
-  <WithStyles(WithStyles(ExpansionPanel))
-    expanded={false}
-    onChange={[Function]}
-    square={true}
+  <Connect(Alinea2)
+    baseOutputInput={[Function]}
     style={
       Object {
-        "padding": "5px",
+        "Button": Object {
+          "margin": "10px",
+          "padding": "3px",
+        },
+        "Div": Object {
+          "marginBottom": "1.5em",
+          "marginLeft": "1.5em",
+          "marginRight": "1.5em",
+          "marginTop": "1em",
+        },
+        "InputSeuil": Object {
+          "fontSize": "20px",
+          "marginLeft": "2px",
+          "marginRight": "2px",
+          "width": "70px",
+        },
+        "InputTaux": Object {
+          "fontSize": "20px",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "width": "30px",
+        },
+        "Typography": Object {
+          "padding": "5px",
+        },
+        "TypographyNouvelleTranche": Object {
+          "color": "#00A3FF",
+          "padding": "5px",
+        },
+        "Typographybouton": Object {
+          "margin": "10px",
+        },
+        "VarCodeNew": Object {
+          "color": "#00A3FF",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+        },
+        "VarCodeexistant": Object {
+          "color": "#A6A00C",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+          "textDecoration": "underline",
+        },
       }
     }
-  >
-    <WithStyles(Component)
-      expandIcon={<pure(ExpandMoreIcon) />}
-      style={
-        Object {
-          "padding": "1px",
-        }
-      }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        2. La réduction d'impôt résultant de l'application du quotient familial ...
-      </WithStyles(Typography)>
-    </WithStyles(Component)>
-    <WithStyles(WithStyles(ExpansionPanelDetails))
-      style={
-        Object {
-          "padding": "1px",
-        }
-      }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        ... ne peut excéder
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="1551"
-        />
-        <InputField
-          name="plafond_qf.maries_ou_pacses"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="1551"
-        />
-        € par demi-part ou la moitié de cette somme par quart de part s'ajoutant à une part pour les contribuables célibataires, divorcés, veufs ou soumis à l'imposition distincte prévue au 4 de l'article 6 et à deux parts pour les contribuables mariés soumis à une imposition commune. Toutefois, pour les contribuables célibataires, divorcés, ou soumis à l'imposition distincte prévue au 4 de l'article 6 qui répondent aux conditions fixées au II de l'article 194, la réduction d'impôt correspondant à la part accordée au titre du premier enfant à charge est limitée à
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="3660"
-        />
-        <InputField
-          name="plafond_qf.celib_enf"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="3660"
-        />
-         
-        € Lorsque les contribuables entretiennent uniquement des enfants dont la charge est réputée également partagée entre l'un et l'autre des parents, la réduction d'impôt correspondant à la demi-part accordée au titre de chacun des deux premiers enfants est limitée à la moitié de cette somme. Par dérogation aux dispositions du premier alinéa, la réduction d'impôt résultant de l'application du quotient familial, accordée aux contribuables qui bénéficient des dispositions des a, b et e du 1 de l'article 195, ne peut excéder
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="927"
-        />
-        <InputField
-          name="plafond_qf.celib"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="927"
-        />
-        € ;
-        <br />
-        Les contribuables qui bénéficient d'une demi-part au titre des a, b, c, d, d bis, e et f du 1 ainsi que des 2 à 6 de l'article 195 ont droit à une réduction d'impôt égale à
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="1547"
-        />
-        <InputField
-          name="plafond_qf.reduc_postplafond"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="1547"
-        />
-        pour chacune de ces demi-parts lorsque la réduction de leur cotisation d'impôt est plafonnée en application du premier alinéa. La réduction d'impôt est égale à la moitié de cette somme lorsque la majoration visée au 2 de l'article 195 est de un quart de part. Cette réduction d'impôt ne peut toutefois excéder l'augmentation de la cotisation d'impôt résultant du plafonnement. Les contribuables veufs ayant des enfants à charge qui bénéficient d'une part supplémentaire de quotient familial en application du I de l'article 194 ont droit à une réduction d'impôt égale à
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="1728"
-        />
-        <InputField
-          name="plafond_qf.reduc_postplafond_veuf"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="1728"
-        />
-        € pour cette part supplémentaire lorsque la réduction de leur cotisation d'impôt est plafonnée en application du premier alinéa du présent 2. Cette réduction d'impôt ne peut toutefois excéder l'augmentation de la cotisation d'impôt résultant du plafonnement.
-      </WithStyles(Typography)>
-    </WithStyles(WithStyles(ExpansionPanelDetails))>
-  </WithStyles(WithStyles(ExpansionPanel))>
-  <WithStyles(WithStyles(ExpansionPanel))
-    expanded={false}
-    onChange={[Function]}
-    square={true}
+  />
+  <Connect(ArticleAlinea3)
+    baseOutputInput={[Function]}
     style={
       Object {
-        "padding": "5px",
+        "Button": Object {
+          "margin": "10px",
+          "padding": "3px",
+        },
+        "Div": Object {
+          "marginBottom": "1.5em",
+          "marginLeft": "1.5em",
+          "marginRight": "1.5em",
+          "marginTop": "1em",
+        },
+        "InputSeuil": Object {
+          "fontSize": "20px",
+          "marginLeft": "2px",
+          "marginRight": "2px",
+          "width": "70px",
+        },
+        "InputTaux": Object {
+          "fontSize": "20px",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "width": "30px",
+        },
+        "Typography": Object {
+          "padding": "5px",
+        },
+        "TypographyNouvelleTranche": Object {
+          "color": "#00A3FF",
+          "padding": "5px",
+        },
+        "Typographybouton": Object {
+          "margin": "10px",
+        },
+        "VarCodeNew": Object {
+          "color": "#00A3FF",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+        },
+        "VarCodeexistant": Object {
+          "color": "#A6A00C",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+          "textDecoration": "underline",
+        },
       }
     }
-  >
-    <WithStyles(Component)
-      expandIcon={<pure(ExpandMoreIcon) />}
-      style={
-        Object {
-          "padding": "1px",
-        }
+  />
+  <Connect(Alinea4a)
+    baseOutputInput={[Function]}
+    basecode={
+      Object {
+        "impot_revenu": Object {
+          "bareme": Object {
+            "seuils": Array [
+              9964,
+              27519,
+              73779,
+              156244,
+            ],
+            "taux": Array [
+              0.14,
+              0.3,
+              0.41,
+              0.45,
+            ],
+          },
+          "decote": Object {
+            "seuil_celib": 1196,
+            "seuil_couple": 1970,
+            "taux": 0.75,
+          },
+          "plafond_qf": Object {
+            "abat_dom": Object {
+              "plaf_GuadMarReu": 2450,
+              "plaf_GuyMay": 4050,
+              "taux_GuadMarReu": 0.3,
+              "taux_GuyMay": 0.4,
+            },
+            "celib": 927,
+            "celib_enf": 3660,
+            "maries_ou_pacses": 1551,
+            "reduc_postplafond": 1547,
+            "reduc_postplafond_veuf": 1728,
+            "reduction_ss_condition_revenus": Object {
+              "seuil1": 18984,
+              "seuil2": 21036,
+              "seuil_maj_enf": 3797,
+              "taux": 0.2,
+            },
+          },
+        },
       }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        3. Le montant de l'impôt résultant de l'application des dispositions précédentes est réduit de...
-      </WithStyles(Typography)>
-    </WithStyles(Component)>
-    <WithStyles(WithStyles(ExpansionPanelDetails))
-      style={
-        Object {
-          "padding": "1px",
-        }
+    }
+    formulaOutputInput={[Function]}
+    reforme={
+      Object {
+        "impot_revenu": Object {
+          "bareme": Object {
+            "seuils": Array [
+              9964,
+              27519,
+              73779,
+              156244,
+            ],
+            "taux": Array [
+              0.14,
+              0.3,
+              0.41,
+              0.45,
+            ],
+          },
+          "decote": Object {
+            "seuil_celib": 1196,
+            "seuil_couple": 1970,
+            "taux": 0.75,
+          },
+          "plafond_qf": Object {
+            "abat_dom": Object {
+              "plaf_GuadMarReu": 2450,
+              "plaf_GuyMay": 4050,
+              "taux_GuadMarReu": 0.3,
+              "taux_GuyMay": 0.4,
+            },
+            "celib": 927,
+            "celib_enf": 3660,
+            "maries_ou_pacses": 1551,
+            "reduc_postplafond": 1547,
+            "reduc_postplafond_veuf": 1728,
+            "reduction_ss_condition_revenus": Object {
+              "seuil1": 18984,
+              "seuil2": 21036,
+              "seuil_maj_enf": 3797,
+              "taux": 0.2,
+            },
+          },
+        },
       }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        ...
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="30"
-        />
-        <InputField
-          name="plafond_qf.abat_dom.taux_GuadMarReu"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "0px",
-              "marginRight": "3px",
-              "width": "30px",
-            }
-          }
-          value="30"
-        />
-        %, dans la limite de
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="2450"
-        />
-        <InputField
-          name="plafond_qf.abat_dom.plaf_GuadMarReu"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="2450"
-        />
-        € pour les contribuables domiciliés dans les départements de la Guadeloupe, de la Martinique et de la Réunion ; cette réduction est égale à
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="40"
-        />
-        <InputField
-          name="plafond_qf.abat_dom.taux_GuyMay"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "0px",
-              "marginRight": "3px",
-              "width": "30px",
-            }
-          }
-          value="40"
-        />
-        %, dans la limite de
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="4050"
-        />
-        <InputField
-          name="plafond_qf.abat_dom.plaf_GuyMay"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="4050"
-        />
-        €, pour les contribuables domiciliés dans les départements de la Guyane et de Mayotte ;
-      </WithStyles(Typography)>
-    </WithStyles(WithStyles(ExpansionPanelDetails))>
-  </WithStyles(WithStyles(ExpansionPanel))>
-  <WithStyles(WithStyles(ExpansionPanel))
-    expanded={false}
-    onChange={[Function]}
-    square={true}
+    }
     style={
       Object {
-        "padding": "5px",
+        "Button": Object {
+          "margin": "10px",
+          "padding": "3px",
+        },
+        "Div": Object {
+          "marginBottom": "1.5em",
+          "marginLeft": "1.5em",
+          "marginRight": "1.5em",
+          "marginTop": "1em",
+        },
+        "InputSeuil": Object {
+          "fontSize": "20px",
+          "marginLeft": "2px",
+          "marginRight": "2px",
+          "width": "70px",
+        },
+        "InputTaux": Object {
+          "fontSize": "20px",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "width": "30px",
+        },
+        "Typography": Object {
+          "padding": "5px",
+        },
+        "TypographyNouvelleTranche": Object {
+          "color": "#00A3FF",
+          "padding": "5px",
+        },
+        "Typographybouton": Object {
+          "margin": "10px",
+        },
+        "VarCodeNew": Object {
+          "color": "#00A3FF",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+        },
+        "VarCodeexistant": Object {
+          "color": "#A6A00C",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+          "textDecoration": "underline",
+        },
       }
     }
-  >
-    <WithStyles(Component)
-      expandIcon={<pure(ExpandMoreIcon) />}
-      style={
-        Object {
-          "padding": "1px",
-        }
+  />
+  <Connect(Alinea4b)
+    baseOutputInput={[Function]}
+    basecode={
+      Object {
+        "impot_revenu": Object {
+          "bareme": Object {
+            "seuils": Array [
+              9964,
+              27519,
+              73779,
+              156244,
+            ],
+            "taux": Array [
+              0.14,
+              0.3,
+              0.41,
+              0.45,
+            ],
+          },
+          "decote": Object {
+            "seuil_celib": 1196,
+            "seuil_couple": 1970,
+            "taux": 0.75,
+          },
+          "plafond_qf": Object {
+            "abat_dom": Object {
+              "plaf_GuadMarReu": 2450,
+              "plaf_GuyMay": 4050,
+              "taux_GuadMarReu": 0.3,
+              "taux_GuyMay": 0.4,
+            },
+            "celib": 927,
+            "celib_enf": 3660,
+            "maries_ou_pacses": 1551,
+            "reduc_postplafond": 1547,
+            "reduc_postplafond_veuf": 1728,
+            "reduction_ss_condition_revenus": Object {
+              "seuil1": 18984,
+              "seuil2": 21036,
+              "seuil_maj_enf": 3797,
+              "taux": 0.2,
+            },
+          },
+        },
       }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        4. a. Le montant de l'impôt résultant de l'application des dispositions précédentes est diminué, dans...
-      </WithStyles(Typography)>
-    </WithStyles(Component)>
-    <WithStyles(WithStyles(ExpansionPanelDetails))
-      style={
-        Object {
-          "padding": "1px",
-        }
+    }
+    formulaOutputInput={[Function]}
+    formulaOutputInputCombiLin={[Function]}
+    formulaOutputInputFacteur={[Function]}
+    reforme={
+      Object {
+        "impot_revenu": Object {
+          "bareme": Object {
+            "seuils": Array [
+              9964,
+              27519,
+              73779,
+              156244,
+            ],
+            "taux": Array [
+              0.14,
+              0.3,
+              0.41,
+              0.45,
+            ],
+          },
+          "decote": Object {
+            "seuil_celib": 1196,
+            "seuil_couple": 1970,
+            "taux": 0.75,
+          },
+          "plafond_qf": Object {
+            "abat_dom": Object {
+              "plaf_GuadMarReu": 2450,
+              "plaf_GuyMay": 4050,
+              "taux_GuadMarReu": 0.3,
+              "taux_GuyMay": 0.4,
+            },
+            "celib": 927,
+            "celib_enf": 3660,
+            "maries_ou_pacses": 1551,
+            "reduc_postplafond": 1547,
+            "reduc_postplafond_veuf": 1728,
+            "reduction_ss_condition_revenus": Object {
+              "seuil1": 18984,
+              "seuil2": 21036,
+              "seuil_maj_enf": 3797,
+              "taux": 0.2,
+            },
+          },
+        },
       }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        ...la limite de son montant, de la différence entre
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value={1196}
-        />
-        <InputField
-          name="decote.seuil_celib"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value={1196}
-        />
-        € et les
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="trois quarts"
-        />
-         
-        [
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="75"
-        />
-        <InputField
-          name="decote.taux"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "0px",
-              "marginRight": "3px",
-              "width": "30px",
-            }
-          }
-          value="75"
-        />
-        %] de son montant pour les contribuables célibataires, divorcés ou veufs et de la différence entre
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value={1970}
-        />
-        <InputField
-          name="decote.seuil_couple"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value={1970}
-        />
-         
-        € et les
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="trois quarts"
-        />
-         
-        [
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="75"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="75"
-        />
-        %] de son montant pour les contribuables soumis à imposition commune.
-      </WithStyles(Typography)>
-    </WithStyles(WithStyles(ExpansionPanelDetails))>
-  </WithStyles(WithStyles(ExpansionPanel))>
-  <WithStyles(WithStyles(ExpansionPanel))
-    expanded={false}
-    onChange={[Function]}
-    square={true}
+    }
     style={
       Object {
-        "padding": "5px",
+        "Button": Object {
+          "margin": "10px",
+          "padding": "3px",
+        },
+        "Div": Object {
+          "marginBottom": "1.5em",
+          "marginLeft": "1.5em",
+          "marginRight": "1.5em",
+          "marginTop": "1em",
+        },
+        "InputSeuil": Object {
+          "fontSize": "20px",
+          "marginLeft": "2px",
+          "marginRight": "2px",
+          "width": "70px",
+        },
+        "InputTaux": Object {
+          "fontSize": "20px",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "width": "30px",
+        },
+        "Typography": Object {
+          "padding": "5px",
+        },
+        "TypographyNouvelleTranche": Object {
+          "color": "#00A3FF",
+          "padding": "5px",
+        },
+        "Typographybouton": Object {
+          "margin": "10px",
+        },
+        "VarCodeNew": Object {
+          "color": "#00A3FF",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+        },
+        "VarCodeexistant": Object {
+          "color": "#A6A00C",
+          "fontWeight": "bold",
+          "lineHeight": "10px",
+          "padding": "8px",
+          "textDecoration": "underline",
+        },
       }
     }
-  >
-    <WithStyles(Component)
-      expandIcon={<pure(ExpandMoreIcon) />}
-      style={
-        Object {
-          "padding": "1px",
-        }
-      }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        b. Le montant de l'impôt résultant du a est réduit dans les conditions prévues...
-      </WithStyles(Typography)>
-    </WithStyles(Component)>
-    <WithStyles(WithStyles(ExpansionPanelDetails))
-      style={
-        Object {
-          "padding": "1px",
-        }
-      }
-    >
-      <WithStyles(Typography)
-        color="inherit"
-        variant="body2"
-      >
-        ...au sixième alinéa du présent b pour les contribuables dont le montant des revenus du foyer fiscal, au sens du 1° du IV de l'article 1417, est inférieur à
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="21036"
-        />
-        <InputField
-          name="plafond_qf.reduction_ss_condition_revenus.seuil2"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="21036"
-        />
-         
-        €, pour la première part de quotient familial des personnes célibataires, veuves ou divorcées, et à
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="42072"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="42072"
-        />
-        €, pour les deux premières parts de quotient familial des personnes soumises à une imposition commune. Ces seuils sont majorés de
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="3797"
-        />
-        <InputField
-          name="plafond_qf.reduction_ss_condition_revenus.seuil_maj_enf"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="3797"
-        />
-        € pour chacune des demi-parts suivantes et de la moitié de ce montant pour chacun des quarts de part suivants.
-        <br />
-        Pour l'application des seuils mentionnés au premier alinéa du présent b, le montant des revenus du foyer fiscal est majoré :
-        <br />
-        1° Du montant des plus-values, déterminées le cas échéant avant application des abattements pour durée de détention mentionnés au 1 de l'article 150-0 D ou à l'article 150-0 D ter et pour lesquelles il est mis fin au report d'imposition dans les conditions prévues à l'article 150-0 D bis, dans leur rédaction en vigueur jusqu'au 31 décembre 2013 ;
-        <br />
-        2° Du montant des plus-values, déterminées le cas échéant avant application des abattements pour durée de détention mentionnés aux 1 ter ou 1 quater de l'article 150-0 D ou à l'article 150-0 D ter, et des créances mentionnées aux I et II de l'article 167 bis, pour la seule détermination du premier terme de la différence mentionnée au deuxième alinéa du 1 du II bis du même article 167 bis ;
-        <br />
-        3° Du montant des plus-values mentionnées au I de l'article 150-0 B ter, déterminées le cas échéant avant application de l'abattement pour durée de détention mentionné aux 1 ter ou 1 quater de l'article 150-0 D, pour la seule détermination du premier terme de la différence mentionné au deuxième alinéa du 2° du a du 2 ter de l'article 200 A pour l'application de la seconde phrase du 3° du même a.
-        <br />
-        Le taux de la réduction prévue au premier alinéa du présent b est de 20 %. Toutefois, pour les contribuables dont les revenus du foyer fiscal, au sens du 1° du IV de l'article 1417, excèdent
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="18984"
-        />
-        <InputField
-          name="plafond_qf.reduction_ss_condition_revenus.seuil1"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "2px",
-              "marginRight": "2px",
-              "width": "70px",
-            }
-          }
-          value="18984"
-        />
-         
-        €, pour la première part de quotient familial des personnes célibataires, veuves ou divorcées, ou
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="37968"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="37968"
-        />
-        €, pour les deux premières parts de quotient familial des personnes soumises à une imposition commune, ces seuils étant majorés le cas échéant dans les conditions prévues au même premier alinéa, le taux de la réduction d'impôt est égal à
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="20"
-        />
-        <InputField
-          name="plafond_qf.reduction_ss_condition_revenus.taux"
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "20px",
-              "marginLeft": "0px",
-              "marginRight": "3px",
-              "width": "30px",
-            }
-          }
-          value="20"
-        />
-        % multiplié par le rapport entre :
-        <br />
-        – au numérateur, la différence entre
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="21036"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="21036"
-        />
-        €, pour les personnes célibataires, veuves ou divorcées, ou
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="42072"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="42072"
-        />
-        €, pour les personnes soumises à une imposition commune, ces seuils étant majorés le cas échéant dans les conditions prévues audit premier alinéa, et le montant des revenus mentionnés au troisième alinéa du présent b, et ;
-        <br />
-        – au dénominateur,
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="2052"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="2052"
-        />
-        €, pour les personnes célibataires, veuves ou divorcées, ou
-         
-        <OutputField
-          style={
-            Object {
-              "color": "#A6A00C",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-              "textDecoration": "underline",
-            }
-          }
-          value="4104"
-        />
-        <OutputField
-          style={
-            Object {
-              "color": "#00A3FF",
-              "fontWeight": "bold",
-              "lineHeight": "10px",
-              "padding": "8px",
-            }
-          }
-          value="4104"
-        />
-        €, pour les personnes soumises à une imposition commune.
-        <br />
-        Les montants de revenus mentionnés au présent b sont révisés chaque année dans la même proportion que la limite supérieure de la première tranche du barème de l'impôt sur le revenu. Les montants obtenus sont arrondis, s'il y a lieu, à l'euro supérieur.
-      </WithStyles(Typography)>
-    </WithStyles(WithStyles(ExpansionPanelDetails))>
-  </WithStyles(WithStyles(ExpansionPanel))>
+  />
 </div>
 `;
