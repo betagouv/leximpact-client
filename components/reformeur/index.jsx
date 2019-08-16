@@ -321,19 +321,12 @@ class Reformeur extends Component {
     }
   }
 
-  // handleTabChange = (event, value) => {
-  //   this.setState({ indextab: value });
-  // }
-
-  // handleIndexChange = (index) => {
-  //   this.setState({ indextab: index });
-  // }
-
   endpoint = () => process.env.API_URL
 
   updateCompare = (bodyreq) => {
+    const endpoint = this.endpoint();
     this.setState({ loading: true });
-    fetch(`${this.endpoint()}/calculate/compare`, {
+    fetch(`${endpoint}/calculate/compare`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -378,8 +371,9 @@ class Reformeur extends Component {
   }
 
   simPop = () => {
+    const endpoint = this.endpoint();
     const { reforme } = this.state;
-    fetch(`${this.endpoint()}/calculate/compare`, {
+    fetch(`${endpoint}/calculate/compare`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
