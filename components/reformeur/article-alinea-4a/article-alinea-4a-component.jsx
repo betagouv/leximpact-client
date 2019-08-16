@@ -24,9 +24,9 @@ import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
 import InputField from "../article/input-field";
 import OutputField from "../article/output-field";
-import LexExpansionPanel from "../article/panels/expansion-panel";
-import LexExpansionPanelDetails from "../article/panels/expansion-panel-details";
-import LexExpansionPanelSummary from "../article/panels/expansion-panel-summary";
+import LexExpansionPanel from "../article-expansion-panels/expansion-panel";
+import LexExpansionPanelDetails from "../article-expansion-panels/expansion-panel-details";
+import LexExpansionPanelSummary from "../article-expansion-panels/expansion-panel-summary";
 
 const styleExpansionpanel = {
   padding: "1px",
