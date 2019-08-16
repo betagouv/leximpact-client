@@ -20,19 +20,8 @@
 */
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import {
-  ExpansionPanel as MuiExpansionPanel,
-  ExpansionPanelSummary as MuiExpansionPanelSummary,
-  ExpansionPanelDetails as MuiExpansionPanelDetails,
-  Fab,
-  Typography,
-} from "@material-ui/core";
-import {
-  Add as AddIcon,
-  Delete as DeleteIcon,
-  ExpandMore as ExpandMoreIcon,
-} from "@material-ui/icons";
+import { Fab, Typography } from "@material-ui/core";
+import { Add as AddIcon, Delete as DeleteIcon } from "@material-ui/icons";
 import { get } from "lodash";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
@@ -41,6 +30,7 @@ import Alinea0 from "./article/alinea-0";
 import Alinea2 from "./article/alinea-2";
 import Alinea3 from "./article/alinea-3";
 import Alinea4a from "./article/alinea-4a";
+import Alinea4b from "./article/alinea-4b";
 import InputField from "./article/input-field";
 import OutputField from "./article/output-field";
 
@@ -103,50 +93,6 @@ const style = {
   },
 };
 
-const ExpansionPanel = withStyles({
-  root: {
-    border: "0px solid rgba(0,0,0,.125)",
-    boxShadow: "none",
-    "&:not(:last-child)": {
-      borderBottom: 0,
-    },
-    "&:before": {
-      display: "none",
-    },
-  },
-  expanded: {
-    margin: "auto",
-    padding: "1px",
-  },
-})(MuiExpansionPanel);
-
-const ExpansionPanelSummary = withStyles({
-  root: {
-    backgroundColor: "rgba(0,0,0,0)",
-    borderBottom: "0px solid rgba(0,0,0,.125)",
-    marginBottom: -1,
-    minHeight: 32,
-    "&$expanded": {
-      minHeight: 20,
-    },
-  },
-  content: {
-    "&$expanded": {
-      margin: "3px 0",
-      padding: "1px",
-    },
-  },
-  expanded: {},
-})(props => <MuiExpansionPanelSummary {...props} />);
-
-ExpansionPanelSummary.muiName = "ExpansionPanelSummary";
-
-const ExpansionPanelDetails = withStyles(theme => ({
-  root: {
-    padding: theme.spacing.unit * 2,
-  },
-}))(MuiExpansionPanelDetails);
-
 class Article extends React.Component {
   constructor(props) {
     super(props);
@@ -207,7 +153,7 @@ class Article extends React.Component {
     );
   }
 
-  formulaOutputInputFacteur(name, fact) {
+  formulaOutputInputFacteur = (name, fact) => {
     const { basecode, reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
@@ -270,131 +216,6 @@ class Article extends React.Component {
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <OutputField value={newval} style={style.VarCodeNew} />
       </React.Fragment>
-    );
-  }
-
-  // alinea4a() {
-  //   const { basecode, reforme } = this.state;
-  //   const scelib = reforme.impot_revenu.decote.seuil_celib;
-  //   const scouple = reforme.impot_revenu.decote.seuil_couple;
-  //   const basescelib = basecode.impot_revenu.decote.seuil_celib;
-  //   const basescouple = basecode.impot_revenu.decote.seuil_couple;
-  //
-  //   return (
-  //   );
-  // }
-
-  alinea4bext() {
-    return (
-      <Typography variant="body2" color="inherit">
-        ...au sixième alinéa du présent b pour les contribuables dont le montant
-        des revenus du foyer fiscal, au sens du 1° du IV de l&apos;article 1417,
-        est inférieur à
-        {" "}
-        {this.baseOutputInput(
-          "plafond_qf.reduction_ss_condition_revenus.seuil2",
-        )}
-        {" "}
-        €, pour la première part de quotient familial des personnes
-        célibataires, veuves ou divorcées, et à
-        {this.formulaOutputInputFacteur(
-          "plafond_qf.reduction_ss_condition_revenus.seuil2",
-          2,
-        )}
-        €, pour les deux premières parts de quotient familial des personnes
-        soumises à une imposition commune. Ces seuils sont majorés de
-        {" "}
-        {this.baseOutputInput(
-          "plafond_qf.reduction_ss_condition_revenus.seuil_maj_enf",
-        )}
-        € pour chacune des demi-parts suivantes et de la moitié de ce montant
-        pour chacun des quarts de part suivants.
-        <br />
-        Pour l&apos;application des seuils mentionnés au premier alinéa du
-        présent b, le montant des revenus du foyer fiscal est majoré :
-        <br />
-        1° Du montant des plus-values, déterminées le cas échéant avant
-        application des abattements pour durée de détention mentionnés au 1 de
-        l&apos;article 150-0 D ou à l&apos;article 150-0 D ter et pour
-        lesquelles il est mis fin au report d&apos;imposition dans les
-        conditions prévues à l&apos;article 150-0 D bis, dans leur rédaction en
-        vigueur jusqu&apos;au 31 décembre 2013 ;
-        <br />
-        2° Du montant des plus-values, déterminées le cas échéant avant
-        application des abattements pour durée de détention mentionnés aux 1 ter
-        ou 1 quater de l&apos;article 150-0 D ou à l&apos;article 150-0 D ter,
-        et des créances mentionnées aux I et II de l&apos;article 167 bis, pour
-        la seule détermination du premier terme de la différence mentionnée au
-        deuxième alinéa du 1 du II bis du même article 167 bis ;
-        <br />
-        3° Du montant des plus-values mentionnées au I de l&apos;article 150-0 B
-        ter, déterminées le cas échéant avant application de l&apos;abattement
-        pour durée de détention mentionné aux 1 ter ou 1 quater de
-        l&apos;article 150-0 D, pour la seule détermination du premier terme de
-        la différence mentionné au deuxième alinéa du 2° du a du 2 ter de
-        l&apos;article 200 A pour l&apos;application de la seconde phrase du 3°
-        du même a.
-        <br />
-        Le taux de la réduction prévue au premier alinéa du présent b est de 20
-        %. Toutefois, pour les contribuables dont les revenus du foyer fiscal,
-        au sens du 1° du IV de l&apos;article 1417, excèdent
-        {" "}
-        {this.baseOutputInput(
-          "plafond_qf.reduction_ss_condition_revenus.seuil1",
-        )}
-        {" "}
-        €, pour la première part de quotient familial des personnes
-        célibataires, veuves ou divorcées, ou
-        {" "}
-        {this.formulaOutputInputFacteur(
-          "plafond_qf.reduction_ss_condition_revenus.seuil1",
-          2,
-        )}
-        €, pour les deux premières parts de quotient familial des personnes
-        soumises à une imposition commune, ces seuils étant majorés le cas
-        échéant dans les conditions prévues au même premier alinéa, le taux de
-        la réduction d&apos;impôt est égal à
-        {this.baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}
-        % multiplié par le rapport entre :
-        <br />
-– au numérateur, la différence entre
-        {" "}
-        {this.formulaOutputInput(
-          "plafond_qf.reduction_ss_condition_revenus.seuil2",
-        )}
-        €, pour les personnes célibataires, veuves ou divorcées, ou
-        {this.formulaOutputInputFacteur(
-          "plafond_qf.reduction_ss_condition_revenus.seuil2",
-          2,
-        )}
-        €, pour les personnes soumises à une imposition commune, ces seuils
-        étant majorés le cas échéant dans les conditions prévues audit premier
-        alinéa, et le montant des revenus mentionnés au troisième alinéa du
-        présent b, et ;
-        <br />
-– au dénominateur,
-        {" "}
-        {this.formulaOutputInputCombiLin(
-          "plafond_qf.reduction_ss_condition_revenus.seuil2",
-          1,
-          "plafond_qf.reduction_ss_condition_revenus.seuil1",
-          -1,
-        )}
-        €, pour les personnes célibataires, veuves ou divorcées, ou
-        {" "}
-        {this.formulaOutputInputCombiLin(
-          "plafond_qf.reduction_ss_condition_revenus.seuil2",
-          2,
-          "plafond_qf.reduction_ss_condition_revenus.seuil1",
-          -2,
-        )}
-        €, pour les personnes soumises à une imposition commune.
-        <br />
-        Les montants de revenus mentionnés au présent b sont révisés chaque
-        année dans la même proportion que la limite supérieure de la première
-        tranche du barème de l&apos;impôt sur le revenu. Les montants obtenus
-        sont arrondis, s&apos;il y a lieu, à l&apos;euro supérieur.
-      </Typography>
     );
   }
 
@@ -490,10 +311,7 @@ class Article extends React.Component {
   }
 
   render() {
-    const { expanded, reforme, basecode } = this.state;
-    const styleExpansionpanel = {
-      padding: "1px",
-    };
+    const { reforme, basecode } = this.state;
 
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
@@ -539,44 +357,22 @@ class Article extends React.Component {
 
         <Alinea2 style={style} baseOutputInput={this.baseOutputInput} />
         <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
-        <Alinea4a style={style} reforme={reforme} basecode={basecode} />
-
-        {/* <ExpansionPanel
-          style={style.Typography}
-          square
-          expanded={expanded === "panel4a"}
-          onChange={this.handleChange("panel4a")}>
-          <ExpansionPanelSummary
-            style={styleExpansionpanel}
-            expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="body2" color="inherit">
-              4. a. Le montant de l&apos;impôt résultant de l&apos;application
-              des dispositions précédentes est diminué, dans...
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails style={styleExpansionpanel}>
-            {this.alinea4a()}
-          </ExpansionPanelDetails>
-        </ExpansionPanel> */}
-
-        <ExpansionPanel
-          style={style.Typography}
-          square
-          expanded={expanded === "panel4b"}
-          onChange={this.handleChange("panel4b")}>
-          <ExpansionPanelSummary
-            style={styleExpansionpanel}
-            expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="body2" color="inherit">
-              b. Le montant de l&apos;impôt résultant du a est réduit dans les
-              conditions prévues...
-            </Typography>
-          </ExpansionPanelSummary>
-
-          <ExpansionPanelDetails style={styleExpansionpanel}>
-            {this.alinea4bext()}
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <Alinea4a
+          style={style}
+          reforme={reforme}
+          basecode={basecode}
+          baseOutputInput={this.baseOutputInput}
+          formulaOutputInput={this.formulaOutputInput}
+        />
+        <Alinea4b
+          style={style}
+          reforme={reforme}
+          basecode={basecode}
+          baseOutputInput={this.baseOutputInput}
+          formulaOutputInput={this.formulaOutputInput}
+          formulaOutputInputFacteur={this.formulaOutputInputFacteur}
+          formulaOutputInputCombiLin={this.formulaOutputInputCombiLin}
+        />
       </div>
     );
   }
