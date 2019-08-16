@@ -1,11 +1,30 @@
-import React from "react"
-import Document, { Head, Main, NextScript } from "next/document"
-import JssProvider from "react-jss/lib/JssProvider"
-import getPageContext from "lib/getPageContext"
-import createPageContext from "lib/createPageContext"
+/* eslint
+  indent: [2, 2],
+  semi: [2, "always"],
+  react/jsx-indent: [2, 2],
+  react/jsx-indent-props: [2, 2],
+  max-nested-callbacks: [2, { "max": 4 }],
+  react/jsx-closing-bracket-location: [2, {
+    "nonEmpty": false,
+    "selfClosing": false
+  }],
+  "jsx-a11y/anchor-is-valid": [2, {
+    "components": ["Link"],
+    "specialLink": ["hrefLeft", "hrefRight"]
+  }],
+  import/order: [2, {
+    newlines-between: "always",
+    groups: ["builtin", "external", "parent", "sibling", "index"]
+  }]
+*/
+import React from "react";
+import Document, { Head, Main, NextScript } from "next/document";
+import JssProvider from "react-jss/lib/JssProvider";
+import getPageContext from "lib/getPageContext";
+import createPageContext from "lib/createPageContext";
 
 class MyDocument extends Document {
-    static getInitialProps(ctx) {
+  static getInitialProps(ctx) {
     // Resolution order
     //
     // On the server:
@@ -23,62 +42,61 @@ class MyDocument extends Document {
     // 1. page.getInitialProps
     // 3. page.render
 
-        // Get the context of the page to collected side effects.
-        const pageContext = getPageContext(process.browser, createPageContext)
-        const page = ctx.renderPage(Component => props => (
-            <JssProvider
-                registry={pageContext.sheetsRegistry}
-                generateClassName={pageContext.generateClassName}
-            >
-                <Component pageContext={pageContext} {...props} />
-            </JssProvider>
-        ))
+    // Get the context of the page to collected side effects.
+    const pageContext = getPageContext(process.browser, createPageContext);
+    const page = ctx.renderPage(Component => props => (
+      <JssProvider
+        registry={pageContext.sheetsRegistry}
+        generateClassName={pageContext.generateClassName}>
+        <Component pageContext={pageContext} {...props} />
+      </JssProvider>
+    ));
 
-        return {
-            ...page,
-            pageContext,
-            styles: (
-                <style
-                    id="jss-server-side"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: pageContext.sheetsRegistry.toString(),
-                    }}
-                />
-            ),
-        }
-    }
+    return {
+      ...page,
+      pageContext,
+      styles: (
+        <style
+          id="jss-server-side"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: pageContext.sheetsRegistry.toString(),
+          }}
+        />
+      ),
+    };
+  }
 
-    render() {
-        const { pageContext } = this.props
+  render() {
+    const { pageContext } = this.props;
 
-        return (
-            <html lang="en" dir="ltr">
-                <Head>
-                    <meta charSet="utf-8" />
-                    {/* Use minimum-scale=1 to enable GPU rasterization */}
-                    <meta
-                        name="viewport"
-                        content={`user-scalable=0, initial-scale=1,
+    return (
+      <html lang="en" dir="ltr">
+        <Head>
+          <meta charSet="utf-8" />
+          {/* Use minimum-scale=1 to enable GPU rasterization */}
+          <meta
+            name="viewport"
+            content={`user-scalable=0, initial-scale=1,
                              minimum-scale=1, width=device-width, height=device-height`}
-                    />
-                    {/* PWA primary color */}
-                    <meta
-                        name="theme-color"
-                        content={pageContext.theme.palette.primary[500]}
-                    />
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Lora"
-                    />
-                </Head>
-                <body>
-                    <Main />
-                    <NextScript />
-                </body>
-            </html>
-        )
-    }
+          />
+          {/* PWA primary color */}
+          <meta
+            name="theme-color"
+            content={pageContext.theme.palette.primary[500]}
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Lora"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
+  }
 }
 
-export default MyDocument
+export default MyDocument;

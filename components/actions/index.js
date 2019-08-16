@@ -9,3 +9,4 @@
   }]
 */
 export * from "./routing";
+export { default as expandArticlePanel } from "./expand-article-panel";
