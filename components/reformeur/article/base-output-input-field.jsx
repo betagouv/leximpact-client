@@ -49,7 +49,9 @@ class BaseOutputInputField extends PureComponent {
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <InputField
           value={newval}
-          onChange={this.handleS1Change}
+          onChange={() => {
+            // this.handleS1Change
+          }}
           name={name}
           style={tx ? style.InputTaux : style.InputSeuil}
         />
