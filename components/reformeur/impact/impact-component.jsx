@@ -31,16 +31,15 @@ class ImpactComponent extends PureComponent {
     onClick(e);
   }
 
-  handleChangeOutreMer = (i, v) => {
-    const { onOutreMerChange } = this.props;
-    onOutreMerChange(i, v);
-  }
-
   render() {
     // include should be false to remove the graph of recettes
     const includepopulation = false;
     const {
-      casTypes, changeRevenuHandler, res_brut, total_pop,
+      casTypes,
+      changeRevenuHandler,
+      changeOutreMerHandler,
+      res_brut,
+      total_pop,
     } = this.props;
     return (
       <Grid container spacing={24}>
@@ -50,7 +49,7 @@ class ImpactComponent extends PureComponent {
             <Grid item key={itemKey} xs={6} sm={12} md={6} lg={4} xl={3}>
               <SimpleCard
                 onChange={changeRevenuHandler}
-                onOutreMerChange={this.handleChangeOutreMer}
+                onOutreMerChange={changeOutreMerHandler}
                 index={i}
                 desc_cas_type={ct}
                 impots_avant={res_brut.avant[i]}
@@ -87,7 +86,7 @@ ImpactComponent.propTypes = {
   ).isRequired,
   res_brut: PropTypes.shape().isRequired,
   onClick: PropTypes.func.isRequired,
-  onOutreMerChange: PropTypes.func.isRequired,
+  changeOutreMerHandler: PropTypes.func.isRequired,
   changeRevenuHandler: PropTypes.func.isRequired,
 };
 

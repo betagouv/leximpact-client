@@ -329,13 +329,22 @@ class ReformeurComponent extends Component {
 
   handleCardRevenuAnnuelChange = (casTypeIndex, inputEvent) => {
     const { reforme } = this.state;
-    const { updateCompareHandler, updateCasTypeRevenusHandler } = this.props;
+    const {
+      updateCalculateCompareHandler,
+      updateCasTypeRevenusHandler,
+    } = this.props;
     const casTypeRevenuMensuel = Number(inputEvent.target.value);
     updateCasTypeRevenusHandler(casTypeIndex, casTypeRevenuMensuel);
-    updateCompareHandler({ reforme });
+    updateCalculateCompareHandler({ reforme });
   }
 
-  handleOutreMerChange = (i, value) => {
+  handleOutreMerChange = (casTypeIndex, inputEvent) => {
+    // const { reforme } = this.state;
+    console.log("inputEvent.target.value", inputEvent.target.value);
+    // const { updateCasTypeOutreMerHandler } = this.props;
+    // const casTypeOutreMer = Number(inputEvent.target.value);
+    // updateCasTypeOutreMerHandler(casTypeIndex, casTypeOutreMer);
+    // updateCalculateCompareHandler({ reforme });
     // const { casTypes } = this.props;
     // const { reforme } = this.state;
     // const arrayrev = casTypes;
@@ -373,7 +382,7 @@ class ReformeurComponent extends Component {
           <div className="moitie-droite">
             <Impact
               changeRevenuHandler={this.handleCardRevenuAnnuelChange}
-              onOutreMerChange={this.handleOutreMerChange}
+              changeOutreMerHandler={this.handleOutreMerChange}
               res_brut={res_brut}
               total_pop={total_pop}
               onClick={this.simPop}
@@ -388,8 +397,9 @@ class ReformeurComponent extends Component {
 ReformeurComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
   casTypes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  updateCompareHandler: PropTypes.func.isRequired,
+  updateCalculateCompareHandler: PropTypes.func.isRequired,
   updateCasTypeRevenusHandler: PropTypes.func.isRequired,
+  updateCasTypeOutreMerHandler: PropTypes.func.isRequired,
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
 };
 

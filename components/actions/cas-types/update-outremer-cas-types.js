@@ -17,14 +17,10 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
-import { combineReducers } from "redux";
-
-import casTypes from "./cas-types";
-import loading from "./loading";
-import currentExpandedArticlePanel from "./current-expanded-article-panel";
-
-export default combineReducers({
-  casTypes,
-  loading,
-  currentExpandedArticlePanel,
+const updateCasTypeOutreMer = (casTypeIndex, casTypeRevenusOutreMer) => ({
+  type: "onUpdateCasTypeOutreMer",
+  casTypeIndex,
+  casTypeRevenusOutreMer,
 });
+
+export default updateCasTypeOutreMer;

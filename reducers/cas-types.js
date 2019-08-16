@@ -64,19 +64,19 @@ const updateCasTypeRevenusAnnuel = (
   return nextState;
 };
 
-export const casTypesIsLoading = (state = false, action) => {
-  switch (action.type) {
-  case "onCasTypesLoadingStart":
-    return true;
-  case "onCasTypesLoadingComplete":
-    return false;
-  default:
-    return state;
-  }
+const updateCasTypeOutreMer = (
+  state,
+  // { casTypeIndex: index, casTypeRevenusOutreMer: value },
+) => {
+  const nextState = cloneDeep(state);
+  // set(nextState, `${index}.outre_mer`, value);
+  return nextState;
 };
 
-export const casTypes = (state = DEFAULT_CAS_TYPES, action) => {
+const casTypes = (state = DEFAULT_CAS_TYPES, action) => {
   switch (action.type) {
+  case "onUpdateCasTypeOutreMer":
+    return updateCasTypeOutreMer(state, action);
   case "onUpdateCasTypeRevenusAnnuel":
     return updateCasTypeRevenusAnnuel(state, action);
   case "onCasTypesLoaded":
@@ -85,3 +85,5 @@ export const casTypes = (state = DEFAULT_CAS_TYPES, action) => {
     return state;
   }
 };
+
+export default casTypes;

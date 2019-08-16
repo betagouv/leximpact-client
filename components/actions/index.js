@@ -16,5 +16,8 @@ export { default as expandArticlePanel } from "./expand-article-panel";
 export { default as fetchMetadataCasTypes } from "./api/fetch-metdata-cas-types";
 export { default as fetchCalculateCompare } from "./api/fetch-calculate-compare";
 export {
-  default as updateCasTypeRevenusAnnuel,
-} from "./update-cas-type-revenus-annuel";
+  default as updateCasTypeOutreMer,
+} from "./cas-types/update-outremer-cas-types";
+export {
+  default as updateRevenusAnnuelCasType,
+} from "./cas-types/update-revenus-cas-type";

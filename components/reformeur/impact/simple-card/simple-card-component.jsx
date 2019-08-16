@@ -95,12 +95,11 @@ class SimpleCard extends React.Component {
     this.props.onChange(i, event);
   }
 
-  handleOutreMerChange = numcastype => (event) => {
+  handleOutreMerChange = numcastype => () => {
+    const { onOutreMerChange, desc_cas_type } = this.props;
+    const value = 3 - desc_cas_type.outre_mer;
     // console.log("je suis dans l'outremer",numcastype,event,this.props.desc_cas_type.outre_mer)
-    this.props.onOutreMerChange(
-      numcastype,
-      3 - this.props.desc_cas_type.outre_mer,
-    );
+    onOutreMerChange(numcastype, value);
   }
 
   roundedRevenues(revenumensuel) {
