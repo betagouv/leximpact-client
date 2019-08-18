@@ -25,6 +25,7 @@ import ImpactComponent from "./impact-component";
 const mapStateToProps = state => ({
   casTypes: state.casTypes,
   resBrut: state.resBrut,
+  totalPop: state.totalPop,
 });
 
 const mapDispatchToProps = () => ({});

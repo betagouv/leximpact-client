@@ -30,9 +30,7 @@ import {
 
 import ReformeurComponent from "./reformeur-component";
 
-const mapStateToProps = state => ({
-  casTypes: state.casTypes,
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
   updateCalculateCompareHandler: (requestBody) => {

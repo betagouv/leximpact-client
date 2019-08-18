@@ -27,8 +27,8 @@ import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   handleClick = () => {
-    // const { onClick } = this.props;
-    // onClick(e);
+    // const { onSimPopClick } = this.props;
+    // onSimPopClick(e);
     // click sim popuplation
   }
 
@@ -40,7 +40,7 @@ class ImpactComponent extends PureComponent {
       changeRevenuHandler,
       changeOutreMerHandler,
       resBrut,
-      // total_pop,
+      // totalPop,
     } = this.props;
     return (
       <Grid container spacing={24}>
@@ -61,7 +61,7 @@ class ImpactComponent extends PureComponent {
         })}
         {/* <Grid item key="stateBudget" xs={12} sm={12} md={12} lg={12} xl={12}>
           {includepopulation ? (
-            <CarteEtat resultat={total_pop} onClick={this.handleClick} />
+            <CarteEtat resultat={totalPop} onClick={this.handleClick} />
           ) : (
             <div />
           )}
@@ -72,7 +72,7 @@ class ImpactComponent extends PureComponent {
 }
 
 ImpactComponent.propTypes = {
-  total_pop: PropTypes.shape({
+  totalPop: PropTypes.shape({
     deciles: PropTypes.arrayOf(PropTypes.shape()),
     total: PropTypes.shape(),
   }).isRequired,
@@ -90,7 +90,7 @@ ImpactComponent.propTypes = {
     avant: PropTypes.shape(),
     wprm: PropTypes.shape(),
   }).isRequired,
-  // onClick: PropTypes.func.isRequired,
+  // onSimPopClick: PropTypes.func.isRequired,
   changeOutreMerHandler: PropTypes.func.isRequired,
   changeRevenuHandler: PropTypes.func.isRequired,
 };
