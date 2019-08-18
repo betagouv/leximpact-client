@@ -22,7 +22,8 @@ import { connect } from "react-redux";
 
 import ArticlesComponent from "./articles-component";
 
-const mapStateToProps = ({ reformeBase }) => ({
+const mapStateToProps = ({ reforme, reformeBase }) => ({
+  reforme,
   reformeBase,
 });
 

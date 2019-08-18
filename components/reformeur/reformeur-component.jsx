@@ -20,12 +20,10 @@
 */
 import PropTypes from "prop-types";
 import { Component } from "react";
-import { cloneDeep } from "lodash";
 import { withStyles } from "@material-ui/core/styles";
 import { Divider, Paper } from "@material-ui/core";
 
 import Articles from "../articles";
-import { REFORME_BASE_DEFAULT_STATE } from "../../reducers/reforme-base";
 
 import Impact from "./impact";
 import ArticleHeader from "./article-header";
@@ -40,9 +38,7 @@ const styles = () => ({
 class ReformeurComponent extends Component {
   constructor(props) {
     super(props);
-    const reforme = cloneDeep(REFORME_BASE_DEFAULT_STATE);
     this.state = {
-      reforme,
       total_pop: {
         total: {
           avant: 78000000000,
@@ -147,39 +143,36 @@ class ReformeurComponent extends Component {
   }
 
   handleArticleChange = (value, name) => {
-    const { reforme } = this.state;
     const {
       updateReformeByNameHandler,
       updateCalculateCompareHandler,
     } = this.props;
     updateReformeByNameHandler(name, value);
-    updateCalculateCompareHandler({ reforme });
+    updateCalculateCompareHandler();
   }
 
   handleCardRevenuAnnuelChange = (casTypeIndex, inputEvent) => {
-    const { reforme } = this.state;
     const {
       updateCalculateCompareHandler,
       updateCasTypeRevenusHandler,
     } = this.props;
     const casTypeRevenuMensuel = Number(inputEvent.target.value);
     updateCasTypeRevenusHandler(casTypeIndex, casTypeRevenuMensuel);
-    updateCalculateCompareHandler({ reforme });
+    updateCalculateCompareHandler();
   }
 
   handleOutreMerChange = (casTypeIndex, casTypeOutreMerIndex) => {
-    const { reforme } = this.state;
     const {
       updateCasTypeOutreMerHandler,
       updateCalculateCompareHandler,
     } = this.props;
     updateCasTypeOutreMerHandler(casTypeIndex, casTypeOutreMerIndex);
-    updateCalculateCompareHandler({ reforme });
+    updateCalculateCompareHandler();
   }
 
   render() {
     const { classes } = this.props;
-    const { reforme, total_pop } = this.state;
+    const { total_pop } = this.state;
     return (
       <div className="main-index">
         <div className="clearfix">
@@ -188,7 +181,6 @@ class ReformeurComponent extends Component {
               <ArticleHeader />
               <Divider />
               <Articles
-                reforme={reforme}
                 onChange={this.handleArticleChange}
                 addTranche={this.handleAddTranche}
                 removeTranche={this.handleRemoveTranche}

@@ -13,15 +13,11 @@ import fetch from "isomorphic-fetch";
 
 import { loadingStart, loadingComplete } from "../loading";
 
-const fetchCalculateCompare = requestBody => (
-  dispatch,
-  getState,
-  { apiEndpoint },
-) => {
+const fetchCalculateCompare = () => (dispatch, getState, { apiEndpoint }) => {
   dispatch(loadingStart());
-  const { casTypes } = getState();
+  const { casTypes, reforme } = getState();
   const body = JSON.stringify({
-    ...requestBody,
+    reforme,
     description_cas_types: casTypes,
   });
   const promise = fetch(`${apiEndpoint}/calculate/compare`, {
