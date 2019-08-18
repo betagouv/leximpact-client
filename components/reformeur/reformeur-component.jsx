@@ -24,8 +24,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { Divider, Paper } from "@material-ui/core";
 
 import Articles from "../articles";
+import ImpactCards from "../impact-cards";
 
-import Impact from "./impact";
 import ArticleHeader from "./article-header";
 
 const styles = () => ({
@@ -123,7 +123,7 @@ class ReformeurComponent extends Component {
             </Paper>
           </div>
           <div className="moitie-droite">
-            <Impact
+            <ImpactCards
               changeRevenuHandler={this.handleCardRevenuAnnuelChange}
               changeOutreMerHandler={this.handleOutreMerChange}
             />
