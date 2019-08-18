@@ -19,7 +19,7 @@
     camelcase: 0,
 */
 import PropTypes from "prop-types";
-import { Component } from "react";
+import { PureComponent } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { Divider, Paper } from "@material-ui/core";
 
@@ -35,7 +35,7 @@ const styles = () => ({
   },
 });
 
-class ReformeurComponent extends Component {
+class ReformeurComponent extends PureComponent {
   componentDidMount() {
     const { fetchMetadataCasTypesHandler } = this.props;
     fetchMetadataCasTypesHandler();
@@ -78,34 +78,6 @@ class ReformeurComponent extends Component {
     // this.updateCompare(bodyreq);
   }
 
-  handleArticleChange = (value, name) => {
-    const {
-      updateReformeByNameHandler,
-      updateCalculateCompareHandler,
-    } = this.props;
-    updateReformeByNameHandler(name, value);
-    updateCalculateCompareHandler();
-  }
-
-  handleCardRevenuAnnuelChange = (casTypeIndex, inputEvent) => {
-    const {
-      updateCalculateCompareHandler,
-      updateCasTypeRevenusHandler,
-    } = this.props;
-    const casTypeRevenuMensuel = Number(inputEvent.target.value);
-    updateCasTypeRevenusHandler(casTypeIndex, casTypeRevenuMensuel);
-    updateCalculateCompareHandler();
-  }
-
-  handleOutreMerChange = (casTypeIndex, casTypeOutreMerIndex) => {
-    const {
-      updateCasTypeOutreMerHandler,
-      updateCalculateCompareHandler,
-    } = this.props;
-    updateCasTypeOutreMerHandler(casTypeIndex, casTypeOutreMerIndex);
-    updateCalculateCompareHandler();
-  }
-
   render() {
     const { classes } = this.props;
     return (
@@ -116,17 +88,13 @@ class ReformeurComponent extends Component {
               <ArticleHeader />
               <Divider />
               <Articles
-                onChange={this.handleArticleChange}
                 addTranche={this.handleAddTranche}
                 removeTranche={this.handleRemoveTranche}
               />
             </Paper>
           </div>
           <div className="moitie-droite">
-            <ImpactCards
-              changeRevenuHandler={this.handleCardRevenuAnnuelChange}
-              changeOutreMerHandler={this.handleOutreMerChange}
-            />
+            <ImpactCards />
           </div>
         </div>
       </div>
@@ -136,11 +104,7 @@ class ReformeurComponent extends Component {
 
 ReformeurComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
-  updateCalculateCompareHandler: PropTypes.func.isRequired,
-  updateCasTypeRevenusHandler: PropTypes.func.isRequired,
-  updateCasTypeOutreMerHandler: PropTypes.func.isRequired,
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
-  updateReformeByNameHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(ReformeurComponent);

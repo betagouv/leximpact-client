@@ -38,7 +38,7 @@ class ImpactComponent extends PureComponent {
     const {
       casTypes,
       changeRevenuHandler,
-      changeOutreMerHandler,
+      handleOutreMerChange,
       resBrut,
       // totalPop,
     } = this.props;
@@ -54,7 +54,7 @@ class ImpactComponent extends PureComponent {
                 onChange={changeRevenuHandler}
                 impotsAvant={resBrut.avant[i]}
                 impotsApres={resBrut.apres[i]}
-                onOutreMerChange={changeOutreMerHandler}
+                onOutreMerChange={handleOutreMerChange}
               />
             </Grid>
           );
@@ -91,7 +91,7 @@ ImpactComponent.propTypes = {
     wprm: PropTypes.shape(),
   }).isRequired,
   // onSimPopClick: PropTypes.func.isRequired,
-  changeOutreMerHandler: PropTypes.func.isRequired,
+  handleOutreMerChange: PropTypes.func.isRequired,
   changeRevenuHandler: PropTypes.func.isRequired,
 };
 

@@ -43,7 +43,7 @@ const styles = {
   },
 };
 
-function SimpleAppBar(props) {
+function ArticleHeader(props) {
   const { classes } = props;
 
   return (
@@ -67,8 +67,8 @@ function SimpleAppBar(props) {
   );
 }
 
-SimpleAppBar.propTypes = {
+ArticleHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(SimpleAppBar);
+export default withStyles(styles)(ArticleHeader);

@@ -84,8 +84,8 @@ class ArticlesComponent extends React.Component {
   // }
 
   handleS1Change = (value, name) => {
-    const { onChange } = this.props;
-    onChange(value, name);
+    const { handleArticleChange } = this.props;
+    handleArticleChange(value, name);
   }
 
   handleAddTranche = (e) => {
@@ -99,7 +99,7 @@ class ArticlesComponent extends React.Component {
   }
 
   baseOutputInput = (name) => {
-    const { reforme, reformeBase } = this.props;
+    const { handleArticleChange, reforme, reformeBase } = this.props;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const multip = tx ? 100 : 1;
@@ -116,7 +116,7 @@ class ArticlesComponent extends React.Component {
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <InputField
           value={newval}
-          onChange={this.handleS1Change}
+          onChange={handleArticleChange}
           name={name}
           style={tx ? style.InputTaux : style.InputSeuil}
         />
@@ -194,7 +194,7 @@ class ArticlesComponent extends React.Component {
   }
 
   gimmeIRPartsOfArticle = (i) => {
-    const { reforme, reformeBase } = this.props;
+    const { handleArticleChange, reforme, reformeBase } = this.props;
     const s = reforme.impot_revenu.bareme.seuils;
     const t = reforme.impot_revenu.bareme.taux;
     const bases = reformeBase.impot_revenu.bareme.seuils;
@@ -215,7 +215,7 @@ class ArticlesComponent extends React.Component {
           <OutputField value={bases[i]} style={style.VarCodeexistant} />
           <InputField
             value={s[i]}
-            onChange={this.handleS1Change}
+            onChange={handleArticleChange}
             name={`seuil${i}`}
             style={style.InputSeuil}
           />
@@ -239,7 +239,7 @@ class ArticlesComponent extends React.Component {
           />
           <InputField
             value={t[i - 1] * 100}
-            onChange={this.handleS1Change}
+            onChange={handleArticleChange}
             name={`taux${i - 1}`}
             style={style.InputTaux}
           />
@@ -264,7 +264,7 @@ class ArticlesComponent extends React.Component {
         />
         <InputField
           value={makeNumberGoodLooking(t[i - 1] * 100)}
-          onChange={this.handleS1Change}
+          onChange={handleArticleChange}
           name={`taux${i - 1}`}
           style={style.InputTaux}
         />
@@ -275,7 +275,7 @@ class ArticlesComponent extends React.Component {
         <OutputField value={bases[i]} style={style.VarCodeexistant} />
         <InputField
           value={s[i]}
-          onChange={this.handleS1Change}
+          onChange={handleArticleChange}
           name={`seuil${i}`}
           style={style.InputSeuil}
         />
@@ -286,7 +286,7 @@ class ArticlesComponent extends React.Component {
   }
 
   render() {
-    const { reforme } = this.props;
+    const { handleArticleChange, reforme } = this.props;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
@@ -333,7 +333,7 @@ class ArticlesComponent extends React.Component {
         <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
         <Alinea4a
           style={style}
-          onInputChange={this.handleS1Change}
+          onInputChange={handleArticleChange}
           baseOutputInput={this.baseOutputInput}
           formulaOutputInput={this.formulaOutputInput}
         />
@@ -364,7 +364,7 @@ ArticlesComponent.propTypes = {
       }),
     }),
   }).isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleArticleChange: PropTypes.func.isRequired,
   addTranche: PropTypes.func.isRequired,
   removeTranche: PropTypes.func.isRequired,
 };

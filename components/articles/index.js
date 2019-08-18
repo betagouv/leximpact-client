@@ -20,6 +20,8 @@
 */
 import { connect } from "react-redux";
 
+import { fetchCalculateCompare, updateReformeByName } from "../actions";
+
 import ArticlesComponent from "./articles-component";
 
 const mapStateToProps = ({ reforme, reformeBase }) => ({
@@ -27,7 +29,14 @@ const mapStateToProps = ({ reforme, reformeBase }) => ({
   reformeBase,
 });
 
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = dispatch => ({
+  handleArticleChange: (value, name) => {
+    let action = updateReformeByName(name, value);
+    dispatch(action);
+    action = fetchCalculateCompare();
+    dispatch(action);
+  },
+});
 
 export default connect(
   mapStateToProps,

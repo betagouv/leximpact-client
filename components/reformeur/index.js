@@ -20,45 +20,13 @@
 */
 import { connect } from "react-redux";
 
-import {
-  fetchMetadataCasTypes,
-  fetchCalculateCompare,
-  updateRevenusAnnuelCasType,
-  updateCasTypeOutreMer,
-  updateReformeByName,
-} from "../actions";
+import { fetchMetadataCasTypes } from "../actions";
 
 import ReformeurComponent from "./reformeur-component";
 
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-  updateCalculateCompareHandler: (requestBody) => {
-    const action = fetchCalculateCompare(requestBody);
-    dispatch(action);
-  },
-
-  updateReformeByNameHandler: (name, value) => {
-    const action = updateReformeByName(name, value);
-    dispatch(action);
-  },
-
-  updateCasTypeOutreMerHandler: (casTypeIndex, casTypeOutreMerIndex) => {
-    const action = updateCasTypeOutreMer(casTypeIndex, casTypeOutreMerIndex);
-    dispatch(action);
-  },
-
-  updateCasTypeRevenusHandler: (casTypeIndex, casTypeRevenusMensuel) => {
-    // apres selection du revenu dans la carte du cas type
-    // on met a jour le revenu annuel pour ce cas type
-    // dans le state de l'application
-    const action = updateRevenusAnnuelCasType(
-      casTypeIndex,
-      casTypeRevenusMensuel,
-    );
-    dispatch(action);
-  },
-
   fetchMetadataCasTypesHandler: () => {
     const action = fetchMetadataCasTypes();
     dispatch(action);
