@@ -20,20 +20,9 @@
 */
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Divider, Paper } from "@material-ui/core";
 
 import Articles from "../articles";
 import ImpactCards from "../impact-cards";
-
-import ArticleHeader from "./article-header";
-
-const styles = () => ({
-  paper: {
-    padding: 0,
-    margin: "1em",
-  },
-});
 
 class ReformeurComponent extends PureComponent {
   componentDidMount() {
@@ -42,16 +31,11 @@ class ReformeurComponent extends PureComponent {
   }
 
   render() {
-    const { classes } = this.props;
     return (
       <div className="main-index">
         <div className="clearfix">
           <div className="moitie-gauche">
-            <Paper className={classes.paper}>
-              <ArticleHeader />
-              <Divider />
-              <Articles />
-            </Paper>
+            <Articles />
           </div>
           <div className="moitie-droite">
             <ImpactCards />
@@ -63,8 +47,7 @@ class ReformeurComponent extends PureComponent {
 }
 
 ReformeurComponent.propTypes = {
-  classes: PropTypes.shape().isRequired,
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(ReformeurComponent);
+export default ReformeurComponent;

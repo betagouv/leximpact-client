@@ -20,11 +20,13 @@
 */
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Typography } from "@material-ui/core";
+import { Divider, Paper, Typography } from "@material-ui/core";
 import { get } from "lodash";
+import { withStyles } from "@material-ui/core/styles";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
 
+import ArticleHeader from "./article-header";
 import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
@@ -32,9 +34,16 @@ import Alinea4a from "./article-alinea-4a";
 import Alinea4b from "./article-alinea-4b";
 import InputField from "./fields/input-field";
 import OutputField from "./fields/output-field";
-import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche/output-field";
-import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche/output-field";
+import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
+import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
+
+const stylesTheme = () => ({
+  paper: {
+    padding: 0,
+    margin: "1em",
+  },
+});
 
 const style = {
   Typography: { padding: "5px" },
@@ -273,6 +282,7 @@ class ArticlesComponent extends React.Component {
 
   render() {
     const {
+      classes,
       handleArticleChange,
       handleAddTranche,
       handleRemoveTranche,
@@ -282,32 +292,37 @@ class ArticlesComponent extends React.Component {
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
-      <div style={style.Div}>
-        <Alinea0 style={style} />
-        {articleTranches}
-        <BoutonAjouterTranche onClick={handleAddTranche} style={style} />
-        <BoutonSupprimerTranche onClick={handleRemoveTranche} style={style} />
-        <Alinea2 style={style} baseOutputInput={this.baseOutputInput} />
-        <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
-        <Alinea4a
-          style={style}
-          onInputChange={handleArticleChange}
-          baseOutputInput={this.baseOutputInput}
-          formulaOutputInput={this.formulaOutputInput}
-        />
-        <Alinea4b
-          style={style}
-          baseOutputInput={this.baseOutputInput}
-          formulaOutputInput={this.formulaOutputInput}
-          formulaOutputInputFacteur={this.formulaOutputInputFacteur}
-          formulaOutputInputCombiLin={this.formulaOutputInputCombiLin}
-        />
-      </div>
+      <Paper className={classes.paper}>
+        <ArticleHeader />
+        <Divider />
+        <div style={style.Div}>
+          <Alinea0 style={style} />
+          {articleTranches}
+          <BoutonAjouterTranche onClick={handleAddTranche} style={style} />
+          <BoutonSupprimerTranche onClick={handleRemoveTranche} style={style} />
+          <Alinea2 style={style} baseOutputInput={this.baseOutputInput} />
+          <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
+          <Alinea4a
+            style={style}
+            onInputChange={handleArticleChange}
+            baseOutputInput={this.baseOutputInput}
+            formulaOutputInput={this.formulaOutputInput}
+          />
+          <Alinea4b
+            style={style}
+            baseOutputInput={this.baseOutputInput}
+            formulaOutputInput={this.formulaOutputInput}
+            formulaOutputInputFacteur={this.formulaOutputInputFacteur}
+            formulaOutputInputCombiLin={this.formulaOutputInputCombiLin}
+          />
+        </div>
+      </Paper>
     );
   }
 }
 
 ArticlesComponent.propTypes = {
+  classes: PropTypes.shape().isRequired,
   reforme: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
@@ -327,4 +342,4 @@ ArticlesComponent.propTypes = {
   handleRemoveTranche: PropTypes.func.isRequired,
 };
 
-export default ArticlesComponent;
+export default withStyles(stylesTheme, { withTheme: true })(ArticlesComponent);
