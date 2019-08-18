@@ -35,7 +35,6 @@ class Alinea4b extends PureComponent {
     const {
       baseOutputInput,
       formulaOutputInput,
-      formulaOutputInputFacteur,
       formulaOutputInputCombiLin,
     } = this.props;
     return (
@@ -49,7 +48,7 @@ class Alinea4b extends PureComponent {
 €,
         pour la première part de quotient familial des personnes célibataires,
         veuves ou divorcées, et à
-        {formulaOutputInputFacteur(
+        {formulaOutputInput(
           "plafond_qf.reduction_ss_condition_revenus.seuil2",
           2,
         )}
@@ -97,7 +96,7 @@ class Alinea4b extends PureComponent {
         pour la première part de quotient familial des personnes célibataires,
         veuves ou divorcées, ou
         {" "}
-        {formulaOutputInputFacteur(
+        {formulaOutputInput(
           "plafond_qf.reduction_ss_condition_revenus.seuil1",
           2,
         )}
@@ -112,7 +111,7 @@ class Alinea4b extends PureComponent {
         {" "}
         {formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}
         €, pour les personnes célibataires, veuves ou divorcées, ou
-        {formulaOutputInputFacteur(
+        {formulaOutputInput(
           "plafond_qf.reduction_ss_condition_revenus.seuil2",
           2,
         )}
@@ -177,7 +176,6 @@ Alinea4b.propTypes = {
   expandArticlePanelHandler: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
-  formulaOutputInputFacteur: PropTypes.func.isRequired,
   formulaOutputInputCombiLin: PropTypes.func.isRequired,
   style: PropTypes.shape().isRequired,
 };

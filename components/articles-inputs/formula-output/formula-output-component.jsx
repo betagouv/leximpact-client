@@ -1,6 +1,7 @@
 /* eslint
     indent: [2, 2],
     semi: [2, "always"],
+    react/jsx-fragments: [2, "element"],
     react/jsx-indent: [2, 2],
     react/jsx-indent-props: [2, 2],
     max-nested-callbacks: [2, { "max": 4 }],
@@ -15,41 +16,24 @@
     import/order: [2, {
       newlines-between: "always",
       groups: ["builtin", "external", "parent", "sibling", "index"]
-    }],
-    camelcase: 0,
+    }]
 */
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 
-import InputField from "../fields/input-field";
 import OutputField from "../fields/output-field";
 
-const BaseInputOutputComponent = ({
-  baseValue,
-  handleInputChange,
-  inputFieldStyle,
-  name,
-  newValue,
-  outputFieldStyle,
-}) => (
+const FormulaOutputComponent = ({ baseValue, newValue, style }) => (
   <Fragment>
-    <OutputField style={outputFieldStyle} value={baseValue} />
-    <InputField
-      name={name}
-      onChange={handleInputChange}
-      style={inputFieldStyle}
-      value={newValue}
-    />
+    <OutputField value={baseValue} style={style.VarCodeexistant} />
+    <OutputField value={newValue} style={style.VarCodeNew} />
   </Fragment>
 );
 
-BaseInputOutputComponent.propTypes = {
+FormulaOutputComponent.propTypes = {
   baseValue: PropTypes.string.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
   newValue: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  outputFieldStyle: PropTypes.shape().isRequired,
-  inputFieldStyle: PropTypes.shape().isRequired,
+  style: PropTypes.shape().isRequired,
 };
 
-export default BaseInputOutputComponent;
+export default FormulaOutputComponent;
