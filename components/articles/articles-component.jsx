@@ -18,7 +18,7 @@
       groups: ["builtin", "external", "parent", "sibling", "index"]
     }]
 */
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Fab, Typography } from "@material-ui/core";
 import { Add as AddIcon, Delete as DeleteIcon } from "@material-ui/icons";
@@ -31,8 +31,8 @@ import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import Alinea4b from "./article-alinea-4b";
-import InputField from "./article/input-field";
-import OutputField from "./article/output-field";
+import InputField from "./fields/input-field";
+import OutputField from "./fields/output-field";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
 
 const style = {
@@ -80,14 +80,9 @@ const style = {
 class Article extends React.Component {
   constructor(props) {
     super(props);
-    const { reforme, reformebase } = props;
-    // const nbt = props.reformebase.impot_revenu.bareme.seuils.length;
-    this.state = {
-      reforme,
-      // Jamais modifié, utilisé pour montrer l'existant
-      // dans les article s'affiche dans les chiffres en jaunes
-      basecode: reformebase,
-    };
+    const { reforme } = props;
+    // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
+    this.state = { reforme };
   }
 
   handleS1Change = (value, name) => {
@@ -106,12 +101,13 @@ class Article extends React.Component {
   }
 
   baseOutputInput = (name) => {
-    const { basecode, reforme } = this.state;
+    const { reformeBase } = this.props;
+    const { reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const multip = tx ? 100 : 1;
 
-    let baseval = get(basecode.impot_revenu, name);
+    let baseval = get(reformeBase.impot_revenu, name);
     baseval *= multip;
     baseval = makeNumberGoodLooking(baseval);
 
@@ -120,7 +116,7 @@ class Article extends React.Component {
     newval = makeNumberGoodLooking(newval);
 
     return (
-      <React.Fragment>
+      <Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
         <InputField
           value={newval}
@@ -128,7 +124,7 @@ class Article extends React.Component {
           name={name}
           style={tx ? style.InputTaux : style.InputSeuil}
         />
-      </React.Fragment>
+      </Fragment>
     );
   }
 
@@ -160,16 +156,17 @@ class Article extends React.Component {
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
       get(basecode.impot_revenu, name) * (tx ? 100 : 1),
-    ); // eval("this.state.basecode.impot_revenu."+name) * (tx?100:1)
+    );
     return <OutputField value={baseval} style={style.VarCodeexistant} />;
   }
 
   formulaOutputInput = (name) => {
-    const { basecode, reforme } = this.state;
+    const { reformeBase } = this.props;
+    const { reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
-      get(basecode.impot_revenu, name) * (tx ? 100 : 1),
+      get(reformeBase.impot_revenu, name) * (tx ? 100 : 1),
     );
     const newval = makeNumberGoodLooking(
       get(reforme.impot_revenu, name) * (tx ? 100 : 1),
@@ -183,10 +180,11 @@ class Article extends React.Component {
   }
 
   formulaOutputInputCombiLin = (name1, fact1, name2, fact2) => {
-    const { basecode, reforme } = this.state;
+    const { reformeBase } = this.props;
+    const { reforme } = this.state;
     const baseval = makeNumberGoodLooking(
-      get(basecode.impot_revenu, name1) * fact1
-        + get(basecode.impot_revenu, name2) * fact2,
+      get(reformeBase.impot_revenu, name1) * fact1
+        + get(reformeBase.impot_revenu, name2) * fact2,
     );
     const newval = makeNumberGoodLooking(
       get(reforme.impot_revenu, name1) * fact1
@@ -202,11 +200,12 @@ class Article extends React.Component {
   }
 
   gimmeIRPartsOfArticle = (i) => {
-    const { reforme, basecode } = this.state;
+    const { reformeBase } = this.props;
+    const { reforme } = this.state;
     const s = reforme.impot_revenu.bareme.seuils;
     const t = reforme.impot_revenu.bareme.taux;
-    const bases = basecode.impot_revenu.bareme.seuils;
-    const baset = basecode.impot_revenu.bareme.taux;
+    const bases = reformeBase.impot_revenu.bareme.seuils;
+    const baset = reformeBase.impot_revenu.bareme.taux;
     const nbt = s.length;
     const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
     // Part 1
@@ -369,7 +368,7 @@ Article.propTypes = {
       }),
     }),
   }).isRequired,
-  reformebase: PropTypes.shape({
+  reformeBase: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
         seuils: PropTypes.arrayOf(PropTypes.number),

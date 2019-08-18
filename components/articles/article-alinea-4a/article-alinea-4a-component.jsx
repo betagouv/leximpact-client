@@ -22,11 +22,11 @@ import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
-import InputField from "../article/input-field";
-import OutputField from "../article/output-field";
-import LexExpansionPanel from "../article-expansion-panels/expansion-panel";
-import LexExpansionPanelDetails from "../article-expansion-panels/expansion-panel-details";
-import LexExpansionPanelSummary from "../article-expansion-panels/expansion-panel-summary";
+import InputField from "../fields/input-field";
+import OutputField from "../fields/output-field";
+import LexExpansionPanel from "../expandable-panels/expansion-panel";
+import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
+import LexExpansionPanelSummary from "../expandable-panels/expansion-panel-summary";
 
 const styleExpansionpanel = {
   padding: "1px",
