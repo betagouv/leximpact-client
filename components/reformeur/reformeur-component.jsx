@@ -101,8 +101,6 @@ class ReformeurComponent extends Component {
           },
         ],
       },
-      // indextab: 0,
-      // cas_types_defaut: true,
     };
   }
 
@@ -111,72 +109,19 @@ class ReformeurComponent extends Component {
     fetchMetadataCasTypesHandler();
   }
 
-  // UpdateBareme = (indexToChange, value) => {
-  //   const { reforme } = this.state;
-  //   const ref = reforme;
-  //   const list = changeValueArray(
-  //     ref.impot_revenu.bareme.seuils,
-  //     indexToChange,
-  //     value,
-  //   );
-  //   ref.impot_revenu.bareme.seuils = list;
-  //   this.setState({ reforme: ref });
-  // }
-
-  // UpdateTaux = (indexToChange, value) => {
-  //   const { reforme } = this.state;
-  //   const ref = reforme;
-  //   const list = changeValueArray(
-  //     ref.impot_revenu.bareme.taux,
-  //     indexToChange,
-  //     value * 0.01,
-  //   );
-  //   ref.impot_revenu.bareme.taux = list;
-  //   this.setState({ reforme: ref });
-  // }
-
-  // UpdateDecote = (dectype, value) => {
-  //   // Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
-  //   const { reforme } = this.state;
-  //   const ref = reforme;
-  //   if (dectype === "") {
-  //     ref.impot_revenu.decote.seuil_couple = parseInt(value, 10);
-  //   }
-  //   if (dectype === "seuil_celib") {
-  //     ref.impot_revenu.decote.seuil_celib = parseInt(value, 10);
-  //   }
-  //   if (dectype === "taux") {
-  //     ref.impot_revenu.decote.taux = Math.round(parseFloat(value) * 10) / 1000;
-  //   }
-  //   this.setState({ reforme: ref });
-  // }
-
-  // UpdatePlafond = (dectype, value) => {
-  //   const { reforme } = this.state;
-  //   const ref = reforme;
-  //   const regex = RegExp("^[0-9a-zA-Z_.]+$");
-  //   const regextaux = RegExp("taux"); // Tous les noms de variables qui contiennent taux
-  //   // sont divisés par 100. Je vois vraiment pas ce qui pourrait poser probleme avec ça.
-  //   if (regex.test(dectype)) {
-  //     const pathref = `impot_revenu.plafond_qf${dectype}`;
-  //     set(ref, pathref, value * (regextaux.test(dectype) ? 0.01 : 1));
-  //     this.setState({ reforme: ref });
-  //   }
-  // }
-
   handleAddTranche = () => {
-    const { reforme } = this.state;
-    const refbase = reforme;
-    const newnbt = refbase.impot_revenu.bareme.seuils.length + 1;
-    const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt - 2];
-    refbase.impot_revenu.bareme.seuils = reforme.impot_revenu.bareme.seuils.concat(
-      lastseuil + 1,
-    );
-    const lasttaux = refbase.impot_revenu.bareme.taux[newnbt - 2];
-    refbase.impot_revenu.bareme.taux = reforme.impot_revenu.bareme.taux.concat(
-      lasttaux,
-    );
-    this.setState({ reforme: refbase });
+    // const { reforme } = this.state;
+    // const refbase = reforme;
+    // const newnbt = refbase.impot_revenu.bareme.seuils.length + 1;
+    // const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt - 2];
+    // refbase.impot_revenu.bareme.seuils = reforme.impot_revenu.bareme.seuils.concat(
+    //   lastseuil + 1,
+    // );
+    // const lasttaux = refbase.impot_revenu.bareme.taux[newnbt - 2];
+    // refbase.impot_revenu.bareme.taux = reforme.impot_revenu.bareme.taux.concat(
+    //   lasttaux,
+    // );
+    // this.setState({ reforme: refbase });
   }
 
   handleRemoveTranche = () => {
@@ -201,53 +146,14 @@ class ReformeurComponent extends Component {
     // this.updateCompare(bodyreq);
   }
 
-  // endpoint = () => process.env.API_URL
-
-  // updateCompare = (bodyreq) => {
-  //   const endpoint = this.endpoint();
-  //   fetch(`${endpoint}/calculate/compare`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: bodyreq,
-  //   })
-  //     .then(response => response.json())
-  //     .then((json) => {
-  //       this.setState({ res_brut: json.res_brut });
-  //     });
-  // }
-
   handleArticleChange = (value, name) => {
-    // const { reforme } = this.state;
-    // const { casTypes } = this.props;
-    // const newvalue = value === "" ? 0 : value;
-    //
-    // if (name.substring(0, 5) === "seuil") {
-    //   const numb = parseInt(name.substring(5), 10);
-    //   this.UpdateBareme(numb, newvalue);
-    // }
-    //
-    // if (name.substring(0, 4) === "taux") {
-    //   const numb = parseInt(name.substring(4), 10);
-    //   this.UpdateTaux(numb, newvalue);
-    // }
-    //
-    // if (name.substring(0, 6) === "decote") {
-    //   const whichdecote = name.substring(7);
-    //   this.UpdateDecote(whichdecote, newvalue);
-    // }
-    //
-    // if (name.substring(0, 10) === "plafond_qf") {
-    //   const whichplaf = name.substring(10);
-    //   this.UpdatePlafond(whichplaf, newvalue);
-    // }
-    //
-    // const bodyreq = JSON.stringify({
-    //   reforme,
-    //   description_cas_types: casTypes,
-    // });
-    // this.updateCompare(bodyreq);
+    const { reforme } = this.state;
+    const {
+      updateReformeByNameHandler,
+      updateCalculateCompareHandler,
+    } = this.props;
+    updateReformeByNameHandler(name, value);
+    updateCalculateCompareHandler({ reforme });
   }
 
   handleCardRevenuAnnuelChange = (casTypeIndex, inputEvent) => {
@@ -308,6 +214,7 @@ ReformeurComponent.propTypes = {
   updateCasTypeRevenusHandler: PropTypes.func.isRequired,
   updateCasTypeOutreMerHandler: PropTypes.func.isRequired,
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
+  updateReformeByNameHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(ReformeurComponent);

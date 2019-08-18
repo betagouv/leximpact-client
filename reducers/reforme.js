@@ -17,80 +17,84 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
-import { cloneDeep } from "lodash";
+import { cloneDeep, get, set } from "lodash";
 
 import { REFORME_BASE_DEFAULT_STATE } from "./reforme-base";
 
 const DEFAULT_STATE = cloneDeep(REFORME_BASE_DEFAULT_STATE);
 
-// renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
-// const changeValueArray = (arrayToChange, indexToChange, newValue) => {
-//   const list = arrayToChange.map((prevValue, numeroItem) => {
-//     const isCurrentItemsIndex = numeroItem === indexToChange;
-//     return isCurrentItemsIndex ? newValue : prevValue;
-//   });
-//   return list;
-// };
+const changeValueArray = (arrayToChange, indexToChange, newValue) => {
+  // renvoie arrayToChange avec la valeur située
+  // à l'index "indexToChange" changé en "newValue"
+  const list = arrayToChange.map((prevValue, numeroItem) => {
+    const isCurrentItemsIndex = numeroItem === indexToChange;
+    return isCurrentItemsIndex ? newValue : prevValue;
+  });
+  return list;
+};
 
-const updateTaux = (prevState, indexToChange, value) => prevState;
-// const { reforme } = this.state;
-// const ref = reforme;
-// const list = changeValueArray(
-//   ref.impot_revenu.bareme.taux,
-//   indexToChange,
-//   value * 0.01,
-// );
-// ref.impot_revenu.bareme.taux = list;
+const updateTaux = (prevState, name, value) => {
+  const identifier = parseInt(name.substring(4), 10);
+  const nextValue = value * 0.01;
+  let list = get(prevState, "impot_revenu.bareme.taux");
+  list = changeValueArray(list, identifier, nextValue);
+  set(prevState, "impot_revenu.bareme.taux", list);
+  return prevState;
+};
 
-const updateBareme = (prevState, indexToChange, value) => prevState;
-// const { reforme } = this.state;
-// const ref = reforme;
-// const list = changeValueArray(
-//   ref.impot_revenu.bareme.seuils,
-//   indexToChange,
-//   value,
-// );
-// ref.impot_revenu.bareme.seuils = list;
+const updateBareme = (prevState, name, value) => {
+  if (Number.isNaN(value)) return prevState;
+  const identifier = parseInt(name.substring(5), 10);
+  let list = get(prevState, "impot_revenu.bareme.seuils");
+  list = changeValueArray(list, identifier, parseInt(value, 10));
+  set(prevState, "impot_revenu.bareme.seuils", list);
+  return prevState;
+};
 
-const updatePlafond = (prevState, dectype, value) => prevState;
-// const { reforme } = this.state;
-// const ref = reforme;
-// const regex = RegExp("^[0-9a-zA-Z_.]+$");
-// const shouldUpdateState = regex.test(dectype);
-// if (!shouldUpdateState) return prevState;
-//
-// const pathref = `impot_revenu.plafond_qf${dectype}`;
-// // Tous les noms de variables qui contiennent taux
-// // sont divisés par 100
-// // Je vois vraiment pas ce qui pourrait poser probleme avec ça.
-// const regextaux = RegExp("taux");
-// set(ref, pathref, value * (regextaux.test(dectype) ? 0.01 : 1));
+const updatePlafond = (prevState, name, value) => {
+  const identifier = name.substring(10);
+  const regex = RegExp("^[0-9a-zA-Z_.]+$");
+  const shouldUpdate = regex.test(identifier);
+  if (!shouldUpdate) return prevState;
+  // Tous les noms de variables qui contiennent taux
+  // sont divisés par 100.
+  const regextaux = RegExp("taux");
+  const facteur = regextaux.test(identifier) ? 0.01 : 1;
+  const nextValue = value * facteur;
+  set(prevState, `impot_revenu.plafond_qf${identifier}`, nextValue);
+  return prevState;
+};
 
-const updateDecote = (prevState, dectype, value) => prevState;
-// Pour une méthode clean mais dangereuse qui pourrait être implémentée ici, cf UpdatePlafond
-// const { reforme } = this.state;
-// const ref = reforme;
-// if (dectype === "") {
-//   ref.impot_revenu.decote.seuil_couple = parseInt(value, 10);
-// }
-// if (dectype === "seuil_celib") {
-//   ref.impot_revenu.decote.seuil_celib = parseInt(value, 10);
-// }
-// if (dectype === "taux") {
-//   ref.impot_revenu.decote.taux = Math.round(parseFloat(value) * 10) / 1000;
-// }
-// this.setState({ reforme: ref });
+const updateDecote = (prevState, name, value) => {
+  let nextValue = null;
+  const identifier = name.substring(7);
+  if (identifier === "") {
+    nextValue = parseInt(value, 10);
+    set(prevState, "impot_revenu.decote.seuil_couple", nextValue);
+  }
+  if (identifier === "seuil_celib") {
+    nextValue = parseInt(value, 10);
+    set(prevState, "impot_revenu.decote.seuil_celib", nextValue);
+  }
+  if (identifier === "taux") {
+    nextValue = Math.round(parseFloat(value) * 10) / 1000;
+    set(prevState, "impot_revenu.decote.taux", nextValue);
+  }
+  return prevState;
+};
 
 const reforme = (state = DEFAULT_STATE, action) => {
+  const { name, value } = action || {};
   const nextState = cloneDeep(state);
-  const { index, value } = action || {};
   switch (action.type) {
-  case "onUpdateReformeDecote":
-    return updateDecote(nextState, index, value);
+  case "onUpdateReformeBareme":
+    return updateBareme(nextState, name, value);
   case "onUpdateReformeTaux":
-    return updateTaux(nextState, index, value);
+    return updateTaux(nextState, name, value);
+  case "onUpdateReformeDecote":
+    return updateDecote(nextState, name, value);
   case "onUpdateReformePlafond":
-    return updatePlafond(nextState, index, value);
+    return updatePlafond(nextState, name, value);
   default:
     return nextState;
   }

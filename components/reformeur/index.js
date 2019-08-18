@@ -25,6 +25,7 @@ import {
   fetchCalculateCompare,
   updateRevenusAnnuelCasType,
   updateCasTypeOutreMer,
+  updateReformeByName,
 } from "../actions";
 
 import ReformeurComponent from "./reformeur-component";
@@ -36,6 +37,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateCalculateCompareHandler: (requestBody) => {
     const action = fetchCalculateCompare(requestBody);
+    dispatch(action);
+  },
+
+  updateReformeByNameHandler: (name, value) => {
+    const action = updateReformeByName(name, value);
     dispatch(action);
   },
 

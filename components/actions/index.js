@@ -21,3 +21,6 @@ export {
 export {
   default as updateRevenusAnnuelCasType,
 } from "./cas-types/update-revenus-cas-type";
+export {
+  default as updateReformeByName,
+} from "./articles/update-reforme-by-name";
