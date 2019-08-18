@@ -83,21 +83,6 @@ class ArticlesComponent extends React.Component {
   // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
   // }
 
-  handleS1Change = (value, name) => {
-    const { handleArticleChange } = this.props;
-    handleArticleChange(value, name);
-  }
-
-  handleAddTranche = (e) => {
-    const { addTranche } = this.props;
-    addTranche(e);
-  }
-
-  handleRemoveTranche = (e) => {
-    const { removeTranche } = this.props;
-    removeTranche(e);
-  }
-
   baseOutputInput = (name) => {
     const { handleArticleChange, reforme, reformeBase } = this.props;
     const regextaux = RegExp("taux");
@@ -286,7 +271,12 @@ class ArticlesComponent extends React.Component {
   }
 
   render() {
-    const { handleArticleChange, reforme } = this.props;
+    const {
+      handleArticleChange,
+      handleAddTranche,
+      handleRemoveTranche,
+      reforme,
+    } = this.props;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
@@ -299,7 +289,7 @@ class ArticlesComponent extends React.Component {
           <Fab
             style={style.Button}
             size="small"
-            onClick={this.handleAddTranche}
+            onClick={handleAddTranche}
             color="primary">
             <AddIcon />
           </Fab>
@@ -316,7 +306,7 @@ class ArticlesComponent extends React.Component {
           <Fab
             style={style.Button}
             size="small"
-            onClick={this.handleRemoveTranche}
+            onClick={handleRemoveTranche}
             color="primary">
             <DeleteIcon />
           </Fab>
@@ -365,8 +355,8 @@ ArticlesComponent.propTypes = {
     }),
   }).isRequired,
   handleArticleChange: PropTypes.func.isRequired,
-  addTranche: PropTypes.func.isRequired,
-  removeTranche: PropTypes.func.isRequired,
+  handleAddTranche: PropTypes.func.isRequired,
+  handleRemoveTranche: PropTypes.func.isRequired,
 };
 
 export default ArticlesComponent;
