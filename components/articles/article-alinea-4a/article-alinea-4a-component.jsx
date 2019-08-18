@@ -35,6 +35,7 @@ const styleExpansionpanel = {
 class Alinea4a extends PureComponent {
   render() {
     const {
+      onInputChange,
       formulaOutputInput,
       baseOutputInput,
       isPanelExpanded,
@@ -70,7 +71,7 @@ class Alinea4a extends PureComponent {
             />
             <InputField
               value={decoteSeuilCelib}
-              onChange={this.handleS1Change}
+              onChange={onInputChange}
               name="decote.seuil_celib"
               style={style.InputSeuil}
             />
@@ -88,7 +89,7 @@ class Alinea4a extends PureComponent {
             />
             <InputField
               value={decoteSeuilCouple}
-              onChange={this.handleS1Change}
+              onChange={onInputChange}
               name="decote.seuil_couple"
               style={style.InputSeuil}
             />
@@ -109,6 +110,7 @@ class Alinea4a extends PureComponent {
 }
 
 Alinea4a.propTypes = {
+  onInputChange: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,

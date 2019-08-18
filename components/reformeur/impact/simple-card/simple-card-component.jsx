@@ -142,8 +142,8 @@ class SimpleCard extends React.Component {
     const coupledummsexe = Math.random() < 0.15;
     const aretwo = descCasType.nombre_declarants > 1;
     const nbenfants = descCasType.nombre_personnes_a_charge;
-    const isoutremer1 = descCasType.outre_mer == 1;
-    const isoutremer2 = descCasType.outre_mer == 2;
+    const isoutremer1 = descCasType.outre_mer === 1;
+    const isoutremer2 = descCasType.outre_mer === 2;
     // bruts par an
     const icon1 = manfirst
       ? isret
@@ -161,9 +161,10 @@ class SimpleCard extends React.Component {
         : isret
           ? womanWhiteHaired
           : womanCurlyHaired;
-    const babyicons = [...Array(nbenfants)].map((e, i) => (
-      <Icon key={`baby${i}`} icon={babyIcon} width="30" height="30" />
-    ));
+    const babyicons = [...Array(nbenfants)].map((e, i) => {
+      const keyindex = `baby${i}`;
+      return <Icon key={keyindex} icon={babyIcon} width="30" height="30" />;
+    });
     return (
       <Card className={classes.card}>
         <CardContent className={classes.cardcontent}>
@@ -269,7 +270,7 @@ class SimpleCard extends React.Component {
                 {isLoading ? (
                   <CircularProgress color="secondary" />
                 ) : (
-                  <>
+                  <Fragment>
                     <Typography
                       inline
                       variant="h3"
@@ -284,7 +285,7 @@ class SimpleCard extends React.Component {
                       gutterBottom>
                       €
                     </Typography>
-                  </>
+                  </Fragment>
                 )}
               </div>
             </BlueTooltip>

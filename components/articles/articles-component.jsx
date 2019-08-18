@@ -78,12 +78,10 @@ const style = {
 };
 
 class ArticlesComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    const { reforme } = props;
-    // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
-    this.state = { reforme };
-  }
+  // constructor(props) {
+  //   super(props);
+  // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
+  // }
 
   handleS1Change = (value, name) => {
     const { onChange } = this.props;
@@ -101,8 +99,7 @@ class ArticlesComponent extends React.Component {
   }
 
   baseOutputInput = (name) => {
-    const { reformeBase } = this.props;
-    const { reforme } = this.state;
+    const { reforme, reformeBase } = this.props;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const multip = tx ? 100 : 1;
@@ -114,7 +111,6 @@ class ArticlesComponent extends React.Component {
     let newval = get(reforme.impot_revenu, name);
     newval *= multip;
     newval = makeNumberGoodLooking(newval);
-
     return (
       <Fragment>
         <OutputField value={baseval} style={style.VarCodeexistant} />
@@ -129,8 +125,7 @@ class ArticlesComponent extends React.Component {
   }
 
   formulaOutputInputFacteur = (name, fact) => {
-    const { reformeBase } = this.props;
-    const { reforme } = this.state;
+    const { reforme, reformeBase } = this.props;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const multip = tx ? 100 : 1;
@@ -162,8 +157,7 @@ class ArticlesComponent extends React.Component {
   }
 
   formulaOutputInput = (name) => {
-    const { reformeBase } = this.props;
-    const { reforme } = this.state;
+    const { reforme, reformeBase } = this.props;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
@@ -181,8 +175,7 @@ class ArticlesComponent extends React.Component {
   }
 
   formulaOutputInputCombiLin = (name1, fact1, name2, fact2) => {
-    const { reformeBase } = this.props;
-    const { reforme } = this.state;
+    const { reforme, reformeBase } = this.props;
     const baseval = makeNumberGoodLooking(
       get(reformeBase.impot_revenu, name1) * fact1
         + get(reformeBase.impot_revenu, name2) * fact2,
@@ -201,8 +194,7 @@ class ArticlesComponent extends React.Component {
   }
 
   gimmeIRPartsOfArticle = (i) => {
-    const { reformeBase } = this.props;
-    const { reforme } = this.state;
+    const { reforme, reformeBase } = this.props;
     const s = reforme.impot_revenu.bareme.seuils;
     const t = reforme.impot_revenu.bareme.taux;
     const bases = reformeBase.impot_revenu.bareme.seuils;
@@ -294,7 +286,7 @@ class ArticlesComponent extends React.Component {
   }
 
   render() {
-    const { reforme } = this.state;
+    const { reforme } = this.props;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
@@ -341,13 +333,12 @@ class ArticlesComponent extends React.Component {
         <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
         <Alinea4a
           style={style}
-          reforme={reforme}
+          onInputChange={this.handleS1Change}
           baseOutputInput={this.baseOutputInput}
           formulaOutputInput={this.formulaOutputInput}
         />
         <Alinea4b
           style={style}
-          reforme={reforme}
           baseOutputInput={this.baseOutputInput}
           formulaOutputInput={this.formulaOutputInput}
           formulaOutputInputFacteur={this.formulaOutputInputFacteur}

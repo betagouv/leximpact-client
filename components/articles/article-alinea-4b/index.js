@@ -25,10 +25,11 @@ import ArticleAlinea4b from "./article-alinea-4b-component";
 
 const PANEL_NAME = "panel4b";
 
-const mapStateToProps = ({ currentExpandedArticlePanel }) => {
+const mapStateToProps = ({ currentExpandedArticlePanel, reforme }) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
   return {
     isPanelExpanded,
+    reforme,
   };
 };
 

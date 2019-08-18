@@ -26,9 +26,10 @@ import SimpleCard from "./simple-card";
 // import CarteEtat from "./carte-etat";
 
 class ImpactComponent extends PureComponent {
-  handleClick = (e) => {
+  handleClick = () => {
     // const { onClick } = this.props;
     // onClick(e);
+    // click sim popuplation
   }
 
   render() {
