@@ -37,14 +37,6 @@ const styles = () => ({
   },
 });
 
-function TabContainer({ children, dir }) {
-  return (
-    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
-      {children}
-    </Typography>
-  );
-}
-
 // renvoie arrayToChange avec la valeur située à l'index "indexToChange" changé en "newValue"
 const changeValueArray = (arrayToChange, indexToChange, newValue) => {
   const list = arrayToChange.map((item, numeroitem) => {
@@ -54,11 +46,6 @@ const changeValueArray = (arrayToChange, indexToChange, newValue) => {
     return item;
   });
   return list;
-};
-
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-  dir: PropTypes.string.isRequired,
 };
 
 class ReformeurComponent extends Component {
@@ -338,24 +325,14 @@ class ReformeurComponent extends Component {
     updateCalculateCompareHandler({ reforme });
   }
 
-  handleOutreMerChange = (casTypeIndex, inputEvent) => {
-    // const { reforme } = this.state;
-    console.log("inputEvent.target.value", inputEvent.target.value);
-    // const { updateCasTypeOutreMerHandler } = this.props;
-    // const casTypeOutreMer = Number(inputEvent.target.value);
-    // updateCasTypeOutreMerHandler(casTypeIndex, casTypeOutreMer);
-    // updateCalculateCompareHandler({ reforme });
-    // const { casTypes } = this.props;
-    // const { reforme } = this.state;
-    // const arrayrev = casTypes;
-    // arrayrev[i].outre_mer = value;
-    // this.setState({ cas_types: arrayrev });
-    // // this.setState({ cas_types: arrayrev, cas_types_defaut: false });
-    // const bodyreq = JSON.stringify({
-    //   reforme,
-    //   description_cas_types: arrayrev,
-    // });
-    // this.updateCompare(bodyreq);
+  handleOutreMerChange = (casTypeIndex, casTypeOutreMerIndex) => {
+    const { reforme } = this.state;
+    const {
+      updateCasTypeOutreMerHandler,
+      updateCalculateCompareHandler,
+    } = this.props;
+    updateCasTypeOutreMerHandler(casTypeIndex, casTypeOutreMerIndex);
+    updateCalculateCompareHandler({ reforme });
   }
 
   render() {

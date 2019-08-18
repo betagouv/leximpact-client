@@ -8,33 +8,32 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
+import { get } from "lodash";
 import fetch from "isomorphic-fetch";
 
 import { loadingStart, loadingComplete } from "../loading";
-
-const calculateCompareLoaded = payload => ({
-  type: "onCalculateCompareLoaded",
-  payload,
-});
 
 const fetchCalculateCompare = requestBody => (
   dispatch,
   getState,
   { apiEndpoint },
 ) => {
-  const { casTypes } = getState();
   dispatch(loadingStart());
-  const body = { ...requestBody, description_cas_types: casTypes };
+  const { casTypes } = getState();
+  const body = JSON.stringify({
+    ...requestBody,
+    description_cas_types: casTypes,
+  });
   const promise = fetch(`${apiEndpoint}/calculate/compare`, {
-    body: JSON.stringify(body),
+    body,
     method: "POST",
     headers: { "Content-Type": "application/json" },
   })
     .then(response => response.json())
-    .then((json) => {
-      console.log("json", json);
+    .then((payload) => {
+      const data = get(payload, "res_brut");
       dispatch(loadingComplete());
-      // this.setState({ res_brut: json.res_brut, loading: false });
+      dispatch({ type: "onCalculateCompareLoaded", data });
     })
     .catch(() => {
       dispatch(loadingComplete());

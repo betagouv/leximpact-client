@@ -36,7 +36,6 @@ import babyIcon from "@iconify/icons-twemoji/baby";
 import manWhiteHaired from "@iconify/icons-twemoji/man-white-haired";
 import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired";
 import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired";
-// import palmTree from '@iconify/icons-twemoji/palm-tree';
 import desertIsland from "@iconify/icons-twemoji/desert-island";
 
 const styles = () => ({
@@ -87,8 +86,6 @@ const BlueTooltip = withStyles(theme => ({
 class SimpleCard extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleOutreMerChange = this.handleOutreMerChange.bind(this);
   }
 
   handleChange = i => (event) => {
@@ -97,9 +94,9 @@ class SimpleCard extends React.Component {
 
   handleOutreMerChange = numcastype => () => {
     const { onOutreMerChange, desc_cas_type } = this.props;
-    const value = 3 - desc_cas_type.outre_mer;
+    const outreMerIndex = 3 - desc_cas_type.outre_mer;
     // console.log("je suis dans l'outremer",numcastype,event,this.props.desc_cas_type.outre_mer)
-    onOutreMerChange(numcastype, value);
+    onOutreMerChange(numcastype, outreMerIndex);
   }
 
   roundedRevenues(revenumensuel) {

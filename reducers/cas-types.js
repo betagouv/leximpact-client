@@ -66,10 +66,10 @@ const updateCasTypeRevenusAnnuel = (
 
 const updateCasTypeOutreMer = (
   state,
-  // { casTypeIndex: index, casTypeRevenusOutreMer: value },
+  { casTypeIndex: index, casTypeOutreMerIndex: value },
 ) => {
   const nextState = cloneDeep(state);
-  // set(nextState, `${index}.outre_mer`, value);
+  set(nextState, `${index}.outre_mer`, value);
   return nextState;
 };
 

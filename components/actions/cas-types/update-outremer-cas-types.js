@@ -17,10 +17,10 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
-const updateCasTypeOutreMer = (casTypeIndex, casTypeRevenusOutreMer) => ({
+const updateCasTypeOutreMer = (casTypeIndex, casTypeOutreMerIndex) => ({
   type: "onUpdateCasTypeOutreMer",
   casTypeIndex,
-  casTypeRevenusOutreMer,
+  casTypeOutreMerIndex,
 });
 
 export default updateCasTypeOutreMer;

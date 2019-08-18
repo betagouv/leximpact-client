@@ -24,12 +24,14 @@ import {
   fetchMetadataCasTypes,
   fetchCalculateCompare,
   updateRevenusAnnuelCasType,
+  updateCasTypeOutreMer,
 } from "../actions";
 
 import ReformeurComponent from "./reformeur-component";
 
 const mapStateToProps = state => ({
   casTypes: state.casTypes,
+  resBrut: state.resBrut,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -38,7 +40,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(action);
   },
 
-  updateCasTypeOutreMerHandler: (casTypeIndex, casTypeRevenusMensuel) => {},
+  updateCasTypeOutreMerHandler: (casTypeIndex, casTypeOutreMerIndex) => {
+    const action = updateCasTypeOutreMer(casTypeIndex, casTypeOutreMerIndex);
+    dispatch(action);
+  },
 
   updateCasTypeRevenusHandler: (casTypeIndex, casTypeRevenusMensuel) => {
     // apres selection du revenu dans la carte du cas type
