@@ -21,12 +21,14 @@ import { combineReducers } from "redux";
 
 import casTypes from "./cas-types";
 import loading from "./loading";
+import reformeBase from "./reforme-base";
 import resBrut from "./res-brut";
 import currentExpandedArticlePanel from "./current-expanded-article-panel";
 
 export default combineReducers({
   casTypes,
   loading,
+  reformeBase,
   resBrut,
   currentExpandedArticlePanel,
 });

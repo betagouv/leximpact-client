@@ -17,6 +17,7 @@
       groups: ["builtin", "external", "parent", "sibling", "index"]
     }]
 */
+import { get } from "lodash";
 import { connect } from "react-redux";
 
 import { expandArticlePanel } from "../../actions";
@@ -25,10 +26,21 @@ import ArticleAlinea4a from "./article-alinea-4a-component";
 
 const PANEL_NAME = "panel4a";
 
-const mapStateToProps = ({ currentExpandedArticlePanel }) => {
+const mapStateToProps = (
+  { currentExpandedArticlePanel, reformeBase: base },
+  { reforme },
+) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
+  const decoteSeuilCelib = get(reforme, "impot_revenu.decote.seuil_celib");
+  const decoteSeuilCouple = get(reforme, "impot_revenu.decote.seuil_couple");
+  const baseDecoteSeuilCelib = get(base, "impot_revenu.decote.seuil_celib");
+  const baseDecoteSeuilCouple = get(base, "impot_revenu.decote.seuil_celib");
   return {
     isPanelExpanded,
+    decoteSeuilCelib,
+    decoteSeuilCouple,
+    baseDecoteSeuilCouple,
+    baseDecoteSeuilCelib,
   };
 };
 

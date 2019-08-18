@@ -40,13 +40,11 @@ class Alinea4a extends PureComponent {
       isPanelExpanded,
       expandArticlePanelHandler,
       style,
-      basecode,
-      reforme,
+      decoteSeuilCelib,
+      decoteSeuilCouple,
+      baseDecoteSeuilCelib,
+      baseDecoteSeuilCouple,
     } = this.props;
-    const scelib = reforme.impot_revenu.decote.seuil_celib;
-    const scouple = reforme.impot_revenu.decote.seuil_couple;
-    const basescelib = basecode.impot_revenu.decote.seuil_celib;
-    const basescouple = basecode.impot_revenu.decote.seuil_couple;
     return (
       <LexExpansionPanel
         style={style.Typography}
@@ -66,9 +64,12 @@ class Alinea4a extends PureComponent {
           <Typography variant="body2" color="inherit">
             ...la limite de son montant, de la différence entre
             {" "}
-            <OutputField value={basescelib} style={style.VarCodeexistant} />
+            <OutputField
+              value={baseDecoteSeuilCelib}
+              style={style.VarCodeexistant}
+            />
             <InputField
-              value={scelib}
+              value={decoteSeuilCelib}
               onChange={this.handleS1Change}
               name="decote.seuil_celib"
               style={style.InputSeuil}
@@ -81,9 +82,12 @@ class Alinea4a extends PureComponent {
             {baseOutputInput("decote.taux")}
             %] de son montant pour les contribuables célibataires, divorcés ou
             veufs et de la différence entre
-            <OutputField value={basescouple} style={style.VarCodeexistant} />
+            <OutputField
+              value={baseDecoteSeuilCouple}
+              style={style.VarCodeexistant}
+            />
             <InputField
-              value={scouple}
+              value={decoteSeuilCouple}
               onChange={this.handleS1Change}
               name="decote.seuil_couple"
               style={style.InputSeuil}
@@ -110,8 +114,10 @@ Alinea4a.propTypes = {
   expandArticlePanelHandler: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,
-  reforme: PropTypes.shape().isRequired,
-  basecode: PropTypes.shape().isRequired,
+  decoteSeuilCelib: PropTypes.number.isRequired,
+  decoteSeuilCouple: PropTypes.number.isRequired,
+  baseDecoteSeuilCelib: PropTypes.number.isRequired,
+  baseDecoteSeuilCouple: PropTypes.number.isRequired,
 };
 
 export default Alinea4a;

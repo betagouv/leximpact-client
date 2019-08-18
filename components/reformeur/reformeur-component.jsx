@@ -25,10 +25,10 @@ import { withStyles } from "@material-ui/core/styles";
 import { Divider, Paper } from "@material-ui/core";
 
 import Articles from "../articles";
+import { REFORME_BASE_DEFAULT_STATE } from "../../reducers/reforme-base";
 
 import Impact from "./impact";
 import ArticleHeader from "./article-header";
-import ReformeDefaultData from "./reforme-default-data";
 
 const styles = () => ({
   paper: {
@@ -40,7 +40,7 @@ const styles = () => ({
 class ReformeurComponent extends Component {
   constructor(props) {
     super(props);
-    const reforme = cloneDeep(ReformeDefaultData);
+    const reforme = cloneDeep(REFORME_BASE_DEFAULT_STATE);
     this.state = {
       reforme,
       total_pop: {

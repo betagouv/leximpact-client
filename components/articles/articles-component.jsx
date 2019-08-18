@@ -77,7 +77,7 @@ const style = {
   },
 };
 
-class Article extends React.Component {
+class ArticlesComponent extends React.Component {
   constructor(props) {
     super(props);
     const { reforme } = props;
@@ -129,12 +129,13 @@ class Article extends React.Component {
   }
 
   formulaOutputInputFacteur = (name, fact) => {
-    const { basecode, reforme } = this.state;
+    const { reformeBase } = this.props;
+    const { reforme } = this.state;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const multip = tx ? 100 : 1;
 
-    let baseval = get(basecode.impot_revenu, name);
+    let baseval = get(reformeBase.impot_revenu, name);
     baseval = baseval * fact * multip;
     baseval = makeNumberGoodLooking(baseval);
 
@@ -151,11 +152,11 @@ class Article extends React.Component {
   }
 
   baseOutput = (name) => {
-    const { basecode } = this.state;
+    const { reformeBase } = this.props;
     const regextaux = RegExp("taux");
     const tx = regextaux.test(name);
     const baseval = makeNumberGoodLooking(
-      get(basecode.impot_revenu, name) * (tx ? 100 : 1),
+      get(reformeBase.impot_revenu, name) * (tx ? 100 : 1),
     );
     return <OutputField value={baseval} style={style.VarCodeexistant} />;
   }
@@ -293,8 +294,7 @@ class Article extends React.Component {
   }
 
   render() {
-    const { reforme, basecode } = this.state;
-
+    const { reforme } = this.state;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
@@ -342,14 +342,12 @@ class Article extends React.Component {
         <Alinea4a
           style={style}
           reforme={reforme}
-          basecode={basecode}
           baseOutputInput={this.baseOutputInput}
           formulaOutputInput={this.formulaOutputInput}
         />
         <Alinea4b
           style={style}
           reforme={reforme}
-          basecode={basecode}
           baseOutputInput={this.baseOutputInput}
           formulaOutputInput={this.formulaOutputInput}
           formulaOutputInputFacteur={this.formulaOutputInputFacteur}
@@ -360,7 +358,7 @@ class Article extends React.Component {
   }
 }
 
-Article.propTypes = {
+ArticlesComponent.propTypes = {
   reforme: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
@@ -380,4 +378,4 @@ Article.propTypes = {
   removeTranche: PropTypes.func.isRequired,
 };
 
-export default Article;
+export default ArticlesComponent;
