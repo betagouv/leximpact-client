@@ -22,7 +22,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import Articles from "../articles";
-import ImpactCards from "../impact-cards";
+import ImpactCards from "../cartes-impact";
 
 class ReformeurComponent extends PureComponent {
   componentDidMount() {
