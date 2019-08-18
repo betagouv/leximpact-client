@@ -22,8 +22,8 @@ import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
-import InputField from "../fields/input-field";
-import OutputField from "../fields/output-field";
+import InputField from "../../articles-inputs/input-field";
+import OutputField from "../../articles-inputs/output-field";
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
 import LexExpansionPanelSummary from "../expandable-panels/expansion-panel-summary";

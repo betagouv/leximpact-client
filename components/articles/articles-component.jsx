@@ -18,7 +18,7 @@
       groups: ["builtin", "external", "parent", "sibling", "index"]
     }]
 */
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Divider, Paper, Typography } from "@material-ui/core";
 import { get } from "lodash";
@@ -32,8 +32,9 @@ import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import Alinea4b from "./article-alinea-4b";
-import InputField from "./fields/input-field";
-import OutputField from "./fields/output-field";
+import InputField from "./../articles-inputs/input-field";
+import OutputField from "./../articles-inputs/output-field";
+import BaseInputOutput from "./../articles-inputs/base-input-output";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
@@ -93,31 +94,7 @@ class ArticlesComponent extends React.Component {
   // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
   // }
 
-  baseOutputInput = (name) => {
-    const { handleArticleChange, reforme, reformeBase } = this.props;
-    const regextaux = RegExp("taux");
-    const tx = regextaux.test(name);
-    const multip = tx ? 100 : 1;
-
-    let baseval = get(reformeBase.impot_revenu, name);
-    baseval *= multip;
-    baseval = makeNumberGoodLooking(baseval);
-
-    let newval = get(reforme.impot_revenu, name);
-    newval *= multip;
-    newval = makeNumberGoodLooking(newval);
-    return (
-      <Fragment>
-        <OutputField value={baseval} style={style.VarCodeexistant} />
-        <InputField
-          value={newval}
-          onChange={handleArticleChange}
-          name={name}
-          style={tx ? style.InputTaux : style.InputSeuil}
-        />
-      </Fragment>
-    );
-  }
+  renderBaseOutputInput = name => <BaseInputOutput style={style} name={name} />
 
   formulaOutputInputFacteur = (name, fact) => {
     const { reforme, reformeBase } = this.props;
@@ -300,17 +277,17 @@ class ArticlesComponent extends React.Component {
           {articleTranches}
           <BoutonAjouterTranche onClick={handleAddTranche} style={style} />
           <BoutonSupprimerTranche onClick={handleRemoveTranche} style={style} />
-          <Alinea2 style={style} baseOutputInput={this.baseOutputInput} />
-          <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
+          <Alinea2 style={style} baseOutputInput={this.renderBaseOutputInput} />
+          <Alinea3 style={style} baseOutputInput={this.renderBaseOutputInput} />
           <Alinea4a
             style={style}
             onInputChange={handleArticleChange}
-            baseOutputInput={this.baseOutputInput}
+            baseOutputInput={this.renderBaseOutputInput}
             formulaOutputInput={this.formulaOutputInput}
           />
           <Alinea4b
             style={style}
-            baseOutputInput={this.baseOutputInput}
+            baseOutputInput={this.renderBaseOutputInput}
             formulaOutputInput={this.formulaOutputInput}
             formulaOutputInputFacteur={this.formulaOutputInputFacteur}
             formulaOutputInputCombiLin={this.formulaOutputInputCombiLin}
