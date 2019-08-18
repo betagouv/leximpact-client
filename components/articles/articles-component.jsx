@@ -20,8 +20,7 @@
 */
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Fab, Typography } from "@material-ui/core";
-import { Add as AddIcon, Delete as DeleteIcon } from "@material-ui/icons";
+import { Typography } from "@material-ui/core";
 import { get } from "lodash";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
@@ -33,6 +32,8 @@ import Alinea4a from "./article-alinea-4a";
 import Alinea4b from "./article-alinea-4b";
 import InputField from "./fields/input-field";
 import OutputField from "./fields/output-field";
+import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche/output-field";
+import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche/output-field";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
 
 const style = {
@@ -283,42 +284,9 @@ class ArticlesComponent extends React.Component {
     return (
       <div style={style.Div}>
         <Alinea0 style={style} />
-
         {articleTranches}
-        <div>
-          <Fab
-            style={style.Button}
-            size="small"
-            onClick={handleAddTranche}
-            color="primary">
-            <AddIcon />
-          </Fab>
-          <Typography
-            inline
-            variant="overline"
-            color="primary"
-            style={style.Typographybouton}>
-            Ajouter une tranche
-          </Typography>
-        </div>
-
-        <div>
-          <Fab
-            style={style.Button}
-            size="small"
-            onClick={handleRemoveTranche}
-            color="primary">
-            <DeleteIcon />
-          </Fab>
-          <Typography
-            inline
-            variant="overline"
-            color="primary"
-            style={style.Typographybouton}>
-            Supprimer une tranche
-          </Typography>
-        </div>
-
+        <BoutonAjouterTranche onClick={handleAddTranche} style={style} />
+        <BoutonSupprimerTranche onClick={handleRemoveTranche} style={style} />
         <Alinea2 style={style} baseOutputInput={this.baseOutputInput} />
         <Alinea3 style={style} baseOutputInput={this.baseOutputInput} />
         <Alinea4a
