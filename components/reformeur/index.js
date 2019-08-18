@@ -31,7 +31,6 @@ import ReformeurComponent from "./reformeur-component";
 
 const mapStateToProps = state => ({
   casTypes: state.casTypes,
-  resBrut: state.resBrut,
 });
 
 const mapDispatchToProps = dispatch => ({

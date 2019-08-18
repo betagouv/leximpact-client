@@ -23,48 +23,48 @@ import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 
 import SimpleCard from "./simple-card";
-import CarteEtat from "./carte-etat";
+// import CarteEtat from "./carte-etat";
 
 class ImpactComponent extends PureComponent {
   handleClick = (e) => {
-    const { onClick } = this.props;
-    onClick(e);
+    // const { onClick } = this.props;
+    // onClick(e);
   }
 
   render() {
     // include should be false to remove the graph of recettes
-    const includepopulation = false;
+    // const includepopulation = false;
     const {
       casTypes,
       changeRevenuHandler,
       changeOutreMerHandler,
-      res_brut,
-      total_pop,
+      resBrut,
+      // total_pop,
     } = this.props;
     return (
       <Grid container spacing={24}>
-        {casTypes.map((ct, i) => {
-          const itemKey = `grid${i}`;
+        {casTypes.map((casType, i) => {
+          const itemKey = `react::simple-card-key-index::${i}`;
           return (
             <Grid item key={itemKey} xs={6} sm={12} md={6} lg={4} xl={3}>
               <SimpleCard
-                onChange={changeRevenuHandler}
-                onOutreMerChange={changeOutreMerHandler}
                 index={i}
-                desc_cas_type={ct}
-                impots_avant={res_brut.avant[i]}
-                impots_apres={res_brut.apres[i]}
+                descCasType={casType}
+                onChange={changeRevenuHandler}
+                impotsAvant={resBrut.avant[i]}
+                impotsApres={resBrut.apres[i]}
+                onOutreMerChange={changeOutreMerHandler}
               />
             </Grid>
           );
         })}
-        <Grid item key="stateBudget" xs={12} sm={12} md={12} lg={12} xl={12}>
+        {/* <Grid item key="stateBudget" xs={12} sm={12} md={12} lg={12} xl={12}>
           {includepopulation ? (
             <CarteEtat resultat={total_pop} onClick={this.handleClick} />
           ) : (
             <div />
           )}
-        </Grid>
+        </Grid> */}
       </Grid>
     );
   }
@@ -72,20 +72,24 @@ class ImpactComponent extends PureComponent {
 
 ImpactComponent.propTypes = {
   total_pop: PropTypes.shape({
-    total: PropTypes.shape(),
     deciles: PropTypes.arrayOf(PropTypes.shape()),
+    total: PropTypes.shape(),
   }).isRequired,
   casTypes: PropTypes.arrayOf(
     PropTypes.shape({
-      outre_mer: PropTypes.number,
       nombre_declarants: PropTypes.number,
       nombre_declarants_retraites: PropTypes.number,
       nombre_personnes_a_charge: PropTypes.number,
+      outre_mer: PropTypes.number,
       revenu: PropTypes.number,
     }),
   ).isRequired,
-  res_brut: PropTypes.shape().isRequired,
-  onClick: PropTypes.func.isRequired,
+  resBrut: PropTypes.shape({
+    apres: PropTypes.shape(),
+    avant: PropTypes.shape(),
+    wprm: PropTypes.shape(),
+  }).isRequired,
+  // onClick: PropTypes.func.isRequired,
   changeOutreMerHandler: PropTypes.func.isRequired,
   changeRevenuHandler: PropTypes.func.isRequired,
 };

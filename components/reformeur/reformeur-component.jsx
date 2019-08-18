@@ -23,7 +23,7 @@ import fetch from "isomorphic-fetch";
 import PropTypes from "prop-types";
 import { cloneDeep, set } from "lodash";
 import { withStyles } from "@material-ui/core/styles";
-import { Divider, Paper, Typography } from "@material-ui/core";
+import { Divider, Paper } from "@material-ui/core";
 
 import Impact from "./impact";
 import Article from "./article";
@@ -203,7 +203,7 @@ class ReformeurComponent extends Component {
     }
   }
 
-  addTranche = () => {
+  handleAddTranche = () => {
     const { reforme } = this.state;
     const refbase = reforme;
     const newnbt = refbase.impot_revenu.bareme.seuils.length + 1;
@@ -218,7 +218,7 @@ class ReformeurComponent extends Component {
     this.setState({ reforme: refbase });
   }
 
-  removeTranche = () => {
+  handleRemoveTranche = () => {
     const { casTypes } = this.props;
     const { reforme } = this.state;
     const refbase = reforme;
@@ -233,37 +233,32 @@ class ReformeurComponent extends Component {
         newnbt,
       );
       this.setState({ reforme: refbase });
-      const bodyreq = this.cas_types_defaut
-        ? JSON.stringify({
-          deciles: false,
-          reforme: refbase,
-        })
-        : JSON.stringify({
-          reforme: refbase,
-          description_cas_types: casTypes,
-        });
-      this.updateCompare(bodyreq);
+      const bodyreq = JSON.stringify({
+        reforme: refbase,
+        description_cas_types: casTypes,
+      });
+      // this.updateCompare(bodyreq);
     }
   }
 
-  endpoint = () => process.env.API_URL
+  // endpoint = () => process.env.API_URL
 
-  updateCompare = (bodyreq) => {
-    const endpoint = this.endpoint();
-    fetch(`${endpoint}/calculate/compare`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: bodyreq,
-    })
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({ res_brut: json.res_brut });
-      });
-  }
+  // updateCompare = (bodyreq) => {
+  //   const endpoint = this.endpoint();
+  //   fetch(`${endpoint}/calculate/compare`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: bodyreq,
+  //   })
+  //     .then(response => response.json())
+  //     .then((json) => {
+  //       this.setState({ res_brut: json.res_brut });
+  //     });
+  // }
 
-  handleChange = (value, name) => {
+  handleArticleChange = (value, name) => {
     const { reforme } = this.state;
     const { casTypes } = this.props;
     const newvalue = value === "" ? 0 : value;
@@ -283,35 +278,11 @@ class ReformeurComponent extends Component {
       const whichplaf = name.substring(10);
       this.UpdatePlafond(whichplaf, newvalue);
     }
-    const bodyreq = this.cas_types_defaut
-      ? JSON.stringify({
-        deciles: false,
-        reforme,
-      })
-      : JSON.stringify({
-        reforme,
-        description_cas_types: casTypes,
-      });
-    this.updateCompare(bodyreq);
-  }
-
-  simPop = () => {
-    const endpoint = this.endpoint();
-    const { reforme } = this.state;
-    fetch(`${endpoint}/calculate/compare`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        deciles: true,
-        reforme,
-      }),
-    })
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({ total_pop: json });
-      });
+    const bodyreq = JSON.stringify({
+      reforme,
+      description_cas_types: casTypes,
+    });
+    // this.updateCompare(bodyreq);
   }
 
   handleCardRevenuAnnuelChange = (casTypeIndex, inputEvent) => {
@@ -337,9 +308,7 @@ class ReformeurComponent extends Component {
 
   render() {
     const { classes } = this.props;
-    const {
-      reforme, reformebase, res_brut, total_pop,
-    } = this.state;
+    const { reforme, reformebase, total_pop } = this.state;
     return (
       <div className="main-index">
         <div className="clearfix">
@@ -350,9 +319,9 @@ class ReformeurComponent extends Component {
               <Article
                 reforme={reforme}
                 reformebase={reformebase}
-                onChange={this.handleChange}
-                addTranche={this.addTranche}
-                removeTranche={this.removeTranche}
+                onChange={this.handleArticleChange}
+                addTranche={this.handleAddTranche}
+                removeTranche={this.handleRemoveTranche}
               />
             </Paper>
           </div>
@@ -360,9 +329,7 @@ class ReformeurComponent extends Component {
             <Impact
               changeRevenuHandler={this.handleCardRevenuAnnuelChange}
               changeOutreMerHandler={this.handleOutreMerChange}
-              res_brut={res_brut}
               total_pop={total_pop}
-              onClick={this.simPop}
             />
           </div>
         </div>

@@ -17,7 +17,7 @@
       groups: ["builtin", "external", "parent", "sibling", "index"]
     }]
 */
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import {
@@ -84,18 +84,14 @@ const BlueTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 class SimpleCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleChange = i => (event) => {
     this.props.onChange(i, event);
   }
 
   handleOutreMerChange = numcastype => () => {
-    const { onOutreMerChange, desc_cas_type } = this.props;
-    const outreMerIndex = 3 - desc_cas_type.outre_mer;
-    // console.log("je suis dans l'outremer",numcastype,event,this.props.desc_cas_type.outre_mer)
+    const { onOutreMerChange, descCasType } = this.props;
+    const outreMerIndex = 3 - descCasType.outre_mer;
+    // console.log("je suis dans l'outremer",numcastype,event,this.props.descCasType.outre_mer)
     onOutreMerChange(numcastype, outreMerIndex);
   }
 
@@ -129,25 +125,25 @@ class SimpleCard extends React.Component {
     const {
       classes,
       index,
-      desc_cas_type,
-      impots_avant,
-      impots_apres,
+      descCasType,
+      impotsAvant,
+      impotsApres,
       isLoading,
     } = this.props;
 
     const styleIcons = {
       width: "10em",
     };
-    const { revenu } = desc_cas_type;
+    const { revenu } = descCasType;
     const revrounded = Math.round(revenu / 12);
     const revtodisp = numberToRevenuparmois(revrounded);
-    const isret = !!desc_cas_type.nombre_declarants_retraites;
+    const isret = !!descCasType.nombre_declarants_retraites;
     const manfirst = Math.random() < 0.49;
     const coupledummsexe = Math.random() < 0.15;
-    const aretwo = desc_cas_type.nombre_declarants > 1;
-    const nbenfants = desc_cas_type.nombre_personnes_a_charge;
-    const isoutremer1 = desc_cas_type.outre_mer == 1;
-    const isoutremer2 = desc_cas_type.outre_mer == 2;
+    const aretwo = descCasType.nombre_declarants > 1;
+    const nbenfants = descCasType.nombre_personnes_a_charge;
+    const isoutremer1 = descCasType.outre_mer == 1;
+    const isoutremer2 = descCasType.outre_mer == 2;
     // bruts par an
     const icon1 = manfirst
       ? isret
@@ -248,7 +244,7 @@ class SimpleCard extends React.Component {
               Impôt sur le revenu par an
             </Typography>
             <Typography inline variant="h3" color="primary" gutterBottom>
-              {-impots_avant}
+              {-impotsAvant}
             </Typography>
             <Typography inline variant="h5" color="primary" gutterBottom>
               €
@@ -257,14 +253,16 @@ class SimpleCard extends React.Component {
             <BlueTooltip
               key="gain"
               placement="bottom-start"
-              title=<React.Fragment>
-                {"Soit "}
-                <b>
-                  {`${(-impots_apres + impots_avant > 0 ? "+" : "-")
-                    + Math.round(Math.abs(-impots_apres + impots_avant))}€`}
-                </b>
-                {"/an"}
-              </React.Fragment>
+              title={(
+                <Fragment>
+                  {"Soit "}
+                  <b>
+                    {`${(-impotsApres + impotsAvant > 0 ? "+" : "-")
+                      + Math.round(Math.abs(-impotsApres + impotsAvant))}€`}
+                  </b>
+                  {"/an"}
+                </Fragment>
+              )}
               enterDelay={300}
               leaveDelay={200}>
               <div>
@@ -277,7 +275,7 @@ class SimpleCard extends React.Component {
                       variant="h3"
                       color="secondary"
                       gutterBottom>
-                      {-impots_apres}
+                      {-impotsApres}
                     </Typography>
                     <Typography
                       inline
