@@ -242,7 +242,7 @@ class Article extends React.Component {
           {"– "}
 
           <OutputField
-            value={makeNumberGoodLooking(baset[i - 1] * 100)}
+            value={makeNumberGoodLooking(baset[Math.min(i-1,baset.length-1)] * 100)}
             style={style.VarCodeexistant}
           />
           <InputField
@@ -267,7 +267,7 @@ class Article extends React.Component {
         –
         {" "}
         <OutputField
-          value={makeNumberGoodLooking(baset[i - 1] * 100)}
+          value={makeNumberGoodLooking(baset[Math.min(i-1,baset.length-1)] * 100)}
           style={style.VarCodeexistant}
         />
         <InputField
@@ -280,7 +280,7 @@ class Article extends React.Component {
         {" "}
         <OutputField value={s[i - 1]} />
         € et inférieure ou égale à
-        <OutputField value={bases[i]} style={style.VarCodeexistant} />
+        <OutputField value={bases[Math.min(i,bases.length-1)]} style={style.VarCodeexistant} />
         <InputField
           value={s[i]}
           onChange={this.handleS1Change}
