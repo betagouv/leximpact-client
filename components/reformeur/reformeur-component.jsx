@@ -19,28 +19,82 @@
     camelcase: 0,
 */
 import PropTypes from "prop-types";
-import { PureComponent } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { Fragment, PureComponent } from "react";
+import { AppBar, Tab, Tabs } from "@material-ui/core";
+import MediaQuery from "react-responsive";
 
 import Articles from "../articles";
 import ImpactCards from "../cartes-impact";
 
 class ReformeurComponent extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { indextab: 0 };
+  }
+
   componentDidMount() {
     const { fetchMetadataCasTypesHandler } = this.props;
     fetchMetadataCasTypesHandler();
   }
 
-  render() {
+  handleOnChangeIndex = (event, indextab) => {
+    this.setState({ indextab });
+  }
+
+  renderDesktopView = () => (
+    <div className="clearfix">
+      <div className="moitie-gauche">
+        <Articles />
+      </div>
+      <div className="moitie-droite">
+        <ImpactCards />
+      </div>
+    </div>
+  )
+
+  renderMobileView = () => {
+    const { indextab } = this.state;
     return (
-      <div className="main-index">
-        <div className="clearfix">
-          <div className="moitie-gauche">
+      <Fragment>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={indextab}
+            textColor="primary"
+            variant="fullWidth"
+            indicatorColor="primary"
+            onChange={this.handleOnChangeIndex}>
+            <Tab label="Loi" />
+            <Tab label="Impacts" />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          axis="x"
+          index={indextab}
+          onChangeIndex={this.handleOnChangeIndex}>
+          <div style={{ padding: 24 }}>
             <Articles />
           </div>
-          <div className="moitie-droite">
+          <div style={{ padding: 24 }}>
             <ImpactCards />
           </div>
-        </div>
+        </SwipeableViews>
+      </Fragment>
+    );
+  }
+
+  render() {
+    const maxMobileViewWidth = 960;
+    return (
+      <div className="main-index">
+        <MediaQuery maxWidth={maxMobileViewWidth}>
+          {(showMobileView) => {
+            const viewRendererFunc = showMobileView
+              ? this.renderMobileView
+              : this.renderDesktopView;
+            return viewRendererFunc();
+          }}
+        </MediaQuery>
       </div>
     );
   }
