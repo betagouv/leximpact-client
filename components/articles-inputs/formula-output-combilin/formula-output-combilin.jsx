@@ -19,16 +19,21 @@
     }]
 */
 import PropTypes from "prop-types";
+import { Fragment } from "react";
 
 import OutputField from "../fields/output-field";
 
-const BaseOutputComponent = ({ baseValue, style }) => (
-  <OutputField value={baseValue} style={style.VarCodeexistant} />
+const FormulaOutputCombiLin = ({ baseValue, newValue, style }) => (
+  <Fragment>
+    <OutputField value={baseValue} style={style.VarCodeexistant} />
+    <OutputField value={newValue} style={style.VarCodeNew} />
+  </Fragment>
 );
 
-BaseOutputComponent.propTypes = {
+FormulaOutputCombiLin.propTypes = {
   baseValue: PropTypes.string.isRequired,
+  newValue: PropTypes.string.isRequired,
   style: PropTypes.shape().isRequired,
 };
 
-export default BaseOutputComponent;
+export default FormulaOutputCombiLin;

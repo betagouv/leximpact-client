@@ -21,13 +21,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Divider, Paper, Typography } from "@material-ui/core";
-import { get } from "lodash";
 import { withStyles } from "@material-ui/core/styles";
 
 import fillArrayWith from "../utils/array/fillArrayWith";
 import InputField from "../articles-inputs/fields/input-field";
 import OutputField from "../articles-inputs/fields/output-field";
-import { BaseInputOutput, FormulaOutput } from "../articles-inputs";
+import {
+  BaseInputOutput,
+  FormulaOutput,
+  FormulaOutputCombilin,
+} from "../articles-inputs";
 
 import ArticleHeader from "./article-header";
 import Alinea0 from "./article-alinea-0";
@@ -97,24 +100,15 @@ class ArticlesComponent extends React.Component {
     <FormulaOutput style={style} name={name} facteur={facteur} />
   )
 
-  formulaOutputInputCombiLin = (name1, fact1, name2, fact2) => {
-    const { reforme, reformeBase } = this.props;
-    const baseval = makeNumberGoodLooking(
-      get(reformeBase.impot_revenu, name1) * fact1
-        + get(reformeBase.impot_revenu, name2) * fact2,
-    );
-    const newval = makeNumberGoodLooking(
-      get(reforme.impot_revenu, name1) * fact1
-        + get(reforme.impot_revenu, name2) * fact2,
-    );
-
-    return (
-      <React.Fragment>
-        <OutputField value={baseval} style={style.VarCodeexistant} />
-        <OutputField value={newval} style={style.VarCodeNew} />
-      </React.Fragment>
-    );
-  }
+  renderFormulaOuputCombiLin = (name1, fact1, name2, fact2) => (
+    <FormulaOutputCombilin
+      style={style}
+      name1={name1}
+      fact1={fact1}
+      name2={name2}
+      fact2={fact2}
+    />
+  )
 
   gimmeIRPartsOfArticle = (i) => {
     const { handleArticleChange, reforme, reformeBase } = this.props;
@@ -240,7 +234,7 @@ class ArticlesComponent extends React.Component {
             style={style}
             baseOutputInput={this.renderBaseOutputInput}
             formulaOutputInput={this.renderFormulaOutput}
-            formulaOutputInputCombiLin={this.formulaOutputInputCombiLin}
+            formulaOutputInputCombiLin={this.renderFormulaOuputCombiLin}
           />
         </div>
       </Paper>
