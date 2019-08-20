@@ -83,10 +83,46 @@ const updateDecote = (prevState, name, value) => {
   return prevState;
 };
 
+const addTranche = (prevState) => {
+  const seuils = get(prevState, "impot_revenu.bareme.seuils");
+  const newbt = seuils.length + 1;
+
+  const lastIndex = newbt - 2;
+
+  let lastSeuil = get(prevState, `impot_revenu.bareme.seuils.${lastIndex}`);
+  lastSeuil += 1;
+  const nextSeuil = seuils.concat(lastSeuil);
+  set(prevState, "impot_revenu.bareme.seuils", nextSeuil);
+
+  const taux = get(prevState, "impot_revenu.bareme.taux");
+  const lastTaux = get(prevState, `impot_revenu.bareme.taux.${lastIndex}`);
+  const nextTaux = taux.concat(lastTaux);
+  set(prevState, "impot_revenu.bareme.taux", nextTaux);
+  return prevState;
+};
+
+const removeTranche = (prevState) => {
+  const seuils = get(prevState, "impot_revenu.bareme.seuils");
+  const newnbt = seuils.length - 1;
+  if (newnbt <= 0) return prevState;
+
+  const nextSeuils = seuils.slice(0, newnbt);
+  set(prevState, "impot_revenu.bareme.seuils", nextSeuils);
+
+  const taux = get(prevState, "impot_revenu.bareme.taux");
+  const nextTaux = taux.slice(0, newnbt);
+  set(prevState, "impot_revenu.bareme.taux", nextTaux);
+  return prevState;
+};
+
 const reforme = (state = DEFAULT_STATE, action) => {
   const { name, value } = action || {};
   const nextState = cloneDeep(state);
   switch (action.type) {
+  case "onAddTranche":
+    return addTranche(nextState);
+  case "onRemoveTranche":
+    return removeTranche(nextState);
   case "onUpdateReformeBareme":
     return updateBareme(nextState, name, value);
   case "onUpdateReformeTaux":

@@ -20,7 +20,12 @@
 */
 import { connect } from "react-redux";
 
-import { fetchCalculateCompare, updateReformeByName } from "../actions";
+import {
+  addTranche,
+  removeTranche,
+  fetchCalculateCompare,
+  updateReformeByName,
+} from "../actions";
 
 import ArticlesComponent from "./articles-component";
 
@@ -31,40 +36,15 @@ const mapStateToProps = ({ reforme, reformeBase }) => ({
 
 const mapDispatchToProps = dispatch => ({
   handleAddTranche: () => {
-    // const { reforme } = this.state;
-    // const refbase = reforme;
-    // const newnbt = refbase.impot_revenu.bareme.seuils.length + 1;
-    // const lastseuil = refbase.impot_revenu.bareme.seuils[newnbt - 2];
-    // refbase.impot_revenu.bareme.seuils = reforme.impot_revenu.bareme.seuils.concat(
-    //   lastseuil + 1,
-    // );
-    // const lasttaux = refbase.impot_revenu.bareme.taux[newnbt - 2];
-    // refbase.impot_revenu.bareme.taux = reforme.impot_revenu.bareme.taux.concat(
-    //   lasttaux,
-    // );
-    // this.setState({ reforme: refbase });
+    const action = addTranche();
+    dispatch(action);
   },
 
   handleRemoveTranche: () => {
-    // const { casTypes } = this.props;
-    // const { reforme } = this.state;
-    // const refbase = reforme;
-    // const newnbt = refbase.impot_revenu.bareme.seuils.length - 1;
-    // if (newnbt <= 0) return;
-    // refbase.impot_revenu.bareme.seuils = reforme.impot_revenu.bareme.seuils.slice(
-    //   0,
-    //   newnbt,
-    // );
-    // refbase.impot_revenu.bareme.taux = reforme.impot_revenu.bareme.taux.slice(
-    //   0,
-    //   newnbt,
-    // );
-    // this.setState({ reforme: refbase });
-    // const bodyreq = JSON.stringify({
-    //   reforme: refbase,
-    //   description_cas_types: casTypes,
-    // });
-    // this.updateCompare(bodyreq);
+    let action = removeTranche();
+    dispatch(action);
+    action = fetchCalculateCompare();
+    dispatch(action);
   },
 
   handleArticleChange: (value, name) => {

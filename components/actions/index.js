@@ -21,6 +21,8 @@ export {
 export {
   default as updateRevenusAnnuelCasType,
 } from "./cas-types/update-revenus-cas-type";
+export { default as addTranche } from "./articles/add-tranche";
+export { default as removeTranche } from "./articles/remove-tranche";
 export {
   default as updateReformeByName,
 } from "./articles/update-reforme-by-name";
