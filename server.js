@@ -24,13 +24,48 @@ import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 
-import { externalDynamicExpressJSRoutes } from "./routes";
-import { generateServerDynamicRoutes } from "./lib/generateServerDynamicRoutes";
-
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = parseInt(process.env.PORT, 10) || 9001;
+
+const renderApplicationPageFromServer = (routeObject, nextApplication) => (
+  req,
+  res,
+) => {
+  const { page, query } = routeObject;
+  nextApplication.render(req, res, page, query(req));
+};
+
+const generateServerDynamicRoutes = (
+  nextApplication,
+  expressServer,
+  dynamicRoutes,
+) => {
+  // Génére les routes côté server ExpressJS
+  // Cela permet de récupérer par exemple un token dans l'URL
+  // Et d'afficher la popin de confirmation d'enregistrement
+  Object.keys(dynamicRoutes).forEach((routePath) => {
+    const routeObject = dynamicRoutes[routePath];
+    const callback = renderApplicationPageFromServer(
+      routeObject,
+      nextApplication,
+    );
+    expressServer.get(routePath, callback);
+  });
+};
+
+const externalDynamicExpressJSRoutes = {
+  // Routes externes à l'application utilisées par server.js
+  // Ces routes ont besoin d'un parametre dynamique pour fonctionner
+  "/connection/:token": {
+    page: "/",
+    query: req => ({
+      token: req.params.token,
+      showPopin: "confirmation-connexion",
+    }),
+  },
+};
 
 async function start() {
   await app.prepare();
