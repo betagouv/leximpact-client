@@ -27,7 +27,6 @@ import { Icon } from "@iconify/react";
 import openMailboxWithRaisedFlag from "@iconify/icons-twemoji/open-mailbox-with-raised-flag";
 
 const styles = {
-
   pStyle: {
     fontFamily: "Lato",
     fontSize: "18px",
@@ -39,6 +38,9 @@ const styles = {
 
 class ConnexionFormSuccess extends PureComponent {
   componentDidMount() {
+    // recupere le token depuis l'URL
+    // recu via l'email contenant le magic-link
+    // affecte une variable dans le navigateur user
     const { router } = this.props;
     const pathString = "query.token";
     const token = get(router, pathString, false);
@@ -52,8 +54,8 @@ class ConnexionFormSuccess extends PureComponent {
         <p className={classes.pStyle}>
           <Icon inline icon={openMailboxWithRaisedFlag} width="25" />
           <b>
-          &nbsp;Nous venons juste de vous envoyer par mail
-          un lien de confirmation.
+            &nbsp;Nous venons juste de vous envoyer par mail un lien de
+            confirmation.
           </b>
           <br />
           Cliquez sur le lien du courriel pour vous connecter.

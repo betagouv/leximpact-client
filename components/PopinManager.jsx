@@ -27,7 +27,7 @@ import { DialogContent, Dialog, Drawer } from "@material-ui/core";
 import LoginForm from "./connexion";
 import EnSavoirPlus from "./en-savoir-plus";
 import ConfirmationConnexion from "./confirmation-connexion";
-import { closeCurrentOpenedRoutingPopin } from "./actions";
+import { closeCurrentPopin } from "./actions";
 
 const styles = () => ({
   dialog: {
@@ -52,7 +52,7 @@ class PopinManager extends PureComponent {
     return (
       <Dialog
         open={showConnexion}
-        onClose={closeCurrentOpenedRoutingPopin}
+        onClose={closeCurrentPopin}
         classes={{ root: classes.dialog, paper: classes.dialogPaper }}>
         <DialogContent classes={{ root: classes.dialogContent }}>
           <LoginForm />
@@ -67,7 +67,7 @@ class PopinManager extends PureComponent {
     return (
       <Dialog
         open={showConfirmationConnexion}
-        onClose={closeCurrentOpenedRoutingPopin}
+        onClose={closeCurrentPopin}
         classes={{ root: classes.dialog, paper: classes.dialogPaper }}>
         <DialogContent classes={{ root: classes.dialogContent }}>
           <ConfirmationConnexion />
@@ -83,7 +83,7 @@ class PopinManager extends PureComponent {
         anchor="bottom"
         variant="temporary"
         open={showEnSavoirPlus}
-        onClose={closeCurrentOpenedRoutingPopin}>
+        onClose={closeCurrentPopin}>
         <EnSavoirPlus />
       </Drawer>
     );
@@ -91,7 +91,7 @@ class PopinManager extends PureComponent {
 
   render() {
     const { router } = this.props;
-    const pathString = "query.showPopin";
+    const pathString = "query.popin";
     const popinType = get(router, pathString, false);
     return (
       <Fragment>

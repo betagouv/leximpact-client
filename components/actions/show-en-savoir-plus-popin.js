@@ -8,6 +8,10 @@
     groups: ["builtin", "external", "parent", "sibling", "index"]
   }]
 */
-export { default as closeCurrentPopin } from "./close-current-popin";
-export { default as showEnSavoirPlusPopin } from "./show-en-savoir-plus-popin";
-export { default as showConnexionPopin } from "./show-connexion-popin";
+import Router from "next/router";
+
+const showEnSavoirPlusPopin = () => {
+  Router.push("/?popin=en-savoir-plus");
+};
+
+export default showEnSavoirPlusPopin;

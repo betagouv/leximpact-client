@@ -20,11 +20,11 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
 import LoginButton from "../login-button";
-import { showConnexionPopin } from "../../actions/routing";
+import { showConnexionPopin } from "../../actions";
 
 const MockButtonClickHandler = jest.fn();
 jest.mock("next/router", () => ({ push: jest.fn() }));
-jest.mock("../../actions/routing", () => ({
+jest.mock("../../actions", () => ({
   showConnexionPopin: jest.fn(),
 }));
 

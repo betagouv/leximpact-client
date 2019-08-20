@@ -25,19 +25,9 @@ const { assign, concat, flow } = require("lodash/fp");
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { EnvironmentPlugin } = require("webpack");
 
-const internalStaticNextJSRoutes = {
-  // Routes internes à l'application utilisées par next.config.js
-  // Ces routes ne peuvent pas comporter des parametres
-  "/en-savoir-plus": {
-    page: "/",
-    query: { showPopin: "en-savoir-plus" },
-  },
-};
-
 const nextConfig = {
   exportPathMap: defaults => ({
     ...defaults,
-    ...internalStaticNextJSRoutes,
   }),
   webpack: (webpackConfig) => {
     const isProductionEnvironment = env === "production";

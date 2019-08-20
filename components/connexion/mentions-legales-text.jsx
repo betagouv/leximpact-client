@@ -42,21 +42,18 @@ const styles = () => ({
   },
 });
 
-const MentionsLegales = ({ classes }) => {
-  const linkDestination = "";
-  return (
-    <div className={classes.mentionsLegales}>
-      <span>
+const MentionsLegales = ({ classes }) => (
+  <div className={classes.mentionsLegales}>
+    <span>
         * LexImpact POP s’appuie sur des données couvertes par des secrets
         protégés par la loi, ainsi seules les personnes dûment habilitées
         peuvent y avoir accès. Pour plus d’informations veuillez consulter&nbsp;
-      </span>
-      <Link href="/presentation-et-cgu">
-        <a className={classes.link}>nos conditions générales d’utilisation.</a>
-      </Link>
-    </div>
-  );
-};
+    </span>
+    <Link href="/presentation-et-cgu">
+      <a className={classes.link}>nos conditions générales d’utilisation.</a>
+    </Link>
+  </div>
+);
 
 MentionsLegales.propTypes = {
   classes: PropTypes.shape().isRequired,

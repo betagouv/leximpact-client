@@ -8,11 +8,11 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
 import HeaderMenuButton from "../menu-button";
-import { showEnSavoirPlusPopin } from "../../actions/routing";
+import { showEnSavoirPlusPopin } from "../../actions";
 
 const MockButtonClickHandler = jest.fn();
 jest.mock("next/router", () => ({ push: jest.fn() }));
-jest.mock("../../actions/routing", () => ({
+jest.mock("../../actions", () => ({
   showEnSavoirPlusPopin: jest.fn(),
 }));
 

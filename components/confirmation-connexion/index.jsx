@@ -49,9 +49,9 @@ const styles = {
 
 class ConfirmationConnexion extends PureComponent {
   componentDidMount() {
+    // obtient le token de connexion depuis l'URL
     const { router } = this.props;
-    const pathString = "query.token";
-    const token = get(router, pathString, false);
+    const token = get(router, "query.token", false);
     Cookies.set("token", token);
   }
 
@@ -59,22 +59,20 @@ class ConfirmationConnexion extends PureComponent {
     const { classes } = this.props;
     return (
       <div>
-        <h1 inline className={classes.h1Style}>
+        <h1 className={classes.h1Style}>
           <Icon inline icon={partyPopper} width="40" />
-            &nbsp;Vous êtes bien connectés à LexImpact POP&nbsp;
+          &nbsp;Vous êtes bien connectés à LexImpact POP&nbsp;
         </h1>
         <p className={classes.pStyle}>
-        Vous pouvez désormais
-          <b>
-          &nbsp;simuler les impacts macros&nbsp;
-          </b>
-        d’une réforme
+          Vous pouvez désormais
+          <b>&nbsp;simuler les impacts macros&nbsp;</b>
+          d’une réforme
           <br />
-        sur la population&nbsp;
+          sur la population&nbsp;
           <Icon inline icon={peopleHoldingHands} width="25" />
           &nbsp;et les recettes de l’État&nbsp;
           <Icon inline icon={classicalBuilding} width="25" />
-          .
+          <span>.</span>
         </p>
       </div>
     );
