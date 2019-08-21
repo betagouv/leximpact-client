@@ -1,26 +1,26 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
-import HeaderMenuButton from "./menu-button";
 import LoginButton from "./login-button";
+import HeaderMenuButton from "./menu-button";
 
 const styles = () => ({
-  toolbarRoot: {
-    justifyContent: "space-between",
-  },
-  titleRoot: {
-    color: "#FFFFFF",
-    fontSize: "36px",
-    fontFamily: "Lato",
-    textTransform: "uppercase",
+  bolderTitle: {
+    fontWeight: "bold",
   },
   lighterTitle: {
     fontWeight: "lighter",
   },
-  bolderTitle: {
-    fontWeight: "bold",
+  titleRoot: {
+    color: "#FFFFFF",
+    fontFamily: "Lato",
+    fontSize: "36px",
+    textTransform: "uppercase",
+  },
+  toolbarRoot: {
+    justifyContent: "space-between",
   },
 });
 

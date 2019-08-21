@@ -1,12 +1,12 @@
 export * from "./loading";
-export { default as closeCurrentPopin } from "./close-current-popin";
-export { default as showEnSavoirPlusPopin } from "./show-en-savoir-plus-popin";
-export { default as showConnexionPopin } from "./show-connexion-popin";
+export { default as closeCurrentPopin } from "./popin-close-current";
+export { default as showEnSavoirPlusPopin } from "./popin-show-en-savoir-plus";
+export { default as showConnexionPopin } from "./popin-show-connexion";
 export { default as expandArticlePanel } from "./expand-article-panel";
 export { default as addTranche } from "./articles/add-tranche";
 export { default as removeTranche } from "./articles/remove-tranche";
-export { default as fetchMetadataCasTypes } from "./api/fetch-metdata-cas-types";
-export { default as fetchCalculateCompare } from "./api/fetch-calculate-compare";
+export { default as fetchMetadataCasTypes } from "./api-metdata-cas-types";
+export { default as fetchCalculateCompare } from "./api-calculate-compare";
 export {
   default as updateCasTypeOutreMer,
 } from "./cas-types/update-outremer-cas-types";
@@ -17,3 +17,5 @@ export {
   default as updateReformeByName,
 } from "./articles/update-reforme-by-name";
 export { default as updateConnexionToken } from "./update-connexion-token";
+export { default as showAddImpactCardPopin } from "./popin-add-impact-card";
+export { default as fetchSimPop } from "./api-simpop";

@@ -1,12 +1,12 @@
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 
-import MyComponent from "./my-component"
+import MyComponent from "./my-component";
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MyComponent)
+)(MyComponent);

@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
-import VPNKeyIcon from "@material-ui/icons/VpnKey";
 import { withStyles } from "@material-ui/core/styles";
+import VPNKeyIcon from "@material-ui/icons/VpnKey";
+import PropTypes from "prop-types";
 
 import { showConnexionPopin } from "../actions";
 

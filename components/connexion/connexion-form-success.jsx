@@ -1,33 +1,22 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { flow, get } from "lodash";
-import Cookies from "js-cookie";
-import { withRouter } from "next/router";
-import { withStyles } from "@material-ui/core/styles";
-import { Icon } from "@iconify/react";
 import openMailboxWithRaisedFlag from "@iconify/icons-twemoji/open-mailbox-with-raised-flag";
+import { Icon } from "@iconify/react";
+import { withStyles } from "@material-ui/core/styles";
+import { flow } from "lodash";
+import { withRouter } from "next/router";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 const styles = {
   pStyle: {
+    color: "#000000",
     fontFamily: "Lato",
     fontSize: "18px",
-    color: "#000000",
     marginBottom: "40px",
     marginLeft: "40px",
   },
 };
 
 class ConnexionFormSuccess extends PureComponent {
-  componentDidMount() {
-    // recupere le token depuis l'URL
-    // recu via l'email contenant le magic-link
-    // affecte une variable dans le navigateur user
-    const { router } = this.props;
-    const pathString = "query.token";
-    const token = get(router, pathString, false);
-    Cookies.set("token", token);
-  }
-
   render() {
     const { classes } = this.props;
     return (
@@ -48,7 +37,6 @@ class ConnexionFormSuccess extends PureComponent {
 
 ConnexionFormSuccess.propTypes = {
   classes: PropTypes.shape().isRequired,
-  router: PropTypes.shape().isRequired,
 };
 
 export default flow(

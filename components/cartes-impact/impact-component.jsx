@@ -1,6 +1,6 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 import SimpleCard from "./simple-card";
 // import CarteEtat from "./carte-etat";
@@ -10,7 +10,7 @@ class ImpactComponent extends PureComponent {
     // const { onSimPopClick } = this.props;
     // onSimPopClick(e);
     // click sim popuplation
-  }
+  };
 
   render() {
     // include should be false to remove the graph of recettes
@@ -52,10 +52,6 @@ class ImpactComponent extends PureComponent {
 }
 
 ImpactComponent.propTypes = {
-  totalPop: PropTypes.shape({
-    deciles: PropTypes.arrayOf(PropTypes.shape()),
-    total: PropTypes.shape(),
-  }).isRequired,
   casTypes: PropTypes.arrayOf(
     PropTypes.shape({
       nombre_declarants: PropTypes.number,
@@ -65,14 +61,18 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
+  changeRevenuHandler: PropTypes.func.isRequired,
+  // onSimPopClick: PropTypes.func.isRequired,
+  handleOutreMerChange: PropTypes.func.isRequired,
   resBrut: PropTypes.shape({
     apres: PropTypes.shape(),
     avant: PropTypes.shape(),
     wprm: PropTypes.shape(),
   }).isRequired,
-  // onSimPopClick: PropTypes.func.isRequired,
-  handleOutreMerChange: PropTypes.func.isRequired,
-  changeRevenuHandler: PropTypes.func.isRequired,
+  totalPop: PropTypes.shape({
+    deciles: PropTypes.arrayOf(PropTypes.shape()),
+    total: PropTypes.shape(),
+  }).isRequired,
 };
 
 export default ImpactComponent;

@@ -4,9 +4,10 @@ exports[`components | connexion | submit-button snapshot correspond a l'etat dis
 <SubmitButton
   classes={
     Object {
-      "circularProgress": "SubmitButton-circularProgress-3",
-      "container": "SubmitButton-container-1",
-      "fab": "SubmitButton-fab-2",
+      "circularProgress": "SubmitButton-circularProgress-1",
+      "container": "SubmitButton-container-2",
+      "fab": "SubmitButton-fab-3",
+      "fabDisabled": "SubmitButton-fabDisabled-4",
     }
   }
   disabled={true}
@@ -18,9 +19,10 @@ exports[`components | connexion | submit-button snapshot correspond a l'etat loa
 <SubmitButton
   classes={
     Object {
-      "circularProgress": "SubmitButton-circularProgress-3",
-      "container": "SubmitButton-container-1",
-      "fab": "SubmitButton-fab-2",
+      "circularProgress": "SubmitButton-circularProgress-1",
+      "container": "SubmitButton-container-2",
+      "fab": "SubmitButton-fab-3",
+      "fabDisabled": "SubmitButton-fabDisabled-4",
     }
   }
   disabled={false}
@@ -32,9 +34,10 @@ exports[`components | connexion | submit-button snapshot correspond a l'etat nor
 <SubmitButton
   classes={
     Object {
-      "circularProgress": "SubmitButton-circularProgress-3",
-      "container": "SubmitButton-container-1",
-      "fab": "SubmitButton-fab-2",
+      "circularProgress": "SubmitButton-circularProgress-1",
+      "container": "SubmitButton-container-2",
+      "fab": "SubmitButton-fab-3",
+      "fabDisabled": "SubmitButton-fabDisabled-4",
     }
   }
   disabled={false}

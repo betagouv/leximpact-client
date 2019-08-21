@@ -1,18 +1,18 @@
 import fetch from "isomorphic-fetch";
 
-import { loadingStart, loadingComplete } from "../loading";
+import { loadingComplete, loadingStart } from "./loading";
 
 const fetchMetadataCasTypes = body => (dispatch, getState, { apiEndpoint }) => {
   dispatch(loadingStart());
   const promise = fetch(`${apiEndpoint}/metadata/description_cas_types`, {
     body,
-    method: "POST",
     headers: { "Content-Type": "application/json" },
+    method: "POST",
   })
     .then(response => response.json())
     .then((payload) => {
       dispatch(loadingComplete());
-      dispatch({ type: "onCasTypesLoaded", payload });
+      dispatch({ payload, type: "onCasTypesLoaded" });
     })
     .catch(() => {
       // eslint-disable-next-line no-console

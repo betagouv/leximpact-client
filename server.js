@@ -1,9 +1,8 @@
-import path from "path";
-
-import next from "next";
-import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import express from "express";
+import next from "next";
+import path from "path";
 
 const dev = process.env.NODE_ENV !== "production";
 const port = parseInt(process.env.PORT, 10) || 9001;
@@ -30,7 +29,7 @@ async function start() {
   server.get("/connection/:token", (req, res) => {
     const { token } = req.params;
     const popin = "confirmation-connexion";
-    const query = { token, popin };
+    const query = { popin, token };
     return app.render(req, res, "/", query);
   });
   server.get("*", handle);

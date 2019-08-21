@@ -1,6 +1,6 @@
 import Router from "next/router";
 
-import showConnexionPopin from "../show-connexion-popin";
+import showConnexionPopin from "../popin-show-connexion";
 
 jest.mock("next/router", () => ({ push: jest.fn() }));
 
@@ -11,7 +11,9 @@ describe("components | actions | showConnexionPopin", () => {
     });
 
     it("doit avoir appeler la methode push du Router a l'ouverture de la popin 'connection'", () => {
-      showConnexionPopin();
+      const expected = { type: null };
+      const result = showConnexionPopin();
+      expect(result).toStrictEqual(expected);
       expect(Router.push).toHaveBeenCalledTimes(1);
       expect(Router.push).toHaveBeenCalledWith("/?popin=connection");
     });

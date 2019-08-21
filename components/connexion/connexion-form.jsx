@@ -1,14 +1,14 @@
+import { withStyles } from "@material-ui/core/styles";
+import createDecorator from "final-form-calculate";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
-import createDecorator from "final-form-calculate";
-import { withStyles } from "@material-ui/core/styles";
-import { Form as FinalForm, Field } from "react-final-form";
+import { Field, Form as FinalForm } from "react-final-form";
 
-import SubmitButton from "./submit-button";
-import EmailInput from "./email-input";
-import RolesInput from "./roles-input";
-import ErrorSnackbar from "./error-snackbar";
 import { roles } from "./config.json";
+import EmailInput from "./email-input";
+import ErrorSnackbar from "./error-snackbar";
+import RolesInput from "./roles-input";
+import SubmitButton from "./submit-button";
 import { getDefaultRoleFromConfig, updateDomainsWhenRoleChange } from "./utils";
 
 const DEFAULT_ROLES = { ...roles };
@@ -25,8 +25,8 @@ const FORM_DECORATORS = createDecorator({
 
 const styles = theme => ({
   form: {
-    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing.unit,
+    width: "100%", // Fix IE 11 issue.
   },
 });
 
@@ -38,9 +38,8 @@ class ConnexionForm extends PureComponent {
     return (
       <Fragment>
         <FinalForm
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
           decorators={[FORM_DECORATORS]}
+          initialValues={initialValues}
           render={({
             handleSubmit,
             invalid,
@@ -53,16 +52,17 @@ class ConnexionForm extends PureComponent {
             return (
               <form className={classes.form} onSubmit={handleSubmit}>
                 <RolesInput
-                  roles={DEFAULT_ROLES}
                   defaultValue={initialValues.role}
+                  roles={DEFAULT_ROLES}
                 />
                 <EmailInput domains={domains} />
                 <SubmitButton disabled={canSubmitForm} isLoading={isLoading} />
-                <Field component="input" type="hidden" name="domains" />
+                <Field component="input" name="domains" type="hidden" />
                 <ErrorSnackbar message={submitError} />
               </form>
             );
           }}
+          onSubmit={handleFormSubmit}
         />
       </Fragment>
     );
@@ -73,8 +73,8 @@ ConnexionForm.defaultProps = {
   initialValues: {
     // valeurs par défaut du form
     domains: DEFAULT_ROLE_OBJECT.domains,
-    username: null,
     role: DEFAULT_ROLE_OBJECT.key,
+    username: null,
   },
 };
 

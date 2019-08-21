@@ -1,25 +1,27 @@
-import React from "react";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import App, { Container } from "next/app";
+import { get } from "lodash";
 import withRedux from "next-redux-wrapper";
+import App, { Container } from "next/app";
+import React from "react";
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import reduxCookiesMiddleware, {
+  getStateFromCookies,
+} from "redux-cookies-middleware";
 import thunk from "redux-thunk";
-import Cookies from "js-cookie";
 
 import reducers from "../reducers";
 
+// state to persist in cookies
+const TOKEN_NAME = "pop_auth_token";
+const paths = { token: { name: TOKEN_NAME } };
+
 const apiEndpoint = process.env.API_URL;
 const thunkMiddleWare = thunk.withExtraArgument({ apiEndpoint });
-
-const fillStateWithDefaultToken = (initialState) => {
-  const token = Cookies.get("token") || false;
-  const nextState = { ...(initialState || {}), token };
-  return nextState;
-};
+const cookiesMiddleware = reduxCookiesMiddleware(paths);
 
 const makeStore = (initialState) => {
-  const middlewares = [thunkMiddleWare];
-  const nextState = fillStateWithDefaultToken(initialState);
+  const nextState = getStateFromCookies(initialState, paths);
+  const middlewares = [thunkMiddleWare, cookiesMiddleware];
   const store = createStore(
     reducers,
     nextState,
@@ -30,10 +32,15 @@ const makeStore = (initialState) => {
 
 class LexImpactApplicationWrapper extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+    const token = get(ctx, `req.cookies.${TOKEN_NAME}`, false);
+    if (token) {
+      const actionType = "onUpdateConnexionToken";
+      ctx.store.dispatch({ type: actionType, value: token });
     }
+
+    const pageProps = Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {};
     return { pageProps };
   }
 

@@ -1,25 +1,25 @@
-import { get } from "lodash";
 import fetch from "isomorphic-fetch";
+import { get } from "lodash";
 
-import { loadingStart, loadingComplete } from "../loading";
+import { loadingComplete, loadingStart } from "./loading";
 
 const fetchCalculateCompare = () => (dispatch, getState, { apiEndpoint }) => {
   dispatch(loadingStart());
   const { casTypes, reforme } = getState();
   const body = JSON.stringify({
-    reforme,
     description_cas_types: casTypes,
+    reforme,
   });
   const promise = fetch(`${apiEndpoint}/calculate/compare`, {
     body,
-    method: "POST",
     headers: { "Content-Type": "application/json" },
+    method: "POST",
   })
     .then(response => response.json())
     .then((payload) => {
       const data = get(payload, "res_brut");
       dispatch(loadingComplete());
-      dispatch({ type: "onCalculateCompareLoaded", data });
+      dispatch({ data, type: "onCalculateCompareLoaded" });
     })
     .catch(() => {
       dispatch(loadingComplete());

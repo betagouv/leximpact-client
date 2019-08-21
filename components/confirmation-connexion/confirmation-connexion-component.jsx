@@ -1,27 +1,27 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { flow, get } from "lodash";
-import { withRouter } from "next/router";
-import { withStyles } from "@material-ui/core/styles";
-import { Icon } from "@iconify/react";
+import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import partyPopper from "@iconify/icons-twemoji/party-popper";
 import peopleHoldingHands from "@iconify/icons-twemoji/people-holding-hands";
-import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+import { Icon } from "@iconify/react";
+import { withStyles } from "@material-ui/core/styles";
+import { flow, get } from "lodash";
+import { withRouter } from "next/router";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 /* * import parachuteIcon from "@iconify/icons-twemoji/parachute"; * */
 
 const styles = {
   h1Style: {
+    color: "#000000",
     fontFamily: "Lato",
     fontSize: "24px",
     fontWeight: "bold",
-    color: "#000000",
     marginBottom: "20px",
     textAlign: "center",
   },
   pStyle: {
+    color: "#000000",
     fontFamily: "Lato",
     fontSize: "18px",
-    color: "#000000",
     marginBottom: "40px",
     marginLeft: "40px",
   },
@@ -61,8 +61,8 @@ class ConfirmationConnexionComponent extends PureComponent {
 
 ConfirmationConnexionComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
-  router: PropTypes.shape().isRequired,
   handleUpdateConnexionToken: PropTypes.func.isRequired,
+  router: PropTypes.shape().isRequired,
 };
 
 export default flow(

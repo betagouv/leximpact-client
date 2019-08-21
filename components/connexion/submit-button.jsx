@@ -1,25 +1,28 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import { CircularProgress, Fab } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 const styles = () => ({
+  circularProgress: {
+    marginTop: "41px",
+  },
   container: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
   },
   fab: {
-    width: "370px",
     color: "#FFFFFF",
     fontSize: "16px",
-    minWidth: "370px",
-    maxWidth: "370px",
-    marginTop: "41px",
     letterSpacing: "0.15px",
-  },
-  circularProgress: {
     marginTop: "41px",
+    maxWidth: "370px",
+    minWidth: "370px",
+    width: "370px",
+  },
+  fabDisabled: {
+    backgroundColor: "rgba(225, 225, 225, 1) !important",
   },
 });
 
@@ -30,7 +33,7 @@ class SubmitButton extends PureComponent {
       <div className={classes.container}>
         {!isLoading && (
           <Fab
-            classes={{ root: classes.fab }}
+            classes={{ disabled: classes.fabDisabled, root: classes.fab }}
             color="secondary"
             disabled={disabled}
             type="submit"
@@ -51,8 +54,8 @@ class SubmitButton extends PureComponent {
 
 SubmitButton.propTypes = {
   classes: PropTypes.shape().isRequired,
-  isLoading: PropTypes.bool.isRequired,
   disabled: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(SubmitButton);

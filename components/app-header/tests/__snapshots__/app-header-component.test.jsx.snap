@@ -7,7 +7,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "HeaderContainer-toolbarRoot-1",
+        "root": "HeaderContainer-toolbarRoot-4",
       }
     }
   >
@@ -15,19 +15,19 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "HeaderContainer-titleRoot-2",
+          "root": "HeaderContainer-titleRoot-3",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="HeaderContainer-lighterTitle-3"
+          className="HeaderContainer-lighterTitle-2"
         >
           LEXIMPACT 
         </span>
         <span
-          className="HeaderContainer-bolderTitle-4"
+          className="HeaderContainer-bolderTitle-1"
         >
           POP
         </span>
@@ -45,7 +45,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "HeaderContainer-toolbarRoot-1",
+        "root": "HeaderContainer-toolbarRoot-4",
       }
     }
   >
@@ -53,19 +53,19 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "HeaderContainer-titleRoot-2",
+          "root": "HeaderContainer-titleRoot-3",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="HeaderContainer-bolderTitle-4"
+          className="HeaderContainer-bolderTitle-1"
         >
           OPEN 
         </span>
         <span
-          className="HeaderContainer-lighterTitle-3"
+          className="HeaderContainer-lighterTitle-2"
         >
           LEXIMPACT
         </span>

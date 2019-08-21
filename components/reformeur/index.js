@@ -1,10 +1,12 @@
 import { connect } from "react-redux";
 
 import { fetchMetadataCasTypes } from "../actions";
-
 import ReformeurComponent from "./reformeur-component";
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => {
+  const isUserConnected = Boolean(state.token || false);
+  return { isUserConnected };
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchMetadataCasTypesHandler: () => {

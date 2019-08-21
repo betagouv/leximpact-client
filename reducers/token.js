@@ -1,11 +1,8 @@
-import Cookies from "js-cookie";
+const DEFAULT_STATE = false;
 
-// le default state du token est defini dans ./pages/_app.jsx
-// lorsque le token existe deja dans le browser user
-const token = (state = false, action) => {
+const token = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
   case "onUpdateConnexionToken":
-    Cookies.set("token", action.value);
     return action.value;
   default:
     return state;

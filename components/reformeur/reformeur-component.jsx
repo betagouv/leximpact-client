@@ -1,11 +1,12 @@
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { Fragment, PureComponent } from "react";
 import { AppBar, Tab, Tabs } from "@material-ui/core";
+import PropTypes from "prop-types";
+import { Fragment, PureComponent } from "react";
 import MediaQuery from "react-responsive";
+import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
 import ImpactCards from "../cartes-impact";
+import PopSimulationBar from "../pop-simulation-bar";
 
 class ReformeurComponent extends PureComponent {
   constructor(props) {
@@ -20,29 +21,34 @@ class ReformeurComponent extends PureComponent {
 
   handleOnChangeIndex = (event, indextab) => {
     this.setState({ indextab });
-  }
+  };
 
-  renderDesktopView = () => (
-    <div className="clearfix">
-      <div className="moitie-gauche">
-        <Articles />
+  renderDesktopView = () => {
+    const { isUserConnected } = this.props;
+    return (
+      <div className="clearfix">
+        <div className="moitie-gauche">
+          <Articles />
+        </div>
+        <div className="moitie-droite">
+          {isUserConnected && <PopSimulationBar />}
+          <ImpactCards />
+        </div>
       </div>
-      <div className="moitie-droite">
-        <ImpactCards />
-      </div>
-    </div>
-  )
+    );
+  };
 
   renderMobileView = () => {
     const { indextab } = this.state;
+    const { isUserConnected } = this.props;
     return (
       <Fragment>
-        <AppBar position="static" color="default">
+        <AppBar color="default" position="static">
           <Tabs
-            value={indextab}
-            textColor="primary"
-            variant="fullWidth"
             indicatorColor="primary"
+            textColor="primary"
+            value={indextab}
+            variant="fullWidth"
             onChange={this.handleOnChangeIndex}>
             <Tab label="Loi" />
             <Tab label="Impacts" />
@@ -56,12 +62,13 @@ class ReformeurComponent extends PureComponent {
             <Articles />
           </div>
           <div style={{ padding: 24 }}>
+            {isUserConnected && <PopSimulationBar />}
             <ImpactCards />
           </div>
         </SwipeableViews>
       </Fragment>
     );
-  }
+  };
 
   render() {
     const maxMobileViewWidth = 960;
@@ -82,6 +89,7 @@ class ReformeurComponent extends PureComponent {
 
 ReformeurComponent.propTypes = {
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
+  isUserConnected: PropTypes.bool.isRequired,
 };
 
 export default ReformeurComponent;

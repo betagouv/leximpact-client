@@ -1,6 +1,6 @@
 import Router from "next/router";
 
-import showEnSavoirPlusPopin from "../show-en-savoir-plus-popin";
+import showEnSavoirPlusPopin from "../popin-show-en-savoir-plus";
 
 jest.mock("next/router", () => ({ push: jest.fn() }));
 
@@ -11,7 +11,9 @@ describe("components | actions | showEnSavoirPlusPopin", () => {
     });
 
     it("doit avoir appeler la methode push du Router a l'ouverture de la popin 'en savoir plus'", () => {
-      showEnSavoirPlusPopin();
+      const expected = { type: null };
+      const result = showEnSavoirPlusPopin();
+      expect(result).toStrictEqual(expected);
       expect(Router.push).toHaveBeenCalledTimes(1);
       expect(Router.push).toHaveBeenCalledWith("/?popin=en-savoir-plus");
     });

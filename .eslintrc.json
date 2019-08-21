@@ -12,7 +12,14 @@
     "es6": true,
     "node": true
   },
-  "plugins": ["import", "jest", "jsx-a11y", "react"],
+  "plugins": [
+    "import",
+    "jest",
+    "jsx-a11y",
+    "react",
+    "simple-import-sort",
+    "sort-destructure-keys"
+  ],
   "extends": ["airbnb", "plugin:jest/recommended"],
   "settings": {
     "react": {
@@ -20,6 +27,7 @@
     }
   },
   "rules": {
+    "sort-keys": [2, "asc"],
     "array-bracket-newline": ["error", { "multiline": true }],
     "array-element-newline": ["error", "consistent"],
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
@@ -50,12 +58,19 @@
         "specialLink": ["hrefLeft", "hrefRight"]
       }
     ],
-    "import/order": [
+    "react/jsx-sort-props": [
       2,
       {
-        "newlines-between": "always",
-        "groups": ["builtin", "external", "parent", "sibling", "index"]
+        "noSortAlphabetically": false,
+        "ignoreCase": true,
+        "reservedFirst": true,
+        "callbacksLast": true,
+        "shorthandFirst": true
       }
-    ]
+    ],
+    "import/order": "off",
+    "sort-imports": "off",
+    "simple-import-sort/sort": "error",
+    "sort-destructure-keys/sort-destructure-keys": 2
   }
 }
