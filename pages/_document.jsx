@@ -32,7 +32,6 @@ class MyDocument extends Document {
         <Component pageContext={pageContext} {...props} />
       </JssProvider>
     ));
-
     return {
       ...page,
       pageContext,

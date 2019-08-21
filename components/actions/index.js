@@ -3,6 +3,8 @@ export { default as closeCurrentPopin } from "./close-current-popin";
 export { default as showEnSavoirPlusPopin } from "./show-en-savoir-plus-popin";
 export { default as showConnexionPopin } from "./show-connexion-popin";
 export { default as expandArticlePanel } from "./expand-article-panel";
+export { default as addTranche } from "./articles/add-tranche";
+export { default as removeTranche } from "./articles/remove-tranche";
 export { default as fetchMetadataCasTypes } from "./api/fetch-metdata-cas-types";
 export { default as fetchCalculateCompare } from "./api/fetch-calculate-compare";
 export {
@@ -11,8 +13,7 @@ export {
 export {
   default as updateRevenusAnnuelCasType,
 } from "./cas-types/update-revenus-cas-type";
-export { default as addTranche } from "./articles/add-tranche";
-export { default as removeTranche } from "./articles/remove-tranche";
 export {
   default as updateReformeByName,
 } from "./articles/update-reforme-by-name";
+export { default as updateConnexionToken } from "./update-connexion-token";

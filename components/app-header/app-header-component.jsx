@@ -26,20 +26,20 @@ const styles = () => ({
 
 class HeaderContainer extends PureComponent {
   render() {
-    const { classes, isUserLogged } = this.props;
+    const { classes, isUserConnected } = this.props;
     const showLoginButton = process.env.NODE_ENV === "development";
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
           <HeaderMenuButton />
           <Typography classes={{ root: classes.titleRoot }} component="div">
-            {!isUserLogged && (
+            {!isUserConnected && (
               <span>
                 <span className={classes.bolderTitle}>OPEN&nbsp;</span>
                 <span className={classes.lighterTitle}>LEXIMPACT</span>
               </span>
             )}
-            {isUserLogged && (
+            {isUserConnected && (
               <span>
                 <span className={classes.lighterTitle}>LEXIMPACT&nbsp;</span>
                 <span className={classes.bolderTitle}>POP</span>
@@ -53,13 +53,9 @@ class HeaderContainer extends PureComponent {
   }
 }
 
-HeaderContainer.defaultProps = {
-  isUserLogged: false,
-};
-
 HeaderContainer.propTypes = {
   classes: PropTypes.shape().isRequired,
-  isUserLogged: PropTypes.bool,
+  isUserConnected: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(HeaderContainer);

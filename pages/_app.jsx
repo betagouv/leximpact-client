@@ -4,18 +4,36 @@ import { Provider } from "react-redux";
 import App, { Container } from "next/app";
 import withRedux from "next-redux-wrapper";
 import thunk from "redux-thunk";
+import Cookies from "js-cookie";
 
 import reducers from "../reducers";
 
 const apiEndpoint = process.env.API_URL;
 const thunkMiddleWare = thunk.withExtraArgument({ apiEndpoint });
-const makeStore = initialState => createStore(reducers, initialState, applyMiddleware(thunkMiddleWare));
+
+const fillStateWithDefaultToken = (initialState) => {
+  const token = Cookies.get("token") || false;
+  const nextState = { ...(initialState || {}), token };
+  return nextState;
+};
+
+const makeStore = (initialState) => {
+  const middlewares = [thunkMiddleWare];
+  const nextState = fillStateWithDefaultToken(initialState);
+  const store = createStore(
+    reducers,
+    nextState,
+    applyMiddleware(...middlewares),
+  );
+  return store;
+};
 
 class LexImpactApplicationWrapper extends App {
   static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
     return { pageProps };
   }
 

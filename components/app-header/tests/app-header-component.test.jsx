@@ -1,6 +1,6 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
-import HeaderContainer from "../index";
+import AppHeaderComponent from "../app-header-component";
 
 const CURRENT_NODE_ENV = process.env;
 
@@ -21,15 +21,15 @@ describe("components | app-header | index", () => {
 
   describe("snapshot", () => {
     it("doit correspondre quand l'user n'est pas connecté", () => {
-      const props = { isUserLogged: false };
-      const wrapper = shallow(<HeaderContainer {...props} />);
+      const props = { isUserConnected: false };
+      const wrapper = shallow(<AppHeaderComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
 
     it("doit correspondre quand l'user est connecté", () => {
-      const props = { isUserLogged: true };
-      const wrapper = shallow(<HeaderContainer {...props} />);
+      const props = { isUserConnected: true };
+      const wrapper = shallow(<AppHeaderComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
