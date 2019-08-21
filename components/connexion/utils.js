@@ -1,7 +1,3 @@
-/* eslint
-    indent: [2, 2],
-    semi: [2, "always"],
-*/
 import get from "lodash/get";
 import isemail from "isemail";
 

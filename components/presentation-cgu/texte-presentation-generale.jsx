@@ -1,9 +1,3 @@
-/* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2]
-*/
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
@@ -83,8 +77,7 @@ function TextePresentationGenerale({ classes }) {
         <a
           href="https://fr.openfisca.org/"
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           OpenFisca
         </a>
         , logiciel libre créé en 2012 et maintenu par la
@@ -92,8 +85,7 @@ function TextePresentationGenerale({ classes }) {
         <a
           href="https://www.numerique.gouv.fr/dinsic/"
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           DINSIC
         </a>
         , qui transforme le&nbsp;code législatif en code informatique.
@@ -103,8 +95,7 @@ function TextePresentationGenerale({ classes }) {
         <a
           href="https://github.com/betagouv/leximpact-client"
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           Le code de LexImpact est libre
         </a>
         , sous licence AGPL-3.0, et peut donc être vérifié et amélioré par

@@ -1,9 +1,3 @@
-/* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2]
-*/
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
@@ -36,8 +30,7 @@ function TexteCguLeximpactPop({ classes }) {
         <a
           href="https://www.insee.fr/fr/metadonnees/source/serie/s1231/documentation-methodologique"
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           base ERFS FPR
         </a>
         , dont le service producteur est l’
@@ -79,8 +72,7 @@ function TexteCguLeximpactPop({ classes }) {
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000006417945&cidTexte=LEGITEXT000006070719&categorieLien=id&dateTexte="
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           Article 226-13 du Code pénal
         </a>
         .
@@ -105,8 +97,7 @@ function TexteCguLeximpactPop({ classes }) {
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000031367350&cidTexte=LEGITEXT000031366350&categorieLien=id&dateTexte="
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           Article L. 112-9 du Code des relations entre le public et
           l&apos;administration
         </a>

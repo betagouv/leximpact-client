@@ -1,21 +1,3 @@
-/* eslint
-    indent: [2, 2],
-    semi: [2, "always"],
-    react/jsx-indent: [2, 2],
-    react/jsx-indent-props: [2, 2],
-    react/jsx-closing-bracket-location: [2, {
-        "nonEmpty": false,
-        "selfClosing": false
-    }],
-    "jsx-a11y/anchor-is-valid": [2, {
-      "components": ["Link"],
-      "specialLink": ["hrefLeft", "hrefRight"]
-    }],
-    import/order: [2, {
-      newlines-between: "always",
-      groups: ["builtin", "external", "parent", "sibling", "index"]
-    }]
-*/
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { withStyles } from "@material-ui/core/styles";
@@ -45,9 +27,9 @@ const styles = () => ({
 const MentionsLegales = ({ classes }) => (
   <div className={classes.mentionsLegales}>
     <span>
-        * LexImpact POP s’appuie sur des données couvertes par des secrets
-        protégés par la loi, ainsi seules les personnes dûment habilitées
-        peuvent y avoir accès. Pour plus d’informations veuillez consulter&nbsp;
+      * LexImpact POP s’appuie sur des données couvertes par des secrets
+      protégés par la loi, ainsi seules les personnes dûment habilitées peuvent
+      y avoir accès. Pour plus d’informations veuillez consulter&nbsp;
     </span>
     <Link href="/presentation-et-cgu">
       <a className={classes.link}>nos conditions générales d’utilisation.</a>
