@@ -56,7 +56,7 @@ class HeaderContainer extends PureComponent {
               </span>
             )}
           </Typography>
-          {showLoginButton && <LoginButton />}
+          {(showLoginButton && <LoginButton />) || <div />}
         </Toolbar>
       </AppBar>
     );
