@@ -1,7 +1,3 @@
-/* eslint
-    indent: [2, 2],
-    semi: [2, "always"],
-*/
 const API_ENDPOINT = process.env.API_URL;
 const DEFAULT_HEADERS = { "Content-Type": "application/json" };
 const DEFAULT_API_ERROR_MESSAGE = "Une erreur est survenue";

@@ -1,7 +1,7 @@
 export const loadingComplete = () => ({
-    type: "onLoadingComplete",
-})
+  type: "onLoadingComplete",
+});
 
 export const loadingStart = () => ({
-    type: "onLoadingStart",
-})
+  type: "onLoadingStart",
+});

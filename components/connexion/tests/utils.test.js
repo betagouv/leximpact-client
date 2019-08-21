@@ -1,15 +1,9 @@
-/* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  max-nested-callbacks: [2, { "max": 4 }]
-*/
 import {
   parseFormValuesUserEmail,
   shouldShowFieldError,
   updateDomainsWhenRoleChange,
   validateEmailInputField,
 } from "../utils";
-
 import { roles as AVAILABLE_ROLES } from "../config.json";
 
 describe("components | connexion | utils", () => {

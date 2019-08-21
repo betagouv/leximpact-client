@@ -1,21 +1,3 @@
-/* eslint
-    indent: [2, 2],
-    semi: [2, "always"],
-    react/jsx-indent: [2, 2],
-    react/jsx-indent-props: [2, 2],
-    react/jsx-closing-bracket-location: [2, {
-        "nonEmpty": false,
-        "selfClosing": false
-    }],
-    "jsx-a11y/anchor-is-valid": [2, {
-      "components": ["Link"],
-      "specialLink": ["hrefLeft", "hrefRight"]
-    }],
-    import/order: [2, {
-      newlines-between: "always",
-      groups: ["builtin", "external", "parent", "sibling", "index"]
-    }]
-*/
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 import createDecorator from "final-form-calculate";
@@ -27,10 +9,7 @@ import EmailInput from "./email-input";
 import RolesInput from "./roles-input";
 import ErrorSnackbar from "./error-snackbar";
 import { roles } from "./config.json";
-import {
-  getDefaultRoleFromConfig,
-  updateDomainsWhenRoleChange,
-} from "./utils";
+import { getDefaultRoleFromConfig, updateDomainsWhenRoleChange } from "./utils";
 
 const DEFAULT_ROLES = { ...roles };
 const DEFAULT_ROLE_OBJECT = getDefaultRoleFromConfig();

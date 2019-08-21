@@ -1,9 +1,3 @@
-/* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2]
-*/
 import PropTypes from "prop-types";
 import { Paper, Button } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
@@ -85,8 +79,7 @@ function TextePresentationOpenLeximpact({ classes }) {
           variant="contained"
           color="secondary"
           size="large"
-          fullWidth="true"
-        >
+          fullWidth="true">
           CGU OPEN LexImpact
         </Button>
       </Link>

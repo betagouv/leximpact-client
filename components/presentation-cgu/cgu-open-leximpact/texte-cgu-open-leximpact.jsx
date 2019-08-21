@@ -1,9 +1,3 @@
-/* eslint
-  indent: [2, 2],
-  semi: [2, "always"],
-  react/jsx-indent: [2, 2,{indentLogicalExpressions: false}],
-  react/jsx-indent-props: [2, 2]
-*/
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -39,8 +33,7 @@ function TexteCguOpenLeximpact({ classes }) {
         <a
           href="https://leximpact.beta.gouv.fr/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           leximpact.beta.gouv.fr
         </a>
         . Son utilisation est gratuite et&nbsp;facultative.
@@ -144,8 +137,7 @@ function TexteCguOpenLeximpact({ classes }) {
         <a
           href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/index.htm"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           le service de la DGFIP
         </a>
         {" "}
