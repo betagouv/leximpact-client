@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 
 import { showConnexionPopin } from "../actions";
 
-
 const styles = () => ({
   avatarIcon: {
     marginRight: "9px",
@@ -26,9 +25,9 @@ function LoginButton({ classes }) {
     <Button
       className={classes.button}
       color="primary"
+      size="medium"
       variant="contained"
-      onClick={showConnexionPopin}
-      size="medium">
+      onClick={showConnexionPopin}>
       <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
       <span>leximpact&nbsp;</span>
       <b>pop</b>

@@ -42,12 +42,8 @@ class AppHeaderComponent extends PureComponent {
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
-          {useMobileView && (
-            <HeaderMenuButtonMobile />
-          )}
-          {!useMobileView && (
-            <HeaderMenuButton />
-          )}
+          {useMobileView && <HeaderMenuButtonMobile />}
+          {!useMobileView && <HeaderMenuButton />}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
               {!isUserConnected && (
@@ -74,18 +70,16 @@ class AppHeaderComponent extends PureComponent {
               )}
               {isUserConnected && (
                 <span>
-                  <span className={classes.lighterMobileTitle}>LEXIMPACT&nbsp;</span>
+                  <span className={classes.lighterMobileTitle}>
+                    LEXIMPACT&nbsp;
+                  </span>
                   <span className={classes.bolderMobileTitle}>POP</span>
                 </span>
               )}
             </Typography>
           )}
-          {!useMobileView && (
-            <LoginButton />
-          )}
-          {useMobileView && (
-            <LoginButtonMobile />
-          )}
+          {!useMobileView && <LoginButton />}
+          {useMobileView && <LoginButtonMobile />}
         </Toolbar>
       </AppBar>
     );
