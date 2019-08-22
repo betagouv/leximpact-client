@@ -1,7 +1,7 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 import InputField from "../../articles-inputs/fields/input-field";
 import OutputField from "../../articles-inputs/fields/output-field";
@@ -16,68 +16,68 @@ const styleExpansionpanel = {
 class Alinea4a extends PureComponent {
   render() {
     const {
-      onInputChange,
-      formulaOutputInput,
-      baseOutputInput,
-      isPanelExpanded,
-      expandArticlePanelHandler,
-      style,
-      decoteSeuilCelib,
-      decoteSeuilCouple,
       baseDecoteSeuilCelib,
       baseDecoteSeuilCouple,
+      baseOutputInput,
+      decoteSeuilCelib,
+      decoteSeuilCouple,
+      expandArticlePanelHandler,
+      formulaOutputInput,
+      isPanelExpanded,
+      onInputChange,
+      style,
     } = this.props;
     return (
       <LexExpansionPanel
-        style={style.Typography}
         square
         expanded={isPanelExpanded}
+        style={style.Typography}
         onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
-          style={styleExpansionpanel}
-          expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="body2" color="inherit">
+          expandIcon={<ExpandMoreIcon />}
+          style={styleExpansionpanel}>
+          <Typography color="inherit" variant="body2">
             4. a. Le montant de l&apos;impôt résultant de l&apos;application des
             dispositions précédentes est diminué, dans...
           </Typography>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
-          <Typography variant="body2" color="inherit">
+          <Typography color="inherit" variant="body2">
             ...la limite de son montant, de la différence entre
             {" "}
             <OutputField
-              value={baseDecoteSeuilCelib}
               style={style.VarCodeexistant}
+              value={baseDecoteSeuilCelib}
             />
             <InputField
-              value={decoteSeuilCelib}
-              onChange={onInputChange}
               name="decote.seuil_celib"
               style={style.InputSeuil}
+              value={decoteSeuilCelib}
+              onChange={onInputChange}
             />
             € et les
             {" "}
-            <OutputField value="trois quarts" style={style.VarCodeexistant} />
+            <OutputField style={style.VarCodeexistant} value="trois quarts" />
             {" "}
 [
             {baseOutputInput("decote.taux")}
             %] de son montant pour les contribuables célibataires, divorcés ou
             veufs et de la différence entre
             <OutputField
-              value={baseDecoteSeuilCouple}
               style={style.VarCodeexistant}
+              value={baseDecoteSeuilCouple}
             />
             <InputField
-              value={decoteSeuilCouple}
-              onChange={onInputChange}
               name="decote.seuil_couple"
               style={style.InputSeuil}
+              value={decoteSeuilCouple}
+              onChange={onInputChange}
             />
             {" "}
             € et les
             {" "}
-            <OutputField value="trois quarts" style={style.VarCodeexistant} />
+            <OutputField style={style.VarCodeexistant} value="trois quarts" />
             {" "}
 [
             {formulaOutputInput("decote.taux")}

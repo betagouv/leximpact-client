@@ -5,7 +5,7 @@ class OutputField extends PureComponent {
   render() {
     const { style, value } = this.props;
     return (
-      <span inline="true" style={style} className="output-field">
+      <span className="output-field" inline="true" style={style}>
         {value}
       </span>
     );

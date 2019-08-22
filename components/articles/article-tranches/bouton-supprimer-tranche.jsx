@@ -1,17 +1,17 @@
-import PropTypes from "prop-types";
 import { Fab, Typography } from "@material-ui/core";
 import { Delete as DeleteIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
 
 const RemoveTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab style={style.Button} size="small" onClick={onClick} color="primary">
+    <Fab color="primary" size="small" style={style.Button} onClick={onClick}>
       <DeleteIcon />
     </Fab>
     <Typography
       inline
-      variant="overline"
       color="primary"
-      style={style.Typographybouton}>
+      style={style.Typographybouton}
+      variant="overline">
       Supprimer une tranche
     </Typography>
   </div>

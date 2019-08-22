@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 const styles = {
   root: {
@@ -32,13 +32,13 @@ function ArticleHeader(props) {
         position="relative"
         style={{ background: "#FFFFFF", boxShadow: "none" }}>
         <Toolbar>
-          <Typography className={classes.typo1} variant="h4" color="inherit">
+          <Typography className={classes.typo1} color="inherit" variant="h4">
             Tranches / décote
           </Typography>
           <Typography
             className={classes.titleArticleCGI}
-            variant="body2"
-            color="inherit">
+            color="inherit"
+            variant="body2">
             - Article 197 du CGI
           </Typography>
         </Toolbar>

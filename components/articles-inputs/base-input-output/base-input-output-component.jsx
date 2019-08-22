@@ -16,9 +16,9 @@ const BaseInputOutputComponent = ({
     <OutputField style={outputFieldStyle} value={baseValue} />
     <InputField
       name={name}
-      onChange={handleInputChange}
       style={inputFieldStyle}
       value={newValue}
+      onChange={handleInputChange}
     />
   </Fragment>
 );
@@ -26,10 +26,10 @@ const BaseInputOutputComponent = ({
 BaseInputOutputComponent.propTypes = {
   baseValue: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  newValue: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  outputFieldStyle: PropTypes.shape().isRequired,
   inputFieldStyle: PropTypes.shape().isRequired,
+  name: PropTypes.string.isRequired,
+  newValue: PropTypes.string.isRequired,
+  outputFieldStyle: PropTypes.shape().isRequired,
 };
 
 export default BaseInputOutputComponent;

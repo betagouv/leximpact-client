@@ -1,40 +1,40 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
-import Link from "next/link";
 import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 const styles = theme => ({
-  container: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 4,
-    backgroundColor: "#FFFFFF",
-  },
-  spanTitreIntro: {
-    fontFamily: "Lato",
-    fontSize: "36px",
-    fontWeight: "bold",
-    color: "#565656",
-  },
   alink: {
+    color: "#565656",
     fontFamily: "Lora",
     fontSize: "18px",
-    color: "#565656",
   },
-  gridItemText: {
-    maxWidth: "600px",
-    padding: "30px",
+  container: {
+    backgroundColor: "#FFFFFF",
+    flexGrow: 1,
+    padding: theme.spacing.unit * 4,
+  },
+  divButton: {
+    padding: "10px",
   },
   gridItemButtons: {
     maxWidth: "600px",
     padding: "30px",
   },
-  divButton: {
-    padding: "10px",
+  gridItemText: {
+    maxWidth: "600px",
+    padding: "30px",
   },
   pAdresseMail: {
     textAlign: "center",
+  },
+  spanTitreIntro: {
+    color: "#565656",
+    fontFamily: "Lato",
+    fontSize: "36px",
+    fontWeight: "bold",
   },
 });
 
@@ -45,10 +45,10 @@ class MentionsLegales extends PureComponent {
       <div className={classes.container}>
         <Grid
           container
-          direction="row"
           alignItems="flex-start"
+          direction="row"
           justify="space-between">
-          <Grid item xs={6} className={classes.gridItemText}>
+          <Grid item className={classes.gridItemText} xs={6}>
             <Typography>
               <span className={classes.spanTitreIntro}>
                 OPEN LexImpact, c&apos;est&nbsp;quoi&nbsp;?
@@ -59,19 +59,19 @@ class MentionsLegales extends PureComponent {
               de&#xA0;façon rapide, l&apos;impact des réformes paramétriques de
               l&apos;impôt sur le revenu sur des foyers fiscaux types.
             </Typography>
-            <a href="/presentation-et-cgu" className={classes.alink}>
+            <a className={classes.alink} href="/presentation-et-cgu">
               en savoir plus
             </a>
           </Grid>
-          <Grid item xs={6} className={classes.gridItemButtons}>
+          <Grid item className={classes.gridItemButtons} xs={6}>
             <div>
               <div className={classes.divButton}>
                 <Link href="/presentation-et-cgu">
                   <Button
-                    variant="outlined"
                     color="inherit"
+                    fullWidth="true"
                     size="large"
-                    fullWidth="true">
+                    variant="outlined">
                     Présentation et conditions d&apos;utilisation
                   </Button>
                 </Link>
@@ -80,10 +80,10 @@ class MentionsLegales extends PureComponent {
               <div className={classes.divButton}>
                 <Link href="/mentions-legales">
                   <Button
-                    variant="outlined"
                     color="inherit"
+                    fullWidth="true"
                     size="large"
-                    fullWidth="true">
+                    variant="outlined">
                     Mentions légales
                   </Button>
                 </Link>
@@ -91,11 +91,11 @@ class MentionsLegales extends PureComponent {
 
               <div className={classes.divButton}>
                 <Button
-                  href="mailto:contact@leximpact.beta.gouv.fr"
-                  variant="outlined"
                   color="inherit"
+                  fullWidth="true"
+                  href="mailto:contact@leximpact.beta.gouv.fr"
                   size="large"
-                  fullWidth="true">
+                  variant="outlined">
                   Une question ? Un bug ? Un avis ?
                 </Button>
                 <p className={classes.pAdresseMail}>

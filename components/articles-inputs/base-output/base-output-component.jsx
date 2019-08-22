@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import OutputField from "../fields/output-field";
 
 const BaseOutputComponent = ({ baseValue, style }) => (
-  <OutputField value={baseValue} style={style.VarCodeexistant} />
+  <OutputField style={style.VarCodeexistant} value={baseValue} />
 );
 
 BaseOutputComponent.propTypes = {

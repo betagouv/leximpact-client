@@ -2,7 +2,6 @@ import { get } from "lodash";
 import { connect } from "react-redux";
 
 import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
-
 import FormulaOutputComponent from "./formula-output-component";
 
 const REGEX_TAUX = RegExp("taux");

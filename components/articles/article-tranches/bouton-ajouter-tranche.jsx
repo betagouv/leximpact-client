@@ -1,17 +1,17 @@
-import PropTypes from "prop-types";
 import { Fab, Typography } from "@material-ui/core";
 import { Add as AddIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
 
 const AddTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab style={style.Button} size="small" onClick={onClick} color="primary">
+    <Fab color="primary" size="small" style={style.Button} onClick={onClick}>
       <AddIcon />
     </Fab>
     <Typography
       inline
-      variant="overline"
       color="primary"
-      style={style.Typographybouton}>
+      style={style.Typographybouton}
+      variant="overline">
       Ajouter une tranche
     </Typography>
   </div>

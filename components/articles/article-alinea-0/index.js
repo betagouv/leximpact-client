@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 
 import { expandArticlePanel } from "../../actions";
-
 import ArticleAlinea0 from "./article-alinea-0-component";
 
 const PANEL_NAME = "panel0";

@@ -1,7 +1,7 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
@@ -15,27 +15,27 @@ class ArticleAlinea3 extends PureComponent {
   render() {
     const {
       baseOutputInput,
-      isPanelExpanded,
       expandArticlePanelHandler,
+      isPanelExpanded,
       style,
     } = this.props;
     return (
       <LexExpansionPanel
-        style={style.Typography}
         square
         expanded={isPanelExpanded}
+        style={style.Typography}
         onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
-          style={styleExpansionpanel}
-          expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="body2" color="inherit">
+          expandIcon={<ExpandMoreIcon />}
+          style={styleExpansionpanel}>
+          <Typography color="inherit" variant="body2">
             3. Le montant de l&apos;impôt résultant de l&apos;application des
             dispositions précédentes est réduit de...
           </Typography>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
-          <Typography variant="body2" color="inherit">
+          <Typography color="inherit" variant="body2">
             ...
             {baseOutputInput("plafond_qf.abat_dom.taux_GuadMarReu")}
             %, dans la limite de

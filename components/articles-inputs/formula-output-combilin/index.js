@@ -2,13 +2,12 @@ import { get } from "lodash";
 import { connect } from "react-redux";
 
 import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
-
 import FormulaOutputCombiLin from "./formula-output-combilin";
 
 const mapStateToProps = (state, props) => {
   const { reforme, reformeBase } = state;
   const {
-    name1, fact1, name2, fact2,
+    fact1, fact2, name1, name2,
   } = props;
 
   let baseValue1 = get(reformeBase, `impot_revenu.${name1}`);

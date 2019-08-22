@@ -20,7 +20,7 @@ class InputField extends PureComponent {
     const noSpacesValue = value.replace(/\s+/g, "");
     const numberValue = Number(noSpacesValue);
     onChange(numberValue, name);
-  }
+  };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -29,7 +29,7 @@ class InputField extends PureComponent {
     this.timer = setTimeout(() => {
       this.triggerChange(value, name);
     }, WAIT_INTERVAL);
-  }
+  };
 
   handleKeyDown = (e) => {
     const isEnterKeyPressed = e.keyCode === ENTER_KEY;
@@ -38,20 +38,20 @@ class InputField extends PureComponent {
     const { value } = this.state;
     clearTimeout(this.timer);
     this.triggerChange(value, name);
-  }
+  };
 
   render() {
     const { name, style } = this.props;
     const { value } = this.state;
     return (
       <input
-        type="text"
-        value={value}
         name={name}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
         size="4"
         style={style}
+        type="text"
+        value={value}
+        onChange={this.handleChange}
+        onKeyDown={this.handleKeyDown}
       />
     );
   }
@@ -59,9 +59,9 @@ class InputField extends PureComponent {
 
 InputField.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  style: PropTypes.shape().isRequired,
   onChange: PropTypes.func.isRequired,
+  style: PropTypes.shape().isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
 export default InputField;

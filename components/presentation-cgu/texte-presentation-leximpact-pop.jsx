@@ -1,20 +1,19 @@
-import PropTypes from "prop-types";
-import { Paper, Button } from "@material-ui/core";
+import { Button, Paper } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 const styles = {
-  paperItem: {
-    padding: "20px",
-  },
-
   dividerMarge: {
     marginTop: "20px",
   },
 
   espaceVide: {
     height: "20px",
+  },
+  paperItem: {
+    padding: "20px",
   },
 };
 
@@ -94,10 +93,10 @@ function TextePresentationLeximpactPop({ classes }) {
 
       <Link href="/conditions-d-utilisation-leximpactpop">
         <Button
-          variant="contained"
           color="secondary"
+          fullWidth="true"
           size="large"
-          fullWidth="true">
+          variant="contained">
           {" "}
           CGU LexImpact POP
         </Button>

@@ -1,14 +1,14 @@
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 const styles = {
-  sectionText: {
-    maxWidth: "800px",
-    margin: "0 auto",
-    padding: "30px",
-  },
   espaceVide: {
     height: "20px",
+  },
+  sectionText: {
+    margin: "0 auto",
+    maxWidth: "800px",
+    padding: "30px",
   },
 };
 
@@ -32,8 +32,8 @@ function TexteCguOpenLeximpact({ classes }) {
         OPEN LexImpact est en accès libre à l&apos;adresse&nbsp;
         <a
           href="https://leximpact.beta.gouv.fr/"
-          target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+          target="_blank">
           leximpact.beta.gouv.fr
         </a>
         . Son utilisation est gratuite et&nbsp;facultative.
@@ -136,8 +136,8 @@ function TexteCguOpenLeximpact({ classes }) {
         revenu personnel,&nbsp;
         <a
           href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/index.htm"
-          target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+          target="_blank">
           le service de la DGFIP
         </a>
         {" "}

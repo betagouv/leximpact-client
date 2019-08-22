@@ -1,7 +1,7 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
@@ -19,7 +19,7 @@ class Alinea4b extends PureComponent {
       formulaOutputInputCombiLin,
     } = this.props;
     return (
-      <Typography variant="body2" color="inherit">
+      <Typography color="inherit" variant="body2">
         ...au sixième alinéa du présent b pour les contribuables dont le montant
         des revenus du foyer fiscal, au sens du 1° du IV de l&apos;article 1417,
         est inférieur à
@@ -128,17 +128,17 @@ class Alinea4b extends PureComponent {
   }
 
   render() {
-    const { isPanelExpanded, expandArticlePanelHandler, style } = this.props;
+    const { expandArticlePanelHandler, isPanelExpanded, style } = this.props;
     return (
       <LexExpansionPanel
-        style={style.Typography}
         square
         expanded={isPanelExpanded}
+        style={style.Typography}
         onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
-          style={styleExpansionpanel}
-          expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="body2" color="inherit">
+          expandIcon={<ExpandMoreIcon />}
+          style={styleExpansionpanel}>
+          <Typography color="inherit" variant="body2">
             b. Le montant de l&apos;impôt résultant du a est réduit dans les
             conditions prévues...
           </Typography>

@@ -1,20 +1,18 @@
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 const styles = {
-  sectionText: {
-    maxWidth: "800px",
-    margin: "0 auto",
-    padding: "30px",
-  },
-
   dividerSansMarge: {
     marginTop: "5px",
   },
-
   espaceVide: {
     height: "20px",
+  },
+  sectionText: {
+    margin: "0 auto",
+    maxWidth: "800px",
+    padding: "30px",
   },
 };
 

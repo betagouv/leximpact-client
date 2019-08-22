@@ -5,8 +5,8 @@ import OutputField from "../fields/output-field";
 
 const FormulaOutputCombiLin = ({ baseValue, newValue, style }) => (
   <Fragment>
-    <OutputField value={baseValue} style={style.VarCodeexistant} />
-    <OutputField value={newValue} style={style.VarCodeNew} />
+    <OutputField style={style.VarCodeexistant} value={baseValue} />
+    <OutputField style={style.VarCodeNew} value={newValue} />
   </Fragment>
 );
 
