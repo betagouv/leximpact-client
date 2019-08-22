@@ -5,28 +5,6 @@ import { compose } from "redux";
 import { showAddImpactCardPopin } from "../actions";
 import PopSimulationBarComponent from "./pop-simulation-bar-component";
 
-// const styles = () => ({
-//   container: {
-//     marginBottom: "68px",
-//   },
-//   leftColumn: {
-//     flex: 0,
-//     flexWrap: "nowrap",
-//   },
-//   menuPaper: {
-//     backgroundColor: "rgba(255, 255, 255, 1) !important",
-//   },
-//   rightColumn: {
-//     width: "auto",
-//   },
-//   roundedButton: {
-//     marginRight: "24px",
-//   },
-//   roundedButtonDisabled: {
-//     backgroundColor: "rgba(225, 225, 225, 1) !important",
-//   },
-// });
-
 const MENU_ITEMS = [
   {
     action: showAddImpactCardPopin,
@@ -53,8 +31,9 @@ const MENU_ITEMS = [
 ];
 
 const mapStateToProps = (state, { width }) => {
+  const menuItems = [...MENU_ITEMS];
   const useMobileView = width === "xs" || width === "sm";
-  return { useMobileView, menuItems: MENU_ITEMS };
+  return { menuItems, useMobileView };
 };
 
 const mapDispatchToProps = dispatch => ({

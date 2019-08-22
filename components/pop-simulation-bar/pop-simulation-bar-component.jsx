@@ -1,10 +1,10 @@
 import { Button, Grid, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import { Component } from "react";
 import { Cached as CachedIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
+import { Component, Fragment } from "react";
 
-import { MuiSplitButton } from "../mui-extras-components";
+import { MUIDropdownMenu } from "../mui-extras-components";
 import PopMenuShareButton from "./pop-menu-share-button";
 import PopMenuWorkspaceButton from "./pop-menu-workspace-button";
 
@@ -51,7 +51,7 @@ class PopSimulationBar extends Component {
   };
 
   renderBoutonSimulation = () => {
-    const { handleSimulationClick, classes, useMobileView } = this.props;
+    const { classes, handleSimulationClick, useMobileView } = this.props;
     return (
       <Grid item>
         <Button
@@ -64,12 +64,12 @@ class PopSimulationBar extends Component {
           {!useMobileView && "LANCER L'ESTIMATION"}
         </Button>
       </Grid>
-    )
+    );
   };
 
   renderOutilsAffichage = () => {
     const { selected } = this.state;
-    const { classes, handleMenuClick } = this.props;
+    const { classes, handleMenuClick, useMobileView } = this.props;
     return (
       <Grid item>
         <Grid
@@ -77,9 +77,14 @@ class PopSimulationBar extends Component {
           alignItems="center"
           direction="row"
           justify="space-between">
-          <PopMenuShareButton />
-          <PopMenuWorkspaceButton />
-          <MuiSplitButton
+          {useMobileView && <div />}
+          {!useMobileView && (
+            <Fragment>
+              <PopMenuShareButton />
+              <PopMenuWorkspaceButton />
+            </Fragment>
+          )}
+          <MUIDropdownMenu
             menuProps={{
               classes: { paper: classes.menuPaper },
             }}
@@ -88,12 +93,11 @@ class PopSimulationBar extends Component {
             variant="contained"
             onClick={() => handleMenuClick(selected)}>
             {selected.label}
-          </MuiSplitButton>
+          </MUIDropdownMenu>
         </Grid>
       </Grid>
-    )
+    );
   };
-
 
   render() {
     const { classes } = this.props;
@@ -123,6 +127,7 @@ PopSimulationBar.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  useMobileView: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(PopSimulationBar);

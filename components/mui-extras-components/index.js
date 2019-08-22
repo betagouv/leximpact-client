@@ -1,1 +1,1 @@
-export { default as MuiSplitButton } from "./materialui-split-button";
+export { default as MUIDropdownMenu } from "./materialui-dropdown-menu";
