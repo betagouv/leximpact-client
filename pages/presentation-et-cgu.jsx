@@ -1,25 +1,26 @@
+import "../styles/pages-textes.scss";
+
+import { Grid } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import { flow } from "lodash";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import { flow } from "lodash";
 import { Fragment, PureComponent } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
 
-import withRoot from "../lib/withRoot";
 import AppHeader from "../components/app-header";
-import TextePresentationOpenLeximpact from "../components/presentation-cgu/texte-presentation-open-leximpact";
-import TextePresentationLeximpactPop from "../components/presentation-cgu/texte-presentation-leximpact-pop";
 import TextePresentationGenerale from "../components/presentation-cgu/texte-presentation-generale";
-import "../styles/pages-textes.scss";
+import TextePresentationLeximpactPop from "../components/presentation-cgu/texte-presentation-leximpact-pop";
+import TextePresentationOpenLeximpact from "../components/presentation-cgu/texte-presentation-open-leximpact";
+import withRoot from "../lib/withRoot";
 
 const styles = () => ({
   gridSection: {
-    maxWidth: "800px",
     margin: "0 auto",
-    paddingRight: "30px",
-    paddingLeft: "30px",
-    paddingTop: "10px",
+    maxWidth: "800px",
     paddingBottom: "30px",
+    paddingLeft: "30px",
+    paddingRight: "30px",
+    paddingTop: "10px",
   },
 
   griditemOpen: {
@@ -43,15 +44,15 @@ class ExamplePage extends PureComponent {
         <TextePresentationGenerale />
         <Grid
           container
-          direction="row"
           alignItems="flex-start"
-          justify="space-between"
-          className={classes.gridSection}>
-          <Grid item xs={6} className={classes.griditemOpen}>
+          className={classes.gridSection}
+          direction="row"
+          justify="space-between">
+          <Grid item className={classes.griditemOpen} xs={6}>
             <TextePresentationOpenLeximpact />
           </Grid>
 
-          <Grid item xs={6} className={classes.griditemPop}>
+          <Grid item className={classes.griditemPop} xs={6}>
             <TextePresentationLeximpactPop />
           </Grid>
         </Grid>

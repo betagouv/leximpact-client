@@ -1,14 +1,15 @@
-import Head from "next/head";
-import { flow } from "lodash";
-import { Fragment, PureComponent } from "react";
-import { withRouter } from "next/router";
-import { withStyles } from "@material-ui/core/styles/";
+import "../styles/index.scss";
 
-import withRoot from "../lib/withRoot";
-import Reformeur from "../components/reformeur";
+import { withStyles } from "@material-ui/core/styles/";
+import { flow } from "lodash";
+import Head from "next/head";
+import { withRouter } from "next/router";
+import { Fragment, PureComponent } from "react";
+
 import AppHeader from "../components/app-header";
 import PopinManager from "../components/PopinManager";
-import "../styles/index.scss";
+import Reformeur from "../components/reformeur";
+import withRoot from "../lib/withRoot";
 
 const styles = () => ({});
 

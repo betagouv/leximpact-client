@@ -1,4 +1,3 @@
-import { get } from "lodash";
 import withRedux from "next-redux-wrapper";
 import App, { Container } from "next/app";
 import React from "react";
@@ -32,12 +31,6 @@ const makeStore = (initialState) => {
 
 class LexImpactApplicationWrapper extends App {
   static async getInitialProps({ Component, ctx }) {
-    const token = get(ctx, `req.cookies.${TOKEN_NAME}`, false);
-    if (token) {
-      const actionType = "onUpdateConnexionToken";
-      ctx.store.dispatch({ type: actionType, value: token });
-    }
-
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
       : {};

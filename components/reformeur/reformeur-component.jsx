@@ -1,7 +1,6 @@
 import { AppBar, Tab, Tabs } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
-import MediaQuery from "react-responsive";
 import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
@@ -71,17 +70,11 @@ class ReformeurComponent extends PureComponent {
   };
 
   render() {
-    const maxMobileViewWidth = 960;
+    const { useMobileView } = this.props;
     return (
       <div className="main-index">
-        <MediaQuery maxWidth={maxMobileViewWidth}>
-          {(showMobileView) => {
-            const viewRendererFunc = showMobileView
-              ? this.renderMobileView
-              : this.renderDesktopView;
-            return viewRendererFunc();
-          }}
-        </MediaQuery>
+        {useMobileView && this.renderMobileView()}
+        {!useMobileView && this.renderDesktopView()}
       </div>
     );
   }
@@ -90,6 +83,7 @@ class ReformeurComponent extends PureComponent {
 ReformeurComponent.propTypes = {
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
   isUserConnected: PropTypes.bool.isRequired,
+  useMobileView: PropTypes.bool.isRequired,
 };
 
 export default ReformeurComponent;

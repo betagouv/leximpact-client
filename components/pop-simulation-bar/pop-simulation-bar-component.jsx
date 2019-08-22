@@ -1,48 +1,22 @@
-import { Button, Fab, MenuItem } from "@material-ui/core";
+import { Button, Grid, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  Share as ShareIcon,
-  ViewQuilt as ViewQuiltIcon,
-} from "@material-ui/icons";
 import PropTypes from "prop-types";
-import { PureComponent } from "react";
+import { Component } from "react";
 
 import { MuiSplitButton } from "../mui-extras-components";
+import PopMenuShareButton from "./pop-menu-share-button";
+import PopMenuWorkspaceButton from "./pop-menu-workspace-button";
 
-const styles = {
+const styles = () => ({
   container: {
-    alignItems: "center",
-    display: "flex",
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
     marginBottom: "68px",
-  },
-  leftColumn: {
-    flex: 0,
-    flexWrap: "nowrap",
   },
   menuPaper: {
     backgroundColor: "rgba(255, 255, 255, 1) !important",
   },
-  rightColumn: {
-    alignItems: "center",
-    display: "flex",
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-end",
-    width: "auto",
-  },
-  roundedButton: {
-    marginRight: "24px",
-  },
-  roundedButtonDisabled: {
-    backgroundColor: "rgba(225, 225, 225, 1) !important",
-  },
-};
+});
 
-class PopSimulationBar extends PureComponent {
+class PopSimulationBar extends Component {
   constructor(props) {
     super(props);
     const selected = props.menuItems[0];
@@ -76,8 +50,13 @@ class PopSimulationBar extends PureComponent {
     const { classes, handleMenuClick, handleSimulationClick } = this.props;
     const { selected } = this.state;
     return (
-      <div className={classes.container}>
-        <div className={classes.leftColumn}>
+      <Grid
+        container
+        alignItems="center"
+        className={classes.container}
+        direction="row"
+        justify="space-between">
+        <Grid item>
           <Button
             color="secondary"
             size="large"
@@ -85,40 +64,28 @@ class PopSimulationBar extends PureComponent {
             onClick={handleSimulationClick}>
             LANCER&nbsp;LA&nbsp;SIMULATION
           </Button>
-        </div>
-        <div className={classes.rightColumn}>
-          <Fab
-            disabled
-            aria-label="Espace de travail"
-            classes={{ disabled: classes.roundedButtonDisabled }}
-            className={classes.roundedButton}
-            color="primary"
-            size="small"
-            variant="round">
-            <ViewQuiltIcon />
-          </Fab>
-          <Fab
-            disabled
-            aria-label="Partager"
-            classes={{ disabled: classes.roundedButtonDisabled }}
-            className={classes.roundedButton}
-            color="primary"
-            size="small"
-            variant="round">
-            <ShareIcon />
-          </Fab>
-          <MuiSplitButton
-            menuProps={{
-              classes: { paper: classes.menuPaper },
-            }}
-            renderMenu={this.renderMenuListItems}
-            size="medium"
-            variant="contained"
-            onClick={() => handleMenuClick(selected)}>
-            {selected.label}
-          </MuiSplitButton>
-        </div>
-      </div>
+        </Grid>
+        <Grid item>
+          <Grid
+            container
+            alignItems="center"
+            direction="row"
+            justify="space-between">
+            <PopMenuShareButton />
+            <PopMenuWorkspaceButton />
+            <MuiSplitButton
+              menuProps={{
+                classes: { paper: classes.menuPaper },
+              }}
+              renderMenu={this.renderMenuListItems}
+              size="medium"
+              variant="contained"
+              onClick={() => handleMenuClick(selected)}>
+              {selected.label}
+            </MuiSplitButton>
+          </Grid>
+        </Grid>
+      </Grid>
     );
   }
 }

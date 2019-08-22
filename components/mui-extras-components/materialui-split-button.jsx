@@ -2,7 +2,7 @@ import { Button, Menu, SvgIcon } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { PureComponent } from "react";
 
 const styles = theme => ({
   button: {
@@ -53,7 +53,7 @@ const styles = theme => ({
   },
 });
 
-class MuiSplitButton extends React.Component {
+class MuiSplitButton extends PureComponent {
   constructor(props) {
     super(props);
 

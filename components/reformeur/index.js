@@ -1,11 +1,14 @@
+import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
+import { compose } from "redux";
 
 import { fetchMetadataCasTypes } from "../actions";
 import ReformeurComponent from "./reformeur-component";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, { width }) => {
+  const useMobileView = width === "xs" || width === "sm";
   const isUserConnected = Boolean(state.token || false);
-  return { isUserConnected };
+  return { isUserConnected, useMobileView };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -15,7 +18,10 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+export default compose(
+  withWidth(),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
 )(ReformeurComponent);
