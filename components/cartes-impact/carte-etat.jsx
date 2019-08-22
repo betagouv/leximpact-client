@@ -60,7 +60,7 @@ const styles = theme => ({
   },
 });
 
-class RecettesCard extends React.Component {
+class CarteEtat extends React.Component {
   constructor(props) {
     super(props);
     this.updateStateRes = this.updateStateRes.bind(this);
@@ -139,8 +139,8 @@ class RecettesCard extends React.Component {
   }
 }
 
-RecettesCard.propTypes = {
+CarteEtat.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RecettesCard);
+export default withStyles(styles)(CarteEtat);

@@ -1,53 +1,45 @@
+import { Avatar, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import VPNKeyIcon from "@material-ui/icons/VpnKey";
+import { FORM_ERROR } from "final-form";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
-import { FORM_ERROR } from "final-form";
-import { withStyles } from "@material-ui/core/styles";
-import { Avatar, Typography } from "@material-ui/core";
-import VPNKeyIcon from "@material-ui/icons/VpnKey";
 
 import request from "../utils/request";
-
 import ConnexionForm from "./connexion-form";
-import MentionsLegales from "./mentions-legales-text";
 import ConnexionSuccess from "./connexion-form-success";
+import MentionsLegales from "./mentions-legales-text";
 import { parseFormValuesUserEmail } from "./utils";
 
 const styles = theme => ({
-  container: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-  },
   avatar: {
-    width: "80px",
+    backgroundColor: theme.palette.primary.main,
     height: "80px",
     margin: theme.spacing.unit,
     backgroundColor: theme.palette.primary.main,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       width: "60px",
       height: "60px",
     },
   },
   avatarIcon: {
-    width: "42px",
     height: "auto",
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       width: "32px",
     },
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing.unit,
+    width: "100%", // Fix IE 11 issue.
   },
-  submit: {
-    marginTop: theme.spacing.unit * 3,
+  spanBolder: {
+    fontWeight: "bold",
   },
   spanLeximpactLigther: {
     fontSize: "34px",
     fontFamily: "Lato",
     fontWeight: "lighter",
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       fontSize: "26px",
     },
   },
@@ -55,7 +47,7 @@ const styles = theme => ({
     fontSize: "34px",
     fontFamily: "Lato",
     fontWeight: "bold",
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       fontSize: "26px",
     },
   },
@@ -70,12 +62,12 @@ class Connexion extends PureComponent {
   handleFormSubmitFail = (message) => {
     this.setState({ isLoading: false });
     return { [FORM_ERROR]: message };
-  }
+  };
 
   handleFormSubmitSuccess = (payload) => {
     this.setState({ hasBeenSubmitWithSuccess: payload, isLoading: false });
     return {};
-  }
+  };
 
   handleFormSubmit = (formValues) => {
     this.setState({ isLoading: true });
@@ -84,24 +76,24 @@ class Connexion extends PureComponent {
       .post("/auth/login", { email })
       .then(this.handleFormSubmitSuccess)
       .catch(this.handleFormSubmitFail);
-  }
+  };
 
   renderConnexionSuccess = () => {
     const { hasBeenSubmitWithSuccess } = this.state;
     if (!hasBeenSubmitWithSuccess) return null;
     return <ConnexionSuccess message={hasBeenSubmitWithSuccess} />;
-  }
+  };
 
   renderConnexionForm = () => {
     const { hasBeenSubmitWithSuccess, isLoading } = this.state;
     if (hasBeenSubmitWithSuccess) return null;
     return (
       <ConnexionForm
-        isLoading={isLoading}
         handleFormSubmit={this.handleFormSubmit}
+        isLoading={isLoading}
       />
     );
-  }
+  };
 
   render() {
     const { classes } = this.props;

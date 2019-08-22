@@ -222,6 +222,9 @@ class ArticlesComponent extends React.Component {
 
 ArticlesComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
+  handleAddTranche: PropTypes.func.isRequired,
+  handleArticleChange: PropTypes.func.isRequired,
+  handleRemoveTranche: PropTypes.func.isRequired,
   reforme: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
@@ -236,9 +239,6 @@ ArticlesComponent.propTypes = {
       }),
     }),
   }).isRequired,
-  handleArticleChange: PropTypes.func.isRequired,
-  handleAddTranche: PropTypes.func.isRequired,
-  handleRemoveTranche: PropTypes.func.isRequired,
 };
 
 export default withStyles(stylesTheme, { withTheme: true })(ArticlesComponent);

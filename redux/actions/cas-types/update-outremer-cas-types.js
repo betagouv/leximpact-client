@@ -1,7 +1,7 @@
 const updateCasTypeOutreMer = (casTypeIndex, casTypeOutreMerIndex) => ({
-  type: "onUpdateCasTypeOutreMer",
   casTypeIndex,
   casTypeOutreMerIndex,
+  type: "onUpdateCasTypeOutreMer",
 });
 
 export default updateCasTypeOutreMer;

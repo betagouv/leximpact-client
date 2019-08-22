@@ -1,12 +1,12 @@
-import { Field } from "react-final-form";
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
+import { Field } from "react-final-form";
 
 const styles = theme => ({
   formControl: {
@@ -64,26 +64,24 @@ class RolesInput extends PureComponent {
     return (
       <FormControlLabel
         key={key}
-        value={key}
-        label={roles[key].label}
-        disabled={roles[key].disabled}
         classes={{ label: classes.radioLabel }}
         control={<Radio classes={{ root: classes.radioItem }} />}
+        disabled={roles[key].disabled}
+        label={roles[key].label}
+        value={key}
       />
     );
-  }
+  };
 
   render() {
     const { classes, defaultValue, roles } = this.props;
     return (
       <FormControl
         required
-        component="div"
-        classes={{ root: classes.formControl }}>
+        classes={{ root: classes.formControl }}
+        component="div">
         <FormLabel
           required
-          focused={false}
-          component="div"
           classes={{
             asterisk: classes.formLegendAsterisk,
             root: classes.formLegend,
@@ -92,19 +90,19 @@ class RolesInput extends PureComponent {
         </FormLabel>
         <Field
           name="roles"
-          type="radio"
           render={({ input }) => (
             <RadioGroup
               {...input}
+              aria-label={input.name}
+              classes={{ root: classes.radioGroup }}
+              defaultValue={defaultValue}
               name={input.name}
               value={input.value}
-              aria-label={input.name}
-              onChange={input.onChange}
-              defaultValue={defaultValue}
-              classes={{ root: classes.radioGroup }}>
+              onChange={input.onChange}>
               {Object.keys(roles).map(this.renderRadioItem)}
             </RadioGroup>
           )}
+          type="radio"
         />
       </FormControl>
     );

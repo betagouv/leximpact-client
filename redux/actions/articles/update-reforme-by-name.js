@@ -14,7 +14,7 @@ const updateReformeByName = (name, prevValue) => {
   const shouldUpdatePlafond = name.substring(0, 10) === "plafond_qf";
   if (shouldUpdatePlafond) type = "onUpdateReformePlafond";
 
-  return { type, value, name };
+  return { name, type, value };
 };
 
 export default updateReformeByName;

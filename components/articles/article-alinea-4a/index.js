@@ -17,11 +17,11 @@ const mapStateToProps = ({
   const baseDecoteSeuilCelib = get(base, "impot_revenu.decote.seuil_celib");
   const baseDecoteSeuilCouple = get(base, "impot_revenu.decote.seuil_celib");
   return {
-    isPanelExpanded,
+    baseDecoteSeuilCelib,
+    baseDecoteSeuilCouple,
     decoteSeuilCelib,
     decoteSeuilCouple,
-    baseDecoteSeuilCouple,
-    baseDecoteSeuilCelib,
+    isPanelExpanded,
   };
 };
 

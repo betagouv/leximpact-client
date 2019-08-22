@@ -1,7 +1,3 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { Field } from "react-final-form";
-import { withStyles } from "@material-ui/core/styles";
 import {
   FormGroup,
   FormLabel,
@@ -9,12 +5,16 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
+import { Field } from "react-final-form";
 
 import { validateEmailInputField } from "./utils";
 
 const styles = theme => ({
   formGroup: {
-    marginTop: "28px"
+    marginTop: "28px",
   },
   formLabel: {
     fontSize: "24px",
@@ -25,12 +25,14 @@ const styles = theme => ({
     },
   },
   fieldsContainer: {
-    width: "100%",
+    alignItems: "flex-start",
     display: "flex",
     flexDirection: "row",
-    alignItems: "flex-start",
     justifyContent: "center",
+    width: "100%",
   },
+  formGroup: { marginTop: "28px" },
+  formLabel: { color: "#000000", fontSize: "24px", marginBottom: "20px" },
   inputContainer: {
     display: "flex",
     flexDirection: "column",
@@ -44,9 +46,9 @@ const styles = theme => ({
       width: "120px",
     },
   },
-  inputError: {
-    color: "red",
-    textAlign: "right",
+  inputRoot: {
+    marginRight: "6px",
+    width: "316px",
   },
   /*
   inputRoot: {
@@ -55,7 +57,7 @@ const styles = theme => ({
     [theme.breakpoints.down("xs")]: {
       width: "120px",
     },
-  },*/
+  }, */
   selectRoot: {
     fontSize: "18px",
     lineHeight: "2em",
@@ -69,18 +71,18 @@ const styles = theme => ({
 
 class EmailTextInput extends PureComponent {
   renderSelectField = ({ input }) => {
-    const { domains, classes } = this.props;
+    const { classes, domains } = this.props;
     const {
-      name, value, onChange, ...rest
+      name, onChange, value, ...rest
     } = input;
     return (
       <Select
         required
+        classes={{ root: classes.selectRoot }}
+        inputProps={rest}
         name={name}
         value={value}
-        inputProps={rest}
-        onChange={onChange}
-        classes={{ root: classes.selectRoot }}>
+        onChange={onChange}>
         {domains.map(domainLabel => (
           <MenuItem key={domainLabel} value={domainLabel}>
             {domainLabel}
@@ -88,7 +90,7 @@ class EmailTextInput extends PureComponent {
         ))}
       </Select>
     );
-  }
+  };
 
   renderInputField = ({ input }) => {
     const { classes } = this.props;
@@ -99,34 +101,34 @@ class EmailTextInput extends PureComponent {
           required
           classes={{
             input: classes.inputField,
-        /*    root: classes.inputRoot, */
+            /*    root: classes.inputRoot, */
           }}
         />
       </div>
     );
-  }
+  };
 
   render() {
     const { classes, domains } = this.props;
     return (
       <FormGroup row classes={{ root: classes.formGroup }}>
         <FormLabel
-          focused={false}
-          component="legend"
-          classes={{ root: classes.formLabel }}>
+          classes={{ root: classes.formLabel }}
+          classes={{ root: classes.formLabel }}
+          component="legend">
           <b>Mon adresse e-mail officielle&nbsp;:</b>
         </FormLabel>
         <div className={classes.fieldsContainer}>
           <Field
             required
             name="username"
-            validate={validateEmailInputField}
             render={this.renderInputField}
+            validate={validateEmailInputField}
           />
           <Field
             required
-            name="domain"
             defaultValue={domains[0]}
+            name="domain"
             render={this.renderSelectField}
           />
         </div>

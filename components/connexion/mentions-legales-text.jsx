@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import Link from "next/link";
 import { withStyles } from "@material-ui/core/styles";
+import Link from "next/link";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   link: {
@@ -29,7 +29,6 @@ const styles = theme => ({
       textAlign: "right",
     },
   },
-
 });
 
 const MentionsLegales = ({ classes }) => (

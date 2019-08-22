@@ -91,16 +91,16 @@ class Alinea4a extends PureComponent {
 }
 
 Alinea4a.propTypes = {
-  onInputChange: PropTypes.func.isRequired,
-  formulaOutputInput: PropTypes.func.isRequired,
-  baseOutputInput: PropTypes.func.isRequired,
-  expandArticlePanelHandler: PropTypes.func.isRequired,
-  isPanelExpanded: PropTypes.bool.isRequired,
-  style: PropTypes.shape().isRequired,
-  decoteSeuilCelib: PropTypes.number.isRequired,
-  decoteSeuilCouple: PropTypes.number.isRequired,
   baseDecoteSeuilCelib: PropTypes.number.isRequired,
   baseDecoteSeuilCouple: PropTypes.number.isRequired,
+  baseOutputInput: PropTypes.func.isRequired,
+  decoteSeuilCelib: PropTypes.number.isRequired,
+  decoteSeuilCouple: PropTypes.number.isRequired,
+  expandArticlePanelHandler: PropTypes.func.isRequired,
+  formulaOutputInput: PropTypes.func.isRequired,
+  isPanelExpanded: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  style: PropTypes.shape().isRequired,
 };
 
 export default Alinea4a;

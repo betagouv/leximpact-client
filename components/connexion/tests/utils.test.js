@@ -18,9 +18,9 @@ describe("components | connexion | utils", () => {
   describe("shouldShowFieldError", () => {
     it("doit retourner un boolean", () => {
       const given = {
-        submitError: null,
         dirtySinceLastSubmit: false,
         error: "any error message",
+        submitError: null,
         touched: false,
       };
       const result = shouldShowFieldError(given);
@@ -65,9 +65,9 @@ describe("components | connexion | utils", () => {
 
       it("quand la validation du champ est OK", () => {
         const given = {
-          submitError: null,
           dirtySinceLastSubmit: false,
           error: null,
+          submitError: null,
           touched: true,
         };
         const result = shouldShowFieldError(given);

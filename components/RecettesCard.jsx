@@ -49,7 +49,7 @@ const styles = () => ({
 class RecettesCard extends PureComponent {
   render() {
     const {
-      classes, delta, impots_avant, onClick,
+      classes, delta, impotsAvant, onClick,
     } = this.props;
     return (
       <Card>
@@ -59,7 +59,7 @@ class RecettesCard extends PureComponent {
 
           <div>
             <Typography gutterBottom inline color="primary" variant="h3">
-              {Math.round(impots_avant / 100000000) / 10}
+              {Math.round(impotsAvant / 100000000) / 10}
             </Typography>
             <Typography
               gutterBottom
@@ -90,7 +90,7 @@ class RecettesCard extends PureComponent {
 RecettesCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   delta: PropTypes.shape().isRequired,
-  impots_avant: PropTypes.shape().isRequired,
+  impotsAvant: PropTypes.shape().isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

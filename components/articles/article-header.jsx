@@ -8,18 +8,16 @@ const styles = {
     flexGrow: 1,
     paddingTop: "0px",
   },
-
-  typo1: {
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    color: "#6C6C6C",
-  },
-
   titleArticleCGI: {
     color: "#6C6C6C",
-    fontSize: "18px",
     fontFamily: "Lora",
+    fontSize: "18px",
     paddingLeft: "6px",
+  },
+  typo1: {
+    color: "#6C6C6C",
+    fontWeight: "bold",
+    textTransform: "uppercase",
   },
 };
 

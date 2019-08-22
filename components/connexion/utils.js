@@ -1,5 +1,5 @@
-import get from "lodash/get";
 import isemail from "isemail";
+import get from "lodash/get";
 
 import Config from "./config.json";
 
@@ -13,7 +13,7 @@ export function getDefaultRoleFromConfig() {
 export function parseFormValuesUserEmail(formValues) {
   // NOTE remplacer le domaine dans le champs email
   // si le champs email contient le domaine afficher une erreur
-  const { username, domain } = formValues;
+  const { domain, username } = formValues;
   const email = `${username}${domain}`;
   return email;
 }

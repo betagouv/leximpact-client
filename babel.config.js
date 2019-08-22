@@ -32,8 +32,8 @@ function babelConfig(api) {
   ];
 
   return {
-    presets,
     plugins,
+    presets,
   };
 }
 

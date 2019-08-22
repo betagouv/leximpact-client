@@ -1,9 +1,10 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles/";
-import createPageContext from "lib/createPageContext";
-import getPageContext from "lib/getPageContext";
 import PropTypes from "prop-types";
 import React from "react";
+
+import createPageContext from "./createPageContext";
+import getPageContext from "./getPageContext";
 
 function withRoot(Component) {
   let pageContext = null;

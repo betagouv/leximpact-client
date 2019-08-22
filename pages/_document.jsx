@@ -1,8 +1,9 @@
-import createPageContext from "lib/createPageContext";
-import getPageContext from "lib/getPageContext";
 import Document, { Head, Main, NextScript } from "next/document";
 import React from "react";
 import JssProvider from "react-jss/lib/JssProvider";
+
+import createPageContext from "../lib/createPageContext";
+import getPageContext from "../lib/getPageContext";
 
 class MyDocument extends Document {
   static getInitialProps(ctx) {

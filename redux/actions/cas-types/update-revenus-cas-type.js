@@ -1,9 +1,9 @@
 const updateCasTypeRevenusAnnuel = (casTypeIndex, casTypeRevenusMensuel) => {
   const casTypeRevenusAnnuel = casTypeRevenusMensuel * 12;
   return {
-    type: "onUpdateCasTypeRevenusAnnuel",
     casTypeIndex,
     casTypeRevenusAnnuel,
+    type: "onUpdateCasTypeRevenusAnnuel",
   };
 };
 

@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
 import { IconButton, Snackbar } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import PropTypes from "prop-types";
 
 const ErrorSnackbar = ({ message }) => (
   <Snackbar
@@ -15,8 +15,8 @@ const ErrorSnackbar = ({ message }) => (
     }}
     autoHideDuration={6000}
     message="Cette adresse ne fonctionne pas, veuillez réessayer."
-    onClose={() => {}}
     open={Boolean(message)}
+    onClose={() => {}}
   />
 );
 

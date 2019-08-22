@@ -153,11 +153,11 @@ class Alinea4b extends PureComponent {
 }
 
 Alinea4b.propTypes = {
-  isPanelExpanded: PropTypes.bool.isRequired,
-  expandArticlePanelHandler: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
+  expandArticlePanelHandler: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   formulaOutputInputCombiLin: PropTypes.func.isRequired,
+  isPanelExpanded: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,
 };
 
