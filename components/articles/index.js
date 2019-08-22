@@ -5,7 +5,7 @@ import {
   fetchCalculateCompare,
   removeTranche,
   updateReformeByName,
-} from "../actions";
+} from "../../redux/actions";
 import ArticlesComponent from "./articles-component";
 
 const mapStateToProps = ({ reforme, reformeBase }) => ({

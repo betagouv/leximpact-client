@@ -1,7 +1,10 @@
 import { get } from "lodash";
 import { connect } from "react-redux";
 
-import { fetchCalculateCompare, updateReformeByName } from "../../actions";
+import {
+  fetchCalculateCompare,
+  updateReformeByName,
+} from "../../../redux/actions";
 import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
 import BaseInputOutputComponent from "./base-input-output-component";
 

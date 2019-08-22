@@ -31,7 +31,7 @@
     "array-bracket-newline": ["error", { "multiline": true }],
     "array-element-newline": ["error", "consistent"],
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
-    "import/no-unresolved": "off",
+    "import/no-unresolved": 2,
     "no-underscore-dangle": "error",
     "quotes": ["error", "double", { "avoidEscape": false }],
     "react/jsx-indent": [

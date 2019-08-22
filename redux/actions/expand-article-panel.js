@@ -1,6 +1,6 @@
 const expandArticlePanel = name => ({
-  type: "onExpandArticlePanel",
   name,
+  type: "onExpandArticlePanel",
 });
 
 export default expandArticlePanel;

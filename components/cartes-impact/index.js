@@ -4,7 +4,7 @@ import {
   fetchCalculateCompare,
   updateCasTypeOutreMer,
   updateRevenusAnnuelCasType,
-} from "../actions";
+} from "../../redux/actions";
 import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({ casTypes, resBrut, totalPop }) => ({

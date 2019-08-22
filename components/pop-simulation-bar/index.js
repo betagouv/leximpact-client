@@ -2,7 +2,7 @@ import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { showAddImpactCardPopin } from "../actions";
+import { showAddImpactCardPopin } from "../../redux/actions";
 import PopSimulationBarComponent from "./pop-simulation-bar-component";
 
 const MENU_ITEMS = [

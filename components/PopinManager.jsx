@@ -5,7 +5,7 @@ import { withRouter } from "next/router";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import { closeCurrentPopin } from "./actions";
+import { closeCurrentPopin } from "../redux/actions";
 import ConfirmationConnexion from "./confirmation-connexion";
 import LoginForm from "./connexion";
 import EnSavoirPlus from "./en-savoir-plus";

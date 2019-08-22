@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { connect } from "react-redux";
 
-import { expandArticlePanel } from "../../actions";
+import { expandArticlePanel } from "../../../redux/actions";
 import ArticleAlinea4a from "./article-alinea-4a-component";
 
 const PANEL_NAME = "panel4a";

@@ -2,32 +2,8 @@ import withRedux from "next-redux-wrapper";
 import App, { Container } from "next/app";
 import React from "react";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import reduxCookiesMiddleware, {
-  getStateFromCookies,
-} from "redux-cookies-middleware";
-import thunk from "redux-thunk";
 
-import reducers from "../reducers";
-
-// state to persist in cookies
-const TOKEN_NAME = "pop_auth_token";
-const paths = { token: { name: TOKEN_NAME } };
-
-const apiEndpoint = process.env.API_URL;
-const thunkMiddleWare = thunk.withExtraArgument({ apiEndpoint });
-const cookiesMiddleware = reduxCookiesMiddleware(paths);
-
-const makeStore = (initialState) => {
-  const nextState = getStateFromCookies(initialState, paths);
-  const middlewares = [thunkMiddleWare, cookiesMiddleware];
-  const store = createStore(
-    reducers,
-    nextState,
-    applyMiddleware(...middlewares),
-  );
-  return store;
-};
+import makeApplicationState from "../redux/make-application-state";
 
 class LexImpactApplicationWrapper extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -49,4 +25,4 @@ class LexImpactApplicationWrapper extends App {
   }
 }
 
-export default withRedux(makeStore)(LexImpactApplicationWrapper);
+export default withRedux(makeApplicationState)(LexImpactApplicationWrapper);

@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import VPNKeyIcon from "@material-ui/icons/VpnKey";
 import PropTypes from "prop-types";
 
-import { showConnexionPopin } from "../actions";
+import { showConnexionPopin } from "../../redux/actions";
 
 const styles = () => ({
   avatarIcon: {
