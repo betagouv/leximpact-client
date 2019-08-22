@@ -4,9 +4,9 @@ exports[`components | connexion | email-input snapshot doit correspondre avec le
 <EmailTextInput
   classes={
     Object {
-      "fieldsContainer": "EmailTextInput-fieldsContainer-3",
-      "formGroup": "EmailTextInput-formGroup-1",
-      "formLabel": "EmailTextInput-formLabel-2",
+      "fieldsContainer": "EmailTextInput-fieldsContainer-1",
+      "formGroup": "EmailTextInput-formGroup-2",
+      "formLabel": "EmailTextInput-formLabel-3",
       "inputContainer": "EmailTextInput-inputContainer-4",
       "inputError": "EmailTextInput-inputError-6",
       "inputField": "EmailTextInput-inputField-5",

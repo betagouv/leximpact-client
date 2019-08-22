@@ -4,9 +4,9 @@ exports[`components | connexion | index snapshot doit correspondre avec les prop
 <Connexion
   classes={
     Object {
-      "avatar": "Connexion-avatar-2",
-      "avatarIcon": "Connexion-avatarIcon-3",
-      "container": "Connexion-container-1",
+      "avatar": "Connexion-avatar-1",
+      "avatarIcon": "Connexion-avatarIcon-2",
+      "container": "Connexion-container-3",
       "form": "Connexion-form-4",
       "spanLeximpactBolder": "Connexion-spanLeximpactBolder-7",
       "spanLeximpactLigther": "Connexion-spanLeximpactLigther-6",
