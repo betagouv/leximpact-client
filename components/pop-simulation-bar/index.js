@@ -1,5 +1,6 @@
-// import { withStyles } from "@material-ui/core/styles";
+import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
+import { compose } from "redux";
 
 import { showAddImpactCardPopin } from "../actions";
 import PopSimulationBarComponent from "./pop-simulation-bar-component";
@@ -51,7 +52,10 @@ const MENU_ITEMS = [
   },
 ];
 
-const mapStateToProps = () => ({ menuItems: MENU_ITEMS });
+const mapStateToProps = (state, { width }) => {
+  const useMobileView = width === "xs" || width === "sm";
+  return { useMobileView, menuItems: MENU_ITEMS };
+};
 
 const mapDispatchToProps = dispatch => ({
   handleMenuClick: (selected) => {
@@ -61,7 +65,10 @@ const mapDispatchToProps = dispatch => ({
   handleSimulationClick: () => {},
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+export default compose(
+  withWidth(),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
 )(PopSimulationBarComponent);

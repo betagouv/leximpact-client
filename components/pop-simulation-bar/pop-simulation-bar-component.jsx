@@ -46,9 +46,52 @@ class PopSimulationBar extends Component {
     });
   };
 
-  render() {
-    const { classes, handleMenuClick, handleSimulationClick } = this.props;
+  renderBoutonSimulation = () => {
+    const { handleSimulationClick, useMobileView } = this.props;
+    return (
+      <Grid item>
+        <Button
+          color="secondary"
+          size="large"
+          variant="contained"
+          onClick={handleSimulationClick}>
+          {useMobileView && "toto"}
+          {!useMobileView && "LANCER LA SIMULATION"}
+        </Button>
+      </Grid>
+    )
+  };
+
+  renderOutilsAffichage = () => {
     const { selected } = this.state;
+    const { classes, handleMenuClick } = this.props;
+    return (
+      <Grid item>
+        <Grid
+          container
+          alignItems="center"
+          direction="row"
+          justify="space-between">
+          <PopMenuShareButton />
+          <PopMenuWorkspaceButton />
+          <MuiSplitButton
+            menuProps={{
+              classes: { paper: classes.menuPaper },
+            }}
+            renderMenu={this.renderMenuListItems}
+            size="medium"
+            variant="contained"
+            onClick={() => handleMenuClick(selected)}>
+            {selected.label}
+          </MuiSplitButton>
+        </Grid>
+      </Grid>
+    )
+  };
+
+
+  render() {
+    const { classes } = this.props;
     return (
       <Grid
         container
@@ -56,35 +99,8 @@ class PopSimulationBar extends Component {
         className={classes.container}
         direction="row"
         justify="space-between">
-        <Grid item>
-          <Button
-            color="secondary"
-            size="large"
-            variant="contained"
-            onClick={handleSimulationClick}>
-            LANCER&nbsp;LA&nbsp;SIMULATION
-          </Button>
-        </Grid>
-        <Grid item>
-          <Grid
-            container
-            alignItems="center"
-            direction="row"
-            justify="space-between">
-            <PopMenuShareButton />
-            <PopMenuWorkspaceButton />
-            <MuiSplitButton
-              menuProps={{
-                classes: { paper: classes.menuPaper },
-              }}
-              renderMenu={this.renderMenuListItems}
-              size="medium"
-              variant="contained"
-              onClick={() => handleMenuClick(selected)}>
-              {selected.label}
-            </MuiSplitButton>
-          </Grid>
-        </Grid>
+        {this.renderOutilsAffichage()}
+        {this.renderBoutonSimulation()}
       </Grid>
     );
   }
