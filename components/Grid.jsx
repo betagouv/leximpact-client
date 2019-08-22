@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 
-import SimpleCard from "./SimpleCard";
 import RecettesCard from "./RecettesCard";
+import SimpleCard from "./SimpleCard";
 
 export default () => (
   <Grid container sm={12} spacing={32}>

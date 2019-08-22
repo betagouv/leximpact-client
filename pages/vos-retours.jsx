@@ -1,33 +1,14 @@
-import Head from "next/head";
-import PropTypes from "prop-types";
+import "../styles/index.scss";
+
 import { flow } from "lodash";
+import Head from "next/head";
 import { Fragment, PureComponent } from "react";
-import { withStyles } from "@material-ui/core/styles/";
 
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
-import "../styles/index.scss";
 
-const styles = () => ({
-  dialog: {
-    width: "100%",
-    backgroundColor: "rgba(229, 220, 0, 0.5)",
-  },
-  dialogPaper: {
-    width: "800px",
-    maxWidth: "800px",
-    minWidth: "630px",
-    backgroundColor: "#FFFFFF",
-  },
-  dialogContent: {
-    padding: "45px 45px 0 45px",
-  },
-});
-
-class ExamplePage extends PureComponent {
+class VosRetoursPage extends PureComponent {
   render() {
-    const { classes } = this.props;
-    console.log("classes", classes);
     return (
       <Fragment>
         <Head>
@@ -40,11 +21,4 @@ class ExamplePage extends PureComponent {
   }
 }
 
-ExamplePage.propTypes = {
-  classes: PropTypes.shape().isRequired,
-};
-
-export default flow(
-  withStyles(styles),
-  withRoot,
-)(ExamplePage);
+export default flow(withRoot)(VosRetoursPage);

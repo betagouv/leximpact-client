@@ -1,23 +1,23 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import {
-  Card,
-  Chip,
-  CircularProgress,
-  CardContent,
-  Divider,
-  NativeSelect,
-  Typography,
-  Tooltip,
-} from "@material-ui/core";
-import { Icon } from "@iconify/react";
-import manCurlyHaired from "@iconify/icons-twemoji/man-curly-haired";
 import babyIcon from "@iconify/icons-twemoji/baby";
+import desertIsland from "@iconify/icons-twemoji/desert-island";
+import manCurlyHaired from "@iconify/icons-twemoji/man-curly-haired";
 import manWhiteHaired from "@iconify/icons-twemoji/man-white-haired";
 import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired";
 import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired";
-import desertIsland from "@iconify/icons-twemoji/desert-island";
+import { Icon } from "@iconify/react";
+import {
+  Card,
+  CardContent,
+  Chip,
+  CircularProgress,
+  Divider,
+  NativeSelect,
+  Tooltip,
+  Typography,
+} from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React, { Fragment } from "react";
 
 const styles = () => ({
   card: {
@@ -67,14 +67,14 @@ const BlueTooltip = withStyles(theme => ({
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
     this.props.onChange(i, event);
-  }
+  };
 
   handleOutreMerChange = numcastype => () => {
-    const { onOutreMerChange, descCasType } = this.props;
+    const { descCasType, onOutreMerChange } = this.props;
     const outreMerIndex = 3 - descCasType.outre_mer;
     // console.log("je suis dans l'outremer",numcastype,event,this.props.descCasType.outre_mer)
     onOutreMerChange(numcastype, outreMerIndex);
-  }
+  };
 
   roundedRevenues(revenumensuel) {
     const roundlevel = [100, 50, 100, 200, 500, 1000, 5000, 10000, 100000];
@@ -105,10 +105,10 @@ class SimpleCard extends React.Component {
   render() {
     const {
       classes,
-      index,
       descCasType,
-      impotsAvant,
       impotsApres,
+      impotsAvant,
+      index,
       isLoading,
     } = this.props;
 
@@ -144,7 +144,7 @@ class SimpleCard extends React.Component {
           : womanCurlyHaired;
     const babyicons = [...Array(nbenfants)].map((e, i) => {
       const keyindex = `baby${i}`;
-      return <Icon key={keyindex} icon={babyIcon} width="30" height="30" />;
+      return <Icon key={keyindex} height="30" icon={babyIcon} width="30" />;
     });
     return (
       <Card className={classes.card}>
@@ -153,14 +153,14 @@ class SimpleCard extends React.Component {
             <div>
               <Tooltip
                 key="revenus"
-                placement="top"
-                title={isret ? "Plus de 65 ans" : "Moins de 65 ans"}
                 enterDelay={300}
-                leaveDelay={200}>
+                leaveDelay={200}
+                placement="top"
+                title={isret ? "Plus de 65 ans" : "Moins de 65 ans"}>
                 <span>
-                  {<Icon key="person1" icon={icon1} width="40" height="40" />}
+                  {<Icon key="person1" height="40" icon={icon1} width="40" />}
                   {aretwo ? (
-                    <Icon key="person2" icon={icon2} width="40" height="40" />
+                    <Icon key="person2" height="40" icon={icon2} width="40" />
                   ) : (
                     ""
                   )}
@@ -171,10 +171,10 @@ class SimpleCard extends React.Component {
             <div>
               <Tooltip
                 key="revenus"
-                placement="top"
-                title="Revenus bruts"
                 enterDelay={300}
-                leaveDelay={200}>
+                leaveDelay={200}
+                placement="top"
+                title="Revenus bruts">
                 <NativeSelect
                   className={classes.nativeselect}
                   value={revrounded}
@@ -190,27 +190,27 @@ class SimpleCard extends React.Component {
               {isoutremer1 ? (
                 <Tooltip
                   key="outremer1"
-                  placement="bottom"
-                  title="Guadeloupe, Martinique ou Réunion"
                   enterDelay={300}
-                  leaveDelay={200}>
+                  leaveDelay={200}
+                  placement="bottom"
+                  title="Guadeloupe, Martinique ou Réunion">
                   <Chip
                     className={classes.chip}
-                    onClick={this.handleOutreMerChange(index)}
-                    icon={<Icon icon={desertIsland} width="20" height="20" />}
+                    icon={<Icon height="20" icon={desertIsland} width="20" />}
                     label="Outre-mer n° 1"
+                    onClick={this.handleOutreMerChange(index)}
                   />
                 </Tooltip>
               ) : isoutremer2 ? (
                 <Tooltip
                   key="outremer2"
-                  placement="bottom"
-                  title="Guyane ou Mayotte"
                   enterDelay={300}
-                  leaveDelay={200}>
+                  leaveDelay={200}
+                  placement="bottom"
+                  title="Guyane ou Mayotte">
                   <Chip
                     className={classes.chip}
-                    icon={<Icon icon={desertIsland} width="20" height="20" />}
+                    icon={<Icon height="20" icon={desertIsland} width="20" />}
                     label="Outre-mer n° 2"
                     onClick={this.handleOutreMerChange(index)}
                   />
@@ -225,15 +225,17 @@ class SimpleCard extends React.Component {
             <Typography className={classes.legende}>
               Impôt sur le revenu par an
             </Typography>
-            <Typography inline variant="h3" color="primary" gutterBottom>
+            <Typography gutterBottom inline color="primary" variant="h3">
               {-impotsAvant}
             </Typography>
-            <Typography inline variant="h5" color="primary" gutterBottom>
+            <Typography gutterBottom inline color="primary" variant="h5">
               €
             </Typography>
             <br />
             <BlueTooltip
               key="gain"
+              enterDelay={300}
+              leaveDelay={200}
               placement="bottom-start"
               title={(
                 <Fragment>
@@ -244,26 +246,24 @@ class SimpleCard extends React.Component {
                   </b>
                   {"/an"}
                 </Fragment>
-              )}
-              enterDelay={300}
-              leaveDelay={200}>
+              )}>
               <div>
                 {isLoading ? (
                   <CircularProgress color="secondary" />
                 ) : (
                   <Fragment>
                     <Typography
+                      gutterBottom
                       inline
-                      variant="h3"
                       color="secondary"
-                      gutterBottom>
+                      variant="h3">
                       {-impotsApres}
                     </Typography>
                     <Typography
+                      gutterBottom
                       inline
-                      variant="h5"
                       color="secondary"
-                      gutterBottom>
+                      variant="h5">
                       €
                     </Typography>
                   </Fragment>

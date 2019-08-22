@@ -16,7 +16,7 @@
     "build:server": "NODE_ENV=production babel server.js --out-dir build/dist",
     "build": "npm run build:client && npm run build:server",
     "start": "NODE_ENV=production node build/dist/server.js",
-    "code:check": "eslint -c .eslintrc --ext .js,.jsx --ignore-path .gitignore .",
+    "code:check": "eslint -c .eslintrc.json --ext .js,.jsx --ignore-path .gitignore .",
     "code:format": "prettier-eslint --write '**/*.{js,jsx}' --ignore-path .gitignore",
     "test": "jest",
     "cleanup": "rm -rf ./node_modules"

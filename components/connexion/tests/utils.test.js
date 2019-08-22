@@ -1,10 +1,10 @@
+import { roles as AVAILABLE_ROLES } from "../config.json";
 import {
   parseFormValuesUserEmail,
   shouldShowFieldError,
   updateDomainsWhenRoleChange,
   validateEmailInputField,
 } from "../utils";
-import { roles as AVAILABLE_ROLES } from "../config.json";
 
 describe("components | connexion | utils", () => {
   describe("parseFormValuesUserEmail", () => {
@@ -30,9 +30,9 @@ describe("components | connexion | utils", () => {
     describe("doit retourner une erreur", () => {
       it("quand l'API a retourné une erreur", () => {
         const given = {
-          submitError: "any error message",
           dirtySinceLastSubmit: false,
           error: null,
+          submitError: "any error message",
           touched: true,
         };
         const result = shouldShowFieldError(given);
@@ -41,9 +41,9 @@ describe("components | connexion | utils", () => {
 
       it("quand la validation du champ a échoué", () => {
         const given = {
-          submitError: null,
           dirtySinceLastSubmit: true,
           error: "any error message",
+          submitError: null,
           touched: true,
         };
         const result = shouldShowFieldError(given);
@@ -54,9 +54,9 @@ describe("components | connexion | utils", () => {
     describe("ne doit pas retourner d'erreur", () => {
       it("quand le champ n'a jamais ete modifié", () => {
         const given = {
-          submitError: null,
           dirtySinceLastSubmit: false,
           error: "any error message",
+          submitError: null,
           touched: false,
         };
         const result = shouldShowFieldError(given);
@@ -76,9 +76,9 @@ describe("components | connexion | utils", () => {
 
       it("quand le champ a changé depuis le dernier submit", () => {
         const given = {
-          submitError: "any submit error",
           dirtySinceLastSubmit: true,
           error: null,
+          submitError: "any submit error",
           touched: true,
         };
         const result = shouldShowFieldError(given);
@@ -139,11 +139,11 @@ describe("components | connexion | utils", () => {
   describe("available roles from config", () => {
     it("retourne une map d'elements", () => {
       const given = {
-        depute: {
-          default: true,
+        admin: {
+          default: false,
           disabled: false,
           domains: ["@assemblee-nationale.fr"],
-          label: "Député·e",
+          label: "Administrat·eur·rice Assemblée nationale",
         },
         collab: {
           default: false,
@@ -151,11 +151,11 @@ describe("components | connexion | utils", () => {
           domains: ["@clb-an.fr", "@clb-dep.fr"],
           label: "Collaborat·eur·rice Assemblée nationale",
         },
-        admin: {
-          default: false,
+        depute: {
+          default: true,
           disabled: false,
           domains: ["@assemblee-nationale.fr"],
-          label: "Administrat·eur·rice Assemblée nationale",
+          label: "Député·e",
         },
         senat: {
           default: false,

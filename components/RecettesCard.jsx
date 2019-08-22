@@ -1,12 +1,12 @@
-import { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+import { Icon } from "@iconify/react";
+import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { Icon } from "@iconify/react";
-import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
 const styles = () => ({
   // root: {
@@ -26,6 +26,13 @@ const styles = () => ({
   // pos: {
   //    marginBottom: 12,
   // },
+  div: {
+    padding: 7,
+  },
+
+  iconEtat: {
+    fontSize: "50px",
+  },
 
   pom_rouge: {
     color: "#FF0000",
@@ -33,17 +40,10 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
-  div: {
-    padding: 7,
-  },
 
   // button: {
   //      margin: theme.spacing.unit,
   // },
-
-  iconEtat: {
-    fontSize: "50px",
-  },
 });
 
 class RecettesCard extends PureComponent {
@@ -54,30 +54,30 @@ class RecettesCard extends PureComponent {
     return (
       <Card>
         <CardContent>
-          <Icon icon={classicalBuilding} width="40" height="40" />
+          <Icon height="40" icon={classicalBuilding} width="40" />
           <Typography variant="body1">Recettes de l&#39;État</Typography>
 
           <div>
-            <Typography inline variant="h3" color="primary" gutterBottom>
+            <Typography gutterBottom inline color="primary" variant="h3">
               {Math.round(impots_avant / 100000000) / 10}
             </Typography>
             <Typography
+              gutterBottom
               inline
-              variant="h5"
               className={delta > -0.01 ? classes.pom_verte : classes.pom_rouge}
-              gutterBottom>
+              variant="h5">
               {delta > -0.01 ? "+" : "-"}
             </Typography>
-            <Typography inline variant="h3" color="secondary" gutterBottom>
+            <Typography gutterBottom inline color="secondary" variant="h3">
               {Math.round(Math.abs(delta / 100000000)) / 10}
             </Typography>
-            <Typography inline variant="h5" color="secondary" gutterBottom>
+            <Typography gutterBottom inline color="secondary" variant="h5">
               Md€
             </Typography>
           </div>
 
           <div>
-            <Button variant="contained" color="secondary" onClick={onClick}>
+            <Button color="secondary" variant="contained" onClick={onClick}>
               Lancer la simulation
             </Button>
           </div>
@@ -88,9 +88,9 @@ class RecettesCard extends PureComponent {
 }
 
 RecettesCard.propTypes = {
+  classes: PropTypes.shape().isRequired,
   delta: PropTypes.shape().isRequired,
   impots_avant: PropTypes.shape().isRequired,
-  classes: PropTypes.shape().isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

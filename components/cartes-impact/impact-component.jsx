@@ -27,13 +27,13 @@ class ImpactComponent extends PureComponent {
         {casTypes.map((casType, i) => {
           const itemKey = `react::simple-card-key-index::${i}`;
           return (
-            <Grid item key={itemKey} xs={6} sm={12} md={6} lg={4} xl={3}>
+            <Grid key={itemKey} item lg={4} md={6} sm={12} xl={3} xs={6}>
               <SimpleCard
-                index={i}
                 descCasType={casType}
-                onChange={changeRevenuHandler}
-                impotsAvant={resBrut.avant[i]}
                 impotsApres={resBrut.apres[i]}
+                impotsAvant={resBrut.avant[i]}
+                index={i}
+                onChange={changeRevenuHandler}
                 onOutreMerChange={handleOutreMerChange}
               />
             </Grid>

@@ -7,6 +7,7 @@ const { assign, concat, flow } = require("lodash/fp");
 const { EnvironmentPlugin } = require("webpack");
 
 const nextConfig = {
+  distDir: "build",
   exportPathMap: defaults => ({
     ...defaults,
   }),
@@ -18,7 +19,6 @@ const nextConfig = {
     const plugins = concat(webpackConfig.plugins, [envPlugin]);
     return assign(webpackConfig, { plugins });
   },
-  distDir: "build",
 };
 
 module.exports = flow([withSass, withImages])(nextConfig);

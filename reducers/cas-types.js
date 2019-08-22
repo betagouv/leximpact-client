@@ -2,45 +2,45 @@ import { cloneDeep, set } from "lodash";
 
 const DEFAULT_CAS_TYPES = [
   {
-    outre_mer: 0,
     nombre_declarants: 1,
     nombre_declarants_retraites: 0,
     nombre_personnes_a_charge: 0,
+    outre_mer: 0,
     revenu: 15600,
   },
   {
-    outre_mer: 0,
     nombre_declarants: 1,
     nombre_declarants_retraites: 0,
     nombre_personnes_a_charge: 1,
+    outre_mer: 0,
     revenu: 31200,
   },
   {
-    outre_mer: 0,
     nombre_declarants: 2,
     nombre_declarants_retraites: 0,
     nombre_personnes_a_charge: 0,
+    outre_mer: 0,
     revenu: 38400,
   },
   {
-    outre_mer: 0,
     nombre_declarants: 2,
     nombre_declarants_retraites: 2,
     nombre_personnes_a_charge: 0,
+    outre_mer: 0,
     revenu: 15600,
   },
   {
-    outre_mer: 0,
     nombre_declarants: 2,
     nombre_declarants_retraites: 0,
     nombre_personnes_a_charge: 2,
+    outre_mer: 0,
     revenu: 55200,
   },
   {
-    outre_mer: 1,
     nombre_declarants: 2,
     nombre_declarants_retraites: 0,
     nombre_personnes_a_charge: 2,
+    outre_mer: 1,
     revenu: 55200,
   },
 ];

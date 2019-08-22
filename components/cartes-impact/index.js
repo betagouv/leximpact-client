@@ -5,7 +5,6 @@ import {
   updateCasTypeOutreMer,
   updateRevenusAnnuelCasType,
 } from "../actions";
-
 import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({ casTypes, resBrut, totalPop }) => ({

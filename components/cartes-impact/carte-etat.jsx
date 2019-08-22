@@ -1,14 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import "styles/chart.scss";
+
+import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+import { Icon } from "@iconify/react";
 import {
   Button, Card, CardContent, Typography,
 } from "@material-ui/core";
-import { Icon } from "@iconify/react";
-import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 import BarChart from "./bar-chart";
-import "styles/chart.scss";
 
 const styles = theme => ({
   // root: {
@@ -80,7 +81,7 @@ class RecettesCard extends React.Component {
           <table>
             <tr>
               <td rowSpan="2">
-                <Icon icon={classicalBuilding} width="40" height="40" />
+                <Icon height="40" icon={classicalBuilding} width="40" />
               </td>
               <td className="titleCarteEtat">
                 Recettes de l'État sur l'impôt sur le revenu
@@ -125,8 +126,8 @@ class RecettesCard extends React.Component {
           <div>
             <center>
               <Button
-                variant="contained"
                 color="secondary"
+                variant="contained"
                 onClick={this.updateStateRes}>
                 Lancer la simulation
               </Button>

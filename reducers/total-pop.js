@@ -1,8 +1,4 @@
 const DEFAULT_STATE = {
-  total: {
-    avant: 78000000000,
-    apres: 78000000001,
-  },
   deciles: [
     {
       apres: 0,
@@ -55,6 +51,10 @@ const DEFAULT_STATE = {
       poids: 63647.22070607485,
     },
   ],
+  total: {
+    apres: 78000000001,
+    avant: 78000000000,
+  },
 };
 
 const totalPop = (state = DEFAULT_STATE, action) => {
