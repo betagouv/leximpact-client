@@ -8,15 +8,24 @@ import HeaderMenuButton from "./menu-button";
 
 const styles = () => ({
   bolderTitle: {
+    fontSize: "36px",
     fontWeight: "bold",
   },
   lighterTitle: {
+    fontSize: "36px",
     fontWeight: "lighter",
+  },
+  bolderMobileTitle: {
+    fontSize: "25px,",
+    fontWeight: "bold",
+  },
+  lighterMobileTitle: {
+    fontSize: "25px,",
+    fontWeight: "regular",
   },
   titleRoot: {
     color: "#FFFFFF",
     fontFamily: "Lato",
-    fontSize: "36px",
     textTransform: "uppercase",
   },
   toolbarRoot: {
@@ -52,14 +61,14 @@ class HeaderContainer extends PureComponent {
             <Typography classes={{ root: classes.titleRoot }} component="div">
               {!isUserConnected && (
                 <span>
-                  <span className={classes.bolderTitle}>OPENMOBILE&nbsp;</span>
-                  <span className={classes.lighterTitle}>LEXIMPACT</span>
+                  <span className={classes.bolderMobileTitle}>OPEN&nbsp;</span>
+                  <span className={classes.lighterMobileTitle}>LEXIMPACT</span>
                 </span>
               )}
               {isUserConnected && (
                 <span>
-                  <span className={classes.lighterTitle}>LEXIMPACT&nbsp;</span>
-                  <span className={classes.bolderTitle}>POPMOBILE</span>
+                  <span className={classes.lighterMobileTitle}>LEXIMPACT&nbsp;</span>
+                  <span className={classes.bolderMobileTitle}>POP</span>
                 </span>
               )}
             </Typography>
