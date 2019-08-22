@@ -3,8 +3,9 @@ import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
 import AppHeaderComponent from "./app-header-component";
 
+
 const mapStateToProps = (state, { width }) => {
-  const useMobileView = width === "xs" || width === "sm";
+  const useMobileView = width === "xs" || width === "s";
   const isUserConnected = Boolean(state.token || null);
   return { isUserConnected, useMobileView };
 };
