@@ -1,11 +1,11 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
-import { showEnSavoirPlusPopin } from "../../redux/actions";
+import { showEnSavoirPlusPopin } from "../../../redux/actions";
 import HeaderMenuButton from "../menu-button";
 
 const MockButtonClickHandler = jest.fn();
 jest.mock("next/router", () => ({ push: jest.fn() }));
-jest.mock("../../redux/actions", () => ({
+jest.mock("../../../redux/actions", () => ({
   showEnSavoirPlusPopin: jest.fn(),
 }));
 
