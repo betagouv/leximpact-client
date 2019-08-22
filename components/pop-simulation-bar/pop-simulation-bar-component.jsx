@@ -2,6 +2,7 @@ import { Button, Grid, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { Component } from "react";
+import { Cached as CachedIcon } from "@material-ui/icons";
 
 import { MuiSplitButton } from "../mui-extras-components";
 import PopMenuShareButton from "./pop-menu-share-button";
@@ -9,10 +10,13 @@ import PopMenuWorkspaceButton from "./pop-menu-workspace-button";
 
 const styles = () => ({
   container: {
-    marginBottom: "68px",
+    marginBottom: "24px",
   },
   menuPaper: {
     backgroundColor: "rgba(255, 255, 255, 1) !important",
+  },
+  styleIcon: {
+    marginRight: "20px",
   },
 });
 
@@ -47,7 +51,7 @@ class PopSimulationBar extends Component {
   };
 
   renderBoutonSimulation = () => {
-    const { handleSimulationClick, useMobileView } = this.props;
+    const { handleSimulationClick, classes, useMobileView } = this.props;
     return (
       <Grid item>
         <Button
@@ -55,8 +59,9 @@ class PopSimulationBar extends Component {
           size="large"
           variant="contained"
           onClick={handleSimulationClick}>
-          {useMobileView && "toto"}
-          {!useMobileView && "LANCER LA SIMULATION"}
+          <CachedIcon className={classes.styleIcon} />
+          {useMobileView && "ESTIMER"}
+          {!useMobileView && "LANCER L'ESTIMATION"}
         </Button>
       </Grid>
     )
