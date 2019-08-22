@@ -4,25 +4,27 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import LoginButton from "./login-button";
+import LoginButtonMobile from "./login-button-mobile";
 import HeaderMenuButton from "./menu-button";
 
 const styles = () => ({
-  bolderTitle: {
-    fontSize: "36px",
-    fontWeight: "bold",
-  },
-  lighterTitle: {
-    fontSize: "36px",
-    fontWeight: "lighter",
-  },
   bolderMobileTitle: {
     fontSize: "25px,",
+    fontWeight: "bold",
+  },
+  bolderTitle: {
+    fontSize: "36px",
     fontWeight: "bold",
   },
   lighterMobileTitle: {
     fontSize: "25px,",
     fontWeight: "regular",
   },
+  lighterTitle: {
+    fontSize: "36px",
+    fontWeight: "lighter",
+  },
+
   titleRoot: {
     color: "#FFFFFF",
     fontFamily: "Lato",
@@ -36,7 +38,6 @@ const styles = () => ({
 class HeaderContainer extends PureComponent {
   render() {
     const { classes, isUserConnected, useMobileView } = this.props;
-    const showLoginButton = process.env.NODE_ENV === "development";
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
@@ -73,7 +74,12 @@ class HeaderContainer extends PureComponent {
               )}
             </Typography>
           )}
-          {(showLoginButton && <LoginButton />) || <div />}
+          {!useMobileView && (
+            <LoginButton />
+          )}
+          {useMobileView && (
+            <LoginButtonMobile />
+          )}
         </Toolbar>
       </AppBar>
     );
