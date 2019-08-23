@@ -1,4 +1,4 @@
-import { Divider, Paper, Typography } from "@material-ui/core";
+import { Grid, Divider, Paper, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -264,8 +264,14 @@ class ArticlesComponent extends React.Component {
         <div style={style.Div}>
           <Alinea0 style={style} />
           {articleTranches}
-          <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
-          <BoutonSupprimerTranche style={style} onClick={handleRemoveTranche} />
+          <Grid container sm={12} spacing={2}>
+            <Grid item sm={3}>
+              <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
+            </Grid>
+            <Grid item sm={6}>
+              <BoutonSupprimerTranche style={style} onClick={handleRemoveTranche} />
+            </Grid>
+          </Grid>
           <Alinea2 baseOutputInput={this.renderBaseOutputInput} style={style} />
           <Alinea3 baseOutputInput={this.renderBaseOutputInput} style={style} />
           <Alinea4a

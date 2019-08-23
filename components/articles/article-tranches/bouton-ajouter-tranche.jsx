@@ -4,15 +4,11 @@ import PropTypes from "prop-types";
 
 const AddTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab color="primary" size="small" style={style.Button} onClick={onClick}>
+    <Fab variant="extended" color="primary" size="medium" style={style.Button} onClick={onClick}>
       <AddIcon />
     </Fab>
-    <Typography
-      inline
-      color="primary"
-      style={style.Typographybouton}
-      variant="overline">
-      Ajouter une tranche
+    <Typography inline variant="caption" >
+    Ajouter ou
     </Typography>
   </div>
 );
