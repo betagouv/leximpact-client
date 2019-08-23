@@ -11,6 +11,15 @@ const styleExpansionpanel = {
   padding: "1px",
 };
 
+const styleTitreThematique = {
+  color: "#B1B1B1",
+  fontFamily: "Lato",
+  fontSize: "20px",
+  fontVariantCaps: "all-small-caps",
+  fontWeight: "bold",
+  textAlign: "left",
+};
+
 class Alinea4b extends PureComponent {
   alinea4bext() {
     const {
@@ -20,8 +29,11 @@ class Alinea4b extends PureComponent {
     } = this.props;
     return (
       <Typography color="inherit" variant="body2">
-        ...au sixième alinéa du présent b pour les contribuables dont le montant
-        des revenus du foyer fiscal, au sens du 1° du IV de l&apos;article 1417,
+        b. Le montant de l&apos;impôt résultant du a est
+        réduit dans les conditions prévues au sixième
+        alinéa du présent b pour les contribuables dont
+        le montant des revenus du foyer fiscal, au sens du
+        1° du IV de l&apos;article 1417,
         est inférieur à
         {" "}
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}
@@ -138,9 +150,9 @@ class Alinea4b extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography color="inherit" variant="body2">
-            b. Le montant de l&apos;impôt résultant du a est réduit dans les
-            conditions prévues...
+          <Typography
+            style={styleTitreThematique}>
+              Réfaction foyers modestes
           </Typography>
         </LexExpansionPanelSummary>
 

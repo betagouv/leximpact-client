@@ -10,6 +10,14 @@ import LexExpansionPanelSummary from "../expandable-panels/expansion-panel-summa
 const styleExpansionpanel = {
   padding: "1px",
 };
+const styleTitreThematique = {
+  color: "#B1B1B1",
+  fontFamily: "Lato",
+  fontSize: "20px",
+  fontVariantCaps: "all-small-caps",
+  fontWeight: "bold",
+  textAlign: "left",
+};
 
 class ArticleAlinea3 extends PureComponent {
   render() {
@@ -28,15 +36,16 @@ class ArticleAlinea3 extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography color="inherit" variant="body2">
-            3. Le montant de l&apos;impôt résultant de l&apos;application des
-            dispositions précédentes est réduit de...
+          <Typography
+            style={styleTitreThematique}>
+              Réfaction Outre-mer
           </Typography>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
           <Typography color="inherit" variant="body2">
-            ...
+            3. Le montant de l&apos;impôt résultant de l&apos;application des
+            dispositions précédentes est réduit de...
             {baseOutputInput("plafond_qf.abat_dom.taux_GuadMarReu")}
             %, dans la limite de
             {baseOutputInput("plafond_qf.abat_dom.plaf_GuadMarReu")}

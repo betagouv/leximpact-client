@@ -12,6 +12,15 @@ const styleExpansionpanel = {
   padding: "1px",
 };
 
+const styleTitreThematique = {
+  color: "#B1B1B1",
+  fontFamily: "Lato",
+  fontSize: "20px",
+  fontVariantCaps: "all-small-caps",
+  fontWeight: "bold",
+  textAlign: "left",
+};
+
 class Alinea4a extends PureComponent {
   render() {
     const {
@@ -30,15 +39,18 @@ class Alinea4a extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography color="inherit" variant="body2">
-            4. a. Le montant de l&apos;impôt résultant de l&apos;application des
-            dispositions précédentes est diminué, dans...
+          <Typography
+            style={styleTitreThematique}>
+              Décote
           </Typography>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
           <Typography color="inherit" variant="body2">
-            ...la limite de son montant, de la différence entre
+            4. a. Le montant de l&apos;impôt résultant
+            de l&apos;application des dispositions
+            précédentes est diminué, dans la limite
+            de son montant, de la différence entre
             {" "}
             {baseOutputInput("decote.seuil_celib")}
             € et les

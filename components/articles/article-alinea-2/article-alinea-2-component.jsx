@@ -11,6 +11,15 @@ const styleExpansionpanel = {
   padding: "1px",
 };
 
+const styleTitreThematique = {
+  color: "#B1B1B1",
+  fontFamily: "Lato",
+  fontSize: "20px",
+  fontVariantCaps: "all-small-caps",
+  fontWeight: "bold",
+  textAlign: "left",
+};
+
 class Alinea2 extends PureComponent {
   render() {
     const {
@@ -28,15 +37,16 @@ class Alinea2 extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography color="inherit" variant="body2">
-            2. La réduction d&apos;impôt résultant de l&apos;application du
-            quotient familial ...
+          <Typography
+            style={styleTitreThematique}>
+              Plafonds du quotient familial
           </Typography>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
           <Typography color="inherit" variant="body2">
-            ... ne peut excéder
+            2. La réduction d&apos;impôt résultant de l&apos;application du
+            quotient familial ne peut excéder
             {baseOutputInput("plafond_qf.maries_ou_pacses")}
 € par demi-part ou
             la moitié de cette somme par quart de part s&apos;ajoutant à une
