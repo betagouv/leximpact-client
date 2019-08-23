@@ -36,7 +36,7 @@ const styles = () => ({
   },
 });
 
-class HeaderContainer extends PureComponent {
+class AppHeaderComponent extends PureComponent {
   render() {
     const { classes, isUserConnected, useMobileView } = this.props;
     return (
@@ -92,10 +92,10 @@ class HeaderContainer extends PureComponent {
   }
 }
 
-HeaderContainer.propTypes = {
+AppHeaderComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
   isUserConnected: PropTypes.bool.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(HeaderContainer);
+export default withStyles(styles)(AppHeaderComponent);

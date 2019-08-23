@@ -4,11 +4,11 @@ exports[`components | connexion | roles-input snapshot doit correspondre avec le
 <RolesInput
   classes={
     Object {
-      "formControl": "RolesInput-formControl-3",
-      "formLegend": "RolesInput-formLegend-1",
-      "formLegendAsterisk": "RolesInput-formLegendAsterisk-2",
-      "radioGroup": "RolesInput-radioGroup-5",
-      "radioItem": "RolesInput-radioItem-4",
+      "formControl": "RolesInput-formControl-1",
+      "formLegend": "RolesInput-formLegend-2",
+      "formLegendAsterisk": "RolesInput-formLegendAsterisk-3",
+      "radioGroup": "RolesInput-radioGroup-4",
+      "radioItem": "RolesInput-radioItem-5",
       "radioLabel": "RolesInput-radioLabel-6",
       "radioWrapper": "RolesInput-radioWrapper-7",
     }

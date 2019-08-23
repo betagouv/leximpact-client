@@ -4,8 +4,8 @@ exports[`components | connexion | mentions-legales-text snapshot doit correspond
 <MentionsLegales
   classes={
     Object {
-      "link": "MentionsLegales-link-2",
-      "mentionsLegales": "MentionsLegales-mentionsLegales-1",
+      "link": "MentionsLegales-link-1",
+      "mentionsLegales": "MentionsLegales-mentionsLegales-2",
     }
   }
 />

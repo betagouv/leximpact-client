@@ -7,7 +7,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "HeaderContainer-toolbarRoot-4",
+        "root": "AppHeaderComponent-toolbarRoot-6",
       }
     }
   >
@@ -15,25 +15,25 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "HeaderContainer-titleRoot-3",
+          "root": "AppHeaderComponent-titleRoot-5",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="HeaderContainer-lighterTitle-2"
+          className="AppHeaderComponent-lighterMobileTitle-3"
         >
           LEXIMPACT 
         </span>
         <span
-          className="HeaderContainer-bolderTitle-1"
+          className="AppHeaderComponent-bolderMobileTitle-1"
         >
           POP
         </span>
       </span>
     </WithStyles(Typography)>
-    <div />
+    <WithStyles(LoginButtonMobile) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -45,7 +45,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "HeaderContainer-toolbarRoot-4",
+        "root": "AppHeaderComponent-toolbarRoot-6",
       }
     }
   >
@@ -53,25 +53,25 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "HeaderContainer-titleRoot-3",
+          "root": "AppHeaderComponent-titleRoot-5",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="HeaderContainer-bolderTitle-1"
+          className="AppHeaderComponent-bolderTitle-2"
         >
           OPEN 
         </span>
         <span
-          className="HeaderContainer-lighterTitle-2"
+          className="AppHeaderComponent-lighterTitle-4"
         >
           LEXIMPACT
         </span>
       </span>
     </WithStyles(Typography)>
-    <div />
+    <WithStyles(LoginButton) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
