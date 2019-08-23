@@ -2,26 +2,34 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = () => ({
-  mentionsLegales: {
-    flex: "1",
-    width: "520px",
-    color: "#B1B1B1",
-    fontSize: "14px",
-    marginTop: "43px",
-    marginBottom: "43px",
-    maxWidth: "52Opx",
-    textAlign: "right",
-    fontFamily: "lato",
-    lineHeight: "17px",
-    alignSelf: "flex-end",
-    letterSpacing: "0.3px",
-  },
+const styles = theme => ({
   link: {
     color: "#B1B1B1",
     display: "inline-block",
     textDecoration: "underline",
   },
+  mentionsLegales: {
+    color: "#B1B1B1",
+    flex: "1",
+    fontFamily: "lato",
+    fontSize: "14px",
+    marginBottom: "43px",
+    marginTop: "43px",
+    alignSelf: "flex-end",
+    maxWidth: "52Opx",
+    textAlign: "right",
+    letterSpacing: "0.3px",
+    lineHeight: "17px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "12px",
+      marginBottom: "20px",
+      marginTop: "20px",
+      maxWidth: "200px",
+      lineHeight: "14px",
+      textAlign: "right",
+    },
+  },
+
 });
 
 const MentionsLegales = ({ classes }) => (

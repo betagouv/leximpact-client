@@ -15,6 +15,9 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "row",
     marginTop: "43px",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "20px",
+    },
   },
   formLegend: {
     color: "#000000",
@@ -31,14 +34,14 @@ const styles = theme => ({
     marginRight: "10px",
     textAlign: "left",
   },
+  radioGroup: {
+    flex: 1,
+  },
   radioItem: {
     padding: "0 12px",
     [theme.breakpoints.down("xs")]: {
       padding: "0 8px",
     },
-  },
-  radioGroup: {
-    flex: 1,
   },
   radioLabel: {
     color: "#565656",
@@ -82,8 +85,8 @@ class RolesInput extends PureComponent {
           focused={false}
           component="div"
           classes={{
-            root: classes.formLegend,
             asterisk: classes.formLegendAsterisk,
+            root: classes.formLegend,
           }}>
           <b>Je suis</b>
         </FormLabel>

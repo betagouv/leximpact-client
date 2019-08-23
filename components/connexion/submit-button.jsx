@@ -6,6 +6,9 @@ import { PureComponent } from "react";
 const styles = theme => ({
   circularProgress: {
     marginTop: "41px",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "20px",
+    },
   },
   container: {
     display: "flex",
@@ -20,6 +23,7 @@ const styles = theme => ({
     width: "370px",
     [theme.breakpoints.down("xs")]: {
       maxWidth: "180px",
+      marginTop: "20px",
     },
   },
   fabDisabled: {
