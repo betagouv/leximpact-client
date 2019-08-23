@@ -6,6 +6,7 @@ import { PureComponent } from "react";
 import LoginButton from "./login-button";
 import LoginButtonMobile from "./login-button-mobile";
 import HeaderMenuButton from "./menu-button";
+import HeaderMenuButtonMobile from "./menu-button-mobile";
 
 const styles = () => ({
   bolderMobileTitle: {
@@ -41,7 +42,12 @@ class HeaderContainer extends PureComponent {
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
-          <HeaderMenuButton />
+          {useMobileView && (
+            <HeaderMenuButtonMobile />
+          )}
+          {!useMobileView && (
+            <HeaderMenuButton />
+          )}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
               {!isUserConnected && (
