@@ -1,18 +1,15 @@
-import { Button, Grid, MenuItem } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Cached as CachedIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { Component } from "react";
 
-import { MUIDropdownMenu } from "../mui-extras-components";
 import SimulationOptionsButton from "./simulation-options-menu";
+import SimulationOutilsButton from "./simulation-outils-menu";
 
 const styles = () => ({
   container: {
     marginBottom: "24px",
-  },
-  menuPaper: {
-    backgroundColor: "rgba(255, 255, 255, 1) !important",
   },
   styleIcon: {
     marginRight: "20px",
@@ -20,37 +17,12 @@ const styles = () => ({
 });
 
 class SimulationMenuBar extends Component {
-  constructor(props) {
-    super(props);
-    const selected = props.menuItems[0];
-    this.state = { selected };
-  }
-
-  handlerMenuListItemClick = (handleClose, selected) => () => {
-    this.setState({ selected }, handleClose);
-  };
-
-  renderMenuListItems = ({ handleClose }) => {
-    const { menuItems } = this.props;
-    return menuItems.map((listObj) => {
-      const { disabled, key, label } = listObj;
-      const { selected } = this.state;
-      const uniqKey = `menu-list-item::${key}`;
-      const isCurrentSelected = key === selected.key;
-      return (
-        <MenuItem
-          key={uniqKey}
-          disabled={disabled}
-          selected={isCurrentSelected}
-          onClick={this.handlerMenuListItemClick(handleClose, listObj)}>
-          {label}
-        </MenuItem>
-      );
-    });
-  };
-
   renderBoutonSimulation = () => {
-    const { classes, handleSimulationClick, isMobileView } = this.props;
+    const {
+      classes,
+      handleSimulationClick,
+      showSimulatioButtonAsMobile,
+    } = this.props;
     return (
       <Grid item>
         <Button
@@ -59,20 +31,20 @@ class SimulationMenuBar extends Component {
           variant="contained"
           onClick={handleSimulationClick}>
           <CachedIcon className={classes.styleIcon} />
-          {isMobileView && "ESTIMER"}
-          {!isMobileView && "LANCER L'ESTIMATION"}
+          {showSimulatioButtonAsMobile && "ESTIMER"}
+          {!showSimulatioButtonAsMobile && "LANCER L'ESTIMATION"}
         </Button>
       </Grid>
     );
   };
 
   renderOutilsAffichage = () => {
-    const { selected } = this.state;
     const {
-      classes,
       handleItemWithActionClick,
-      isLargeView,
-      optionsMenuItems,
+      optionsItems,
+      outilsItems,
+      showOptionsAsMobile,
+      showOutilsAsMobile,
     } = this.props;
     return (
       <Grid item>
@@ -85,21 +57,16 @@ class SimulationMenuBar extends Component {
           <Grid item>
             <SimulationOptionsButton
               itemMenuClickHandler={handleItemWithActionClick}
-              items={optionsMenuItems}
-              showMobileView={!isLargeView}
+              items={optionsItems}
+              showMobileView={showOptionsAsMobile}
             />
           </Grid>
           <Grid item>
-            <MUIDropdownMenu
-              menuProps={{
-                classes: { paper: classes.menuPaper },
-              }}
-              renderMenu={this.renderMenuListItems}
-              size="medium"
-              variant="contained"
-              onClick={() => handleItemWithActionClick(selected)}>
-              {selected.label}
-            </MUIDropdownMenu>
+            <SimulationOutilsButton
+              itemMenuClickHandler={handleItemWithActionClick}
+              items={outilsItems}
+              showMobileView={showOutilsAsMobile}
+            />
           </Grid>
         </Grid>
       </Grid>
@@ -126,17 +93,11 @@ SimulationMenuBar.propTypes = {
   classes: PropTypes.shape().isRequired,
   handleItemWithActionClick: PropTypes.func.isRequired,
   handleSimulationClick: PropTypes.func.isRequired,
-  isLargeView: PropTypes.bool.isRequired,
-  isMobileView: PropTypes.bool.isRequired,
-  menuItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      action: PropTypes.func.isRequired,
-      disabled: PropTypes.bool.isRequired,
-      key: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  optionsMenuItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  optionsItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  outilsItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  showOptionsAsMobile: PropTypes.bool.isRequired,
+  showOutilsAsMobile: PropTypes.bool.isRequired,
+  showSimulatioButtonAsMobile: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(SimulationMenuBar);

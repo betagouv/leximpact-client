@@ -1,5 +1,6 @@
 import withWidth from "@material-ui/core/withWidth";
 import {
+  AddCircleOutline as AddCircleOutlineIcon,
   Share as ShareIcon,
   ViewQuilt as ViewQuiltIcon,
 } from "@material-ui/icons";
@@ -7,15 +8,16 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 
 import { showAddImpactCardPopin } from "../../redux/actions";
-import { useLargeView, useMobileView } from "../../redux/helpers";
 import SimulationMenuBarComponent from "./simulation-menubar-component";
 
-const MENU_ITEMS = [
+const OUTILS_MENU_ITEMS = [
   {
+    Icon: AddCircleOutlineIcon,
     action: showAddImpactCardPopin,
     disabled: false,
     key: "cas_types",
     label: "Ajouter un cas type",
+    shortLabel: "Cas type",
   },
   {
     action: () => {
@@ -24,6 +26,7 @@ const MENU_ITEMS = [
     disabled: true,
     key: "entree_imposition",
     label: "Visualiser le point d'entrée d'imposition",
+    shortLabel: "Point entrée imposition",
   },
   {
     action: () => {
@@ -32,6 +35,7 @@ const MENU_ITEMS = [
     disabled: true,
     key: "plafond_familial",
     label: "Visualiser les plafond du quotient familial",
+    shortLabel: "Plafonds QF",
   },
 ];
 
@@ -43,6 +47,7 @@ const OPTIONS_MENU_ITEMS = [
     },
     key: "simpop-share-button",
     label: "Partager",
+    shortLabel: "Partager",
   },
   {
     Icon: ViewQuiltIcon,
@@ -51,19 +56,34 @@ const OPTIONS_MENU_ITEMS = [
     },
     key: "simpop-workspace-button",
     label: "Espace de travail",
+    shortLabel: "Espace de travail",
   },
 ];
 
-const mapStateToProps = (state, props) => {
-  const menuItems = [...MENU_ITEMS];
-  const optionsMenuItems = [...OPTIONS_MENU_ITEMS];
-  const isLargeView = useLargeView(props);
-  const isMobileView = useMobileView(props);
+function useSimulatioButtonAsMobile(width) {
+  return width === "xs" || width === "sm" || width === "md";
+}
+
+function useOptionsAsMobile(width) {
+  return width !== "lg" || width !== "xl";
+}
+
+function useOutilsAsMobile(width) {
+  return width === "xs" || width === "sm" || width === "md";
+}
+
+const mapStateToProps = (state, { width }) => {
+  const outilsItems = [...OUTILS_MENU_ITEMS];
+  const optionsItems = [...OPTIONS_MENU_ITEMS];
+  const showOutilsAsMobile = useOutilsAsMobile(width);
+  const showOptionsAsMobile = useOptionsAsMobile(width);
+  const showSimulatioButtonAsMobile = useSimulatioButtonAsMobile(width);
   return {
-    isLargeView,
-    isMobileView,
-    menuItems,
-    optionsMenuItems,
+    optionsItems,
+    outilsItems,
+    showOptionsAsMobile,
+    showOutilsAsMobile,
+    showSimulatioButtonAsMobile,
   };
 };
 
