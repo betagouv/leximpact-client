@@ -57,6 +57,10 @@ const updateDecote = (prevState, name, value) => {
     nextValue = parseInt(value, 10);
     set(prevState, "impot_revenu.decote.seuil_celib", nextValue);
   }
+  if (identifier === "seuil_couple") {
+    nextValue = parseInt(value, 10);
+    set(prevState, "impot_revenu.decote.seuil_couple", nextValue);
+  }
   if (identifier === "taux") {
     nextValue = Math.round(parseFloat(value) * 10) / 1000;
     set(prevState, "impot_revenu.decote.taux", nextValue);

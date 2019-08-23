@@ -16,15 +16,10 @@ const styleExpansionpanel = {
 class Alinea4a extends PureComponent {
   render() {
     const {
-      baseDecoteSeuilCelib,
-      baseDecoteSeuilCouple,
-      baseOutputInput,
-      decoteSeuilCelib,
-      decoteSeuilCouple,
-      expandArticlePanelHandler,
       formulaOutputInput,
+      baseOutputInput,
       isPanelExpanded,
-      onInputChange,
+      expandArticlePanelHandler,
       style,
     } = this.props;
     return (
@@ -46,16 +41,7 @@ class Alinea4a extends PureComponent {
           <Typography color="inherit" variant="body2">
             ...la limite de son montant, de la différence entre
             {" "}
-            <OutputField
-              style={style.VarCodeexistant}
-              value={baseDecoteSeuilCelib}
-            />
-            <InputField
-              name="decote.seuil_celib"
-              style={style.InputSeuil}
-              value={decoteSeuilCelib}
-              onChange={onInputChange}
-            />
+            {baseOutputInput("decote.seuil_celib")}
             € et les
             {" "}
             <OutputField style={style.VarCodeexistant} value="trois quarts" />
@@ -64,16 +50,7 @@ class Alinea4a extends PureComponent {
             {baseOutputInput("decote.taux")}
             %] de son montant pour les contribuables célibataires, divorcés ou
             veufs et de la différence entre
-            <OutputField
-              style={style.VarCodeexistant}
-              value={baseDecoteSeuilCouple}
-            />
-            <InputField
-              name="decote.seuil_couple"
-              style={style.InputSeuil}
-              value={decoteSeuilCouple}
-              onChange={onInputChange}
-            />
+            {baseOutputInput("decote.seuil_couple")}
             {" "}
             € et les
             {" "}
@@ -91,15 +68,11 @@ class Alinea4a extends PureComponent {
 }
 
 Alinea4a.propTypes = {
-  baseDecoteSeuilCelib: PropTypes.number.isRequired,
-  baseDecoteSeuilCouple: PropTypes.number.isRequired,
+  formulaOutputInput: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
-  decoteSeuilCelib: PropTypes.number.isRequired,
-  decoteSeuilCouple: PropTypes.number.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
-  onInputChange: PropTypes.func.isRequired,
   style: PropTypes.shape().isRequired,
 };
 
