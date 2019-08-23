@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 
 import { showAddImpactCardPopin } from "../../redux/actions";
-import PopSimulationBarComponent from "./pop-simulation-bar-component";
+import SimulationMenuBarComponent from "./simulation-menubar-component";
 
 const MENU_ITEMS = [
   {
@@ -50,4 +50,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-)(PopSimulationBarComponent);
+)(SimulationMenuBarComponent);

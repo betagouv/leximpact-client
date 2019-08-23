@@ -12,7 +12,7 @@ const styles = () => ({
   },
 });
 
-const PopMenuWorkspaceButton = ({ classes }) => (
+const SimulationWorkspaceButton = ({ classes }) => (
   <Fab
     disabled
     aria-label="Espace de travail"
@@ -25,8 +25,8 @@ const PopMenuWorkspaceButton = ({ classes }) => (
   </Fab>
 );
 
-PopMenuWorkspaceButton.propTypes = {
+SimulationWorkspaceButton.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(PopMenuWorkspaceButton);
+export default withStyles(styles)(SimulationWorkspaceButton);

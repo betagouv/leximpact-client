@@ -12,7 +12,7 @@ const styles = () => ({
   },
 });
 
-const PopMenuShareButton = ({ classes }) => (
+const SimulationShareButton = ({ classes }) => (
   <Fab
     disabled
     aria-label="Partager"
@@ -25,8 +25,8 @@ const PopMenuShareButton = ({ classes }) => (
   </Fab>
 );
 
-PopMenuShareButton.propTypes = {
+SimulationShareButton.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(PopMenuShareButton);
+export default withStyles(styles)(SimulationShareButton);

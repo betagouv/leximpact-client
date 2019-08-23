@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import { Component, Fragment } from "react";
 
 import { MUIDropdownMenu } from "../mui-extras-components";
-import PopMenuShareButton from "./pop-menu-share-button";
-import PopMenuWorkspaceButton from "./pop-menu-workspace-button";
+import SimulationShareButton from "./simulation-share-button";
+import SimulationWorkspaceButton from "./simulation-workspace-button";
 
 const styles = () => ({
   container: {
@@ -20,7 +20,7 @@ const styles = () => ({
   },
 });
 
-class PopSimulationBar extends Component {
+class SimulationMenuBar extends Component {
   constructor(props) {
     super(props);
     const selected = props.menuItems[0];
@@ -80,8 +80,8 @@ class PopSimulationBar extends Component {
           {useMobileView && <div />}
           {!useMobileView && (
             <Fragment>
-              <PopMenuShareButton />
-              <PopMenuWorkspaceButton />
+              <SimulationShareButton />
+              <SimulationWorkspaceButton />
             </Fragment>
           )}
           <MUIDropdownMenu
@@ -115,7 +115,7 @@ class PopSimulationBar extends Component {
   }
 }
 
-PopSimulationBar.propTypes = {
+SimulationMenuBar.propTypes = {
   classes: PropTypes.shape().isRequired,
   handleMenuClick: PropTypes.func.isRequired,
   handleSimulationClick: PropTypes.func.isRequired,
@@ -130,4 +130,4 @@ PopSimulationBar.propTypes = {
   useMobileView: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(PopSimulationBar);
+export default withStyles(styles)(SimulationMenuBar);

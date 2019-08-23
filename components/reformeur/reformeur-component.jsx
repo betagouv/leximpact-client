@@ -5,7 +5,7 @@ import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
 import ImpactCards from "../cartes-impact";
-import PopSimulationBar from "../pop-simulation-bar";
+import SimulationMenuBar from "../simulation-menubar";
 
 class ReformeurComponent extends PureComponent {
   constructor(props) {
@@ -30,7 +30,7 @@ class ReformeurComponent extends PureComponent {
           <Articles />
         </div>
         <div className="moitie-droite">
-          {isUserConnected && <PopSimulationBar />}
+          {isUserConnected && <SimulationMenuBar />}
           <ImpactCards />
         </div>
       </div>
@@ -61,7 +61,7 @@ class ReformeurComponent extends PureComponent {
             <Articles />
           </div>
           <div style={{ padding: 24 }}>
-            {isUserConnected && <PopSimulationBar />}
+            {isUserConnected && <SimulationMenuBar />}
             <ImpactCards />
           </div>
         </SwipeableViews>
