@@ -84,7 +84,6 @@ const style = {
     padding: "3px",
     textDecorationColor: "#FF6B6B",
     textDecorationLine: "line-through",
-    textDecorationSize: "2px",
   },
 
   VarPLF: {
