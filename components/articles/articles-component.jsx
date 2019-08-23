@@ -69,17 +69,30 @@ const style = {
     color: "#000000",
     fontWeight: "bold",
     lineHeight: "10px",
-    padding: "3px",
     marginLeft: "8px",
     marginRight: "8px",
+    padding: "3px",
+  },
+  VarCodeexistantBarrePLF: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "8px",
+    marginRight: "0px",
+    padding: "3px",
+    textDecorationColor: "#FF6B6B",
+    textDecorationLine: "line-through",
+    textDecorationSize: "2px",
   },
 
   VarPLF: {
-    color: "#A6A00C",
+    color: "#FF6B6B",
     fontWeight: "bold",
     lineHeight: "10px",
-    padding: "8px",
-    textDecoration: "underline",
+    marginLeft: "3px",
+    marginRight: "5px",
   },
 };
 
@@ -121,14 +134,18 @@ class ArticlesComponent extends React.Component {
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
-          <OutputField style={style.VarCodeexistant} value={bases[Math.min(i, bases.length - 1)]} />
+          <OutputField
+            style={style.VarCodeexistantBarrePLF}
+            value={bases[Math.min(i, bases.length - 1)]}
+          />
+          <OutputField style={style.VarPLF} value={bases[i]} />
           <InputField
             name={`seuil${i}`}
             style={style.InputSeuil}
             value={s[i]}
             onChange={handleArticleChange}
           />
-          {"€ le taux de :"}
+          € le taux de&nbsp;:
         </Typography>
       );
     }
@@ -144,7 +161,9 @@ class ArticlesComponent extends React.Component {
 
           <OutputField
             style={style.VarCodeexistant}
-            value={makeNumberGoodLooking(baset[Math.min(i, baset.length) - 1] * 100)}
+            value={makeNumberGoodLooking(
+              baset[Math.min(i, baset.length) - 1] * 100,
+            )}
           />
           <InputField
             name={`taux${i - 1}`}
@@ -155,7 +174,8 @@ class ArticlesComponent extends React.Component {
           {"% pour la fraction supérieure à "}
           <OutputField
             style={style.VarCodeexistant}
-            value={bases[Math.min(i - 1, bases.length - 1)]} />
+            value={bases[Math.min(i - 1, bases.length - 1)]}
+          />
           <OutputField value={s[i - 1]} />
           {"€."}
         </Typography>
@@ -172,7 +192,9 @@ class ArticlesComponent extends React.Component {
         {" "}
         <OutputField
           style={style.VarCodeexistant}
-          value={makeNumberGoodLooking(baset[Math.min(i, baset.length) - 1] * 100)}
+          value={makeNumberGoodLooking(
+            baset[Math.min(i, baset.length) - 1] * 100,
+          )}
         />
         <InputField
           name={`taux${i - 1}`}
@@ -184,10 +206,14 @@ class ArticlesComponent extends React.Component {
         {" "}
         <OutputField
           style={style.VarCodeexistant}
-          value={bases[Math.min(i - 1, bases.length - 1)]} />
+          value={bases[Math.min(i - 1, bases.length - 1)]}
+        />
         <OutputField value={s[i - 1]} />
         € et inférieure ou égale à
-        <OutputField style={style.VarCodeexistant} value={bases[Math.min(i, bases.length - 1)]} />
+        <OutputField
+          style={style.VarCodeexistant}
+          value={bases[Math.min(i, bases.length - 1)]}
+        />
         <InputField
           name={`seuil${i}`}
           style={style.InputSeuil}
