@@ -7,37 +7,32 @@ import { showConnexionPopin } from "../actions";
 
 
 const styles = () => ({
-  avatarIcon: {
-    marginRight: "9px",
-  },
   button: {
     "&:hover": {
       color: "#FFFFFF",
     },
     backgroundColor: "#FFFFFF",
     color: "#646008",
-    fontSize: "16px",
+    fontSize: "12px",
     textTransform: "uppercase",
   },
 });
 
-function LoginButton({ classes }) {
+function LoginButtonMobile({ classes }) {
   return (
     <Button
       className={classes.button}
       color="primary"
       variant="contained"
       onClick={showConnexionPopin}
-      size="medium">
-      <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
-      <span>leximpact&nbsp;</span>
-      <b>pop</b>
+      size="small">
+      <VPNKeyIcon />
     </Button>
   );
 }
 
-LoginButton.propTypes = {
+LoginButtonMobile.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(LoginButton);
+export default withStyles(styles)(LoginButtonMobile);

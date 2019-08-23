@@ -12,9 +12,18 @@ import {
 
 import { validateEmailInputField } from "./utils";
 
-const styles = () => ({
-  formGroup: { marginTop: "28px" },
-  formLabel: { fontSize: "24px", color: "#000000", marginBottom: "20px" },
+const styles = theme => ({
+  formGroup: {
+    marginTop: "28px"
+  },
+  formLabel: {
+    fontSize: "24px",
+    color: "#000000",
+    marginBottom: "20px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "18px",
+    },
+  },
   fieldsContainer: {
     width: "100%",
     display: "flex",
@@ -26,24 +35,35 @@ const styles = () => ({
     display: "flex",
     flexDirection: "column",
   },
-  inputRoot: {
-    width: "316px",
-    marginRight: "6px",
-  },
   inputField: {
-    width: "100%",
-    minWidth: "100%",
     fontSize: "18px",
     lineHeight: "2em",
+    maxWidth: "100%",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "14px",
+      width: "120px",
+    },
   },
   inputError: {
     color: "red",
     textAlign: "right",
   },
+  /*
+  inputRoot: {
+    marginRight: "6px",
+    maxWidth: "500px",
+    [theme.breakpoints.down("xs")]: {
+      width: "120px",
+    },
+  },*/
   selectRoot: {
-    width: "230px",
     fontSize: "18px",
     lineHeight: "2em",
+    maxWidth: "230px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "14px",
+      width: "120px",
+    },
   },
 });
 
@@ -78,8 +98,8 @@ class EmailTextInput extends PureComponent {
           {...input}
           required
           classes={{
-            root: classes.inputRoot,
             input: classes.inputField,
+        /*    root: classes.inputRoot, */
           }}
         />
       </div>
@@ -87,14 +107,14 @@ class EmailTextInput extends PureComponent {
   }
 
   render() {
-    const { domains, classes } = this.props;
+    const { classes, domains } = this.props;
     return (
       <FormGroup row classes={{ root: classes.formGroup }}>
         <FormLabel
           focused={false}
           component="legend"
           classes={{ root: classes.formLabel }}>
-          <b>Mon adresse e-mail officielle</b>
+          <b>Mon adresse e-mail officielle&nbsp;:</b>
         </FormLabel>
         <div className={classes.fieldsContainer}>
           <Field

@@ -21,14 +21,14 @@ describe("components | app-header | index", () => {
 
   describe("snapshot", () => {
     it("doit correspondre quand l'user n'est pas connecté", () => {
-      const props = { isUserConnected: false };
+      const props = { isUserConnected: false, useMobileView: false };
       const wrapper = shallow(<AppHeaderComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
 
     it("doit correspondre quand l'user est connecté", () => {
-      const props = { isUserConnected: true };
+      const props = { isUserConnected: true, useMobileView: true };
       const wrapper = shallow(<AppHeaderComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();

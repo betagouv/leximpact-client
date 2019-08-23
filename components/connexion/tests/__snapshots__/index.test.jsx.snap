@@ -8,8 +8,8 @@ exports[`components | connexion | index snapshot doit correspondre avec les prop
       "avatarIcon": "Connexion-avatarIcon-3",
       "container": "Connexion-container-1",
       "form": "Connexion-form-4",
-      "spanBolder": "Connexion-spanBolder-7",
-      "spanLighter": "Connexion-spanLighter-6",
+      "spanLeximpactBolder": "Connexion-spanLeximpactBolder-7",
+      "spanLeximpactLigther": "Connexion-spanLeximpactLigther-6",
       "submit": "Connexion-submit-5",
     }
   }

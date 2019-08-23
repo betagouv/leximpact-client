@@ -24,10 +24,17 @@ const styles = theme => ({
     height: "80px",
     margin: theme.spacing.unit,
     backgroundColor: theme.palette.primary.main,
+    [theme.breakpoints.down('xs')]: {
+      width: "60px",
+      height: "60px",
+    },
   },
   avatarIcon: {
     width: "42px",
     height: "auto",
+    [theme.breakpoints.down('xs')]: {
+      width: "32px",
+    },
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -36,11 +43,21 @@ const styles = theme => ({
   submit: {
     marginTop: theme.spacing.unit * 3,
   },
-  spanLighter: {
+  spanLeximpactLigther: {
+    fontSize: "34px",
+    fontFamily: "Lato",
     fontWeight: "lighter",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: "26px",
+    },
   },
-  spanBolder: {
+  spanLeximpactBolder: {
+    fontSize: "34px",
+    fontFamily: "Lato",
     fontWeight: "bold",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: "26px",
+    },
   },
 });
 
@@ -93,9 +110,9 @@ class Connexion extends PureComponent {
         <Avatar className={classes.avatar}>
           <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          <span className={classes.spanLighter}>LEXIMPACT&nbsp;</span>
-          <span className={classes.spanBolder}>POP</span>
+        <Typography>
+          <span className={classes.spanLeximpactLigther}>LEXIMPACT&nbsp;</span>
+          <span className={classes.spanLeximpactBolder}>POP</span>
         </Typography>
         {this.renderConnexionForm()}
         {this.renderConnexionSuccess()}

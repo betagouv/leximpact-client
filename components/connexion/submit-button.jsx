@@ -3,9 +3,12 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-const styles = () => ({
+const styles = theme => ({
   circularProgress: {
     marginTop: "41px",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "20px",
+    },
   },
   container: {
     display: "flex",
@@ -17,9 +20,11 @@ const styles = () => ({
     fontSize: "16px",
     letterSpacing: "0.15px",
     marginTop: "41px",
-    maxWidth: "370px",
-    minWidth: "370px",
     width: "370px",
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "180px",
+      marginTop: "20px",
+    },
   },
   fabDisabled: {
     backgroundColor: "rgba(225, 225, 225, 1) !important",

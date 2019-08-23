@@ -8,7 +8,7 @@ const MENU_ITEMS = [
     action: showAddImpactCardPopin,
     disabled: false,
     key: "cas_types",
-    label: "Ajouter un foyer fiscal type",
+    label: "Ajouter un cas type",
   },
   {
     action: () => {
