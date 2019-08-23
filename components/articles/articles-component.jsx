@@ -88,16 +88,7 @@ const style = {
     marginLeft: "8px",
     marginRight: "8px",
     padding: "3px",
-  },
-  VarCodeexistantBarrePLF: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    marginRight: "0px",
-    padding: "3px",
+    // toggle off next 2 lines if PLF is unplugged
     textDecorationColor: "#FF6B6B",
     textDecorationLine: "line-through",
     textDecorationSize: "2px",
@@ -132,11 +123,19 @@ class ArticlesComponent extends React.Component {
   );
 
   gimmeIRPartsOfArticle = (i) => {
-    const { handleArticleChange, reforme, reformeBase } = this.props;
+    const {
+      handleArticleChange,
+      reforme,
+      reformeBase,
+      reformePLF,
+    } = this.props;
     const s = reforme.impot_revenu.bareme.seuils;
     const t = reforme.impot_revenu.bareme.taux;
     const bases = reformeBase.impot_revenu.bareme.seuils;
     const baset = reformeBase.impot_revenu.bareme.taux;
+    const plfs = reformePLF.impot_revenu.bareme.seuils;
+    const plft = reformePLF.impot_revenu.bareme.taux;
+
     const nbt = s.length;
     const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
     // Part 1
@@ -151,10 +150,13 @@ class ArticlesComponent extends React.Component {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
           <OutputField
-            style={style.VarCodeexistantBarrePLF}
+            style={style.VarCodeexistant}
             value={bases[Math.min(i, bases.length - 1)]}
           />
-          <OutputField style={style.VarPLF} value={bases[i]} />
+          <OutputField
+            style={style.VarPLF}
+            value={plfs[Math.min(i, bases.length - 1)]}
+          />
           <InputField
             name={`seuil${i}`}
             style={style.InputSeuil}
@@ -180,6 +182,10 @@ class ArticlesComponent extends React.Component {
             value={makeNumberGoodLooking(
               baset[Math.min(i, baset.length) - 1] * 100,
             )}
+          />
+          <OutputField
+            style={style.VarPLF}
+            value={makeNumberGoodLooking(plft[i - 1] * 100)}
           />
           <InputField
             name={`taux${i - 1}`}
@@ -212,6 +218,10 @@ class ArticlesComponent extends React.Component {
             baset[Math.min(i, baset.length) - 1] * 100,
           )}
         />
+        <OutputField
+          style={style.VarPLF}
+          value={makeNumberGoodLooking(plft[i - 1] * 100)}
+        />
         <InputField
           name={`taux${i - 1}`}
           style={style.InputTaux}
@@ -229,6 +239,10 @@ class ArticlesComponent extends React.Component {
         <OutputField
           style={style.VarCodeexistant}
           value={bases[Math.min(i, bases.length - 1)]}
+        />
+        <OutputField
+          style={style.VarPLF}
+          value={plfs[Math.min(i, plfs.length - 1)]}
         />
         <InputField
           name={`seuil${i}`}
@@ -310,6 +324,13 @@ ArticlesComponent.propTypes = {
     }),
   }).isRequired,
   reformeBase: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
+  reformePLF: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
         seuils: PropTypes.arrayOf(PropTypes.number),

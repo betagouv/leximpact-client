@@ -8,9 +8,10 @@ import {
 } from "../../redux/actions";
 import ArticlesComponent from "./articles-component";
 
-const mapStateToProps = ({ reforme, reformeBase }) => ({
+const mapStateToProps = ({ reforme, reformeBase, reformePLF }) => ({
   reforme,
   reformeBase,
+  reformePLF
 });
 
 const mapDispatchToProps = dispatch => ({
