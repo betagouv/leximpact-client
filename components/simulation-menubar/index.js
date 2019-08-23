@@ -1,13 +1,8 @@
 import withWidth from "@material-ui/core/withWidth";
-import {
-  AddCircleOutline as AddCircleOutlineIcon,
-  Share as ShareIcon,
-  ViewQuilt as ViewQuiltIcon,
-} from "@material-ui/icons";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { showAddImpactCardPopin } from "../../redux/actions";
+import Config from "./config";
 import SimulationMenuBarComponent from "./simulation-menubar-component";
 
 const OUTILS_MENU_ITEMS = [
@@ -73,8 +68,8 @@ function useOutilsAsMobile(width) {
 }
 
 const mapStateToProps = (state, { width }) => {
-  const outilsItems = [...OUTILS_MENU_ITEMS];
-  const optionsItems = [...OPTIONS_MENU_ITEMS];
+  const outilsItems = [...Config.outilsMenuItems];
+  const optionsItems = [...Config.optionsMenuItems];
   const showOutilsAsMobile = useOutilsAsMobile(width);
   const showOptionsAsMobile = useOptionsAsMobile(width);
   const showSimulatioButtonAsMobile = useSimulatioButtonAsMobile(width);
