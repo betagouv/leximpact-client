@@ -10,19 +10,21 @@ import EnSavoirPlus from "./en-savoir-plus";
 import ConfirmationConnexion from "./confirmation-connexion";
 import { closeCurrentPopin } from "./actions";
 
-const styles = () => ({
+const styles = (theme) => ({
   dialog: {
     width: "100%",
     backgroundColor: "rgba(229, 220, 0, 0.5)",
   },
   dialogPaper: {
-    width: "800px",
     maxWidth: "800px",
-    minWidth: "630px",
+    minWidth: "230px",
     backgroundColor: "#FFFFFF",
   },
   dialogContent: {
     padding: "45px 45px 0 45px",
+    [theme.breakpoints.down('xs')]: {
+      padding: "20px 20px 0 20px",
+      },
   },
 });
 

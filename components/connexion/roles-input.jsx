@@ -8,17 +8,22 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = () => ({
+const styles = (theme) => ({
   formLegend: {
-    flex: "0",
-    width: "120px",
+    flex: "2",
     color: "#000000",
     fontSize: "24px",
-    minWidth: "120px",
-    maxWidth: "120px",
+    minWidth: "80px",
+    maxWidth: "130px",
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: "80px",
+      fontSize: "18px",
+
+      },
   },
   formLegendAsterisk: {
     textAlign: "left",
+    marginRight: "10px",
   },
   formControl: {
     // NOTE flex ne s'applique pas au `fieldset`
@@ -29,7 +34,10 @@ const styles = () => ({
   },
   radioItem: {
     padding: "0 12px",
-  },
+    [theme.breakpoints.down('xs')]: {
+      padding: "0 8px",
+    },
+    },
   radioGroup: {
     flex: 1,
   },
@@ -38,6 +46,9 @@ const styles = () => ({
     fontSize: "18px",
     fontFamily: "lato",
     fontWeight: "bold",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: "14px",
+      },
   },
   radioWrapper: {
     display: "flex",
