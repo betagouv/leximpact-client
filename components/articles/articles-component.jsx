@@ -24,7 +24,7 @@ import makeNumberGoodLooking from "./utils/make-number-good-looking";
 const stylesTheme = theme => ({
   paper: {
     margin: "1em",
-    padding: 0,
+    padding: "0 0 10px 0",
     [theme.breakpoints.down("xs")]: {
       margin: "0em",
     },

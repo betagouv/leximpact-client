@@ -14,9 +14,9 @@ const LexExpansionPanelSummary = withStyles({
       minHeight: 20,
     },
     backgroundColor: "rgba(0,0,0,0)",
-    borderBottom: "0px solid rgba(0,0,0,.125)",
+    borderBottom: "1px solid rgba(177,177,177,0.50)",
+    height: 32,
     marginBottom: -1,
-    minHeight: 32,
   },
 })(props => <ExpansionPanelSummary {...props} />);
 
