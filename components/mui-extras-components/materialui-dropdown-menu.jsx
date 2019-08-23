@@ -149,9 +149,9 @@ class MuiSplitButton extends PureComponent {
         <Menu
           {...menuProps}
           anchorEl={anchorEl}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          anchorOrigin={{ horizontal: "right", vertical: "top" }}
           getContentAnchorEl={null}
-          id="simple-menu"
+          id="mui-split-simple-menu"
           open={Boolean(anchorEl)}
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           onClose={this.handleClose}>

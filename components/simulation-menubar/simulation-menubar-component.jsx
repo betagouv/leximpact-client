@@ -2,11 +2,10 @@ import { Button, Grid, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Cached as CachedIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
-import { Component, Fragment } from "react";
+import { Component } from "react";
 
 import { MUIDropdownMenu } from "../mui-extras-components";
-import SimulationShareButton from "./simulation-share-button";
-import SimulationWorkspaceButton from "./simulation-workspace-button";
+import SimulationOptionsButton from "./simulation-options-menu";
 
 const styles = () => ({
   container: {
@@ -51,7 +50,7 @@ class SimulationMenuBar extends Component {
   };
 
   renderBoutonSimulation = () => {
-    const { classes, handleSimulationClick, useMobileView } = this.props;
+    const { classes, handleSimulationClick, isMobileView } = this.props;
     return (
       <Grid item>
         <Button
@@ -60,8 +59,8 @@ class SimulationMenuBar extends Component {
           variant="contained"
           onClick={handleSimulationClick}>
           <CachedIcon className={classes.styleIcon} />
-          {useMobileView && "ESTIMER"}
-          {!useMobileView && "LANCER L'ESTIMATION"}
+          {isMobileView && "ESTIMER"}
+          {!isMobileView && "LANCER L'ESTIMATION"}
         </Button>
       </Grid>
     );
@@ -69,31 +68,39 @@ class SimulationMenuBar extends Component {
 
   renderOutilsAffichage = () => {
     const { selected } = this.state;
-    const { classes, handleMenuClick, useMobileView } = this.props;
+    const {
+      classes,
+      handleItemWithActionClick,
+      isLargeView,
+      optionsMenuItems,
+    } = this.props;
     return (
       <Grid item>
         <Grid
           container
           alignItems="center"
           direction="row"
-          justify="space-between">
-          {useMobileView && <div />}
-          {!useMobileView && (
-            <Fragment>
-              <SimulationShareButton />
-              <SimulationWorkspaceButton />
-            </Fragment>
-          )}
-          <MUIDropdownMenu
-            menuProps={{
-              classes: { paper: classes.menuPaper },
-            }}
-            renderMenu={this.renderMenuListItems}
-            size="medium"
-            variant="contained"
-            onClick={() => handleMenuClick(selected)}>
-            {selected.label}
-          </MUIDropdownMenu>
+          justify="space-between"
+          spacing={24}>
+          <Grid item>
+            <SimulationOptionsButton
+              itemMenuClickHandler={handleItemWithActionClick}
+              items={optionsMenuItems}
+              showMobileView={!isLargeView}
+            />
+          </Grid>
+          <Grid item>
+            <MUIDropdownMenu
+              menuProps={{
+                classes: { paper: classes.menuPaper },
+              }}
+              renderMenu={this.renderMenuListItems}
+              size="medium"
+              variant="contained"
+              onClick={() => handleItemWithActionClick(selected)}>
+              {selected.label}
+            </MUIDropdownMenu>
+          </Grid>
         </Grid>
       </Grid>
     );
@@ -117,8 +124,10 @@ class SimulationMenuBar extends Component {
 
 SimulationMenuBar.propTypes = {
   classes: PropTypes.shape().isRequired,
-  handleMenuClick: PropTypes.func.isRequired,
+  handleItemWithActionClick: PropTypes.func.isRequired,
   handleSimulationClick: PropTypes.func.isRequired,
+  isLargeView: PropTypes.bool.isRequired,
+  isMobileView: PropTypes.bool.isRequired,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       action: PropTypes.func.isRequired,
@@ -127,7 +136,7 @@ SimulationMenuBar.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  useMobileView: PropTypes.bool.isRequired,
+  optionsMenuItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default withStyles(styles)(SimulationMenuBar);
