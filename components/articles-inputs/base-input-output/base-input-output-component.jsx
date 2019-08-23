@@ -11,9 +11,12 @@ const BaseInputOutputComponent = ({
   name,
   newValue,
   outputFieldStyle,
+  plfValue,
+  plfFieldStyle,
 }) => (
   <Fragment>
     <OutputField style={outputFieldStyle} value={baseValue} />
+    <OutputField style={plfFieldStyle} value={plfValue} />
     <InputField
       name={name}
       style={inputFieldStyle}
