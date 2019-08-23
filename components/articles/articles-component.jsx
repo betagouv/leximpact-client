@@ -61,9 +61,20 @@ const style = {
     color: "#00A3FF",
     fontWeight: "bold",
     lineHeight: "10px",
-    padding: "8px",
+    padding: "px",
   },
   VarCodeexistant: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    padding: "3px",
+    marginLeft: "8px",
+    marginRight: "8px",
+  },
+
+  VarPLF: {
     color: "#A6A00C",
     fontWeight: "bold",
     lineHeight: "10px",
