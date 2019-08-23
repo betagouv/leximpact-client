@@ -18,9 +18,9 @@ A typical snapshot test case for a mobile app renders a UI component, takes a sn
 ```
 
 [Documentation Officielle](https://jestjs.io/docs/en/snapshot-testing)
-
+Ligne de commande pour mettre à jour les Snapshots si circle CI plante :
 ```bash
-./node_modules/.bin/jest --updateSnapshots
+./node_modules/.bin/jest --updateSnapshot
 ```
 
 # Screenshot
