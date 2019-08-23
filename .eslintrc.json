@@ -71,6 +71,7 @@
     "import/order": "off",
     "sort-imports": "off",
     "simple-import-sort/sort": "error",
-    "sort-destructure-keys/sort-destructure-keys": 2
+    "sort-destructure-keys/sort-destructure-keys": 2,
+    "jsx-a11y/label-has-for": 0
   }
 }

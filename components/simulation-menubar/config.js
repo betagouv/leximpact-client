@@ -4,7 +4,7 @@ import {
   ViewQuilt as ViewQuiltIcon,
 } from "@material-ui/icons";
 
-import { showAddImpactCardPopin } from "../../redux/actions";
+import { showAddCasTypesPopin } from "../../redux/actions";
 
 const config = {
   optionsMenuItems: [
@@ -30,7 +30,7 @@ const config = {
   outilsMenuItems: [
     {
       Icon: AddCircleOutlineIcon,
-      action: showAddImpactCardPopin,
+      action: showAddCasTypesPopin,
       disabled: false,
       key: "cas_types",
       label: "Ajouter un cas type",

@@ -11,13 +11,19 @@ import {
   Chip,
   CircularProgress,
   Divider,
+  IconButton,
   NativeSelect,
   Tooltip,
   Typography,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
+
+import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
+
+const REVENUS_MENSUEL = generateRevenusMensuel(500);
 
 const styles = () => ({
   card: {
@@ -76,36 +82,17 @@ class SimpleCard extends React.Component {
     onOutreMerChange(numcastype, outreMerIndex);
   };
 
-  roundedRevenues(revenumensuel) {
-    const roundlevel = [100, 50, 100, 200, 500, 1000, 5000, 10000, 100000];
-    const paliers = [
-      900,
-      2000,
-      3000,
-      4000,
-      10000,
-      15000,
-      20000,
-      100000,
-      1000000,
-    ];
-    // for now the rounded revenues do not depend on the current value
-    let currpal = 0;
-    const res = [];
-    for (let i = 500; currpal < paliers.length; i += roundlevel[currpal]) {
-      const uniqKey = `palier_${i}`;
-      res.push(<option key={uniqKey} value={i}>{`${i}€/mois`}</option>);
-      if (i >= paliers[currpal]) {
-        currpal++;
-      }
-    }
-    return res;
-  }
+  roundedRevenues = () => REVENUS_MENSUEL.map((value) => {
+    const uniqKey = `palier_${value}`;
+    return <option key={uniqKey} value={value}>{`${value}€/mois`}</option>;
+  });
 
   render() {
     const {
       classes,
       descCasType,
+      handleEditCarteImpact,
+      handleRemoveCarteImpact,
       impotsApres,
       impotsAvant,
       index,
@@ -150,6 +137,16 @@ class SimpleCard extends React.Component {
       <Card className={classes.card}>
         <CardContent className={classes.cardcontent}>
           <div className={classes.div}>
+            <IconButton
+              aria-label="Delete"
+              onClick={() => handleRemoveCarteImpact(index)}>
+              <CloseIcon />
+            </IconButton>
+            <IconButton
+              aria-label="Edit"
+              onClick={() => handleEditCarteImpact(index)}>
+              <EditIcon />
+            </IconButton>
             <div>
               <Tooltip
                 key="revenus"
@@ -278,6 +275,8 @@ class SimpleCard extends React.Component {
 }
 SimpleCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  handleEditCarteImpact: PropTypes.func.isRequired,
+  handleRemoveCarteImpact: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
 };
 

@@ -1,5 +1,5 @@
 // le default state est rempli grace a la lib "redux-cookies-middleware"
-// voir le fichier "./pages/_app.jsx"
+// voir le fichier "./reudx/make-application-state.js"
 const DEFAULT_STATE = false;
 
 const token = (state = DEFAULT_STATE, action) => {

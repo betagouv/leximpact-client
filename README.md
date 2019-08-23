@@ -23,6 +23,11 @@ A typical snapshot test case for a mobile app renders a UI component, takes a sn
 ./node_modules/.bin/jest --updateSnapshots
 ```
 
+# Icons & Emoji
+
+- [Twitter Emoji](https://iconify.design/icon-sets/twemoji/)
+- [MaterialUI Icons](https://material.io/resources/icons)
+
 # Screenshot
 
 <img width="1280" alt="Capture d’écran 2019-04-25 à 03 08 30" src="https://user-images.githubusercontent.com/329236/56703045-6517c780-6707-11e9-9947-9f4e3d72aac2.png">

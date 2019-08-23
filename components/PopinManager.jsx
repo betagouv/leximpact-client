@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { closeCurrentPopin } from "../redux/actions";
+import AjouterCasTypes from "./ajouter-cas-types";
 import ConfirmationConnexion from "./confirmation-connexion";
 import LoginForm from "./connexion";
 import EnSavoirPlus from "./en-savoir-plus";
@@ -17,17 +18,23 @@ const styles = theme => ({
   },
   dialogContent: {
     padding: "45px 45px 0 45px",
-  },
-  dialogPaper: {
-    maxWidth: "800px",
-    minWidth: "230px",
-    backgroundColor: "#FFFFFF",
-  },
-  dialogContent: {
-    padding: "45px 45px 0 45px",
     [theme.breakpoints.down("xs")]: {
       padding: "20px 20px 0 20px",
     },
+  },
+  dialogContentCasTypes: {
+    padding: 30,
+    [theme.breakpoints.down("xs")]: {
+      padding: "20px 20px 0 20px",
+    },
+  },
+  dialogPaper: {
+    backgroundColor: "#FFFFFF",
+    maxWidth: "800px",
+    minWidth: "230px",
+  },
+  dialogPaperCasTypes: {
+    width: "580px",
   },
 });
 
@@ -42,6 +49,24 @@ class PopinManager extends PureComponent {
         onClose={closeCurrentPopin}>
         <DialogContent classes={{ root: classes.dialogContent }}>
           <LoginForm />
+        </DialogContent>
+      </Dialog>
+    );
+  };
+
+  renderAjouterCasTypes = (popinType) => {
+    const { classes, router } = this.props;
+    const showConfirmationConnexion = popinType === "ajouter-cas-types";
+    const pathString = "query.index";
+    const editIndex = get(router, pathString, -1);
+    const paperClass = `${classes.dialogPaper} ${classes.dialogPaperCasTypes}`;
+    return (
+      <Dialog
+        classes={{ paper: paperClass, root: classes.dialog }}
+        open={showConfirmationConnexion}
+        onClose={closeCurrentPopin}>
+        <DialogContent classes={{ root: classes.dialogContentCasTypes }}>
+          <AjouterCasTypes index={editIndex} onClosePopin={closeCurrentPopin} />
         </DialogContent>
       </Dialog>
     );
@@ -84,6 +109,7 @@ class PopinManager extends PureComponent {
         {this.renderEnSavoirPlus(popinType)}
         {this.renderConnexion(popinType)}
         {this.renderConfirmationConnexion(popinType)}
+        {this.renderAjouterCasTypes(popinType)}
       </Fragment>
     );
   }

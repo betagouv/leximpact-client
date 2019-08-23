@@ -13,9 +13,12 @@ export {
 export {
   default as updateRevenusAnnuelCasType,
 } from "./cas-types/update-revenus-cas-type";
+export { default as addCarteImpact } from "./add-carte-impact";
 export {
   default as updateReformeByName,
 } from "./articles/update-reforme-by-name";
 export { default as updateConnexionToken } from "./update-connexion-token";
-export { default as showAddImpactCardPopin } from "./popin-add-impact-card";
+export { default as showAddCasTypesPopin } from "./popin-cas-types-add";
 export { default as fetchSimPop } from "./api-simpop";
+export { default as showEditCasTypesPopin } from "./popin-cas-types-edit";
+export { default as onRemoveCarteImpact } from "./remove-carte-impact";

@@ -1,0 +1,95 @@
+import generateRevenusMensuel from "../generate-revenus-mensuel";
+
+const EXPECTED_VALUES = [
+  500,
+  600,
+  700,
+  800,
+  900,
+  950,
+  1000,
+  1050,
+  1100,
+  1150,
+  1200,
+  1250,
+  1300,
+  1350,
+  1400,
+  1450,
+  1500,
+  1550,
+  1600,
+  1650,
+  1700,
+  1750,
+  1800,
+  1850,
+  1900,
+  1950,
+  2000,
+  2100,
+  2200,
+  2300,
+  2400,
+  2500,
+  2600,
+  2700,
+  2800,
+  2900,
+  3000,
+  3200,
+  3400,
+  3600,
+  3800,
+  4000,
+  4500,
+  5000,
+  5500,
+  6000,
+  6500,
+  7000,
+  7500,
+  8000,
+  8500,
+  9000,
+  9500,
+  10000,
+  11000,
+  12000,
+  13000,
+  14000,
+  15000,
+  20000,
+  30000,
+  40000,
+  50000,
+  60000,
+  70000,
+  80000,
+  90000,
+  100000,
+  200000,
+  300000,
+  400000,
+  500000,
+  600000,
+  700000,
+  800000,
+  900000,
+  1000000,
+];
+
+describe("components | utils | maths | generateRevenusMensuel", () => {
+  it("doit correspondre a la liste des revenus avec comme valeur de depart 500", () => {
+    const startingValue = 500;
+    const results = generateRevenusMensuel(startingValue);
+    expect(results).toStrictEqual(EXPECTED_VALUES);
+  });
+  it("doit correspondre a la liste des revenus avec comme valeur de depart 100", () => {
+    const startingValue = 100;
+    const results = generateRevenusMensuel(startingValue);
+    const expected = [100, 200, 300, 400, ...EXPECTED_VALUES];
+    expect(results).toStrictEqual(expected);
+  });
+});

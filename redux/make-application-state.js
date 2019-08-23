@@ -8,7 +8,11 @@ import reducers from "./reducers";
 
 // state to persist in cookies
 const TOKEN_NAME = "pop_auth_token";
-const paths = { token: { name: TOKEN_NAME } };
+const CAS_TYPES_NAME = "cas_types";
+const paths = {
+  casTypes: { name: CAS_TYPES_NAME },
+  token: { name: TOKEN_NAME },
+};
 
 const apiEndpoint = process.env.API_URL;
 const thunkMiddleWare = thunk.withExtraArgument({ apiEndpoint });
