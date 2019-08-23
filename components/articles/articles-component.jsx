@@ -42,6 +42,20 @@ const style = {
     marginRight: "1.5em",
     marginTop: "1em",
   },
+  DivTitreTheme: {
+    marginBottom: "0em",
+    marginLeft: "1.5em",
+    marginRight: "1.5em",
+    marginTop: "1em",
+  },
+  StyleTitreThematique: {
+    color: "#B1B1B1",
+    fontFamily: "Lato",
+    fontSize: "20px",
+    fontWeight: "bold",
+    fontVariantCaps: "all-small-caps",
+    textAlign: "left",
+  },
   InputSeuil: {
     fontSize: "20px",
     marginLeft: "2px",
@@ -240,6 +254,13 @@ class ArticlesComponent extends React.Component {
       <Paper className={classes.paper}>
         <ArticleHeader />
         <Divider />
+        <div style={style.DivTitreTheme}>
+          <Typography
+            style={style.StyleTitreThematique}>
+            Barème et taux
+          </Typography>
+          <Divider variant="Middle" />
+        </div>
         <div style={style.Div}>
           <Alinea0 style={style} />
           {articleTranches}
