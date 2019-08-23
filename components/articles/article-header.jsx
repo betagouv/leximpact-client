@@ -31,7 +31,7 @@ function ArticleHeader(props) {
         style={{ background: "#FFFFFF", boxShadow: "none" }}>
         <Toolbar>
           <Typography className={classes.typo1} color="inherit" variant="h4">
-            Tranches / décote
+            IMPÔT SUR LE REVENU
           </Typography>
           <Typography
             className={classes.titleArticleCGI}
