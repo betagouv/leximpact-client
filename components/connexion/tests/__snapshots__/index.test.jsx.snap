@@ -6,11 +6,10 @@ exports[`components | connexion | index snapshot doit correspondre avec les prop
     Object {
       "avatar": "Connexion-avatar-1",
       "avatarIcon": "Connexion-avatarIcon-2",
-      "container": "Connexion-container-3",
-      "form": "Connexion-form-4",
-      "spanLeximpactBolder": "Connexion-spanLeximpactBolder-7",
-      "spanLeximpactLigther": "Connexion-spanLeximpactLigther-6",
-      "submit": "Connexion-submit-5",
+      "form": "Connexion-form-3",
+      "spanBolder": "Connexion-spanBolder-4",
+      "spanLeximpactBolder": "Connexion-spanLeximpactBolder-6",
+      "spanLeximpactLigther": "Connexion-spanLeximpactLigther-5",
     }
   }
 />

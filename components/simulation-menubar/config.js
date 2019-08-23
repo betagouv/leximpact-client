@@ -33,7 +33,7 @@ const config = {
       action: showAddImpactCardPopin,
       disabled: false,
       key: "cas_types",
-      label: "Ajouter un foyer fiscal type",
+      label: "Ajouter un cas type",
       shortLabel: "Cas type",
     },
     {
@@ -50,8 +50,8 @@ const config = {
         /* TODO: creer une action redux pour cet item du menu */
       },
       disabled: true,
-      key: "plafond_familial",
-      label: "Visualiser les plafond du quotient familial",
+      key: "plafond_qf",
+      label: "Visualiser les plafonds du quotient familial",
       shortLabel: "Plafonds QF",
     },
   ],

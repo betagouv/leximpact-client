@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
+import { Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Menu as MenuIcon } from "@material-ui/icons";
-import { Button } from "@material-ui/core";
+import PropTypes from "prop-types";
 
-import { showEnSavoirPlusPopin } from "../actions";
+import { showEnSavoirPlusPopin } from "../../redux/actions";
 
 const styles = {
   menuButtonRoot: {
