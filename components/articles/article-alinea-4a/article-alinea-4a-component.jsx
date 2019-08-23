@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
@@ -57,21 +57,18 @@ class Alinea4a extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography
-            style={styleTitreThematique}>
-              Décote
-          </Typography>
+          <Typography style={styleTitreThematique}>Décote</Typography>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
           <Typography color="inherit" variant="body2">
-            4. a. Le montant de l&apos;impôt résultant
-            de l&apos;application des dispositions
-            précédentes est diminué, dans la limite
-            de son montant, de la différence entre
+            4. a. Le montant de l&apos;impôt résultant de l&apos;application des
+            dispositions précédentes est diminué, dans la limite de son montant,
+            de la différence entre
             {" "}
             {baseOutputInput("decote.seuil_celib")}
-            € et les
+€ et
+            les
             {" "}
             <OutputField style={style.VarCodeexistant} value="trois quarts" />
             {" "}
@@ -81,7 +78,7 @@ class Alinea4a extends PureComponent {
             veufs et de la différence entre
             {baseOutputInput("decote.seuil_couple")}
             {" "}
-            € et les
+€ et les
             {" "}
             <OutputField style={style.VarCodeexistant} value="trois quarts" />
             {" "}
@@ -90,14 +87,14 @@ class Alinea4a extends PureComponent {
             %] de son montant pour les contribuables soumis à imposition
             commune.
             <StyledFormControlLabel
-              control={
+              control={(
                 <Switch
                   // checked={this.state.checkedB}
                   // onChange={this.handleChange("checkedB")}
                   // value="checkedB"
                   color="secondary"
                 />
-              }
+              )}
               label="Supprimer la décote"
               // Mettre les variables de l'amendement à 0 quand le switch est passé.
             />
