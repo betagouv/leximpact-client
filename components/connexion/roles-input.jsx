@@ -8,47 +8,46 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = (theme) => ({
-  formLegend: {
-    flex: "2",
-    color: "#000000",
-    fontSize: "24px",
-    minWidth: "80px",
-    maxWidth: "130px",
-    [theme.breakpoints.down('xs')]: {
-      maxWidth: "80px",
-      fontSize: "18px",
-
-      },
-  },
-  formLegendAsterisk: {
-    textAlign: "left",
-    marginRight: "10px",
-  },
+const styles = theme => ({
   formControl: {
     // NOTE flex ne s'applique pas au `fieldset`
     // le component doit donc être une `div` pour profiter de flex
     display: "flex",
-    marginTop: "43px",
     flexDirection: "row",
+    marginTop: "43px",
+  },
+  formLegend: {
+    color: "#000000",
+    flex: "2",
+    fontSize: "24px",
+    maxWidth: "130px",
+    minWidth: "80px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "18px",
+      maxWidth: "80px",
+    },
+  },
+  formLegendAsterisk: {
+    marginRight: "10px",
+    textAlign: "left",
   },
   radioItem: {
     padding: "0 12px",
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       padding: "0 8px",
     },
-    },
+  },
   radioGroup: {
     flex: 1,
   },
   radioLabel: {
     color: "#565656",
-    fontSize: "18px",
     fontFamily: "lato",
+    fontSize: "18px",
     fontWeight: "bold",
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down("xs")]: {
       fontSize: "14px",
-      },
+    },
   },
   radioWrapper: {
     display: "flex",

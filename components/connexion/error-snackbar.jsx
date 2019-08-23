@@ -4,19 +4,19 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const ErrorSnackbar = ({ message }) => (
   <Snackbar
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "center",
-    }}
-    open={Boolean(message)}
-    autoHideDuration={6000}
-    onClose={() => {}}
-    message="Cette adresse ne fonctionne pas, veuillez réessayer."
     action={[
       <IconButton key="close" color="inherit" onClick={() => {}}>
         <CloseIcon />
       </IconButton>,
     ]}
+    anchorOrigin={{
+      horizontal: "center",
+      vertical: "bottom",
+    }}
+    autoHideDuration={6000}
+    message="Cette adresse ne fonctionne pas, veuillez réessayer."
+    onClose={() => {}}
+    open={Boolean(message)}
   />
 );
 
