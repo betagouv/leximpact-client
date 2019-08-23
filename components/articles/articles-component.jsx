@@ -21,10 +21,13 @@ import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
 
-const stylesTheme = () => ({
+const stylesTheme = theme => ({
   paper: {
     margin: "1em",
     padding: 0,
+    [theme.breakpoints.down("xs")]: {
+      margin: "0em",
+    },
   },
 });
 
@@ -43,13 +46,13 @@ const style = {
     fontSize: "20px",
     marginLeft: "2px",
     marginRight: "2px",
-    width: "70px",
+    width: "80px",
   },
   InputTaux: {
     fontSize: "20px",
     marginLeft: "0px",
     marginRight: "3px",
-    width: "30px",
+    width: "40px",
   },
   Typography: { padding: "5px" },
   TypographyNouvelleTranche: { color: "#00A3FF", padding: "5px" },
