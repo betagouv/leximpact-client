@@ -1,4 +1,6 @@
-import { Grid, Divider, Paper, Typography } from "@material-ui/core";
+import {
+  Divider, Grid, Paper, Typography,
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -98,6 +100,7 @@ const style = {
     padding: "3px",
     textDecorationColor: "#FF6B6B",
     textDecorationLine: "line-through",
+    textDecorationSize: "2px",
   },
 
   VarPLF: {
@@ -255,8 +258,7 @@ class ArticlesComponent extends React.Component {
         <ArticleHeader />
         <Divider />
         <div style={style.DivTitreTheme}>
-          <Typography
-            style={style.StyleTitreThematique}>
+          <Typography style={style.StyleTitreThematique}>
             Barème et taux
           </Typography>
           <Divider />
@@ -269,7 +271,10 @@ class ArticlesComponent extends React.Component {
               <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
             </Grid>
             <Grid item sm={6}>
-              <BoutonSupprimerTranche style={style} onClick={handleRemoveTranche} />
+              <BoutonSupprimerTranche
+                style={style}
+                onClick={handleRemoveTranche}
+              />
             </Grid>
           </Grid>
           <Alinea2 baseOutputInput={this.renderBaseOutputInput} style={style} />
