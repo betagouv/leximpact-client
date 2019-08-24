@@ -17,9 +17,14 @@ const mapStateToProps = (state, props) => {
   baseValue *= multiplicateur;
   baseValue = makeNumberGoodLooking(baseValue);
 
+  let plfValue = get(reformePLF, `impot_revenu.${name}`);
+  plfValue *= multiplicateur;
+  plfValue  = makeNumberGoodLooking(plfValue);
+
   return {
     baseValue,
-    style: style.VarCodeexistant,
+    style,
+    plfValue,
   };
 };
 
