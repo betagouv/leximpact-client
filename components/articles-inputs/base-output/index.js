@@ -8,7 +8,7 @@ const REGEX_TAUX = RegExp("taux");
 
 const mapStateToProps = (state, props) => {
   const { name, style } = props;
-  const { reformeBase } = state;
+  const { reformeBase, reformePLF } = state;
 
   const isTauxValue = REGEX_TAUX.test(name);
   const multiplicateur = isTauxValue ? 100 : 1;
