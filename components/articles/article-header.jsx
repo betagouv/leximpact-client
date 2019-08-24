@@ -3,23 +3,40 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-const styles = {
+const stylesTheme = theme => ({
   root: {
     flexGrow: 1,
     paddingTop: "0px",
+  },
+  styleToolBar: {
+    minHeight: "50px",
   },
   titleArticleCGI: {
     color: "#6C6C6C",
     fontFamily: "Lora",
     fontSize: "18px",
     paddingLeft: "6px",
+    [theme.breakpoints.down("xs")]: {
+      color: "#6C6C6C",
+      fontFamily: "Lora",
+      fontSize: "14px",
+      paddingLeft: "6px",
+    },
   },
-  typo1: {
+  titleIR: {
     color: "#6C6C6C",
+    fontFamily: "Lato",
+    fontSize: "20px",
     fontWeight: "bold",
     textTransform: "uppercase",
+    [theme.breakpoints.down("xs")]: {
+      color: "#6C6C6C",
+      fontFamily: "Lato",
+      fontSize: "15px",
+      paddingLeft: "6px",
+    },
   },
-};
+});
 
 function ArticleHeader(props) {
   const { classes } = props;
@@ -29,8 +46,8 @@ function ArticleHeader(props) {
       <AppBar
         position="relative"
         style={{ background: "#FFFFFF", boxShadow: "none" }}>
-        <Toolbar>
-          <Typography className={classes.typo1} color="inherit" variant="h4">
+        <Toolbar className={classes.styleToolBar}>
+          <Typography className={classes.titleIR}>
             IMPÔT SUR LE REVENU
           </Typography>
           <Typography
@@ -49,4 +66,4 @@ ArticleHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
 };
 
-export default withStyles(styles)(ArticleHeader);
+export default withStyles(stylesTheme, { withTheme: true })(ArticleHeader);

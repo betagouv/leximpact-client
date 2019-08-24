@@ -9,7 +9,7 @@ import SimulationOutilsButton from "./simulation-outils-menu";
 
 const styles = () => ({
   container: {
-    marginBottom: "24px",
+    marginBottom: "15px",
   },
   styleIcon: {
     marginRight: "20px",

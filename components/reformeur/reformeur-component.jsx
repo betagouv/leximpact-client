@@ -4,6 +4,7 @@ import { Fragment, PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
+import LegendeArticle from "../articles/legende-article/legende-article";
 import ImpactCards from "../cartes-impact";
 import SimulationMenuBar from "../simulation-menubar";
 
@@ -27,6 +28,7 @@ class ReformeurComponent extends PureComponent {
     return (
       <div className="clearfix">
         <div className="moitie-gauche">
+          <LegendeArticle />
           <Articles />
         </div>
         <div className="moitie-droite">
@@ -58,6 +60,7 @@ class ReformeurComponent extends PureComponent {
           index={indextab}
           onChangeIndex={this.handleOnChangeIndex}>
           <div style={{ padding: 24 }}>
+            <LegendeArticle />
             <Articles />
           </div>
           <div style={{ padding: 24 }}>

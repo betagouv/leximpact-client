@@ -40,7 +40,7 @@ const style = {
     marginBottom: "1.5em",
     marginLeft: "1.5em",
     marginRight: "1.5em",
-    marginTop: "1em",
+    marginTop: "0",
   },
   DivTitreTheme: {
     marginBottom: "0em",
@@ -259,7 +259,7 @@ class ArticlesComponent extends React.Component {
             style={style.StyleTitreThematique}>
             Barème et taux
           </Typography>
-          <Divider variant="middle" />
+          <Divider />
         </div>
         <div style={style.Div}>
           <Alinea0 style={style} />
