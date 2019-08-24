@@ -187,6 +187,12 @@ class ArticlesComponent extends React.Component {
             style={style.VarPLF}
             value={makeNumberGoodLooking(plft[i - 1] * 100)}
           />
+          <OutputField
+            style={style.VarPLF}
+            value={makeNumberGoodLooking(
+              plft[Math.min(i, plft.length) - 1] * 100,
+            )}
+          />
           <InputField
             name={`taux${i - 1}`}
             style={style.InputTaux}
@@ -197,6 +203,10 @@ class ArticlesComponent extends React.Component {
           <OutputField
             style={style.VarCodeexistant}
             value={bases[Math.min(i - 1, bases.length - 1)]}
+          />
+          <OutputField
+            style={style.VarPLF}
+            value={plfs[Math.min(i - 1, plfs.length - 1)]}
           />
           <OutputField value={s[i - 1]} />
           {"€."}
@@ -221,6 +231,12 @@ class ArticlesComponent extends React.Component {
         <OutputField
           style={style.VarPLF}
           value={makeNumberGoodLooking(plft[i - 1] * 100)}
+        />
+        <OutputField
+          style={style.VarPLF}
+          value={makeNumberGoodLooking(
+            plft[Math.min(i, plft.length) - 1] * 100,
+          )}
         />
         <InputField
           name={`taux${i - 1}`}
