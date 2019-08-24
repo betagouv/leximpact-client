@@ -139,6 +139,7 @@ class ArticlesComponent extends React.Component {
             onChange={handleArticleChange}
           />
           {"% pour la fraction supérieure à "}
+          <OutputField style={style.VarCodeexistant} value={bases[Math.min(i-1, bases.length -1)]} />
           <OutputField value={s[i - 1]} />
           {"€."}
         </Typography>
@@ -165,6 +166,7 @@ class ArticlesComponent extends React.Component {
         />
         % pour la fraction supérieure à
         {" "}
+        <OutputField style={style.VarCodeexistant} value={bases[Math.min(i-1, bases.length -1)]} />
         <OutputField value={s[i - 1]} />
         € et inférieure ou égale à
         <OutputField style={style.VarCodeexistant} value={bases[Math.min(i, bases.length -1)]} />
