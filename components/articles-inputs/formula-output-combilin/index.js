@@ -5,7 +5,7 @@ import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking
 import FormulaOutputCombiLin from "./formula-output-combilin";
 
 const mapStateToProps = (state, props) => {
-  const { reforme, reformeBase } = state;
+  const { reforme, reformeBase, reformePLF } = state;
   const {
     fact1, fact2, name1, name2,
   } = props;
@@ -17,6 +17,13 @@ const mapStateToProps = (state, props) => {
   let baseValue = baseValue1 + baseValue2;
   baseValue = makeNumberGoodLooking(baseValue);
 
+  let plfValue1 = get(reformePLF, `impot_revenu.${name1}`);
+  plfValue1 *= fact1;
+  let plfValue2 = get(reformePLF, `impot_revenu.${name2}`);
+  plfValue2 *= fact2;
+  let plfValue = plfValue1 + plfValue2;
+  plfValue = makeNumberGoodLooking(plfValue);
+
   let newValue1 = get(reforme, `impot_revenu.${name1}`);
   newValue1 *= fact1;
   let newValue2 = get(reforme, `impot_revenu.${name2}`);
@@ -27,6 +34,7 @@ const mapStateToProps = (state, props) => {
   return {
     baseValue,
     newValue,
+    plfValue
   };
 };
 

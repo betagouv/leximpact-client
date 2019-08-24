@@ -3,9 +3,10 @@ import { Fragment } from "react";
 
 import OutputField from "../fields/output-field";
 
-const FormulaOutputCombiLin = ({ baseValue, newValue, style }) => (
+const FormulaOutputCombiLin = ({ baseValue, newValue, plfValue, style }) => (
   <Fragment>
     <OutputField style={style.VarCodeexistant} value={baseValue} />
+    <OutputField style={style.VarPLF} value={plfValue} />
     <OutputField style={style.VarCodeNew} value={newValue} />
   </Fragment>
 );
