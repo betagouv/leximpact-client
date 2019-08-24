@@ -259,12 +259,12 @@ class ArticlesComponent extends React.Component {
             style={style.StyleTitreThematique}>
             Barème et taux
           </Typography>
-          <Divider variant="Middle" />
+          <Divider variant="middle" />
         </div>
         <div style={style.Div}>
           <Alinea0 style={style} />
           {articleTranches}
-          <Grid container sm={12} spacing={2}>
+          <Grid container spacing={0}>
             <Grid item sm={3}>
               <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
             </Grid>
