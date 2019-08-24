@@ -8,7 +8,7 @@ const REGEX_TAUX = RegExp("taux");
 
 const mapStateToProps = (state, props) => {
   const { facteur, name, style } = props;
-  const { reforme, reformeBase } = state;
+  const { reforme, reformeBase, reformePLF } = state;
 
   const isTauxInput = REGEX_TAUX.test(name);
   const multiplicateur = isTauxInput ? 100 : 1;
@@ -17,6 +17,10 @@ const mapStateToProps = (state, props) => {
   baseValue *= multiplicateur * facteur;
   baseValue = makeNumberGoodLooking(baseValue);
 
+  let plfValue = get(reformePLF, `impot_revenu.${name}`);
+  plfValue *= multiplicateur * facteur;
+  plfValue = makeNumberGoodLooking(plfValue);
+
   let newValue = get(reforme, `impot_revenu.${name}`);
   newValue *= multiplicateur * facteur;
   newValue = makeNumberGoodLooking(newValue);
@@ -24,6 +28,7 @@ const mapStateToProps = (state, props) => {
   return {
     baseValue,
     newValue,
+    plfValue,
     style,
   };
 };
