@@ -1,5 +1,5 @@
 import { Typography } from "@material-ui/core";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
@@ -28,10 +28,14 @@ const styleTitreThematique = {
 const StyledFormControlLabel = withStyles({
   label: {
     color: "#565656",
+    display: "inline",
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
     lineHeight: "10px",
+  },
+  root: {
+    display: "block",
   },
 })(FormControlLabel);
 
