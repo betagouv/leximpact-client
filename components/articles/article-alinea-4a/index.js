@@ -1,4 +1,3 @@
-import { get } from "lodash";
 import { connect } from "react-redux";
 
 import { expandArticlePanel } from "../../../redux/actions";
@@ -8,13 +7,10 @@ const PANEL_NAME = "panel4a";
 
 const mapStateToProps = ({
   currentExpandedArticlePanel,
-  reforme,
-  reformeBase: base,
-  reformePLF
 }) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
   return {
-    isPanelExpanded
+    isPanelExpanded,
   };
 };
 

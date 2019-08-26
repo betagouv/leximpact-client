@@ -3,7 +3,6 @@ import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import InputField from "../../articles-inputs/fields/input-field";
 import OutputField from "../../articles-inputs/fields/output-field";
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
@@ -16,10 +15,10 @@ const styleExpansionpanel = {
 class Alinea4a extends PureComponent {
   render() {
     const {
-      formulaOutputInput,
       baseOutputInput,
-      isPanelExpanded,
       expandArticlePanelHandler,
+      formulaOutputInput,
+      isPanelExpanded,
       style,
     } = this.props;
     return (
@@ -68,7 +67,6 @@ class Alinea4a extends PureComponent {
 }
 
 Alinea4a.propTypes = {
-  formulaOutputInput: PropTypes.func.isRequired,
   baseOutputInput: PropTypes.func.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
