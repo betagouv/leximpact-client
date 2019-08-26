@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 
 import reducers from "./reducers";
 
+// enregistre et lit les cookies du navigateur
 // state to persist in cookies
 const TOKEN_NAME = "pop_auth_token";
 const paths = { token: { name: TOKEN_NAME } };

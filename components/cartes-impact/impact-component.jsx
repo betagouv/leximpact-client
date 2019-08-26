@@ -2,8 +2,8 @@ import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import SimpleCard from "./simple-card";
 import CarteEtat from "./carte-etat";
+import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   handleClick = () => {
@@ -20,10 +20,11 @@ class ImpactComponent extends PureComponent {
       changeRevenuHandler,
       handleOutreMerChange,
       resBrut,
-      // totalPop,
+      totalPop,
     } = this.props;
     return (
       <Grid container spacing={24}>
+        <CarteEtat resultat={totalPop} onClick={() => {}} />
         {casTypes.map((casType, i) => {
           const itemKey = `react::simple-card-key-index::${i}`;
           return (
@@ -36,7 +37,6 @@ class ImpactComponent extends PureComponent {
                 onChange={changeRevenuHandler}
                 onOutreMerChange={handleOutreMerChange}
               />
-              <CarteEtat />
             </Grid>
           );
         })}
