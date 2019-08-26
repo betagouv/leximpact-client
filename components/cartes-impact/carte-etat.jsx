@@ -9,7 +9,7 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-// import BarChart from "./bar-chart";
+import BarChart from "./bar-chart";
 
 const styles = () => ({
   // root: {
@@ -73,56 +73,60 @@ class CarteEtat extends React.Component {
   // bruts par an
 
   render() {
-    const { classes, resultat } = this.props;
+    const { classes, totalPop } = this.props;
     // const { classes } = this.props;
-    // const delta = resultat.total.avant - resultat.total.apres;
+    // const delta = totalPop.total.avant - totalPop.total.apres;
     return (
       <Card className={classes.card}>
         <CardContent>
           <table>
-            <tr>
-              <td rowSpan="2">
-                <Icon height="40" icon={classicalBuilding} width="40" />
-              </td>
-              <td className="titleCarteEtat">
-                Recettes de l&apos;État sur l&apos;impôt sur le revenu
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Typography variant="body1">
-                  {" "}
-                  par décile de population et par an
-                </Typography>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td rowSpan="2">
+                  <Icon height="40" icon={classicalBuilding} width="40" />
+                </td>
+                <td className="titleCarteEtat">
+                  Recettes de l&apos;État sur l&apos;impôt sur le revenu
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Typography variant="body1">
+                    {" "}
+                    par décile de population et par an
+                  </Typography>
+                </td>
+              </tr>
+            </tbody>
           </table>
-          <table>
-            <tr height="15%">
-              <td rowSpan="4" width="150%">
-                {/* <BarChart resultat={resultat} /> */}
-              </td>
-              <td />
-            </tr>
-            <tr>
-              <td>
-                <span className="legendeEtat avant chiffre">
-                  {Math.round(resultat.total.avant / 100000000) / 10}
-                </span>
-                <span className="legendeEtat avant">Md€</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span className="legendeEtat apres chiffre">
-                  {Math.round(resultat.total.apres / 100000000) / 10}
-                </span>
-                <span className="legendeEtat apres">Md€</span>
-              </td>
-            </tr>
-            <tr height="15%">
-              <td />
-            </tr>
+          <table id="table-bar-chart">
+            <tbody>
+              <tr height="15%">
+                <td rowSpan="4" width="150%">
+                  <BarChart resultat={totalPop} />
+                </td>
+                <td />
+              </tr>
+              <tr>
+                <td>
+                  <span className="legendeEtat avant chiffre">
+                    {Math.round(totalPop.total.avant / 100000000) / 10}
+                  </span>
+                  <span className="legendeEtat avant">Md€</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span className="legendeEtat apres chiffre">
+                    {Math.round(totalPop.total.apres / 100000000) / 10}
+                  </span>
+                  <span className="legendeEtat apres">Md€</span>
+                </td>
+              </tr>
+              <tr height="15%">
+                <td />
+              </tr>
+            </tbody>
           </table>
           <div>
             <center>
@@ -143,7 +147,7 @@ class CarteEtat extends React.Component {
 CarteEtat.propTypes = {
   classes: PropTypes.shape().isRequired,
   onClick: PropTypes.func.isRequired,
-  resultat: PropTypes.shape({
+  totalPop: PropTypes.shape({
     total: PropTypes.shape({
       apres: PropTypes.number.isRequired,
       avant: PropTypes.number.isRequired,

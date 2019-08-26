@@ -24,7 +24,7 @@ class ImpactComponent extends PureComponent {
     } = this.props;
     return (
       <Grid container spacing={24}>
-        <CarteEtat resultat={totalPop} onClick={() => {}} />
+        <CarteEtat totalPop={totalPop} onClick={() => {}} />
         {casTypes.map((casType, i) => {
           const itemKey = `react::simple-card-key-index::${i}`;
           return (
