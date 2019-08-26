@@ -1,57 +1,73 @@
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import { ResponsiveBar } from "@nivo/bar";
+import PropTypes from "prop-types";
 import React from "react";
 
 class BarChart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.reformatResultat = this.reformatResultat.bind(this);
-  }
-
-  reformatResultat() {
+  reformatResultat = () => {
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-    const { deciles, total } = this.props.resultat;
+    const { resultat } = this.props;
+    const { deciles } = resultat;
+    const accResAvant = { refid: " " };
+
     const z = deciles.map(element => element.avant);
-    const stavant = { refid: " " };
-    const resavant = z.reduce((result, item, index, array) => {
+    const resavant = z.reduce((result, item, index) => {
+      // eslint-disable-next-line no-param-reassign
       result[keycols[index]] = Math.round(item / 10000000) / 100;
       return result;
-    }, stavant);
-    const stapres = {
-      refid: "" /* +Math.round(total.apres/10000000)/100+ "Md€" */,
+    }, accResAvant);
+
+    const accResApres = {
+      /* +Math.round(total.apres/10000000)/100+ "Md€" */
+      refid: "",
     };
+
     const resapres = deciles
       .map(element => element.apres)
-      .reduce((result, item, index, array) => {
+      .reduce((result, item, index) => {
+        // eslint-disable-next-line no-param-reassign
         result[keycols[index]] = Math.round(item / 10000000) / 100;
         return result;
-      }, stapres);
+      }, accResApres);
+
     return [resapres, resavant];
-  }
+  };
 
   render() {
+    console.log("render render render render");
+    const { resultat } = this.props;
+
     const Image = ({ bars }) => {
+      console.log("bars bars bars bars bars");
       const size = 24;
       const images = bars.map(({
         height, key, width, x, y,
-      }) => (
-        // const iddecile=key.substring(0,key.indexOf(".")
-        <image
-          key={key}
-          height={width > 15 ? size : 0}
-          width={width > 15 ? size : 0}
-          x={x + width / 2 - size / 2}
-          xlinkHref={`../static/images/decile${key.substring(
-            0,
-            key.indexOf("."),
-          )}.png`}
-          y={y + height / 2 - size / 2}
-        />
-      ));
+      }) => {
+        const imageSize = width > 15 ? size : 0;
+        const imagePosX = x + width / 2 - size / 2;
+        const imagePosY = y + height / 2 - size / 2;
+        const decileImageKey = key.substring(0, key.indexOf("."));
+        console.log("decileImageKey", decileImageKey);
+        const xlinkHref = `../static/images/decile${decileImageKey}.png`;
+        return (
+          // const iddecile=key.substring(0,key.indexOf(".")
+          <img
+            key={key}
+            alt=""
+            height={imageSize}
+            width={imageSize}
+            x={imagePosX}
+            xlinkHref={xlinkHref}
+            y={imagePosY}
+          />
+        );
+      });
       return <g>{images}</g>;
     };
+
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const data = this.reformatResultat();
+    console.log("data", data);
     return (
       <div className="chart">
         <ResponsiveBar
@@ -98,53 +114,58 @@ class BarChart extends React.Component {
           layout="horizontal"
           legends={[]}
           margin={{
-            top: 20,
-            right: 10,
             bottom: 30,
             left: 20,
+            right: 10,
+            top: 20,
           }}
           motionDamping={15}
           motionStiffness={90}
           padding={0.05}
-          theme={{
-            axis: {
-              ticks: {
-                text: {
-                  fontFamily: "Lato",
-                  fontSize: "0.7em",
-                  fill: "#B1B1B1",
-                },
-              },
-            },
-            tooltip: {
-              container: {
-                background: "#565656",
-                color: "#ffffff",
-                fontFamily: "Lato",
-              },
-            },
-          }}
-          tooltip={(content, event) => (
-            <React.Fragment>
-              {"Total"}
-              {" "}
-              <img
-                height="30"
-                src={`../static/images/decile${content.id}.png`}
-                width="30"
-              />
-              {`décile : ${Math.round(content.value * 10) / 10}Md€`}
-              <br />
-              {`${Math.round(
-                (content.value * 1000000000)
-                  / this.props.resultat.deciles[content.id - 1].poids,
-              )}€ par foyer fiscal`}
-            </React.Fragment>
-          )}
+          // theme={{
+          //   axis: {
+          //     ticks: {
+          //       text: {
+          //         fill: "#B1B1B1",
+          //         fontFamily: "Lato",
+          //         fontSize: "0.7em",
+          //       },
+          //     },
+          //   },
+          //   tooltip: {
+          //     container: {
+          //       background: "#565656",
+          //       color: "#ffffff",
+          //       fontFamily: "Lato",
+          //     },
+          //   },
+          // }}
+          // tooltip={content => (
+          //   <React.Fragment>
+          //     {"Total"}
+          //     {" "}
+          //     <img
+          //       alt="Deciles de la population"
+          //       height="30"
+          //       src={`../static/images/decile${content.id}.png`}
+          //       width="30"
+          //     />
+          //     {`décile : ${Math.round(content.value * 10) / 10}Md€`}
+          //     <br />
+          //     {`${Math.round(
+          //       (content.value * 1000000000)
+          //         / resultat.deciles[content.id - 1].poids,
+          //     )}€ par foyer fiscal`}
+          //   </React.Fragment>
+          // )}
         />
       </div>
     );
   }
 }
+
+BarChart.propTypes = {
+  resultat: PropTypes.shape().isRequired,
+};
 
 export default BarChart;
