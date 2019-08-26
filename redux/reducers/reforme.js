@@ -32,8 +32,8 @@ const updateBareme = (prevState, name, value) => {
   return prevState;
 };
 
-const updatePlafond = (prevState, name, value) => {
-  const identifier = name.substring(10);
+const updateGenerique = (prevState, name, value) => {
+  const identifier = name;
   const regex = RegExp("^[0-9a-zA-Z_.]+$");
   const shouldUpdate = regex.test(identifier);
   if (!shouldUpdate) return prevState;
@@ -42,25 +42,7 @@ const updatePlafond = (prevState, name, value) => {
   const regextaux = RegExp("taux");
   const facteur = regextaux.test(identifier) ? 0.01 : 1;
   const nextValue = value * facteur;
-  set(prevState, `impot_revenu.plafond_qf${identifier}`, nextValue);
-  return prevState;
-};
-
-const updateDecote = (prevState, name, value) => {
-  let nextValue = null;
-  const identifier = name.substring(7);
-  if (identifier === "") {
-    nextValue = parseInt(value, 10);
-    set(prevState, "impot_revenu.decote.seuil_couple", nextValue);
-  }
-  if (identifier === "seuil_celib") {
-    nextValue = parseInt(value, 10);
-    set(prevState, "impot_revenu.decote.seuil_celib", nextValue);
-  }
-  if (identifier === "taux") {
-    nextValue = Math.round(parseFloat(value) * 10) / 1000;
-    set(prevState, "impot_revenu.decote.taux", nextValue);
-  }
+  set(prevState, `impot_revenu.${identifier}`, nextValue);
   return prevState;
 };
 
@@ -109,9 +91,9 @@ const reforme = (state = DEFAULT_STATE, action) => {
   case "onUpdateReformeTaux":
     return updateTaux(nextState, name, value);
   case "onUpdateReformeDecote":
-    return updateDecote(nextState, name, value);
+    return updateGenerique(nextState, name, value);
   case "onUpdateReformePlafond":
-    return updatePlafond(nextState, name, value);
+    return updateGenerique(nextState, name, value);
   default:
     return nextState;
   }
