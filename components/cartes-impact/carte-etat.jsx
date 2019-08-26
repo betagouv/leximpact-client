@@ -1,4 +1,4 @@
-import "styles/chart.scss";
+// import "styles/chart.scss";
 
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
@@ -9,9 +9,9 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import BarChart from "./bar-chart";
+// import BarChart from "./bar-chart";
 
-const styles = theme => ({
+const styles = () => ({
   // root: {
   // ...theme.mixins.gutters(),
   // paddingBottom: theme.spacing.unit * 2,
@@ -29,34 +29,33 @@ const styles = theme => ({
   // pos: {
   //    marginBottom: 12,
   // },
+  card: {
+    maxWidth: 500,
+  },
 
+  div: {
+    padding: 7,
+  },
+  iconEtat: {
+    fontSize: "50px",
+  },
   pom_rouge: {
     color: "#FF0000",
   },
   pom_verte: {
     color: "#00FF00",
   },
-  div: {
-    padding: 7,
+  subtitleCarteEtat: {
+    fontFamily: "Lato",
   },
 
   // button: {
   //      margin: theme.spacing.unit,
   // },
-
-  iconEtat: {
-    fontSize: "50px",
-  },
-  card: {
-    maxWidth: 500,
-  },
   titledadCarteEtat: {
     fontFamily: "Lato",
-    fontWeight: "bold",
     fontSize: "1.125em",
-  },
-  subtitleCarteEtat: {
-    fontFamily: "Lato",
+    fontWeight: "bold",
   },
 });
 
@@ -67,16 +66,18 @@ class CarteEtat extends React.Component {
   }
 
   updateStateRes(e) {
-    this.props.onClick(e);
+    const { onClick } = this.props;
+    onClick(e);
   }
 
   // bruts par an
 
   render() {
     const { classes, resultat } = this.props;
-    const delta = this.props.resultat.total.avant - this.props.resultat.total.apres;
+    // const { classes } = this.props;
+    // const delta = resultat.total.avant - resultat.total.apres;
     return (
-      <Card className={this.props.classes.card}>
+      <Card className={classes.card}>
         <CardContent>
           <table>
             <tr>
@@ -84,7 +85,7 @@ class CarteEtat extends React.Component {
                 <Icon height="40" icon={classicalBuilding} width="40" />
               </td>
               <td className="titleCarteEtat">
-                Recettes de l'État sur l'impôt sur le revenu
+                Recettes de l&apos;État sur l&apos;impôt sur le revenu
               </td>
             </tr>
             <tr>
@@ -99,7 +100,7 @@ class CarteEtat extends React.Component {
           <table>
             <tr height="15%">
               <td rowSpan="4" width="150%">
-                <BarChart resultat={resultat} />
+                {/* <BarChart resultat={resultat} /> */}
               </td>
               <td />
             </tr>
@@ -140,7 +141,14 @@ class CarteEtat extends React.Component {
 }
 
 CarteEtat.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape().isRequired,
+  onClick: PropTypes.func.isRequired,
+  resultat: PropTypes.shape({
+    total: PropTypes.shape({
+      apres: PropTypes.number.isRequired,
+      avant: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default withStyles(styles)(CarteEtat);
