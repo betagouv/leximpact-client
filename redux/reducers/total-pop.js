@@ -1,3 +1,5 @@
+import { cloneDeep } from "lodash";
+
 const DEFAULT_STATE = {
   deciles: [
     {
@@ -59,6 +61,8 @@ const DEFAULT_STATE = {
 
 const totalPop = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
+  case "onSimPopFetchResult":
+    return cloneDeep(action.data);
   default:
     return state;
   }

@@ -20,11 +20,10 @@ class ImpactComponent extends PureComponent {
       changeRevenuHandler,
       handleOutreMerChange,
       resBrut,
-      totalPop,
     } = this.props;
     return (
       <Grid container spacing={24}>
-        <CarteEtat totalPop={totalPop} onClick={() => {}} />
+        <CarteEtat />
         {casTypes.map((casType, i) => {
           const itemKey = `react::simple-card-key-index::${i}`;
           return (

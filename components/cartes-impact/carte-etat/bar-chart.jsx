@@ -1,9 +1,9 @@
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import { ResponsiveBar } from "@nivo/bar";
 import PropTypes from "prop-types";
-import React from "react";
+import { Component, Fragment } from "react";
 
-class BarChart extends React.Component {
+class BarChart extends Component {
   reformatResultat = () => {
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const { resultat } = this.props;
@@ -34,11 +34,8 @@ class BarChart extends React.Component {
   };
 
   render() {
-    console.log("render render render render");
     const { resultat } = this.props;
-
     const Image = ({ bars }) => {
-      console.log("bars bars bars bars bars");
       const size = 24;
       const images = bars.map(({
         height, key, width, x, y,
@@ -47,7 +44,6 @@ class BarChart extends React.Component {
         const imagePosX = x + width / 2 - size / 2;
         const imagePosY = y + height / 2 - size / 2;
         const decileImageKey = key.substring(0, key.indexOf("."));
-        console.log("decileImageKey", decileImageKey);
         const xlinkHref = `../static/images/decile${decileImageKey}.png`;
         return (
           // const iddecile=key.substring(0,key.indexOf(".")
@@ -67,7 +63,6 @@ class BarChart extends React.Component {
 
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const data = this.reformatResultat();
-    console.log("data", data);
     return (
       <div className="chart">
         <ResponsiveBar
@@ -122,42 +117,42 @@ class BarChart extends React.Component {
           motionDamping={15}
           motionStiffness={90}
           padding={0.05}
-          // theme={{
-          //   axis: {
-          //     ticks: {
-          //       text: {
-          //         fill: "#B1B1B1",
-          //         fontFamily: "Lato",
-          //         fontSize: "0.7em",
-          //       },
-          //     },
-          //   },
-          //   tooltip: {
-          //     container: {
-          //       background: "#565656",
-          //       color: "#ffffff",
-          //       fontFamily: "Lato",
-          //     },
-          //   },
-          // }}
-          // tooltip={content => (
-          //   <React.Fragment>
-          //     {"Total"}
-          //     {" "}
-          //     <img
-          //       alt="Deciles de la population"
-          //       height="30"
-          //       src={`../static/images/decile${content.id}.png`}
-          //       width="30"
-          //     />
-          //     {`décile : ${Math.round(content.value * 10) / 10}Md€`}
-          //     <br />
-          //     {`${Math.round(
-          //       (content.value * 1000000000)
-          //         / resultat.deciles[content.id - 1].poids,
-          //     )}€ par foyer fiscal`}
-          //   </React.Fragment>
-          // )}
+          theme={{
+            axis: {
+              ticks: {
+                text: {
+                  fill: "#B1B1B1",
+                  fontFamily: "Lato",
+                  fontSize: "0.7em",
+                },
+              },
+            },
+            tooltip: {
+              container: {
+                background: "#565656",
+                color: "#ffffff",
+                fontFamily: "Lato",
+              },
+            },
+          }}
+          tooltip={content => (
+            <Fragment>
+              {"Total"}
+              {" "}
+              <img
+                alt="Deciles de la population"
+                height="30"
+                src={`../static/images/decile${content.id}.png`}
+                width="30"
+              />
+              {`décile : ${Math.round(content.value * 10) / 10}Md€`}
+              <br />
+              {`${Math.round(
+                (content.value * 1000000000)
+                  / resultat.deciles[content.id - 1].poids,
+              )}€ par foyer fiscal`}
+            </Fragment>
+          )}
         />
       </div>
     );

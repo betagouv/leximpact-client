@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import React from "react";
+import { PureComponent } from "react";
 
 import BarChart from "./bar-chart";
 
@@ -59,21 +59,11 @@ const styles = () => ({
   },
 });
 
-class CarteEtat extends React.Component {
-  constructor(props) {
-    super(props);
-    this.updateStateRes = this.updateStateRes.bind(this);
-  }
-
-  updateStateRes(e) {
-    const { onClick } = this.props;
-    onClick(e);
-  }
-
+class CarteEtat extends PureComponent {
   // bruts par an
 
   render() {
-    const { classes, totalPop } = this.props;
+    const { classes, onClickSimPop, totalPop } = this.props;
     // const { classes } = this.props;
     // const delta = totalPop.total.avant - totalPop.total.apres;
     return (
@@ -133,7 +123,7 @@ class CarteEtat extends React.Component {
               <Button
                 color="secondary"
                 variant="contained"
-                onClick={this.updateStateRes}>
+                onClick={onClickSimPop}>
                 Lancer la simulation
               </Button>
             </center>
@@ -146,7 +136,7 @@ class CarteEtat extends React.Component {
 
 CarteEtat.propTypes = {
   classes: PropTypes.shape().isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClickSimPop: PropTypes.func.isRequired,
   totalPop: PropTypes.shape({
     total: PropTypes.shape({
       apres: PropTypes.number.isRequired,
