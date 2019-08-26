@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import SimpleCard from "./simple-card";
-// import CarteEtat from "./carte-etat";
+import CarteEtat from "./carte-etat";
 
 class ImpactComponent extends PureComponent {
   handleClick = () => {
@@ -36,6 +36,7 @@ class ImpactComponent extends PureComponent {
                 onChange={changeRevenuHandler}
                 onOutreMerChange={handleOutreMerChange}
               />
+              <CarteEtat />
             </Grid>
           );
         })}

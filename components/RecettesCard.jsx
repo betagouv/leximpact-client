@@ -8,24 +8,25 @@ import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-const styles = () => ({
-  // root: {
-  // ...theme.mixins.gutters(),
-  // paddingBottom: theme.spacing.unit * 2,
-  // paddingTop: theme.spacing.unit * 2,
-  // margin: `${theme.spacing.unit / 2}em auto`,
-  // width: "25em",
-  // },
-  // card: {
-  // minWidth: 275,
-  // },
+const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    margin: `${theme.spacing.unit / 2}em auto`,
+    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 2,
 
-  // titre: {
-  // fontSize: 11,
-  // },
-  // pos: {
-  //    marginBottom: 12,
-  // },
+    width: "25em",
+  },
+  card: {
+    minWidth: 275,
+  },
+
+  titre: {
+    fontSize: 11,
+  },
+  pos: {
+    marginBottom: 12,
+  },
   div: {
     padding: 7,
   },
@@ -52,7 +53,7 @@ class RecettesCard extends PureComponent {
       classes, delta, impotsAvant, onClick,
     } = this.props;
     return (
-      <Card>
+      <Card className={classes.root}>
         <CardContent>
           <Icon height="40" icon={classicalBuilding} width="40" />
           <Typography variant="body1">Recettes de l&#39;État</Typography>
