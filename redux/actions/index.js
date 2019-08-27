@@ -20,5 +20,5 @@ export {
 export { default as updateConnexionToken } from "./update-connexion-token";
 export { default as showAddCasTypesPopin } from "./popin-cas-types-add";
 export { default as fetchSimPop } from "./api-simpop";
-export { default as showEditCasTypesPopin } from "./popin-cas-types-edit";
+export { default as onEditCarteImpact } from "./edit-carte-impact";
 export { default as onRemoveCarteImpact } from "./remove-carte-impact";

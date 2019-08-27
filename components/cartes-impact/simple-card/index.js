@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
 
-import {
-  onRemoveCarteImpact,
-  showEditCasTypesPopin,
-} from "../../../redux/actions";
+import { onEditCarteImpact, onRemoveCarteImpact } from "../../../redux/actions";
 import SimpleCard from "./simple-card-component";
 
 const mapStateToProps = state => ({
@@ -11,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleEditCarteImpact: index => dispatch(showEditCasTypesPopin(index)),
+  handleEditCarteImpact: index => dispatch(onEditCarteImpact(index)),
   handleRemoveCarteImpact: index => dispatch(onRemoveCarteImpact(index)),
 });
 
