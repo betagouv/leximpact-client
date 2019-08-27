@@ -49,7 +49,7 @@ class SimulationMenuBar extends Component {
                 className={classes.marginIcon}
                 tag="cas type" />
               {showSimulatioButtonAsMobile && "ESTIMER"}
-              {!showSimulatioButtonAsMobile && "ESTIMER ~5'"}
+              {!showSimulatioButtonAsMobile && "ESTIMER ~5''"}
               <CachedIcon className={classes.miniIcon} />
             </Button>
           </Grid>
@@ -65,7 +65,7 @@ class SimulationMenuBar extends Component {
                 className={classes.marginIcon}
                 tag="cas type" />
               {showSimulatioButtonAsMobile && "ESTIMER"}
-              {!showSimulatioButtonAsMobile && "ESTIMER ~60'"}
+              {!showSimulatioButtonAsMobile && "ESTIMER ~60''"}
               <CachedIcon className={classes.miniIcon} />
             </Button>
           </Grid>
