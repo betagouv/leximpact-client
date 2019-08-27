@@ -22,9 +22,10 @@ import { loadingComplete, loadingStart } from "./loading";
 */
 const fetchSimPop = () => (dispatch, getState, { apiEndpoint }) => {
   dispatch(loadingStart());
-  const { reforme } = getState();
-  const body = JSON.stringify({ deciles: true, reforme });
-  const promise = fetch(`${apiEndpoint}/calculate/compare`, {
+  const { reforme, token } = getState();
+  const body = JSON.stringify({ deciles: true, reforme , token});
+  console.log("token",body);
+  const promise = fetch(`${apiEndpoint}/calculate/simpop`, {
     body,
     headers: { "Content-Type": "application/json" },
     method: "POST",
