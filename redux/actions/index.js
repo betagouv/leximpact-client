@@ -19,3 +19,5 @@ export {
 export { default as updateConnexionToken } from "./update-connexion-token";
 export { default as showAddImpactCardPopin } from "./popin-add-impact-card";
 export { default as fetchSimPop } from "./api-simpop";
+export { default as onEditCarteImpact } from "./edit-carte-impact";
+export { default as onRemoveCarteImpact } from "./remove-carte-impact";

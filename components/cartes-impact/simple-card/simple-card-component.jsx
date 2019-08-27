@@ -25,26 +25,26 @@ const styles = () => ({
     paddingBottom: 0,
   },
   cardcontent: {
-    padding: 0,
     "&:last-child": {
       paddingBottom: 0,
     },
+    padding: 0,
   },
-  titre: {
-    fontSize: 11,
-  },
-  nativeselect: {},
-  legende: {
-    fontSize: 12,
-    color: "#909090",
-    fontFamily: "Lato",
-    marginBottom: 10,
+  chip: {
+    marginTop: 10,
   },
   div: {
     padding: 15,
   },
-  chip: {
-    marginTop: 10,
+  legende: {
+    color: "#909090",
+    fontFamily: "Lato",
+    fontSize: 12,
+    marginBottom: 10,
+  },
+  nativeselect: {},
+  titre: {
+    fontSize: 11,
   },
 });
 
@@ -56,8 +56,8 @@ const BlueTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: "#00a3ff",
     color: "#ffffff",
-    maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
+    maxWidth: 220,
   },
   tooltipPlacementBottom: {
     margin: "0px 0",
@@ -66,7 +66,8 @@ const BlueTooltip = withStyles(theme => ({
 
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
-    this.props.onChange(i, event);
+    const { onChange } = this.props;
+    onChange(i, event);
   };
 
   handleOutreMerChange = numcastype => () => {
@@ -278,7 +279,10 @@ class SimpleCard extends React.Component {
 }
 SimpleCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  handleEditCarteImpact: PropTypes.func.isRequired,
+  handleRemoveCarteImpact: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);
