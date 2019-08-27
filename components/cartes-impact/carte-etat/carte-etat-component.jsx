@@ -1,14 +1,14 @@
-// import "styles/chart.scss";
-
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
-import { Cached as CachedIcon } from "@material-ui/icons";
-import { AccountBalance as AccountBalanceIcon } from "@material-ui/icons";
-import { Face as FaceIcon } from "@material-ui/icons";
 import {
   Button, Card, CardContent, Typography,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import {
+  AccountBalance as AccountBalanceIcon,
+  Cached as CachedIcon,
+  Face as FaceIcon,
+} from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
@@ -136,7 +136,7 @@ class CarteEtat extends PureComponent {
                 variant="outlined"
                 onClick={onClickSimPop}>
                 <AccountBalanceIcon />
-                <FaceIcon className={classes.marginIcon}/>
+                <FaceIcon className={classes.marginIcon} />
                 &nbsp;Estimer ~1min
                 <CachedIcon className={classes.miniIcon} />
               </Button>

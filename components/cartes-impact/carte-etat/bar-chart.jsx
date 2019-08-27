@@ -1,3 +1,5 @@
+import "./bar-chart.scss";
+
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import { ResponsiveBar } from "@nivo/bar";
 import PropTypes from "prop-types";
@@ -44,10 +46,10 @@ class BarChart extends Component {
         const imagePosX = x + width / 2 - size / 2;
         const imagePosY = y + height / 2 - size / 2;
         const decileImageKey = key.substring(0, key.indexOf("."));
-        const xlinkHref = `../static/images/decile${decileImageKey}.png`;
+        const xlinkHref = `/static/images/decile${decileImageKey}.png`;
         return (
           // const iddecile=key.substring(0,key.indexOf(".")
-          <img
+          <image
             key={key}
             alt=""
             height={imageSize}
@@ -142,7 +144,7 @@ class BarChart extends Component {
               <img
                 alt="Deciles de la population"
                 height="30"
-                src={`../static/images/decile${content.id}.png`}
+                src={`/static/images/decile${content.id}.png`}
                 width="30"
               />
               {`décile : ${Math.round(content.value * 10) / 10}Md€`}
