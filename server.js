@@ -23,6 +23,7 @@ async function start() {
 
   ------------------------------------ */
   server.use("/", express.static(path.join(__dirname, "public")));
+  server.use("/static", express.static(path.join(__dirname, "static")));
   // Ouverture de la popin de confirmation de connexion
   // depuis l'URL /connection/:token
   // recue via le mail contenant le magic-link
