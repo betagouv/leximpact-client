@@ -1,6 +1,8 @@
 import { Button, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Cached as CachedIcon } from "@material-ui/icons";
+import { AccountBalance as AccountBalanceIcon } from "@material-ui/icons";
+import { Face as FaceIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { Component } from "react";
 
@@ -14,6 +16,12 @@ const styles = () => ({
   styleIcon: {
     marginRight: "20px",
   },
+  marginIcon: {
+    marginRight: "20px",
+  },
+  miniIcon: {
+    height: "15px",
+  },
 });
 
 class SimulationMenuBar extends Component {
@@ -25,15 +33,43 @@ class SimulationMenuBar extends Component {
     } = this.props;
     return (
       <Grid item>
-        <Button
-          color="secondary"
-          size="large"
-          variant="contained"
-          onClick={handleSimulationClick}>
-          <CachedIcon className={classes.styleIcon} />
-          {showSimulatioButtonAsMobile && "ESTIMER"}
-          {!showSimulatioButtonAsMobile && "LANCER L'ESTIMATION"}
-        </Button>
+        <Grid
+          container
+          alignItems="center"
+          direction="row"
+          justify="space-between"
+          spacing={8}>
+          <Grid item>
+            <Button
+              color="secondary"
+              size="medium"
+              variant="contained"
+              onClick={handleSimulationClick}>
+              <FaceIcon
+                className={classes.marginIcon}
+                tag="cas type" />
+              {showSimulatioButtonAsMobile && "ESTIMER"}
+              {!showSimulatioButtonAsMobile && "ESTIMER ~5'"}
+              <CachedIcon className={classes.miniIcon} />
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              color="secondary"
+              size="medium"
+              variant="contained"
+              onClick={handleSimulationClick}>
+              <AccountBalanceIcon
+                tag="macro" />
+              <FaceIcon
+                className={classes.marginIcon}
+                tag="cas type" />
+              {showSimulatioButtonAsMobile && "ESTIMER"}
+              {!showSimulatioButtonAsMobile && "ESTIMER ~60'"}
+              <CachedIcon className={classes.miniIcon} />
+            </Button>
+          </Grid>
+        </Grid>
       </Grid>
     );
   };
@@ -81,7 +117,8 @@ class SimulationMenuBar extends Component {
         alignItems="center"
         className={classes.container}
         direction="row"
-        justify="space-between">
+        justify="space-between"
+        spacing={8}>
         {this.renderOutilsAffichage()}
         {this.renderBoutonSimulation()}
       </Grid>

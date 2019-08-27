@@ -2,6 +2,9 @@
 
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
+import { Cached as CachedIcon } from "@material-ui/icons";
+import { AccountBalance as AccountBalanceIcon } from "@material-ui/icons";
+import { Face as FaceIcon } from "@material-ui/icons";
 import {
   Button, Card, CardContent, Typography,
 } from "@material-ui/core";
@@ -29,6 +32,13 @@ const styles = () => ({
   // pos: {
   //    marginBottom: 12,
   // },
+
+  marginIcon: {
+    marginRight: "20px",
+  },
+  miniIcon: {
+    height: "15px",
+  },
   card: {
     maxWidth: 500,
   },
@@ -122,9 +132,13 @@ class CarteEtat extends PureComponent {
             <center>
               <Button
                 color="secondary"
-                variant="contained"
+                size="medium"
+                variant="outlined"
                 onClick={onClickSimPop}>
-                Lancer la simulation
+                <AccountBalanceIcon />
+                <FaceIcon className={classes.marginIcon}/>
+                &nbsp;Estimer ~1min
+                <CachedIcon className={classes.miniIcon} />
               </Button>
             </center>
           </div>
