@@ -68,6 +68,7 @@ class BarChart extends Component {
     return (
       <div className="chart">
         <ResponsiveBar
+          height={130}
           animate
           enableGridX
           axisBottom={{
