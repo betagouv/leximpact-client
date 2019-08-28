@@ -1,51 +1,51 @@
 import { cloneDeep, set } from "lodash";
 // le default state est rempli grace a la lib "redux-cookies-middleware"
 // voir le fichier "./pages/_app.jsx"
-const DEFAULT_STATE = [];
-// const DEFAULT_CAS_TYPES = [
-//   {
-//     nombre_declarants: 1,
-//     nombre_declarants_retraites: 0,
-//     nombre_personnes_a_charge: 0,
-//     outre_mer: 0,
-//     revenu: 15600,
-//   },
-//   {
-//     nombre_declarants: 1,
-//     nombre_declarants_retraites: 0,
-//     nombre_personnes_a_charge: 1,
-//     outre_mer: 0,
-//     revenu: 31200,
-//   },
-//   {
-//     nombre_declarants: 2,
-//     nombre_declarants_retraites: 0,
-//     nombre_personnes_a_charge: 0,
-//     outre_mer: 0,
-//     revenu: 38400,
-//   },
-//   {
-//     nombre_declarants: 2,
-//     nombre_declarants_retraites: 2,
-//     nombre_personnes_a_charge: 0,
-//     outre_mer: 0,
-//     revenu: 15600,
-//   },
-//   {
-//     nombre_declarants: 2,
-//     nombre_declarants_retraites: 0,
-//     nombre_personnes_a_charge: 2,
-//     outre_mer: 0,
-//     revenu: 55200,
-//   },
-//   {
-//     nombre_declarants: 2,
-//     nombre_declarants_retraites: 0,
-//     nombre_personnes_a_charge: 2,
-//     outre_mer: 1,
-//     revenu: 55200,
-//   },
-// ];
+// const DEFAULT_STATE = [];
+const DEFAULT_STATE = [
+  {
+    nombre_declarants: 1,
+    nombre_declarants_retraites: 0,
+    nombre_personnes_a_charge: 0,
+    outre_mer: 0,
+    revenu: 15600,
+  },
+  {
+    nombre_declarants: 1,
+    nombre_declarants_retraites: 0,
+    nombre_personnes_a_charge: 1,
+    outre_mer: 0,
+    revenu: 31200,
+  },
+  {
+    nombre_declarants: 2,
+    nombre_declarants_retraites: 0,
+    nombre_personnes_a_charge: 0,
+    outre_mer: 0,
+    revenu: 38400,
+  },
+  {
+    nombre_declarants: 2,
+    nombre_declarants_retraites: 2,
+    nombre_personnes_a_charge: 0,
+    outre_mer: 0,
+    revenu: 15600,
+  },
+  {
+    nombre_declarants: 2,
+    nombre_declarants_retraites: 0,
+    nombre_personnes_a_charge: 2,
+    outre_mer: 0,
+    revenu: 55200,
+  },
+  {
+    nombre_declarants: 2,
+    nombre_declarants_retraites: 0,
+    nombre_personnes_a_charge: 2,
+    outre_mer: 1,
+    revenu: 55200,
+  },
+];
 
 const parseCarteImpact = (carteImpact) => {
   const { persons, revenusNetMensuel } = carteImpact;
