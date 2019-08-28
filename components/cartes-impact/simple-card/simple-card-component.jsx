@@ -80,9 +80,9 @@ const styles = () => ({
   },
 });
 
-function numberToRevenuparmois(rev) {
-  return `${rev}€/mois`;
-}
+// function numberToRevenuparmois(rev) {
+//   return `${rev}€/mois`;
+// }
 
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
