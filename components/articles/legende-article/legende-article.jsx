@@ -21,10 +21,6 @@ const stylesTheme = theme => ({
     },
   },
   styleAmendement: {
-    backgroundColor: "#FFFFFF",
-    backgroundSize: "auto auto",
-    border: "solid 0.1em",
-    borderColor: "#00A3FF",
     borderRadius: "0.3em",
     color: "#00A3FF",
     fontFamily: "Lato",
@@ -33,7 +29,7 @@ const stylesTheme = theme => ({
     lineHeight: "10px",
     marginLeft: "4px",
     marginRight: "4px",
-    padding: "2px",
+    padding: "3px",
   },
   styleAvantPLF: {
     color: "#FF6B6B",
