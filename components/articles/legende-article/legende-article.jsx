@@ -1,8 +1,17 @@
 import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { OpenInNew as OpenInNewIcon } from "@material-ui/icons";
 
 const stylesTheme = theme => ({
+  alink: {
+    "&:hover": {
+      color: "#00A3FF",
+      textDecoration: "underline",
+    },
+    color: "#FF6B6B",
+    textDecoration: "none",
+  },
   container: {
     margin: "2em 1em 0 1em",
     padding: "0",
@@ -10,6 +19,43 @@ const stylesTheme = theme => ({
     [theme.breakpoints.down("xs")]: {
       margin: "0em",
     },
+  },
+  styleAmendement: {
+    backgroundColor: "#FFFFFF",
+    backgroundSize: "auto auto",
+    border: "solid 0.1em",
+    borderColor: "#00A3FF",
+    borderRadius: "0.3em",
+    color: "#00A3FF",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "4px",
+    marginRight: "4px",
+    padding: "2px",
+  },
+  styleAvantPLF: {
+    color: "#FF6B6B",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "4px",
+    marginRight: "4px",
+    padding: "3px",
+  },
+  styleCodeExistant: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "4px",
+    marginRight: "4px",
+    padding: "3px",
   },
   styleLegende: {
     color: "#B1B1B1",
@@ -21,39 +67,13 @@ const stylesTheme = theme => ({
     marginRight: "8px",
     padding: "0 3px 0 0",
   },
-  styleCodeExistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    marginRight: "8px",
-    padding: "3px",
-  },
-  styleAvantPLF: {
+  styleOpenInNewIcon: {
     color: "#FF6B6B",
     fontFamily: "Lato",
-    fontSize: "12px",
+    fontSize: "13px",
     fontWeight: "bold",
     lineHeight: "10px",
-    marginLeft: "8px",
-    marginRight: "8px",
-    padding: "3px",
-  },
-  styleAmendement: {
-    backgroundColor: "#FFFFFF",
-    backgroundSize: "auto auto",
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    marginRight: "8px",
-    padding: "3px",
+    texAlign: "center",
   },
 });
 
@@ -67,7 +87,10 @@ function LegendeArticle({ classes }) {
       Droit existant
       </Typography>
       <Typography inline className={classes.styleAvantPLF}>
-      Baisse d&apos;impôt prévue en 2020
+        <a className={classes.alink} href="https://www.impots.gouv.fr/portail/simulateur-de-la-baisse-dimpot-sur-le-revenu-annoncee-pour-2020" target="blank">
+        Baisse d&apos;impôt prévue en 2020
+          <OpenInNewIcon className={classes.styleOpenInNewIcon} />
+        </a>
       </Typography>
       <Typography inline className={classes.styleAmendement}>
       Votre amendement de l’avant-PLF
