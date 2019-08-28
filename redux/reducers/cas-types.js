@@ -1,6 +1,6 @@
 import { cloneDeep } from "lodash";
 
-import transformDataToCarteImpact from "../../components/utils/transform-data-to-carte-impact";
+import { transformDataToCarteImpact } from "../../components/utils/transform-data-to-carte-impact";
 
 // le default state est rempli grace a la lib "redux-cookies-middleware"
 // voir le fichier "./pages/_app.jsx"

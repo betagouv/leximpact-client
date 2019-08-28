@@ -121,8 +121,13 @@ class SimpleCard extends React.Component {
       isLoading,
     } = this.props;
 
-    const { revenu } = descCasType;
-    const revrounded = Math.round(revenu / 12);
+    const styleIcons = {
+      width: "10em",
+    };
+
+    const { revenusNetMensuel } = descCasType;
+    const revrounded = Math.round(revenusNetMensuel);
+    // const revtodisp = numberToRevenuparmois(revrounded);
     const isret = !!descCasType.nombre_declarants_retraites;
     const manfirst = Math.random() < 0.49;
     const coupledummsexe = Math.random() < 0.15;
