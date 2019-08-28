@@ -26,7 +26,7 @@ const styleTitreThematique = {
 const StyledFormControlLabel = withStyles({
   label: {
     color: "#565656",
-    display: "inline",
+    display: "inline-block",
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
