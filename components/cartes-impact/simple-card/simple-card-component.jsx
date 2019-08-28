@@ -93,7 +93,6 @@ class SimpleCard extends React.Component {
   handleOutreMerChange = numcastype => () => {
     const { descCasType, onOutreMerChange } = this.props;
     const outreMerIndex = 3 - descCasType.outre_mer;
-    // console.log("je suis dans l'outremer",numcastype,event,this.props.descCasType.outre_mer)
     onOutreMerChange(numcastype, outreMerIndex);
   };
 
@@ -113,10 +112,6 @@ class SimpleCard extends React.Component {
       index,
       isLoading,
     } = this.props;
-
-    const styleIcons = {
-      width: "10em",
-    };
 
     const { revenusNetMensuel } = descCasType;
     const revrounded = Math.round(revenusNetMensuel);
