@@ -1,7 +1,10 @@
 import { Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
@@ -18,6 +21,20 @@ const styleTitreThematique = {
   fontWeight: "bold",
   textAlign: "left",
 };
+
+const StyledFormControlLabel = withStyles({
+  label: {
+    color: "#565656",
+    display: "inline",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "regular",
+    lineHeight: "10px",
+  },
+  root: {
+    display: "block",
+  },
+})(FormControlLabel);
 
 class ArticleAlinea3 extends PureComponent {
   render() {
@@ -58,6 +75,19 @@ class ArticleAlinea3 extends PureComponent {
             {baseOutputInput("plafond_qf.abat_dom.plaf_GuyMay")}
             €, pour les contribuables domiciliés dans les départements de la
             Guyane et de Mayotte ;
+            <StyledFormControlLabel
+              disabled={true}
+              control={
+                <Switch
+                  // checked={this.state.checkedB}
+                  // onChange={this.handleChange("checkedB")}
+                  // value="checkedB"
+                  color="secondary"
+                />
+              }
+              label="Supprimer la réfaction outre-mer"
+              // Mettre les variables de l'amendement à 0 quand le switch est passé.
+            />
           </Typography>
         </LexExpansionPanelDetails>
       </LexExpansionPanel>

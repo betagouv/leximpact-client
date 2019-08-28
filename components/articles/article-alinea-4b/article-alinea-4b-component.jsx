@@ -1,7 +1,10 @@
 import { Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
@@ -19,6 +22,20 @@ const styleTitreThematique = {
   fontWeight: "bold",
   textAlign: "left",
 };
+
+const StyledFormControlLabel = withStyles({
+  label: {
+    color: "#565656",
+    display: "inline",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "regular",
+    lineHeight: "10px",
+  },
+  root: {
+    display: "block",
+  },
+})(FormControlLabel);
 
 class Alinea4b extends PureComponent {
   alinea4bext() {
@@ -135,6 +152,20 @@ class Alinea4b extends PureComponent {
         année dans la même proportion que la limite supérieure de la première
         tranche du barème de l&apos;impôt sur le revenu. Les montants obtenus
         sont arrondis, s&apos;il y a lieu, à l&apos;euro supérieur.
+
+        <StyledFormControlLabel
+          disabled={true}
+          control={
+            <Switch
+              // checked={this.state.checkedB}
+              // onChange={this.handleChange("checkedB")}
+              // value="checkedB"
+              color="secondary"
+            />
+          }
+          label="Supprimer la réfaction foyers modestes"
+          // Mettre les variables de l'amendement à 0 quand le switch est passé.
+        />
       </Typography>
     );
   }
