@@ -18,9 +18,9 @@ class ImpactComponent extends PureComponent {
     const {
       casTypes,
       changeRevenuHandler,
-      handleOutreMerChange,
+      // handleOutreMerChange,
       isUserLogged,
-      resBrut,
+      // resBrut,
     } = this.props;
     return (
       <Grid container spacing={24}>
@@ -34,12 +34,9 @@ class ImpactComponent extends PureComponent {
           return (
             <Grid key={itemKey} item lg={4} md={6} sm={6} xl={3} xs={12}>
               <SimpleCard
-                descCasType={casType}
-                impotsApres={resBrut.apres[i]}
-                impotsAvant={resBrut.avant[i]}
-                index={i}
+                index={index}
                 onChange={changeRevenuHandler}
-                onOutreMerChange={handleOutreMerChange}
+                // onOutreMerChange={handleOutreMerChange}
               />
             </Grid>
           );
@@ -68,13 +65,13 @@ ImpactComponent.propTypes = {
   ).isRequired,
   changeRevenuHandler: PropTypes.func.isRequired,
   // onSimPopClick: PropTypes.func.isRequired,
-  handleOutreMerChange: PropTypes.func.isRequired,
+  // handleOutreMerChange: PropTypes.func.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
-  resBrut: PropTypes.shape({
-    apres: PropTypes.shape(),
-    avant: PropTypes.shape(),
-    wprm: PropTypes.shape(),
-  }).isRequired,
+  // resBrut: PropTypes.shape({
+  //   apres: PropTypes.shape(),
+  //   avant: PropTypes.shape(),
+  //   wprm: PropTypes.shape(),
+  // }).isRequired,
   totalPop: PropTypes.shape({
     deciles: PropTypes.arrayOf(PropTypes.shape()),
     total: PropTypes.shape(),

@@ -1,7 +1,9 @@
 import babyIcon from "@iconify/icons-twemoji/baby";
-import desertIsland from "@iconify/icons-twemoji/desert-island";
+import CactusIcon from "@iconify/icons-twemoji/cactus";
+import DeciduousTreeIcon from "@iconify/icons-twemoji/deciduous-tree";
 import manCurlyHaired from "@iconify/icons-twemoji/man-curly-haired";
 import manWhiteHaired from "@iconify/icons-twemoji/man-white-haired";
+import PalmTreeIcon from "@iconify/icons-twemoji/palm-tree";
 import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired";
 import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired";
 import { Icon } from "@iconify/react";
@@ -21,10 +23,36 @@ import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 
+import DoublePalmTreeIcon from "../../icons/double-palm-tree";
 import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
 import BlueTooltip from "./blue-tooltip";
 
 const REVENUS_MENSUEL = generateRevenusMensuel(500);
+
+const RESIDENCE_ITEMS = [
+  // Doit correspondre a ceux definis
+  // dans /components/ajouter-cas-types/form/cas-types-lieu-residence
+  {
+    icon: DeciduousTreeIcon,
+    key: "metropole",
+    label: "Metropole",
+  },
+  {
+    icon: PalmTreeIcon,
+    key: "guadeloupe_martinique_reunion",
+    label: "Guadeloupe, Martinique, La Réunion",
+  },
+  {
+    icon: DoublePalmTreeIcon,
+    key: "mayotte_guyane",
+    label: "Mayotte, Guyane",
+  },
+  {
+    icon: CactusIcon,
+    key: "etranger",
+    label: "Étranger",
+  },
+];
 
 const styles = () => ({
   card: {
@@ -80,26 +108,39 @@ const styles = () => ({
   },
 });
 
-// function numberToRevenuparmois(rev) {
-//   return `${rev}€/mois`;
-// }
-
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
     const { onChange } = this.props;
     onChange(i, event);
   };
 
-  handleOutreMerChange = numcastype => () => {
-    const { descCasType, onOutreMerChange } = this.props;
-    const outreMerIndex = 3 - descCasType.outre_mer;
-    onOutreMerChange(numcastype, outreMerIndex);
-  };
+  // handleOutreMerChange = numcastype => () => {
+  //   const { descCasType, onOutreMerChange } = this.props;
+  //   const outreMerIndex = 3 - descCasType.outre_mer;
+  //   onOutreMerChange(numcastype, outreMerIndex);
+  // };
 
   roundedRevenues = () => REVENUS_MENSUEL.map((value) => {
     const uniqKey = `palier_${value}`;
     return <option key={uniqKey} value={value}>{`${value}€/mois`}</option>;
   });
+
+  renderLieuDeResidence = () => {
+    const { descCasType } = this.props;
+    const { lieuResidence: index } = descCasType;
+    const { icon, label } = RESIDENCE_ITEMS[index];
+    const className = "";
+    return (
+      <Chip
+        // {...chipProps}
+        className={className}
+        clickable={false}
+        icon={<Icon height="20" icon={icon} width="20" />}
+        label={label}
+        variant="outlined"
+      />
+    );
+  };
 
   render() {
     const {
@@ -113,31 +154,30 @@ class SimpleCard extends React.Component {
       isLoading,
     } = this.props;
 
-    const { revenusNetMensuel } = descCasType;
+    const { plu65ans, revenusNetMensuel } = descCasType;
     const revrounded = Math.round(revenusNetMensuel);
-    // const revtodisp = numberToRevenuparmois(revrounded);
-    const isret = !!descCasType.nombre_declarants_retraites;
+    const isRetraite = Boolean(plu65ans);
     const manfirst = Math.random() < 0.49;
     const coupledummsexe = Math.random() < 0.15;
-    const aretwo = descCasType.nombre_declarants > 1;
-    const nbenfants = descCasType.nombre_personnes_a_charge;
-    const isoutremer1 = descCasType.outre_mer === 1;
-    const isoutremer2 = descCasType.outre_mer === 2;
+    const aretwo = descCasType.nbCouple > 1;
+    const nbenfants = descCasType.nbEnfants;
+    // const isoutremer1 = descCasType.outre_mer === 1;
+    // const isoutremer2 = descCasType.outre_mer === 2;
     // bruts par an
     const icon1 = manfirst
-      ? isret
+      ? isRetraite
         ? manWhiteHaired
         : manCurlyHaired
-      : isret
+      : isRetraite
         ? womanWhiteHaired
         : womanCurlyHaired;
     const icon2 = coupledummsexe
       ? icon1
       : !manfirst
-        ? isret
+        ? isRetraite
           ? manWhiteHaired
           : manCurlyHaired
-        : isret
+        : isRetraite
           ? womanWhiteHaired
           : womanCurlyHaired;
     const babyicons = [...Array(nbenfants)].map((e, i) => {
@@ -164,7 +204,7 @@ class SimpleCard extends React.Component {
                 enterDelay={300}
                 leaveDelay={200}
                 placement="top"
-                title={isret ? "Plus de 65 ans" : "Moins de 65 ans"}>
+                title={isRetraite ? "Plus de 65 ans" : "Moins de 65 ans"}>
                 <span>
                   {<Icon key="person1" height="40" icon={icon1} width="40" />}
                   {aretwo ? (
@@ -195,7 +235,8 @@ class SimpleCard extends React.Component {
               </Tooltip>
             </div>
             <div>
-              {isoutremer1 ? (
+              {this.renderLieuDeResidence()}
+              {/* {isoutremer1 ? (
                 <Tooltip
                   key="outremer1"
                   enterDelay={300}
@@ -225,7 +266,7 @@ class SimpleCard extends React.Component {
                 </Tooltip>
               ) : (
                 ""
-              )}
+              )} */}
             </div>
           </div>
           <Divider />
@@ -309,7 +350,7 @@ SimpleCard.propTypes = {
   index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  onOutreMerChange: PropTypes.func.isRequired,
+  // onOutreMerChange: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);
