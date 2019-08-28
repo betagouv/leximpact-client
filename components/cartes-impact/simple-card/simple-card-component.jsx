@@ -22,6 +22,7 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 
 import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
+import BlueTooltip from "./blue-tooltip";
 
 const REVENUS_MENSUEL = generateRevenusMensuel(500);
 
@@ -79,17 +80,9 @@ const styles = () => ({
   },
 });
 
-const BlueTooltip = withStyles(theme => ({
-  tooltip: {
-    backgroundColor: "#00a3ff",
-    color: "#ffffff",
-    fontSize: theme.typography.pxToRem(12),
-    maxWidth: 220,
-  },
-  tooltipPlacementBottom: {
-    margin: "0px 0",
-  },
-}))(Tooltip);
+function numberToRevenuparmois(rev) {
+  return `${rev}€/mois`;
+}
 
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
