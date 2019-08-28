@@ -23,11 +23,13 @@ class ImpactComponent extends PureComponent {
     } = this.props;
     return (
       <Grid container spacing={24}>
-        <CarteEtat />
+        <Grid item xs={12} sm={6} md={6} lg={8} xl={6}>
+          <CarteEtat />
+        </Grid>
         {casTypes.map((casType, i) => {
           const itemKey = `react::simple-card-key-index::${i}`;
           return (
-            <Grid key={itemKey} item lg={4} md={6} sm={12} xl={3} xs={6}>
+            <Grid key={itemKey} item xs={12} sm={6} md={6} lg={4} xl={3}>
               <SimpleCard
                 descCasType={casType}
                 impotsApres={resBrut.apres[i]}
