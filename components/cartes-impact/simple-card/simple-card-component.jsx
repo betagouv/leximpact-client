@@ -31,39 +31,35 @@ const styles = () => ({
     paddingBottom: 0,
   },
   cardcontent: {
-    padding: 0,
     "&:last-child": {
       paddingBottom: 0,
     },
-  },
-  titre: {
-    fontSize: 11,
-  },
-  nativeselect: {},
-  legende: {
-    fontSize: 12,
-    color: "#909090",
-    fontFamily: "Lato",
-    marginBottom: 10,
-  },
-  div: {
-    padding: 15,
+    padding: 0,
   },
   chip: {
     marginTop: 10,
   },
+  div: {
+    padding: 15,
+  },
+  legende: {
+    color: "#909090",
+    fontFamily: "Lato",
+    fontSize: 12,
+    marginBottom: 10,
+  },
+  nativeselect: {},
+  titre: {
+    fontSize: 11,
+  },
 });
-
-function numberToRevenuparmois(rev) {
-  return `${rev}€/mois`;
-}
 
 const BlueTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: "#00a3ff",
     color: "#ffffff",
-    maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
+    maxWidth: 220,
   },
   tooltipPlacementBottom: {
     margin: "0px 0",
@@ -72,7 +68,8 @@ const BlueTooltip = withStyles(theme => ({
 
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
-    this.props.onChange(i, event);
+    const { onChange } = this.props;
+    onChange(i, event);
   };
 
   handleOutreMerChange = numcastype => () => {
@@ -99,12 +96,8 @@ class SimpleCard extends React.Component {
       isLoading,
     } = this.props;
 
-    const styleIcons = {
-      width: "10em",
-    };
     const { revenu } = descCasType;
     const revrounded = Math.round(revenu / 12);
-    const revtodisp = numberToRevenuparmois(revrounded);
     const isret = !!descCasType.nombre_declarants_retraites;
     const manfirst = Math.random() < 0.49;
     const coupledummsexe = Math.random() < 0.15;
@@ -274,10 +267,16 @@ class SimpleCard extends React.Component {
   }
 }
 SimpleCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape().isRequired,
+  descCasType: PropTypes.shape().isRequired,
   handleEditCarteImpact: PropTypes.func.isRequired,
   handleRemoveCarteImpact: PropTypes.func.isRequired,
+  impotsApres: PropTypes.number.isRequired,
+  impotsAvant: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onOutreMerChange: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);
