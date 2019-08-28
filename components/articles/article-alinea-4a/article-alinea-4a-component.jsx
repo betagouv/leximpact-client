@@ -87,6 +87,7 @@ class Alinea4a extends PureComponent {
             %] de son montant pour les contribuables soumis à imposition
             commune.
             <StyledFormControlLabel
+              disabled
               control={(
                 <Switch
                   // checked={this.state.checkedB}
