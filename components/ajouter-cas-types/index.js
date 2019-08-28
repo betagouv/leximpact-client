@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 
-import { addCarteImpact, closeCurrentPopin } from "../../redux/actions";
+import {
+  closeCurrentPopin,
+  createCasType,
+  updateCasType,
+} from "../../redux/actions";
 import AjouterCasTypesComponent from "./ajouter-cas-types-component";
 
 const randomGender = () => Math.random() < 0.49;
@@ -29,19 +33,21 @@ const DEFAULT_CAS_TYPES = {
 };
 
 const mapStateToProps = ({ casTypes }, { index }) => {
-  const casTypesInitialValues = { ...DEFAULT_CAS_TYPES };
-  console.log("casTypes[index]", casTypes[index]);
-  // if (index >= 0) casTypesInitialValues = casTypes[index];
   const defaultPersonValue = { ...DEFAULT_PERSON_VALUES };
+  let casTypesInitialValues = { ...DEFAULT_CAS_TYPES };
+  if (index >= 0) {
+    casTypesInitialValues = casTypes[index];
+  }
   return {
     casTypesInitialValues,
     defaultPersonValue,
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, { index }) => ({
   onFormSubmitHandler: (values) => {
-    dispatch(addCarteImpact(values));
+    const action = index >= 0 ? updateCasType : createCasType;
+    dispatch(action(values, index));
     dispatch(closeCurrentPopin());
   },
 });

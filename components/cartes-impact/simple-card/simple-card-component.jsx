@@ -1,306 +1,292 @@
-import babyIcon from "@iconify/icons-twemoji/baby";
-import desertIsland from "@iconify/icons-twemoji/desert-island";
-import manCurlyHaired from "@iconify/icons-twemoji/man-curly-haired";
-import manWhiteHaired from "@iconify/icons-twemoji/man-white-haired";
-import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired";
-import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired";
+import BabyIcon from "@iconify/icons-twemoji/baby";
+import CactusIcon from "@iconify/icons-twemoji/cactus";
+import DeciduousTreeIcon from "@iconify/icons-twemoji/deciduous-tree";
+import ManCurlyHairedIcon from "@iconify/icons-twemoji/man-curly-haired";
+import ManWhiteHairedIcon from "@iconify/icons-twemoji/man-white-haired";
+import PalmTreeIcon from "@iconify/icons-twemoji/palm-tree";
+import WomanCurlyHairedIcon from "@iconify/icons-twemoji/woman-curly-haired";
+import WomanWhiteHairedIcon from "@iconify/icons-twemoji/woman-white-haired";
 import { Icon } from "@iconify/react";
 import {
+  Badge,
+  Button,
   Card,
   CardContent,
-  Chip,
-  CircularProgress,
   Divider,
   IconButton,
-  NativeSelect,
   Tooltip,
   Typography,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
+import { get } from "lodash";
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React from "react";
 
-import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
+import DoublePalmTreeIcon from "../../icons/double-palm-tree";
+import SimpleCardImpactImpots from "./impact-impots";
 
-const REVENUS_MENSUEL = generateRevenusMensuel(500);
+const RESIDENCE_ITEMS = [
+  // Doit correspondre a ceux definis
+  // dans /components/ajouter-cas-types/form/cas-types-lieu-residence
+  {
+    icon: DeciduousTreeIcon,
+    key: "metropole",
+    label: "Metropole",
+  },
+  {
+    icon: PalmTreeIcon,
+    key: "guadeloupe_martinique_reunion",
+    label: "Guadeloupe, Martinique, La Réunion",
+  },
+  {
+    icon: DoublePalmTreeIcon,
+    key: "mayotte_guyane",
+    label: "Mayotte, Guyane",
+  },
+  {
+    icon: CactusIcon,
+    key: "etranger",
+    label: "Étranger",
+  },
+];
 
 const styles = () => ({
-  card: {
+  badge: {
+    backgroundColor: "#666666",
+    height: 10,
+    right: 3,
+    top: 5,
+    width: 10,
+  },
+  badgeRoot: {
+    verticalAlign: "inherit",
+  },
+  cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
   },
-  cardcontent: {
+  cardContent: {
     "&:last-child": {
       paddingBottom: 0,
     },
     padding: 0,
   },
-  chip: {
-    marginTop: 10,
+  cardEditDeleteButton: {
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+    margin: 0,
+    marginLeft: 9,
+    padding: 0,
   },
-  div: {
+  cardHeader: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
     padding: 15,
+    paddingBottom: 5,
   },
-  euroCodeExistant: {
-    color: "#565656",
-    fontWeight: "regular",
-    lineHeight: "10px",
-    marginRight: "8px",
+  cardHeaderButtons: {
+    maxWidth: 60,
+    minWidth: 60,
+    width: 60,
   },
-  euroPLF: {
-    color: "#FF6B6B",
-    display: "inline-block",
-  },
-  impotCodeExistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#565656",
+  cardName: {
+    color: "#B1B1B1",
+    fontFamily: "Lato",
+    fontSize: 18,
     fontWeight: "bold",
-    lineHeight: "10px",
-    padding: "3px",
-    // ligne à ajouter quand PLF
-    textDecorationColor: "#FF6B6B",
-    textDecorationLine: "line-through",
+    lineHeight: "1.1rem",
   },
-  impotPLF: {
-    color: "#FF6B6B",
-    display: "inline-block",
+  iconsContainer: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 15,
+    paddingTop: 5,
   },
-  legende: {
+  residenceIcon: {
+    margin: 0,
+    padding: 0,
+  },
+  revenusMensuelContainer: {
+    padding: 15,
+    paddingBottom: 0,
+    paddingTop: 0,
+  },
+  revenusMensuelLegend: {
     color: "#909090",
     fontFamily: "Lato",
     fontSize: 12,
-    marginBottom: 10,
   },
-  nativeselect: {},
-  titre: {
-    fontSize: 11,
+  revenusMensuelValue: {
+    color: "#000000",
+    fontSize: 18,
+    fontWeight: "normal",
+    textTransform: "none",
+  },
+  revenusMensuelWrapper: {
+    padding: 0,
   },
 });
 
-const BlueTooltip = withStyles(theme => ({
-  tooltip: {
-    backgroundColor: "#00a3ff",
-    color: "#ffffff",
-    fontSize: theme.typography.pxToRem(12),
-    maxWidth: 220,
-  },
-  tooltipPlacementBottom: {
-    margin: "0px 0",
-  },
-}))(Tooltip);
-
 class SimpleCard extends React.Component {
-  handleChange = i => (event) => {
-    const { onChange } = this.props;
-    onChange(i, event);
+  renderLieuDeResidence = () => {
+    const { classes, descCasType } = this.props;
+    const { lieuResidence: index } = descCasType;
+    const { icon, label } = RESIDENCE_ITEMS[index];
+    return (
+      <Tooltip enterDelay={300} leaveDelay={200} placement="top" title={label}>
+        <span>
+          <IconButton disabled classes={{ root: classes.residenceIcon }}>
+            <Icon height="32" icon={icon} width="32" />
+          </IconButton>
+        </span>
+      </Tooltip>
+    );
   };
 
-  handleOutreMerChange = numcastype => () => {
-    const { descCasType, onOutreMerChange } = this.props;
-    const outreMerIndex = 3 - descCasType.outre_mer;
-    // console.log("je suis dans l'outremer",numcastype,event,this.props.descCasType.outre_mer)
-    onOutreMerChange(numcastype, outreMerIndex);
-  };
-
-  roundedRevenues = () => REVENUS_MENSUEL.map((value) => {
-    const uniqKey = `palier_${value}`;
-    return <option key={uniqKey} value={value}>{`${value}€/mois`}</option>;
-  });
-
-  render() {
+  renderCardHeader = () => {
     const {
       classes,
       descCasType,
-      handleEditCarteImpact,
-      handleRemoveCarteImpact,
-      impotsApres,
-      impotsAvant,
+      handleRemoveCasType,
+      handleShowEditCasTypesPopin,
       index,
-      isLoading,
     } = this.props;
-
-    const { revenu } = descCasType;
-    const revrounded = Math.round(revenu / 12);
-    const isret = !!descCasType.nombre_declarants_retraites;
-    const manfirst = Math.random() < 0.49;
-    const coupledummsexe = Math.random() < 0.15;
-    const aretwo = descCasType.nombre_declarants > 1;
-    const nbenfants = descCasType.nombre_personnes_a_charge;
-    const isoutremer1 = descCasType.outre_mer === 1;
-    const isoutremer2 = descCasType.outre_mer === 2;
-    // bruts par an
-    const icon1 = manfirst
-      ? isret
-        ? manWhiteHaired
-        : manCurlyHaired
-      : isret
-        ? womanWhiteHaired
-        : womanCurlyHaired;
-    const icon2 = coupledummsexe
-      ? icon1
-      : !manfirst
-        ? isret
-          ? manWhiteHaired
-          : manCurlyHaired
-        : isret
-          ? womanWhiteHaired
-          : womanCurlyHaired;
-    const babyicons = [...Array(nbenfants)].map((e, i) => {
-      const keyindex = `baby${i}`;
-      return <Icon key={keyindex} height="30" icon={babyIcon} width="30" />;
-    });
+    const { name } = descCasType;
     return (
-      <Card className={classes.card}>
-        <CardContent className={classes.cardcontent}>
-          <div className={classes.div}>
-            <IconButton
-              aria-label="Delete"
-              onClick={() => handleRemoveCarteImpact(index)}>
-              <CloseIcon />
-            </IconButton>
-            <IconButton
-              aria-label="Edit"
-              onClick={() => handleEditCarteImpact(index)}>
-              <EditIcon />
-            </IconButton>
-            <div>
-              <Tooltip
-                key="revenus"
-                enterDelay={300}
-                leaveDelay={200}
-                placement="top"
-                title={isret ? "Plus de 65 ans" : "Moins de 65 ans"}>
-                <span>
-                  {<Icon key="person1" height="40" icon={icon1} width="40" />}
-                  {aretwo ? (
-                    <Icon key="person2" height="40" icon={icon2} width="40" />
-                  ) : (
-                    ""
-                  )}
-                </span>
-              </Tooltip>
-              {babyicons}
-            </div>
-            <div>
-              <Tooltip
-                key="revenus"
-                enterDelay={300}
-                leaveDelay={200}
-                placement="top"
-                title="Revenus bruts">
-                <NativeSelect
-                  className={classes.nativeselect}
-                  value={revrounded}
-                  onChange={this.handleChange(index)}>
-                  <option value={revrounded}>{`${revrounded}€/mois`}</option>
-                  {this.roundedRevenues(revrounded)}
-                  {" "}
-}
-                </NativeSelect>
-              </Tooltip>
-            </div>
-            <div>
-              {isoutremer1 ? (
-                <Tooltip
-                  key="outremer1"
-                  enterDelay={300}
-                  leaveDelay={200}
-                  placement="bottom"
-                  title="Guadeloupe, Martinique ou Réunion">
-                  <Chip
-                    className={classes.chip}
-                    icon={<Icon height="20" icon={desertIsland} width="20" />}
-                    label="Outre-mer n° 1"
-                    onClick={this.handleOutreMerChange(index)}
-                  />
-                </Tooltip>
-              ) : isoutremer2 ? (
-                <Tooltip
-                  key="outremer2"
-                  enterDelay={300}
-                  leaveDelay={200}
-                  placement="bottom"
-                  title="Guyane ou Mayotte">
-                  <Chip
-                    className={classes.chip}
-                    icon={<Icon height="20" icon={desertIsland} width="20" />}
-                    label="Outre-mer n° 2"
-                    onClick={this.handleOutreMerChange(index)}
-                  />
-                </Tooltip>
-              ) : (
-                ""
-              )}
-            </div>
-          </div>
-          <Divider />
-          <div className={classes.div}>
-            <Typography className={classes.legende}>
-              Impôt sur le revenu par an
+      <div className={classes.cardHeader}>
+        <div>
+          <Typography classes={{ root: classes.cardName }}>
+            <span>{name}</span>
+          </Typography>
+        </div>
+        <div className={classes.cardHeaderButtons}>
+          <IconButton
+            disableRipple
+            aria-label="Delete"
+            classes={{ root: classes.cardEditDeleteButton }}
+            onClick={handleRemoveCasType(index)}>
+            <CloseIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            disableRipple
+            aria-label="Edit"
+            classes={{ root: classes.cardEditDeleteButton }}
+            onClick={handleShowEditCasTypesPopin(index)}>
+            <EditIcon fontSize="small" />
+          </IconButton>
+        </div>
+      </div>
+    );
+  };
+
+  renderRevenuMensuel = () => {
+    const { classes, descCasType } = this.props;
+    const { revenusNetMensuel } = descCasType;
+    const revenusMensuel = Math.round(revenusNetMensuel);
+    return (
+      <div className={classes.revenusMensuelContainer}>
+        <Tooltip
+          enterDelay={300}
+          leaveDelay={200}
+          placement="top"
+          title="Revenus nets à déclarer">
+          <span>
+            <Typography classes={{ root: classes.revenusMensuelLegend }}>
+              <span>Revenus nets à déclarer</span>
             </Typography>
-            <Typography
-              gutterBottom
-              inline
-              className={classes.impotCodeExistant}
-              variant="h3">
-              {-impotsAvant}
-            </Typography>
-            <Typography
-              gutterBottom
-              inline
-              className={classes.impotPLF}
-              variant="h3">
-              {-impotsAvant}
-            </Typography>
-            <Typography
-              gutterBottom
-              inline
-              className={classes.euroPLF}
-              variant="h5">
-              €
-            </Typography>
-            <br />
-            <BlueTooltip
-              key="gain"
+            <Button disabled classes={{ root: classes.revenusMensuelWrapper }}>
+              <span className={classes.revenusMensuelValue}>
+                {revenusMensuel}
+                &nbsp;€/Mois
+              </span>
+            </Button>
+          </span>
+        </Tooltip>
+      </div>
+    );
+  };
+
+  renderPersonsIcons = () => {
+    const { classes, descCasType } = this.props;
+    const childs = get(descCasType, "persons.childs");
+    const parents = get(descCasType, "persons.parents");
+    return (
+      <div>
+        {parents.map((obj, index) => {
+          const { gender, invalide, plus65ans } = obj;
+          const key = `parent::person::icon::${index}`;
+          const isMale = Boolean(gender);
+          const isInvalide = Boolean(invalide);
+          const isRetraite = Boolean(plus65ans);
+          let icon = isMale ? ManCurlyHairedIcon : WomanCurlyHairedIcon;
+          if (isRetraite && isMale) icon = ManWhiteHairedIcon;
+          if (isRetraite && !isMale) icon = WomanWhiteHairedIcon;
+          return (
+            <Tooltip
+              key={key}
               enterDelay={300}
               leaveDelay={200}
-              placement="bottom-start"
-              title={(
-                <Fragment>
-                  {"Soit "}
-                  <b>
-                    {`${(-impotsApres + impotsAvant > 0 ? "+" : "-")
-                      + Math.round(Math.abs(-impotsApres + impotsAvant))}€`}
-                  </b>
-                  {"/an"}
-                </Fragment>
-              )}>
-              <div>
-                {isLoading ? (
-                  <CircularProgress color="secondary" />
-                ) : (
-                  <Fragment>
-                    <Typography
-                      gutterBottom
-                      inline
-                      color="secondary"
-                      variant="h3">
-                      {-impotsApres}
-                    </Typography>
-                    <Typography
-                      gutterBottom
-                      inline
-                      color="secondary"
-                      variant="h5">
-                      €
-                    </Typography>
-                  </Fragment>
+              placement="top"
+              title={isRetraite ? "Plus de 65 ans" : "Moins de 65 ans"}>
+              <span>
+                {!isInvalide && (
+                  <Icon key={key} height="40" icon={icon} width="40" />
                 )}
-              </div>
-            </BlueTooltip>
+                {isInvalide && (
+                  <Badge
+                    key={key}
+                    classes={{ badge: classes.badge, root: classes.badgeRoot }}
+                    color="primary"
+                    variant="dot">
+                    <Icon height="40" icon={icon} width="40" />
+                  </Badge>
+                )}
+              </span>
+            </Tooltip>
+          );
+        })}
+        {childs.map((obj, index) => {
+          const key = `child::person::icon::${index}`;
+          const { invalide } = obj;
+          const isInvalide = Boolean(invalide);
+          if (!isInvalide) {
+            return <Icon key={key} height="30" icon={BabyIcon} width="30" />;
+          }
+          return (
+            <Badge
+              key={key}
+              classes={{ badge: classes.badge, root: classes.badgeRoot }}
+              color="primary"
+              variant="dot">
+              <Icon height="30" icon={BabyIcon} width="30" />
+            </Badge>
+          );
+        })}
+      </div>
+    );
+  };
+
+  render() {
+    const { classes, isLoading, resultats } = this.props;
+    return (
+      <Card className={classes.cardContainer}>
+        <CardContent className={classes.cardContent}>
+          {/* CARD HEADER */}
+          {this.renderCardHeader()}
+          {/* ICONS */}
+          <div className={classes.iconsContainer}>
+            {this.renderPersonsIcons()}
+            {this.renderLieuDeResidence()}
           </div>
+          <div>{this.renderRevenuMensuel()}</div>
+          <Divider />
+          <SimpleCardImpactImpots isLoading={isLoading} resultats={resultats} />
         </CardContent>
       </Card>
     );
@@ -309,14 +295,15 @@ class SimpleCard extends React.Component {
 SimpleCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   descCasType: PropTypes.shape().isRequired,
-  handleEditCarteImpact: PropTypes.func.isRequired,
-  handleRemoveCarteImpact: PropTypes.func.isRequired,
-  impotsApres: PropTypes.number.isRequired,
-  impotsAvant: PropTypes.number.isRequired,
+  handleRemoveCasType: PropTypes.func.isRequired,
+  handleShowEditCasTypesPopin: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onOutreMerChange: PropTypes.func.isRequired,
+  resultats: PropTypes.shape({
+    apres: PropTypes.number.isRequired,
+    avant: PropTypes.number.isRequired,
+    plf: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);

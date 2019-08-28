@@ -11,7 +11,7 @@ describe("components | actions | showConnexionPopin", () => {
     });
 
     it("doit avoir appeler la methode push du Router a l'ouverture de la popin 'connection'", () => {
-      const expected = { type: null };
+      const expected = { type: "showConnexionPopin" };
       const result = showConnexionPopin();
       expect(result).toStrictEqual(expected);
       expect(Router.push).toHaveBeenCalledTimes(1);

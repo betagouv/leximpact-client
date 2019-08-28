@@ -11,7 +11,7 @@ describe("components | actions | showEnSavoirPlusPopin", () => {
     });
 
     it("doit avoir appeler la methode push du Router a l'ouverture de la popin 'en savoir plus'", () => {
-      const expected = { type: null };
+      const expected = { type: "showEnSavoirPlusPopin" };
       const result = showEnSavoirPlusPopin();
       expect(result).toStrictEqual(expected);
       expect(Router.push).toHaveBeenCalledTimes(1);

@@ -5,11 +5,10 @@ import reduxCookiesMiddleware, {
 import thunk from "redux-thunk";
 
 import reducers from "./reducers";
+import { CAS_TYPES_NAME, setAuthCookie, TOKEN_NAME } from "./set-auth-cookie";
 
 // enregistre et lit les cookies du navigateur
 // state to persist in cookies
-const TOKEN_NAME = "pop_auth_token";
-const CAS_TYPES_NAME = "cas_types";
 const paths = {
   casTypes: { name: CAS_TYPES_NAME },
   token: { name: TOKEN_NAME },
@@ -17,7 +16,9 @@ const paths = {
 
 const apiEndpoint = process.env.API_URL;
 const thunkMiddleWare = thunk.withExtraArgument({ apiEndpoint });
-const cookiesMiddleware = reduxCookiesMiddleware(paths);
+const cookiesMiddleware = reduxCookiesMiddleware(paths, {
+  setCookie: setAuthCookie,
+});
 
 const makeApplicationState = (initialState) => {
   const nextState = getStateFromCookies(initialState, paths);

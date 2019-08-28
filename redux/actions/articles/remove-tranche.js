@@ -1,6 +1,3 @@
-const removeTranche = () => {
-  const type = "onRemoveTranche";
-  return { type };
-};
+const removeTranche = () => ({ type: "onRemoveTranche" });
 
 export default removeTranche;
