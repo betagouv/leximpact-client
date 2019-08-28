@@ -3,6 +3,7 @@ import fetch from "isomorphic-fetch";
 import { loadingComplete, loadingStart } from "./loading";
 
 const fetchMetadataCasTypes = body => (dispatch, getState, { apiEndpoint }) => {
+  const { token } = getState();
   dispatch(loadingStart());
   const promise = fetch(`${apiEndpoint}/metadata/description_cas_types`, {
     body,
@@ -12,7 +13,7 @@ const fetchMetadataCasTypes = body => (dispatch, getState, { apiEndpoint }) => {
     .then(response => response.json())
     .then((payload) => {
       dispatch(loadingComplete());
-      dispatch({ payload, type: "onCasTypesLoaded" });
+      dispatch({ payload, token, type: "onCasTypesLoaded" });
     })
     .catch(() => {
       // eslint-disable-next-line no-console
