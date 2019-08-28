@@ -50,6 +50,7 @@ const styles = () => ({
   },
   euroPLF: {
     color: "#FF6B6B",
+    display: "inline-block",
   },
   impotCodeExistant: {
     backgroundColor: "#DED500",
@@ -64,6 +65,7 @@ const styles = () => ({
   },
   impotPLF: {
     color: "#FF6B6B",
+    display: "inline-block",
   },
   legende: {
     color: "#909090",
