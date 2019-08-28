@@ -40,7 +40,6 @@ const styles = () => ({
     height: "15px",
   },
   card: {
-    maxWidth: 500,
   },
 
   div: {
@@ -90,11 +89,8 @@ class CarteEtat extends PureComponent {
                 </td>
               </tr>
               <tr>
-                <td>
-                  <Typography variant="body1">
-                    {" "}
-                    par décile de population et par an
-                  </Typography>
+                <td className="subtitleCarteEtat">
+                  par décile de population et par an
                 </td>
               </tr>
             </tbody>
