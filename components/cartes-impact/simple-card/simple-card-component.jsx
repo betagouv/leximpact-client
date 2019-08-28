@@ -42,6 +42,29 @@ const styles = () => ({
   div: {
     padding: 15,
   },
+  euroCodeExistant: {
+    color: "#565656",
+    fontWeight: "regular",
+    lineHeight: "10px",
+    marginRight: "8px",
+  },
+  euroPLF: {
+    color: "#FF6B6B",
+  },
+  impotCodeExistant: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#565656",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    padding: "3px",
+    // ligne à ajouter quand PLF
+    textDecorationColor: "#FF6B6B",
+    textDecorationLine: "line-through",
+  },
+  impotPLF: {
+    color: "#FF6B6B",
+  },
   legende: {
     color: "#909090",
     fontFamily: "Lato",
@@ -215,10 +238,25 @@ class SimpleCard extends React.Component {
             <Typography className={classes.legende}>
               Impôt sur le revenu par an
             </Typography>
-            <Typography gutterBottom inline color="primary" variant="h3">
+            <Typography
+              gutterBottom
+              inline
+              className={classes.impotCodeExistant}
+              variant="h3">
               {-impotsAvant}
             </Typography>
-            <Typography gutterBottom inline color="primary" variant="h5">
+            <Typography
+              gutterBottom
+              inline
+              className={classes.impotPLF}
+              variant="h3">
+              {-impotsAvant}
+            </Typography>
+            <Typography
+              gutterBottom
+              inline
+              className={classes.euroPLF}
+              variant="h5">
               €
             </Typography>
             <br />
