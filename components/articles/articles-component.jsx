@@ -70,14 +70,20 @@ const style = {
     fontWeight: "bold",
     textAlign: "left",
   },
-  Typography: { padding: "5px" },
-  TypographyNouvelleTranche: { color: "#00A3FF", padding: "5px" },
-  Typographybouton: { margin: "10px" },
+  Typography: {
+    padding: "5px",
+  },
+  TypographyNouvelleTranche: {
+    color: "#00A3FF",
+    padding: "5px",
+  },
+  Typographybouton: {
+    margin: "10px",
+  },
   VarCodeNew: {
     color: "#00A3FF",
     fontWeight: "bold",
     lineHeight: "10px",
-    padding: "px",
   },
   VarCodeexistant: {
     backgroundColor: "#DED500",
@@ -208,7 +214,7 @@ class ArticlesComponent extends React.Component {
             style={style.VarPLF}
             value={plfs[Math.min(i - 1, plfs.length - 1)]}
           />
-          <OutputField value={s[i - 1]} />
+          <OutputField style={style.VarCodeNew} value={s[i - 1]} />
           {"€."}
         </Typography>
       );
@@ -250,7 +256,7 @@ class ArticlesComponent extends React.Component {
           style={style.VarCodeexistant}
           value={bases[Math.min(i - 1, bases.length - 1)]}
         />
-        <OutputField value={s[i - 1]} />
+        <OutputField style={style.VarCodeNew} value={s[i - 1]} />
         € et inférieure ou égale à
         <OutputField
           style={style.VarCodeexistant}
