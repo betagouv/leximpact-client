@@ -92,7 +92,6 @@ const style = {
     fontWeight: "bold",
     lineHeight: "10px",
     marginLeft: "8px",
-    marginRight: "8px",
     padding: "3px",
     // toggle off next 2 lines if PLF is unplugged
     textDecorationColor: "#FF6B6B",
