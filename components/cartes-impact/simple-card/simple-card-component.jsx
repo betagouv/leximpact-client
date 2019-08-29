@@ -11,8 +11,6 @@ import {
   Button,
   Card,
   CardContent,
-  Chip,
-  CircularProgress,
   Divider,
   IconButton,
   Tooltip,
@@ -21,13 +19,10 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React from "react";
 
 import DoublePalmTreeIcon from "../../icons/double-palm-tree";
-import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
-import BlueTooltip from "./blue-tooltip";
-
-const REVENUS_MENSUEL = generateRevenusMensuel(500);
+import SimpleCardImpactImpots from "./impact-impots";
 
 const RESIDENCE_ITEMS = [
   // Doit correspondre a ceux definis
@@ -81,8 +76,8 @@ const styles = () => ({
     padding: 15,
   },
   cardHeaderButtons: {
-    minWidth: 60,
     maxWidth: 60,
+    minWidth: 60,
     width: 60,
   },
   cardName: {
@@ -92,74 +87,42 @@ const styles = () => ({
     fontWeight: "bold",
     lineHeight: "1.1rem",
   },
-  chip: {
-    marginTop: 10,
-  },
-  div: {
+  iconsContainer: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
     padding: 15,
   },
-  euroCodeExistant: {
-    color: "#565656",
-    fontWeight: "regular",
-    lineHeight: "10px",
-    marginRight: "8px",
+  residenceIcon: {
+    margin: 0,
+    padding: 0,
   },
-  euroPLF: {
-    color: "#FF6B6B",
-    display: "inline-block",
-  },
-  impotCodeExistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#565656",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    padding: "3px",
-    // ligne à ajouter quand PLF
-    textDecorationColor: "#FF6B6B",
-    textDecorationLine: "line-through",
-  },
-  impotPLF: {
-    color: "#FF6B6B",
-    display: "inline-block",
-  },
-  legende: {
-    color: "#909090",
+  revenusMensuelLegend: {
+    color: "#B1B1B1",
     fontFamily: "Lato",
-    fontSize: 12,
-    marginBottom: 10,
-  },
-  titre: {
-    fontSize: 11,
+    fontSize: 10,
   },
 });
 
 class SimpleCard extends React.Component {
-  handleChange = i => (event) => {
-    // const { onChange } = this.props;
-    // onChange(i, event);
-  };
-
-  // handleOutreMerChange = numcastype => () => {
-  //   const { descCasType, onOutreMerChange } = this.props;
-  //   const outreMerIndex = 3 - descCasType.outre_mer;
-  //   onOutreMerChange(numcastype, outreMerIndex);
-  // };
-
   renderLieuDeResidence = () => {
-    const { descCasType } = this.props;
+    const { classes, descCasType } = this.props;
     const { lieuResidence: index } = descCasType;
     const { icon, label } = RESIDENCE_ITEMS[index];
-    const className = "";
     return (
-      <Chip
-        // {...chipProps}
-        className={className}
-        clickable={false}
-        icon={<Icon height="20" icon={icon} width="20" />}
-        label={label}
-        variant="outlined"
-      />
+      <Tooltip
+        key="revenus"
+        enterDelay={300}
+        leaveDelay={200}
+        placement="top"
+        title={label}>
+        <span>
+          <IconButton disabled classes={{ root: classes.residenceIcon }}>
+            <Icon height="32" icon={icon} width="32" />
+          </IconButton>
+        </span>
+      </Tooltip>
     );
   };
 
@@ -184,14 +147,14 @@ class SimpleCard extends React.Component {
             disableRipple
             aria-label="Delete"
             classes={{ root: classes.cardEditDeleteButton }}
-            onClick={() => handleRemoveCasType(index)}>
+            onClick={handleRemoveCasType(index)}>
             <CloseIcon fontSize="small" />
           </IconButton>
           <IconButton
             disableRipple
             aria-label="Edit"
             classes={{ root: classes.cardEditDeleteButton }}
-            onClick={() => handleShowEditCasTypesPopin(index)}>
+            onClick={handleShowEditCasTypesPopin(index)}>
             <EditIcon fontSize="small" />
           </IconButton>
         </div>
@@ -200,7 +163,7 @@ class SimpleCard extends React.Component {
   };
 
   renderRevenuMensuel = () => {
-    const { descCasType } = this.props;
+    const { classes, descCasType } = this.props;
     const { revenusNetMensuel } = descCasType;
     const revenusMensuel = Math.round(revenusNetMensuel);
 
@@ -210,8 +173,11 @@ class SimpleCard extends React.Component {
         enterDelay={300}
         leaveDelay={200}
         placement="top"
-        title="Revenus bruts">
+        title="Revenus nets à déclarer">
         <span>
+          <Typography classes={{ root: classes.revenusMensuelLegend }}>
+            <span>revenus nets à déclarer</span>
+          </Typography>
           <Button disabled>
             {revenusMensuel}
             &nbsp;€/mois
@@ -221,17 +187,8 @@ class SimpleCard extends React.Component {
     );
   };
 
-  render() {
-    const {
-      classes,
-      descCasType,
-      handleRemoveCasType,
-      handleShowEditCasTypesPopin,
-      impotsApres,
-      impotsAvant,
-      index,
-      isLoading,
-    } = this.props;
+  renderPersonsIcons = () => {
+    const { descCasType } = this.props;
 
     const { plu65ans } = descCasType;
 
@@ -240,9 +197,6 @@ class SimpleCard extends React.Component {
     const coupledummsexe = Math.random() < 0.15;
     const aretwo = descCasType.nbCouple > 1;
     const nbenfants = descCasType.nbEnfants;
-    // const isoutremer1 = descCasType.outre_mer === 1;
-    // const isoutremer2 = descCasType.outre_mer === 2;
-    // bruts par an
     const icon1 = manfirst
       ? isRetraite
         ? manWhiteHaired
@@ -264,129 +218,42 @@ class SimpleCard extends React.Component {
       return <Icon key={keyindex} height="30" icon={babyIcon} width="30" />;
     });
     return (
+      <div>
+        <Tooltip
+          key="revenus"
+          enterDelay={300}
+          leaveDelay={200}
+          placement="top"
+          title={isRetraite ? "Plus de 65 ans" : "Moins de 65 ans"}>
+          <span>
+            {<Icon key="person1" height="40" icon={icon1} width="40" />}
+            {aretwo ? (
+              <Icon key="person2" height="40" icon={icon2} width="40" />
+            ) : (
+              ""
+            )}
+          </span>
+        </Tooltip>
+        {babyicons}
+      </div>
+    );
+  };
+
+  render() {
+    const { classes, isLoading, resultats } = this.props;
+    return (
       <Card className={classes.cardContainer}>
         <CardContent className={classes.cardContent}>
           {/* CARD HEADER */}
           {this.renderCardHeader()}
           {/* ICONS */}
-          {/* <div>
-              <Tooltip
-                key="revenus"
-                enterDelay={300}
-                leaveDelay={200}
-                placement="top"
-                title={isRetraite ? "Plus de 65 ans" : "Moins de 65 ans"}>
-                <span>
-                  {<Icon key="person1" height="40" icon={icon1} width="40" />}
-                  {aretwo ? (
-                    <Icon key="person2" height="40" icon={icon2} width="40" />
-                  ) : (
-                    ""
-                  )}
-                </span>
-              </Tooltip>
-              {babyicons} */}
-          <div>{this.renderRevenuMensuel()}</div>
-          <div>
+          <div className={classes.iconsContainer}>
+            {this.renderPersonsIcons()}
             {this.renderLieuDeResidence()}
-            {/* {isoutremer1 ? (
-                <Tooltip
-                  key="outremer1"
-                  enterDelay={300}
-                  leaveDelay={200}
-                  placement="bottom"
-                  title="Guadeloupe, Martinique ou Réunion">
-                  <Chip
-                    className={classes.chip}
-                    icon={<Icon height="20" icon={desertIsland} width="20" />}
-                    label="Outre-mer n° 1"
-                    onClick={this.handleOutreMerChange(index)}
-                  />
-                </Tooltip>
-              ) : isoutremer2 ? (
-                <Tooltip
-                  key="outremer2"
-                  enterDelay={300}
-                  leaveDelay={200}
-                  placement="bottom"
-                  title="Guyane ou Mayotte">
-                  <Chip
-                    className={classes.chip}
-                    icon={<Icon height="20" icon={desertIsland} width="20" />}
-                    label="Outre-mer n° 2"
-                    onClick={this.handleOutreMerChange(index)}
-                  />
-                </Tooltip>
-              ) : (
-                ""
-              )} */}
           </div>
+          <div>{this.renderRevenuMensuel()}</div>
           <Divider />
-          <div className={classes.div}>
-            <Typography className={classes.legende}>
-              <span>Impôt sur le revenu par an</span>
-            </Typography>
-            <Typography
-              gutterBottom
-              inline
-              className={classes.impotCodeExistant}
-              variant="h3">
-              {-impotsAvant}
-            </Typography>
-            <Typography
-              gutterBottom
-              inline
-              className={classes.impotPLF}
-              variant="h3">
-              {-impotsAvant}
-            </Typography>
-            <Typography
-              gutterBottom
-              inline
-              className={classes.euroPLF}
-              variant="h5">
-              €
-            </Typography>
-            <br />
-            <BlueTooltip
-              key="gain"
-              enterDelay={300}
-              leaveDelay={200}
-              placement="bottom-start"
-              title={(
-                <Fragment>
-                  {"Soit "}
-                  <b>
-                    {`${(-impotsApres + impotsAvant > 0 ? "+" : "-")
-                      + Math.round(Math.abs(-impotsApres + impotsAvant))}€`}
-                  </b>
-                  {"/an"}
-                </Fragment>
-              )}>
-              <div>
-                {isLoading ? (
-                  <CircularProgress color="secondary" />
-                ) : (
-                  <Fragment>
-                    <Typography
-                      gutterBottom
-                      inline
-                      color="secondary"
-                      variant="h3">
-                      {-impotsApres}
-                    </Typography>
-                    <Typography
-                      gutterBottom
-                      inline
-                      color="secondary"
-                      variant="h5">
-                      €
-                    </Typography>
-                  </Fragment>
-                )}
-              </div>
-            </BlueTooltip>
-          </div>
+          <SimpleCardImpactImpots isLoading={isLoading} resultats={resultats} />
         </CardContent>
       </Card>
     );
@@ -395,14 +262,15 @@ class SimpleCard extends React.Component {
 SimpleCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   descCasType: PropTypes.shape().isRequired,
-  handleShowEditCasTypesPopin: PropTypes.func.isRequired,
   handleRemoveCasType: PropTypes.func.isRequired,
-  impotsApres: PropTypes.number.isRequired,
-  impotsAvant: PropTypes.number.isRequired,
+  handleShowEditCasTypesPopin: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  // onChange: PropTypes.func.isRequired,
-  // onOutreMerChange: PropTypes.func.isRequired,
+  resultats: PropTypes.shape({
+    apres: PropTypes.number.isRequired,
+    avant: PropTypes.number.isRequired,
+    plf: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);

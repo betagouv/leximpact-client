@@ -7,20 +7,22 @@ const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
   const isLoading = loading;
   const { name } = casTypes[index];
   const descCasType = casTypes[index];
-  const impotsApres = resBrut.apres[index];
-  const impotsAvant = resBrut.avant[index];
+  const resultats = {
+    apres: resBrut.avant[index],
+    avant: resBrut.avant[index],
+    plf: resBrut.plf[index],
+  };
   return {
     descCasType,
-    impotsApres,
-    impotsAvant,
     isLoading,
     name,
+    resultats,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleRemoveCasType: index => dispatch(removeCasType(index)),
-  handleShowEditCasTypesPopin: index => dispatch(showEditCasTypesPopin(index)),
+  handleRemoveCasType: index => () => dispatch(removeCasType(index)),
+  handleShowEditCasTypesPopin: index => () => dispatch(showEditCasTypesPopin(index)),
 });
 
 export default connect(

@@ -6,22 +6,16 @@ import CarteEtat from "./carte-etat";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
-  handleClick = () => {
-    // const { onSimPopClick } = this.props;
-    // onSimPopClick(e);
-    // click sim popuplation
-  };
+  // handleClick = () => {
+  // const { onSimPopClick } = this.props;
+  // onSimPopClick(e);
+  // click sim popuplation
+  // };
 
   render() {
     // include should be false to remove the graph of recettes
     // const includepopulation = false;
-    const {
-      casTypes,
-      // changeRevenuHandler,
-      // handleOutreMerChange,
-      isUserLogged,
-      // resBrut,
-    } = this.props;
+    const { casTypes, isUserLogged } = this.props;
     return (
       <Grid container spacing={24}>
         {isUserLogged && (
@@ -33,11 +27,7 @@ class ImpactComponent extends PureComponent {
           const itemKey = `react::simple-card-key-index::${index}`;
           return (
             <Grid key={itemKey} item lg={4} md={6} sm={6} xl={3} xs={12}>
-              <SimpleCard
-                index={index}
-                // onChange={changeRevenuHandler}
-                // onOutreMerChange={handleOutreMerChange}
-              />
+              <SimpleCard index={index} />
             </Grid>
           );
         })}
@@ -63,15 +53,7 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
-  // changeRevenuHandler: PropTypes.func.isRequired,
-  // onSimPopClick: PropTypes.func.isRequired,
-  // handleOutreMerChange: PropTypes.func.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
-  // resBrut: PropTypes.shape({
-  //   apres: PropTypes.shape(),
-  //   avant: PropTypes.shape(),
-  //   wprm: PropTypes.shape(),
-  // }).isRequired,
   totalPop: PropTypes.shape({
     deciles: PropTypes.arrayOf(PropTypes.shape()),
     total: PropTypes.shape(),
