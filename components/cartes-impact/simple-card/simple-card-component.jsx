@@ -8,13 +8,13 @@ import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired";
 import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired";
 import { Icon } from "@iconify/react";
 import {
+  Button,
   Card,
   CardContent,
   Chip,
   CircularProgress,
   Divider,
   IconButton,
-  NativeSelect,
   Tooltip,
   Typography,
 } from "@material-ui/core";
@@ -120,11 +120,6 @@ class SimpleCard extends React.Component {
   //   onOutreMerChange(numcastype, outreMerIndex);
   // };
 
-  roundedRevenues = () => REVENUS_MENSUEL.map((value) => {
-    const uniqKey = `palier_${value}`;
-    return <option key={uniqKey} value={value}>{`${value}€/mois`}</option>;
-  });
-
   renderLieuDeResidence = () => {
     const { descCasType } = this.props;
     const { lieuResidence: index } = descCasType;
@@ -142,6 +137,28 @@ class SimpleCard extends React.Component {
     );
   };
 
+  renderRevenuMensuel = () => {
+    const { descCasType } = this.props;
+    const { revenusNetMensuel } = descCasType;
+    const revenusMensuel = Math.round(revenusNetMensuel);
+
+    return (
+      <Tooltip
+        key="revenus"
+        enterDelay={300}
+        leaveDelay={200}
+        placement="top"
+        title="Revenus bruts">
+        <span>
+          <Button disabled>
+            {revenusMensuel}
+            &nbsp;€/mois
+          </Button>
+        </span>
+      </Tooltip>
+    );
+  };
+
   render() {
     const {
       classes,
@@ -154,8 +171,8 @@ class SimpleCard extends React.Component {
       isLoading,
     } = this.props;
 
-    const { plu65ans, revenusNetMensuel } = descCasType;
-    const revrounded = Math.round(revenusNetMensuel);
+    const { plu65ans } = descCasType;
+
     const isRetraite = Boolean(plu65ans);
     const manfirst = Math.random() < 0.49;
     const coupledummsexe = Math.random() < 0.15;
@@ -216,24 +233,7 @@ class SimpleCard extends React.Component {
               </Tooltip>
               {babyicons}
             </div>
-            <div>
-              <Tooltip
-                key="revenus"
-                enterDelay={300}
-                leaveDelay={200}
-                placement="top"
-                title="Revenus bruts">
-                <NativeSelect
-                  className={classes.nativeselect}
-                  value={revrounded}
-                  onChange={this.handleChange(index)}>
-                  <option value={revrounded}>{`${revrounded}€/mois`}</option>
-                  {this.roundedRevenues(revrounded)}
-                  {" "}
-}
-                </NativeSelect>
-              </Tooltip>
-            </div>
+            <div>{this.renderRevenuMensuel()}</div>
             <div>
               {this.renderLieuDeResidence()}
               {/* {isoutremer1 ? (
