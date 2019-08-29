@@ -55,15 +55,42 @@ const RESIDENCE_ITEMS = [
 ];
 
 const styles = () => ({
-  card: {
+  cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
   },
-  cardcontent: {
+  cardContent: {
     "&:last-child": {
       paddingBottom: 0,
     },
     padding: 0,
+  },
+  cardEditDeleteButton: {
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+    margin: 0,
+    marginLeft: 9,
+    padding: 0,
+  },
+  cardHeader: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 15,
+  },
+  cardHeaderButtons: {
+    minWidth: 60,
+    maxWidth: 60,
+    width: 60,
+  },
+  cardName: {
+    color: "#B1B1B1",
+    fontFamily: "Lato",
+    fontSize: 18,
+    fontWeight: "bold",
+    lineHeight: "1.1rem",
   },
   chip: {
     marginTop: 10,
@@ -102,7 +129,6 @@ const styles = () => ({
     fontSize: 12,
     marginBottom: 10,
   },
-  nativeselect: {},
   titre: {
     fontSize: 11,
   },
@@ -134,6 +160,42 @@ class SimpleCard extends React.Component {
         label={label}
         variant="outlined"
       />
+    );
+  };
+
+  renderCardHeader = () => {
+    const {
+      classes,
+      descCasType,
+      handleRemoveCasType,
+      handleShowEditCasTypesPopin,
+      index,
+    } = this.props;
+    const { name } = descCasType;
+    return (
+      <div className={classes.cardHeader}>
+        <div>
+          <Typography classes={{ root: classes.cardName }}>
+            <span>{name}</span>
+          </Typography>
+        </div>
+        <div className={classes.cardHeaderButtons}>
+          <IconButton
+            disableRipple
+            aria-label="Delete"
+            classes={{ root: classes.cardEditDeleteButton }}
+            onClick={() => handleRemoveCasType(index)}>
+            <CloseIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            disableRipple
+            aria-label="Edit"
+            classes={{ root: classes.cardEditDeleteButton }}
+            onClick={() => handleShowEditCasTypesPopin(index)}>
+            <EditIcon fontSize="small" />
+          </IconButton>
+        </div>
+      </div>
     );
   };
 
@@ -202,20 +264,12 @@ class SimpleCard extends React.Component {
       return <Icon key={keyindex} height="30" icon={babyIcon} width="30" />;
     });
     return (
-      <Card className={classes.card}>
-        <CardContent className={classes.cardcontent}>
-          <div className={classes.div}>
-            <IconButton
-              aria-label="Delete"
-              onClick={() => handleRemoveCasType(index)}>
-              <CloseIcon />
-            </IconButton>
-            <IconButton
-              aria-label="Edit"
-              onClick={() => handleShowEditCasTypesPopin(index)}>
-              <EditIcon />
-            </IconButton>
-            <div>
+      <Card className={classes.cardContainer}>
+        <CardContent className={classes.cardContent}>
+          {/* CARD HEADER */}
+          {this.renderCardHeader()}
+          {/* ICONS */}
+          {/* <div>
               <Tooltip
                 key="revenus"
                 enterDelay={300}
@@ -231,12 +285,11 @@ class SimpleCard extends React.Component {
                   )}
                 </span>
               </Tooltip>
-              {babyicons}
-            </div>
-            <div>{this.renderRevenuMensuel()}</div>
-            <div>
-              {this.renderLieuDeResidence()}
-              {/* {isoutremer1 ? (
+              {babyicons} */}
+          <div>{this.renderRevenuMensuel()}</div>
+          <div>
+            {this.renderLieuDeResidence()}
+            {/* {isoutremer1 ? (
                 <Tooltip
                   key="outremer1"
                   enterDelay={300}
@@ -267,12 +320,11 @@ class SimpleCard extends React.Component {
               ) : (
                 ""
               )} */}
-            </div>
           </div>
           <Divider />
           <div className={classes.div}>
             <Typography className={classes.legende}>
-              Impôt sur le revenu par an
+              <span>Impôt sur le revenu par an</span>
             </Typography>
             <Typography
               gutterBottom
