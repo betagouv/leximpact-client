@@ -117,6 +117,7 @@ class SimpleCard extends React.Component {
       handleRemoveCarteImpact,
       impotsApres,
       impotsAvant,
+      impotsPLF,
       index,
       isLoading,
     } = this.props;
@@ -252,7 +253,7 @@ class SimpleCard extends React.Component {
               inline
               className={classes.impotPLF}
               variant="h3">
-              {-impotsAvant}
+              {-impotsPLF}
             </Typography>
             <Typography
               gutterBottom
@@ -313,6 +314,7 @@ SimpleCard.propTypes = {
   handleRemoveCarteImpact: PropTypes.func.isRequired,
   impotsApres: PropTypes.number.isRequired,
   impotsAvant: PropTypes.number.isRequired,
+  impotsPLF: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,

@@ -37,6 +37,7 @@ class ImpactComponent extends PureComponent {
                 descCasType={casType}
                 impotsApres={resBrut.apres[i]}
                 impotsAvant={resBrut.avant[i]}
+                impotsPLF={resBrut.plf[i]}
                 index={i}
                 onChange={changeRevenuHandler}
                 onOutreMerChange={handleOutreMerChange}
