@@ -19,17 +19,20 @@ class ImpactComponent extends PureComponent {
       casTypes,
       changeRevenuHandler,
       handleOutreMerChange,
+      isUserLogged,
       resBrut,
     } = this.props;
     return (
       <Grid container spacing={24}>
-        <Grid item xs={12} sm={6} md={6} lg={8} xl={6}>
-          <CarteEtat />
-        </Grid>
+        {isUserLogged && (
+          <Grid item lg={8} md={6} sm={6} xl={6} xs={12}>
+            <CarteEtat />
+          </Grid>
+        )}
         {casTypes.map((casType, i) => {
           const itemKey = `react::simple-card-key-index::${i}`;
           return (
-            <Grid key={itemKey} item xs={12} sm={6} md={6} lg={4} xl={3}>
+            <Grid key={itemKey} item lg={4} md={6} sm={6} xl={3} xs={12}>
               <SimpleCard
                 descCasType={casType}
                 impotsApres={resBrut.apres[i]}
@@ -66,6 +69,7 @@ ImpactComponent.propTypes = {
   changeRevenuHandler: PropTypes.func.isRequired,
   // onSimPopClick: PropTypes.func.isRequired,
   handleOutreMerChange: PropTypes.func.isRequired,
+  isUserLogged: PropTypes.bool.isRequired,
   resBrut: PropTypes.shape({
     apres: PropTypes.shape(),
     avant: PropTypes.shape(),
