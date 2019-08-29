@@ -59,6 +59,9 @@ const styles = () => ({
     top: 5,
     width: 10,
   },
+  badgeRoot: {
+    verticalAlign: "inherit",
+  },
   cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
@@ -218,7 +221,7 @@ class SimpleCard extends React.Component {
                 {isInvalide && (
                   <Badge
                     key={key}
-                    classes={{ badge: classes.badge }}
+                    classes={{ badge: classes.badge, root: classes.badgeRoot }}
                     color="primary"
                     variant="dot">
                     <Icon height="40" icon={icon} width="40" />
@@ -238,7 +241,7 @@ class SimpleCard extends React.Component {
           return (
             <Badge
               key={key}
-              classes={{ badge: classes.badge }}
+              classes={{ badge: classes.badge, root: classes.badgeRoot }}
               color="primary"
               variant="dot">
               <Icon height="30" icon={BabyIcon} width="30" />
