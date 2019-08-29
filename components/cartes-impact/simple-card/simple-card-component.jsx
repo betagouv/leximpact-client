@@ -86,6 +86,7 @@ const styles = () => ({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 15,
+    paddingBottom: 5,
   },
   cardHeaderButtons: {
     maxWidth: 60,
@@ -105,6 +106,7 @@ const styles = () => ({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 15,
+    paddingTop: 5,
   },
   residenceIcon: {
     margin: 0,
