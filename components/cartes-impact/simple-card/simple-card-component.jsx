@@ -112,10 +112,24 @@ const styles = () => ({
     margin: 0,
     padding: 0,
   },
+  revenusMensuelContainer: {
+    padding: 15,
+    paddingBottom: 0,
+    paddingTop: 0,
+  },
   revenusMensuelLegend: {
-    color: "#B1B1B1",
+    color: "#909090",
     fontFamily: "Lato",
-    fontSize: 10,
+    fontSize: 12,
+  },
+  revenusMensuelValue: {
+    color: "#000000",
+    fontSize: 18,
+    fontWeight: "normal",
+    textTransform: "none",
+  },
+  revenusMensuelWrapper: {
+    padding: 0,
   },
 });
 
@@ -176,21 +190,25 @@ class SimpleCard extends React.Component {
     const { revenusNetMensuel } = descCasType;
     const revenusMensuel = Math.round(revenusNetMensuel);
     return (
-      <Tooltip
-        enterDelay={300}
-        leaveDelay={200}
-        placement="top"
-        title="Revenus nets à déclarer">
-        <span>
-          <Typography classes={{ root: classes.revenusMensuelLegend }}>
-            <span>revenus nets à déclarer</span>
-          </Typography>
-          <Button disabled>
-            {revenusMensuel}
-            &nbsp;€/mois
-          </Button>
-        </span>
-      </Tooltip>
+      <div className={classes.revenusMensuelContainer}>
+        <Tooltip
+          enterDelay={300}
+          leaveDelay={200}
+          placement="top"
+          title="Revenus nets à déclarer">
+          <span>
+            <Typography classes={{ root: classes.revenusMensuelLegend }}>
+              <span>Revenus nets à déclarer</span>
+            </Typography>
+            <Button disabled classes={{ root: classes.revenusMensuelWrapper }}>
+              <span className={classes.revenusMensuelValue}>
+                {revenusMensuel}
+                &nbsp;€/Mois
+              </span>
+            </Button>
+          </span>
+        </Tooltip>
+      </div>
     );
   };
 

@@ -8,6 +8,7 @@ import BlueTooltip from "./blue-tooltip";
 const styles = () => ({
   container: {
     padding: 15,
+    paddingTop: 5,
   },
   euroPLF: {
     color: "#FF6B6B",
