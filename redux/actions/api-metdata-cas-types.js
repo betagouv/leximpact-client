@@ -13,7 +13,7 @@ const fetchMetadataCasTypes = body => (dispatch, getState, { apiEndpoint }) => {
     .then(response => response.json())
     .then((payload) => {
       dispatch(loadingComplete());
-      dispatch({ payload, token, type: "onCasTypesLoaded" });
+      dispatch({ payload, token, type: "onInitializeCasTypes" });
     })
     .catch(() => {
       // eslint-disable-next-line no-console

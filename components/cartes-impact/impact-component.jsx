@@ -17,7 +17,7 @@ class ImpactComponent extends PureComponent {
     // const includepopulation = false;
     const {
       casTypes,
-      changeRevenuHandler,
+      // changeRevenuHandler,
       // handleOutreMerChange,
       isUserLogged,
       // resBrut,
@@ -29,13 +29,13 @@ class ImpactComponent extends PureComponent {
             <CarteEtat />
           </Grid>
         )}
-        {casTypes.map((casType, i) => {
-          const itemKey = `react::simple-card-key-index::${i}`;
+        {casTypes.map((casType, index) => {
+          const itemKey = `react::simple-card-key-index::${index}`;
           return (
             <Grid key={itemKey} item lg={4} md={6} sm={6} xl={3} xs={12}>
               <SimpleCard
                 index={index}
-                onChange={changeRevenuHandler}
+                // onChange={changeRevenuHandler}
                 // onOutreMerChange={handleOutreMerChange}
               />
             </Grid>
@@ -63,7 +63,7 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
-  changeRevenuHandler: PropTypes.func.isRequired,
+  // changeRevenuHandler: PropTypes.func.isRequired,
   // onSimPopClick: PropTypes.func.isRequired,
   // handleOutreMerChange: PropTypes.func.isRequired,
   isUserLogged: PropTypes.bool.isRequired,

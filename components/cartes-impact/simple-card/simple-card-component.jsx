@@ -110,8 +110,8 @@ const styles = () => ({
 
 class SimpleCard extends React.Component {
   handleChange = i => (event) => {
-    const { onChange } = this.props;
-    onChange(i, event);
+    // const { onChange } = this.props;
+    // onChange(i, event);
   };
 
   // handleOutreMerChange = numcastype => () => {
@@ -146,8 +146,8 @@ class SimpleCard extends React.Component {
     const {
       classes,
       descCasType,
-      handleEditCarteImpact,
-      handleRemoveCarteImpact,
+      handleRemoveCasType,
+      handleUpdateCasType,
       impotsApres,
       impotsAvant,
       index,
@@ -190,12 +190,12 @@ class SimpleCard extends React.Component {
           <div className={classes.div}>
             <IconButton
               aria-label="Delete"
-              onClick={() => handleRemoveCarteImpact(index)}>
+              onClick={() => handleRemoveCasType(index)}>
               <CloseIcon />
             </IconButton>
             <IconButton
               aria-label="Edit"
-              onClick={() => handleEditCarteImpact(index)}>
+              onClick={() => handleUpdateCasType(index)}>
               <EditIcon />
             </IconButton>
             <div>
@@ -343,13 +343,13 @@ class SimpleCard extends React.Component {
 SimpleCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   descCasType: PropTypes.shape().isRequired,
-  handleEditCarteImpact: PropTypes.func.isRequired,
-  handleRemoveCarteImpact: PropTypes.func.isRequired,
+  handleRemoveCasType: PropTypes.func.isRequired,
+  handleUpdateCasType: PropTypes.func.isRequired,
   impotsApres: PropTypes.number.isRequired,
   impotsAvant: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  // onChange: PropTypes.func.isRequired,
   // onOutreMerChange: PropTypes.func.isRequired,
 };
 

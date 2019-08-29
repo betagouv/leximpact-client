@@ -1,6 +1,3 @@
-const addTranche = () => {
-  const type = "onAddTranche";
-  return { type };
-};
+const addTranche = () => ({ type: "onAddTranche" });
 
 export default addTranche;

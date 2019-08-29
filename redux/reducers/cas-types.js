@@ -1,8 +1,7 @@
-import { cloneDeep } from "lodash";
-
 import { transformDataToCarteImpact } from "../../components/utils/transform-data-to-carte-impact";
 
-// le default state est rempli grace a la lib "redux-cookies-middleware"
+// le default state est rempli via les cookies
+// grace a la lib "redux-cookies-middleware"
 // voir le fichier "./pages/_app.jsx"
 const DEFAULT_STATE = [];
 
@@ -20,42 +19,42 @@ const DEFAULT_STATE = [];
 //   };
 // };
 
-// const updateCasTypeRevenusAnnuel = (
-//   state,
-//   { casTypeIndex: index, casTypeRevenusAnnuel: value },
-// ) => {
-//   const nextState = cloneDeep(state);
-//   set(nextState, `${index}.revenu`, value);
-//   return nextState;
-// };
-//
-// const updateCasTypeOutreMer = (
-//   state,
-//   { casTypeIndex: index, casTypeOutreMerIndex: value },
-// ) => {
-//   const nextState = cloneDeep(state);
-//   set(nextState, `${index}.outre_mer`, value);
-//   return nextState;
-// };
-
 // lors de la connexion de l'user à la page
 // https://<domain>/connection/<token>
 // l'application va:
 // - enegistrer les tokens par défaut
 // - enregistrer le token de connection
+
+const removeCasType = (state, action) => {
+  const nextState = state.filter((obj, index) => index !== action.index);
+  return nextState;
+};
+
+const updateCasType = (state, action) => {
+  const nextState = state.map((obj, index) => {
+    const shouldUpdateThisCasType = index === action.index;
+    if (!shouldUpdateThisCasType) return obj;
+    return action.data;
+  });
+  return nextState;
+};
+
+const createCasType = (state, action) => {
+  const nextState = [...state, action.data];
+  return nextState;
+};
+
 const casTypes = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
-  case "onCasTypesLoaded":
-    if (action.token) return cloneDeep(state);
+  case "onInitializeCasTypes":
+    if (action.token) return state;
     return transformDataToCarteImpact(action.payload);
-  case "onUpdateCasTypeOutreMer":
-  case "onEditCarteImpact":
-  case "onUpdateCasTypeRevenusAnnuel":
-    return cloneDeep(state);
-  case "onAddCarteImpact":
-    return [...state, action.data];
-  case "onRemoveCarteImpact":
-    return state.filter((obj, index) => index !== action.index);
+  case "onUpdateCasType":
+    return updateCasType(state, action);
+  case "onCreateCasType":
+    return createCasType(state, action);
+  case "onRemoveCasType":
+    return removeCasType(state, action);
   default:
     return state;
   }

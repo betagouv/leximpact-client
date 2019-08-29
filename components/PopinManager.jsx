@@ -56,17 +56,18 @@ class PopinManager extends PureComponent {
 
   renderAjouterCasTypes = (popinType) => {
     const { classes, router } = this.props;
+    const paperClass = `${classes.dialogPaper} ${classes.dialogPaperCasTypes}`;
     const showConfirmationConnexion = popinType === "ajouter-cas-types";
     const pathString = "query.index";
-    const editIndex = get(router, pathString, -1);
-    const paperClass = `${classes.dialogPaper} ${classes.dialogPaperCasTypes}`;
+    const routerIndex = get(router, pathString, -1);
+    const index = Number(routerIndex);
     return (
       <Dialog
         classes={{ paper: paperClass, root: classes.dialog }}
         open={showConfirmationConnexion}
         onClose={closeCurrentPopin}>
         <DialogContent classes={{ root: classes.dialogContentCasTypes }}>
-          <AjouterCasTypes index={editIndex} onClosePopin={closeCurrentPopin} />
+          <AjouterCasTypes index={index} onClosePopin={closeCurrentPopin} />
         </DialogContent>
       </Dialog>
     );

@@ -7,13 +7,9 @@ export { default as addTranche } from "./articles/add-tranche";
 export { default as removeTranche } from "./articles/remove-tranche";
 export { default as fetchMetadataCasTypes } from "./api-metdata-cas-types";
 export { default as fetchCalculateCompare } from "./api-calculate-compare";
-export {
-  default as updateCasTypeOutreMer,
-} from "./cas-types/update-outremer-cas-types";
-export {
-  default as updateRevenusAnnuelCasType,
-} from "./cas-types/update-revenus-cas-type";
-export { default as addCarteImpact } from "./add-carte-impact";
+export { default as createCasType } from "./cas-type-create";
+export { default as updateCasType } from "./cas-type-update";
+export { default as removeCasType } from "./cas-type-remove";
 export {
   default as updateReformeByName,
 } from "./articles/update-reforme-by-name";
