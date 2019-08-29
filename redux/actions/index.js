@@ -5,6 +5,7 @@ export { default as showConnexionPopin } from "./popin-show-connexion";
 export { default as expandArticlePanel } from "./expand-article-panel";
 export { default as addTranche } from "./articles/add-tranche";
 export { default as removeTranche } from "./articles/remove-tranche";
+export { default as fetchSimPop } from "./api-simpop";
 export { default as fetchMetadataCasTypes } from "./api-metdata-cas-types";
 export { default as fetchCalculateCompare } from "./api-calculate-compare";
 export { default as createCasType } from "./cas-type-create";
@@ -15,6 +16,4 @@ export {
 } from "./articles/update-reforme-by-name";
 export { default as updateConnexionToken } from "./update-connexion-token";
 export { default as showAddCasTypesPopin } from "./popin-cas-types-add";
-export { default as fetchSimPop } from "./api-simpop";
-export { default as onEditCarteImpact } from "./edit-carte-impact";
-export { default as onRemoveCarteImpact } from "./remove-carte-impact";
+export { default as showEditCasTypesPopin } from "./popin-cas-types-edit";

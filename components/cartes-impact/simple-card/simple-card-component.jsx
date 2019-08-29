@@ -147,7 +147,7 @@ class SimpleCard extends React.Component {
       classes,
       descCasType,
       handleRemoveCasType,
-      handleUpdateCasType,
+      handleShowEditCasTypesPopin,
       impotsApres,
       impotsAvant,
       index,
@@ -195,7 +195,7 @@ class SimpleCard extends React.Component {
             </IconButton>
             <IconButton
               aria-label="Edit"
-              onClick={() => handleUpdateCasType(index)}>
+              onClick={() => handleShowEditCasTypesPopin(index)}>
               <EditIcon />
             </IconButton>
             <div>
@@ -343,8 +343,8 @@ class SimpleCard extends React.Component {
 SimpleCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   descCasType: PropTypes.shape().isRequired,
+  handleShowEditCasTypesPopin: PropTypes.func.isRequired,
   handleRemoveCasType: PropTypes.func.isRequired,
-  handleUpdateCasType: PropTypes.func.isRequired,
   impotsApres: PropTypes.number.isRequired,
   impotsAvant: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
