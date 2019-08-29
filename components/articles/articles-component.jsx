@@ -181,30 +181,30 @@ class ArticlesComponent extends React.Component {
           style={styleAUtiliser}
           variant="body2">
           {"– "}
-
+          {/* jaune */}
           <OutputField
             style={style.VarCodeexistant}
             value={makeNumberGoodLooking(
               baset[Math.min(i, baset.length) - 1] * 100,
             )}
           />
-          <OutputField
-            style={style.VarPLF}
-            value={makeNumberGoodLooking(plft[i - 1] * 100)}
-          />
+          {/* rouge */}
           <OutputField
             style={style.VarPLF}
             value={makeNumberGoodLooking(
               plft[Math.min(i, plft.length) - 1] * 100,
             )}
           />
+          {/* bleu editable (pourcentage) */}
           <InputField
             name={`taux${i - 1}`}
             style={style.InputTaux}
             value={t[i - 1] * 100}
             onChange={handleArticleChange}
           />
-          {"% pour la fraction supérieure à "}
+          %
+          <br />
+          pour la fraction supérieure à&nbsp;
           <OutputField
             style={style.VarCodeexistant}
             value={bases[Math.min(i - 1, bases.length - 1)]}
@@ -235,10 +235,6 @@ class ArticlesComponent extends React.Component {
         />
         <OutputField
           style={style.VarPLF}
-          value={makeNumberGoodLooking(plft[i - 1] * 100)}
-        />
-        <OutputField
-          style={style.VarPLF}
           value={makeNumberGoodLooking(
             plft[Math.min(i, plft.length) - 1] * 100,
           )}
@@ -249,14 +245,17 @@ class ArticlesComponent extends React.Component {
           value={makeNumberGoodLooking(t[i - 1] * 100)}
           onChange={handleArticleChange}
         />
-        % pour la fraction supérieure à
-        {" "}
+        %
+        <br />
+        pour la fraction supérieure à&nbsp;
         <OutputField
           style={style.VarCodeexistant}
           value={bases[Math.min(i - 1, bases.length - 1)]}
         />
         <OutputField style={style.VarCodeNew} value={s[i - 1]} />
-        € et inférieure ou égale à
+        €
+        <br />
+        et inférieure ou égale à&nbsp;
         <OutputField
           style={style.VarCodeexistant}
           value={bases[Math.min(i, bases.length - 1)]}
