@@ -1,13 +1,14 @@
-import babyIcon from "@iconify/icons-twemoji/baby";
+import BabyIcon from "@iconify/icons-twemoji/baby";
 import CactusIcon from "@iconify/icons-twemoji/cactus";
 import DeciduousTreeIcon from "@iconify/icons-twemoji/deciduous-tree";
-import manCurlyHaired from "@iconify/icons-twemoji/man-curly-haired";
-import manWhiteHaired from "@iconify/icons-twemoji/man-white-haired";
+import ManCurlyHairedIcon from "@iconify/icons-twemoji/man-curly-haired";
+import ManWhiteHairedIcon from "@iconify/icons-twemoji/man-white-haired";
 import PalmTreeIcon from "@iconify/icons-twemoji/palm-tree";
-import womanCurlyHaired from "@iconify/icons-twemoji/woman-curly-haired";
-import womanWhiteHaired from "@iconify/icons-twemoji/woman-white-haired";
+import WomanCurlyHairedIcon from "@iconify/icons-twemoji/woman-curly-haired";
+import WomanWhiteHairedIcon from "@iconify/icons-twemoji/woman-white-haired";
 import { Icon } from "@iconify/react";
 import {
+  Badge,
   Button,
   Card,
   CardContent,
@@ -18,6 +19,7 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
+import { get } from "lodash";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -50,6 +52,13 @@ const RESIDENCE_ITEMS = [
 ];
 
 const styles = () => ({
+  badge: {
+    backgroundColor: "#666666",
+    height: 10,
+    right: 3,
+    top: 5,
+    width: 10,
+  },
   cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
@@ -111,12 +120,7 @@ class SimpleCard extends React.Component {
     const { lieuResidence: index } = descCasType;
     const { icon, label } = RESIDENCE_ITEMS[index];
     return (
-      <Tooltip
-        key="revenus"
-        enterDelay={300}
-        leaveDelay={200}
-        placement="top"
-        title={label}>
+      <Tooltip enterDelay={300} leaveDelay={200} placement="top" title={label}>
         <span>
           <IconButton disabled classes={{ root: classes.residenceIcon }}>
             <Icon height="32" icon={icon} width="32" />
@@ -166,10 +170,8 @@ class SimpleCard extends React.Component {
     const { classes, descCasType } = this.props;
     const { revenusNetMensuel } = descCasType;
     const revenusMensuel = Math.round(revenusNetMensuel);
-
     return (
       <Tooltip
-        key="revenus"
         enterDelay={300}
         leaveDelay={200}
         placement="top"
@@ -188,53 +190,61 @@ class SimpleCard extends React.Component {
   };
 
   renderPersonsIcons = () => {
-    const { descCasType } = this.props;
-
-    const { plu65ans } = descCasType;
-
-    const isRetraite = Boolean(plu65ans);
-    const manfirst = Math.random() < 0.49;
-    const coupledummsexe = Math.random() < 0.15;
-    const aretwo = descCasType.nbCouple > 1;
-    const nbenfants = descCasType.nbEnfants;
-    const icon1 = manfirst
-      ? isRetraite
-        ? manWhiteHaired
-        : manCurlyHaired
-      : isRetraite
-        ? womanWhiteHaired
-        : womanCurlyHaired;
-    const icon2 = coupledummsexe
-      ? icon1
-      : !manfirst
-        ? isRetraite
-          ? manWhiteHaired
-          : manCurlyHaired
-        : isRetraite
-          ? womanWhiteHaired
-          : womanCurlyHaired;
-    const babyicons = [...Array(nbenfants)].map((e, i) => {
-      const keyindex = `baby${i}`;
-      return <Icon key={keyindex} height="30" icon={babyIcon} width="30" />;
-    });
+    const { classes, descCasType } = this.props;
+    const childs = get(descCasType, "persons.childs");
+    const parents = get(descCasType, "persons.parents");
     return (
       <div>
-        <Tooltip
-          key="revenus"
-          enterDelay={300}
-          leaveDelay={200}
-          placement="top"
-          title={isRetraite ? "Plus de 65 ans" : "Moins de 65 ans"}>
-          <span>
-            {<Icon key="person1" height="40" icon={icon1} width="40" />}
-            {aretwo ? (
-              <Icon key="person2" height="40" icon={icon2} width="40" />
-            ) : (
-              ""
-            )}
-          </span>
-        </Tooltip>
-        {babyicons}
+        {parents.map((obj, index) => {
+          const { gender, invalide, plus65ans } = obj;
+          const key = `parent::person::icon::${index}`;
+          const isMale = Boolean(gender);
+          const isInvalide = Boolean(invalide);
+          const isRetraite = Boolean(plus65ans);
+          let icon = isMale ? ManCurlyHairedIcon : WomanCurlyHairedIcon;
+          if (isRetraite && isMale) icon = ManWhiteHairedIcon;
+          if (isRetraite && !isMale) icon = WomanWhiteHairedIcon;
+          return (
+            <Tooltip
+              key={key}
+              enterDelay={300}
+              leaveDelay={200}
+              placement="top"
+              title={isRetraite ? "Plus de 65 ans" : "Moins de 65 ans"}>
+              <span>
+                {!isInvalide && (
+                  <Icon key={key} height="40" icon={icon} width="40" />
+                )}
+                {isInvalide && (
+                  <Badge
+                    key={key}
+                    classes={{ badge: classes.badge }}
+                    color="primary"
+                    variant="dot">
+                    <Icon height="40" icon={icon} width="40" />
+                  </Badge>
+                )}
+              </span>
+            </Tooltip>
+          );
+        })}
+        {childs.map((obj, index) => {
+          const key = `child::person::icon::${index}`;
+          const { invalide } = obj;
+          const isInvalide = Boolean(invalide);
+          if (!isInvalide) {
+            return <Icon key={key} height="30" icon={BabyIcon} width="30" />;
+          }
+          return (
+            <Badge
+              key={key}
+              classes={{ badge: classes.badge }}
+              color="primary"
+              variant="dot">
+              <Icon height="30" icon={BabyIcon} width="30" />
+            </Badge>
+          );
+        })}
       </div>
     );
   };

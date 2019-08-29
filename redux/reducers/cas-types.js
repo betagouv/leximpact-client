@@ -5,26 +5,11 @@ import { transformDataToCarteImpact } from "../../components/utils/transform-dat
 // voir le fichier "./pages/_app.jsx"
 const DEFAULT_STATE = [];
 
-// const parseCarteImpact = (carteImpact) => {
-//   const { persons, revenusNetMensuel } = carteImpact;
-//   const nombreDeclarants = persons.parents.length;
-//   const nombrePersonnesACharge = persons.childs.length;
-//   const revenu = revenusNetMensuel * 12;
-//   return {
-//     nombre_declarants: nombreDeclarants,
-//     nombre_declarants_retraites: 0,
-//     nombre_personnes_a_charge: nombrePersonnesACharge,
-//     outre_mer: 0,
-//     revenu,
-//   };
-// };
-
 // lors de la connexion de l'user à la page
 // https://<domain>/connection/<token>
 // l'application va:
 // - enegistrer les tokens par défaut
 // - enregistrer le token de connection
-
 const removeCasType = (state, action) => {
   const nextState = state.filter((obj, index) => index !== action.index);
   return nextState;
