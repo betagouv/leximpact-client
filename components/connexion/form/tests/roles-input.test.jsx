@@ -1,6 +1,6 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
-import { roles } from "../config.json";
+import { roles } from "../../config.json";
 import RolesInput from "../roles-input";
 
 describe("components | connexion | roles-input", () => {

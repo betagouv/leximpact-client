@@ -10,20 +10,9 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 import { Field } from "react-final-form";
 
-import { validateEmailInputField } from "./utils";
+import { validateEmailInputField } from "../utils";
 
 const styles = theme => ({
-  formGroup: {
-    marginTop: "28px",
-  },
-  formLabel: {
-    fontSize: "24px",
-    color: "#000000",
-    marginBottom: "20px",
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "18px",
-    },
-  },
   fieldsContainer: {
     alignItems: "flex-start",
     display: "flex",
@@ -31,8 +20,17 @@ const styles = theme => ({
     justifyContent: "center",
     width: "100%",
   },
-  formGroup: { marginTop: "28px" },
-  formLabel: { color: "#000000", fontSize: "24px", marginBottom: "20px" },
+  formGroup: {
+    marginTop: "28px",
+  },
+  formLabel: {
+    color: "#000000",
+    fontSize: "24px",
+    marginBottom: "20px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "18px",
+    },
+  },
   inputContainer: {
     display: "flex",
     flexDirection: "column",
@@ -50,14 +48,6 @@ const styles = theme => ({
     marginRight: "6px",
     width: "316px",
   },
-  /*
-  inputRoot: {
-    marginRight: "6px",
-    maxWidth: "500px",
-    [theme.breakpoints.down("xs")]: {
-      width: "120px",
-    },
-  }, */
   selectRoot: {
     fontSize: "18px",
     lineHeight: "2em",
@@ -112,10 +102,7 @@ class EmailTextInput extends PureComponent {
     const { classes, domains } = this.props;
     return (
       <FormGroup row classes={{ root: classes.formGroup }}>
-        <FormLabel
-          classes={{ root: classes.formLabel }}
-          classes={{ root: classes.formLabel }}
-          component="legend">
+        <FormLabel classes={{ root: classes.formLabel }} component="legend">
           <b>Mon adresse e-mail officielle&nbsp;:</b>
         </FormLabel>
         <div className={classes.fieldsContainer}>

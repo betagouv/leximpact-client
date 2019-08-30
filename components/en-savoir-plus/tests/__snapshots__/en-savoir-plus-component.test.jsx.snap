@@ -1,9 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté 1`] = `
+exports[`components | en-savoir-plus-component snapshot doit correspondre avec les props obligatoires 1`] = `
 <div
-  className="MentionsLegales-container-2"
+  className="EnSavoiPlusComponent-container-3"
 >
+  <WithStyles(IconButton)
+    className="EnSavoiPlusComponent-closeButton-2"
+    onClick={[MockFunction]}
+  >
+    <pure(CloseIcon)
+      fontSize="small"
+    />
+  </WithStyles(IconButton)>
   <WithStyles(Grid)
     alignItems="flex-start"
     container={true}
@@ -11,13 +19,13 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     justify="space-between"
   >
     <WithStyles(Grid)
-      className="MentionsLegales-gridItemText-5"
+      className="EnSavoiPlusComponent-gridItemText-6"
       item={true}
       xs={6}
     >
       <WithStyles(Typography)>
         <span
-          className="MentionsLegales-spanTitreIntro-7"
+          className="EnSavoiPlusComponent-spanTitreIntro-8"
         >
           OPEN LexImpact, c'est quoi ?
         </span>
@@ -26,27 +34,27 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         OPEN LexImpact est une interface qui permet de simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu sur des foyers fiscaux types.
       </WithStyles(Typography)>
       <a
-        className="MentionsLegales-alink-1"
+        className="EnSavoiPlusComponent-alink-1"
         href="/presentation-et-cgu"
       >
         en savoir plus
       </a>
     </WithStyles(Grid)>
     <WithStyles(Grid)
-      className="MentionsLegales-gridItemButtons-4"
+      className="EnSavoiPlusComponent-gridItemButtons-5"
       item={true}
       xs={6}
     >
       <div>
         <div
-          className="MentionsLegales-divButton-3"
+          className="EnSavoiPlusComponent-divButton-4"
         >
           <Link
             href="/presentation-et-cgu"
           >
             <WithStyles(Button)
               color="inherit"
-              fullWidth="true"
+              fullWidth={true}
               size="large"
               variant="outlined"
             >
@@ -55,14 +63,14 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
           </Link>
         </div>
         <div
-          className="MentionsLegales-divButton-3"
+          className="EnSavoiPlusComponent-divButton-4"
         >
           <Link
             href="/mentions-legales"
           >
             <WithStyles(Button)
               color="inherit"
-              fullWidth="true"
+              fullWidth={true}
               size="large"
               variant="outlined"
             >
@@ -71,11 +79,11 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
           </Link>
         </div>
         <div
-          className="MentionsLegales-divButton-3"
+          className="EnSavoiPlusComponent-divButton-4"
         >
           <WithStyles(Button)
             color="inherit"
-            fullWidth="true"
+            fullWidth={true}
             href="mailto:contact@leximpact.beta.gouv.fr"
             size="large"
             variant="outlined"
@@ -83,7 +91,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
             Une question ? Un bug ? Un avis ?
           </WithStyles(Button)>
           <p
-            className="MentionsLegales-pAdresseMail-6"
+            className="EnSavoiPlusComponent-pAdresseMail-7"
           >
             Écrivez-nous à contact@leximpact.beta.gouv.fr !
           </p>
