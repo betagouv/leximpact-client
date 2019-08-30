@@ -1,9 +1,15 @@
 import { Button, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { AccountBalance as AccountBalanceIcon, Cached as CachedIcon, Face as FaceIcon } from "@material-ui/icons";
+import {
+  AccountBalance as AccountBalanceIcon,
+  Cached as CachedIcon,
+  Face as FaceIcon,
+} from "@material-ui/icons";
 import PropTypes from "prop-types";
-import { Component } from "react";
+import { PureComponent } from "react";
 
+import SimulationButton5 from "./simulation-button-5";
+import SimulationButton60 from "./simulation-button-60";
 import SimulationOptionsButton from "./simulation-options-menu";
 import SimulationOutilsButton from "./simulation-outils-menu";
 
@@ -22,54 +28,7 @@ const styles = () => ({
   },
 });
 
-class SimulationMenuBar extends Component {
-  renderBoutonSimulation = () => {
-    const {
-      classes,
-      handleSimulationClick,
-      isUserLogged,
-      showSimulatioButtonAsMobile,
-    } = this.props;
-    return (
-      <Grid item>
-        <Grid
-          container
-          alignItems="center"
-          direction="row"
-          justify="space-between"
-          spacing={8}>
-          <Grid item>
-            <Button
-              color="secondary"
-              size="medium"
-              variant="contained"
-              onClick={handleSimulationClick}>
-              <FaceIcon className={classes.marginIcon} tag="cas type" />
-              {showSimulatioButtonAsMobile && "ESTIMER"}
-              {!showSimulatioButtonAsMobile && "ESTIMER ~5''"}
-              <CachedIcon className={classes.miniIcon} />
-            </Button>
-          </Grid>
-          {isUserLogged && (
-            <Grid item>
-              <Button
-                color="secondary"
-                size="medium"
-                variant="contained"
-                onClick={handleSimulationClick}>
-                <AccountBalanceIcon tag="macro" />
-                <FaceIcon className={classes.marginIcon} tag="cas type" />
-                {showSimulatioButtonAsMobile && "ESTIMER"}
-                {!showSimulatioButtonAsMobile && "ESTIMER ~60''"}
-                <CachedIcon className={classes.miniIcon} />
-              </Button>
-            </Grid>
-          )}
-        </Grid>
-      </Grid>
-    );
-  };
-
+class SimulationMenuBar extends PureComponent {
   renderOutilsAffichage = () => {
     const {
       handleItemWithActionClick,
@@ -106,7 +65,7 @@ class SimulationMenuBar extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, isUserLogged } = this.props;
     return (
       <Grid
         container
@@ -116,7 +75,23 @@ class SimulationMenuBar extends Component {
         justify="space-between"
         spacing={8}>
         {this.renderOutilsAffichage()}
-        {this.renderBoutonSimulation()}
+        <Grid item>
+          <Grid
+            container
+            alignItems="center"
+            direction="row"
+            justify="space-between"
+            spacing={8}>
+            <Grid item>
+              <SimulationButton5 classes={classes} />
+            </Grid>
+            {isUserLogged && (
+              <Grid item>
+                <SimulationButton60 classes={classes} />
+              </Grid>
+            )}
+          </Grid>
+        </Grid>
       </Grid>
     );
   }

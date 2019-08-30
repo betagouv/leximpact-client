@@ -37,11 +37,9 @@ const mapStateToProps = ({ token }, { width }) => {
 const mapDispatchToProps = dispatch => ({
   handleItemWithActionClick: (selected) => {
     // click sur un element du menu options ou du menu deroulant
-    const isReduxAction = Boolean(selected.action);
-    if (!isReduxAction) return;
-    const SelectedActionFunc = selected.action;
-    dispatch(SelectedActionFunc());
+    dispatch(selected.action());
   },
+
   handleSimulationClick: () => {},
 });
 
