@@ -7,8 +7,8 @@ import { Fragment, PureComponent } from "react";
 
 import { closeCurrentPopin } from "../redux/actions";
 import AjouterCasTypes from "./ajouter-cas-types";
-import ConfirmationConnexion from "./confirmation-connexion";
 import LoginForm from "./connexion";
+import ConfirmationConnexion from "./connexion-confirmation";
 import EnSavoirPlus from "./en-savoir-plus";
 
 const styles = theme => ({

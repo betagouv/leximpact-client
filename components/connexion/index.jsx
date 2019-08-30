@@ -8,24 +8,33 @@ import { PureComponent } from "react";
 import request from "../utils/request";
 import ConnexionForm from "./connexion-form";
 import ConnexionSuccess from "./connexion-form-success";
-import MentionsLegales from "./mentions-legales-text";
+import MentionsLegales from "./form/mentions-legales-text";
 import { parseFormValuesUserEmail } from "./utils";
 
 const styles = theme => ({
   avatar: {
     backgroundColor: theme.palette.primary.main,
-    height: "80px",
+    height: 80,
     margin: theme.spacing.unit,
-    backgroundColor: theme.palette.primary.main,
+    width: 80,
     [theme.breakpoints.down("xs")]: {
-      width: "60px",
-      height: "60px",
+      height: 60,
+      width: 60,
     },
   },
+  avatarContainer: {
+    alignItems: "center",
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+  },
   avatarIcon: {
-    height: "auto",
+    height: 45,
+    width: 45,
     [theme.breakpoints.down("xs")]: {
-      width: "32px",
+      height: 32,
+      width: 32,
     },
   },
   form: {
@@ -35,21 +44,24 @@ const styles = theme => ({
   spanBolder: {
     fontWeight: "bold",
   },
-  spanLeximpactLigther: {
-    fontSize: "34px",
-    fontFamily: "Lato",
-    fontWeight: "lighter",
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "26px",
-    },
-  },
   spanLeximpactBolder: {
-    fontSize: "34px",
     fontFamily: "Lato",
+    fontSize: 34,
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "26px",
+      fontSize: 26,
     },
+  },
+  spanLeximpactLigther: {
+    fontFamily: "Lato",
+    fontSize: 34,
+    fontWeight: "lighter",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 26,
+    },
+  },
+  title: {
+    textAlign: "center",
   },
 });
 
@@ -99,10 +111,12 @@ class Connexion extends PureComponent {
     const { classes } = this.props;
     return (
       <div className={classes.container}>
-        <Avatar className={classes.avatar}>
-          <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
-        </Avatar>
-        <Typography>
+        <div className={classes.avatarContainer}>
+          <Avatar classes={{ root: classes.avatar }}>
+            <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
+          </Avatar>
+        </div>
+        <Typography classes={{ root: classes.title }}>
           <span className={classes.spanLeximpactLigther}>LEXIMPACT&nbsp;</span>
           <span className={classes.spanLeximpactBolder}>POP</span>
         </Typography>
