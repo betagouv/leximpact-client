@@ -1,8 +1,6 @@
 import { Button, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { Cached as CachedIcon } from "@material-ui/icons";
-import { AccountBalance as AccountBalanceIcon } from "@material-ui/icons";
-import { Face as FaceIcon } from "@material-ui/icons";
+import { AccountBalance as AccountBalanceIcon, Cached as CachedIcon, Face as FaceIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { Component } from "react";
 
@@ -29,6 +27,7 @@ class SimulationMenuBar extends Component {
     const {
       classes,
       handleSimulationClick,
+      isUserLogged,
       showSimulatioButtonAsMobile,
     } = this.props;
     return (
@@ -45,30 +44,27 @@ class SimulationMenuBar extends Component {
               size="medium"
               variant="contained"
               onClick={handleSimulationClick}>
-              <FaceIcon
-                className={classes.marginIcon}
-                tag="cas type" />
+              <FaceIcon className={classes.marginIcon} tag="cas type" />
               {showSimulatioButtonAsMobile && "ESTIMER"}
               {!showSimulatioButtonAsMobile && "ESTIMER ~5''"}
               <CachedIcon className={classes.miniIcon} />
             </Button>
           </Grid>
-          <Grid item>
-            <Button
-              color="secondary"
-              size="medium"
-              variant="contained"
-              onClick={handleSimulationClick}>
-              <AccountBalanceIcon
-                tag="macro" />
-              <FaceIcon
-                className={classes.marginIcon}
-                tag="cas type" />
-              {showSimulatioButtonAsMobile && "ESTIMER"}
-              {!showSimulatioButtonAsMobile && "ESTIMER ~60''"}
-              <CachedIcon className={classes.miniIcon} />
-            </Button>
-          </Grid>
+          {isUserLogged && (
+            <Grid item>
+              <Button
+                color="secondary"
+                size="medium"
+                variant="contained"
+                onClick={handleSimulationClick}>
+                <AccountBalanceIcon tag="macro" />
+                <FaceIcon className={classes.marginIcon} tag="cas type" />
+                {showSimulatioButtonAsMobile && "ESTIMER"}
+                {!showSimulatioButtonAsMobile && "ESTIMER ~60''"}
+                <CachedIcon className={classes.miniIcon} />
+              </Button>
+            </Grid>
+          )}
         </Grid>
       </Grid>
     );

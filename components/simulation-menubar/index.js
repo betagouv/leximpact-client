@@ -17,13 +17,15 @@ function useOutilsAsMobile(width) {
   return width === "xs" || width === "sm" || width === "md";
 }
 
-const mapStateToProps = (state, { width }) => {
+const mapStateToProps = ({ token }, { width }) => {
+  const isUserLogged = Boolean(token);
   const outilsItems = [...Config.outilsMenuItems];
   const optionsItems = [...Config.optionsMenuItems];
   const showOutilsAsMobile = useOutilsAsMobile(width);
   const showOptionsAsMobile = useOptionsAsMobile(width);
   const showSimulatioButtonAsMobile = useSimulatioButtonAsMobile(width);
   return {
+    isUserLogged,
     optionsItems,
     outilsItems,
     showOptionsAsMobile,

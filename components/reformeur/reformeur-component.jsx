@@ -23,25 +23,21 @@ class ReformeurComponent extends PureComponent {
     this.setState({ indextab });
   };
 
-  renderDesktopView = () => {
-    const { isUserConnected } = this.props;
-    return (
-      <div className="clearfix">
-        <div className="moitie-gauche">
-          <LegendeArticle />
-          <Articles />
-        </div>
-        <div className="moitie-droite">
-          {isUserConnected && <SimulationMenuBar />}
-          <ImpactCards />
-        </div>
+  renderDesktopView = () => (
+    <div className="clearfix">
+      <div className="moitie-gauche">
+        <LegendeArticle />
+        <Articles />
       </div>
-    );
-  };
+      <div className="moitie-droite">
+        <SimulationMenuBar />
+        <ImpactCards />
+      </div>
+    </div>
+  );
 
   renderMobileView = () => {
     const { indextab } = this.state;
-    const { isUserConnected } = this.props;
     return (
       <Fragment>
         <AppBar color="default" position="static">
@@ -64,7 +60,7 @@ class ReformeurComponent extends PureComponent {
             <Articles />
           </div>
           <div style={{ padding: 24 }}>
-            {isUserConnected && <SimulationMenuBar />}
+            <SimulationMenuBar />
             <ImpactCards />
           </div>
         </SwipeableViews>
@@ -85,7 +81,6 @@ class ReformeurComponent extends PureComponent {
 
 ReformeurComponent.propTypes = {
   fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
-  isUserConnected: PropTypes.bool.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 

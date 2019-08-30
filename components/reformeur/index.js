@@ -7,8 +7,7 @@ import ReformeurComponent from "./reformeur-component";
 
 const mapStateToProps = (state, { width }) => {
   const useMobileView = width === "xs" || width === "sm";
-  const isUserConnected = Boolean(state.token || false);
-  return { isUserConnected, useMobileView };
+  return { useMobileView };
 };
 
 const mapDispatchToProps = dispatch => ({
