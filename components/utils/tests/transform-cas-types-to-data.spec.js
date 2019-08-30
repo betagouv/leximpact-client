@@ -1,11 +1,17 @@
-import { transformDataToCarteImpact } from "../transform-data-to-carte-impact";
+import { transformCasTypesToData } from "../transform-cas-types-to-data";
 
-const DEFAULT_DATA_FROM_API = [
+const DEFAULT_DATA_FROM_CAS_TYPES = [
   [
     // ------------------------------------------------
     // Cas 1
     // ------------------------------------------------
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
+      nb_decl_parent_isole: 0,
+      nb_decl_veuf: 0,
+      nb_pac_charge_partagee: 0,
+      nb_pac_invalides: 0,
       nombre_declarants: 1,
       nombre_declarants_retraites: 0,
       nombre_personnes_a_charge: 0,
@@ -23,7 +29,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -40,6 +46,12 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
+      nb_decl_parent_isole: 0,
+      nb_decl_veuf: 0,
+      nb_pac_charge_partagee: 0,
+      nb_pac_invalides: 0,
       nombre_declarants: 1,
       nombre_declarants_retraites: 0,
       nombre_personnes_a_charge: 1,
@@ -68,7 +80,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -85,6 +97,12 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
+      nb_decl_parent_isole: 0,
+      nb_decl_veuf: 0,
+      nb_pac_charge_partagee: 0,
+      nb_pac_invalides: 0,
       nombre_declarants: 2,
       nombre_declarants_retraites: 0,
       nombre_personnes_a_charge: 0,
@@ -102,7 +120,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -112,7 +130,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -129,6 +147,12 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
+      nb_decl_parent_isole: 0,
+      nb_decl_veuf: 0,
+      nb_pac_charge_partagee: 0,
+      nb_pac_invalides: 0,
       nombre_declarants: 2,
       nombre_declarants_retraites: 2,
       nombre_personnes_a_charge: 0,
@@ -146,7 +170,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -156,7 +180,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -173,6 +197,12 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
+      nb_decl_parent_isole: 0,
+      nb_decl_veuf: 0,
+      nb_pac_charge_partagee: 0,
+      nb_pac_invalides: 0,
       nombre_declarants: 2,
       nombre_declarants_retraites: 0,
       nombre_personnes_a_charge: 2,
@@ -211,7 +241,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -221,7 +251,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -238,6 +268,12 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
+      nb_decl_parent_isole: 0,
+      nb_decl_veuf: 0,
+      nb_pac_charge_partagee: 0,
+      nb_pac_invalides: 0,
       nombre_declarants: 2,
       nombre_declarants_retraites: 0,
       nombre_personnes_a_charge: 2,
@@ -277,7 +313,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -287,7 +323,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -304,7 +340,10 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
+      nb_anciens_combattants: 0,
+      nb_decl_invalides: 0,
       nb_decl_parent_isole: 1,
+      nb_decl_veuf: 0,
       nb_pac_charge_partagee: 1,
       nb_pac_invalides: 1,
       nombre_declarants: 2,
@@ -346,7 +385,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 1,
@@ -356,7 +395,7 @@ const DEFAULT_DATA_FROM_API = [
           {
             ancienCombattant: 0,
             chargePartagee: 0,
-            gender: expect.any(Number),
+            gender: 0,
             invalide: 0,
             isChild: 0,
             parentIsole: 0,
@@ -370,15 +409,14 @@ const DEFAULT_DATA_FROM_API = [
   ],
 ];
 
-describe("components | utils | tranform-data-to-carte-impact", () => {
+describe("components | utils | tranform-cas-type-to-data", () => {
   it("doit correspondre a la structure", () => {
-    const datas = DEFAULT_DATA_FROM_API.reduce((acc, [raw, expect]) => {
+    const datas = DEFAULT_DATA_FROM_CAS_TYPES.reduce((acc, [raw, ct]) => {
       const api = [...(acc.api || []), raw];
-      const expected = [...(acc.expected || []), expect];
-      return { api, expected };
+      const casTypes = [...(acc.casTypes || []), ct];
+      return { api, casTypes };
     }, {});
-
-    const result = transformDataToCarteImpact(datas.api);
-    expect(result).toStrictEqual(datas.expected);
+    const result = transformCasTypesToData(datas.casTypes);
+    expect(result).toStrictEqual(datas.api);
   });
 });

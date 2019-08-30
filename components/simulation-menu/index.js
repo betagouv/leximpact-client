@@ -17,13 +17,15 @@ function useOutilsAsMobile(width) {
   return width === "xs" || width === "sm" || width === "md";
 }
 
-const mapStateToProps = (state, { width }) => {
+const mapStateToProps = ({ token }, { width }) => {
+  const isUserLogged = Boolean(token);
   const outilsItems = [...Config.outilsMenuItems];
   const optionsItems = [...Config.optionsMenuItems];
   const showOutilsAsMobile = useOutilsAsMobile(width);
   const showOptionsAsMobile = useOptionsAsMobile(width);
   const showSimulatioButtonAsMobile = useSimulatioButtonAsMobile(width);
   return {
+    isUserLogged,
     optionsItems,
     outilsItems,
     showOptionsAsMobile,
@@ -35,11 +37,9 @@ const mapStateToProps = (state, { width }) => {
 const mapDispatchToProps = dispatch => ({
   handleItemWithActionClick: (selected) => {
     // click sur un element du menu options ou du menu deroulant
-    const isReduxAction = Boolean(selected.action);
-    if (!isReduxAction) return;
-    const SelectedActionFunc = selected.action;
-    dispatch(SelectedActionFunc());
+    dispatch(selected.action());
   },
+
   handleSimulationClick: () => {},
 });
 

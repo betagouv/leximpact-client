@@ -82,9 +82,9 @@ const reforme = (state = DEFAULT_STATE, action) => {
   const { name, value } = action || {};
   const nextState = cloneDeep(state);
   switch (action.type) {
-  case "onAddTranche":
+  case "onArticleAddTranche":
     return addTranche(nextState);
-  case "onRemoveTranche":
+  case "onArticleRemoveTranche":
     return removeTranche(nextState);
   case "onUpdateReformeBareme":
     return updateBareme(nextState, name, value);

@@ -38,7 +38,7 @@ const createPersons = (length, data, defaultValues, quantities) => {
   return childs;
 };
 
-export const transformDataToCarteImpact = datas => datas.map((data) => {
+export const transformDataToCasTypes = datas => datas.map((data) => {
   const name = DEFAULT_NAME;
   const revenusAnnuel = get(data, "revenu");
   const lieuResidence = get(data, "outre_mer");
@@ -96,4 +96,4 @@ export const transformDataToCarteImpact = datas => datas.map((data) => {
   };
 });
 
-export default transformDataToCarteImpact;
+export default transformDataToCasTypes;

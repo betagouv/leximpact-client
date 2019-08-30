@@ -1,4 +1,6 @@
-const wprm = [1, 1, 1, 1, 1];
+import { cloneDeep } from "lodash";
+
+const wprm = [1, 1, 1, 1, 1, 1];
 const apres = [0, -600, 0, 0, -492, 0];
 const avant = [0, -600, 0, 0, -492, 0];
 const plf = [0, -494, 0, 0, -410, 0];
@@ -24,8 +26,8 @@ const resBrut = (state = DEFAULT_STATE, action) => {
   let nextState = null;
   switch (action.type) {
   case "onCalculateCompareLoaded":
-    return action.data;
-  case "onAddCarteImpact":
+    return cloneDeep(action.data);
+  case "onCreateCasType":
     nextKey = getNextStateKey(state);
     nextState = {
       apres: { ...state.apres, [nextKey]: 0 },

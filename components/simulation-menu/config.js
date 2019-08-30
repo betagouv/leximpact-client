@@ -10,18 +10,16 @@ const config = {
   optionsMenuItems: [
     {
       Icon: ShareIcon,
-      action: () => {
-        /* TODO: creer une action redux pour cet item du menu */
-      },
+      /* TODO: creer une action redux pour cet item du menu */
+      action: () => ({ type: "undefined" }),
       key: "simpop-share-button",
       label: "Partager",
       shortLabel: "Partager",
     },
     {
       Icon: ViewQuiltIcon,
-      action: () => {
-        /* TODO: creer une action redux pour cet item du menu */
-      },
+      /* TODO: creer une action redux pour cet item du menu */
+      action: () => ({ type: "undefined" }),
       key: "simpop-workspace-button",
       label: "Espace de travail",
       shortLabel: "Espace de travail",
@@ -37,18 +35,16 @@ const config = {
       shortLabel: "Cas type",
     },
     {
-      action: () => {
-        /* TODO: creer une action redux pour cet item du menu */
-      },
+      /* TODO: creer une action redux pour cet item du menu */
+      action: () => ({ type: "undefined" }),
       disabled: true,
       key: "entree_imposition",
       label: "Visualiser le point d'entrée d'imposition",
       shortLabel: "Point entrée imposition",
     },
     {
-      action: () => {
-        /* TODO: creer une action redux pour cet item du menu */
-      },
+      /* TODO: creer une action redux pour cet item du menu */
+      action: () => ({ type: "undefined" }),
       disabled: true,
       key: "plafond_qf",
       label: "Visualiser les plafonds du quotient familial",

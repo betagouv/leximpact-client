@@ -1,25 +1,20 @@
-import fetch from "isomorphic-fetch";
+import request from "../../components/utils/request";
+import { loadingComplete, loadingError, loadingStart } from "./loading";
 
-import { loadingComplete, loadingStart } from "./loading";
-
-const fetchMetadataCasTypes = body => (dispatch, getState, { apiEndpoint }) => {
+const fetchMetadataCasTypes = () => (dispatch, getState) => {
   const { token } = getState();
   dispatch(loadingStart());
-  const promise = fetch(`${apiEndpoint}/metadata/description_cas_types`, {
-    body,
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
-  })
-    .then(response => response.json())
+  return request
+    .post("/metadata/description_cas_types")
     .then((payload) => {
       dispatch(loadingComplete());
       dispatch({ payload, token, type: "onInitializeCasTypes" });
     })
-    .catch(() => {
+    .catch((err) => {
+      dispatch(loadingError(err));
       // eslint-disable-next-line no-console
       console.log("Can’t access  response. Blocked by browser?");
     });
-  return promise;
 };
 
 export default fetchMetadataCasTypes;

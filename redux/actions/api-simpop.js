@@ -1,46 +1,23 @@
-import fetch from "isomorphic-fetch";
+import request from "../../components/utils/request";
+import { loadingComplete, loadingError, loadingStart } from "./loading";
 
-import { loadingComplete, loadingStart } from "./loading";
-
-/*
-  const endpoint = this.endpoint();
-  const { reforme } = this.state;
-  fetch(`${endpoint}/calculate/compare`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      deciles: true,
-      reforme,
-    }),
-  })
-    .then(response => response.json())
-    .then((json) => {
-      this.setState({ total_pop: json });
-    });
-*/
-const fetchSimPop = () => (dispatch, getState, { apiEndpoint }) => {
+const fetchSimPop = () => (dispatch, getState) => {
   dispatch(loadingStart());
+  const timestamp = Date.now().toString();
   const { reforme, token } = getState();
-  const body = JSON.stringify({ deciles: true, reforme , token});
-  console.log("token",body);
-  const promise = fetch(`${apiEndpoint}/calculate/simpop`, {
-    body,
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
-  })
-    .then(response => response.json())
+  const body = JSON.stringify({ reforme, timestamp, token });
+
+  return request
+    .post("/calculate/simpop", body)
     .then((payload) => {
       dispatch(loadingComplete());
       dispatch({ data: payload, type: "onSimPopFetchResult" });
     })
-    .catch(() => {
-      dispatch(loadingComplete());
+    .catch((err) => {
+      dispatch(loadingError(err));
       // eslint-disable-next-line no-console
       console.log("Can’t access  response. Blocked by browser?");
     });
-  return promise;
 };
 
 export default fetchSimPop;

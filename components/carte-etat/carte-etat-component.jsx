@@ -1,8 +1,6 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
-import {
-  Button, Card, CardContent, Typography,
-} from "@material-ui/core";
+import { Button, Card, CardContent } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
@@ -15,38 +13,18 @@ import { PureComponent } from "react";
 import BarChart from "./bar-chart";
 
 const styles = () => ({
-  // root: {
-  // ...theme.mixins.gutters(),
-  // paddingBottom: theme.spacing.unit * 2,
-  // paddingTop: theme.spacing.unit * 2,
-  // margin: `${theme.spacing.unit / 2}em auto`,
-  // width: "25em",
-  // },
-  // card: {
-  // minWidth: 275,
-  // },
-
-  // titre: {
-  // fontSize: 11,
-  // },
-  // pos: {
-  //    marginBottom: 12,
-  // },
-
-  marginIcon: {
-    marginRight: "20px",
-  },
-  miniIcon: {
-    height: "15px",
-  },
-  card: {
-  },
-
+  card: {},
   div: {
     padding: 7,
   },
   iconEtat: {
     fontSize: "50px",
+  },
+  marginIcon: {
+    marginRight: "20px",
+  },
+  miniIcon: {
+    height: "15px",
   },
   pom_rouge: {
     color: "#FF0000",
@@ -57,10 +35,6 @@ const styles = () => ({
   subtitleCarteEtat: {
     fontFamily: "Lato",
   },
-
-  // button: {
-  //      margin: theme.spacing.unit,
-  // },
   titledadCarteEtat: {
     fontFamily: "Lato",
     fontSize: "1.125em",
@@ -69,12 +43,8 @@ const styles = () => ({
 });
 
 class CarteEtat extends PureComponent {
-  // bruts par an
-
   render() {
     const { classes, onClickSimPop, totalPop } = this.props;
-    // const { classes } = this.props;
-    // const delta = totalPop.total.avant - totalPop.total.apres;
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -98,7 +68,7 @@ class CarteEtat extends PureComponent {
           <table id="table-bar-chart">
             <tbody>
               <tr height="15%">
-                <td rowSpan="4" width="150%">
+                <td rowSpan="6" width="150%">
                   <BarChart resultat={totalPop} />
                 </td>
                 <td />
@@ -109,6 +79,14 @@ class CarteEtat extends PureComponent {
                     {Math.round(totalPop.total.avant / 100000000) / 10}
                   </span>
                   <span className="legendeEtat avant">Md€</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span className="legendeEtat plf chiffre">
+                    {Math.round(totalPop.total.plf / 100000000) / 10}
+                  </span>
+                  <span className="legendeEtat plf">Md€</span>
                 </td>
               </tr>
               <tr>

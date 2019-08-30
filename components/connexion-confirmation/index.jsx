@@ -3,8 +3,8 @@ import { withRouter } from "next/router";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { closeCurrentPopin, updateConnexionToken } from "../../redux/actions";
-import ConfirmationConnextionComponent from "./connexion-confirmation-component";
+import { closeCurrentPopin, connexionTokenUpdated } from "../../redux/actions";
+import ConfirmationConnexionComponent from "./connexion-confirmation-component";
 
 const mapStateToProps = (state, { router }) => {
   // obtient le token de connexion depuis l'URL
@@ -14,7 +14,7 @@ const mapStateToProps = (state, { router }) => {
 
 const mapDispatchToProps = dispatch => ({
   handleUpdateConnexionToken: (token) => {
-    const action = updateConnexionToken(token);
+    const action = connexionTokenUpdated(token);
     dispatch(action);
   },
   onClosePopin: () => dispatch(closeCurrentPopin()),
@@ -26,4 +26,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-)(ConfirmationConnextionComponent);
+)(ConfirmationConnexionComponent);

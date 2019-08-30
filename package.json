@@ -63,7 +63,6 @@
     "react-swipeable-views": "^0.13.3",
     "redux": "^4.0.1",
     "redux-cookies-middleware": "0.2.0",
-    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "uuid": "3.3.3"
   },
@@ -90,7 +89,8 @@
     "nodemon": "^1.19.1",
     "postcss": "^7.0.17",
     "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "redux-devtools-extension": "2.13.8"
   },
   "engines": {
     "node": "11.10.0",

@@ -46,8 +46,11 @@ const mapStateToProps = ({ casTypes }, { index }) => {
 
 const mapDispatchToProps = (dispatch, { index }) => ({
   onFormSubmitHandler: (values) => {
-    const action = index >= 0 ? updateCasType : createCasType;
-    dispatch(action(values, index));
+    if (index >= 0) {
+      dispatch(updateCasType(values, index));
+    } else {
+      dispatch(createCasType(values));
+    }
     dispatch(closeCurrentPopin());
   },
 });

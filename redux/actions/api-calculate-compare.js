@@ -1,32 +1,31 @@
-import fetch from "isomorphic-fetch";
 import { get } from "lodash";
 
-import { loadingComplete, loadingStart } from "./loading";
+import request from "../../components/utils/request";
+import { transformCasTypesToData } from "../../components/utils/transform-cas-types-to-data";
+import { loadingComplete, loadingError, loadingStart } from "./loading";
 
-const fetchCalculateCompare = () => (dispatch, getState, { apiEndpoint }) => {
+const fetchCalculateCompare = () => (dispatch, getState) => {
   dispatch(loadingStart());
+  const timestamp = Date.now().toString();
   const { casTypes, reforme } = getState();
-  const body = JSON.stringify({
-    description_cas_types: casTypes,
+  const descriptionCasTypes = transformCasTypesToData(casTypes);
+  const body = {
+    description_cas_types: descriptionCasTypes,
     reforme,
-  });
-  const promise = fetch(`${apiEndpoint}/calculate/compare`, {
-    body,
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
-  })
-    .then(response => response.json())
+    timestamp,
+  };
+  return request
+    .post("/calculate/compare", body)
     .then((payload) => {
       const data = get(payload, "res_brut");
       dispatch(loadingComplete());
       dispatch({ data, type: "onCalculateCompareLoaded" });
     })
-    .catch(() => {
-      dispatch(loadingComplete());
+    .catch((err) => {
+      dispatch(loadingError(err));
       // eslint-disable-next-line no-console
       console.log("Can’t access  response. Blocked by browser?");
     });
-  return promise;
 };
 
 export default fetchCalculateCompare;

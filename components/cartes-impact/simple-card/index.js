@@ -8,7 +8,7 @@ const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
   const { name } = casTypes[index];
   const descCasType = casTypes[index];
   const resultats = {
-    apres: resBrut.avant[index],
+    apres: resBrut.apres[index],
     avant: resBrut.avant[index],
     plf: resBrut.plf[index],
   };

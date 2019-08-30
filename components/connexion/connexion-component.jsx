@@ -1,6 +1,6 @@
-import { Avatar, Typography } from "@material-ui/core";
+import { Avatar, IconButton, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import VPNKeyIcon from "@material-ui/icons/VpnKey";
+import { Close as CloseIcon, VpnKey as VPNKeyIcon } from "@material-ui/icons";
 import { FORM_ERROR } from "final-form";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
@@ -36,6 +36,11 @@ const styles = theme => ({
       height: 32,
       width: 32,
     },
+  },
+  closeButton: {
+    position: "absolute",
+    right: 10,
+    top: 10,
   },
   form: {
     marginTop: theme.spacing.unit,
@@ -108,9 +113,14 @@ class Connexion extends PureComponent {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, onClosePopin } = this.props;
     return (
       <div className={classes.container}>
+        <IconButton
+          classes={{ root: classes.closeButton }}
+          onClick={onClosePopin}>
+          <CloseIcon fontSize="small" />
+        </IconButton>
         <div className={classes.avatarContainer}>
           <Avatar classes={{ root: classes.avatar }}>
             <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
@@ -130,6 +140,7 @@ class Connexion extends PureComponent {
 
 Connexion.propTypes = {
   classes: PropTypes.shape().isRequired,
+  onClosePopin: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Connexion);

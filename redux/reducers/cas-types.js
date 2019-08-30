@@ -1,4 +1,6 @@
-import { transformDataToCarteImpact } from "../../components/utils/transform-data-to-carte-impact";
+import { cloneDeep } from "lodash";
+
+import { transformDataToCasTypes } from "../../components/utils/transform-data-to-cas-types";
 
 // le default state est rempli via les cookies
 // grace a la lib "redux-cookies-middleware"
@@ -25,7 +27,8 @@ const updateCasType = (state, action) => {
 };
 
 const createCasType = (state, action) => {
-  const nextState = [...state, action.data];
+  let nextState = cloneDeep(state);
+  nextState = [...nextState, action.data];
   return nextState;
 };
 
@@ -33,7 +36,7 @@ const casTypes = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
   case "onInitializeCasTypes":
     if (action.token) return state;
-    return transformDataToCarteImpact(action.payload);
+    return transformDataToCasTypes(action.payload);
   case "onUpdateCasType":
     return updateCasType(state, action);
   case "onCreateCasType":

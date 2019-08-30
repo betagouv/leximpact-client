@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import {
   addTranche,
-  fetchCalculateCompare,
+  // fetchCalculateCompare,
   removeTranche,
   updateReformeByName,
 } from "../../redux/actions";
@@ -11,27 +11,20 @@ import ArticlesComponent from "./articles-component";
 const mapStateToProps = ({ reforme, reformeBase, reformePLF }) => ({
   reforme,
   reformeBase,
-  reformePLF
+  reformePLF,
 });
 
 const mapDispatchToProps = dispatch => ({
   handleAddTranche: () => {
-    const action = addTranche();
-    dispatch(action);
+    dispatch(addTranche());
   },
 
   handleArticleChange: (value, name) => {
-    let action = updateReformeByName(name, value);
-    dispatch(action);
-    action = fetchCalculateCompare();
-    dispatch(action);
+    dispatch(updateReformeByName(name, value));
   },
 
   handleRemoveTranche: () => {
-    let action = removeTranche();
-    dispatch(action);
-    action = fetchCalculateCompare();
-    dispatch(action);
+    dispatch(removeTranche());
   },
 });
 

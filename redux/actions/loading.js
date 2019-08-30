@@ -5,3 +5,8 @@ export const loadingComplete = () => ({
 export const loadingStart = () => ({
   type: "onLoadingStart",
 });
+
+export const loadingError = error => ({
+  error,
+  type: "onLoadingError",
+});

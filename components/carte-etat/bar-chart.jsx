@@ -3,36 +3,34 @@ import "./bar-chart.scss";
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import { ResponsiveBar } from "@nivo/bar";
 import PropTypes from "prop-types";
-import { Component, Fragment } from "react";
+import { Fragment, PureComponent } from "react";
 
-class BarChart extends Component {
+class BarChart extends PureComponent {
   reformatResultat = () => {
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const { resultat } = this.props;
     const { deciles } = resultat;
-    const accResAvant = { refid: " " };
-
-    const z = deciles.map(element => element.avant);
-    const resavant = z.reduce((result, item, index) => {
-      // eslint-disable-next-line no-param-reassign
-      result[keycols[index]] = Math.round(item / 10000000) / 100;
-      return result;
-    }, accResAvant);
-
-    const accResApres = {
-      /* +Math.round(total.apres/10000000)/100+ "Md€" */
-      refid: "",
+    const reduceValues = (acc, item, index) => {
+      const value = Math.round(item / 10000000) / 100;
+      return { ...acc, [keycols[index]]: value };
     };
 
+    const accResAvant = { color: "#ded500", id: "jaune" };
+    const resavant = deciles
+      .map(element => element.avant)
+      .reduce(reduceValues, accResAvant);
+
+    const accResApres = { color: "#00a3ff", id: "bleu" };
     const resapres = deciles
       .map(element => element.apres)
-      .reduce((result, item, index) => {
-        // eslint-disable-next-line no-param-reassign
-        result[keycols[index]] = Math.round(item / 10000000) / 100;
-        return result;
-      }, accResApres);
+      .reduce(reduceValues, accResApres);
 
-    return [resapres, resavant];
+    const accResPLF = { color: "#ff6b6b", id: "rouge" };
+    const resplf = deciles
+      .map(element => element.plf)
+      .reduce(reduceValues, accResPLF);
+
+    return [resapres, resplf, resavant];
   };
 
   render() {
@@ -48,7 +46,6 @@ class BarChart extends Component {
         const decileImageKey = key.substring(0, key.indexOf("."));
         const xlinkHref = `/static/images/decile${decileImageKey}.png`;
         return (
-          // const iddecile=key.substring(0,key.indexOf(".")
           <image
             key={key}
             alt=""
@@ -68,7 +65,6 @@ class BarChart extends Component {
     return (
       <div className="chart">
         <ResponsiveBar
-          height={130}
           animate
           enableGridX
           axisBottom={{
@@ -79,21 +75,18 @@ class BarChart extends Component {
             tickRotation: 0,
             tickSize: 5,
           }}
-          /* */
           axisLeft={null}
-          axisRight={{
-            tickSize: 0,
-          }}
+          axisRight={{ tickSize: 0 }}
           axisTop={null}
           borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
           borderRadius={4}
           colorBy="index"
-          colors={["#00a3ff", "#ded500"]}
+          colors={["#00a3ff", "#ff6b6b", "#ded500"]}
           data={data}
           defs={[]}
           enableGridY={false}
           fill={[]}
-          indexBy="refid"
+          height={185}
           innerPadding={3}
           keys={keycols}
           labelFormat={v => `${v}Md€`}

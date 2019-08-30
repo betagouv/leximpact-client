@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { fetchSimPop } from "../../../redux/actions";
+import { fetchSimPop } from "../../redux/actions";
 import CarteEtatComponent from "./carte-etat-component";
 
 const mapStateToProps = ({ totalPop }) => ({ totalPop });

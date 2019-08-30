@@ -2,24 +2,17 @@ import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import CarteEtat from "./carte-etat";
+import CarteEtat from "../carte-etat";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
-  // handleClick = () => {
-  // const { onSimPopClick } = this.props;
-  // onSimPopClick(e);
-  // click sim popuplation
-  // };
-
   render() {
-    // include should be false to remove the graph of recettes
-    // const includepopulation = false;
     const { casTypes, isUserLogged } = this.props;
     return (
       <Grid container spacing={24}>
         {isUserLogged && (
           <Grid item lg={8} md={6} sm={6} xl={6} xs={12}>
+            {/* affichage de la carte etat */}
             <CarteEtat />
           </Grid>
         )}
