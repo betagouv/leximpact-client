@@ -1,5 +1,5 @@
 .chart {
-    height:30vh;
+    height:25vh;
     width:100%;
    // background: white;
    //  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -37,6 +37,11 @@
       background: rgba(222, 213, 0, 0.5);
       background-blend-mode: darken;
     }
+  }
+
+  &.plf{
+    filter: blur(1.25px);
+    color: #ff6b6b
   }
 
   &.apres{

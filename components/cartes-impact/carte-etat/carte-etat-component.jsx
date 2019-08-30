@@ -98,7 +98,7 @@ class CarteEtat extends PureComponent {
           <table id="table-bar-chart">
             <tbody>
               <tr height="15%">
-                <td rowSpan="4" width="150%">
+                <td rowSpan="6" width="150%">
                   <BarChart resultat={totalPop} />
                 </td>
                 <td />
@@ -109,6 +109,14 @@ class CarteEtat extends PureComponent {
                     {Math.round(totalPop.total.avant / 100000000) / 10}
                   </span>
                   <span className="legendeEtat avant">Md€</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span className="legendeEtat plf chiffre">
+                    {Math.round(totalPop.total.plf / 100000000) / 10}
+                  </span>
+                  <span className="legendeEtat plf">Md€</span>
                 </td>
               </tr>
               <tr>

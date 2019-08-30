@@ -10,8 +10,12 @@ class BarChart extends Component {
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const { resultat } = this.props;
     const { deciles } = resultat;
-    const accResAvant = { refid: " " };
-
+    const accResAvant = { refid: "  ", color: "#ded500" };
+    //At least on my computer, it seems what makes colors work on mobile is defining them in the data
+    //and using colorBy="index" and colors={data.map(c => c.color)} 
+    //But on desktop it is using 
+    //colors={["#00a3ff","#ff6b6b","#ded500"]}
+    //Well, now it seems mobile always work and desktop never does. Cool. 
     const z = deciles.map(element => element.avant);
     const resavant = z.reduce((result, item, index) => {
       // eslint-disable-next-line no-param-reassign
@@ -19,9 +23,23 @@ class BarChart extends Component {
       return result;
     }, accResAvant);
 
+      
+    const accResPLF = {
+      /* +Math.round(total.apres/10000000)/100+ "Md€" */
+      refid: " ", color: "#ff6b6b",
+    };
+
+    const resplf = deciles
+      .map(element => element.plf)
+      .reduce((result, item, index) => {
+        // eslint-disable-next-line no-param-reassign
+        result[keycols[index]] = Math.round(item / 10000000) / 100;
+        return result;
+      }, accResPLF);
+
     const accResApres = {
       /* +Math.round(total.apres/10000000)/100+ "Md€" */
-      refid: "",
+      refid: "", color: "#00a3ff",
     };
 
     const resapres = deciles
@@ -31,8 +49,7 @@ class BarChart extends Component {
         result[keycols[index]] = Math.round(item / 10000000) / 100;
         return result;
       }, accResApres);
-
-    return [resapres, resavant];
+    return [resapres, resplf, resavant];
   };
 
   render() {
@@ -68,7 +85,7 @@ class BarChart extends Component {
     return (
       <div className="chart">
         <ResponsiveBar
-          height={130}
+          height={185} 
           animate
           enableGridX
           axisBottom={{
@@ -88,7 +105,7 @@ class BarChart extends Component {
           borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
           borderRadius={4}
           colorBy="index"
-          colors={["#00a3ff", "#ded500"]}
+          colors={["#00a3ff","#ff6b6b","#ded500"]} 
           data={data}
           defs={[]}
           enableGridY={false}
