@@ -74,11 +74,7 @@ function TextePresentationOpenLeximpact({ classes }) {
       <div className={classes.espaceVide} />
 
       <Link href="/conditions-d-utilisation-openleximpact">
-        <Button
-          color="secondary"
-          fullWidth="true"
-          size="large"
-          variant="contained">
+        <Button fullWidth color="secondary" size="large" variant="contained">
           CGU OPEN LexImpact
         </Button>
       </Link>
