@@ -34,7 +34,7 @@ const mapStateToProps = (state, props) => {
   return {
     baseValue,
     newValue,
-    plfValue
+    plfValue,
   };
 };
 

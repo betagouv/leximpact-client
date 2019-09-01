@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { OpenInNew as OpenInNewIcon } from "@material-ui/icons";
+import PropTypes from "prop-types";
 
 const stylesTheme = theme => ({
   alink: {
@@ -77,19 +77,22 @@ function LegendeArticle({ classes }) {
   return (
     <div className={classes.container}>
       <Typography inline className={classes.styleLegende}>
-      Légende&nbsp;:
+        Légende&nbsp;:
       </Typography>
       <Typography inline className={classes.styleCodeExistant}>
-      Droit existant
+        Droit existant
       </Typography>
       <Typography inline className={classes.styleAvantPLF}>
-        <a className={classes.alink} href="https://www.impots.gouv.fr/portail/simulateur-de-la-baisse-dimpot-sur-le-revenu-annoncee-pour-2020" target="blank">
-        Baisse d&apos;impôt prévue en 2020
+        <a
+          className={classes.alink}
+          href="https://www.impots.gouv.fr/portail/simulateur-de-la-baisse-dimpot-sur-le-revenu-annoncee-pour-2020"
+          target="blank">
+          Baisse d&apos;impôt prévue en 2020
           <OpenInNewIcon className={classes.styleOpenInNewIcon} />
         </a>
       </Typography>
       <Typography inline className={classes.styleAmendement}>
-      Votre amendement de l’avant-PLF
+        Votre amendement de l’avant-PLF
       </Typography>
     </div>
   );

@@ -6,7 +6,7 @@ import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import OutputField from "../../articles-inputs/fields/output-field";
+import OutputField from "../../articles-inputs/output-field";
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
 import LexExpansionPanelSummary from "../expandable-panels/expansion-panel-summary";

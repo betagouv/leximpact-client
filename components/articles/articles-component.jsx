@@ -10,8 +10,8 @@ import {
   FormulaOutput,
   FormulaOutputCombilin,
 } from "../articles-inputs";
-import InputField from "../articles-inputs/fields/input-field";
-import OutputField from "../articles-inputs/fields/output-field";
+import InputField from "../articles-inputs/input-field";
+import OutputField from "../articles-inputs/output-field";
 import fillArrayWith from "../utils/array/fillArrayWith";
 import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";

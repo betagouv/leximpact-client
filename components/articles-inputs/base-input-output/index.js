@@ -1,10 +1,7 @@
 import { get } from "lodash";
 import { connect } from "react-redux";
 
-import {
-  fetchCalculateCompare,
-  updateReformeByName,
-} from "../../../redux/actions";
+import { updateReformeByName } from "../../../redux/actions";
 import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
 import BaseInputOutputComponent from "./base-input-output-component";
 
@@ -19,10 +16,10 @@ const mapStateToProps = (state, props) => {
   let baseValue = get(reformeBase.impot_revenu, name);
   baseValue *= multiplicateur;
   baseValue = makeNumberGoodLooking(baseValue);
-  
+
   let plfValue = get(reformePLF, `impot_revenu.${name}`);
   plfValue *= multiplicateur;
-  plfValue  = makeNumberGoodLooking(plfValue);
+  plfValue = makeNumberGoodLooking(plfValue);
 
   let newValue = get(reforme.impot_revenu, name);
   newValue *= multiplicateur;
@@ -37,18 +34,15 @@ const mapStateToProps = (state, props) => {
     baseValue,
     inputFieldStyle,
     newValue,
-    plfValue,
     outputFieldStyle,
     plfFieldStyle,
+    plfValue,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   handleInputChange: (value, name) => {
-    let action = updateReformeByName(name, value);
-    dispatch(action);
-    action = fetchCalculateCompare();
-    dispatch(action);
+    dispatch(updateReformeByName(name, value));
   },
 });
 

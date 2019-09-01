@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 
-import InputField from "../fields/input-field";
-import OutputField from "../fields/output-field";
+import InputField from "../input-field";
+import OutputField from "../output-field";
 
 const BaseInputOutputComponent = ({
   baseValue,
@@ -11,8 +11,8 @@ const BaseInputOutputComponent = ({
   name,
   newValue,
   outputFieldStyle,
-  plfValue,
   plfFieldStyle,
+  plfValue,
 }) => (
   <Fragment>
     <OutputField style={outputFieldStyle} value={baseValue} />
@@ -33,6 +33,8 @@ BaseInputOutputComponent.propTypes = {
   name: PropTypes.string.isRequired,
   newValue: PropTypes.string.isRequired,
   outputFieldStyle: PropTypes.shape().isRequired,
+  plfFieldStyle: PropTypes.shape().isRequired,
+  plfValue: PropTypes.string.isRequired,
 };
 
 export default BaseInputOutputComponent;
