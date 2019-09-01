@@ -22,14 +22,14 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     >
       <span>
         <span
-          className="AppHeaderComponent-lighterMobileTitle-3"
-        >
-          LEXIMPACT 
-        </span>
-        <span
           className="AppHeaderComponent-bolderMobileTitle-1"
         >
-          POP
+          OPEN 
+        </span>
+        <span
+          className="AppHeaderComponent-lighterMobileTitle-3"
+        >
+          LEXIMPACT
         </span>
       </span>
     </WithStyles(Typography)>

@@ -38,7 +38,7 @@ const styles = () => ({
 
 class AppHeaderComponent extends PureComponent {
   render() {
-    const { classes, isUserConnected, useMobileView } = this.props;
+    const { classes, isUserLogged, useMobileView } = this.props;
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
@@ -46,13 +46,13 @@ class AppHeaderComponent extends PureComponent {
           {!useMobileView && <HeaderMenuButton />}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
-              {!isUserConnected && (
+              {!isUserLogged && (
                 <span>
                   <span className={classes.bolderTitle}>OPEN&nbsp;</span>
                   <span className={classes.lighterTitle}>LEXIMPACT</span>
                 </span>
               )}
-              {isUserConnected && (
+              {isUserLogged && (
                 <span>
                   <span className={classes.lighterTitle}>LEXIMPACT&nbsp;</span>
                   <span className={classes.bolderTitle}>POP</span>
@@ -62,13 +62,13 @@ class AppHeaderComponent extends PureComponent {
           )}
           {useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
-              {!isUserConnected && (
+              {!isUserLogged && (
                 <span>
                   <span className={classes.bolderMobileTitle}>OPEN&nbsp;</span>
                   <span className={classes.lighterMobileTitle}>LEXIMPACT</span>
                 </span>
               )}
-              {isUserConnected && (
+              {isUserLogged && (
                 <span>
                   <span className={classes.lighterMobileTitle}>
                     LEXIMPACT&nbsp;
@@ -78,8 +78,9 @@ class AppHeaderComponent extends PureComponent {
               )}
             </Typography>
           )}
-          {!useMobileView && <LoginButton />}
-          {useMobileView && <LoginButtonMobile />}
+          {isUserLogged && <div />}
+          {!isUserLogged && !useMobileView && <LoginButton />}
+          {!isUserLogged && useMobileView && <LoginButtonMobile />}
         </Toolbar>
       </AppBar>
     );
@@ -88,7 +89,7 @@ class AppHeaderComponent extends PureComponent {
 
 AppHeaderComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
-  isUserConnected: PropTypes.bool.isRequired,
+  isUserLogged: PropTypes.bool.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 
