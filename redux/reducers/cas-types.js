@@ -34,6 +34,8 @@ const createCasType = (state, action) => {
 
 const casTypes = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
+  case "onConnexionTokenLogout":
+    return [];
   case "onInitializeCasTypes":
     if (action.token) return state;
     return transformDataToCasTypes(action.payload);

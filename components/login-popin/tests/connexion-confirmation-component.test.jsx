@@ -1,8 +1,8 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
-import ConnexionConfirmationComponent from "../connexion-confirmation-component";
+import LoginPopinComponent from "../login-popin-component";
 
-describe("components | connexion-confirmation-component", () => {
+describe("components | login-popin-component", () => {
   let shallow;
   beforeAll(() => {
     const options = { dive: true };
@@ -16,7 +16,7 @@ describe("components | connexion-confirmation-component", () => {
         onClosePopin: jest.fn(),
         token: "any-string",
       };
-      const wrapper = shallow(<ConnexionConfirmationComponent {...props} />);
+      const wrapper = shallow(<LoginPopinComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });

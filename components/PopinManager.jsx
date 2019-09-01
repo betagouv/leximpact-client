@@ -8,8 +8,9 @@ import { Fragment, PureComponent } from "react";
 import { closeCurrentPopin } from "../redux/actions";
 import AjouterCasTypes from "./ajouter-cas-types";
 import LoginForm from "./connexion";
-import ConfirmationConnexion from "./connexion-confirmation";
 import EnSavoirPlus from "./en-savoir-plus";
+import Loginpopin from "./login-popin";
+import LogoutPopin from "./logout-popin";
 
 const styles = theme => ({
   dialog: {
@@ -41,11 +42,11 @@ const styles = theme => ({
 class PopinManager extends PureComponent {
   renderConnexion = (popinType) => {
     const { classes } = this.props;
-    const showConnexion = popinType === "connection";
+    const showPopin = popinType === "connection";
     return (
       <Dialog
         classes={{ paper: classes.dialogPaper, root: classes.dialog }}
-        open={showConnexion}
+        open={showPopin}
         onClose={closeCurrentPopin}>
         <DialogContent classes={{ root: classes.dialogContent }}>
           <LoginForm />
@@ -57,14 +58,14 @@ class PopinManager extends PureComponent {
   renderAjouterCasTypes = (popinType) => {
     const { classes, router } = this.props;
     const paperClass = `${classes.dialogPaper} ${classes.dialogPaperCasTypes}`;
-    const showConfirmationConnexion = popinType === "ajouter-cas-types";
+    const showPopin = popinType === "ajouter-cas-types";
     const pathString = "query.index";
     const routerIndex = get(router, pathString, -1);
     const index = Number(routerIndex);
     return (
       <Dialog
         classes={{ paper: paperClass, root: classes.dialog }}
-        open={showConfirmationConnexion}
+        open={showPopin}
         onClose={closeCurrentPopin}>
         <DialogContent classes={{ root: classes.dialogContentCasTypes }}>
           <AjouterCasTypes index={index} onClosePopin={closeCurrentPopin} />
@@ -73,31 +74,46 @@ class PopinManager extends PureComponent {
     );
   };
 
-  renderConfirmationConnexion = (popinType) => {
+  renderLoginpopin = (popinType) => {
     const { classes } = this.props;
-    const showConfirmationConnexion = popinType === "confirmation-connexion";
+    const showPopin = popinType === "confirmation-connexion";
     return (
       <Dialog
         classes={{ paper: classes.dialogPaper, root: classes.dialog }}
-        open={showConfirmationConnexion}
+        open={showPopin}
         onClose={closeCurrentPopin}>
         <DialogContent classes={{ root: classes.dialogContent }}>
-          <ConfirmationConnexion />
+          <Loginpopin />
         </DialogContent>
       </Dialog>
     );
   };
 
   renderEnSavoirPlus = (popinType) => {
-    const showEnSavoirPlus = popinType === "en-savoir-plus";
+    const showPopin = popinType === "en-savoir-plus";
     return (
       <Drawer
         anchor="bottom"
-        open={showEnSavoirPlus}
+        open={showPopin}
         variant="temporary"
         onClose={closeCurrentPopin}>
         <EnSavoirPlus />
       </Drawer>
+    );
+  };
+
+  renderLogoutPopin = (popinType) => {
+    const { classes } = this.props;
+    const showPopin = popinType === "logout";
+    return (
+      <Dialog
+        classes={{ paper: classes.dialogPaper, root: classes.dialog }}
+        open={showPopin}
+        onClose={closeCurrentPopin}>
+        <DialogContent classes={{ root: classes.dialogContent }}>
+          <LogoutPopin />
+        </DialogContent>
+      </Dialog>
     );
   };
 
@@ -109,8 +125,9 @@ class PopinManager extends PureComponent {
       <Fragment>
         {this.renderEnSavoirPlus(popinType)}
         {this.renderConnexion(popinType)}
-        {this.renderConfirmationConnexion(popinType)}
+        {this.renderLoginpopin(popinType)}
         {this.renderAjouterCasTypes(popinType)}
+        {this.renderLogoutPopin(popinType)}
       </Fragment>
     );
   }

@@ -8,8 +8,7 @@ import { Fragment, PureComponent } from "react";
 class BarChart extends PureComponent {
   reformatResultat = () => {
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-    const { resultat } = this.props;
-    const { deciles } = resultat;
+    const { deciles } = this.props;
     const reduceValues = (acc, item, index) => {
       const value = Math.round(item / 10000000) / 100;
       return { ...acc, [keycols[index]]: value };
@@ -34,7 +33,7 @@ class BarChart extends PureComponent {
   };
 
   render() {
-    const { resultat } = this.props;
+    const { deciles } = this.props;
     const Image = ({ bars }) => {
       const size = 24;
       const images = bars.map(({
@@ -144,8 +143,7 @@ class BarChart extends PureComponent {
               {`décile : ${Math.round(content.value * 10) / 10}Md€`}
               <br />
               {`${Math.round(
-                (content.value * 1000000000)
-                  / resultat.deciles[content.id - 1].poids,
+                (content.value * 1000000000) / deciles[content.id - 1].poids,
               )}€ par foyer fiscal`}
             </Fragment>
           )}
@@ -156,7 +154,14 @@ class BarChart extends PureComponent {
 }
 
 BarChart.propTypes = {
-  resultat: PropTypes.shape().isRequired,
+  deciles: PropTypes.arrayOf(
+    PropTypes.shape({
+      apres: PropTypes.number.isRequired,
+      avant: PropTypes.number.isRequired,
+      plf: PropTypes.number.isRequired,
+      poids: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default BarChart;

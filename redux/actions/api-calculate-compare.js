@@ -6,13 +6,11 @@ import { loadingComplete, loadingError, loadingStart } from "./loading";
 
 const fetchCalculateCompare = () => (dispatch, getState) => {
   dispatch(loadingStart());
-  const timestamp = Date.now().toString();
   const { casTypes, reforme } = getState();
   const descriptionCasTypes = transformCasTypesToData(casTypes);
   const body = {
     description_cas_types: descriptionCasTypes,
     reforme,
-    timestamp,
   };
   return request
     .post("/calculate/compare", body)

@@ -17,7 +17,12 @@ function callEndpoint(method, pathWithStartingSlash, bodyObject = {}) {
         if (responseIsSuccess) return response.json();
         throw new Error(DEFAULT_API_ERROR_MESSAGE);
       })
-      .then(resolve)
+      .then((payload) => {
+        const hasError = !payload || payload.Error;
+        return hasError
+          ? reject(payload.Error || "Unable to perform request")
+          : resolve(payload);
+      })
       .catch(err => reject(err.message || err));
   });
 }

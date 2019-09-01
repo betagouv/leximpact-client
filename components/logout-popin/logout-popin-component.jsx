@@ -31,11 +31,10 @@ const styles = {
   },
 };
 
-class ConnexionConfirmationComponent extends PureComponent {
+class LogoutPopinComponent extends PureComponent {
   componentDidMount() {
-    const { handleUpdateConnexionToken, token } = this.props;
-    if (!token) return;
-    handleUpdateConnexionToken(token);
+    const { fetchMetadataCasTypesHandler } = this.props;
+    fetchMetadataCasTypesHandler();
   }
 
   render() {
@@ -47,10 +46,10 @@ class ConnexionConfirmationComponent extends PureComponent {
         </IconButton>
         <h1 className={classes.h1Style}>
           <Icon inline icon={PartyPopperIcon} width="40" />
-          &nbsp;Vous êtes bien connectés à LexImpact POP&nbsp;
+          Vous êtes déconnecté de LexImpact POP&nbsp;
         </h1>
         <p className={classes.pStyle}>
-          Vous pouvez désormais
+          Vous devez vous reconnecter afin de pouvoir à nouveau
           <b>&nbsp;simuler les impacts macros&nbsp;</b>
           d’une réforme
           <br />
@@ -65,15 +64,10 @@ class ConnexionConfirmationComponent extends PureComponent {
   }
 }
 
-ConnexionConfirmationComponent.defaultProps = {
-  token: null,
-};
-
-ConnexionConfirmationComponent.propTypes = {
+LogoutPopinComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
-  handleUpdateConnexionToken: PropTypes.func.isRequired,
+  fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
   onClosePopin: PropTypes.func.isRequired,
-  token: PropTypes.string,
 };
 
-export default withStyles(styles)(ConnexionConfirmationComponent);
+export default withStyles(styles)(LogoutPopinComponent);

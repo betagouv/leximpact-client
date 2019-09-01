@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { fetchSimPop } from "../../redux/actions";
 import CarteEtatComponent from "./carte-etat-component";
 
-const mapStateToProps = ({ totalPop }) => ({ totalPop });
+const mapStateToProps = ({ totalPop }) => {
+  const { deciles, total } = totalPop;
+  return { deciles, total };
+};
 
 const mapDispatchToProps = dispatch => ({
   onClickSimPop: () => {

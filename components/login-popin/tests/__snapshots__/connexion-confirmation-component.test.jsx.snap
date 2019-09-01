@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components | connexion-confirmation-component snapshot doit correspondre quand le token est dans l'url 1`] = `
+exports[`components | login-popin-component snapshot doit correspondre quand le token est dans l'url 1`] = `
 <div
   className="container"
 >
   <WithStyles(IconButton)
-    className="ConnexionConfirmationComponent-closeButton-1"
+    className="LoginPopinComponent-closeButton-1"
     onClick={[MockFunction]}
   >
     <pure(CloseIcon)
@@ -13,7 +13,7 @@ exports[`components | connexion-confirmation-component snapshot doit correspondr
     />
   </WithStyles(IconButton)>
   <h1
-    className="ConnexionConfirmationComponent-h1Style-2"
+    className="LoginPopinComponent-h1Style-2"
   >
     <Icon
       icon={
@@ -29,7 +29,7 @@ exports[`components | connexion-confirmation-component snapshot doit correspondr
      Vous êtes bien connectés à LexImpact POP 
   </h1>
   <p
-    className="ConnexionConfirmationComponent-pStyle-3"
+    className="LoginPopinComponent-pStyle-3"
   >
     Vous pouvez désormais
     <b>

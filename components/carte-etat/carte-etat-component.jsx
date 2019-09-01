@@ -42,9 +42,20 @@ const styles = () => ({
   },
 });
 
+function getRoundedTotal(value) {
+  const rounded = Math.round(value / 100000000) / 10;
+  return rounded;
+}
+
 class CarteEtat extends PureComponent {
   render() {
-    const { classes, onClickSimPop, totalPop } = this.props;
+    const {
+      classes, deciles, onClickSimPop, total,
+    } = this.props;
+    const { apres, avant, plf } = total;
+    const totalAvant = getRoundedTotal(avant);
+    const totalApres = getRoundedTotal(apres);
+    const totalPLF = getRoundedTotal(plf);
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -69,30 +80,28 @@ class CarteEtat extends PureComponent {
             <tbody>
               <tr height="15%">
                 <td rowSpan="6" width="150%">
-                  <BarChart resultat={totalPop} />
+                  <BarChart deciles={deciles} />
                 </td>
                 <td />
               </tr>
               <tr>
                 <td>
                   <span className="legendeEtat avant chiffre">
-                    {Math.round(totalPop.total.avant / 100000000) / 10}
+                    {totalAvant}
                   </span>
                   <span className="legendeEtat avant">Md€</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="legendeEtat plf chiffre">
-                    {Math.round(totalPop.total.plf / 100000000) / 10}
-                  </span>
+                  <span className="legendeEtat plf chiffre">{totalPLF}</span>
                   <span className="legendeEtat plf">Md€</span>
                 </td>
               </tr>
               <tr>
                 <td>
                   <span className="legendeEtat apres chiffre">
-                    {Math.round(totalPop.total.apres / 100000000) / 10}
+                    {totalApres}
                   </span>
                   <span className="legendeEtat apres">Md€</span>
                 </td>
@@ -124,12 +133,19 @@ class CarteEtat extends PureComponent {
 
 CarteEtat.propTypes = {
   classes: PropTypes.shape().isRequired,
-  onClickSimPop: PropTypes.func.isRequired,
-  totalPop: PropTypes.shape({
-    total: PropTypes.shape({
+  deciles: PropTypes.arrayOf(
+    PropTypes.shape({
       apres: PropTypes.number.isRequired,
       avant: PropTypes.number.isRequired,
+      plf: PropTypes.number.isRequired,
+      poids: PropTypes.number.isRequired,
     }).isRequired,
+  ).isRequired,
+  onClickSimPop: PropTypes.func.isRequired,
+  total: PropTypes.shape({
+    apres: PropTypes.number.isRequired,
+    avant: PropTypes.number.isRequired,
+    plf: PropTypes.number.isRequired,
   }).isRequired,
 };
 
