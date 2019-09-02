@@ -42,7 +42,7 @@ class SimpleCardImpactImpots extends PureComponent {
     const { classes, isLoading, resultats } = this.props;
 
     const soitParAn = (-resultats.apres + resultats.avant > 0 ? "+" : "-")
-      + Math.round(Math.abs(-resultats.apres + resultats.avant));
+      + Math.round(Math.abs(-resultats.apres + resultats.plf));
     return (
       <div className={classes.container}>
         <Typography className={classes.legende}>
