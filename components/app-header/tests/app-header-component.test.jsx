@@ -20,15 +20,29 @@ describe("components | app-header | index", () => {
   });
 
   describe("snapshot", () => {
-    it("doit correspondre quand l'user n'est pas connecté", () => {
-      const props = { isUserConnected: false, useMobileView: false };
+    it("doit correspondre quand l'user n'est pas connecté en mode desktop", () => {
+      const props = { isUserLogged: false, useMobileView: false };
       const wrapper = shallow(<AppHeaderComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
 
-    it("doit correspondre quand l'user est connecté", () => {
-      const props = { isUserConnected: true, useMobileView: true };
+    it("doit correspondre quand l'user n'est pas connecté en mode mobile", () => {
+      const props = { isUserLogged: false, useMobileView: true };
+      const wrapper = shallow(<AppHeaderComponent {...props} />);
+      expect(wrapper).toBeDefined();
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it("doit correspondre quand l'user est connecté en mode desktop", () => {
+      const props = { isUserLogged: true, useMobileView: true };
+      const wrapper = shallow(<AppHeaderComponent {...props} />);
+      expect(wrapper).toBeDefined();
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it("doit correspondre quand l'user est connecté en mode mobile", () => {
+      const props = { isUserLogged: true, useMobileView: true };
       const wrapper = shallow(<AppHeaderComponent {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
