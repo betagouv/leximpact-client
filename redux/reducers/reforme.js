@@ -1,8 +1,8 @@
 import { cloneDeep, get, set } from "lodash";
 
-import { REFORME_BASE_DEFAULT_STATE } from "./reforme-base";
+import { REFORME_PLF_DEFAULT_STATE } from "./reforme-plf";
 
-const DEFAULT_STATE = cloneDeep(REFORME_BASE_DEFAULT_STATE);
+const DEFAULT_STATE = cloneDeep(REFORME_PLF_DEFAULT_STATE);
 
 const changeValueArray = (arrayToChange, indexToChange, newValue) => {
   // renvoie arrayToChange avec la valeur située
