@@ -24,8 +24,11 @@
   font-size: 1.875em;
   &.avant {
     &.chiffre {
-      background: rgba(222, 213, 0, 0.5);
+      background-color:#DED500;
       background-blend-mode: darken;
+      /* ligne à ajouter quand PLF*/
+      text-decoration-color: #FF6B6B;
+      text-decoration-line: line-through;
     }
   }
 
