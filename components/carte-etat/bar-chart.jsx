@@ -80,7 +80,7 @@ class BarChart extends PureComponent {
           borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
           borderRadius={4}
           colorBy="index"
-          colors={["#00a3ff", "#ff6b6b", "#ded500"]}
+          colors={["#E0E0E0", "#E0E0E0", "#E0E0E0"]}
           data={data}
           defs={[]}
           enableGridY={false}
