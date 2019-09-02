@@ -252,6 +252,10 @@ class ArticlesComponent extends React.Component {
           style={style.VarCodeexistant}
           value={bases[Math.min(i - 1, bases.length - 1)]}
         />
+        <OutputField
+          style={style.VarPLF}
+          value={plfs[Math.min(i - 1, plfs.length - 1)]}
+        />
         <OutputField style={style.VarCodeNew} value={s[i - 1]} />
         €
         <br />
