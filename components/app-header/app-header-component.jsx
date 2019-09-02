@@ -10,22 +10,27 @@ import HeaderMenuButtonMobile from "./menu-button-mobile";
 
 const styles = () => ({
   bolderMobileTitle: {
-    fontSize: "25px,",
+    fontSize: 25,
     fontWeight: "bold",
   },
   bolderTitle: {
-    fontSize: "36px",
+    fontSize: 36,
     fontWeight: "bold",
   },
   lighterMobileTitle: {
-    fontSize: "25px,",
+    fontSize: 25,
     fontWeight: "regular",
   },
   lighterTitle: {
-    fontSize: "36px",
+    fontSize: 36,
     fontWeight: "lighter",
   },
-
+  loginButtonMobilePlaceholder: {
+    minWidth: 64,
+  },
+  loginButtonPlaceholder: {
+    minWidth: 190,
+  },
   titleRoot: {
     color: "#FFFFFF",
     fontFamily: "Lato",
@@ -78,9 +83,18 @@ class AppHeaderComponent extends PureComponent {
               )}
             </Typography>
           )}
-          {isUserLogged && <div />}
+          {/* bouton connection mode desktop */}
           {!isUserLogged && !useMobileView && <LoginButton />}
+          {/* no bouton mode desktop */}
+          {isUserLogged && !useMobileView && (
+            <div className={classes.loginButtonPlaceholder} />
+          )}
+          {/* bouton connection mode mobile */}
           {!isUserLogged && useMobileView && <LoginButtonMobile />}
+          {/* no bouton mode mobile */}
+          {isUserLogged && useMobileView && (
+            <div className={classes.loginButtonMobilePlaceholder} />
+          )}
         </Toolbar>
       </AppBar>
     );

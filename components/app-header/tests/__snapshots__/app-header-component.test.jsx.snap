@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté 1`] = `
+exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode desktop 1`] = `
 <WithStyles(AppBar)
   position="static"
 >
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-6",
+        "root": "AppHeaderComponent-toolbarRoot-8",
       }
     }
   >
@@ -15,37 +15,39 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-5",
+          "root": "AppHeaderComponent-titleRoot-7",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="AppHeaderComponent-bolderMobileTitle-1"
-        >
-          OPEN 
-        </span>
-        <span
           className="AppHeaderComponent-lighterMobileTitle-3"
         >
-          LEXIMPACT
+          LEXIMPACT 
+        </span>
+        <span
+          className="AppHeaderComponent-bolderMobileTitle-1"
+        >
+          POP
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile) />
+    <div
+      className="AppHeaderComponent-loginButtonMobilePlaceholder-5"
+    />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
 
-exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté 1`] = `
+exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode mobile 1`] = `
 <WithStyles(AppBar)
   position="static"
 >
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-6",
+        "root": "AppHeaderComponent-toolbarRoot-8",
       }
     }
   >
@@ -53,7 +55,47 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-5",
+          "root": "AppHeaderComponent-titleRoot-7",
+        }
+      }
+      component="div"
+    >
+      <span>
+        <span
+          className="AppHeaderComponent-lighterMobileTitle-3"
+        >
+          LEXIMPACT 
+        </span>
+        <span
+          className="AppHeaderComponent-bolderMobileTitle-1"
+        >
+          POP
+        </span>
+      </span>
+    </WithStyles(Typography)>
+    <div
+      className="AppHeaderComponent-loginButtonMobilePlaceholder-5"
+    />
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;
+
+exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode desktop 1`] = `
+<WithStyles(AppBar)
+  position="static"
+>
+  <WithStyles(Toolbar)
+    classes={
+      Object {
+        "root": "AppHeaderComponent-toolbarRoot-8",
+      }
+    }
+  >
+    <WithStyles(HeaderMenuButton) />
+    <WithStyles(Typography)
+      classes={
+        Object {
+          "root": "AppHeaderComponent-titleRoot-7",
         }
       }
       component="div"
@@ -72,6 +114,44 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
       </span>
     </WithStyles(Typography)>
     <WithStyles(LoginButton) />
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;
+
+exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode mobile 1`] = `
+<WithStyles(AppBar)
+  position="static"
+>
+  <WithStyles(Toolbar)
+    classes={
+      Object {
+        "root": "AppHeaderComponent-toolbarRoot-8",
+      }
+    }
+  >
+    <WithStyles(HeaderMenuButton) />
+    <WithStyles(Typography)
+      classes={
+        Object {
+          "root": "AppHeaderComponent-titleRoot-7",
+        }
+      }
+      component="div"
+    >
+      <span>
+        <span
+          className="AppHeaderComponent-bolderMobileTitle-1"
+        >
+          OPEN 
+        </span>
+        <span
+          className="AppHeaderComponent-lighterMobileTitle-3"
+        >
+          LEXIMPACT
+        </span>
+      </span>
+    </WithStyles(Typography)>
+    <WithStyles(LoginButtonMobile) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
