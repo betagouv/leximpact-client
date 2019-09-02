@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {
   closeCurrentPopin,
   createCasType,
+  fetchCalculateCompare,
   updateCasType,
 } from "../../redux/actions";
 import AjouterCasTypesComponent from "./ajouter-cas-types-component";
@@ -52,6 +53,7 @@ const mapDispatchToProps = (dispatch, { index }) => ({
       dispatch(createCasType(values));
     }
     dispatch(closeCurrentPopin());
+    dispatch(fetchCalculateCompare());
   },
 });
 
