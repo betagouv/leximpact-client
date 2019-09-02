@@ -1,6 +1,6 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
-import { Button, Card, CardContent } from "@material-ui/core";
+import { Button, Card, CardContent, Grid, Paper } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
@@ -40,6 +40,11 @@ const styles = () => ({
     fontSize: "1.125em",
     fontWeight: "bold",
   },
+  sourceInsee: {
+    fontFamily: "Lato",
+    fontSize: "1.125em",
+    fontWeight: "bold",
+  }
 });
 
 function getRoundedTotal(value) {
@@ -78,36 +83,37 @@ class CarteEtat extends PureComponent {
           </table>
           <table id="table-bar-chart">
             <tbody>
-              <tr height="15%">
+              <tr>
                 <td rowSpan="6" width="150%">
                   <BarChart deciles={deciles} />
                 </td>
-                <td />
               </tr>
               <tr>
-                <td>
+                <td height="30%">
                   <span className="legendeEtat avant chiffre">
                     {totalAvant}
                   </span>
-                  <span className="legendeEtat avant">Md€</span>
+                  <span className="legendeEtat avant">Md€*</span>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td height="30%">
                   <span className="legendeEtat plf chiffre">{totalPLF}</span>
-                  <span className="legendeEtat plf">Md€</span>
+                  <span className="legendeEtat plf">Md€*</span>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td height="30%">
                   <span className="legendeEtat apres chiffre">
                     {totalApres}
                   </span>
-                  <span className="legendeEtat apres">Md€</span>
+                  <span className="legendeEtat apres">Md€*</span>
                 </td>
               </tr>
-              <tr height="15%">
-                <td />
+              <tr>
+                <td height="10%">
+                  <span className="sourceInsee">*Source : INSEE</span>
+                </td>
               </tr>
             </tbody>
           </table>

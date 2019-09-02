@@ -11,7 +11,7 @@ class ImpactComponent extends PureComponent {
     return (
       <Grid container spacing={24}>
         {isUserLogged && (
-          <Grid item lg={8} md={6} sm={6} xl={6} xs={12}>
+          <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
             {/* affichage de la carte etat */}
             <CarteEtat />
           </Grid>

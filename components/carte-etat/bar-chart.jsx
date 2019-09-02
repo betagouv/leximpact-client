@@ -14,17 +14,17 @@ class BarChart extends PureComponent {
       return { ...acc, [keycols[index]]: value };
     };
 
-    const accResAvant = { color: "#ded500", id: "jaune" };
+    const accResAvant = { color: "#ded500", id: "  " };
     const resavant = deciles
       .map(element => element.avant)
       .reduce(reduceValues, accResAvant);
 
-    const accResApres = { color: "#00a3ff", id: "bleu" };
+    const accResApres = { color: "#00a3ff", id: "" };
     const resapres = deciles
       .map(element => element.apres)
       .reduce(reduceValues, accResApres);
 
-    const accResPLF = { color: "#ff6b6b", id: "rouge" };
+    const accResPLF = { color: "#ff6b6b", id: " " };
     const resplf = deciles
       .map(element => element.plf)
       .reduce(reduceValues, accResPLF);
@@ -80,7 +80,7 @@ class BarChart extends PureComponent {
           borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
           borderRadius={4}
           colorBy="index"
-          colors={["#00a3ff", "#ff6b6b", "#ded500"]}
+          colors={["#E0E0E0", "#E0E0E0", "#E0E0E0"]}
           data={data}
           defs={[]}
           enableGridY={false}
