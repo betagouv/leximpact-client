@@ -15,8 +15,8 @@ class ReformeurComponent extends PureComponent {
   }
 
   componentDidMount() {
-    const { fetchMetadataCasTypesHandler } = this.props;
-    fetchMetadataCasTypesHandler();
+    const { initializeAppllicationStoreFromAPI } = this.props;
+    initializeAppllicationStoreFromAPI();
   }
 
   handleOnChangeIndex = (event, indextab) => {
@@ -80,7 +80,7 @@ class ReformeurComponent extends PureComponent {
 }
 
 ReformeurComponent.propTypes = {
-  fetchMetadataCasTypesHandler: PropTypes.func.isRequired,
+  initializeAppllicationStoreFromAPI: PropTypes.func.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 

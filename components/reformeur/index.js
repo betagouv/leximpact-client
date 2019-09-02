@@ -2,7 +2,10 @@ import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { fetchMetadataCasTypes } from "../../redux/actions";
+import {
+  fetchCalculateCompare,
+  fetchMetadataCasTypes,
+} from "../../redux/actions";
 import ReformeurComponent from "./reformeur-component";
 
 const mapStateToProps = (state, { width }) => {
@@ -11,8 +14,14 @@ const mapStateToProps = (state, { width }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchMetadataCasTypesHandler: () => {
-    dispatch(fetchMetadataCasTypes());
+  initializeAppllicationStoreFromAPI: () => {
+    // rempli le store de l'application avec les données
+    // provenant de l'API
+    dispatch(fetchMetadataCasTypes()).then(() => {
+      // lance le calcul des cas types la premiere fois
+      // que le reformeur s'affiche
+      dispatch(fetchCalculateCompare());
+    });
   },
 });
 

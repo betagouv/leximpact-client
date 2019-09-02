@@ -10,22 +10,27 @@ import HeaderMenuButtonMobile from "./menu-button-mobile";
 
 const styles = () => ({
   bolderMobileTitle: {
-    fontSize: "25px,",
+    fontSize: 25,
     fontWeight: "bold",
   },
   bolderTitle: {
-    fontSize: "36px",
+    fontSize: 36,
     fontWeight: "bold",
   },
   lighterMobileTitle: {
-    fontSize: "25px,",
+    fontSize: 25,
     fontWeight: "regular",
   },
   lighterTitle: {
-    fontSize: "36px",
+    fontSize: 36,
     fontWeight: "lighter",
   },
-
+  loginButtonMobilePlaceholder: {
+    minWidth: 64,
+  },
+  loginButtonPlaceholder: {
+    minWidth: 190,
+  },
   titleRoot: {
     color: "#FFFFFF",
     fontFamily: "Lato",
@@ -38,7 +43,7 @@ const styles = () => ({
 
 class AppHeaderComponent extends PureComponent {
   render() {
-    const { classes, isUserConnected, useMobileView } = this.props;
+    const { classes, isUserLogged, useMobileView } = this.props;
     return (
       <AppBar position="static">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
@@ -46,13 +51,13 @@ class AppHeaderComponent extends PureComponent {
           {!useMobileView && <HeaderMenuButton />}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
-              {!isUserConnected && (
+              {!isUserLogged && (
                 <span>
                   <span className={classes.bolderTitle}>OPEN&nbsp;</span>
                   <span className={classes.lighterTitle}>LEXIMPACT</span>
                 </span>
               )}
-              {isUserConnected && (
+              {isUserLogged && (
                 <span>
                   <span className={classes.lighterTitle}>LEXIMPACT&nbsp;</span>
                   <span className={classes.bolderTitle}>POP</span>
@@ -62,13 +67,13 @@ class AppHeaderComponent extends PureComponent {
           )}
           {useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
-              {!isUserConnected && (
+              {!isUserLogged && (
                 <span>
                   <span className={classes.bolderMobileTitle}>OPEN&nbsp;</span>
                   <span className={classes.lighterMobileTitle}>LEXIMPACT</span>
                 </span>
               )}
-              {isUserConnected && (
+              {isUserLogged && (
                 <span>
                   <span className={classes.lighterMobileTitle}>
                     LEXIMPACT&nbsp;
@@ -78,8 +83,18 @@ class AppHeaderComponent extends PureComponent {
               )}
             </Typography>
           )}
-          {!useMobileView && <LoginButton />}
-          {useMobileView && <LoginButtonMobile />}
+          {/* bouton connection mode desktop */}
+          {!isUserLogged && !useMobileView && <LoginButton />}
+          {/* no bouton mode desktop */}
+          {isUserLogged && !useMobileView && (
+            <div className={classes.loginButtonPlaceholder} />
+          )}
+          {/* bouton connection mode mobile */}
+          {!isUserLogged && useMobileView && <LoginButtonMobile />}
+          {/* no bouton mode mobile */}
+          {isUserLogged && useMobileView && (
+            <div className={classes.loginButtonMobilePlaceholder} />
+          )}
         </Toolbar>
       </AppBar>
     );
@@ -88,7 +103,7 @@ class AppHeaderComponent extends PureComponent {
 
 AppHeaderComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
-  isUserConnected: PropTypes.bool.isRequired,
+  isUserLogged: PropTypes.bool.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 

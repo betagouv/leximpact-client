@@ -6,8 +6,8 @@ import AppHeaderComponent from "./app-header-component";
 
 const mapStateToProps = (state, { width }) => {
   const useMobileView = width === "xs";
-  const isUserConnected = Boolean(state.token || null);
-  return { isUserConnected, useMobileView };
+  const isUserLogged = Boolean(state.token || null);
+  return { isUserLogged, useMobileView };
 };
 
 const mapDispatchToProps = null;
