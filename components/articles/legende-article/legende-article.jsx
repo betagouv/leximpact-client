@@ -54,7 +54,7 @@ const stylesTheme = theme => ({
     padding: "3px",
   },
   styleLegende: {
-    color: "#B1B1B1",
+    color: "#565656",
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
@@ -87,12 +87,12 @@ function LegendeArticle({ classes }) {
           className={classes.alink}
           href="https://www.impots.gouv.fr/portail/simulateur-de-la-baisse-dimpot-sur-le-revenu-annoncee-pour-2020"
           target="blank">
-          Baisse d&apos;impôt prévue en 2020
+          Modifications d&apos;impôt prévues en 2020
           <OpenInNewIcon className={classes.styleOpenInNewIcon} />
         </a>
       </Typography>
       <Typography inline className={classes.styleAmendement}>
-        Votre amendement de l’avant-PLF
+        Mon amendement
       </Typography>
     </div>
   );
