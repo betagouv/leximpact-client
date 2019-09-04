@@ -28,7 +28,8 @@
 .legendeEtat {
   font-family: "Lato";
   color: #565656;
-  font-size: 1.875em;
+  font-size: 2em;
+  font-weight: bold ;
   &.avant {
     &.chiffre {
       background-color:#DED500;
@@ -40,12 +41,12 @@
   }
 
   &.plf {
-    filter: blur(1.25px);
+    /*filter: blur(1.25px);*/
     color: #ff6b6b;
   }
 
   &.apres {
-    filter: blur(1.25px);
+  /*  filter: blur(1.25px);*/
     color: #00a3ff;
   }
 }

@@ -112,7 +112,8 @@ class CarteEtat extends PureComponent {
               </tr>
               <tr>
                 <td height="10%">
-                  <span className="sourceInsee">*Source : INSEE</span>
+                  <span className="sourceInsee">*Réalisation à partir des données de l’Enquête Revenus fiscaux et sociaux
+de l’INSEE »</span>
                 </td>
               </tr>
             </tbody>
