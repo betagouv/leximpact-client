@@ -1,6 +1,12 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
-import { Button, Card, CardContent, Grid, Paper } from "@material-ui/core";
+import {
+  Button,
+  Card,
+  CardContent,
+  CircularProgress,
+}
+  from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
@@ -32,6 +38,11 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
+  sourceInsee: {
+    fontFamily: "Lato",
+    fontSize: "1.125em",
+    fontWeight: "bold",
+  },
   subtitleCarteEtat: {
     fontFamily: "Lato",
   },
@@ -40,11 +51,6 @@ const styles = () => ({
     fontSize: "1.125em",
     fontWeight: "bold",
   },
-  sourceInsee: {
-    fontFamily: "Lato",
-    fontSize: "1.125em",
-    fontWeight: "bold",
-  }
 });
 
 function getRoundedTotal(value) {
@@ -55,7 +61,7 @@ function getRoundedTotal(value) {
 class CarteEtat extends PureComponent {
   render() {
     const {
-      classes, deciles, onClickSimPop, total,
+      classes, deciles, isLoadingEtat, onClickSimPop, total,
     } = this.props;
     const { apres, avant, plf } = total;
     const totalAvant = getRoundedTotal(avant);
@@ -81,42 +87,47 @@ class CarteEtat extends PureComponent {
               </tr>
             </tbody>
           </table>
-          <table id="table-bar-chart">
-            <tbody>
-              <tr>
-                <td rowSpan="6" width="150%">
-                  <BarChart deciles={deciles} />
-                </td>
-              </tr>
-              <tr>
-                <td height="30%">
-                  <span className="legendeEtat avant chiffre">
-                    {totalAvant}
-                  </span>
-                  <span className="legendeEtat avant">Md€*</span>
-                </td>
-              </tr>
-              <tr>
-                <td height="30%">
-                  <span className="legendeEtat plf chiffre">{totalPLF}</span>
-                  <span className="legendeEtat plf">Md€*</span>
-                </td>
-              </tr>
-              <tr>
-                <td height="30%">
-                  <span className="legendeEtat apres chiffre">
-                    {totalApres}
-                  </span>
-                  <span className="legendeEtat apres">Md€*</span>
-                </td>
-              </tr>
-              <tr>
-                <td height="10%">
-                  <span className="sourceInsee">*Source : INSEE</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+          {isLoadingEtat ? (
+            <CircularProgress color="secondary" />
+          ) : (
+            <table id="table-bar-chart">
+              <tbody>
+                <tr>
+                  <td rowSpan="6" width="150%">
+                    <BarChart deciles={deciles} />
+                  </td>
+                </tr>
+                <tr>
+                  <td height="30%">
+                    <span className="legendeEtat avant chiffre">
+                      {totalAvant}
+                    </span>
+                    <span className="legendeEtat avant">Md€*</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="30%">
+                    <span className="legendeEtat plf chiffre">{totalPLF}</span>
+                    <span className="legendeEtat plf">Md€*</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="30%">
+                    <span className="legendeEtat apres chiffre">
+                      {totalApres}
+                    </span>
+                    <span className="legendeEtat apres">Md€*</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10%">
+                    <span className="sourceInsee">*Source : INSEE</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          )}
           <div>
             <center>
               <Button
@@ -147,6 +158,7 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,

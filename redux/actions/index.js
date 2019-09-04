@@ -1,4 +1,5 @@
 export * from "./loading";
+export * from "./loading-etat";
 export { default as closeCurrentPopin } from "./popin-close-current";
 export { default as showEnSavoirPlusPopin } from "./popin-show-en-savoir-plus";
 export { default as showConnexionPopin } from "./popin-show-connexion";
