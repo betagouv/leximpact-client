@@ -40,9 +40,12 @@ const styles = () => ({
     color: "#00FF00",
   },
   sourceInsee: {
+    color: "#B1B1B1",
     fontFamily: "Lato",
-    fontSize: "1.125em",
-    fontWeight: "bold",
+    fontSize: "11px",
+    fontWeight: "regular",
+    marginLeft: "14px",
+    marginBottom: "30px",
   },
   subtitleCarteEtat: {
     color: "#565656",
@@ -65,6 +68,7 @@ const styles = () => ({
     paddingLeft: "3px",
     width: "50px",
     flex: "1",
+    marginTop: "10px",
   },
   mainChart: {
     flex: "1",
@@ -88,17 +92,18 @@ class CarteEtat extends PureComponent {
     return (
       <Card className={classes.card}>
         <CardContent>
-
-          <div className="divTitre">
-            <Icon height="40" icon={classicalBuilding} width="40" />
-          </div>
-          <div className="divTitre">
-            <Typography className={classes.titleCarteEtat}>
-              Recettes de l&apos;État sur l&apos;impôt sur le revenu
-            </Typography>
-            <Typography className={classes.subtitleCarteEtat}>
-              par décile de population et par an
-            </Typography>
+          <div className="title-wrapper">
+            <div className="divTitre">
+              <Icon height="40" icon={classicalBuilding} width="40" />
+            </div>
+            <div className="divTitre">
+              <Typography className={classes.titleCarteEtat}>
+                Recettes de l&apos;État sur l&apos;impôt sur le revenu
+              </Typography>
+              <Typography className={classes.subtitleCarteEtat}>
+                par décile de population et par an
+              </Typography>
+            </div>
           </div>
 
           {isLoadingEtat ? (
@@ -109,27 +114,28 @@ class CarteEtat extends PureComponent {
                 <BarChart deciles={deciles} />
               </div>
               <div className={classes.simpop}>
-                <div>
-                  <Typography inline className="legendeEtat avant chiffre">
+                <div className="montant-impots">
+                  <Typography inline className="impotEtat avant">
                     {totalAvant}
                   </Typography>
-                  <Typography inline className="legendeEtat avant">Md€*</Typography>
+                  <Typography inline className="uniteImpotEtat avant">Md€*</Typography>
                 </div>
-                <div>
-                  <Typography inline className="legendeEtat plf chiffre">{totalPLF}</Typography>
-                  <Typography inline className="legendeEtat plf">Md€*</Typography>
+                <div className="montant-impots">
+                  <Typography inline className="impotEtat plf">{totalPLF}</Typography>
+                  <Typography inline className="uniteImpotEtat plf">Md€*</Typography>
                 </div>
-                <div>
-                  <Typography inline className="legendeEtat apres chiffre">
+                <div className="montant-impots">
+                  <Typography inline className="impotEtat apres">
                     {totalApres}
                   </Typography>
-                  <Typography inline className="legendeEtat apres">Md€*</Typography>
+                  <Typography inline className="uniteImpotEtat apres">Md€*</Typography>
                 </div>
               </div>
             </div>
           )}
           <div>
-            <Typography className="sourceInsee">*Source : INSEE</Typography>
+            <Typography className={classes.sourceInsee}>*Réalisation à partir des données de l’Enquête Revenus Fiscaux et Sociaux, de l'INSEE.
+            </Typography>
           </div>
           <div>
             <center>

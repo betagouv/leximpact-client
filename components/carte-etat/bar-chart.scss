@@ -4,61 +4,77 @@
   padding-left: 3px
 }
 .chart-wrapper {
-  height: 25vh;
+  height: 210px;
   display: flex;
   width: 100%;
 }
 .chart {
-  height: 25vh;
-  width: 50%;
+  height: 210px;
+  width: 100%;
 }
 .main-chart{
-  flex: 1,
+  flex: 3,
 }
-.subtitle-carte-etat {
-  color: #565656;
-  font-family: "Lato";
-  font-size: 0.875em;
-  padding: 0 0 10px 10px;
+.title-wrapper{
+  display: flex;
 }
-.title-carte-etat {
-  color: #565656;
-  font-family: "Lato";
-  font-size: 1.125em;
-  font-weight: bold;
-  padding: 0 0 0 10px,
-}
-.sourceInsee {
-  font-family: "Lato";
-  color: #565656;
-  font-size: 0.65em;
-  padding: 0 0 10px 10px;
+.montant-impots{
+  padding: 0px;
 }
 
-.legendeEtat {
-  font-family: "Lato";
-  color: #565656;
-  font-size: 1.875em;
+.uniteImpotEtat {
   &.avant {
-    &.chiffre {
+    font-family: "Lato";
+    font-weight: regular;
+    font-size: 30px;
+    color: #565656;
+    }
+    &.plf {
+      /*filter: blur(1.25px);*/
+    font-family: "Lato";
+    font-weight: regular;
+    font-size: 30px;
+    color: #ff6b6b;
+    }
+
+    &.apres {
+      /*  filter: blur(1.25px);*/
+    font-family: "Lato";
+    font-weight: regular;
+    font-size: 30px;
+    color: #00a3ff;
+    }
+  }
+
+
+.impotEtat {
+
+  &.avant {
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 40px;
       background-color:#DED500;
       background-blend-mode: darken;
       /* ligne à ajouter quand PLF*/
       text-decoration-color: #FF6B6B;
       text-decoration-line: line-through;
     }
-  }
+    &.plf {
+      font-family: "Lato";
+      font-weight: bold;
+      font-size: 40px;
+      /*filter: blur(1.25px);*/
+      color: #ff6b6b;
+    }
 
-  &.plf {
-    filter: blur(1.25px);
-    color: #ff6b6b;
+    &.apres {
+      font-family: "Lato";
+      font-weight: bold;
+      font-size: 40px;
+      /*  filter: blur(1.25px);*/
+        color: #00a3ff;
+      }
   }
-
-  &.apres {
-    filter: blur(1.25px);
-    color: #00a3ff;
-  }
-}
 
 .nobreak {
   overflow: hidden;
