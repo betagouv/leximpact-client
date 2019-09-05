@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CircularProgress,
+  Typography,
 }
   from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
@@ -44,12 +45,29 @@ const styles = () => ({
     fontWeight: "bold",
   },
   subtitleCarteEtat: {
+    color: "#565656",
     fontFamily: "Lato",
+    fontSize: "0.875em",
+    padding: "0 0 10px 10px",
   },
-  titledadCarteEtat: {
+  titleCarteEtat: {
+    color: "#565656",
     fontFamily: "Lato",
     fontSize: "1.125em",
     fontWeight: "bold",
+    padding: "0 0 0 10px",
+  },
+  simpop: {
+    height: "25vh",
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    paddingLeft: "3px",
+    width: "50px",
+    flex: "1",
+  },
+  mainChart: {
+    flex: "1",
   },
 });
 
@@ -70,64 +88,49 @@ class CarteEtat extends PureComponent {
     return (
       <Card className={classes.card}>
         <CardContent>
-          <table>
-            <tbody>
-              <tr>
-                <td rowSpan="2">
-                  <Icon height="40" icon={classicalBuilding} width="40" />
-                </td>
-                <td className="titleCarteEtat">
-                  Recettes de l&apos;État sur l&apos;impôt sur le revenu
-                </td>
-              </tr>
-              <tr>
-                <td className="subtitleCarteEtat">
-                  par décile de population et par an
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+          <div className="divTitre">
+            <Icon height="40" icon={classicalBuilding} width="40" />
+          </div>
+          <div className="divTitre">
+            <Typography className={classes.titleCarteEtat}>
+              Recettes de l&apos;État sur l&apos;impôt sur le revenu
+            </Typography>
+            <Typography className={classes.subtitleCarteEtat}>
+              par décile de population et par an
+            </Typography>
+          </div>
 
           {isLoadingEtat ? (
             <CircularProgress color="secondary" />
           ) : (
-            <table id="table-bar-chart">
-              <tbody>
-                <tr>
-                  <td rowSpan="6" width="150%">
-                    <BarChart deciles={deciles} />
-                  </td>
-                </tr>
-                <tr>
-                  <td height="30%">
-                    <span className="legendeEtat avant chiffre">
-                      {totalAvant}
-                    </span>
-                    <span className="legendeEtat avant">Md€*</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td height="30%">
-                    <span className="legendeEtat plf chiffre">{totalPLF}</span>
-                    <span className="legendeEtat plf">Md€*</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td height="30%">
-                    <span className="legendeEtat apres chiffre">
-                      {totalApres}
-                    </span>
-                    <span className="legendeEtat apres">Md€*</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td height="10%">
-                    <span className="sourceInsee">*Source : INSEE</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="chart-wrapper">
+              <div className="main-chart">
+                <BarChart deciles={deciles} />
+              </div>
+              <div className={classes.simpop}>
+                <div>
+                  <Typography inline className="legendeEtat avant chiffre">
+                    {totalAvant}
+                  </Typography>
+                  <Typography inline className="legendeEtat avant">Md€*</Typography>
+                </div>
+                <div>
+                  <Typography inline className="legendeEtat plf chiffre">{totalPLF}</Typography>
+                  <Typography inline className="legendeEtat plf">Md€*</Typography>
+                </div>
+                <div>
+                  <Typography inline className="legendeEtat apres chiffre">
+                    {totalApres}
+                  </Typography>
+                  <Typography inline className="legendeEtat apres">Md€*</Typography>
+                </div>
+              </div>
+            </div>
           )}
+          <div>
+            <Typography className="sourceInsee">*Source : INSEE</Typography>
+          </div>
           <div>
             <center>
               <Button
