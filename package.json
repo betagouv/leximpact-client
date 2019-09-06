@@ -31,6 +31,7 @@
     "@material-ui/styles": "4.0.0-rc.0",
     "@nivo/bar": "0.59.0",
     "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "^9.6.0",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-wrap-in-js": "^1.1.1",
@@ -71,7 +72,6 @@
   },
   "devDependencies": {
     "@babel/node": "^7.4.5",
-    "autoprefixer": "^9.6.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "24.8.0",
     "enzyme": "3.10.0",
