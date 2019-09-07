@@ -106,7 +106,7 @@ class BarChart extends PureComponent {
           legends={[]}
           margin={{
             bottom: 30,
-            left: 20,
+            left: 6,
             right: 10,
             top: 20,
           }}
