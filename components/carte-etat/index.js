@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import { fetchSimPop } from "../../redux/actions";
+import { fetchCalculateCompare } from "../../redux/actions";
 import CarteEtatComponent from "./carte-etat-component";
 
 const mapStateToProps = ({ loadingEtat, totalPop }) => {
@@ -16,6 +17,7 @@ const mapStateToProps = ({ loadingEtat, totalPop }) => {
 const mapDispatchToProps = dispatch => ({
   onClickSimPop: () => {
     dispatch(fetchSimPop());
+    dispatch(fetchCalculateCompare());
   },
 });
 
