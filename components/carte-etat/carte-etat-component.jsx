@@ -1,4 +1,5 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Icon } from "@iconify/react";
 import {
   Button,
@@ -7,6 +8,10 @@ import {
   CircularProgress,
   Typography,
 } from "@material-ui/core";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
@@ -34,6 +39,9 @@ const styles = () => ({
   iconEtat: {
     fontSize: "50px",
   },
+  mainChart: {
+    flex: "1",
+  },
   marginIcon: {
     marginRight: "20px",
   },
@@ -46,14 +54,25 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
+  simpop: {
+    display: "flex",
+    flex: "1",
+    flexDirection: "column",
+    height: "25vh",
+    marginTop: "10px",
+    paddingLeft: "3px",
+    width: "50%",
+  },
   sourceInsee: {
     color: "#B1B1B1",
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
     marginLeft: "14px",
+    marginBottom: "30px", //
     textAlign: "right",
   },
+
   subtitleCarteEtat: {
     color: "#565656",
     fontFamily: "Lato",
@@ -67,19 +86,7 @@ const styles = () => ({
     fontWeight: "bold",
     padding: "0 0 0 10px",
   },
-  simpop: {
-    height: "25vh",
-    width: "50%",
-    display: "flex",
-    flexDirection: "column",
-    paddingLeft: "3px",
-    width: "50px",
-    flex: "1",
-    marginTop: "10px",
-  },
-  mainChart: {
-    flex: "1",
-  },
+
 });
 
 function getRoundedTotal(value) {
@@ -87,13 +94,16 @@ function getRoundedTotal(value) {
   return rounded;
 }
 
+
 class CarteEtat extends PureComponent {
   render() {
     const {
       classes,
       deciles,
+      expandArticlePanelHandler,
       isDisabledEtat,
       isLoadingEtat,
+      isPanelExpanded,
       onClickSimPop,
       total,
     } = this.props;
@@ -128,7 +138,7 @@ class CarteEtat extends PureComponent {
                   onClick={onClickSimPop}>
                   <AccountBalanceIcon />
                   <FaceIcon className={classes.marginIcon} />
-                  &nbsp;Estimer ~60"
+                  &nbsp;Estimer ~60&quot;
                   <CachedIcon className={classes.miniIcon} />
                 </Button>
               </center>
@@ -176,14 +186,44 @@ class CarteEtat extends PureComponent {
                     * Chiffrages indicatifs.
                     <br />
                     {" "}
-Estimation à partir des données de l&apos;Enquête
+                    Estimation à partir des données de l&apos;Enquête
                     Revenus Fiscaux et Sociaux de l&apos;INSEE.
                   </Typography>
                 </div>
               ),
             ]
           )}
+          <div>
+            <Typography className={classes.sourceInsee}>
+            *Réalisation à partir des données de l&apos;Enquête
+            Revenus Fiscaux et Sociaux, de l&apos;INSEE.
+            </Typography>
+          </div>
+          <div>
+            <center>
+              <Button
+                color="secondary"
+                size="medium"
+                variant="outlined"
+                onClick={onClickSimPop}>
+                <AccountBalanceIcon />
+                <FaceIcon className={classes.marginIcon} />
+                &nbsp;Estimer ~60''
+                <CachedIcon className={classes.miniIcon} />
+              </Button>
+            </center>
+          </div>
         </CardContent>
+        <ExpansionPanel expanded={isPanelExpanded} onChange={expandArticlePanelHandler}>
+          <ExpansionPanelSummary className="styleExpansionPanel" expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.subtitleCarteEtat}>
+            En savoir plus sur les déciles de population
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <SimpopTableurInfosDeciles />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
       </Card>
     );
   }
@@ -202,6 +242,8 @@ CarteEtat.propTypes = {
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
+  isPanelExpanded: PropTypes.shape().isRequired,
+  expandArticlePanelHandler: PropTypes.shape().isRequired,
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,
