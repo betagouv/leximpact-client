@@ -92,11 +92,7 @@ function TextePresentationLeximpactPop({ classes }) {
       <div className={classes.espaceVide} />
 
       <Link href="/conditions-d-utilisation-leximpactpop">
-        <Button
-          color="secondary"
-          fullWidth="true"
-          size="large"
-          variant="contained">
+        <Button fullWidth color="secondary" size="large" variant="contained">
           {" "}
           CGU LexImpact POP
         </Button>
