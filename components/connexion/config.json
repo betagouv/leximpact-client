@@ -14,7 +14,7 @@
       "default": false,
       "disabled": false,
       "label": "Collaborat·eur·rice Assemblée nationale",
-      "domains": ["@clb-an.fr", "@clb-dep.fr"]
+      "domains": ["@clb-an.fr", "@clb-dep.fr", ""]
     },
     "admin": {
       "default": false,

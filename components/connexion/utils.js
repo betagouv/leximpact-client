@@ -14,7 +14,7 @@ export function parseFormValuesUserEmail(formValues) {
   // NOTE remplacer le domaine dans le champs email
   // si le champs email contient le domaine afficher une erreur
   const { domain, username } = formValues;
-  const email = `${username}${domain}`;
+  const email = typeof domain === undefined ? username : `${username}${domain}`;
   return email;
 }
 
@@ -37,7 +37,7 @@ export function updateDomainsWhenRoleChange(role) {
 export function validateEmailInputField(value) {
   let formErrorType = null;
   if (!value) formErrorType = "emptyEmailUsername";
-  if (!formErrorType && isemail.validate(value)) formErrorType = "invalidEmail";
+  //if (!formErrorType && isemail.validate(value)) formErrorType = "invalidEmail";
   if (!formErrorType) {
     // NOTE si aucune error
     // on doit retourner "undefined" pour react-final-form
