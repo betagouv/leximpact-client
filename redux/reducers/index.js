@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import casTypes from "./cas-types";
 import currentExpandedArticlePanel from "./current-expanded-article-panel";
 import loading from "./loading";
+import loadingEtat from "./loading-etat";
 import reforme from "./reforme";
 import reformeBase from "./reforme-base";
 import reformePLF from "./reforme-plf";
@@ -14,6 +15,7 @@ export default combineReducers({
   casTypes,
   currentExpandedArticlePanel,
   loading,
+  loadingEtat,
   reforme,
   reformeBase,
   reformePLF,

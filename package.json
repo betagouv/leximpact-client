@@ -31,6 +31,10 @@
     "@material-ui/styles": "4.0.0-rc.0",
     "@nivo/bar": "0.59.0",
     "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "^9.6.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-wrap-in-js": "^1.1.1",
     "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
     "cookie-parser": "^1.4.4",
@@ -63,17 +67,14 @@
     "react-swipeable-views": "^0.13.3",
     "redux": "^4.0.1",
     "redux-cookies-middleware": "0.2.0",
+    "redux-devtools-extension": "2.13.8",
     "redux-thunk": "^2.3.0",
     "uuid": "3.3.3"
   },
   "devDependencies": {
     "@babel/node": "^7.4.5",
-    "autoprefixer": "^9.6.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "24.8.0",
-    "babel-plugin-lodash": "^3.3.4",
-    "babel-plugin-module-resolver": "^3.2.0",
-    "babel-plugin-wrap-in-js": "^1.1.1",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.14.0",
     "enzyme-to-json": "3.3.5",
@@ -89,8 +90,7 @@
     "nodemon": "^1.19.1",
     "postcss": "^7.0.17",
     "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0",
-    "redux-devtools-extension": "2.13.8"
+    "prettier-eslint-cli": "^5.0.0"
   },
   "engines": {
     "node": "11.10.0",
