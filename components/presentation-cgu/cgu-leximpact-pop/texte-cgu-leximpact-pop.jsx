@@ -242,12 +242,21 @@ function TexteCguLeximpactPop({ classes }) {
 
       <div className={classes.espaceVide} />
 
+      <h2>Cookies</h2>
+      <hr />
+
+      <p>
+        Nous utilisons des cookies persistants afin d&apos;améliorer l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de vos cas types. Ces cookies sont conservés sur votre ordinateur même après fermeture de votre navigateur et réutilisé lors des prochaines visites sur nos sites.
+      </p>
+      <div className={classes.espaceVide} />
+
       <h2>Absence de garantie de service</h2>
       <hr />
 
       <p>
         Nous mettons LexImpact POP à disposition sans garantie sur sa
-        disponibilité, en « best effort ». Cela signifie que d&apos;éventuelles
+        disponibilité, avec obligation de moyens et non de résultats.
+        Cela signifie que d&apos;éventuelles
         indisponibilités n&apos;ouvriront pas droit à compensation financière.
       </p>
 
