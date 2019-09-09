@@ -98,7 +98,7 @@ describe("components | connexion | utils", () => {
     it("retourne les noms de domaine pour un collaborateur", () => {
       const given = "collab";
       const result = updateDomainsWhenRoleChange(given);
-      const expected = ["@clb-an.fr", "@clb-dep.fr"];
+      const expected = ["@clb-an.fr", "@clb-dep.fr", ""];
       expect(result).toStrictEqual(expected);
     });
 
@@ -118,13 +118,6 @@ describe("components | connexion | utils", () => {
         expect(result).toEqual("Ce champs est requis");
       });
 
-      it("si le champ contient est une adresse email", () => {
-        const given = "username@email.com";
-        const result = validateEmailInputField(given);
-        expect(result).toEqual(
-          "Le @ et le nom de domaine de votre adresse est déjà inscrit par défaut, merci de ne pas l'écrire dans le champ",
-        );
-      });
     });
 
     describe("ne retourne pas de message d'erreur", () => {
