@@ -27,11 +27,15 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
         <span
           className="EnSavoiPlusComponent-spanTitreIntro-8"
         >
-          OPEN LexImpact, c'est quoi ?
+          LexImpact, c'est quoi ?
         </span>
       </WithStyles(Typography)>
       <WithStyles(Typography)>
-        OPEN LexImpact est une interface qui permet de simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu sur des foyers fiscaux types.
+        LexImpact est une interface qui permet de
+        <b>
+           simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu.
+        </b>
+          L'estimation des impacts sur des foyers fiscaux types est accessible à tous avec Open LexImpact ; les mesures d'impacts sur la population française et les recettes de l'État sont disponibles en accès restreint sur LexImpact POP.
       </WithStyles(Typography)>
       <a
         className="EnSavoiPlusComponent-alink-1"
