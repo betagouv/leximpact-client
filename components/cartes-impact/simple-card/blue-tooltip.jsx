@@ -5,8 +5,8 @@ const BlueTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: "#00a3ff",
     color: "#ffffff",
-    fontSize: theme.typography.pxToRem(12),
-    maxWidth: 220,
+    fontSize: "16px",
+    maxWidth: 240,
   },
   tooltipPlacementBottom: {
     margin: "0px 0",
