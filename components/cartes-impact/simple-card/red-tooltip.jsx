@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 const BlueTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: "#00a3ff",
+    backgroundColor: "#FF6B6B",
     color: "#ffffff",
     fontSize: "16px",
     maxWidth: 240,

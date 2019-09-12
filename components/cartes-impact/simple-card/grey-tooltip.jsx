@@ -1,16 +1,16 @@
 import { Tooltip } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
-const BlueTooltip = withStyles(theme => ({
+const GreyTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: "#00a3ff",
+    backgroundColor: "#565656",
     color: "#ffffff",
     fontSize: "16px",
-    maxWidth: 240,
+    maxWidth: 220,
   },
   tooltipPlacementBottom: {
     margin: "0px 0",
   },
 }))(Tooltip);
 
-export default BlueTooltip;
+export default GreyTooltip;
