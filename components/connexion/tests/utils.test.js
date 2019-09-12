@@ -98,7 +98,7 @@ describe("components | connexion | utils", () => {
     it("retourne les noms de domaine pour un collaborateur", () => {
       const given = "collab";
       const result = updateDomainsWhenRoleChange(given);
-      const expected = ["@clb-an.fr", "@clb-dep.fr"];
+      const expected = ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"];
       expect(result).toStrictEqual(expected);
     });
 
