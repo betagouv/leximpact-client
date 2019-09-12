@@ -1,6 +1,6 @@
 import request from "../../components/utils/request";
 import connexionTokenLogout from "./connexion-token-logout";
-import { loadingComplete, loadingError, loadingStart } from "./loading";
+import { loadingEtatComplete, loadingEtatError, loadingEtatStart } from "./loading-etat";
 import showLogoutPopin from "./popin-logout";
 
 let currentTimestamp = null;
@@ -11,7 +11,7 @@ const TOKEN_ERROR_POSSIBLE_MESSAGES = [
 ];
 
 const fetchSimPop = () => (dispatch, getState) => {
-  dispatch(loadingStart());
+  dispatch(loadingEtatStart());
   currentTimestamp = Date.now().toString();
   const { reforme, token } = getState();
   const body = { reforme, timestamp: currentTimestamp, token };
@@ -20,11 +20,11 @@ const fetchSimPop = () => (dispatch, getState) => {
     .then(({ timestamp: tmstamp, ...rest }) => {
       if (tmstamp < currentTimestamp) return;
       currentTimestamp = null;
-      dispatch(loadingComplete());
+      dispatch(loadingEtatComplete());
       dispatch({ data: { ...rest }, type: "onSimPopFetchResult" });
     })
     .catch((err) => {
-      dispatch(loadingError(err));
+      dispatch(loadingEtatError(err));
       const isTokenError = TOKEN_ERROR_POSSIBLE_MESSAGES.indexOf(err) !== -1;
       if (isTokenError) {
         dispatch(connexionTokenLogout());

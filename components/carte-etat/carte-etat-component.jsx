@@ -1,6 +1,13 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
-import { Button, Card, CardContent, Grid, Paper } from "@material-ui/core";
+import {
+  Button,
+  Card,
+  CardContent,
+  CircularProgress,
+  Typography,
+}
+  from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
@@ -32,19 +39,40 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
-  subtitleCarteEtat: {
-    fontFamily: "Lato",
-  },
-  titledadCarteEtat: {
-    fontFamily: "Lato",
-    fontSize: "1.125em",
-    fontWeight: "bold",
-  },
   sourceInsee: {
+    color: "#B1B1B1",
+    fontFamily: "Lato",
+    fontSize: "11px",
+    fontWeight: "regular",
+    marginLeft: "14px",
+    marginBottom: "30px",
+  },
+  subtitleCarteEtat: {
+    color: "#565656",
+    fontFamily: "Lato",
+    fontSize: "0.875em",
+    padding: "0 0 10px 10px",
+  },
+  titleCarteEtat: {
+    color: "#565656",
     fontFamily: "Lato",
     fontSize: "1.125em",
     fontWeight: "bold",
-  }
+    padding: "0 0 0 10px",
+  },
+  simpop: {
+    height: "25vh",
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    paddingLeft: "3px",
+    width: "50px",
+    flex: "1",
+    marginTop: "10px",
+  },
+  mainChart: {
+    flex: "1",
+  },
 });
 
 function getRoundedTotal(value) {
@@ -55,7 +83,7 @@ function getRoundedTotal(value) {
 class CarteEtat extends PureComponent {
   render() {
     const {
-      classes, deciles, onClickSimPop, total,
+      classes, deciles, isLoadingEtat, onClickSimPop, total,
     } = this.props;
     const { apres, avant, plf } = total;
     const totalAvant = getRoundedTotal(avant);
@@ -64,59 +92,51 @@ class CarteEtat extends PureComponent {
     return (
       <Card className={classes.card}>
         <CardContent>
-          <table>
-            <tbody>
-              <tr>
-                <td rowSpan="2">
-                  <Icon height="40" icon={classicalBuilding} width="40" />
-                </td>
-                <td className="titleCarteEtat">
-                  Recettes de l&apos;État sur l&apos;impôt sur le revenu
-                </td>
-              </tr>
-              <tr>
-                <td className="subtitleCarteEtat">
-                  par décile de population et par an
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table id="table-bar-chart">
-            <tbody>
-              <tr>
-                <td rowSpan="6" width="150%">
-                  <BarChart deciles={deciles} />
-                </td>
-              </tr>
-              <tr>
-                <td height="30%">
-                  <span className="legendeEtat avant chiffre">
+          <div className="title-wrapper">
+            <div className="divTitre">
+              <Icon height="40" icon={classicalBuilding} width="40" />
+            </div>
+            <div className="divTitre">
+              <Typography className={classes.titleCarteEtat}>
+                Recettes de l&apos;État sur l&apos;impôt sur le revenu
+              </Typography>
+              <Typography className={classes.subtitleCarteEtat}>
+                par décile de population et par an
+              </Typography>
+            </div>
+          </div>
+
+          {isLoadingEtat ? (
+            <CircularProgress color="secondary" />
+          ) : (
+            <div className="chart-wrapper">
+              <div className="main-chart">
+                <BarChart deciles={deciles} />
+              </div>
+              <div className={classes.simpop}>
+                <div className="montant-impots">
+                  <Typography inline className="impotEtat avant">
                     {totalAvant}
-                  </span>
-                  <span className="legendeEtat avant">Md€*</span>
-                </td>
-              </tr>
-              <tr>
-                <td height="30%">
-                  <span className="legendeEtat plf chiffre">{totalPLF}</span>
-                  <span className="legendeEtat plf">Md€*</span>
-                </td>
-              </tr>
-              <tr>
-                <td height="30%">
-                  <span className="legendeEtat apres chiffre">
+                  </Typography>
+                  <Typography inline className="uniteImpotEtat avant">Md€*</Typography>
+                </div>
+                <div className="montant-impots">
+                  <Typography inline className="impotEtat plf">{totalPLF}</Typography>
+                  <Typography inline className="uniteImpotEtat plf">Md€*</Typography>
+                </div>
+                <div className="montant-impots">
+                  <Typography inline className="impotEtat apres">
                     {totalApres}
-                  </span>
-                  <span className="legendeEtat apres">Md€*</span>
-                </td>
-              </tr>
-              <tr>
-                <td height="10%">
-                  <span className="sourceInsee">*Source : INSEE</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </Typography>
+                  <Typography inline className="uniteImpotEtat apres">Md€*</Typography>
+                </div>
+              </div>
+            </div>
+          )}
+          <div>
+            <Typography className={classes.sourceInsee}>*Réalisation à partir des données de l’Enquête Revenus Fiscaux et Sociaux, de l'INSEE.
+            </Typography>
+          </div>
           <div>
             <center>
               <Button
@@ -147,6 +167,7 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,

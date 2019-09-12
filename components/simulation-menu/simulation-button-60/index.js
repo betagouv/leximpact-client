@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 
 import { fetchSimPop } from "../../../redux/actions";
+import { fetchCalculateCompare } from "../../../redux/actions";
 import SimulationButton60Component from "./simulation-button-60-component";
 
 function useSimulatioButtonAsMobile(width) {
@@ -17,6 +18,7 @@ const mapStateToProps = (state, { width }) => {
 const mapDispatchToProps = dispatch => ({
   handleSimulationClick: () => {
     dispatch(fetchSimPop());
+    dispatch(fetchCalculateCompare());
   },
 });
 
