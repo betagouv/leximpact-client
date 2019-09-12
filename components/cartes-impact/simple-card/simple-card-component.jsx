@@ -25,6 +25,7 @@ import React from "react";
 
 import DoublePalmTreeIcon from "../../icons/double-palm-tree";
 import SimpleCardImpactImpots from "./impact-impots";
+import GreyTooltip from "./grey-tooltip";
 
 const RESIDENCE_ITEMS = [
   // Doit correspondre a ceux definis
@@ -32,17 +33,17 @@ const RESIDENCE_ITEMS = [
   {
     icon: DeciduousTreeIcon,
     key: "metropole",
-    label: "Metropole",
+    label: "Métropole",
   },
   {
     icon: PalmTreeIcon,
     key: "guadeloupe_martinique_reunion",
-    label: "Guadeloupe, Martinique, La Réunion",
+    label: "Guadeloupe, Martinique ou La Réunion",
   },
   {
     icon: DoublePalmTreeIcon,
     key: "mayotte_guyane",
-    label: "Mayotte, Guyane",
+    label: "Mayotte ou Guyane",
   },
   {
     icon: CactusIcon,
@@ -139,13 +140,13 @@ class SimpleCard extends React.Component {
     const { lieuResidence: index } = descCasType;
     const { icon, label } = RESIDENCE_ITEMS[index];
     return (
-      <Tooltip enterDelay={300} leaveDelay={200} placement="top" title={label}>
+      <GreyTooltip enterDelay={300} leaveDelay={200} placement="top" title={label}>
         <span>
           <IconButton disabled classes={{ root: classes.residenceIcon }}>
             <Icon height="32" icon={icon} width="32" />
           </IconButton>
         </span>
-      </Tooltip>
+      </GreyTooltip>
     );
   };
 
@@ -191,11 +192,11 @@ class SimpleCard extends React.Component {
     const revenusMensuel = Math.round(revenusNetMensuel);
     return (
       <div className={classes.revenusMensuelContainer}>
-        <Tooltip
+        <GreyTooltip
           enterDelay={300}
           leaveDelay={200}
           placement="top"
-          title="Revenus nets à déclarer">
+          title="Revenus nets tels que délarés par le contribuable, divisés par 12">
           <span>
             <Typography classes={{ root: classes.revenusMensuelLegend }}>
               <span>Revenus nets à déclarer</span>
@@ -207,7 +208,7 @@ class SimpleCard extends React.Component {
               </span>
             </Button>
           </span>
-        </Tooltip>
+        </GreyTooltip>
       </div>
     );
   };
@@ -228,7 +229,7 @@ class SimpleCard extends React.Component {
           if (isRetraite && isMale) icon = ManWhiteHairedIcon;
           if (isRetraite && !isMale) icon = WomanWhiteHairedIcon;
           return (
-            <Tooltip
+            <GreyTooltip
               key={key}
               enterDelay={300}
               leaveDelay={200}
@@ -248,7 +249,7 @@ class SimpleCard extends React.Component {
                   </Badge>
                 )}
               </span>
-            </Tooltip>
+            </GreyTooltip>
           );
         })}
         {childs.map((obj, index) => {
