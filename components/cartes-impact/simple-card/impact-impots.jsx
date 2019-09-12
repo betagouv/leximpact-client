@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import BlueTooltip from "./blue-tooltip";
+import RedTooltip from "./red-tooltip"
 
 const styles = () => ({
   container: {
@@ -35,41 +36,67 @@ const styles = () => ({
     fontSize: 12,
     marginBottom: 10,
   },
+  stylePLF:{
+    display: "inline-flex",
+  },
 });
 
 class SimpleCardImpactImpots extends PureComponent {
   render() {
     const { classes, isLoading, resultats } = this.props;
 
-    const soitParAn = (-resultats.apres + resultats.avant > 0 ? "+" : "-")
+    const DiffAmendPLF = (-resultats.apres + resultats.avant > 0 ? "+" : "-")
       + Math.round(Math.abs(-resultats.apres + resultats.plf));
+    const DiffPlFCodeEx = (-resultats.plf + resultats.avant > 0 ? "+" : "-")
+      + Math.round(Math.abs(-resultats.plf + resultats.avant));
+
     return (
       <div className={classes.container}>
         <Typography className={classes.legende}>
           <span>Impôt sur le revenu par an</span>
         </Typography>
-        <Typography
-          gutterBottom
-          inline
-          className={classes.impotCodeExistant}
-          variant="h3">
-          {-resultats.avant}
-        </Typography>
-        <Typography
-          gutterBottom
-          inline
-          className={classes.impotPLF}
-          variant="h3">
-          {-resultats.plf}
-        </Typography>
-        <Typography
-          gutterBottom
-          inline
-          className={classes.euroPLF}
-          variant="h5">
-          €
-        </Typography>
-        <br />
+        <div>
+          <Typography
+            gutterBottom
+            inline
+            className={classes.impotCodeExistant}
+            variant="h3">
+            {-resultats.avant}
+          </Typography>
+
+          <RedTooltip
+            className={classes.stylePLF}
+            key="gain"
+            enterDelay={300}
+            leaveDelay={200}
+            placement="bottom-start"
+            title={(
+              <Fragment>
+                {"Avec le PLF, ce foyer doit "}
+                <b>{`${DiffPlFCodeEx}€`}</b>
+                {" d'impôts/an qu'avec le code existant"}
+              </Fragment>
+            )}>
+            <div>
+              <Typography
+                gutterBottom
+                inline
+                className={classes.impotPLF}
+                variant="h3">
+                {-resultats.plf}
+              </Typography>
+              <Typography
+                gutterBottom
+                inline
+                className={classes.euroPLF}
+                variant="h5">
+                €
+              </Typography>
+            </div>
+          </RedTooltip>
+        </div>
+
+
         <BlueTooltip
           key="gain"
           enterDelay={300}
@@ -77,9 +104,9 @@ class SimpleCardImpactImpots extends PureComponent {
           placement="bottom-start"
           title={(
             <Fragment>
-              {"Soit "}
-              <b>{`${soitParAn}€`}</b>
-              {"/an"}
+              {"Avec mon amendement, ce foyer doit "}
+              <b>{`${DiffAmendPLF}€`}</b>
+              {" d'impôts/an qu'avec le PLF 2020"}
             </Fragment>
           )}>
           <div>
