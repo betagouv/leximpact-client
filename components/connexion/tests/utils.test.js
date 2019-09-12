@@ -148,7 +148,7 @@ describe("components | connexion | utils", () => {
         collab: {
           default: false,
           disabled: false,
-          domains: ["@clb-an.fr", "@clb-dep.fr"],
+          domains: ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"],
           label: "Collaborat·eur·rice Assemblée nationale",
         },
         depute: {
