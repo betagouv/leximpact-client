@@ -57,6 +57,9 @@ const styles = theme => ({
       width: "120px",
     },
   },
+  menuPaper: {
+    backgroundColor: "rgba(255, 255, 255, 1) !important",
+  },
 });
 
 class EmailTextInput extends PureComponent {
@@ -74,7 +77,7 @@ class EmailTextInput extends PureComponent {
         value={value}
         onChange={onChange}>
         {domains.map(domainLabel => (
-          <MenuItem key={domainLabel} value={domainLabel}>
+          <MenuItem className={classes.menuPaper} key={domainLabel} value={domainLabel}>
             {domainLabel}
           </MenuItem>
         ))}
