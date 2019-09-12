@@ -10,6 +10,7 @@ exports[`components | connexion | email-input snapshot doit correspondre avec le
       "inputContainer": "EmailTextInput-inputContainer-4",
       "inputField": "EmailTextInput-inputField-5",
       "inputRoot": "EmailTextInput-inputRoot-6",
+      "menuPaper": "EmailTextInput-menuPaper-8",
       "selectRoot": "EmailTextInput-selectRoot-7",
     }
   }
