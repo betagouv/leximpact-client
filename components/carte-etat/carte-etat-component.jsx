@@ -42,10 +42,11 @@ const styles = () => ({
   sourceInsee: {
     color: "#B1B1B1",
     fontFamily: "Lato",
-    fontSize: "11px",
+    fontSize: "12px",
     fontWeight: "regular",
     marginLeft: "14px",
     marginBottom: "30px",
+    textAlign: "right",
   },
   subtitleCarteEtat: {
     color: "#565656",
@@ -134,7 +135,8 @@ class CarteEtat extends PureComponent {
             </div>
           )}
           <div>
-            <Typography className={classes.sourceInsee}>*Réalisation à partir des données de l’Enquête Revenus Fiscaux et Sociaux, de l'INSEE.
+            <Typography className={classes.sourceInsee}>* Chiffrages indicatifs.
+            <br /> Réalisation à partir des données de l’Enquête Revenus Fiscaux et Sociaux de l'INSEE (2014).
             </Typography>
           </div>
           <div>
