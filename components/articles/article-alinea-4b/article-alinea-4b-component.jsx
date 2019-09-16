@@ -175,7 +175,7 @@ class Alinea4b extends PureComponent {
     return (
       <LexExpansionPanel
         square
-        expanded={isPanelExpanded}
+        expanded={true}
         style={style.Typography}
         onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
