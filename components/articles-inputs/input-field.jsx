@@ -15,6 +15,12 @@ class InputField extends PureComponent {
     this.state = { value };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { value } = this.state;
+    if (nextProps.value === value) return;
+    this.setState({ value: nextProps.value });
+  }
+
   triggerChange = (value, name) => {
     const { onChange } = this.props;
     const noSpacesValue = value.replace(/\s+/g, "");
