@@ -1,15 +1,28 @@
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar, Button, Toolbar, Typography,
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { Refresh as RefreshIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import React from "react";
 
 const stylesTheme = theme => ({
+  refreshIcon: {
+    display: "flex",
+    float: "right !important",
+    marginLeft: "10px",
+  },
   root: {
     flexGrow: 1,
     paddingTop: "0px",
+    width: "100%",
   },
   styleToolBar: {
+    display: "flex",
     minHeight: "50px",
+    justifyContent: "space-between",
+    flex: 1,
+    flexDirection: "row",
   },
   titleArticleCGI: {
     color: "#6C6C6C",
@@ -39,7 +52,7 @@ const stylesTheme = theme => ({
 });
 
 function ArticleHeader(props) {
-  const { classes } = props;
+  const { classes, resetVarArticle } = props;
 
   return (
     <div className={classes.root}>
@@ -47,15 +60,20 @@ function ArticleHeader(props) {
         position="relative"
         style={{ background: "#FFFFFF", boxShadow: "none" }}>
         <Toolbar className={classes.styleToolBar}>
-          <Typography className={classes.titleIR}>
-            IMPÔT SUR LE REVENU
+          <Typography>
+            <span className={classes.titleIR}>IMPÔT SUR LE REVENU</span>
+            <span className={classes.titleArticleCGI}>
+              - Article 197 du CGI
+            </span>
           </Typography>
-          <Typography
-            className={classes.titleArticleCGI}
+          <Button
+            className={classes.refreshIcon}
             color="inherit"
-            variant="body2">
-            - Article 197 du CGI
-          </Typography>
+            size="small"
+            variant="outlined"
+            onClick={resetVarArticle}>
+            <RefreshIcon color="secondary" />
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -64,6 +82,7 @@ function ArticleHeader(props) {
 
 ArticleHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
+  resetVarArticle: PropTypes.shape().isRequired,
 };
 
 export default withStyles(stylesTheme, { withTheme: true })(ArticleHeader);
