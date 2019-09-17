@@ -136,7 +136,7 @@ class CarteEtat extends PureComponent {
           )}
           <div>
             <Typography className={classes.sourceInsee}>* Chiffrages indicatifs.
-            <br /> Réalisation à partir des données de l’Enquête Revenus Fiscaux et Sociaux de l'INSEE (2014).
+            <br /> Estimation à partir des données de l’Enquête Revenus Fiscaux et Sociaux de l'INSEE (2014).
             </Typography>
           </div>
           <div>

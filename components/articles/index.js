@@ -4,6 +4,7 @@ import {
   addTranche,
   // fetchCalculateCompare,
   removeTranche,
+  resetVarArticle,
   updateReformeByName,
 } from "../../redux/actions";
 import ArticlesComponent from "./articles-component";
@@ -25,6 +26,9 @@ const mapDispatchToProps = dispatch => ({
 
   handleRemoveTranche: () => {
     dispatch(removeTranche());
+  },
+  handleResetVarArticle: () => {
+    dispatch(resetVarArticle());
   },
 });
 
