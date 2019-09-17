@@ -128,7 +128,7 @@ class ArticlesComponent extends React.Component {
   );
 
   gimmeIRPartsOfArticle = (i) => {
-    console.log("coucou");
+    //  console.log("coucou");
     const {
       handleArticleChange,
       reforme,
