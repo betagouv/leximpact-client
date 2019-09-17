@@ -6,8 +6,7 @@ import {
   CardContent,
   CircularProgress,
   Typography,
-}
-  from "@material-ui/core";
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
@@ -84,7 +83,12 @@ function getRoundedTotal(value) {
 class CarteEtat extends PureComponent {
   render() {
     const {
-      classes, deciles, isLoadingEtat, onClickSimPop, total,
+      classes,
+      deciles,
+      disabledEtat,
+      isLoadingEtat,
+      onClickSimPop,
+      total,
     } = this.props;
     const { apres, avant, plf } = total;
     const totalAvant = getRoundedTotal(avant);
@@ -119,24 +123,36 @@ class CarteEtat extends PureComponent {
                   <Typography inline className="impotEtat avant">
                     {totalAvant}
                   </Typography>
-                  <Typography inline className="uniteImpotEtat avant">Md€*</Typography>
+                  <Typography inline className="uniteImpotEtat avant">
+                    Md€*
+                  </Typography>
                 </div>
                 <div className="montant-impots">
-                  <Typography inline className="impotEtat plf">{totalPLF}</Typography>
-                  <Typography inline className="uniteImpotEtat plf">Md€*</Typography>
+                  <Typography inline className="impotEtat plf">
+                    {totalPLF}
+                  </Typography>
+                  <Typography inline className="uniteImpotEtat plf">
+                    Md€*
+                  </Typography>
                 </div>
                 <div className="montant-impots">
                   <Typography inline className="impotEtat apres">
                     {totalApres}
                   </Typography>
-                  <Typography inline className="uniteImpotEtat apres">Md€*</Typography>
+                  <Typography inline className="uniteImpotEtat apres">
+                    Md€*
+                  </Typography>
                 </div>
               </div>
             </div>
           )}
           <div>
-            <Typography className={classes.sourceInsee}>* Chiffrages indicatifs.
-            <br /> Estimation à partir des données de l’Enquête Revenus Fiscaux et Sociaux de l'INSEE (2014).
+            <Typography className={classes.sourceInsee}>
+              * Chiffrages indicatifs.
+              <br />
+              {" "}
+Estimation à partir des données de l’Enquête Revenus
+              Fiscaux et Sociaux de l'INSEE (2014).
             </Typography>
           </div>
           <div>
@@ -153,6 +169,7 @@ class CarteEtat extends PureComponent {
               </Button>
             </center>
           </div>
+          {disabledEtat ? <span>Hello</span> : <span> Hello inversé </span>}
         </CardContent>
       </Card>
     );
@@ -169,6 +186,7 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  disabledEtat: PropTypes.func.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
   total: PropTypes.shape({
