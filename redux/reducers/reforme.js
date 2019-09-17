@@ -94,6 +94,9 @@ const reforme = (state = DEFAULT_STATE, action) => {
     return updateGenerique(nextState, name, value);
   case "onUpdateReformePlafond":
     return updateGenerique(nextState, name, value);
+  case "onResetVarArticle":
+    console.log("coucou j'ai cliqué");
+    return cloneDeep(REFORME_PLF_DEFAULT_STATE);
   default:
     return nextState;
   }

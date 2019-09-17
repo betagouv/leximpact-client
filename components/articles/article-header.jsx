@@ -82,7 +82,7 @@ function ArticleHeader(props) {
 
 ArticleHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
-  resetVarArticle: PropTypes.shape().isRequired,
+  resetVarArticle: PropTypes.func.isRequired,
 };
 
 export default withStyles(stylesTheme, { withTheme: true })(ArticleHeader);

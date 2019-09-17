@@ -18,3 +18,4 @@ export { default as connexionTokenLogout } from "./connexion-token-logout";
 export { default as showAddCasTypesPopin } from "./popin-cas-types-add";
 export { default as showEditCasTypesPopin } from "./popin-cas-types-edit";
 export { default as showLogoutPopin } from "./popin-logout";
+export { default as resetVarArticle } from "./reset-var-article";
