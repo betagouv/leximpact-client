@@ -85,7 +85,7 @@ class CarteEtat extends PureComponent {
     const {
       classes,
       deciles,
-      disabledEtat,
+      isDisabledEtat,
       isLoadingEtat,
       onClickSimPop,
       total,
@@ -111,65 +111,70 @@ class CarteEtat extends PureComponent {
             </div>
           </div>
 
-          {isLoadingEtat ? (
-            <CircularProgress color="secondary" />
-          ) : (
-            <div className="chart-wrapper">
-              <div className="main-chart">
-                <BarChart deciles={deciles} />
-              </div>
-              <div className={classes.simpop}>
-                <div className="montant-impots">
-                  <Typography inline className="impotEtat avant">
-                    {totalAvant}
-                  </Typography>
-                  <Typography inline className="uniteImpotEtat avant">
-                    Md€*
-                  </Typography>
-                </div>
-                <div className="montant-impots">
-                  <Typography inline className="impotEtat plf">
-                    {totalPLF}
-                  </Typography>
-                  <Typography inline className="uniteImpotEtat plf">
-                    Md€*
-                  </Typography>
-                </div>
-                <div className="montant-impots">
-                  <Typography inline className="impotEtat apres">
-                    {totalApres}
-                  </Typography>
-                  <Typography inline className="uniteImpotEtat apres">
-                    Md€*
-                  </Typography>
-                </div>
-              </div>
+          {isDisabledEtat ? (
+            <div>
+              <center>
+                <Button
+                  color="secondary"
+                  size="medium"
+                  variant="outlined"
+                  onClick={onClickSimPop}>
+                  <AccountBalanceIcon />
+                  <FaceIcon className={classes.marginIcon} />
+                  &nbsp;Estimer ~1min
+                  <CachedIcon className={classes.miniIcon} />
+                </Button>
+              </center>
             </div>
-          )}
-          <div>
-            <Typography className={classes.sourceInsee}>
-              * Chiffrages indicatifs.
-              <br />
-              {" "}
+          ) : (
+            [
+              isLoadingEtat ? (
+                <CircularProgress color="secondary" />
+              ) : (
+                <div>
+                  <div className="chart-wrapper">
+                    <div className="main-chart">
+                      <BarChart deciles={deciles} />
+                    </div>
+                    <div className={classes.simpop}>
+                      <div className="montant-impots">
+                        <Typography inline className="impotEtat avant">
+                          {totalAvant}
+                        </Typography>
+                        <Typography inline className="uniteImpotEtat avant">
+                          Md€*
+                        </Typography>
+                      </div>
+                      <div className="montant-impots">
+                        <Typography inline className="impotEtat plf">
+                          {totalPLF}
+                        </Typography>
+                        <Typography inline className="uniteImpotEtat plf">
+                          Md€*
+                        </Typography>
+                      </div>
+                      <div className="montant-impots">
+                        <Typography inline className="impotEtat apres">
+                          {totalApres}
+                        </Typography>
+                        <Typography inline className="uniteImpotEtat apres">
+                          Md€*
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
+                  <Typography className={classes.sourceInsee}>
+                    * Chiffrages indicatifs.
+                    <br />
+                    {" "}
 Estimation à partir des données de l’Enquête Revenus
-              Fiscaux et Sociaux de l'INSEE (2014).
-            </Typography>
-          </div>
-          <div>
-            <center>
-              <Button
-                color="secondary"
-                size="medium"
-                variant="outlined"
-                onClick={onClickSimPop}>
-                <AccountBalanceIcon />
-                <FaceIcon className={classes.marginIcon} />
-                &nbsp;Estimer ~1min
-                <CachedIcon className={classes.miniIcon} />
-              </Button>
-            </center>
-          </div>
-          {disabledEtat ? <span>Hello</span> : <span> Hello inversé </span>}
+                    Fiscaux et Sociaux de l'INSEE (2014).
+                  </Typography>
+                </div>
+              ),
+              <span>hello</span>,
+            ]
+          )}
         </CardContent>
       </Card>
     );
@@ -186,7 +191,7 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-  disabledEtat: PropTypes.bool.isRequired,
+  isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
   total: PropTypes.shape({
