@@ -2,7 +2,7 @@ import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { fetchCalculateCompare } from "../../../redux/actions";
+import { disabledEtat, fetchCalculateCompare } from "../../../redux/actions";
 import SimulationButton5Component from "./simulation-button-5-component";
 
 function useSimulatioButtonAsMobile(width) {
@@ -17,6 +17,7 @@ const mapStateToProps = (state, { width }) => {
 const mapDispatchToProps = dispatch => ({
   handleSimulationClick: () => {
     dispatch(fetchCalculateCompare());
+    dispatch(disabledEtat());
   },
 });
 

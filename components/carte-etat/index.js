@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
 
-import { fetchSimPop } from "../../redux/actions";
-import { fetchCalculateCompare } from "../../redux/actions";
+import { fetchCalculateCompare, fetchSimPop } from "../../redux/actions";
 import CarteEtatComponent from "./carte-etat-component";
 
 const mapStateToProps = ({ loadingEtat, totalPop }) => {
-  const isLoadingEtat = loadingEtat;
+  const isLoadingEtat = loadingEtat === "loading";
+  const isDisabledEtat = loadingEtat === "disabled";
   const { deciles, total } = totalPop;
   return {
     deciles,
+    isDisabledEtat,
     isLoadingEtat,
     total,
   };
