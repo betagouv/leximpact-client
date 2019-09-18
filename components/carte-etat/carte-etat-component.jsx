@@ -19,9 +19,17 @@ import { PureComponent } from "react";
 import BarChart from "./bar-chart";
 
 const styles = () => ({
+  buttonPosition: {
+    marginTop: "83px",
+    marginBottom: "90px",
+  },
   card: {},
   div: {
     padding: 7,
+  },
+  espaceBouton: {
+    minHeight: "210px",
+    maxHeight: "300px",
   },
   iconEtat: {
     fontSize: "50px",
@@ -44,7 +52,6 @@ const styles = () => ({
     fontSize: "12px",
     fontWeight: "regular",
     marginLeft: "14px",
-    marginBottom: "30px",
     textAlign: "right",
   },
   subtitleCarteEtat: {
@@ -113,7 +120,7 @@ class CarteEtat extends PureComponent {
 
           {isDisabledEtat ? (
             <div>
-              <center>
+              <center className={classes.buttonPosition}>
                 <Button
                   color="secondary"
                   size="medium"
@@ -121,7 +128,7 @@ class CarteEtat extends PureComponent {
                   onClick={onClickSimPop}>
                   <AccountBalanceIcon />
                   <FaceIcon className={classes.marginIcon} />
-                  &nbsp;Estimer ~1min
+                  &nbsp;Estimer ~60"
                   <CachedIcon className={classes.miniIcon} />
                 </Button>
               </center>
@@ -129,7 +136,9 @@ class CarteEtat extends PureComponent {
           ) : (
             [
               isLoadingEtat ? (
-                <CircularProgress color="secondary" />
+                <center className={classes.buttonPosition}>
+                  <CircularProgress color="secondary" />
+                </center>
               ) : (
                 <div>
                   <div className="chart-wrapper">
@@ -167,12 +176,11 @@ class CarteEtat extends PureComponent {
                     * Chiffrages indicatifs.
                     <br />
                     {" "}
-Estimation à partir des données de l’Enquête Revenus
-                    Fiscaux et Sociaux de l'INSEE (2014).
+Estimation à partir des données de l&apos;Enquête
+                    Revenus Fiscaux et Sociaux de l&apos;INSEE (2014).
                   </Typography>
                 </div>
               ),
-              <span>hello</span>,
             ]
           )}
         </CardContent>
