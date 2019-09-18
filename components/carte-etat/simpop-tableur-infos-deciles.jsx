@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 const styles = {
   tableStyle: {
@@ -13,31 +13,38 @@ const styles = {
   cellStyle: {
     padding: "0px",
   },
-}
+};
 
 let id = 0;
-function createData(decile, salaire, impotmoyenfoyer, recettesetat) {
+function createData(
+  decile,
+  salaire,
+  impotmoyenfoyer,
+  impactmoyenfoyer,
+  recettesetat,
+) {
   id += 1;
   return {
     id,
     decile,
     salaire,
     impotmoyenfoyer,
+    impactmoyenfoyer,
     recettesetat,
   };
 }
 
 const rows = [
-  createData("Décile n°1", 159, 6.0, 24, 4.0),
-  createData("Décile n°2", 237, 9.0, 37, 4.3),
-  createData("Décile n°3", 262, 16.0, 24, 6.0),
-  createData("Décile n°4", 305, 3.7, 67, 4.3),
-  createData("Décile n°5", 356, 16.0, 49, 3.9),
-  createData("Décile n°6", 159, 6.0, 24, 4.0),
-  createData("Décile n°7", 237, 9.0, 37, 4.3),
-  createData("Décile n°8", 262, 16.0, 24, 6.0),
-  createData("Décile n°9", 305, 3.7, 67, 4.3),
-  createData("Décile n°10", 356, 16.0, 49, 3.9),
+  createData("Décile n°1", "1 135€/mois", 6.0, 24, 4.0),
+  createData("Décile n°2", "1 455€/mois", 9.0, 37, 4.3),
+  createData("Décile n°3", "1 760€/mois", 16.0, 24, 6.0),
+  createData("Décile n°4", "2 115€/mois", 3.7, 67, 4.3),
+  createData("Décile n°5", "2 503€/mois", 16.0, 49, 3.9),
+  createData("Décile n°6", "2 941€/mois", 6.0, 24, 4.0),
+  createData("Décile n°7", "3 440€/mois", 9.0, 37, 4.3),
+  createData("Décile n°8", "4 112€/mois", 16.0, 24, 6.0),
+  createData("Décile n°9", "5 267€/mois", 3.7, 67, 4.3),
+  createData("Décile n°10", "∞€/mois", 16.0, 49, 3.9),
 ];
 
 function SimpopTableurInfosDeciles({ classes }) {
@@ -46,29 +53,47 @@ function SimpopTableurInfosDeciles({ classes }) {
       <TableHead>
         <TableRow classeName={classes.tableStyle}>
           <TableCell padding="dense">Décile</TableCell>
-          <TableCell padding="dense" align="center">Salaire net /mois (jusqu&apos;à)</TableCell>
-          <TableCell padding="dense" align="center">Impôt moyen des foyers /an</TableCell>
-          <TableCell padding="dense" align="center">Total des recettes pour l&apos;État</TableCell>
+          <TableCell align="center" padding="dense">
+            Salaire net /mois (jusqu&apos;à)
+          </TableCell>
+          <TableCell align="center" padding="dense">
+            Impact moyen sur le foyer (par rapport au code existant)
+          </TableCell>
+          <TableCell align="center" padding="dense">
+            Impôt moyen des foyers /an
+          </TableCell>
+          <TableCell align="center" padding="dense">
+            Total des recettes pour l&apos;État
+          </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {rows.map(row => (
-          <TableRow classeName={classes.tableStyle} key={row.id}>
-            <TableCell padding="dense" component="th" scope="row">
+          <TableRow key={row.id} classeName={classes.tableStyle}>
+            <TableCell component="th" padding="dense" scope="row">
               {row.decile}
             </TableCell>
-            <TableCell padding="dense" align="center">{row.salaire}</TableCell>
-            <TableCell padding="dense" align="center">{row.impotmoyenfoyer}</TableCell>
-            <TableCell padding="dense" align="center">{row.recettesetat}</TableCell>
+            <TableCell align="center" padding="dense">
+              {row.salaire}
+            </TableCell>
+            <TableCell align="center" padding="dense">
+              {row.impotmoyenfoyer}
+            </TableCell>
+            <TableCell align="center" padding="dense">
+              {row.impactmoyenfoyer}
+            </TableCell>
+            <TableCell align="center" padding="dense">
+              {row.recettesetat}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
     </Table>
-  )
+  );
 }
 
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
-}
+};
 
-export default withStyles(styles)(SimpopTableurInfosDeciles)
+export default withStyles(styles)(SimpopTableurInfosDeciles);
