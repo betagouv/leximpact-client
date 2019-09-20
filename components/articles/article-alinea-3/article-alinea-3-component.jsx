@@ -61,6 +61,7 @@ class ArticleAlinea3 extends PureComponent {
       classes,
       expandArticlePanelHandler,
       isPanelExpanded,
+      isUserLogged,
       style,
     } = this.props;
     return (
@@ -78,7 +79,8 @@ class ArticleAlinea3 extends PureComponent {
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
-          <div className={classes.warningOutremer}>
+        {isUserLogged ?
+          (<div className={classes.warningOutremer}>
             <Icon icon={warningIcon} />
             <Icon icon={classicalBuilding} />
             <span>
@@ -87,6 +89,7 @@ class ArticleAlinea3 extends PureComponent {
               foyers fiscaux types.
             </span>
           </div>
+          ) : null}
           <Typography color="inherit" variant="body2">
             3. Le montant de l&apos;impôt résultant de l&apos;application des
             dispositions précédentes est réduit de
