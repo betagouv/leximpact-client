@@ -82,9 +82,9 @@ class ArticleAlinea3 extends PureComponent {
             <Icon icon={warningIcon} />
             <Icon icon={classicalBuilding} />
             <span>
-              La modification des paramètres de la décote outre-mer n&apos;est
-              actuellement pas prise en compte dans le calcul des impacts macros
-              sur les recettes de l&apos;État.
+              La modification des paramètres de la décote outre-mer est
+              actuellement uniquement prise en compte pour le calcul de l'impôt des
+              foyers-types.
             </span>
           </div>
           <Typography color="inherit" variant="body2">
