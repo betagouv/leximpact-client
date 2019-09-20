@@ -177,7 +177,7 @@ class CarteEtat extends PureComponent {
                     <br />
                     {" "}
 Estimation à partir des données de l&apos;Enquête
-                    Revenus Fiscaux et Sociaux de l&apos;INSEE (2014).
+                    Revenus Fiscaux et Sociaux de l&apos;INSEE.
                   </Typography>
                 </div>
               ),
