@@ -84,7 +84,7 @@ class ArticleAlinea3 extends PureComponent {
             <span>
               La modification des paramètres de la décote outre-mer est
               actuellement uniquement prise en compte pour le calcul de l'impôt des
-              foyers-types.
+              foyers fiscaux types.
             </span>
           </div>
           <Typography color="inherit" variant="body2">
