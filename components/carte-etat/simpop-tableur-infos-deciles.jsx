@@ -74,10 +74,17 @@ function createData(
 }
 
 // #décile, salaire net/mois, impact foyer (plf, réforme), impôt moyen foyer (existant, plf, réforme), total recettes état
-
-const frontdec = [1000,20000,3000,4000,5000,6000,7000,8000,9000, 9999999999999]
+// source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
+const frontdec = [3569,9053,12811,16167,19300,23895,29520,37720,52716, "∞"]
 function create_from_deciles(index, decile){
-    return createData("Décile n°" + index, frontdec[index] + "€/mois", decile["avant"] ? Math.round((decile["apres"]/decile["avant"] -1)*100) : "N/A", 6.0, 24, 24, 24, 4.0 )
+    return createData("Décile n°" + (index + 1),
+      frontdec[index] + "€/mois",
+      decile["avant"] ? Math.round((decile["plf"]/decile["avant"] -1)*100) : "N/A",
+      decile["avant"] ? Math.round((decile["apres"]/decile["avant"] -1)*100) : "N/A",
+      Math.round(decile["avant"]/decile["poids"]),
+      Math.round(decile["plf"]/decile["poids"]),
+      Math.round(decile["apres"]/decile["poids"]),
+      Math.round(decile["apres"] / 10000000) / 100 ) // Les recettes de l'Etat doivent être après réforme?
 }
 
 
