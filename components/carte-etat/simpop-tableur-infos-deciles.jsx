@@ -78,7 +78,7 @@ function createData(
 const frontdec = [3569,9053,12811,16167,19300,23895,29520,37720,52716, "∞"]
 function create_from_deciles(index, decile){
     return createData("Décile n°" + (index + 1),
-      frontdec[index] + "€/mois",
+      frontdec[index] + "€/an",
       decile["avant"] ? Math.round((decile["plf"]/decile["avant"] -1)*100) : "N/A",
       decile["avant"] ? Math.round((decile["apres"]/decile["avant"] -1)*100) : "N/A",
       Math.round(decile["avant"]/decile["poids"]),
@@ -89,7 +89,6 @@ function create_from_deciles(index, decile){
 
 
 function SimpopTableurInfosDeciles({ classes, deciles }) {
-  console.log("maprop", deciles);
   const rows = deciles.map((currElement, index) => {
     return create_from_deciles(index, currElement);
   });
@@ -99,7 +98,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
         <TableRow className={classes.tableStyle}>
           <TableCell padding="dense">Décile</TableCell>
           <TableCell align="center" padding="dense">
-            Salaire net /mois (jusqu&apos;à)
+            RFR (jusqu&apos;à)
           </TableCell>
           <TableCell align="center" padding="dense">
             Impact moyen sur le foyer (par rapport au code existant)
