@@ -13,6 +13,39 @@ const styles = {
   cellStyle: {
     padding: "0px",
   },
+  reforme: {
+    borderRadius: "0.3em",
+    color: "#00A3FF",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "4px",
+    marginRight: "4px",
+    padding: "3px",
+  },
+  plf: {
+    color: "#FF6B6B",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "4px",
+    marginRight: "4px",
+    padding: "3px",
+  },
+  codeExistant: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "4px",
+    marginRight: "4px",
+    padding: "3px",
+  },
 };
 
 let id = 0;
@@ -84,13 +117,13 @@ function SimpopTableurInfosDeciles({ classes }) {
               {row.salaire}
             </TableCell>
             <TableCell align="center" padding="dense">
-              {row.impactmoyenfoyer_plf}
-              &nbsp;{row.impactmoyenfoyer_reforme}
+              <span style={styles.plf}>{row.impactmoyenfoyer_plf}</span>
+              &nbsp;<span style={styles.reforme}>{row.impactmoyenfoyer_reforme}</span>
             </TableCell>
             <TableCell align="center" padding="dense">
-              {row.impotmoyenfoyer}
-              &nbsp;{row.impotmoyenfoyer_plf}
-              &nbsp;{row.impotmoyenfoyer_reforme}
+              <span style={styles.codeExistant}>{row.impotmoyenfoyer}</span>
+              &nbsp;<span style={styles.plf}>{row.impotmoyenfoyer_plf}</span>
+              &nbsp;<span style={styles.reforme}>{row.impotmoyenfoyer_reforme}</span>
             </TableCell>
             <TableCell align="center" padding="dense">
               {row.recettesetat}
