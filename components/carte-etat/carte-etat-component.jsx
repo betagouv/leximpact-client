@@ -221,7 +221,7 @@ class CarteEtat extends PureComponent {
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <SimpopTableurInfosDeciles />
+            <SimpopTableurInfosDeciles deciles ={deciles} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </Card>

@@ -74,20 +74,18 @@ function createData(
 }
 
 // #décile, salaire net/mois, impact foyer (plf, réforme), impôt moyen foyer (existant, plf, réforme), total recettes état
-const rows = [
-  createData("Décile n°1", "1 135€/mois", 6.0, 6.0, 24, 24, 24, 4.0),
-  createData("Décile n°2", "1 455€/mois", 9.0, 9.0, 37, 37, 37, 4.3),
-  createData("Décile n°3", "1 760€/mois", 16.0, 16.0, 24, 24, 24, 6.0),
-  createData("Décile n°4", "2 115€/mois", 3.7, 3.7, 67, 67, 67, 4.3),
-  createData("Décile n°5", "2 503€/mois", 16.0, 16.0, 49, 49, 49, 3.9),
-  createData("Décile n°6", "2 941€/mois", 6.0, 6.0, 24, 24, 24, 4.0),
-  createData("Décile n°7", "3 440€/mois", 9.0, 9.0, 37, 37, 37, 4.3),
-  createData("Décile n°8", "4 112€/mois", 16.0, 16.0, 24, 24, 24, 6.0),
-  createData("Décile n°9", "5 267€/mois", 3.7, 3.7, 67, 67, 67, 4.3),
-  createData("Décile n°10", "∞€/mois", 16.0, 16.0, 49, 49, 49, 3.9),
-];
 
-function SimpopTableurInfosDeciles({ classes }) {
+const frontdec = [1000,20000,3000,4000,5000,6000,7000,8000,9000, 9999999999999]
+function create_from_deciles(index, decile){
+    return createData("Décile n°" + index, frontdec[index] + "€/mois", decile["avant"] ? Math.round((decile["apres"]/decile["avant"] -1)*100) : "N/A", 6.0, 24, 24, 24, 4.0 )
+}
+
+
+function SimpopTableurInfosDeciles({ classes, deciles }) {
+  console.log("maprop", deciles);
+  const rows = deciles.map((currElement, index) => {
+    return create_from_deciles(index, currElement);
+  });
   return (
     <Table>
       <TableHead>
