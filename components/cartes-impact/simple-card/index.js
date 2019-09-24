@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { removeCasType, showEditCasTypesPopin } from "../../../redux/actions";
+import { removeCasType, fetchCalculateCompare, showEditCasTypesPopin } from "../../../redux/actions";
 import SimpleCard from "./simple-card-component";
 
 const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
@@ -21,7 +21,10 @@ const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleRemoveCasType: index => () => dispatch(removeCasType(index)),
+  handleRemoveCasType: index => () => {
+    dispatch(removeCasType(index)); 
+    dispatch(fetchCalculateCompare());
+  },
   handleShowEditCasTypesPopin: index => () => dispatch(showEditCasTypesPopin(index)),
 });
 
