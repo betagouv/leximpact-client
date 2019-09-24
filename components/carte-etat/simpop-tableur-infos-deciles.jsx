@@ -77,7 +77,7 @@ function createData(
 // source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
 const frontdec = [3569,9053,12811,16167,19300,23895,29520,37720,52716, "∞"]
 function create_from_deciles(index, decile){
-    return createData("Décile n°" + (index + 1),
+    return createData((index + 1),
       frontdec[index] + "€/an",
       decile["avant"] ? Math.round((decile["plf"]/decile["avant"] -1)*100) : "N/A",
       decile["avant"] ? Math.round((decile["apres"]/decile["avant"] -1)*100) : "N/A",
@@ -85,6 +85,14 @@ function create_from_deciles(index, decile){
       Math.round(decile["plf"]/decile["poids"]),
       Math.round(decile["apres"]/decile["poids"]),
       Math.round(decile["apres"] / 10000000) / 100 ) // Les recettes de l'Etat doivent être après réforme?
+}
+
+function imageDecile(id) {
+  return (
+    <img key={id} alt="" 
+      height="24" width="24"
+      xlinkHref={`/static/images/decile${id}.png`} />
+  );
 }
 
 
@@ -115,7 +123,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
         {rows.map(row => (
           <TableRow key={row.id} className={classes.tableStyle}>
             <TableCell component="th" padding="dense" scope="row">
-              {row.decile}
+              {imageDecile(row.decile)}
             </TableCell>
             <TableCell align="center" padding="dense">
               {row.salaire}
