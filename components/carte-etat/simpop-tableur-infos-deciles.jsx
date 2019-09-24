@@ -1,3 +1,4 @@
+import Typography from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -22,6 +23,7 @@ const styles = {
     marginRight: "4px",
     padding: "3px",
   },
+
   plf: {
     color: "#FF6B6B",
     fontFamily: "Lato",
@@ -45,6 +47,7 @@ const styles = {
   },
   tableStyle: {
     height: "0px",
+    verticalAlign: "center",
   },
 };
 
@@ -91,12 +94,8 @@ function create_from_deciles(index, decile) {
   return createData(
     index + 1,
     `${frontdec[index]}€/an`,
-    decile.avant
-      ? Math.round((decile.plf / decile.avant - 1) * 100)
-      : "N/A",
-    decile.avant
-      ? Math.round((decile.apres / decile.avant - 1) * 100)
-      : "N/A",
+    decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "N/A",
+    decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "N/A",
     Math.round(decile.avant / decile.poids),
     Math.round(decile.plf / decile.poids),
     Math.round(decile.apres / decile.poids),
@@ -105,16 +104,10 @@ function create_from_deciles(index, decile) {
 }
 
 function imageDecile(id) {
-  var imageId = `imageDecile${id}`;
-  var imagePath = `/static/images/decile${id}.png`;
+  const imageId = `imageDecile${id}`;
+  const imagePath = `/static/images/decile${id}.png`;
   return (
-    <img
-      key={imageId}
-      alt=""
-      height="24"
-      width="24"
-      xlinkHref={imagePath}
-    />
+    <img key={imageId} alt="" height="24" width="24" xlinkHref={imagePath} />
   );
 }
 
@@ -124,18 +117,33 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
     <Table>
       <TableHead>
         <TableRow className={classes.tableStyle}>
-          <TableCell padding="dense">Décile</TableCell>
-          <TableCell align="center" padding="dense">
-            RFR (jusqu&apos;à)
+          <TableCell align="center" padding="none">
+            <p>
+              <b>Décile</b>
+            </p>
           </TableCell>
-          <TableCell align="center" padding="dense">
-            Impact moyen sur le foyer (par rapport au code existant)
+          <TableCell align="center" padding="none">
+            <p>
+              <b>Revenu fiscal de référence</b>
+            </p>
+            <p>(jusqu&apos;à)</p>
           </TableCell>
-          <TableCell align="center" padding="dense">
-            Impôt moyen des foyers /an
+          <TableCell align="center" padding="none">
+            <p>
+              <b>Impact moyen sur le foyer </b>
+            </p>
+            <p>(par rapport au code existant)</p>
           </TableCell>
-          <TableCell align="center" padding="dense">
-            Total des recettes pour l&apos;État
+          <TableCell align="center" padding="none">
+            <p>
+              <b>Impôt moyen des foyers</b>
+            </p>
+            <p>(par an)</p>
+          </TableCell>
+          <TableCell align="center" padding="none">
+            <p>
+              <b>Total des recettes pour l&apos;État</b>
+            </p>
           </TableCell>
         </TableRow>
       </TableHead>
@@ -149,19 +157,35 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
               {row.salaire}
             </TableCell>
             <TableCell align="center" padding="dense">
-              <span style={styles.plf}>{row.impactmoyenfoyer_plf}</span>
+              <span style={styles.plf}>
+                {row.impactmoyenfoyer_plf}
+%
+              </span>
               &nbsp;
-              <span style={styles.reforme}>{row.impactmoyenfoyer_reforme}</span>
+              <span style={styles.reforme}>
+                {row.impactmoyenfoyer_reforme}
+%
+              </span>
             </TableCell>
             <TableCell align="center" padding="dense">
-              <span style={styles.codeExistant}>{row.impotmoyenfoyer}</span>
+              <span style={styles.codeExistant}>
+                {row.impotmoyenfoyer}
+€
+              </span>
               &nbsp;
-              <span style={styles.plf}>{row.impotmoyenfoyer_plf}</span>
+              <span style={styles.plf}>
+                {row.impotmoyenfoyer_plf}
+€
+              </span>
               &nbsp;
-              <span style={styles.reforme}>{row.impotmoyenfoyer_reforme}</span>
+              <span style={styles.reforme}>
+                {row.impotmoyenfoyer_reforme}
+€
+              </span>
             </TableCell>
             <TableCell align="center" padding="dense">
               {row.recettesetat}
+Md€
             </TableCell>
           </TableRow>
         ))}
@@ -172,6 +196,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
 
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
+  deciles: PropTypes.shape().isRequired,
 };
 
 export default withStyles(styles)(SimpopTableurInfosDeciles);
