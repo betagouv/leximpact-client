@@ -10,8 +10,8 @@ const plf = [0, -1327, -1062, 0, -1712, -816];
 const toIndexedObject = arr => arr.reduce((acc, v, i) => ({ ...acc, [i]: v }), {});
 
 const DEFAULT_STATE = {
-  apres: toIndexedObject(avant),
-  avant: toIndexedObject(apres),
+  apres: toIndexedObject(apres),
+  avant: toIndexedObject(avant),
   plf: toIndexedObject(plf),
   wprm: toIndexedObject(wprm),
 };
