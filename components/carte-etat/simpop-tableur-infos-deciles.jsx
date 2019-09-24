@@ -105,13 +105,15 @@ function create_from_deciles(index, decile) {
 }
 
 function imageDecile(id) {
+  var imageId = `imageDecile${id}`;
+  var imagePath = `/static/images/decile${id}.png`;
   return (
     <img
-      key={id}
+      key={imageId}
       alt=""
       height="24"
       width="24"
-      xlinkHref={`/static/images/decile${id}.png`}
+      xlinkHref={imagePath}
     />
   );
 }
