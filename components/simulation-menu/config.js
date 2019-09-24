@@ -38,6 +38,14 @@ const config = {
       /* TODO: creer une action redux pour cet item du menu */
       action: () => ({ type: "undefined" }),
       disabled: true,
+      key: "contribuables-touches",
+      label: "Visualiser les contribuables touchés",
+      shortLabel: "Contribuables touchés",
+    },
+    {
+      /* TODO: creer une action redux pour cet item du menu */
+      action: () => ({ type: "undefined" }),
+      disabled: true,
       key: "entree_imposition",
       label: "Visualiser le point d'entrée d'imposition",
       shortLabel: "Point entrée imposition",
