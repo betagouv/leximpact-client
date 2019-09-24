@@ -17,11 +17,11 @@ const mapDispatchToProps = dispatch => ({
   initializeAppllicationStoreFromAPI: () => {
     // rempli le store de l'application avec les données
     // provenant de l'API
-    dispatch(fetchMetadataCasTypes())//.then(() => {
+    dispatch(fetchMetadataCasTypes()).then(() => {
       // lance le calcul des cas types la premiere fois
       // que le reformeur s'affiche
-      //dispatch(fetchCalculateCompare());
-    //});
+      dispatch(fetchCalculateCompare());
+    });
   },
 });
 
