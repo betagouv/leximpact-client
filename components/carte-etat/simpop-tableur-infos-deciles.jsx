@@ -111,7 +111,7 @@ function imageDecile(id) {
   const imageId = `imageDecile${id}`;
   const imagePath = `/static/images/decile${id}.png`;
   return (
-    <img key={imageId} alt="" height="24" width="24" xlinkHref={imagePath} />
+    <img key={imageId} alt="" height="24" width="24" src={imagePath} />
   );
 }
 
