@@ -61,6 +61,8 @@ function createData(
   impotmoyenfoyer_plf,
   impotmoyenfoyer_reforme,
   recettesetat,
+  recettesetat_plf,
+  recettesetat_reforme,
 ) {
   id += 1;
   return {
@@ -72,6 +74,8 @@ function createData(
     impotmoyenfoyer_plf,
     impotmoyenfoyer_reforme,
     recettesetat,
+    recettesetat_plf,
+    recettesetat_reforme,
     salaire,
   };
 }
@@ -94,8 +98,8 @@ function create_from_deciles(index, decile) {
   return createData(
     index + 1,
     `${frontdec[index]}€/an`,
-    decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "N/A",
-    decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "N/A",
+    decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "-",
+    decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "-",
     Math.round(decile.avant / decile.poids),
     Math.round(decile.plf / decile.poids),
     Math.round(decile.apres / decile.poids),
@@ -142,7 +146,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
           </TableCell>
           <TableCell align="center" padding="none">
             <p>
-              <b>Total des recettes pour l&apos;État</b>
+              <b>Recettes pour l&apos;État</b>
             </p>
           </TableCell>
         </TableRow>
@@ -184,8 +188,20 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
               </span>
             </TableCell>
             <TableCell align="center" padding="dense">
-              {row.recettesetat}
-Md€
+              <span style={styles.codeExistant}>
+                {row.recettesetat}
+                Md€
+              </span>
+              &nbsp;
+              <span style={styles.plf}>
+                {row.recettesetat_plf}
+                Md€
+              </span>
+              &nbsp;
+              <span style={styles.reforme}>
+                {row.recettesetat_reforme}
+                Md€
+              </span>
             </TableCell>
           </TableRow>
         ))}
