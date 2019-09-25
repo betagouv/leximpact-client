@@ -129,8 +129,12 @@ function TexteCguLeximpactPop({ classes }) {
         <li>les députés et députées de l&apos;Assemblée nationale, </li>
         <li>leurs collaborateurs et collaboratrices parlementaires, </li>
         <li>
-          les administrateurs et administratrices de l&apos;Assemblée nationale.
+          les administrateurs et administratrices de l&apos;Assemblée nationale
+          ;
         </li>
+        <li>les sénateurs et sénatrices, </li>
+        <li>leurs collaborateurs et collaboratrices parlementaires, </li>
+        <li>les administrateurs et administratrices du Sénat.</li>
       </ul>
 
       <p>
@@ -147,8 +151,8 @@ function TexteCguLeximpactPop({ classes }) {
       <ol>
         <li>
           Veuillez vérifier que vous avez bien utilisé votre adresse mail
-          professionnelle de l&apos;Assemblée nationale. Les noms de domaine
-          autorisés sont présents par défaut dans l&apos;interface.
+          professionnelle de l&apos;Assemblée nationale ou du Sénat. Les noms de
+          domaine autorisés sont présents par défaut dans l&apos;interface.
           {" "}
         </li>
 
@@ -162,7 +166,7 @@ function TexteCguLeximpactPop({ classes }) {
           Si vous utilisez votre adresse mail professionnelle pour la première
           fois, il se peut qu&apos;elle n&apos;est pas été activée ; veuillez
           directement contacter le Service des Systèmes d&apos;Information de
-          l&apos;Assemblée nationale.
+          votre administration.
         </li>
 
         <li>
@@ -246,7 +250,11 @@ function TexteCguLeximpactPop({ classes }) {
       <hr />
 
       <p>
-        Nous utilisons des cookies persistants afin d&apos;améliorer l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de vos cas types. Ces cookies sont conservés sur votre ordinateur même après fermeture de votre navigateur et réutilisé lors des prochaines visites sur nos sites.
+        Nous utilisons des cookies persistants afin d&apos;améliorer
+        l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de
+        vos cas types. Ces cookies sont conservés sur votre ordinateur même
+        après fermeture de votre navigateur et réutilisé lors des prochaines
+        visites sur nos sites.
       </p>
       <div className={classes.espaceVide} />
 
@@ -255,9 +263,9 @@ function TexteCguLeximpactPop({ classes }) {
 
       <p>
         Nous mettons LexImpact POP à disposition sans garantie sur sa
-        disponibilité, avec obligation de moyens et non de résultats.
-        Cela signifie que d&apos;éventuelles
-        indisponibilités n&apos;ouvriront pas droit à compensation financière.
+        disponibilité, avec obligation de moyens et non de résultats. Cela
+        signifie que d&apos;éventuelles indisponibilités n&apos;ouvriront pas
+        droit à compensation financière.
       </p>
 
       <div className={classes.espaceVide} />
