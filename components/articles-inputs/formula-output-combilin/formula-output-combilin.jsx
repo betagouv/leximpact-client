@@ -7,8 +7,8 @@ const FormulaOutputCombiLin = ({
   baseValue, newValue, plfValue, style,
 }) => (
   <Fragment>
-    <OutputField style={style.VarCodeexistant} value={baseValue} />
-    <OutputField style={style.VarPLF} value={plfValue} />
+    <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValue} />
+    {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
     <OutputField style={style.VarCodeNew} value={newValue} />
   </Fragment>
 );

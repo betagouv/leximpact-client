@@ -98,6 +98,15 @@ const style = {
     textDecorationLine: "line-through",
     textDecorationSize: "2px",
   },
+  VarCodeexistantNonBarre: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "8px",
+    padding: "3px",
+  },
 
   VarPLF: {
     color: "#FF6B6B",
@@ -146,6 +155,9 @@ class ArticlesComponent extends React.Component {
     const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
     // Part 1
     if (i === 0) {
+      const baseValue = bases[Math.min(i, bases.length - 1)];
+      const plfValue = plfs[Math.min(i, plfs.length - 1)];
+      console.log(baseValue,plfValue,Math.abs(baseValue-plfValue) < 0.001);
       return (
         <Typography
           key={i}
@@ -156,13 +168,10 @@ class ArticlesComponent extends React.Component {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
           <OutputField
-            style={style.VarCodeexistant}
-            value={bases[Math.min(i, bases.length - 1)]}
+            style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+            value={baseValue}
           />
-          <OutputField
-            style={style.VarPLF}
-            value={plfs[Math.min(i, bases.length - 1)]}
-          />
+          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
           <InputField
             name={`seuil${i}`}
             style={style.InputSeuil}
@@ -175,6 +184,10 @@ class ArticlesComponent extends React.Component {
     }
     // Last part
     if (i === nbt) {
+      const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
+      const plfValuet = plft[Math.min(i, plft.length) - 1] * 100;
+      const baseValue = bases[Math.min(i - 1, bases.length - 1)];
+      const plfValue = plfs[Math.min(i - 1, plfs.length - 1)];
       return (
         <Typography
           key={i}
@@ -184,18 +197,11 @@ class ArticlesComponent extends React.Component {
           {"– "}
           {/* jaune */}
           <OutputField
-            style={style.VarCodeexistant}
-            value={makeNumberGoodLooking(
-              baset[Math.min(i, baset.length) - 1] * 100,
-            )}
+            style={Math.abs(baseValuet-plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+            value={makeNumberGoodLooking(baseValuet)}
           />
           {/* rouge */}
-          <OutputField
-            style={style.VarPLF}
-            value={makeNumberGoodLooking(
-              plft[Math.min(i, plft.length) - 1] * 100,
-            )}
-          />
+          {Math.abs(baseValuet-plfValuet) < 0.001 ? "" : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
           {/* bleu editable (pourcentage) */}
           <InputField
             name={`taux${i - 1}`}
@@ -206,20 +212,20 @@ class ArticlesComponent extends React.Component {
           %
           <br />
           pour la fraction supérieure à&nbsp;
-          <OutputField
-            style={style.VarCodeexistant}
-            value={bases[Math.min(i - 1, bases.length - 1)]}
-          />
-          <OutputField
-            style={style.VarPLF}
-            value={plfs[Math.min(i - 1, plfs.length - 1)]}
-          />
+          <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValue} />
+          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
           <OutputField style={style.VarCodeNew} value={s[i - 1]} />
           {"€."}
         </Typography>
       );
     }
     // Other parts :
+    const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
+    const plfValuet = plft[Math.min(i, plft.length) - 1] * 100;
+    const baseValue = bases[Math.min(i, bases.length - 1)];
+    const plfValue = plfs[Math.min(i, plfs.length - 1)];
+    const baseValueminus1 = bases[Math.min(i - 1, bases.length - 1)];
+    const plfValueminus1 = plfs[Math.min(i - 1, plfs.length - 1)];
     return (
       <Typography
         key={i}
@@ -229,17 +235,11 @@ class ArticlesComponent extends React.Component {
         –
         {" "}
         <OutputField
-          style={style.VarCodeexistant}
-          value={makeNumberGoodLooking(
-            baset[Math.min(i, baset.length) - 1] * 100,
-          )}
+          style={Math.abs(baseValuet-plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+          value={makeNumberGoodLooking(baseValuet)}
         />
-        <OutputField
-          style={style.VarPLF}
-          value={makeNumberGoodLooking(
-            plft[Math.min(i, plft.length) - 1] * 100,
-          )}
-        />
+        {/* rouge */}
+        {Math.abs(baseValuet-plfValuet) < 0.001 ? "" : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
         <InputField
           name={`taux${i - 1}`}
           style={style.InputTaux}
@@ -249,26 +249,14 @@ class ArticlesComponent extends React.Component {
         %
         <br />
         pour la fraction supérieure à&nbsp;
-        <OutputField
-          style={style.VarCodeexistant}
-          value={bases[Math.min(i - 1, bases.length - 1)]}
-        />
-        <OutputField
-          style={style.VarPLF}
-          value={plfs[Math.min(i - 1, plfs.length - 1)]}
-        />
+        <OutputField style={Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValueminus1} />
+        {Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValueminus1} />}
         <OutputField style={style.VarCodeNew} value={s[i - 1]} />
         €
         <br />
         et inférieure ou égale à&nbsp;
-        <OutputField
-          style={style.VarCodeexistant}
-          value={bases[Math.min(i, bases.length - 1)]}
-        />
-        <OutputField
-          style={style.VarPLF}
-          value={plfs[Math.min(i, plfs.length - 1)]}
-        />
+        <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValue} />
+        {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
         <InputField
           name={`seuil${i}`}
           style={style.InputSeuil}
