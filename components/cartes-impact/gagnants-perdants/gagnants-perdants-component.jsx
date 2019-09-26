@@ -1,7 +1,5 @@
-import familyManGirlBoy from "@iconify/icons-twemoji/family-man-girl-boy";
 import familyManGirlGirl from "@iconify/icons-twemoji/family-man-girl-girl";
-import peopleHoldingHands from "@iconify/icons-twemoji/people-holding-hands";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import {
   Button,
   Card,
@@ -12,25 +10,19 @@ import {
   Typography,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
+import {
+  ArrowDownward as ArrowDownwardIcon,
+  ArrowUpward as ArrowUpwardIcon,
+  Close as CloseIcon,
+  TrendingFlat as TrendingFLatIcon,
+} from "@material-ui/icons";
 import { get } from "lodash";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
 import GreyTooltip from "./grey-tooltip";
-import SimpleCardImpactImpots from "./impact-impots";
 
 const styles = () => ({
-  badge: {
-    backgroundColor: "#666666",
-    height: 10,
-    right: 3,
-    top: 5,
-    width: 10,
-  },
-  badgeRoot: {
-    verticalAlign: "inherit",
-  },
   cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
@@ -63,38 +55,38 @@ const styles = () => ({
     minWidth: 60,
     width: 60,
   },
-  cardName: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: 18,
-    fontWeight: "bold",
-    lineHeight: "1.1rem",
-  },
   divTitre: {
     display: "inline-block",
     paddingLeft: "3px",
   },
-  iconsContainer: {
-    display: "flex",
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 15,
-    paddingTop: 5,
+  impactPLF: {
+    color: "#FF6B6B",
+    fontFamily: "Lato",
+    fontWeight: "bold",
+    fontSize: 19,
   },
-  residenceIcon: {
-    margin: 0,
-    padding: 0,
+  impactReforme: {
+    color: "#00A3FF",
+    fontFamily: "Lato",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  impactPLFDetail: {
+    color: "#FF6B6B",
+    fontFamily: "Lato",
+    fontWeight: "bold",
+    fontSize: 12,
+  },
+  impactReformeDetail: {
+    color: "#00A3FF",
+    fontFamily: "Lato",
+    fontWeight: "bold",
+    fontSize: 12,
   },
   impactContainer: {
     paddingLeft: 15,
     paddingBottom: 0,
     paddingTop: 0,
-  },
-  revenusMensuelLegend: {
-    color: "#909090",
-    fontFamily: "Lato",
-    fontSize: 12,
   },
   revenusMensuelValue: {
     color: "#000000",
@@ -119,6 +111,11 @@ const styles = () => ({
     fontSize: "1em",
     fontWeight: "bold",
     textJustify: "none",
+  },
+  styleTypeImpactDetail: {
+    color: "#909090",
+    fontFamily: "Lato",
+    fontSize: 12,
   },
   titleCard: {
     color: "#565656",
@@ -170,40 +167,34 @@ class GagnantsPerdantsCard extends PureComponent {
           <div className={classes.impactContainer}>
             <div>
               <Typography classes={{ root: classes.styleTypeImpact }}>
+                <ArrowDownwardIcon fontSize="small" />
                 <span>Baisse d'impôts</span>
               </Typography>
-              <Typography
-                disabled
-                classes={{ root: classes.revenusMensuelWrapper }}>
-                <span className={classes.revenusMensuelValue}> </span>
-              </Typography>
+              <div>
+                <span classeName={classes.impactPLF}> 20</span>
+                <span classeName={classes.impactReforme}> 20</span>
+              </div>
             </div>
           </div>
-
           <Divider />
 
           <div className={classes.impactContainer}>
             <div>
               <Typography classes={{ root: classes.styleTypeImpact }}>
+                <TrendingFLatIcon fontSize="small" />
                 <span>Pas de changement</span>
               </Typography>
-              <Typography classes={{ root: classes.revenusMensuelLegend }}>
-                <span>Reste exonérés d'impôts</span>
-              </Typography>
-              <Typography
-                disabled
-                classes={{ root: classes.revenusMensuelWrapper }}>
-                <span className={classes.revenusMensuelValue}> </span>
-              </Typography>
-            </div>
-            <div>
-              <Typography classes={{ root: classes.revenusMensuelLegend }}>
-                <span>Même impôt payé</span>
-              </Typography>
-              <Typography
-                disabled
-                classes={{ root: classes.revenusMensuelWrapper }}>
-                <span className={classes.revenusMensuelValue}> </span>
+              <div>
+                <span classeName={classes.impactPLF}> 20</span>
+                <span classeName={classes.impactReforme}> 20</span>
+              </div>
+              <Typography classes={{ root: classes.styleTypeImpactDetail }}>
+                <span>dont </span>
+                <span classeName={classes.impactPLFDetail}>10</span>
+                <span classeName={classes.impactReformeDetail}>10</span>
+                <span className={classes.styleTypeImpactDetail}>
+                  de foyers toujours exonérés d'impôts
+                </span>
               </Typography>
             </div>
           </div>
@@ -213,25 +204,18 @@ class GagnantsPerdantsCard extends PureComponent {
           <div className={classes.impactContainer}>
             <div>
               <Typography classes={{ root: classes.styleTypeImpact }}>
+                <ArrowUpwardIcon fontSize="small" />
                 <span>Augmentation des impôts</span>
               </Typography>
-              <Typography classes={{ root: classes.revenusMensuelLegend }}>
-                <span>Entrée dans l'impôt</span>
-              </Typography>
-              <Typography
-                disabled
-                classes={{ root: classes.revenusMensuelWrapper }}>
-                <span className={classes.revenusMensuelValue}> </span>
-              </Typography>
-            </div>
-            <div>
-              <Typography classes={{ root: classes.revenusMensuelLegend }}>
-                <span>Augmentation</span>
-              </Typography>
-              <Typography
-                disabled
-                classes={{ root: classes.revenusMensuelWrapper }}>
-                <span className={classes.revenusMensuelValue}> </span>
+              <div>
+                <span classeName={classes.impactPLF}> 20</span>
+                <span classeName={classes.impactReforme}> 20</span>
+              </div>
+              <Typography classes={{ root: classes.styleTypeImpactDetail }}>
+                <span>dont</span>
+                <span classeName={classes.impactPLFDetail}>10</span>
+                <span classeName={classes.impactReformeDetail}>10</span>
+                <span>foyers entrant dans l'impôt</span>
               </Typography>
             </div>
           </div>
