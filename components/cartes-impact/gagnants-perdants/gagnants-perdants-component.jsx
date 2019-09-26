@@ -168,10 +168,12 @@ class GagnantsPerdantsCard extends PureComponent {
                 <ArrowDownwardIcon fontSize="small" />
                 <span>Baisse d'impôts</span>
               </Typography>
-              <div>
-                <span classeName={classes.impactPLF}> 20</span>
-                <span classeName={classes.impactReforme}> 20</span>
-              </div>
+              <Typography inline classes={{ root: classes.impactPLF }}>
+                <span> 20</span>
+              </Typography>
+              <Typography inline classes={{ root: classes.impactReforme }}>
+                <span> 20</span>
+              </Typography>
             </div>
           </div>
           <Divider />
@@ -182,14 +184,22 @@ class GagnantsPerdantsCard extends PureComponent {
                 <TrendingFLatIcon fontSize="small" />
                 <span>Pas de changement</span>
               </Typography>
-              <div>
-                <span classeName={classes.impactPLF}> 20</span>
-                <span classeName={classes.impactReforme}> 20</span>
-              </div>
+              <Typography inline classes={{ root: classes.impactPLF }}>
+                <span> 20</span>
+              </Typography>
+              <Typography inline classes={{ root: classes.impactReforme }}>
+                <span> 20</span>
+              </Typography>
               <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                 <span>dont </span>
-                <span classeName={classes.impactPLFDetail}>10</span>
-                <span classeName={classes.impactReformeDetail}>10</span>
+                <Typography inline classes={{ root: classes.impactPLFDetail }}>
+                  <span> 20</span>
+                </Typography>
+                <Typography
+                  inline
+                  classes={{ root: classes.impactReformeDetail }}>
+                  <span> 20</span>
+                </Typography>
                 <span className={classes.styleTypeImpactDetail}>
                   de foyers toujours exonérés d'impôts
                 </span>
@@ -206,13 +216,23 @@ class GagnantsPerdantsCard extends PureComponent {
                 <span>Augmentation des impôts</span>
               </Typography>
               <div>
-                <span classeName={classes.impactPLF}> 20</span>
-                <span classeName={classes.impactReforme}> 20</span>
+                <Typography inline classes={{ root: classes.impactPLF }}>
+                  <span> 20</span>
+                </Typography>
+                <Typography inline classes={{ root: classes.impactReforme }}>
+                  <span> 20</span>
+                </Typography>
               </div>
               <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                 <span>dont</span>
-                <span classeName={classes.impactPLFDetail}>10</span>
-                <span classeName={classes.impactReformeDetail}>10</span>
+                <Typography inline classes={{ root: classes.impactPLFDetail }}>
+                  <span> 20</span>
+                </Typography>
+                <Typography
+                  inline
+                  classes={{ root: classes.impactReformeDetail }}>
+                  <span> 20</span>
+                </Typography>
                 <span>foyers entrant dans l'impôt</span>
               </Typography>
             </div>
