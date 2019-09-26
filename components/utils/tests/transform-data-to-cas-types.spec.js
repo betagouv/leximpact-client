@@ -310,7 +310,7 @@ const DEFAULT_DATA_FROM_API = [
   // ------------------------------------------------
   [
     {
-      nb_decl_parent_isole: 1,
+      nb_decl_parent_isole: 0,
       nb_pac_charge_partagee: 1,
       nb_pac_invalides: 1,
       nombre_declarants: 2,
@@ -355,7 +355,7 @@ const DEFAULT_DATA_FROM_API = [
             gender: expect.any(Number),
             invalide: 0,
             isChild: 0,
-            parentIsole: 1,
+            parentIsole: 0,
             plus65ans: 0,
             veufVeuve: 0,
           },
