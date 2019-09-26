@@ -24,6 +24,16 @@ const styleTitreThematique = {
   textAlign: "left",
 };
 
+const styleTitreThematiqueModifPLF = {
+  color: "#FF6B6B",
+  fontFamily: "Lora",
+  fontSize: "12px",
+  fontWeight: "bold",
+  textAlign: "left",
+  verticalAlign: "middle",
+  marginTop: "10px",
+  marginLeft: "6px",
+};
 // permet de gérer le style du label de "supprimer la décote"
 const StyledFormControlLabel = withStyles({
   label: {
@@ -51,13 +61,14 @@ class Alinea4a extends PureComponent {
     return (
       <LexExpansionPanel
         square
-        expanded={true}
+        expanded={isPanelExpanded}
         style={style.Typography}
         onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
           <Typography style={styleTitreThematique}>Décote</Typography>
+          <p style={styleTitreThematiqueModifPLF}>Modifiée par le PLF 2020</p>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
