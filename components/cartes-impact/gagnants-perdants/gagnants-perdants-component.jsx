@@ -6,7 +6,6 @@ import {
   CardContent,
   Divider,
   IconButton,
-  Tooltip,
   Typography,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
@@ -19,8 +18,6 @@ import {
 import { get } from "lodash";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
-
-import GreyTooltip from "./grey-tooltip";
 
 const styles = () => ({
   cardContainer: {
@@ -39,10 +36,11 @@ const styles = () => ({
       backgroundColor: "transparent",
     },
     margin: 0,
-    marginLeft: 9,
+    marginLeft: 0,
     padding: 0,
   },
   cardHeader: {
+    textAlign: "right",
     display: "flex",
     flex: 1,
     flexDirection: "row",
@@ -51,9 +49,9 @@ const styles = () => ({
     paddingBottom: 5,
   },
   cardHeaderButtons: {
-    maxWidth: 60,
-    minWidth: 60,
-    width: 60,
+    maxWidth: 15,
+    minWidth: 15,
+    width: 15,
   },
   divTitre: {
     display: "inline-block",
@@ -229,11 +227,6 @@ GagnantsPerdantsCard.propTypes = {
   handleRemoveCasType: PropTypes.shape().isRequired,
   index: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  resultats: PropTypes.shape({
-    apres: PropTypes.number.isRequired,
-    avant: PropTypes.number.isRequired,
-    plf: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default withStyles(styles)(GagnantsPerdantsCard);
