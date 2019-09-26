@@ -68,7 +68,7 @@ class Alinea4a extends PureComponent {
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
           <Typography style={styleTitreThematique}>Décote</Typography>
-          <p style={styleTitreThematiqueModifPLF}>Modifée par le PLF 2020</p>
+          <p style={styleTitreThematiqueModifPLF}>Modifiée par le PLF 2020</p>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
