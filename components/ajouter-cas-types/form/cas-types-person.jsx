@@ -39,7 +39,7 @@ class CasTypesPerson extends PureComponent {
     const {
       classes, isChild, max, min, name,
     } = this.props;
-    let icon = Math.random() < 0.15 ? manCurlyHaired : womanCurlyHaired;
+    let icon = Math.random() < 0.5 ? manCurlyHaired : womanCurlyHaired;
     if (isChild) {
       icon = babyIcon;
     }

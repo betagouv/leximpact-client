@@ -63,14 +63,19 @@ export const transformDataToCasTypes = datas => datas.map((data) => {
       invalide: get(data, "nb_pac_invalides") || 0,
     },
   );
-
-  const parents = createPersons(
+  //First person is randomized
+  var nbgender= ((Math.random()>0.5) ? 1 : 0);
+  //If several persons : determines whether or not same emoji-sex couple
+  if (nbCouple>1) {
+    nbgender = (Math.random()<0.15) ? 2*nbgender:1;
+  }
+  const baseparents = createPersons(
     nbCouple,
     data,
     {
       ancienCombattant: 0,
       chargePartagee: 0,
-      gender: generateRandomGender(),
+      gender: 0,
       invalide: 0,
       isChild: 0,
       parentIsole: 0,
@@ -79,12 +84,14 @@ export const transformDataToCasTypes = datas => datas.map((data) => {
     },
     {
       ancienCombattant: get(data, "nb_anciens_combattants") || 0,
+      gender: nbgender,
       invalide: get(data, "nb_decl_invalides") || 0,
       parentIsole: get(data, "nb_decl_parent_isole") || 0,
       plus65ans: get(data, "nombre_declarants_retraites") || 0,
       veufVeuve: get(data, "nb_decl_veuf") || 0,
     },
   );
+  const parents = Math.random()<0.5? baseparents:baseparents.reverse()
 
   return {
     lieuResidence,
