@@ -54,56 +54,68 @@ const styles = {
 let id = 0;
 function createData(
   decile,
-  salaire,
-  impactmoyenfoyer_plf,
-  impactmoyenfoyer_reforme,
-  impotmoyenfoyer,
-  impotmoyenfoyer_plf,
-  impotmoyenfoyer_reforme,
-  recettesetat,
-  recettesetat_plf,
-  recettesetat_reforme,
+  revenuFiscalDeReference,
+  impactMoyenFoyer_plf,
+  impactMoyenFoyer_reforme,
+  impotMoyenFoyer,
+  impotMoyenFoyer_plf,
+  impotMoyenFoyer_reforme,
+  recettesEtat,
+  recettesEtat_plf,
+  recettesEtat_reforme
 ) {
   id += 1;
   return {
     decile,
     id,
-    impactmoyenfoyer_plf,
-    impactmoyenfoyer_reforme,
-    impotmoyenfoyer,
-    impotmoyenfoyer_plf,
-    impotmoyenfoyer_reforme,
-    recettesetat,
-    recettesetat_plf,
-    recettesetat_reforme,
-    salaire,
+    impactMoyenFoyer_plf,
+    impactMoyenFoyer_reforme,
+    impotMoyenFoyer,
+    impotMoyenFoyer_plf,
+    impotMoyenFoyer_reforme,
+    recettesEtat,
+    recettesEtat_plf,
+    recettesEtat_reforme,
+    revenuFiscalDeReference,
   };
 }
 
-// #décile, salaire net/mois, impact foyer (plf, réforme), impôt moyen foyer (existant, plf, réforme), total recettes état
-// source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
-const frontdec = [
-  3569,
-  9053,
-  12811,
-  16167,
-  19300,
-  23895,
-  29520,
-  37720,
-  52716,
-  "∞",
-];
+
 function create_from_deciles(index, decile) {
+  // source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
+  const revenusFiscauxDeReference = [
+    3569,
+    9053,
+    12811,
+    16167,
+    19300,
+    23895,
+    29520,
+    37720,
+    52716,
+    "∞",
+  ];
+
+  var impactMoyenFoyer_plf = decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "-";
+  var impactMoyenFoyer_reforme = decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "-";
+  var impotMoyenFoyer = Math.round(decile.avant / decile.poids);
+  var impotMoyenFoyer_plf = Math.round(decile.plf / decile.poids);
+  var impotMoyenFoyer_reforme = Math.round(decile.apres / decile.poids);
+  var recettesEtat = Math.round(decile.avant / 10000000) / 100;
+  var recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
+  var recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
+
   return createData(
     index + 1,
-    `${frontdec[index]}€/an`,
-    decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "-",
-    decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "-",
-    Math.round(decile.avant / decile.poids),
-    Math.round(decile.plf / decile.poids),
-    Math.round(decile.apres / decile.poids),
-    Math.round(decile.apres / 10000000) / 100,
+    revenusFiscauxDeReference[index],
+    impactMoyenFoyer_plf,
+    impactMoyenFoyer_reforme,
+    impotMoyenFoyer,
+    impotMoyenFoyer_plf,
+    impotMoyenFoyer_reforme,
+    recettesEtat,
+    recettesEtat_plf,
+    recettesEtat_reforme
   ); // Les recettes de l'Etat doivent être après réforme?
 }
 
@@ -116,6 +128,7 @@ function imageDecile(id) {
 }
 
 function SimpopTableurInfosDeciles({ classes, deciles }) {
+  console.log(deciles)
   const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement));
   return (
     <Table>
@@ -158,48 +171,43 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
               {imageDecile(row.decile)}
             </TableCell>
             <TableCell align="center" padding="dense">
-              {row.salaire}
+              {row.revenuFiscalDeReference}€/an
             </TableCell>
             <TableCell align="center" padding="dense">
               <span style={styles.plf}>
-                {row.impactmoyenfoyer_plf}
-%
+                {row.impactMoyenFoyer_plf}%
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.impactmoyenfoyer_reforme}
-%
-              </span>
-            </TableCell>
-            <TableCell align="center" padding="dense">
-              <span style={styles.codeExistant}>
-                {row.impotmoyenfoyer}
-€
-              </span>
-              &nbsp;
-              <span style={styles.plf}>
-                {row.impotmoyenfoyer_plf}
-€
-              </span>
-              &nbsp;
-              <span style={styles.reforme}>
-                {row.impotmoyenfoyer_reforme}
-€
+                {row.impactMoyenFoyer_reforme}%
               </span>
             </TableCell>
             <TableCell align="center" padding="dense">
               <span style={styles.codeExistant}>
-                {row.recettesetat}
+                {row.impotMoyenFoyer}€
+              </span>
+              &nbsp;
+              <span style={styles.plf}>
+                {row.impotMoyenFoyer_plf}€
+              </span>
+              &nbsp;
+              <span style={styles.reforme}>
+                {row.impotMoyenFoyer_reforme}€
+              </span>
+            </TableCell>
+            <TableCell align="center" padding="dense">
+              <span style={styles.codeExistant}>
+                {row.recettesEtat}
                 Md€
               </span>
               &nbsp;
               <span style={styles.plf}>
-                {row.recettesetat_plf}
+                {row.recettesEtat_plf}
                 Md€
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.recettesetat_reforme}
+                {row.recettesEtat_reforme}
                 Md€
               </span>
             </TableCell>
