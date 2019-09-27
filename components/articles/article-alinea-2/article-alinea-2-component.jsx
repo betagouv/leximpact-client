@@ -19,6 +19,16 @@ const styleTitreThematique = {
   fontWeight: "bold",
   textAlign: "left",
 };
+const styleTitreThematiqueModifPLF = {
+  color: "#FF6B6B",
+  fontFamily: "Lora",
+  fontSize: "12px",
+  fontWeight: "bold",
+  textAlign: "left",
+  verticalAlign: "middle",
+  marginTop: "10px",
+  marginLeft: "6px",
+};
 
 class Alinea2 extends PureComponent {
   render() {
@@ -37,10 +47,10 @@ class Alinea2 extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography
-            style={styleTitreThematique}>
-              Plafonds du quotient familial
+          <Typography style={styleTitreThematique}>
+            Plafonds du quotient familial
           </Typography>
+          <p style={styleTitreThematiqueModifPLF}>Modifiés par le PLF 2020</p>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
