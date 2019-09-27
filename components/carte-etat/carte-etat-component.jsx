@@ -28,7 +28,6 @@ const styles = () => ({
     marginTop: "83px",
     marginBottom: "90px",
   },
-  card: {},
   div: {
     padding: 7,
   },
@@ -112,7 +111,7 @@ class CarteEtat extends PureComponent {
     const totalApres = getRoundedTotal(apres);
     const totalPLF = getRoundedTotal(plf);
     return (
-      <Card className={classes.card}>
+      <Card>
         <CardContent>
           <div className="title-wrapper">
             <div className="divTitre">
