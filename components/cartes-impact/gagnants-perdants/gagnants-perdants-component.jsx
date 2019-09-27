@@ -195,7 +195,7 @@ class GagnantsPerdantsCard extends PureComponent {
                 Foyers fiscaux touchés
               </Typography>
               <Typography className={classes.subtitleCard}>
-                en millions comparé au droit existant
+                en millions /droit existant
               </Typography>
             </div>
 
