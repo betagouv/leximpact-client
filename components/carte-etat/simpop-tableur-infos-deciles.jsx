@@ -117,8 +117,8 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
   const NON_APPLICABLE = "—";
   return (
     <Table>
-      <TableHead className={classes.titleCarteEtat}>
-        <TableRow className={classes.tableStyle}>
+      <TableHead>
+        <TableRow className={classes.titleCarteEtat, classes.tableStyle}>
           <TableCell align="center" padding="none">
             <p>
               <b>Décile</b>
