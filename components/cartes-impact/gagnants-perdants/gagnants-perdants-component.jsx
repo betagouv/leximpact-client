@@ -41,7 +41,7 @@ const styles = () => ({
     padding: 0,
   },
   cardHeader: {
-    textAlign: "right",
+    textAlign: "left",
     display: "flex",
     flex: 1,
     flexDirection: "row",
@@ -128,8 +128,8 @@ const styles = () => ({
     color: "#565656",
     fontFamily: "Lato",
     fontSize: "0.875em",
-    padding: "0 0 10px 10px",
-    textJustify: "none",
+    paddingLeft: "10px",
+    textJustify: "left",
   },
   styleGagnant: {
     color: "FFFFFF",
