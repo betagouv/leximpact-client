@@ -174,11 +174,11 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
             </TableCell>
             <TableCell align="center" padding="dense">
               <span style={styles.plf}>
-                {row.impactMoyenFoyer_plf}%
+                {(row.impactMoyenFoyer_plf == "-") ? "—" : row.impactMoyenFoyer_plf+"%"}
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.impactMoyenFoyer_reforme}%
+                {(row.impactMoyenFoyer_reforme == "-") ? "—" : row.impactMoyenFoyer_reforme+"%"}
               </span>
             </TableCell>
             <TableCell align="center" padding="dense">
