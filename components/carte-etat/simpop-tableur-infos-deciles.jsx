@@ -47,7 +47,7 @@ const styles = {
   },
   tableStyle: {
     height: "0px",
-    verticalAlign: "center",
+    verticalAlign: "top",
   },
 };
 
