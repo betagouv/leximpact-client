@@ -185,8 +185,7 @@ class CarteEtat extends PureComponent {
                   <Typography className={classes.sourceInsee}>
                     * Chiffrages indicatifs.
                     <br />
-                    {" "}
-                    Estimation à partir des données de l&apos;Enquête
+                    {" "}Estimation à partir des données de l&apos;Enquête
                     Revenus Fiscaux et Sociaux de l&apos;INSEE.
                   </Typography>
                 </div>
@@ -208,7 +207,7 @@ class CarteEtat extends PureComponent {
                 onClick={onClickSimPop}>
                 <AccountBalanceIcon />
                 <FaceIcon className={classes.marginIcon} />
-                &nbsp;Estimer ~60''
+                &nbsp;Estimer ~60&quot;
                 <CachedIcon className={classes.miniIcon} />
               </Button>
             </center>
@@ -220,7 +219,7 @@ class CarteEtat extends PureComponent {
             En savoir plus sur les déciles de population
             </Typography>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails className="styleExpansionPanel">
             <SimpopTableurInfosDeciles deciles ={deciles} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
