@@ -8,15 +8,17 @@ import TableRow from "@material-ui/core/TableRow";
 import PropTypes from "prop-types";
 
 const styles = {
-  titleCarteEtat: {
+  tableHeader: {
     color: "#565656",
     fontFamily: "Lato",
     fontSize: "1.125em",
-    fontWeight: "bold",
-    padding: "0 0 0 10px",
+    height: "0px",
+    verticalAlign: "top",
+    textAlign: "center",
   },
   cellStyle: {
-    padding: "0px",
+    padding: "0.6em",
+    textAlign: "center",
   },
   codeExistant: {
     backgroundColor: "#DED500",
@@ -50,10 +52,6 @@ const styles = {
     marginLeft: "4px",
     marginRight: "4px",
     padding: "3px",
-  },
-  tableStyle: {
-    height: "0px",
-    verticalAlign: "top",
   },
 };
 
@@ -118,47 +116,37 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
   return (
     <Table>
       <TableHead>
-        <TableRow className={classes.titleCarteEtat, classes.tableStyle}>
-          <TableCell align="center" padding="none">
-            <p>
-              <b>Décile</b>
-            </p>
+        <TableRow classes={{root: classes.tableHeader}}>
+          <TableCell classes={{root: classes.cellStyle}}>
+            <b>Décile</b>
           </TableCell>
-          <TableCell align="center" padding="none">
-            <p>
-              <b>Revenu fiscal de référence</b>
-            </p>
+          <TableCell classes={{root: classes.cellStyle}}>
+            <b>Revenu fiscal de&nbsp;référence</b>
             <p>(jusqu&apos;à)</p>
           </TableCell>
-          <TableCell align="center" padding="none">
-            <p>
-              <b>Impact moyen sur le foyer</b>
-            </p>
+          <TableCell classes={{root: classes.cellStyle}}>
+            <b>Impact moyen sur le foyer</b>
             <p>(par rapport au code existant)</p>
           </TableCell>
-          <TableCell align="center" padding="none">
-            <p>
-              <b>Impôt moyen des foyers</b>
-            </p>
+          <TableCell classes={{root: classes.cellStyle}}>
+            <b>Impôt moyen des foyers</b>
             <p>(par an)</p>
           </TableCell>
-          <TableCell align="center" padding="none">
-            <p>
-              <b>Recettes pour l&apos;État</b>
-            </p>
+          <TableCell classes={{root: classes.cellStyle}}>
+            <b>Recettes pour l&apos;État</b>
           </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {rows.map(row => (
-          <TableRow key={row.id} className={classes.tableStyle}>
-            <TableCell component="th" padding="dense" scope="row">
+          <TableRow key={row.id}>
+            <TableCell classes={{root: classes.cellStyle}}>
               {imageDecile(row.decile)}
             </TableCell>
-            <TableCell align="center" padding="dense">
+            <TableCell classes={{root: classes.cellStyle}}>
               {row.revenuFiscalDeReference}€/an
             </TableCell>
-            <TableCell align="center" padding="dense">
+            <TableCell classes={{root: classes.cellStyle}}>
               <span style={styles.plf}>
                 {(row.impactMoyenFoyer_plf == "-") ? NON_APPLICABLE : row.impactMoyenFoyer_plf+"%"}
               </span>
@@ -167,7 +155,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
                 {(row.impactMoyenFoyer_reforme == "-") ? NON_APPLICABLE : row.impactMoyenFoyer_reforme+"%"}
               </span>
             </TableCell>
-            <TableCell align="center" padding="dense">
+            <TableCell classes={{root: classes.cellStyle}}>
               <span style={styles.codeExistant}>
                 {row.impotMoyenFoyer}€
               </span>
@@ -180,20 +168,17 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
                 {row.impotMoyenFoyer_reforme}€
               </span>
             </TableCell>
-            <TableCell align="center" padding="dense">
+            <TableCell classes={{root: classes.cellStyle}}>
               <span style={styles.codeExistant}>
-                {row.recettesEtat}
-                Md€
+                {row.recettesEtat}Md€
               </span>
               &nbsp;
               <span style={styles.plf}>
-                {row.recettesEtat_plf}
-                Md€
+                {row.recettesEtat_plf}Md€
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.recettesEtat_reforme}
-                Md€
+                {row.recettesEtat_reforme}Md€
               </span>
             </TableCell>
           </TableRow>
