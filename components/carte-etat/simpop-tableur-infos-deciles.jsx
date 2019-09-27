@@ -128,7 +128,6 @@ function imageDecile(id) {
 }
 
 function SimpopTableurInfosDeciles({ classes, deciles }) {
-  console.log(deciles)
   const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement));
   return (
     <Table>

@@ -192,26 +192,6 @@ class CarteEtat extends PureComponent {
               ),
             ]
           )}
-          <div>
-            <Typography className={classes.sourceInsee}>
-            *Réalisation à partir des données de l&apos;Enquête
-            Revenus Fiscaux et Sociaux, de l&apos;INSEE.
-            </Typography>
-          </div>
-          <div>
-            <center>
-              <Button
-                color="secondary"
-                size="medium"
-                variant="outlined"
-                onClick={onClickSimPop}>
-                <AccountBalanceIcon />
-                <FaceIcon className={classes.marginIcon} />
-                &nbsp;Estimer ~60&quot;
-                <CachedIcon className={classes.miniIcon} />
-              </Button>
-            </center>
-          </div>
         </CardContent>
         <ExpansionPanel expanded={isPanelExpanded} onChange={expandArticlePanelHandler}>
           <ExpansionPanelSummary className="styleExpansionPanel" expandIcon={<ExpandMoreIcon />}>
