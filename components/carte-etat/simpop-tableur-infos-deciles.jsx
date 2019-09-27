@@ -130,7 +130,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Impôt moyen des foyers</b>
-            <p>(par an)</p>
+            <p><br/><br/>(par an)</p>
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Recettes pour l&apos;État</b>
