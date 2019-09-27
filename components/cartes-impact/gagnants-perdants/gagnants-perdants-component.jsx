@@ -24,13 +24,13 @@ const styles = () => ({
   cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
-    display: "flex",
   },
   cardContent: {
     "&:last-child": {
       paddingBottom: 0,
     },
     padding: 0,
+    width: "moz-available",
   },
   cardEditDeleteButton: {
     "&:hover": {
@@ -58,6 +58,7 @@ const styles = () => ({
     justifyContent: "space-around",
     display: "flex",
     alignContent: "flex-start",
+    paddingBottom: "0px",
   },
   divTitre: {
     display: "inline-block",
@@ -128,36 +129,35 @@ const styles = () => ({
     color: "#565656",
     fontFamily: "Lato",
     fontSize: "0.875em",
-    paddingLeft: "10px",
     textJustify: "left",
   },
-  styleGagnant: {
-    color: "FFFFFF",
+  styleGroupIconRouge: {
+    color: "#FF6B6B",
+    verticalAlign: "text-bottom",
+  },
+  styleGroupIconBleu: {
+    color: "#00A3FF",
+    verticalAlign: "text-bottom",
   },
   styleIconGagnant: {
-    verticalAlign: "bottom",
     color: "#13CC03",
+    verticalAlign: "bottom",
   },
   styleIconNeutre: {
-    verticalAlign: "bottom",
     color: "#B1B1B1",
+    verticalAlign: "bottom",
   },
   styleIconPerdant: {
-    verticalAlign: "bottom",
     color: "#FFAC33",
-  },
-  styleNeutre: {
-    color: "FFFFFF",
-  },
-  stylePerdant: {
-    color: "FFFFFF",
+    verticalAlign: "bottom",
   },
   styleTypeImpact: {
     color: "#565656",
     fontFamily: "Lato",
     fontSize: "1em",
-    fontWeight: "bold",
+    fontWeight: "regular",
     textJustify: "none",
+    paddingLeft: "10px",
   },
   styleTypeImpactDetail: {
     color: "#909090",
@@ -169,7 +169,6 @@ const styles = () => ({
     fontFamily: "Lato",
     fontSize: "1.125em",
     fontWeight: "bold",
-    padding: "0 0 0 10px",
     textJustify: "none",
   },
 });
@@ -215,59 +214,86 @@ class GagnantsPerdantsCard extends PureComponent {
             <div>
               <ArrowDownwardIcon
                 classes={{ root: classes.styleIconGagnant }}
-                fontSize="small"
+                fontSize="medium"
               />
               <Typography inline classes={{ root: classes.styleTypeImpact }}>
-                Baisse d'impôts
+                Baisse de l'IR
               </Typography>
               <div className={classes.containerImpact}>
-                <Typography inline classes={{ root: classes.impactPLF }}>
-                  <span> 20</span>
+                <div>
+                  <Typography inline classes={{ root: classes.impactPLF }}>
+                    <span> 20</span>
+                    {" "}
+                  </Typography>
                   <Typography inline classes={{ root: classes.impactPLFUnite }}>
                     <span>M</span>
                   </Typography>
-                  <GroupIcon classeName={classes.styleIcon} fontSize="small" />
-                </Typography>
-                <Typography inline classes={{ root: classes.impactReforme }}>
-                  <span> 20</span>
+                  <GroupIcon
+                    classes={{ root: classes.styleGroupIconRouge }}
+                    fontSize="small"
+                  />
+                </div>
+
+                <div>
+                  <Typography inline classes={{ root: classes.impactReforme }}>
+                    <span> 20</span>
+                    {" "}
+                  </Typography>
                   <Typography
                     inline
                     classes={{ root: classes.impactReformeUnite }}>
                     <span>M</span>
                   </Typography>
-                  <GroupIcon fontSize="small" />
-                </Typography>
+                  <GroupIcon
+                    classes={{ root: classes.styleGroupIconBleu }}
+                    fontSize="small"
+                  />
+                </div>
               </div>
             </div>
           </div>
+
           <Divider />
 
           <div className={classes.impactContainer}>
             <div>
               <TrendingFLatIcon
                 classes={{ root: classes.styleIconNeutre }}
-                fontSize="small"
+                fontSize="medium"
               />
               <Typography inline classes={{ root: classes.styleTypeImpact }}>
                 Pas de changement
               </Typography>
               <div className={classes.containerImpact}>
-                <Typography inline classes={{ root: classes.impactPLF }}>
-                  <span> 20</span>
+                <div>
+                  <Typography inline classes={{ root: classes.impactPLF }}>
+                    <span> 20</span>
+                    {" "}
+                  </Typography>
                   <Typography inline classes={{ root: classes.impactPLFUnite }}>
                     <span>M</span>
                   </Typography>
-                  <GroupIcon fontSize="small" />
-                </Typography>
-                <Typography inline classes={{ root: classes.impactReforme }}>
-                  <span> 20</span>
+                  <GroupIcon
+                    classes={{ root: classes.styleGroupIconRouge }}
+                    fontSize="small"
+                  />
+                </div>
+
+                <div>
+                  <Typography inline classes={{ root: classes.impactReforme }}>
+                    <span> 20</span>
+                    {" "}
+                  </Typography>
                   <Typography
                     inline
                     classes={{ root: classes.impactReformeUnite }}>
                     <span>M</span>
                   </Typography>
-                  <GroupIcon fontSize="small" />
-                </Typography>
+                  <GroupIcon
+                    classes={{ root: classes.styleGroupIconBleu }}
+                    fontSize="small"
+                  />
+                </div>
               </div>
 
               <Typography classes={{ root: classes.styleTypeImpactDetail }}>
@@ -283,7 +309,7 @@ class GagnantsPerdantsCard extends PureComponent {
                   <span>M</span>
                 </Typography>
                 <span className={classes.styleTypeImpactDetail}>
-                  de foyers toujours exonérés d'impôts
+                  de foyers toujours exonérés d'IR
                 </span>
               </Typography>
             </div>
@@ -295,29 +321,41 @@ class GagnantsPerdantsCard extends PureComponent {
             <div>
               <ArrowUpwardIcon
                 classes={{ root: classes.styleIconPerdant }}
-                fontSize="small"
+                fontSize="medium"
               />
               <Typography inline classes={{ root: classes.styleTypeImpact }}>
-                Augmentation des impôts
+                Augmentation de l'IR
               </Typography>
 
               <div className={classes.containerImpact}>
-                <Typography inline classes={{ root: classes.impactPLF }}>
-                  <span> 20</span>
+                <div>
+                  <Typography inline classes={{ root: classes.impactPLF }}>
+                    <span> 20</span>
+                    {" "}
+                  </Typography>
                   <Typography inline classes={{ root: classes.impactPLFUnite }}>
                     <span>M</span>
                   </Typography>
-                  <GroupIcon fontSize="small" />
-                </Typography>
-                <Typography inline classes={{ root: classes.impactReforme }}>
-                  <span> 20</span>
+                  <GroupIcon
+                    classes={{ root: classes.styleGroupIconRouge }}
+                    fontSize="small"
+                  />
+                </div>
+                <div>
+                  <Typography inline classes={{ root: classes.impactReforme }}>
+                    <span> 20</span>
+                    {" "}
+                  </Typography>
                   <Typography
                     inline
                     classes={{ root: classes.impactReformeUnite }}>
                     <span>M</span>
                   </Typography>
-                  <GroupIcon fontSize="small" />
-                </Typography>
+                  <GroupIcon
+                    classes={{ root: classes.styleGroupIconBleu }}
+                    fontSize="small"
+                  />
+                </div>
               </div>
               <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                 <span>dont</span>
@@ -331,7 +369,7 @@ class GagnantsPerdantsCard extends PureComponent {
                   <span> 20</span>
                   <span>M</span>
                 </Typography>
-                <span>foyers entrant dans l'impôt</span>
+                <span>foyers entrant dans l'IR</span>
               </Typography>
             </div>
           </div>
