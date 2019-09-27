@@ -71,7 +71,6 @@ const styles = () => ({
     marginBottom: "30px", //
     textAlign: "right",
   },
-
   subtitleCarteEtat: {
     color: "#565656",
     fontFamily: "Lato",
@@ -199,7 +198,7 @@ class CarteEtat extends PureComponent {
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className="styleExpansionPanel">
-            <SimpopTableurInfosDeciles deciles ={deciles} />
+            <SimpopTableurInfosDeciles deciles={deciles} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </Card>

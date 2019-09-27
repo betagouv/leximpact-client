@@ -8,6 +8,13 @@ import TableRow from "@material-ui/core/TableRow";
 import PropTypes from "prop-types";
 
 const styles = {
+  titleCarteEtat: {
+    color: "#565656",
+    fontFamily: "Lato",
+    fontSize: "1.125em",
+    fontWeight: "bold",
+    padding: "0 0 0 10px",
+  },
   cellStyle: {
     padding: "0px",
   },
@@ -23,7 +30,6 @@ const styles = {
     marginRight: "4px",
     padding: "3px",
   },
-
   plf: {
     color: "#FF6B6B",
     fontFamily: "Lato",
@@ -55,27 +61,17 @@ let id = 0;
 function createData(
   decile,
   revenuFiscalDeReference,
-  impactMoyenFoyer_plf,
-  impactMoyenFoyer_reforme,
-  impotMoyenFoyer,
-  impotMoyenFoyer_plf,
-  impotMoyenFoyer_reforme,
-  recettesEtat,
-  recettesEtat_plf,
-  recettesEtat_reforme
+  impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
+  impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
+  recettesEtat, recettesEtat_plf, recettesEtat_reforme
 ) {
   id += 1;
   return {
     decile,
     id,
-    impactMoyenFoyer_plf,
-    impactMoyenFoyer_reforme,
-    impotMoyenFoyer,
-    impotMoyenFoyer_plf,
-    impotMoyenFoyer_reforme,
-    recettesEtat,
-    recettesEtat_plf,
-    recettesEtat_reforme,
+    impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
+    impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
+    recettesEtat, recettesEtat_plf, recettesEtat_reforme,
     revenuFiscalDeReference,
   };
 }
@@ -84,15 +80,9 @@ function createData(
 function create_from_deciles(index, decile) {
   // source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
   const revenusFiscauxDeReference = [
-    3569,
-    9053,
-    12811,
-    16167,
-    19300,
-    23895,
-    29520,
-    37720,
-    52716,
+    3569, 9053, 12811,
+    16167, 19300, 23895,
+    29520, 37720, 52716,
     "∞",
   ];
 
@@ -108,14 +98,9 @@ function create_from_deciles(index, decile) {
   return createData(
     index + 1,
     revenusFiscauxDeReference[index],
-    impactMoyenFoyer_plf,
-    impactMoyenFoyer_reforme,
-    impotMoyenFoyer,
-    impotMoyenFoyer_plf,
-    impotMoyenFoyer_reforme,
-    recettesEtat,
-    recettesEtat_plf,
-    recettesEtat_reforme
+    impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
+    impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
+    recettesEtat, recettesEtat_plf, recettesEtat_reforme
   ); // Les recettes de l'Etat doivent être après réforme?
 }
 
@@ -129,9 +114,10 @@ function imageDecile(id) {
 
 function SimpopTableurInfosDeciles({ classes, deciles }) {
   const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement));
+  const NON_APPLICABLE = "—";
   return (
     <Table>
-      <TableHead>
+      <TableHead className={classes.titleCarteEtat}>
         <TableRow className={classes.tableStyle}>
           <TableCell align="center" padding="none">
             <p>
@@ -146,7 +132,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
           </TableCell>
           <TableCell align="center" padding="none">
             <p>
-              <b>Impact moyen sur le foyer </b>
+              <b>Impact moyen sur le foyer</b>
             </p>
             <p>(par rapport au code existant)</p>
           </TableCell>
@@ -174,11 +160,11 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
             </TableCell>
             <TableCell align="center" padding="dense">
               <span style={styles.plf}>
-                {(row.impactMoyenFoyer_plf == "-") ? "—" : row.impactMoyenFoyer_plf+"%"}
+                {(row.impactMoyenFoyer_plf == "-") ? NON_APPLICABLE : row.impactMoyenFoyer_plf+"%"}
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {(row.impactMoyenFoyer_reforme == "-") ? "—" : row.impactMoyenFoyer_reforme+"%"}
+                {(row.impactMoyenFoyer_reforme == "-") ? NON_APPLICABLE : row.impactMoyenFoyer_reforme+"%"}
               </span>
             </TableCell>
             <TableCell align="center" padding="dense">
