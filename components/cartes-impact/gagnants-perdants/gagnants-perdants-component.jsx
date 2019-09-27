@@ -177,11 +177,12 @@ class GagnantsPerdantsCard extends PureComponent {
   render() {
     const {
       classes,
-      //    handleRemoveCasType,
-      //    index,
-      isLoading,
-      //    resultats,
+      foyers_fiscaux_touches,
+      isDisabledEtat,
+      isLoadingEtat,
     } = this.props;
+
+
     return (
       <Card className={classes.cardContainer}>
         <CardContent className={classes.cardContent}>
@@ -382,7 +383,9 @@ GagnantsPerdantsCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   handleRemoveCasType: PropTypes.shape().isRequired,
   index: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  foyers_fiscaux_touches: PropTypes.shape().isRequired,
+  isDisabledEtat: PropTypes.bool.isRequired,
+  isLoadingEtat: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(GagnantsPerdantsCard);

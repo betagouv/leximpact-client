@@ -1,32 +1,22 @@
 import { connect } from "react-redux";
 
-import {
-  fetchCalculateCompare,
-  removeCasType,
-  showEditCasTypesPopin,
-} from "../../../redux/actions";
 import GagnantsPerdantsCard from "./gagnants-perdants-component";
 
-const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
-  const isLoading = loading;
-  const { name } = casTypes[index];
-  const descCasType = casTypes[index];
-  const resultats = {
-    apres: resBrut.apres[index],
-    avant: resBrut.avant[index],
-    plf: resBrut.plf[index],
-  };
+const mapStateToProps = ({ loadingEtat, totalPop }) => {
+  const isLoadingEtat = loadingEtat === "loading";
+  const isDisabledEtat = loadingEtat === "disabled";
+  const {  foyers_fiscaux_touches } = totalPop;
+  print("totalPop", totalPop);
   return {
-    descCasType,
-    isLoading,
-    name,
-    resultats,
+    foyers_fiscaux_touches,
+    isDisabledEtat,
+    isLoadingEtat,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleRemoveCasType: index => () => {
-    dispatch(removeCasType(index));
+  onClickSimPop: () => {
+    dispatch(fetchSimPop());
     dispatch(fetchCalculateCompare());
   },
 });
