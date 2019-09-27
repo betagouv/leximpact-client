@@ -10,6 +10,7 @@ const HTTP_SUCCESS_STATUS = [200, 201];
 function callEndpoint(method, pathWithStartingSlash, bodyObject = {}) {
   return new Promise((resolve, reject) => {
     const url = `${API_ENDPOINT}${pathWithStartingSlash}`;
+    console.log("url",url)
     const body = method === METHOD_GET_VERB ? null : JSON.stringify(bodyObject);
     fetch(url, { body, headers: DEFAULT_HEADERS, method })
       .then((response) => {
