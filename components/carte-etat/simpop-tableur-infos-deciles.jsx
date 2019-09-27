@@ -121,16 +121,16 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
             <b>Décile</b>
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
-            <b>Revenu fiscal de&nbsp;référence</b>
-            <p>(jusqu&apos;à)</p>
+            <b>Revenu&nbsp;fiscal de&nbsp;référence</b>
+            <br/>(jusqu&apos;à)
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Impact moyen sur le foyer</b>
-            <p>(par rapport au code existant)</p>
+            <br/>(par rapport au code existant)
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Impôt moyen des foyers</b>
-            <p><br/><br/>(par an)</p>
+            <br/>(par an)
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Recettes pour l&apos;État</b>
