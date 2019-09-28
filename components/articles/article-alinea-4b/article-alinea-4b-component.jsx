@@ -192,7 +192,7 @@ class Alinea4b extends PureComponent {
           <Typography style={styleTitreThematique}>
             Réfaction foyers modestes
           </Typography>
-          <p style={styleTitreThematiqueModifPLF}>Supprimée par le PLF 2020</p>
+          <p style={styleTitreThematiqueModifPLF}>Abrogée par le PLF 2020</p>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
