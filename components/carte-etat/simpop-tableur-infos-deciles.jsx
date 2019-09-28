@@ -58,7 +58,7 @@ const styles = {
 let id = 0;
 function createData(
   decile,
-  revenuFiscalDeReference,
+  frontiereDecile,
   impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
   impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
   recettesEtat, recettesEtat_plf, recettesEtat_reforme
@@ -70,20 +70,11 @@ function createData(
     impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
     impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
     recettesEtat, recettesEtat_plf, recettesEtat_reforme,
-    revenuFiscalDeReference,
+    frontiereDecile,
   };
 }
 
-
-function create_from_deciles(index, decile) {
-  // source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
-  const revenusFiscauxDeReference = [
-    3569, 9053, 12811,
-    16167, 19300, 23895,
-    29520, 37720, 52716,
-    "∞",
-  ];
-
+function create_from_deciles(index, decile, frontiereDecile) {
   var impactMoyenFoyer_plf = decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "-";
   var impactMoyenFoyer_reforme = decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "-";
   var impotMoyenFoyer = Math.round(decile.avant / decile.poids);
@@ -92,14 +83,15 @@ function create_from_deciles(index, decile) {
   var recettesEtat = Math.round(decile.avant / 10000000) / 100;
   var recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
   var recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
+  var frontiere = Math.round(frontiereDecile)
 
   return createData(
     index + 1,
-    revenusFiscauxDeReference[index],
+    frontiere,
     impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
     impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
     recettesEtat, recettesEtat_plf, recettesEtat_reforme
-  ); // Les recettes de l'Etat doivent être après réforme?
+  );
 }
 
 function imageDecile(id) {
@@ -111,8 +103,9 @@ function imageDecile(id) {
 }
 
 function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
-  const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement));
+  const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement, frontieres_deciles[index]));
   const NON_APPLICABLE = "—";
+
   return (
     <Table>
       <TableHead>
@@ -144,7 +137,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
               {imageDecile(row.decile)}
             </TableCell>
             <TableCell classes={{root: classes.cellStyle}}>
-              {row.revenuFiscalDeReference}€/an
+              {row.frontiereDecile}€/an
             </TableCell>
             <TableCell classes={{root: classes.cellStyle}}>
               <span style={styles.plf}>
