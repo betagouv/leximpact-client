@@ -1,5 +1,4 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Icon } from "@iconify/react";
 import {
   Button,
@@ -11,17 +10,18 @@ import {
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
   Cached as CachedIcon,
   Face as FaceIcon,
 } from "@material-ui/icons";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import BarChart from "./bar-chart";
+import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 
 const styles = () => ({
   buttonPosition: {
@@ -68,7 +68,7 @@ const styles = () => ({
     fontSize: "12px",
     fontWeight: "regular",
     marginLeft: "14px",
-    marginBottom: "30px", //
+    marginBottom: "0px", //
     textAlign: "right",
   },
   subtitleCarteEtat: {
@@ -84,14 +84,12 @@ const styles = () => ({
     fontWeight: "bold",
     padding: "0 0 0 10px",
   },
-
 });
 
 function getRoundedTotal(value) {
   const rounded = Math.round(value / 100000000) / 10;
   return rounded;
 }
-
 
 class CarteEtat extends PureComponent {
   render() {
@@ -183,7 +181,8 @@ class CarteEtat extends PureComponent {
                   <Typography className={classes.sourceInsee}>
                     * Chiffrages indicatifs.
                     <br />
-                    {" "}Estimation à partir des données de l&apos;Enquête
+                    {" "}
+Estimation à partir des données de l&apos;Enquête
                     Revenus Fiscaux et Sociaux de l&apos;INSEE.
                   </Typography>
                 </div>
@@ -191,10 +190,14 @@ class CarteEtat extends PureComponent {
             ]
           )}
         </CardContent>
-        <ExpansionPanel expanded={isPanelExpanded} onChange={expandArticlePanelHandler}>
-          <ExpansionPanelSummary className="styleExpansionPanel" expandIcon={<ExpandMoreIcon />}>
+        <ExpansionPanel
+          expanded={isPanelExpanded}
+          onChange={expandArticlePanelHandler}>
+          <ExpansionPanelSummary
+            className="styleExpansionPanel"
+            expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.subtitleCarteEtat}>
-            En savoir plus sur les déciles de population
+              En savoir plus sur les déciles de population
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className="styleExpansionPanel">
