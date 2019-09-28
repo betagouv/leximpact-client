@@ -6,9 +6,12 @@ import CarteEtatComponent from "./carte-etat-component";
 const mapStateToProps = ({ loadingEtat, totalPop }) => {
   const isLoadingEtat = loadingEtat === "loading";
   const isDisabledEtat = loadingEtat === "disabled";
-  const { deciles, total } = totalPop;
+  const { deciles, frontieres_deciles, total } = totalPop;
+  console.log("carte-etat > index.js")
+  console.log(totalPop)
   return {
     deciles,
+    frontieres_deciles,
     isDisabledEtat,
     isLoadingEtat,
     total,

@@ -110,7 +110,7 @@ function imageDecile(id) {
   );
 }
 
-function SimpopTableurInfosDeciles({ classes, deciles }) {
+function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
   const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement));
   const NON_APPLICABLE = "—";
   return (
@@ -191,6 +191,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
   deciles: PropTypes.shape().isRequired,
+  frontieres_deciles: PropTypes.shape().isRequired,
 };
 
 export default withStyles(styles)(SimpopTableurInfosDeciles);
