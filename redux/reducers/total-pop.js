@@ -84,8 +84,6 @@ const DEFAULT_STATE = {
 
 
 const totalPop = (state = DEFAULT_STATE, action) => {
-  console.log("total-pop")
-  console.log(action)
   switch (action.type) {
   case "onSimPopFetchResult":
     return {

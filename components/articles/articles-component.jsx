@@ -137,7 +137,6 @@ class ArticlesComponent extends React.Component {
   );
 
   gimmeIRPartsOfArticle = (i) => {
-    //  console.log("coucou");
     const {
       handleArticleChange,
       reforme,
@@ -157,7 +156,6 @@ class ArticlesComponent extends React.Component {
     if (i === 0) {
       const baseValue = bases[Math.min(i, bases.length - 1)];
       const plfValue = plfs[Math.min(i, plfs.length - 1)];
-      console.log(baseValue,plfValue,Math.abs(baseValue-plfValue) < 0.001);
       return (
         <Typography
           key={i}
