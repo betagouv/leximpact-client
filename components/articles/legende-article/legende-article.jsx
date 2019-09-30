@@ -87,7 +87,7 @@ function LegendeArticle({ classes }) {
           className={classes.alink}
           href="http://www.assemblee-nationale.fr/15/projets/pl2272.asp"
           target="blank">
-          Modifications d&apos;impôt prévues en 2020
+          PLF 2020
           <OpenInNewIcon className={classes.styleOpenInNewIcon} />
         </a>
       </Typography>
