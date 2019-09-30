@@ -55,6 +55,7 @@ const styles = {
   },
 };
 
+const NOMBRE_DECILES = 10
 let id = 0;
 function createData(
   decile,
@@ -83,7 +84,7 @@ function create_from_deciles(index, decile, frontiereDecile) {
   var recettesEtat = Math.round(decile.avant / 10000000) / 100;
   var recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
   var recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
-  var frontiere = Math.round(frontiereDecile)
+  var frontiere = (index+1 < NOMBRE_DECILES) ? Math.round(frontiereDecile) : "∞";
 
   return createData(
     index + 1,
