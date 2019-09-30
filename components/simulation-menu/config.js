@@ -29,7 +29,7 @@ const config = {
     {
       Icon: AddCircleOutlineIcon,
       action: showAddCasTypesPopin,
-      disabled: false,
+      disabled: true,
       key: "cas_types",
       label: "Ajouter un cas type",
       shortLabel: "Cas type",
