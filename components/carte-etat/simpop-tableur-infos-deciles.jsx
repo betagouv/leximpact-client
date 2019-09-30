@@ -133,6 +133,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Recettes pour l&apos;État</b>
+            <br/>(en Millions d'Euros)
           </TableCell>
         </TableRow>
       </TableHead>
