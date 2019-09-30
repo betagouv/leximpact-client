@@ -20,6 +20,11 @@ const styles = {
     padding: "0.6em",
     textAlign: "center",
   },
+  infinity: {
+    fontSize: "1.5em",
+    fontWeight: "330",
+    verticalAlign: "sub",
+  },
   codeExistant: {
     backgroundColor: "#DED500",
     backgroundSize: "auto auto",
@@ -84,7 +89,7 @@ function create_from_deciles(index, decile, frontiereDecile) {
   var recettesEtat = Math.round(decile.avant / 10000000) / 100;
   var recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
   var recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
-  var frontiere = (index+1 < NOMBRE_DECILES) ? Math.round(frontiereDecile) : ("∞\u00a0");
+  var frontiere = (index+1 < NOMBRE_DECILES) ? Math.round(frontiereDecile) : "-";
 
   return createData(
     index + 1,
@@ -138,7 +143,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
               {imageDecile(row.decile)}
             </TableCell>
             <TableCell classes={{root: classes.cellStyle}}>
-              &#10877;&nbsp;{row.frontiereDecile}€/an
+              &#10877;&nbsp;{(row.frontiereDecile == "-") ? <span className={classes.infinity}>∞&nbsp;</span> : row.frontiereDecile}€/an
             </TableCell>
             <TableCell classes={{root: classes.cellStyle}}>
               <span style={styles.plf}>
