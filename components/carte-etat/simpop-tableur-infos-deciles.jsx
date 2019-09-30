@@ -116,7 +116,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Revenu&nbsp;fiscal de&nbsp;référence</b>
-            <br/>(jusqu&apos;à)
+            <br/>(limite supérieure)
           </TableCell>
           <TableCell classes={{root: classes.cellStyle}}>
             <b>Impact moyen sur le foyer</b>
