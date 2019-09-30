@@ -22,6 +22,7 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
+import formatMilliers from "../utils/format-milliers"
 
 const stylesTheme = theme => ({
   paper: {
@@ -167,13 +168,13 @@ class ArticlesComponent extends React.Component {
           }
           <OutputField
             style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
-            value={baseValue}
+            value={formatMilliers(baseValue)}
           />
-          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
+          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
           <InputField
             name={`seuil${i}`}
             style={style.InputSeuil}
-            value={s[i]}
+            value={formatMilliers(s[i])}
             onChange={handleArticleChange}
           />
           € le taux de&nbsp;:
@@ -210,9 +211,9 @@ class ArticlesComponent extends React.Component {
           %
           <br />
           pour la fraction supérieure à&nbsp;
-          <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValue} />
-          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
-          <OutputField style={style.VarCodeNew} value={s[i - 1]} />
+          <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
+          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
+          <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
           {"€."}
         </Typography>
       );
@@ -247,18 +248,18 @@ class ArticlesComponent extends React.Component {
         %
         <br />
         pour la fraction supérieure à&nbsp;
-        <OutputField style={Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValueminus1} />
-        {Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValueminus1} />}
-        <OutputField style={style.VarCodeNew} value={s[i - 1]} />
+        <OutputField style={Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValueminus1)} />
+        {Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValueminus1)} />}
+        <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
         €
         <br />
         et inférieure ou égale à&nbsp;
-        <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={baseValue} />
-        {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={plfValue} />}
+        <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
+        {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
         <InputField
           name={`seuil${i}`}
           style={style.InputSeuil}
-          value={s[i]}
+          value={formatMilliers(s[i])}
           onChange={handleArticleChange}
         />
         {" "}

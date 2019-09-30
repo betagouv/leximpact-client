@@ -3,6 +3,7 @@ import { Fragment } from "react";
 
 import InputField from "../input-field";
 import OutputField from "../output-field";
+import formatMilliers from "../../utils/format-milliers";
 
 const BaseInputOutputComponent = ({
   baseValue,
@@ -16,12 +17,12 @@ const BaseInputOutputComponent = ({
   plfValue,
 }) => (
   <Fragment>
-    <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? outputFieldStyleNonBarre : outputFieldStyle} value={baseValue} />
-    {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={plfFieldStyle} value={plfValue} />}
+    <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? outputFieldStyleNonBarre : outputFieldStyle} value={formatMilliers(baseValue)} />
+    {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={plfFieldStyle} value={formatMilliers(plfValue)} />}
     <InputField
       name={name}
       style={inputFieldStyle}
-      value={newValue}
+      value={formatMilliers(newValue)}
       onChange={handleInputChange}
     />
   </Fragment>
