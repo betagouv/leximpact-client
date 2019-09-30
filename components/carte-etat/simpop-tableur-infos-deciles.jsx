@@ -138,7 +138,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
               {imageDecile(row.decile)}
             </TableCell>
             <TableCell classes={{root: classes.cellStyle}}>
-              {row.frontiereDecile}€/an
+              &#10877;&nbsp;{row.frontiereDecile}€/an
             </TableCell>
             <TableCell classes={{root: classes.cellStyle}}>
               <span style={styles.plf}>
