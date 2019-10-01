@@ -8,6 +8,9 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 const stylesTheme = theme => ({
+  menuPaper: {
+    backgroundColor: "rgba(255, 255, 255, 1) !important",
+  },
   refreshIcon: {
     display: "flex",
     float: "right !important",
@@ -93,8 +96,14 @@ class ArticleHeader extends PureComponent {
                 id="simple-menu"
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}>
-                <MenuItem onClick={this.handleClose}>Parmètres PLF</MenuItem>
-                <MenuItem onClick={this.handleClose}>
+                <MenuItem
+                  className={classes.menuPaper}
+                  onClick={this.handleClose}>
+                  Parmètres PLF
+                </MenuItem>
+                <MenuItem
+                  className={classes.menuPaper}
+                  onClick={this.handleClose}>
                   Paramètres code existant
                 </MenuItem>
               </Menu>
