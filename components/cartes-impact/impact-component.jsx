@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
-import GagnantsPerdantsCard from "./gagnants-perdants/gagnants-perdants-component";
+import GagnantsPerdantsCard from "./gagnants-perdants";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
