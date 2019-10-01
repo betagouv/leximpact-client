@@ -10,6 +10,8 @@ import { PureComponent } from "react";
 const stylesTheme = theme => ({
   menuPaper: {
     backgroundColor: "rgba(255, 255, 255, 1) !important",
+    paddingBottom: "5px",
+    paddingTop: "5px",
   },
   refreshIcon: {
     display: "flex",
@@ -21,6 +23,32 @@ const stylesTheme = theme => ({
     paddingTop: "0px",
     width: "100%",
   },
+  styleCodeExistant: {
+    fontFamily: "Lora",
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "8px",
+    padding: "3px",
+  },
+  stylePLF: {
+    fontFamily: "Lora",
+    color: "#FF6B6B",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "3px",
+    marginRight: "5px",
+  },
+  stylePaperTitreMenu: {
+    backgroundColor: "rgba(255, 255, 255, 1) !important",
+    padding: "2px",
+    fontFamily: "Lato",
+    paddingLeft: "15px",
+    paddingRight: "15px",
+  },
+
   styleToolBar: {
     display: "flex",
     minHeight: "50px",
@@ -88,6 +116,8 @@ class ArticleHeader extends PureComponent {
               <Button
                 aria-haspopup="true"
                 aria-owns={anchorEl ? "simple-menu" : undefined}
+                color="secondary"
+                size="small"
                 onClick={this.handleClick}>
                 <RefreshIcon color="secondary" />
               </Button>
@@ -96,15 +126,27 @@ class ArticleHeader extends PureComponent {
                 id="simple-menu"
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}>
+                <div className={classes.stylePaperTitreMenu}>
+                  <span>
+                    Réinitialiser mon amendement
+                    <br />
+                    {" "}
+avec les paramètres du&nbsp;:
+                  </span>
+                </div>
                 <MenuItem
                   className={classes.menuPaper}
                   onClick={this.handleClose}>
-                  Parmètres PLF
+                  <span>-</span>
+                  <span className={classes.stylePLF}>&nbsp;PLF</span>
                 </MenuItem>
                 <MenuItem
                   className={classes.menuPaper}
                   onClick={this.handleClose}>
-                  Paramètres code existant
+                  <span>-</span>
+                  <span className={classes.styleCodeExistant}>
+                    &nbsp;code existant
+                  </span>
                 </MenuItem>
               </Menu>
             </div>
