@@ -86,27 +86,19 @@ class ArticleHeader extends PureComponent {
                 aria-haspopup="true"
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 onClick={this.handleClick}>
-                Open Menu
+                <RefreshIcon color="secondary" />
               </Button>
               <Menu
                 anchorEl={anchorEl}
                 id="simple-menu"
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}>
-                <MenuItem onClick="">Profile</MenuItem>
-                <MenuItem onClick="">My account</MenuItem>
-                <MenuItem onClick="">Logout</MenuItem>
+                <MenuItem onClick={this.handleClose}>Parmètres PLF</MenuItem>
+                <MenuItem onClick={this.handleClose}>
+                  Paramètres code existant
+                </MenuItem>
               </Menu>
             </div>
-
-            <Button
-              className={classes.refreshIcon}
-              color="inherit"
-              size="small"
-              variant="outlined"
-              onClick={resetVarArticle}>
-              <RefreshIcon color="secondary" />
-            </Button>
           </Toolbar>
         </AppBar>
       </div>
