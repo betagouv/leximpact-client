@@ -96,6 +96,17 @@ class ArticleHeader extends PureComponent {
     this.setState({ anchorEl: null });
   };
 
+  handleClickPlf = () => {
+    this.props.resetVarArticle();
+    this.setState({ anchorEl: null });
+  };
+
+  handleClickExistant = () => {
+    this.props.resetVarArticleExistant();
+    this.setState({ anchorEl: null });
+  };
+
+
   render() {
     const { classes, resetVarArticle, resetVarArticleExistant } = this.props;
     const { anchorEl } = this.state;
@@ -136,13 +147,13 @@ avec les paramètres du&nbsp;:
                 </div>
                 <MenuItem
                   className={classes.menuItemPaper}
-                  onClick={this.handleClose}>
+                  onClick={this.handleClickPlf}>
                   <span>-</span>
                   <span className={classes.stylePLF}>&nbsp;PLF</span>
                 </MenuItem>
                 <MenuItem
                   className={classes.menuItemPaper}
-                  onClick={this.handleClose}>
+                  onClick={this.handleClickExistant}>
                   <span>-</span>
                   <span className={classes.styleCodeExistant}>
                     &nbsp;code existant
