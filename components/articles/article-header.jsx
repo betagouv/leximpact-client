@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 const stylesTheme = theme => ({
-  menuPaper: {
+  menuItemPaper: {
     backgroundColor: "rgba(255, 255, 255, 1) !important",
     paddingBottom: "5px",
     paddingTop: "5px",
@@ -135,13 +135,13 @@ avec les paramètres du&nbsp;:
                   </span>
                 </div>
                 <MenuItem
-                  className={classes.menuPaper}
+                  className={classes.menuItemPaper}
                   onClick={this.handleClose}>
                   <span>-</span>
                   <span className={classes.stylePLF}>&nbsp;PLF</span>
                 </MenuItem>
                 <MenuItem
-                  className={classes.menuPaper}
+                  className={classes.menuItemPaper}
                   onClick={this.handleClose}>
                   <span>-</span>
                   <span className={classes.styleCodeExistant}>
