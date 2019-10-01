@@ -96,6 +96,7 @@ class CarteEtat extends PureComponent {
     const {
       classes,
       deciles,
+      frontieres_deciles,
       expandArticlePanelHandler,
       isDisabledEtat,
       isLoadingEtat,
@@ -182,7 +183,7 @@ class CarteEtat extends PureComponent {
                     * Chiffrages indicatifs.
                     <br />
                     {" "}
-Estimation à partir des données de l&apos;Enquête
+                    Estimation à partir des données de l&apos;Enquête
                     Revenus Fiscaux et Sociaux de l&apos;INSEE.
                   </Typography>
                 </div>
@@ -201,7 +202,7 @@ Estimation à partir des données de l&apos;Enquête
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className="styleExpansionPanel">
-            <SimpopTableurInfosDeciles deciles={deciles} />
+            <SimpopTableurInfosDeciles deciles={deciles} frontieres_deciles={frontieres_deciles}/>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </Card>
@@ -219,6 +220,7 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  frontieres_deciles: PropTypes.bool.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,

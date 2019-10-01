@@ -20,6 +20,11 @@ const styles = {
     padding: "0.6em",
     textAlign: "center",
   },
+  infinity: {
+    fontSize: "2em",
+    fontWeight: "330",
+    verticalAlign: "sub",
+  },
   codeExistant: {
     backgroundColor: "#DED500",
     backgroundSize: "auto auto",
@@ -55,130 +60,162 @@ const styles = {
   },
 };
 
+const NOMBRE_DECILES = 10;
 let id = 0;
 function createData(
   decile,
-  revenuFiscalDeReference,
-  impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
-  impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
-  recettesEtat, recettesEtat_plf, recettesEtat_reforme
+  frontiereDecile,
+  impactMoyenFoyer_plf,
+  impactMoyenFoyer_reforme,
+  impotMoyenFoyer,
+  impotMoyenFoyer_plf,
+  impotMoyenFoyer_reforme,
+  recettesEtat,
+  recettesEtat_plf,
+  recettesEtat_reforme,
 ) {
   id += 1;
   return {
     decile,
     id,
-    impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
-    impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
-    recettesEtat, recettesEtat_plf, recettesEtat_reforme,
-    revenuFiscalDeReference,
+    impactMoyenFoyer_plf,
+    impactMoyenFoyer_reforme,
+    impotMoyenFoyer,
+    impotMoyenFoyer_plf,
+    impotMoyenFoyer_reforme,
+    recettesEtat,
+    recettesEtat_plf,
+    recettesEtat_reforme,
+    frontiereDecile,
   };
 }
 
-
-function create_from_deciles(index, decile) {
-  // source (2016) http://www.senat.fr/rap/l16-140-211/l16-140-2111.pdf
-  const revenusFiscauxDeReference = [
-    3569, 9053, 12811,
-    16167, 19300, 23895,
-    29520, 37720, 52716,
-    "∞",
-  ];
-
-  var impactMoyenFoyer_plf = decile.avant ? Math.round((decile.plf / decile.avant - 1) * 100) : "-";
-  var impactMoyenFoyer_reforme = decile.avant ? Math.round((decile.apres / decile.avant - 1) * 100) : "-";
-  var impotMoyenFoyer = Math.round(decile.avant / decile.poids);
-  var impotMoyenFoyer_plf = Math.round(decile.plf / decile.poids);
-  var impotMoyenFoyer_reforme = Math.round(decile.apres / decile.poids);
-  var recettesEtat = Math.round(decile.avant / 10000000) / 100;
-  var recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
-  var recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
+function create_from_deciles(index, decile, frontiereDecile) {
+  const impactMoyenFoyer_plf = decile.avant
+    ? Math.round((decile.plf / decile.avant - 1) * 100)
+    : "-";
+  const impactMoyenFoyer_reforme = decile.avant
+    ? Math.round((decile.apres / decile.avant - 1) * 100)
+    : "-";
+  const impotMoyenFoyer = Math.round(decile.avant / decile.poids);
+  const impotMoyenFoyer_plf = Math.round(decile.plf / decile.poids);
+  const impotMoyenFoyer_reforme = Math.round(decile.apres / decile.poids);
+  const recettesEtat = Math.round(decile.avant / 10000000) / 100;
+  const recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
+  const recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
+  const frontiere = index + 1 < NOMBRE_DECILES ? Math.round(frontiereDecile) : "-";
 
   return createData(
     index + 1,
-    revenusFiscauxDeReference[index],
-    impactMoyenFoyer_plf, impactMoyenFoyer_reforme,
-    impotMoyenFoyer, impotMoyenFoyer_plf, impotMoyenFoyer_reforme,
-    recettesEtat, recettesEtat_plf, recettesEtat_reforme
-  ); // Les recettes de l'Etat doivent être après réforme?
+    frontiere,
+    impactMoyenFoyer_plf,
+    impactMoyenFoyer_reforme,
+    impotMoyenFoyer,
+    impotMoyenFoyer_plf,
+    impotMoyenFoyer_reforme,
+    recettesEtat,
+    recettesEtat_plf,
+    recettesEtat_reforme,
+  );
 }
 
 function imageDecile(id) {
   const imageId = `imageDecile${id}`;
   const imagePath = `/static/images/decile${id}.png`;
-  return (
-    <img key={imageId} alt="" height="24" width="24" src={imagePath} />
-  );
+  return <img key={imageId} alt="" height="24" src={imagePath} width="24" />;
 }
 
-function SimpopTableurInfosDeciles({ classes, deciles }) {
-  const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement));
+function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
+  const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement, frontieres_deciles[index]));
   const NON_APPLICABLE = "—";
+
   return (
     <Table>
       <TableHead>
-        <TableRow classes={{root: classes.tableHeader}}>
-          <TableCell classes={{root: classes.cellStyle}}>
+        <TableRow classes={{ root: classes.tableHeader }}>
+          <TableCell classes={{ root: classes.cellStyle }}>
             <b>Décile</b>
           </TableCell>
-          <TableCell classes={{root: classes.cellStyle}}>
+          <TableCell classes={{ root: classes.cellStyle }}>
             <b>Revenu&nbsp;fiscal de&nbsp;référence</b>
-            <br/>(jusqu&apos;à)
+            <br />
+            (limite supérieure)
           </TableCell>
-          <TableCell classes={{root: classes.cellStyle}}>
+          <TableCell classes={{ root: classes.cellStyle }}>
             <b>Impact moyen sur le foyer</b>
-            <br/>(par rapport au code existant)
+            <br />
+            (par rapport au code existant)
           </TableCell>
-          <TableCell classes={{root: classes.cellStyle}}>
+          <TableCell classes={{ root: classes.cellStyle }}>
             <b>Impôt moyen des foyers</b>
-            <br/>(par an)
+            <br />
+            (par an)
           </TableCell>
-          <TableCell classes={{root: classes.cellStyle}}>
+          <TableCell classes={{ root: classes.cellStyle }}>
             <b>Recettes pour l&apos;État</b>
+            <br />
+            (en Milliards d&apos;euros)
           </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {rows.map(row => (
           <TableRow key={row.id}>
-            <TableCell classes={{root: classes.cellStyle}}>
+            <TableCell classes={{ root: classes.cellStyle }}>
               {imageDecile(row.decile)}
             </TableCell>
-            <TableCell classes={{root: classes.cellStyle}}>
-              {row.revenuFiscalDeReference}€/an
+            <TableCell classes={{ root: classes.cellStyle }}>
+              &#10877;&nbsp;
+              {row.frontiereDecile == "-" ? (
+                <span className={classes.infinity}>∞</span>
+              ) : (
+                row.frontiereDecile
+              )}
+              €/an
             </TableCell>
-            <TableCell classes={{root: classes.cellStyle}}>
+            <TableCell classes={{ root: classes.cellStyle }}>
               <span style={styles.plf}>
-                {(row.impactMoyenFoyer_plf == "-") ? NON_APPLICABLE : row.impactMoyenFoyer_plf+"%"}
+                {row.impactMoyenFoyer_plf == "-"
+                  ? NON_APPLICABLE
+                  : `${row.impactMoyenFoyer_plf}%`}
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {(row.impactMoyenFoyer_reforme == "-") ? NON_APPLICABLE : row.impactMoyenFoyer_reforme+"%"}
+                {row.impactMoyenFoyer_reforme == "-"
+                  ? NON_APPLICABLE
+                  : `${row.impactMoyenFoyer_reforme}%`}
               </span>
             </TableCell>
-            <TableCell classes={{root: classes.cellStyle}}>
+            <TableCell classes={{ root: classes.cellStyle }}>
               <span style={styles.codeExistant}>
-                {row.impotMoyenFoyer}€
+                {row.impotMoyenFoyer}
+                €
               </span>
               &nbsp;
               <span style={styles.plf}>
-                {row.impotMoyenFoyer_plf}€
+                {row.impotMoyenFoyer_plf}
+                €
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.impotMoyenFoyer_reforme}€
+                {row.impotMoyenFoyer_reforme}
+                €
               </span>
             </TableCell>
-            <TableCell classes={{root: classes.cellStyle}}>
+            <TableCell classes={{ root: classes.cellStyle }}>
               <span style={styles.codeExistant}>
-                {row.recettesEtat}Md€
+                {row.recettesEtat}
+                Md€
               </span>
               &nbsp;
               <span style={styles.plf}>
-                {row.recettesEtat_plf}Md€
+                {row.recettesEtat_plf}
+                Md€
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.recettesEtat_reforme}Md€
+                {row.recettesEtat_reforme}
+                Md€
               </span>
             </TableCell>
           </TableRow>
@@ -191,6 +228,7 @@ function SimpopTableurInfosDeciles({ classes, deciles }) {
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
   deciles: PropTypes.shape().isRequired,
+  frontieres_deciles: PropTypes.shape().isRequired,
 };
 
 export default withStyles(styles)(SimpopTableurInfosDeciles);

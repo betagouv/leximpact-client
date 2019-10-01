@@ -10,7 +10,7 @@ describe("components | actions | showAddCasTypesPopin", () => {
       Router.push.mockClear();
     });
 
-    it("doit avoir appeler la methode push du Router a l'ouverture de la popin 'en savoir plus'", () => {
+    it("doit avoir appele la methode push du Router a l'ouverture de la popin 'en savoir plus'", () => {
       const expected = { type: null };
       const result = showAddCasTypesPopin();
       expect(result).toStrictEqual(expected);

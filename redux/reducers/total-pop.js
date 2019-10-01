@@ -82,11 +82,13 @@ const DEFAULT_STATE = {
   ]
 };
 
+
 const totalPop = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
   case "onSimPopFetchResult":
     return {
       deciles: get(action, "data.deciles"),
+      frontieres_deciles: get(action, "data.frontieres_deciles"),
       total: get(action, "data.total"),
     };
   default:
