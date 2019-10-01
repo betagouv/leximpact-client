@@ -85,7 +85,7 @@ const CasTypesRevenus = ({ classes, name }) => (
                 {selectOptions}
               </NativeSelect>
               <span className={classes.label}>
-                {`Soit ${revenuAnnuel} €/an`}
+                {`Soit ${formatMilliers(revenuAnnuel)} €/an`}
               </span>
             </Fragment>
           );
