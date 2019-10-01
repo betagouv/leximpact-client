@@ -106,6 +106,8 @@ const totalPop = (state = DEFAULT_STATE, action) => {
       deciles: get(action, "data.deciles"),
       frontieres_deciles: get(action, "data.frontieres_deciles"),
       total: get(action, "data.total"),
+      foyers_fiscaux_touches: get(action, "data.foyers_fiscaux_touches"),
+      frontieres_deciles: get(action, "data.frontieres_deciles"),
     };
   default:
     return state;
