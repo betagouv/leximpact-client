@@ -6,6 +6,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import PropTypes from "prop-types";
+import formatMilliers from "../utils/format-milliers";
+
+
 
 const styles = {
   tableHeader: {
@@ -92,22 +95,22 @@ function createData(
 
 function create_from_deciles(index, decile, frontiereDecile) {
   const impactMoyenFoyer_plf = decile.avant
-    ? Math.round((decile.plf / decile.avant - 1) * 100)
+    ? formatMilliers(Math.round((decile.plf / decile.avant - 1) * 100))
     : "-";
   const impactMoyenFoyer_reforme = decile.avant
-    ? Math.round((decile.apres / decile.avant - 1) * 100)
+    ? formatMilliers(Math.round((decile.apres / decile.avant - 1) * 100))
     : "-";
-  const impotMoyenFoyer = Math.round(decile.avant / decile.poids);
-  const impotMoyenFoyer_plf = Math.round(decile.plf / decile.poids);
-  const impotMoyenFoyer_reforme = Math.round(decile.apres / decile.poids);
-  const recettesEtat = Math.round(decile.avant / 10000000) / 100;
-  const recettesEtat_plf = Math.round(decile.plf / 10000000) / 100;
-  const recettesEtat_reforme = Math.round(decile.apres / 10000000) / 100;
-  const frontiere = index + 1 < NOMBRE_DECILES ? Math.round(frontiereDecile) : "-";
+  const impotMoyenFoyer = formatMilliers(Math.round(decile.avant / decile.poids));
+  const impotMoyenFoyer_plf = formatMilliers(Math.round(decile.plf / decile.poids));
+  const impotMoyenFoyer_reforme = formatMilliers(Math.round(decile.apres / decile.poids));
+  const recettesEtat = formatMilliers(Math.round(decile.avant / 10000000) / 100);
+  const recettesEtat_plf = formatMilliers(Math.round(decile.plf / 10000000) / 100);
+  const recettesEtat_reforme = formatMilliers(Math.round(decile.apres / 10000000) / 100);
+  const frontiere = index + 1 < NOMBRE_DECILES ? formatMilliers(Math.round(frontiereDecile)) : "-";
 
   return createData(
     index + 1,
-    frontiere,
+    formatMilliers(frontiere),
     impactMoyenFoyer_plf,
     impactMoyenFoyer_reforme,
     impotMoyenFoyer,
