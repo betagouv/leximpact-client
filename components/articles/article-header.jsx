@@ -97,7 +97,7 @@ class ArticleHeader extends PureComponent {
   };
 
   render() {
-    const { classes, resetVarArticle } = this.props;
+    const { classes, resetVarArticle, resetVarArticleExistant } = this.props;
     const { anchorEl } = this.state;
     return (
       <div className={classes.root}>
@@ -159,6 +159,7 @@ avec les paramètres du&nbsp;:
 ArticleHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
   resetVarArticle: PropTypes.func.isRequired,
+  resetVarArticleExistant: PropTypes.func.isRequired,
 };
 
 export default withStyles(stylesTheme, { withTheme: true })(ArticleHeader);
