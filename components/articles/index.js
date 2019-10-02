@@ -5,6 +5,7 @@ import {
   // fetchCalculateCompare,
   removeTranche,
   resetVarArticle,
+  resetVarArticleExistant,
   updateReformeByName,
 } from "../../redux/actions";
 import ArticlesComponent from "./articles-component";
@@ -29,6 +30,9 @@ const mapDispatchToProps = dispatch => ({
   },
   handleResetVarArticle: () => {
     dispatch(resetVarArticle());
+  },
+  handleResetVarArticleExistant: () => {
+    dispatch(resetVarArticleExistant());
   },
 });
 

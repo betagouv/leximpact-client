@@ -1,6 +1,7 @@
 import { cloneDeep, get, set } from "lodash";
 
 import { REFORME_PLF_DEFAULT_STATE } from "./reforme-plf";
+import { REFORME_BASE_DEFAULT_STATE } from "./reforme-base";
 
 const DEFAULT_STATE = cloneDeep(REFORME_PLF_DEFAULT_STATE);
 
@@ -96,6 +97,8 @@ const reforme = (state = DEFAULT_STATE, action) => {
     return updateGenerique(nextState, name, value);
   case "onResetVarArticle":
     return cloneDeep(REFORME_PLF_DEFAULT_STATE);
+  case "onResetVarArticleExistant":
+    return cloneDeep(REFORME_BASE_DEFAULT_STATE);
   default:
     return nextState;
   }

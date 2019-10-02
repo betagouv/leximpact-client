@@ -19,4 +19,5 @@ export { default as showAddCasTypesPopin } from "./popin-cas-types-add";
 export { default as showEditCasTypesPopin } from "./popin-cas-types-edit";
 export { default as showLogoutPopin } from "./popin-logout";
 export { default as resetVarArticle } from "./reset-var-article";
+export { default as resetVarArticleExistant } from "./reset-var-article-existant";
 export { default as disabledEtat } from "./disabled-etat";

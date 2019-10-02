@@ -275,6 +275,7 @@ class ArticlesComponent extends React.Component {
       handleArticleChange,
       handleRemoveTranche,
       handleResetVarArticle,
+      handleResetVarArticleExistant,
       reforme,
     } = this.props;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
@@ -282,7 +283,7 @@ class ArticlesComponent extends React.Component {
 
     return (
       <Paper className={classes.paper}>
-        <ArticleHeader resetVarArticle={handleResetVarArticle} />
+        <ArticleHeader resetVarArticle={handleResetVarArticle} resetVarArticleExistant={handleResetVarArticleExistant}/>
         <Divider />
         <div style={style.DivTitreTheme}>
           <Typography style={style.StyleTitreThematique}>
@@ -330,6 +331,7 @@ ArticlesComponent.propTypes = {
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
   handleResetVarArticle: PropTypes.func.isRequired,
+  handleResetVarArticleExistant: PropTypes.func.isRequired,
   reforme: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
