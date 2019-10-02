@@ -105,7 +105,7 @@ class Alinea4b extends PureComponent {
         l&apos;article 200 A pour l&apos;application de la seconde phrase du 3°
         du même a.
         <br />
-        Le taux de la réduction prévue au premier alinéa du présent b est de 20
+        Le taux de la réduction prévue au premier alinéa du présent b est de {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}
         %. Toutefois, pour les contribuables dont les revenus du foyer fiscal,
         au sens du 1° du IV de l&apos;article 1417, excèdent
         {" "}
@@ -123,7 +123,7 @@ class Alinea4b extends PureComponent {
         soumises à une imposition commune, ces seuils étant majorés le cas
         échéant dans les conditions prévues au même premier alinéa, le taux de
         la réduction d&apos;impôt est égal à
-        {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}
+        {formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.taux",1)}
         % multiplié par le rapport entre :
         <br />
 – au numérateur, la différence entre
