@@ -5,13 +5,13 @@ import {
 } from "@material-ui/icons";
 
 import { showAddCasTypesPopin } from "../../redux/actions";
+import { showAddCasTypesPopin } from "../../redux/actions";
 
 const config = {
   optionsMenuItems: [
     {
       Icon: ShareIcon,
-      /* TODO: creer une action redux pour cet item du menu */
-      action: () => ({ type: "undefined" }),
+      action: exportDocument,
       key: "simpop-share-button",
       label: "Partager",
       shortLabel: "Partager",
