@@ -1,7 +1,6 @@
 import familyManGirlGirl from "@iconify/icons-twemoji/family-man-girl-girl";
 import { Icon } from "@iconify/react";
 import {
-  Button,
   Card,
   CardContent,
   Divider,
@@ -41,13 +40,13 @@ const styles = () => ({
     padding: 0,
   },
   cardHeader: {
-    textAlign: "left",
     display: "flex",
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 15,
     paddingBottom: 5,
+    textAlign: "left",
   },
   cardHeaderButtons: {
     maxWidth: 15,
@@ -55,65 +54,67 @@ const styles = () => ({
     width: 15,
   },
   containerImpact: {
-    justifyContent: "space-around",
-    display: "flex",
     alignContent: "flex-start",
+    display: "flex",
+    justifyContent: "space-around",
     paddingBottom: "0px",
   },
   divTitre: {
     display: "inline-block",
     paddingLeft: "3px",
   },
+  impactContainer: {
+    paddingBottom: 15,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 5,
+  },
   impactPLF: {
+    alignSelf: "flex-start",
     color: "#FF6B6B",
     fontFamily: "Lato",
-    fontWeight: "bold",
     fontSize: 25,
+    fontWeight: "bold",
     textAlign: "center",
-    alignSelf: "flex-start",
+
     //  paddingLeft: "20px",
   },
-  impactReforme: {
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontWeight: "bold",
-    fontSize: 25,
-    alignSelf: "flex-end",
 
-    //  paddingLeft: "70px",
-  },
   impactPLFDetail: {
     color: "#FF6B6B",
     fontFamily: "Lato",
-    fontWeight: "bold",
     fontSize: 12,
+    fontWeight: "bold",
   },
   impactPLFUnite: {
     color: "#FF6B6B",
     fontFamily: "Lato",
-    fontWeight: "regular",
     fontSize: 20,
+    fontWeight: "regular",
     textAlign: "center",
+  },
+
+  impactReforme: {
+    alignSelf: "flex-end",
+    color: "#00A3FF",
+    fontFamily: "Lato",
+    fontSize: 25,
+    fontWeight: "bold",
+
+    //  paddingLeft: "70px",
+  },
+  impactReformeDetail: {
+    color: "#00A3FF",
+    fontFamily: "Lato",
+    fontSize: 12,
+    fontWeight: "bold",
   },
   impactReformeUnite: {
     color: "#00A3FF",
     fontFamily: "Lato",
-    fontWeight: "regular",
     fontSize: 20,
+    fontWeight: "regular",
     textAlign: "center",
-  },
-
-  impactReformeDetail: {
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontWeight: "bold",
-    fontSize: 12,
-  },
-  impactContainer: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 15,
-    paddingTop: 5,
   },
   revenusMensuelValue: {
     color: "#000000",
@@ -125,20 +126,16 @@ const styles = () => ({
   revenusMensuelWrapper: {
     padding: 0,
   },
-  subtitleCard: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "0.875em",
-    textJustify: "left",
+
+  styleGroupIconBleu: {
+    color: "#00A3FF",
+    verticalAlign: "text-bottom",
   },
   styleGroupIconRouge: {
     color: "#FF6B6B",
     verticalAlign: "text-bottom",
   },
-  styleGroupIconBleu: {
-    color: "#00A3FF",
-    verticalAlign: "text-bottom",
-  },
+
   styleIconGagnant: {
     color: "#13CC03",
     verticalAlign: "bottom",
@@ -156,13 +153,19 @@ const styles = () => ({
     fontFamily: "Lato",
     fontSize: "1em",
     fontWeight: "regular",
-    textJustify: "none",
     paddingLeft: "10px",
+    textJustify: "none",
   },
   styleTypeImpactDetail: {
     color: "#909090",
     fontFamily: "Lato",
     fontSize: 12,
+  },
+  subtitleCard: {
+    color: "#565656",
+    fontFamily: "Lato",
+    fontSize: "0.875em",
+    textJustify: "left",
   },
   titleCard: {
     color: "#565656",
@@ -182,19 +185,44 @@ class GagnantsPerdantsCard extends PureComponent {
       isLoadingEtat,
     } = this.props;
 
-
-    const baisse_plf = Math.round(get(foyers_fiscaux_touches,"avant_to_plf.gagnant",0)/100000)/10;
-    const baisse_reforme = Math.round(get(foyers_fiscaux_touches,"avant_to_apres.gagnant",0)/100000)/10;
-    const neutre_plf = Math.round( (get(foyers_fiscaux_touches,"avant_to_plf.neutre",0)+ get(foyers_fiscaux_touches,"avant_to_plf.neutre_zero",0))/100000)/10;
-    const neutre_reforme = Math.round( (get(foyers_fiscaux_touches,"avant_to_apres.neutre",0)+ get(foyers_fiscaux_touches,"avant_to_apres.neutre_zero",0))/100000)/10;
-    const neutre_zero_plf = Math.round(get(foyers_fiscaux_touches,"avant_to_plf.neutre_zero",0)/100000)/10;
-    const neutre_zero_reforme = Math.round(get(foyers_fiscaux_touches,"avant_to_apres.neutre_zero",0)/100000)/10;
-    const hausse_plf = Math.round( (get(foyers_fiscaux_touches,"avant_to_plf.perdant",0)+ get(foyers_fiscaux_touches,"avant_to_plf.perdant_zero",0))/100000)/10;
-    const hausse_reforme = Math.round( (get(foyers_fiscaux_touches,"avant_to_apres.perdant",0)+ get(foyers_fiscaux_touches,"avant_to_apres.perdant_zero",0))/100000)/10;
-    const hausse_zero_plf = Math.round(get(foyers_fiscaux_touches,"avant_to_plf.perdant_zero",0)/100000)/10;
-    const hausse_zero_reforme = Math.round(get(foyers_fiscaux_touches,"avant_to_apres.perdant_zero",0)/100000)/10;
-
-
+    const baisse_plf = Math.round(
+      get(foyers_fiscaux_touches, "avant_to_plf.gagnant", 0) / 100000,
+    ) / 10;
+    const baisse_reforme = Math.round(
+      get(foyers_fiscaux_touches, "avant_to_apres.gagnant", 0) / 100000,
+    ) / 10;
+    const neutre_plf = Math.round(
+      (get(foyers_fiscaux_touches, "avant_to_plf.neutre", 0)
+          + get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0))
+          / 100000,
+    ) / 10;
+    const neutre_reforme = Math.round(
+      (get(foyers_fiscaux_touches, "avant_to_apres.neutre", 0)
+          + get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0))
+          / 100000,
+    ) / 10;
+    const neutre_zero_plf = Math.round(
+      get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0) / 100000,
+    ) / 10;
+    const neutre_zero_reforme = Math.round(
+      get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0) / 100000,
+    ) / 10;
+    const hausse_plf = Math.round(
+      (get(foyers_fiscaux_touches, "avant_to_plf.perdant", 0)
+          + get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0))
+          / 100000,
+    ) / 10;
+    const hausse_reforme = Math.round(
+      (get(foyers_fiscaux_touches, "avant_to_apres.perdant", 0)
+          + get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0))
+          / 100000,
+    ) / 10;
+    const hausse_zero_plf = Math.round(
+      get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0) / 100000,
+    ) / 10;
+    const hausse_zero_reforme = Math.round(
+      get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0) / 100000,
+    ) / 10;
 
     return (
       <Card className={classes.cardContainer}>
@@ -231,12 +259,16 @@ class GagnantsPerdantsCard extends PureComponent {
                 fontSize="medium"
               />
               <Typography inline classes={{ root: classes.styleTypeImpact }}>
-                Baisse de l'IR
+                Baisse de l&apos;IR
               </Typography>
               <div className={classes.containerImpact}>
                 <div>
                   <Typography inline classes={{ root: classes.impactPLF }}>
-                    <span> {baisse_plf} </span>
+                    <span>
+                      {" "}
+                      {baisse_plf}
+                      {" "}
+                    </span>
                     {" "}
                   </Typography>
                   <Typography inline classes={{ root: classes.impactPLFUnite }}>
@@ -250,7 +282,10 @@ class GagnantsPerdantsCard extends PureComponent {
 
                 <div>
                   <Typography inline classes={{ root: classes.impactReforme }}>
-                    <span> {baisse_reforme}</span>
+                    <span>
+                      {" "}
+                      {baisse_reforme}
+                    </span>
                     {" "}
                   </Typography>
                   <Typography
@@ -281,7 +316,10 @@ class GagnantsPerdantsCard extends PureComponent {
               <div className={classes.containerImpact}>
                 <div>
                   <Typography inline classes={{ root: classes.impactPLF }}>
-                    <span> {neutre_plf}</span>
+                    <span>
+                      {" "}
+                      {neutre_plf}
+                    </span>
                     {" "}
                   </Typography>
                   <Typography inline classes={{ root: classes.impactPLFUnite }}>
@@ -295,7 +333,10 @@ class GagnantsPerdantsCard extends PureComponent {
 
                 <div>
                   <Typography inline classes={{ root: classes.impactReforme }}>
-                    <span> {neutre_reforme}</span>
+                    <span>
+                      {" "}
+                      {neutre_reforme}
+                    </span>
                     {" "}
                   </Typography>
                   <Typography
@@ -313,17 +354,23 @@ class GagnantsPerdantsCard extends PureComponent {
               <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                 <span>dont </span>
                 <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                  <span> {neutre_zero_plf}</span>
+                  <span>
+                    {" "}
+                    {neutre_zero_plf}
+                  </span>
                   <span>M</span>
                 </Typography>
                 <Typography
                   inline
                   classes={{ root: classes.impactReformeDetail }}>
-                  <span> {neutre_zero_reforme}</span>
+                  <span>
+                    {" "}
+                    {neutre_zero_reforme}
+                  </span>
                   <span>M</span>
                 </Typography>
                 <span className={classes.styleTypeImpactDetail}>
-                  de foyers toujours exonérés d'IR
+                  &nbsp;de foyers toujours exonérés d&apos;IR
                 </span>
               </Typography>
             </div>
@@ -338,13 +385,16 @@ class GagnantsPerdantsCard extends PureComponent {
                 fontSize="medium"
               />
               <Typography inline classes={{ root: classes.styleTypeImpact }}>
-                Augmentation de l'IR
+                Augmentation de l&apos;IR
               </Typography>
 
               <div className={classes.containerImpact}>
                 <div>
                   <Typography inline classes={{ root: classes.impactPLF }}>
-                    <span> {hausse_plf}</span>
+                    <span>
+                      {" "}
+                      {hausse_plf}
+                    </span>
                     {" "}
                   </Typography>
                   <Typography inline classes={{ root: classes.impactPLFUnite }}>
@@ -357,7 +407,10 @@ class GagnantsPerdantsCard extends PureComponent {
                 </div>
                 <div>
                   <Typography inline classes={{ root: classes.impactReforme }}>
-                    <span> {hausse_reforme}</span>
+                    <span>
+                      {" "}
+                      {hausse_reforme}
+                    </span>
                     {" "}
                   </Typography>
                   <Typography
@@ -374,16 +427,22 @@ class GagnantsPerdantsCard extends PureComponent {
               <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                 <span>dont</span>
                 <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                  <span> {hausse_zero_plf}</span>
+                  <span>
+                    {" "}
+                    {hausse_zero_plf}
+                  </span>
                   <span>M</span>
                 </Typography>
                 <Typography
                   inline
                   classes={{ root: classes.impactReformeDetail }}>
-                  <span> {hausse_zero_reforme}</span>
+                  <span>
+                    {" "}
+                    {hausse_zero_reforme}
+                  </span>
                   <span>M</span>
                 </Typography>
-                <span>foyers entrant dans l'IR</span>
+                <span>&nbsp;de foyers entrant dans l&apos;IR</span>
               </Typography>
             </div>
           </div>
