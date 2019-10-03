@@ -96,8 +96,8 @@ class CarteEtat extends PureComponent {
     const {
       classes,
       deciles,
-      frontieres_deciles,
       expandArticlePanelHandler,
+      frontieres_deciles,
       isDisabledEtat,
       isLoadingEtat,
       isPanelExpanded,
@@ -183,8 +183,8 @@ class CarteEtat extends PureComponent {
                     * Chiffrages indicatifs.
                     <br />
                     {" "}
-                    Estimation à partir des données de l&apos;Enquête
-                    Revenus Fiscaux et Sociaux de l&apos;INSEE.
+Estimation à partir des données de l&apos;Enquête
+                    Revenus Fiscaux et Sociaux (ERFS-FPR 2014) de l&apos;Insee.
                   </Typography>
                 </div>
               ),
@@ -202,7 +202,10 @@ class CarteEtat extends PureComponent {
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className="styleExpansionPanel">
-            <SimpopTableurInfosDeciles deciles={deciles} frontieres_deciles={frontieres_deciles}/>
+            <SimpopTableurInfosDeciles
+              deciles={deciles}
+              frontieres_deciles={frontieres_deciles}
+            />
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </Card>
