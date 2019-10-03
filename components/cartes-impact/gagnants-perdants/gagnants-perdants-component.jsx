@@ -126,7 +126,16 @@ const styles = () => ({
   revenusMensuelWrapper: {
     padding: 0,
   },
-
+  sourceInsee: {
+    color: "#B1B1B1",
+    fontFamily: "Lato",
+    fontSize: "12px",
+    fontWeight: "regular",
+    lineHeight: "15px",
+    marginLeft: "14px",
+    marginBottom: "0px", //
+    textAlign: "right",
+  },
   styleGroupIconBleu: {
     color: "#00A3FF",
     verticalAlign: "text-bottom",
@@ -445,6 +454,13 @@ class GagnantsPerdantsCard extends PureComponent {
                 <span>&nbsp;de foyers entrant dans l&apos;IR</span>
               </Typography>
             </div>
+
+            <Typography className={classes.sourceInsee}>
+              * Chiffrages indicatifs.
+              <br />
+              {" "}
+Données ERFS-FPR 2014 (Insee).
+            </Typography>
           </div>
         </CardContent>
       </Card>
