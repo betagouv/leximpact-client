@@ -1,12 +1,19 @@
 import familyManGirlGirl from "@iconify/icons-twemoji/family-man-girl-girl";
 import { Icon } from "@iconify/react";
 import {
+  Button,
   Card,
   CardContent,
+  CircularProgress,
   Divider,
   IconButton,
   Typography,
 } from "@material-ui/core";
+import {
+  AccountBalance as AccountBalanceIcon,
+  Cached as CachedIcon,
+  Face as FaceIcon,
+} from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 import {
   ArrowDownward as ArrowDownwardIcon,
@@ -20,6 +27,10 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
 const styles = () => ({
+  buttonPosition: {
+    marginTop: "83px",
+    marginBottom: "90px",
+  },
   cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
@@ -195,6 +206,7 @@ class GagnantsPerdantsCard extends PureComponent {
       foyers_fiscaux_touches,
       isDisabledEtat,
       isLoadingEtat,
+      onClickSimPop,
     } = this.props;
 
     const baisse_plf = Math.round(
@@ -263,7 +275,28 @@ class GagnantsPerdantsCard extends PureComponent {
               </IconButton>
             </div>
           </div>
-
+          {isDisabledEtat ? (
+            <div>
+              <center className={classes.buttonPosition}>
+                <Button
+                  color="secondary"
+                  size="medium"
+                  variant="outlined"
+                  onClick={onClickSimPop}>
+                  <AccountBalanceIcon />
+                  <FaceIcon className={classes.marginIcon} />
+                  &nbsp;Estimer ~60&quot;
+                  <CachedIcon className={classes.miniIcon} />
+                </Button>
+              </center>
+            </div>
+          ) : (
+            [isLoadingEtat ? (
+        <center>
+          <CircularProgress color="secondary" />
+        </center>
+      ) : (
+        <>
           <div className={classes.impactContainer}>
             <div>
               <ArrowUpwardIcon
@@ -465,6 +498,8 @@ class GagnantsPerdantsCard extends PureComponent {
             {" "}
 Données ERFS-FPR 2014 (Insee).
           </Typography>
+        </>
+        )])}
         </CardContent>
       </Card>
     );
@@ -476,6 +511,7 @@ GagnantsPerdantsCard.propTypes = {
   foyers_fiscaux_touches: PropTypes.shape().isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
+  onClickSimPop: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(GagnantsPerdantsCard);
