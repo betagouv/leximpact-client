@@ -28,8 +28,8 @@ import React, { PureComponent } from "react";
 
 const styles = () => ({
   buttonPosition: {
-    marginTop: "83px",
-    marginBottom: "90px",
+    marginTop: "41px",
+    marginBottom: "114px",
   },
   cardContainer: {
     minWidth: 50,
@@ -292,7 +292,7 @@ class GagnantsPerdantsCard extends PureComponent {
             </div>
           ) : (
             [isLoadingEtat ? (
-        <center>
+        <center className={classes.buttonPosition}>
           <CircularProgress color="secondary" />
         </center>
       ) : (
