@@ -191,7 +191,8 @@ Estimation à partir des données de l&apos;Enquête
             ]
           )}
         </CardContent>
-        <ExpansionPanel
+        { (isLoadingEtat || isDisabledEtat) ? ("") :
+        (<ExpansionPanel
           expanded={isPanelExpanded}
           onChange={expandArticlePanelHandler}>
           <ExpansionPanelSummary
@@ -207,7 +208,8 @@ Estimation à partir des données de l&apos;Enquête
               frontieres_deciles={frontieres_deciles}
             />
           </ExpansionPanelDetails>
-        </ExpansionPanel>
+        </ExpansionPanel>)
+        }
       </Card>
     );
   }
