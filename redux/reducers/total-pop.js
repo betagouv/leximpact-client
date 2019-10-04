@@ -83,17 +83,15 @@ const DEFAULT_STATE = {
   foyers_fiscaux_touches: {
       avant_to_plf: {
           neutre_zero: 20827169,
-          neutre: 559220,
-          gagnant: 16502792
+          gagnant: 17062012
       },
       avant_to_apres: {
           neutre_zero: 20827169,
-          neutre: 559220,
-          gagnant: 16502792
+          gagnant: 17062012
       },
       plf_to_apres: {
-          neutre_zero: 20838054,
-          neutre: 17051127
+          neutre_zero: 21107460,
+          neutre: 16781721
       }
   }
 };
