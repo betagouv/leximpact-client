@@ -79,7 +79,21 @@ const DEFAULT_STATE = {
       37248.7109375,
       51702.984375,
       4792564.0
-  ]
+  ],
+  foyers_fiscaux_touches: {
+      avant_to_plf: {
+          neutre_zero: 20827169,
+          gagnant: 17062012
+      },
+      avant_to_apres: {
+          neutre_zero: 20827169,
+          gagnant: 17062012
+      },
+      plf_to_apres: {
+          neutre_zero: 21107460,
+          neutre: 16781721
+      }
+  }
 };
 
 
@@ -90,6 +104,8 @@ const totalPop = (state = DEFAULT_STATE, action) => {
       deciles: get(action, "data.deciles"),
       frontieres_deciles: get(action, "data.frontieres_deciles"),
       total: get(action, "data.total"),
+      foyers_fiscaux_touches: get(action, "data.foyers_fiscaux_touches"),
+      frontieres_deciles: get(action, "data.frontieres_deciles"),
     };
   default:
     return state;

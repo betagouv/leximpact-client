@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
+import GagnantsPerdantsCard from "./gagnants-perdants";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
@@ -14,6 +15,12 @@ class ImpactComponent extends PureComponent {
           <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
             {/* affichage de la carte etat */}
             <CarteEtat />
+          </Grid>
+        )}
+        {isUserLogged && (
+          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+            {/* affichage de la carte etat */}
+            <GagnantsPerdantsCard />
           </Grid>
         )}
         {casTypes.map((casType, index) => {
