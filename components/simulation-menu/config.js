@@ -4,8 +4,7 @@ import {
   ViewQuilt as ViewQuiltIcon,
 } from "@material-ui/icons";
 
-import { showAddCasTypesPopin } from "../../redux/actions";
-import { showAddCasTypesPopin } from "../../redux/actions";
+import { exportDocument, showAddCasTypesPopin } from "../../redux/actions";
 
 const config = {
   optionsMenuItems: [
