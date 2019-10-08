@@ -169,6 +169,12 @@ describe("components | connexion | utils", () => {
           domains: [],
           label: "Collaborat·eur·rice Sénat",
         },
+        senatadmin: {
+          default: false,
+          disabled: false,
+          domains: ["@senat.fr"],
+          label: "Administrat·eur·rice Sénat"
+        }
       };
       expect(given).toStrictEqual(AVAILABLE_ROLES);
     });
