@@ -6,6 +6,7 @@ import currentExpandedArticlePanel from "./current-expanded-article-panel";
 import disabledEtat from "./disabled-etat";
 import loading from "./loading";
 import loadingEtat from "./loading-etat";
+import options from "./options";
 import reforme from "./reforme";
 import reformeBase from "./reforme-base";
 import reformePLF from "./reforme-plf";
@@ -20,6 +21,7 @@ export default combineReducers({
   disabledEtat,
   loading,
   loadingEtat,
+  options,
   reforme,
   reformeBase,
   reformePLF,
