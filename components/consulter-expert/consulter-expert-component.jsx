@@ -1,37 +1,22 @@
 import lightBulb from "@iconify/icons-twemoji/light-bulb";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import {
   Button,
   Card,
   CardContent,
-  CircularProgress,
-  Divider,
   IconButton,
   Typography,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  AccountBalance as AccountBalanceIcon,
-  ArrowDownward as ArrowDownwardIcon,
-  ArrowUpward as ArrowUpwardIcon,
-  Cached as CachedIcon,
-  Close as CloseIcon,
-  Face as FaceIcon,
-  Group as GroupIcon,
-  TrendingFlat as TrendingFLatIcon,
-} from "@material-ui/icons";
-import { get } from "lodash";
+import { Close as CloseIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
 const styles = () => ({
-  buttonPosition: {
-    marginTop: "41px",
-    marginBottom: "114px",
-  },
   cardContainer: {
     minWidth: 50,
     paddingBottom: 0,
+    backgroundColor: "rgba(222, 213, 0, 0.3)",
   },
   cardContent: {
     "&:last-child": {
@@ -57,129 +42,12 @@ const styles = () => ({
     paddingBottom: 5,
     textAlign: "left",
   },
-  cardHeaderButtons: {
-    maxWidth: 15,
-    minWidth: 15,
-    width: 15,
-  },
-  containerImpact: {
-    alignContent: "flex-start",
-    display: "flex",
-    justifyContent: "space-around",
-    paddingBottom: "0px",
-  },
+
   divTitre: {
     display: "inline-block",
     paddingLeft: "3px",
   },
-  impactContainer: {
-    paddingBottom: 15,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 5,
-  },
-  impactPLF: {
-    alignSelf: "flex-start",
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: 25,
-    fontWeight: "bold",
-    textAlign: "center",
 
-    //  paddingLeft: "20px",
-  },
-
-  impactPLFDetail: {
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: 12,
-    fontWeight: "bold",
-  },
-  impactPLFUnite: {
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: 20,
-    fontWeight: "regular",
-    textAlign: "center",
-  },
-
-  impactReforme: {
-    alignSelf: "flex-end",
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: 25,
-    fontWeight: "bold",
-
-    //  paddingLeft: "70px",
-  },
-  impactReformeDetail: {
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: 12,
-    fontWeight: "bold",
-  },
-  impactReformeUnite: {
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: 20,
-    fontWeight: "regular",
-    textAlign: "center",
-  },
-  revenusMensuelValue: {
-    color: "#000000",
-    fontFamily: "Lato",
-    fontSize: 18,
-    fontWeight: "normal",
-    textTransform: "none",
-  },
-  revenusMensuelWrapper: {
-    padding: 0,
-  },
-  sourceInsee: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    lineHeight: "15px",
-    marginBottom: "15px",
-    marginLeft: "15px",
-    marginRight: "15px",
-    textAlign: "right",
-  },
-  styleGroupIconBleu: {
-    color: "#00A3FF",
-    verticalAlign: "text-bottom",
-  },
-  styleGroupIconRouge: {
-    color: "#FF6B6B",
-    verticalAlign: "text-bottom",
-  },
-
-  styleIconGagnant: {
-    color: "#13CC03",
-    verticalAlign: "bottom",
-  },
-  styleIconNeutre: {
-    color: "#B1B1B1",
-    verticalAlign: "bottom",
-  },
-  styleIconPerdant: {
-    color: "#FFAC33",
-    verticalAlign: "bottom",
-  },
-  styleTypeImpact: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "1em",
-    fontWeight: "regular",
-    paddingLeft: "10px",
-    textJustify: "none",
-  },
-  styleTypeImpactDetail: {
-    color: "#909090",
-    fontFamily: "Lato",
-    fontSize: 12,
-  },
   subtitleCard: {
     color: "#565656",
     fontFamily: "Lato",
@@ -213,7 +81,11 @@ class ConsulterExpertCard extends PureComponent {
                 Comment utiliser LexImpact ?
               </Typography>
               <Typography className={classes.subtitleCard}>
-                en millions par rapport au droit existant*
+                LexImpact fonctionne à euros constants, c&apos;est-à-dire que ce
+                simulateur présente les impacts d&apos;une modification de la
+                loi. Si vous souhaitez prendre en compte des hypothèses (telles
+                que l&apos;inflation), il faut les ajouter dans votre simulation
+                ou consulter un expert.
               </Typography>
             </div>
 
@@ -235,11 +107,6 @@ class ConsulterExpertCard extends PureComponent {
 }
 ConsulterExpertCard.propTypes = {
   classes: PropTypes.shape().isRequired,
-  index: PropTypes.number.isRequired,
-  foyers_fiscaux_touches: PropTypes.shape().isRequired,
-  isDisabledEtat: PropTypes.bool.isRequired,
-  isLoadingEtat: PropTypes.bool.isRequired,
-  onClickSimPop: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ConsulterExpertCard);
