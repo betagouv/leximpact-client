@@ -5,13 +5,13 @@
 const DEFAULT_STATE = [];
 
 const exportDocument = (state, action) => {
-    //const nextState = state.map((obj, index) => {
-    //  const shouldUpdateThisCasType = index === action.index;
-    //  if (!shouldUpdateThisCasType) return obj;
-    //  return action.data;
-    //});
-    //return nextState;
-    alert(state);
+    alert("And, the state value is:", state);
+    const nextState = state.map((obj, index) => {
+        const shouldExportDocument = index === action.index;
+        if (!shouldExportDocument) return obj;
+        return action.data;
+    });
+    return nextState;
   };
 
 const options = (state = DEFAULT_STATE, action) => {
@@ -19,8 +19,8 @@ const options = (state = DEFAULT_STATE, action) => {
     case "onOptionsMenuExportDocument":
         return exportDocument(state, action);
     default:
-    return state;
-  }
+        return state;
+    }
 };
 
 export default options;
