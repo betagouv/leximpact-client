@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
+import ConsulterExpertCard from "../consulter-expert/consulter-expert-component";
 import GagnantsPerdantsCard from "./gagnants-perdants";
 import SimpleCard from "./simple-card";
 
@@ -11,6 +12,12 @@ class ImpactComponent extends PureComponent {
     const { casTypes, isUserLogged } = this.props;
     return (
       <Grid container spacing={24}>
+        {isUserLogged && (
+          <Grid item lg={12} md={12} sm={12} xl={12} xs={12}>
+            {/* affichage de la carte etat */}
+            <ConsulterExpertCard />
+          </Grid>
+        )}
         {isUserLogged && (
           <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
             {/* affichage de la carte etat */}
