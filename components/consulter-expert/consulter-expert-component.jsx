@@ -1,3 +1,4 @@
+import chartIncreasing from "@iconify/icons-twemoji/chart-increasing";
 import lightBulb from "@iconify/icons-twemoji/light-bulb";
 import { Icon } from "@iconify/react";
 import {
@@ -66,6 +67,10 @@ const styles = () => ({
 });
 
 class ConsulterExpertCard extends PureComponent {
+  handleRemoveConsulterExpert = () => {
+    this.setState({ renderChild: false });
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -81,11 +86,16 @@ class ConsulterExpertCard extends PureComponent {
                 Comment utiliser LexImpact ?
               </Typography>
               <Typography className={classes.subtitleCard}>
-                LexImpact fonctionne à euros constants, c&apos;est-à-dire que ce
-                simulateur présente les impacts d&apos;une modification de la
-                loi. Si vous souhaitez prendre en compte des hypothèses (telles
-                que l&apos;inflation), il faut les ajouter dans votre simulation
-                ou consulter un expert.
+                LexImpact présente les impacts d&apos;une modification de la
+                loi,
+                {" "}
+                <b>ce simulateur fonctionne donc à euros courants</b>
+.
+                {" "}
+                <br />
+                Si vous souhaitez prendre en compte des hypothèses (telles que
+                l&apos;inflation), il faut les ajouter dans votre simulation ou
+                consulter un expert LexImpact.
               </Typography>
             </div>
 
@@ -94,8 +104,7 @@ class ConsulterExpertCard extends PureComponent {
                 disableRipple
                 aria-label="Delete"
                 classes={{ root: classes.cardEditDeleteButton }}
-                //  onClick={handleRemoveCasType(index)}>
-              >
+                onClick={this.handleRemoveConsulterExpert()}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </div>
