@@ -1,23 +1,12 @@
 import { connect } from "react-redux";
 
+import { closeConsulterExpert } from "../../redux/actions";
 import ConsulterExpertCard from "./consulter-expert-component";
 
-const mapStateToProps = ({ loadingEtat, totalPop }) => {
-  const isLoadingEtat = loadingEtat === "loading";
-  const isDisabledEtat = loadingEtat === "disabled";
-  const { foyers_fiscaux_touches } = totalPop;
-  return {
-    foyers_fiscaux_touches,
-    isDisabledEtat,
-    isLoadingEtat,
-  };
-};
+const mapStateToProps = null;
 
 const mapDispatchToProps = dispatch => ({
-  onClickSimPop: () => {
-    dispatch(fetchSimPop());
-    dispatch(fetchCalculateCompare());
-  },
+  onRemoveConsulterExpert: () => dispatch(closeConsulterExpert()),
 });
 
 export default connect(
