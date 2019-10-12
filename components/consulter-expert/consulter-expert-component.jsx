@@ -104,10 +104,10 @@ class ConsulterExpertCard extends PureComponent {
                 Ce que calcule LexImpact
               </Typography>
               <Typography className={classes.subtitleCard}>
-                LexImpact fonctionne à euros courants,
+                LexImpact fonctionne à euros courants.
                 {" "}
                 <b>
-                  l&apos;inflation n&apos;est pas paramétrée dans le simulateur.
+                  L&apos;inflation n&apos;est pas paramétrée dans le simulateur.
                 </b>
                 <br />
               </Typography>
