@@ -1,6 +1,3 @@
-const closeConsulterExpert = () => {
-  console.log("Action closeConsulterExpert");
-  return { type: "closeConsulterExpert" };
-};
+const closeConsulterExpert = () => ({ type: "closeConsulterExpert" });
 
 export default closeConsulterExpert;

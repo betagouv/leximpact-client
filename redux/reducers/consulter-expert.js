@@ -1,8 +1,7 @@
-const DEFAULT_STATE = "dispalyed";
+const DEFAULT_STATE = "displayed";
 
 const closeConsulterExpert = (state, action) => {
-  console.log("Reduce closeConsulterExpert");
-  let nextState = "closed";
+  let nextState = "closed"; // Anything but "displayed".
   nextState = [...nextState, action.data];
   return nextState;
 };

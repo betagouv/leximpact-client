@@ -3,16 +3,17 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
-import ConsulterExpertCard from "../consulter-expert/consulter-expert-component";
+import ConsulterExpertCard from "../consulter-expert";
 import GagnantsPerdantsCard from "./gagnants-perdants";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   render() {
-    const { casTypes, isUserLogged } = this.props;
+    const { casTypes, consulterExpert, isUserLogged } = this.props;
+    const displayCarteInfo = consulterExpert === "displayed";
     return (
       <Grid container spacing={24}>
-        {isUserLogged && (
+        {displayCarteInfo && (
           <Grid item lg={12} md={12} sm={12} xl={12} xs={12}>
             {/* affichage de la carte etat */}
             <ConsulterExpertCard />
@@ -60,6 +61,7 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
+  consulterExpert: PropTypes.string.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
   totalPop: PropTypes.shape({
     deciles: PropTypes.arrayOf(PropTypes.shape()),
