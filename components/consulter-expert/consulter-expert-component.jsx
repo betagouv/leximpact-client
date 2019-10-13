@@ -71,7 +71,7 @@ const styles = () => ({
     color: "#565656",
     fontFamily: "Lato",
     fontSize: "0.875em",
-    padding: "0 0 10px 10px",
+    padding: "0",
   },
   titleCard: {
     color: "#565656",
@@ -131,10 +131,16 @@ class ConsulterExpertCard extends PureComponent {
                     souvent les seuils et les plafonds d&apos;un taux
                     correspondant au taux d&apos;inflation. La comparaison
                     effectuée par Leximpact est centrée sur les impacts de la
-                    loi, et considère donc un ménage dont le revenu nominal ne
-                    change pas entre le code existant et le PLF, ce qui, si on
-                    considère l&apos;inflation, signifierait une baisse de leur
-                    revenu réel.
+                    loi, et considère donc un ménage dont&nbsp;
+                    <a
+                      href="https://fr.wikipedia.org/wiki/Valeur_nominale_et_valeur_r%C3%A9elle"
+                      rel="noopener noreferrer"
+                      target="_blank">
+                      le revenu nominal
+                    </a>
+                    &nbsp;ne change pas entre le code existant et le PLF, ce
+                    qui, si on considère l&apos;inflation, signifierait une
+                    baisse de leur revenu réel.
                   </Typography>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
