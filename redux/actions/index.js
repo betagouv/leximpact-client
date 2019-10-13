@@ -1,5 +1,6 @@
 export * from "./loading";
 export * from "./loading-etat";
+export { default as closeConsulterExpert } from "./consulter-expert-close";
 export { default as closeCurrentPopin } from "./popin-close-current";
 export { default as showEnSavoirPlusPopin } from "./popin-show-en-savoir-plus";
 export { default as showConnexionPopin } from "./popin-show-connexion";
@@ -19,5 +20,7 @@ export { default as showAddCasTypesPopin } from "./popin-cas-types-add";
 export { default as showEditCasTypesPopin } from "./popin-cas-types-edit";
 export { default as showLogoutPopin } from "./popin-logout";
 export { default as resetVarArticle } from "./reset-var-article";
-export { default as resetVarArticleExistant } from "./reset-var-article-existant";
+export {
+  default as resetVarArticleExistant,
+} from "./reset-var-article-existant";
 export { default as disabledEtat } from "./disabled-etat";
