@@ -78,22 +78,22 @@ class Alinea4a extends PureComponent {
             de la différence entre
             {" "}
             {baseOutputInput("decote.seuil_celib")}
-€ et
+            € et
             les
             {" "}
             <OutputField style={style.VarCodeexistant} value="trois quarts" />
             {" "}
-[
+            [
             {baseOutputInput("decote.taux")}
             %] de son montant pour les contribuables célibataires, divorcés ou
             veufs et de la différence entre
             {baseOutputInput("decote.seuil_couple")}
             {" "}
-€ et les
+            € et les
             {" "}
             <OutputField style={style.VarCodeexistant} value="trois quarts" />
             {" "}
-[
+            [
             {formulaOutputInput("decote.taux")}
             %] de son montant pour les contribuables soumis à imposition
             commune.
