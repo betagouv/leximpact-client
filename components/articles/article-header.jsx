@@ -156,7 +156,7 @@ avec les paramètres du&nbsp;:
                   onClick={this.handleClickExistant}>
                   <span>-</span>
                   <span className={classes.styleCodeExistant}>
-                    &nbsp;code existant
+                    code existant
                   </span>
                 </MenuItem>
               </Menu>
