@@ -64,7 +64,7 @@ class Alinea4b extends PureComponent {
         {" "}
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}
         {" "}
-€,
+        €,
         pour la première part de quotient familial des personnes célibataires,
         veuves ou divorcées, et à
         {formulaOutputInput(
@@ -111,7 +111,7 @@ class Alinea4b extends PureComponent {
         {" "}
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil1")}
         {" "}
-€,
+        €,
         pour la première part de quotient familial des personnes célibataires,
         veuves ou divorcées, ou
         {" "}
@@ -126,7 +126,7 @@ class Alinea4b extends PureComponent {
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}
         % multiplié par le rapport entre :
         <br />
-– au numérateur, la différence entre
+        – au numérateur, la différence entre
         {" "}
         {formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}
         €, pour les personnes célibataires, veuves ou divorcées, ou
@@ -139,7 +139,7 @@ class Alinea4b extends PureComponent {
         alinéa, et le montant des revenus mentionnés au troisième alinéa du
         présent b, et ;
         <br />
-– au dénominateur,
+        – au dénominateur,
         {" "}
         {formulaOutputInputCombiLin(
           "plafond_qf.reduction_ss_condition_revenus.seuil2",
