@@ -184,7 +184,7 @@ class CarteEtat extends PureComponent {
                     <br />
                     {" "}
 Estimation à partir des données de l&apos;Enquête
-                    Revenus Fiscaux et Sociaux (ERFS-FPR 2014) de l&apos;Insee.
+                    Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
                   </Typography>
                 </div>
               ),
