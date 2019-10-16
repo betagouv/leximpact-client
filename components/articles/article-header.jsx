@@ -142,7 +142,7 @@ class ArticleHeader extends PureComponent {
                     Réinitialiser mon amendement
                     <br />
                     {" "}
-avec les paramètres du&nbsp;:
+                    avec les paramètres du&nbsp;:
                   </span>
                 </div>
                 <MenuItem
