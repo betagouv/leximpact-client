@@ -68,8 +68,8 @@ et du système d&apos;information et de communication de
       <hr />
 
       <p>
-        Pour l'interface LexImpact, nous nous sommes appuyés sur la librairie
-        d'Emojis Open Source Twemoji.
+        Pour l&apos;interface LexImpact, nous nous sommes appuyés sur la
+        librairie d&apos;Emojis Open Source Twemoji.
         {" "}
         <br />
         Nous avons parfois également effectué des modifications.
