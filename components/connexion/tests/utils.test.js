@@ -172,7 +172,7 @@ describe("components | connexion | utils", () => {
         senatadmin: {
           default: false,
           disabled: false,
-          domains: ["@senat.fr"],
+          domains: ["@senat.fr", "@republicains.senat.fr", "@soc.senat.fr", "@uc.senat.fr", "@rdse.senat.fr", "@lrem.senat.fr"],
           label: "Administrat·eur·rice Sénat"
         }
       };
