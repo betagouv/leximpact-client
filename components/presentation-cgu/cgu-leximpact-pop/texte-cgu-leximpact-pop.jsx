@@ -132,9 +132,10 @@ function TexteCguLeximpactPop({ classes }) {
           les administrateurs et administratrices de l&apos;Assemblée nationale
           ;
         </li>
-        <li>les sénateurs et sénatrices, </li>
-        <li>leurs collaborateurs et collaboratrices parlementaires, </li>
-        <li>les administrateurs et administratrices du Sénat.</li>
+        <li>
+          un échantillon restreint d&apos;utilisateurs au Sénat pour
+          expérimentation.
+        </li>
       </ul>
 
       <p>
