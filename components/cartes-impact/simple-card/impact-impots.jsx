@@ -64,7 +64,7 @@ class SimpleCardImpactImpots extends PureComponent {
             variant="h3">
             {formatMilliers(-resultats.avant)}
           </Typography>
-
+          {" "}
           <RedTooltip
             className={classes.stylePLF}
             key="gain"

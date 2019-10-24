@@ -9,7 +9,7 @@ const FormulaOutputComponent = ({
 }) => (
   <Fragment>
     <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
-    {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
+    {Math.abs(baseValue-plfValue) < 0.001 ? " " : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
     <OutputField style={style.VarCodeNew} value={formatMilliers(newValue)} />
   </Fragment>
 );

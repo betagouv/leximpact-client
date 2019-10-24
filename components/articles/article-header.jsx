@@ -142,7 +142,7 @@ class ArticleHeader extends PureComponent {
                     Réinitialiser mon amendement
                     <br />
                     {" "}
-avec les paramètres du&nbsp;:
+                    avec les paramètres du&nbsp;:
                   </span>
                 </div>
                 <MenuItem
@@ -156,7 +156,7 @@ avec les paramètres du&nbsp;:
                   onClick={this.handleClickExistant}>
                   <span>-</span>
                   <span className={classes.styleCodeExistant}>
-                    &nbsp;code existant
+                    code existant
                   </span>
                 </MenuItem>
               </Menu>

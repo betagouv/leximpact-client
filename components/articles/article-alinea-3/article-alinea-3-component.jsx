@@ -85,7 +85,7 @@ class ArticleAlinea3 extends PureComponent {
             <Icon icon={classicalBuilding} />
             <span>
               La modification des paramètres de la décote outre-mer est
-              actuellement uniquement prise en compte pour le calcul de l'impôt des
+              actuellement uniquement prise en compte pour le calcul de l&apos;impôt des
               foyers fiscaux types.
             </span>
           </div>
@@ -96,7 +96,7 @@ class ArticleAlinea3 extends PureComponent {
             {baseOutputInput("plafond_qf.abat_dom.taux_GuadMarReu")}
             %, dans la limite de
             {baseOutputInput("plafond_qf.abat_dom.plaf_GuadMarReu")}
-€ pour les
+            € pour les
             contribuables domiciliés dans les départements de la Guadeloupe, de
             la Martinique et de la Réunion ; cette réduction est égale à
             {" "}

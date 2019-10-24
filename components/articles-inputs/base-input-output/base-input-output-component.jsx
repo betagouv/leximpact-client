@@ -18,7 +18,7 @@ const BaseInputOutputComponent = ({
 }) => (
   <Fragment>
     <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? outputFieldStyleNonBarre : outputFieldStyle} value={formatMilliers(baseValue)} />
-    {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={plfFieldStyle} value={formatMilliers(plfValue)} />}
+    {Math.abs(baseValue-plfValue) < 0.001 ? " " : <OutputField style={plfFieldStyle} value={formatMilliers(plfValue)} />}
     <InputField
       name={name}
       style={inputFieldStyle}

@@ -200,7 +200,7 @@ class ArticlesComponent extends React.Component {
             value={makeNumberGoodLooking(baseValuet)}
           />
           {/* rouge */}
-          {Math.abs(baseValuet-plfValuet) < 0.001 ? "" : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
+          {Math.abs(baseValuet-plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
           {/* bleu editable (pourcentage) */}
           <InputField
             name={`taux${i - 1}`}
@@ -238,7 +238,7 @@ class ArticlesComponent extends React.Component {
           value={makeNumberGoodLooking(baseValuet)}
         />
         {/* rouge */}
-        {Math.abs(baseValuet-plfValuet) < 0.001 ? "" : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
+        {Math.abs(baseValuet-plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
         <InputField
           name={`taux${i - 1}`}
           style={style.InputTaux}
