@@ -56,6 +56,11 @@ exports[`components | connexion | roles-input snapshot doit correspondre avec le
         "disabled": false,
         "domains": Array [
           "@senat.fr",
+          "@republicains.senat.fr",
+          "@soc.senat.fr",
+          "@uc.senat.fr",
+          "@rdse.senat.fr",
+          "@lrem.senat.fr",
         ],
         "label": "Administrat·eur·rice Sénat",
       },
