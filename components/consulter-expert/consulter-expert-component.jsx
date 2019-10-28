@@ -87,9 +87,10 @@ class ConsulterExpertCard extends PureComponent {
   render() {
     const {
       classes,
-      expandArticlePanelHandler,
-      isPanelExpanded,
       onRemoveConsulterExpert,
+      isPanelExpanded,
+      onExpandPanel,
+      
     } = this.props;
 
     return (
@@ -115,7 +116,7 @@ class ConsulterExpertCard extends PureComponent {
               <ExpansionPanel
                 classes={{ root: classes.styleExpansionPanel }}
                 expanded={isPanelExpanded}
-                onChange={expandArticlePanelHandler}>
+                onChange={onExpandPanel}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography className={classes.subtitleEnSavoirPlus}>
                     En savoir plus
@@ -164,8 +165,8 @@ class ConsulterExpertCard extends PureComponent {
 ConsulterExpertCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   onRemoveConsulterExpert: PropTypes.func.isRequired,
-  isPanelExpanded: PropTypes.shape().isRequired,
-  expandArticlePanelHandler: PropTypes.shape().isRequired,
+  isPanelExpanded: PropTypes.bool.isRequired,
+  onExpandPanel: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ConsulterExpertCard);
