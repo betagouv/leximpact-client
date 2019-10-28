@@ -12,6 +12,7 @@ const config = {
       Icon: ShareIcon,
       /* TODO: creer une action redux pour cet item du menu */
       action: () => ({ type: "undefined" }),
+      disabled: true,
       key: "simpop-share-button",
       label: "Partager",
       shortLabel: "Partager",
@@ -20,6 +21,7 @@ const config = {
       Icon: ViewQuiltIcon,
       /* TODO: creer une action redux pour cet item du menu */
       action: () => ({ type: "undefined" }),
+      disabled: true,
       key: "simpop-workspace-button",
       label: "Espace de travail",
       shortLabel: "Espace de travail",
