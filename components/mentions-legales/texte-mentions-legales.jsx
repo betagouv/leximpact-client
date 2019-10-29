@@ -82,30 +82,6 @@ function MyComponent({ classes }) {
           CC-BY 4.0
         </a>.
       </p>
-
-      <p>
-        {" "}
-        Copyright 2019 Twitter, Inc and other contributors
-        <br />
-        Code licensed under the MIT License:
-        {" "}
-        <a
-          href="http://opensource.org/licenses/MIT"
-          rel="noopener noreferrer"
-          target="_blank">
-          http://opensource.org/licenses/MIT
-        </a>
-        {" "}
-        <br />
-        Graphics licensed under CC-BY 4.0:
-        {" "}
-        <a
-          href="https://creativecommons.org/licenses/by/4.0/"
-          rel="noopener noreferrer"
-          target="_blank">
-          https://creativecommons.org/licenses/by/4.0/
-        </a>
-      </p>
     </section>
   );
 }
