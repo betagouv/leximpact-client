@@ -26,7 +26,7 @@ function MyComponent({ classes }) {
         {" "}
         <br />
         {" "}
-et du système d&apos;information et de communication de
+        et du système d&apos;information et de communication de
         l&apos;État (DINSIC).
       </p>
       <p>20, avenue de Ségur - 75007 Paris.</p>
@@ -68,13 +68,19 @@ et du système d&apos;information et de communication de
       <hr />
 
       <p>
-        Pour l&apos;interface LexImpact, nous nous sommes appuyés sur la
-        librairie d&apos;Emojis Open Source Twemoji.
-        {" "}
-        <br />
-        Nous avons parfois également effectué des modifications.
-        {" "}
-        <br />
+        Les emojis utilisés proviennent de la librairie&nbsp;
+        <a
+          href="https://twemoji.twitter.com/"
+          rel="noopener noreferrer"
+          target="_blank">
+          Twemoji
+        </a>, sous licence&nbsp;
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          rel="noopener noreferrer"
+          target="_blank">
+          CC-BY 4.0
+        </a>.
       </p>
 
       <p>
