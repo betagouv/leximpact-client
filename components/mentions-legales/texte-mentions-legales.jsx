@@ -21,11 +21,9 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Incubateur de services numériques de la Direction interministérielle du
-        numérique
+        Incubateur de services numériques (beta.gouv.fr)
         <br />
-        et du système d&apos;information et de communication de
-        l&apos;État (DINSIC).
+        de la Direction interministérielle du numérique (DINUM).
       </p>
       <p>20, avenue de Ségur - 75007 Paris.</p>
 
@@ -35,9 +33,7 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Directeur de la publication : directeur interministériel du numérique
-        <br />
-        et du système d&apos;information et de communication de l&apos;État.
+        Directeur de la publication : Directeur interministériel du numérique.
       </p>
 
       <p>Nadi Bou Hanna</p>
