@@ -31,7 +31,7 @@ function TexteCguLeximpactPop({ classes }) {
           target="_blank">
           base ERFS FPR
         </a>
-        , dont le service producteur est l’
+        , dont le service producteur est l&apos;
         <a href="https://insee.fr" rel="noopener noreferrer" target="_blank">
           INSEE
         </a>
@@ -51,7 +51,10 @@ function TexteCguLeximpactPop({ classes }) {
         <li>les députés et députées de l’Assemblée nationale, </li>
         <li>leurs collaborateurs et collaboratrices parlementaires, </li>
         <li>
-          les administrateurs et administratrices de l’Assemblée nationale.
+          les administrateurs et administratrices de l’Assemblée nationale,
+        </li>
+        <li>
+          un échantillon restreint d&apos;utilisateurs au Sénat pour expérimentation.
         </li>
       </ul>
 
@@ -129,8 +132,7 @@ function TexteCguLeximpactPop({ classes }) {
         <li>les députés et députées de l&apos;Assemblée nationale, </li>
         <li>leurs collaborateurs et collaboratrices parlementaires, </li>
         <li>
-          les administrateurs et administratrices de l&apos;Assemblée nationale
-          ;
+          les administrateurs et administratrices de l&apos;Assemblée nationale,
         </li>
         <li>
           un échantillon restreint d&apos;utilisateurs au Sénat pour
