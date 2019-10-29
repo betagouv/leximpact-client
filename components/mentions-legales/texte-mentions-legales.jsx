@@ -23,9 +23,7 @@ function MyComponent({ classes }) {
       <p>
         Incubateur de services numériques de la Direction interministérielle du
         numérique
-        {" "}
         <br />
-        {" "}
         et du système d&apos;information et de communication de
         l&apos;État (DINSIC).
       </p>
@@ -38,7 +36,6 @@ function MyComponent({ classes }) {
 
       <p>
         Directeur de la publication : directeur interministériel du numérique
-        {" "}
         <br />
         et du système d&apos;information et de communication de l&apos;État.
       </p>
@@ -54,10 +51,8 @@ function MyComponent({ classes }) {
 
       <p>
         15 avenue du Rhin
-        {" "}
         <br />
         67100 Strasbourg
-        {" "}
         <br />
         France
       </p>
