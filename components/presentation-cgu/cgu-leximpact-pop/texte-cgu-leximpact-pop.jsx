@@ -142,7 +142,7 @@ function TexteCguLeximpactPop({ classes }) {
 
       <p>
         <b>
-          Si vous faîtes partie des personnes telles que listées au paragraphe
+          Si vous faites partie des personnes telles que listées au paragraphe
           précédent
           {" "}
           <br />
@@ -180,7 +180,7 @@ function TexteCguLeximpactPop({ classes }) {
 
       <p>
         <b>
-          Si vous ne faîtes pas partie des personnes habilitées, que vous
+          Si vous ne faites pas partie des personnes habilitées, que vous
           participez professionnellement
           {" "}
           <br />
@@ -256,7 +256,7 @@ function TexteCguLeximpactPop({ classes }) {
         Nous utilisons des cookies persistants afin d&apos;améliorer
         l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de
         vos cas types. Ces cookies sont conservés sur votre ordinateur même
-        après fermeture de votre navigateur et réutilisé lors des prochaines
+        après fermeture de votre navigateur et réutilisés lors des prochaines
         visites sur nos sites.
       </p>
       <div className={classes.espaceVide} />
