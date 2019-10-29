@@ -169,7 +169,7 @@ function TexteCguLeximpactPop({ classes }) {
           Si vous utilisez votre adresse mail professionnelle pour la première
           fois, il se peut qu&apos;elle n&apos;ait pas été activée&nbsp;;
           veuillez directement contacter le Service des Systèmes
-          d&apos;Information de votre administration.
+          d&apos;Information de votre institution.
         </li>
 
         <li>
