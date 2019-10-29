@@ -54,7 +54,8 @@ function TexteCguLeximpactPop({ classes }) {
           les administrateurs et administratrices de l’Assemblée nationale,
         </li>
         <li>
-          un échantillon restreint d&apos;utilisateurs au Sénat pour expérimentation.
+          un échantillon restreint d&apos;utilisateurs et utilisatrices au Sénat
+          pour expérimentation.
         </li>
       </ul>
 
@@ -135,7 +136,7 @@ function TexteCguLeximpactPop({ classes }) {
           les administrateurs et administratrices de l&apos;Assemblée nationale,
         </li>
         <li>
-          un échantillon restreint d&apos;utilisateurs au Sénat pour
+          un échantillon restreint d&apos;utilisateurs et utilisatrices au Sénat pour
           expérimentation.
         </li>
       </ul>
