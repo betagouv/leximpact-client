@@ -31,7 +31,7 @@ function TexteCguLeximpactPop({ classes }) {
           target="_blank">
           base ERFS FPR
         </a>
-        , dont le service producteur est l’
+        , dont le service producteur est l&apos;
         <a href="https://insee.fr" rel="noopener noreferrer" target="_blank">
           INSEE
         </a>
@@ -51,7 +51,11 @@ function TexteCguLeximpactPop({ classes }) {
         <li>les députés et députées de l’Assemblée nationale, </li>
         <li>leurs collaborateurs et collaboratrices parlementaires, </li>
         <li>
-          les administrateurs et administratrices de l’Assemblée nationale.
+          les administrateurs et administratrices de l’Assemblée nationale,
+        </li>
+        <li>
+          un échantillon restreint d&apos;utilisateurs et utilisatrices au Sénat
+          pour expérimentation.
         </li>
       </ul>
 
@@ -129,13 +133,17 @@ function TexteCguLeximpactPop({ classes }) {
         <li>les députés et députées de l&apos;Assemblée nationale, </li>
         <li>leurs collaborateurs et collaboratrices parlementaires, </li>
         <li>
-          les administrateurs et administratrices de l&apos;Assemblée nationale.
+          les administrateurs et administratrices de l&apos;Assemblée nationale,
+        </li>
+        <li>
+          un échantillon restreint d&apos;utilisateurs et utilisatrices au Sénat pour
+          expérimentation.
         </li>
       </ul>
 
       <p>
         <b>
-          Si vous faîtes partie des personnes telles que listées au paragraphe
+          Si vous faites partie des personnes telles que listées au paragraphe
           précédent
           {" "}
           <br />
@@ -147,8 +155,8 @@ function TexteCguLeximpactPop({ classes }) {
       <ol>
         <li>
           Veuillez vérifier que vous avez bien utilisé votre adresse mail
-          professionnelle de l&apos;Assemblée nationale. Les noms de domaine
-          autorisés sont présents par défaut dans l&apos;interface.
+          professionnelle de l&apos;Assemblée nationale ou du Sénat. Les noms de
+          domaine autorisés sont présents par défaut dans l&apos;interface.
           {" "}
         </li>
 
@@ -160,9 +168,9 @@ function TexteCguLeximpactPop({ classes }) {
 
         <li>
           Si vous utilisez votre adresse mail professionnelle pour la première
-          fois, il se peut qu&apos;elle n&apos;est pas été activée ; veuillez
-          directement contacter le Service des Systèmes d&apos;Information de
-          l&apos;Assemblée nationale.
+          fois, il se peut qu&apos;elle n&apos;ait pas été activée&nbsp;;
+          veuillez directement contacter le Service des Systèmes
+          d&apos;Information de votre institution.
         </li>
 
         <li>
@@ -173,7 +181,7 @@ function TexteCguLeximpactPop({ classes }) {
 
       <p>
         <b>
-          Si vous ne faîtes pas partie des personnes habilitées, que vous
+          Si vous ne faites pas partie des personnes habilitées, que vous
           participez professionnellement
           {" "}
           <br />
@@ -246,7 +254,11 @@ function TexteCguLeximpactPop({ classes }) {
       <hr />
 
       <p>
-        Nous utilisons des cookies persistants afin d&apos;améliorer l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de vos cas types. Ces cookies sont conservés sur votre ordinateur même après fermeture de votre navigateur et réutilisé lors des prochaines visites sur nos sites.
+        Nous utilisons des cookies persistants afin d&apos;améliorer
+        l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de
+        vos cas types. Ces cookies sont conservés sur votre ordinateur même
+        après fermeture de votre navigateur et réutilisés lors des prochaines
+        visites sur nos sites.
       </p>
       <div className={classes.espaceVide} />
 
@@ -255,9 +267,9 @@ function TexteCguLeximpactPop({ classes }) {
 
       <p>
         Nous mettons LexImpact POP à disposition sans garantie sur sa
-        disponibilité, avec obligation de moyens et non de résultats.
-        Cela signifie que d&apos;éventuelles
-        indisponibilités n&apos;ouvriront pas droit à compensation financière.
+        disponibilité, avec obligation de moyens et non de résultats. Cela
+        signifie que d&apos;éventuelles indisponibilités n&apos;ouvriront pas
+        droit à compensation financière.
       </p>
 
       <div className={classes.espaceVide} />
