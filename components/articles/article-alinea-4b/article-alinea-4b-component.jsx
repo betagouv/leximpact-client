@@ -161,19 +161,6 @@ class Alinea4b extends PureComponent {
         année dans la même proportion que la limite supérieure de la première
         tranche du barème de l&apos;impôt sur le revenu. Les montants obtenus
         sont arrondis, s&apos;il y a lieu, à l&apos;euro supérieur.
-        <StyledFormControlLabel
-          disabled
-          control={(
-            <Switch
-              // checked={this.state.checkedB}
-              // onChange={this.handleChange("checkedB")}
-              // value="checkedB"
-              color="secondary"
-            />
-          )}
-          label="Supprimer la réfaction foyers modestes"
-          // Mettre les variables de l'amendement à 0 quand le switch est passé.
-        />
       </Typography>
     );
   }
