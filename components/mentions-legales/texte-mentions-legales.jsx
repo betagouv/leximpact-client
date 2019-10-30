@@ -21,13 +21,9 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Incubateur de services numériques de la Direction interministérielle du
-        numérique
-        {" "}
+        Incubateur de services numériques (beta.gouv.fr)
         <br />
-        {" "}
-et du système d&apos;information et de communication de
-        l&apos;État (DINSIC).
+        de la Direction interministérielle du numérique (DINUM).
       </p>
       <p>20, avenue de Ségur - 75007 Paris.</p>
 
@@ -37,10 +33,7 @@ et du système d&apos;information et de communication de
       <hr />
 
       <p>
-        Directeur de la publication : directeur interministériel du numérique
-        {" "}
-        <br />
-        et du système d&apos;information et de communication de l&apos;État.
+        Directeur de la publication : Directeur interministériel du numérique.
       </p>
 
       <p>Nadi Bou Hanna</p>
@@ -54,15 +47,32 @@ et du système d&apos;information et de communication de
 
       <p>
         15 avenue du Rhin
-        {" "}
         <br />
         67100 Strasbourg
-        {" "}
         <br />
         France
       </p>
 
       <div className={classes.espaceVide} />
+
+      <h2>Crédits</h2>
+      <hr />
+
+      <p>
+        Les emojis utilisés proviennent de la librairie&nbsp;
+        <a
+          href="https://twemoji.twitter.com/"
+          rel="noopener noreferrer"
+          target="_blank">
+          Twemoji
+        </a>, sous licence&nbsp;
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          rel="noopener noreferrer"
+          target="_blank">
+          CC-BY 4.0
+        </a>.
+      </p>
     </section>
   );
 }
