@@ -85,9 +85,9 @@ function LegendeArticle({ classes }) {
       <Typography inline className={classes.styleAvantPLF}>
         <a
           className={classes.alink}
-          href="https://www.impots.gouv.fr/portail/simulateur-de-la-baisse-dimpot-sur-le-revenu-annoncee-pour-2020"
+          href="http://www.assemblee-nationale.fr/15/projets/pl2272.asp"
           target="blank">
-          Modifications d&apos;impôt prévues en 2020
+          PLF 2020
           <OpenInNewIcon className={classes.styleOpenInNewIcon} />
         </a>
       </Typography>

@@ -7,23 +7,27 @@ import {
   CircularProgress,
   Typography,
 } from "@material-ui/core";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AccountBalance as AccountBalanceIcon,
   Cached as CachedIcon,
   Face as FaceIcon,
 } from "@material-ui/icons";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import BarChart from "./bar-chart";
+import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 
 const styles = () => ({
   buttonPosition: {
     marginTop: "83px",
     marginBottom: "90px",
   },
-  card: {},
   div: {
     padding: 7,
   },
@@ -33,6 +37,9 @@ const styles = () => ({
   },
   iconEtat: {
     fontSize: "50px",
+  },
+  mainChart: {
+    flex: "1",
   },
   marginIcon: {
     marginRight: "20px",
@@ -46,12 +53,22 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
+  simpop: {
+    display: "flex",
+    flex: "1",
+    flexDirection: "column",
+    height: "25vh",
+    marginTop: "10px",
+    paddingLeft: "3px",
+    width: "50%",
+  },
   sourceInsee: {
     color: "#B1B1B1",
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
     marginLeft: "14px",
+    marginBottom: "0px", //
     textAlign: "right",
   },
   subtitleCarteEtat: {
@@ -67,19 +84,6 @@ const styles = () => ({
     fontWeight: "bold",
     padding: "0 0 0 10px",
   },
-  simpop: {
-    height: "25vh",
-    width: "50%",
-    display: "flex",
-    flexDirection: "column",
-    paddingLeft: "3px",
-    width: "50px",
-    flex: "1",
-    marginTop: "10px",
-  },
-  mainChart: {
-    flex: "1",
-  },
 });
 
 function getRoundedTotal(value) {
@@ -92,8 +96,11 @@ class CarteEtat extends PureComponent {
     const {
       classes,
       deciles,
+      expandArticlePanelHandler,
+      frontieres_deciles,
       isDisabledEtat,
       isLoadingEtat,
+      isPanelExpanded,
       onClickSimPop,
       total,
     } = this.props;
@@ -102,7 +109,7 @@ class CarteEtat extends PureComponent {
     const totalApres = getRoundedTotal(apres);
     const totalPLF = getRoundedTotal(plf);
     return (
-      <Card className={classes.card}>
+      <Card>
         <CardContent>
           <div className="title-wrapper">
             <div className="divTitre">
@@ -128,7 +135,7 @@ class CarteEtat extends PureComponent {
                   onClick={onClickSimPop}>
                   <AccountBalanceIcon />
                   <FaceIcon className={classes.marginIcon} />
-                  &nbsp;Estimer ~60"
+                  &nbsp;Estimer ~60&quot;
                   <CachedIcon className={classes.miniIcon} />
                 </Button>
               </center>
@@ -177,13 +184,32 @@ class CarteEtat extends PureComponent {
                     <br />
                     {" "}
 Estimation à partir des données de l&apos;Enquête
-                    Revenus Fiscaux et Sociaux de l&apos;INSEE.
+                    Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
                   </Typography>
                 </div>
               ),
             ]
           )}
         </CardContent>
+        { (isLoadingEtat || isDisabledEtat) ? ("") :
+        (<ExpansionPanel
+          expanded={isPanelExpanded}
+          onChange={expandArticlePanelHandler}>
+          <ExpansionPanelSummary
+            className="styleExpansionPanel"
+            expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.subtitleCarteEtat}>
+              En savoir plus sur les déciles de population
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails className="styleExpansionPanel">
+            <SimpopTableurInfosDeciles
+              deciles={deciles}
+              frontieres_deciles={frontieres_deciles}
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>)
+        }
       </Card>
     );
   }
@@ -199,9 +225,12 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  frontieres_deciles: PropTypes.bool.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
+  isPanelExpanded: PropTypes.shape().isRequired,
+  expandArticlePanelHandler: PropTypes.shape().isRequired,
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,

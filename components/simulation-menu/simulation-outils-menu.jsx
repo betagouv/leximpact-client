@@ -47,6 +47,7 @@ class SimulationOutilsMenu extends PureComponent {
     const menuProps = { classes: { paper: classes.menuPaper } };
     return (
       <MUIDropdownMenu
+        id="cas-types-menu"
         menuProps={menuProps}
         renderMenu={this.renderMenuListItems}
         size="medium"
@@ -54,6 +55,7 @@ class SimulationOutilsMenu extends PureComponent {
         onClick={() => itemMenuClickHandler(selected)}>
         {showMobileView && selected.Icon && <selected.Icon />}
         {showMobileView && selected.Icon && " "}
+        &nbsp;
         {(showMobileView && selected.shortLabel) || selected.label}
       </MUIDropdownMenu>
     );

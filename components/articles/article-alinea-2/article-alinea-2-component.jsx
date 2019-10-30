@@ -19,6 +19,16 @@ const styleTitreThematique = {
   fontWeight: "bold",
   textAlign: "left",
 };
+const styleTitreThematiqueModifPLF = {
+  color: "#FF6B6B",
+  fontFamily: "Lora",
+  fontSize: "12px",
+  fontWeight: "bold",
+  textAlign: "left",
+  verticalAlign: "middle",
+  marginTop: "10px",
+  marginLeft: "6px",
+};
 
 class Alinea2 extends PureComponent {
   render() {
@@ -37,10 +47,10 @@ class Alinea2 extends PureComponent {
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography
-            style={styleTitreThematique}>
-              Plafonds du quotient familial
+          <Typography style={styleTitreThematique}>
+            Plafonds du quotient familial
           </Typography>
+          <p style={styleTitreThematiqueModifPLF}>Modifiés par le PLF 2020</p>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
@@ -48,7 +58,7 @@ class Alinea2 extends PureComponent {
             2. La réduction d&apos;impôt résultant de l&apos;application du
             quotient familial ne peut excéder
             {baseOutputInput("plafond_qf.maries_ou_pacses")}
-€ par demi-part ou
+            € par demi-part ou
             la moitié de cette somme par quart de part s&apos;ajoutant à une
             part pour les contribuables célibataires, divorcés, veufs ou soumis
             à l&apos;imposition distincte prévue au 4 de l&apos;article 6 et à
@@ -60,7 +70,7 @@ class Alinea2 extends PureComponent {
             part accordée au titre du premier enfant à charge est limitée à
             {baseOutputInput("plafond_qf.celib_enf")}
             {" "}
-€ Lorsque les
+            € Lorsque les
             contribuables entretiennent uniquement des enfants dont la charge
             est réputée également partagée entre l&apos;un et l&apos;autre des
             parents, la réduction d&apos;impôt correspondant à la demi-part
@@ -89,7 +99,7 @@ class Alinea2 extends PureComponent {
             en application du I de l&apos;article 194 ont droit à une réduction
             d&apos;impôt égale à
             {baseOutputInput("plafond_qf.reduc_postplafond_veuf")}
-€ pour cette
+            € pour cette
             part supplémentaire lorsque la réduction de leur cotisation
             d&apos;impôt est plafonnée en application du premier alinéa du
             présent 2. Cette réduction d&apos;impôt ne peut toutefois excéder

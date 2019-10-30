@@ -33,6 +33,12 @@
       "disabled": true,
       "label": "Collaborat·eur·rice Sénat",
       "domains": []
+    },
+    "senatadmin": {
+      "default": false,
+      "disabled": false,
+      "label": "Administrat·eur·rice Sénat",
+      "domains": ["@senat.fr", "@republicains.senat.fr", "@soc.senat.fr", "@uc.senat.fr", "@rdse.senat.fr", "@lrem.senat.fr"]
     }
   }
 }

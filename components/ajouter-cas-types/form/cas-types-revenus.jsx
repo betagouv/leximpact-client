@@ -6,11 +6,12 @@ import { Fragment } from "react";
 import { Field } from "react-final-form";
 
 import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
+import formatMilliers from "../../utils/format-milliers"
 
 const REVENUS_MENSUEL = generateRevenusMensuel(500);
 const selectOptions = REVENUS_MENSUEL.map((value) => {
   const uniqKey = `revenu_mensuel_${value}`;
-  return <option key={uniqKey} value={value}>{`${value} €/mois`}</option>;
+  return <option key={uniqKey} value={value}>{`${formatMilliers(value)} €/mois`}</option>;
 });
 
 const styles = () => ({
@@ -84,7 +85,7 @@ const CasTypesRevenus = ({ classes, name }) => (
                 {selectOptions}
               </NativeSelect>
               <span className={classes.label}>
-                {`Soit ${revenuAnnuel} €/an`}
+                {`Soit ${formatMilliers(revenuAnnuel)} €/an`}
               </span>
             </Fragment>
           );

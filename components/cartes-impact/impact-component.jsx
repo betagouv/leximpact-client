@@ -3,17 +3,32 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
+import ConsulterExpertCard from "../consulter-expert";
+import GagnantsPerdantsCard from "./gagnants-perdants";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   render() {
-    const { casTypes, isUserLogged } = this.props;
+    const { casTypes, consulterExpert, isUserLogged } = this.props;
+    const displayCarteInfo = consulterExpert === "displayed";
     return (
       <Grid container spacing={24}>
+        {displayCarteInfo && (
+          <Grid item lg={12} md={12} sm={12} xl={12} xs={12}>
+            {/* affichage de la carte etat */}
+            <ConsulterExpertCard />
+          </Grid>
+        )}
         {isUserLogged && (
           <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
             {/* affichage de la carte etat */}
             <CarteEtat />
+          </Grid>
+        )}
+        {isUserLogged && (
+          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+            {/* affichage de la carte etat */}
+            <GagnantsPerdantsCard />
           </Grid>
         )}
         {casTypes.map((casType, index) => {
@@ -46,9 +61,11 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
+  consulterExpert: PropTypes.string.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
   totalPop: PropTypes.shape({
     deciles: PropTypes.arrayOf(PropTypes.shape()),
+    frontieres_deciles: PropTypes.arrayOf(PropTypes.number),
     total: PropTypes.shape(),
   }).isRequired,
 };

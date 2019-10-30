@@ -22,6 +22,7 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
+import formatMilliers from "../utils/format-milliers"
 
 const stylesTheme = theme => ({
   paper: {
@@ -98,6 +99,15 @@ const style = {
     textDecorationLine: "line-through",
     textDecorationSize: "2px",
   },
+  VarCodeexistantNonBarre: {
+    backgroundColor: "#DED500",
+    backgroundSize: "auto auto",
+    color: "#000000",
+    fontWeight: "bold",
+    lineHeight: "10px",
+    marginLeft: "8px",
+    padding: "3px",
+  },
 
   VarPLF: {
     color: "#FF6B6B",
@@ -128,7 +138,6 @@ class ArticlesComponent extends React.Component {
   );
 
   gimmeIRPartsOfArticle = (i) => {
-    //  console.log("coucou");
     const {
       handleArticleChange,
       reforme,
@@ -146,6 +155,8 @@ class ArticlesComponent extends React.Component {
     const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
     // Part 1
     if (i === 0) {
+      const baseValue = bases[Math.min(i, bases.length - 1)];
+      const plfValue = plfs[Math.min(i, plfs.length - 1)];
       return (
         <Typography
           key={i}
@@ -156,17 +167,14 @@ class ArticlesComponent extends React.Component {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
           <OutputField
-            style={style.VarCodeexistant}
-            value={bases[Math.min(i, bases.length - 1)]}
+            style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+            value={formatMilliers(baseValue)}
           />
-          <OutputField
-            style={style.VarPLF}
-            value={plfs[Math.min(i, bases.length - 1)]}
-          />
+          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
           <InputField
             name={`seuil${i}`}
             style={style.InputSeuil}
-            value={s[i]}
+            value={formatMilliers(s[i])}
             onChange={handleArticleChange}
           />
           € le taux de&nbsp;:
@@ -175,6 +183,10 @@ class ArticlesComponent extends React.Component {
     }
     // Last part
     if (i === nbt) {
+      const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
+      const plfValuet = plft[Math.min(i, plft.length) - 1] * 100;
+      const baseValue = bases[Math.min(i - 1, bases.length - 1)];
+      const plfValue = plfs[Math.min(i - 1, plfs.length - 1)];
       return (
         <Typography
           key={i}
@@ -184,18 +196,11 @@ class ArticlesComponent extends React.Component {
           {"– "}
           {/* jaune */}
           <OutputField
-            style={style.VarCodeexistant}
-            value={makeNumberGoodLooking(
-              baset[Math.min(i, baset.length) - 1] * 100,
-            )}
+            style={Math.abs(baseValuet-plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+            value={makeNumberGoodLooking(baseValuet)}
           />
           {/* rouge */}
-          <OutputField
-            style={style.VarPLF}
-            value={makeNumberGoodLooking(
-              plft[Math.min(i, plft.length) - 1] * 100,
-            )}
-          />
+          {Math.abs(baseValuet-plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
           {/* bleu editable (pourcentage) */}
           <InputField
             name={`taux${i - 1}`}
@@ -206,20 +211,20 @@ class ArticlesComponent extends React.Component {
           %
           <br />
           pour la fraction supérieure à&nbsp;
-          <OutputField
-            style={style.VarCodeexistant}
-            value={bases[Math.min(i - 1, bases.length - 1)]}
-          />
-          <OutputField
-            style={style.VarPLF}
-            value={plfs[Math.min(i - 1, plfs.length - 1)]}
-          />
-          <OutputField style={style.VarCodeNew} value={s[i - 1]} />
+          <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
+          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
+          <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
           {"€."}
         </Typography>
       );
     }
     // Other parts :
+    const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
+    const plfValuet = plft[Math.min(i, plft.length) - 1] * 100;
+    const baseValue = bases[Math.min(i, bases.length - 1)];
+    const plfValue = plfs[Math.min(i, plfs.length - 1)];
+    const baseValueminus1 = bases[Math.min(i - 1, bases.length - 1)];
+    const plfValueminus1 = plfs[Math.min(i - 1, plfs.length - 1)];
     return (
       <Typography
         key={i}
@@ -229,17 +234,11 @@ class ArticlesComponent extends React.Component {
         –
         {" "}
         <OutputField
-          style={style.VarCodeexistant}
-          value={makeNumberGoodLooking(
-            baset[Math.min(i, baset.length) - 1] * 100,
-          )}
+          style={Math.abs(baseValuet-plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+          value={makeNumberGoodLooking(baseValuet)}
         />
-        <OutputField
-          style={style.VarPLF}
-          value={makeNumberGoodLooking(
-            plft[Math.min(i, plft.length) - 1] * 100,
-          )}
-        />
+        {/* rouge */}
+        {Math.abs(baseValuet-plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
         <InputField
           name={`taux${i - 1}`}
           style={style.InputTaux}
@@ -249,30 +248,18 @@ class ArticlesComponent extends React.Component {
         %
         <br />
         pour la fraction supérieure à&nbsp;
-        <OutputField
-          style={style.VarCodeexistant}
-          value={bases[Math.min(i - 1, bases.length - 1)]}
-        />
-        <OutputField
-          style={style.VarPLF}
-          value={plfs[Math.min(i - 1, plfs.length - 1)]}
-        />
-        <OutputField style={style.VarCodeNew} value={s[i - 1]} />
+        <OutputField style={Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValueminus1)} />
+        {Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValueminus1)} />}
+        <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
         €
         <br />
         et inférieure ou égale à&nbsp;
-        <OutputField
-          style={style.VarCodeexistant}
-          value={bases[Math.min(i, bases.length - 1)]}
-        />
-        <OutputField
-          style={style.VarPLF}
-          value={plfs[Math.min(i, plfs.length - 1)]}
-        />
+        <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
+        {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
         <InputField
           name={`seuil${i}`}
           style={style.InputSeuil}
-          value={s[i]}
+          value={formatMilliers(s[i])}
           onChange={handleArticleChange}
         />
         {" "}
@@ -288,6 +275,7 @@ class ArticlesComponent extends React.Component {
       handleArticleChange,
       handleRemoveTranche,
       handleResetVarArticle,
+      handleResetVarArticleExistant,
       reforme,
     } = this.props;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
@@ -295,7 +283,7 @@ class ArticlesComponent extends React.Component {
 
     return (
       <Paper className={classes.paper}>
-        <ArticleHeader resetVarArticle={handleResetVarArticle} />
+        <ArticleHeader resetVarArticle={handleResetVarArticle} resetVarArticleExistant={handleResetVarArticleExistant}/>
         <Divider />
         <div style={style.DivTitreTheme}>
           <Typography style={style.StyleTitreThematique}>
@@ -343,6 +331,7 @@ ArticlesComponent.propTypes = {
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
   handleResetVarArticle: PropTypes.func.isRequired,
+  handleResetVarArticleExistant: PropTypes.func.isRequired,
   reforme: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({

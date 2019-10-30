@@ -26,6 +26,7 @@ const mapStateToProps = (state, props) => {
   newValue = makeNumberGoodLooking(newValue);
 
   const outputFieldStyle = style.VarCodeexistant;
+  const outputFieldStyleNonBarre = style.VarCodeexistantNonBarre;
 
   const plfFieldStyle = style.VarPLF;
   const inputFieldStyle = isTauxValue ? style.InputTaux : style.InputSeuil;
@@ -35,6 +36,7 @@ const mapStateToProps = (state, props) => {
     inputFieldStyle,
     newValue,
     outputFieldStyle,
+    outputFieldStyleNonBarre,
     plfFieldStyle,
     plfValue,
   };

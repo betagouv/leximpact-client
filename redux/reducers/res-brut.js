@@ -1,9 +1,9 @@
 import { cloneDeep } from "lodash";
 
 const wprm = [1, 1, 1, 1, 1, 1];
-const apres = [0, -1327, -1062, 0, -1712, -816];
+const apres = [0, -1297, -1020, 0, -1655, -772];
 const avant = [0, -1839, -1292, 0, -2545, -1206];
-const plf = [0, -1327, -1062, 0, -1712, -816];
+const plf = [0, -1297, -1020, 0, -1655, -772];
 
 // cree une map d'objet
 // dont la cle est l'index dans un array

@@ -1,10 +1,10 @@
 import { Typography } from "@material-ui/core";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
+import Switch from "@material-ui/core/Switch";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 
 import LexExpansionPanel from "../expandable-panels/expansion-panel";
 import LexExpansionPanelDetails from "../expandable-panels/expansion-panel-details";
@@ -21,6 +21,17 @@ const styleTitreThematique = {
   fontVariantCaps: "all-small-caps",
   fontWeight: "bold",
   textAlign: "left",
+};
+
+const styleTitreThematiqueModifPLF = {
+  color: "#FF6B6B",
+  fontFamily: "Lora",
+  fontSize: "12px",
+  fontWeight: "bold",
+  textAlign: "left",
+  verticalAlign: "middle",
+  marginTop: "10px",
+  marginLeft: "6px",
 };
 
 const StyledFormControlLabel = withStyles({
@@ -46,16 +57,14 @@ class Alinea4b extends PureComponent {
     } = this.props;
     return (
       <Typography color="inherit" variant="body2">
-        b. Le montant de l&apos;impôt résultant du a est
-        réduit dans les conditions prévues au sixième
-        alinéa du présent b pour les contribuables dont
-        le montant des revenus du foyer fiscal, au sens du
-        1° du IV de l&apos;article 1417,
-        est inférieur à
+        b. Le montant de l&apos;impôt résultant du a est réduit dans les
+        conditions prévues au sixième alinéa du présent b pour les contribuables
+        dont le montant des revenus du foyer fiscal, au sens du 1° du IV de
+        l&apos;article 1417, est inférieur à
         {" "}
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}
         {" "}
-€,
+        €,
         pour la première part de quotient familial des personnes célibataires,
         veuves ou divorcées, et à
         {formulaOutputInput(
@@ -102,7 +111,7 @@ class Alinea4b extends PureComponent {
         {" "}
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil1")}
         {" "}
-€,
+        €,
         pour la première part de quotient familial des personnes célibataires,
         veuves ou divorcées, ou
         {" "}
@@ -117,7 +126,7 @@ class Alinea4b extends PureComponent {
         {baseOutputInput("plafond_qf.reduction_ss_condition_revenus.taux")}
         % multiplié par le rapport entre :
         <br />
-– au numérateur, la différence entre
+        – au numérateur, la différence entre
         {" "}
         {formulaOutputInput("plafond_qf.reduction_ss_condition_revenus.seuil2")}
         €, pour les personnes célibataires, veuves ou divorcées, ou
@@ -130,7 +139,7 @@ class Alinea4b extends PureComponent {
         alinéa, et le montant des revenus mentionnés au troisième alinéa du
         présent b, et ;
         <br />
-– au dénominateur,
+        – au dénominateur,
         {" "}
         {formulaOutputInputCombiLin(
           "plafond_qf.reduction_ss_condition_revenus.seuil2",
@@ -152,20 +161,6 @@ class Alinea4b extends PureComponent {
         année dans la même proportion que la limite supérieure de la première
         tranche du barème de l&apos;impôt sur le revenu. Les montants obtenus
         sont arrondis, s&apos;il y a lieu, à l&apos;euro supérieur.
-
-        <StyledFormControlLabel
-          disabled={true}
-          control={
-            <Switch
-              // checked={this.state.checkedB}
-              // onChange={this.handleChange("checkedB")}
-              // value="checkedB"
-              color="secondary"
-            />
-          }
-          label="Supprimer la réfaction foyers modestes"
-          // Mettre les variables de l'amendement à 0 quand le switch est passé.
-        />
       </Typography>
     );
   }
@@ -175,16 +170,16 @@ class Alinea4b extends PureComponent {
     return (
       <LexExpansionPanel
         square
-        expanded={true}
+        expanded={isPanelExpanded}
         style={style.Typography}
         onChange={expandArticlePanelHandler}>
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
-          <Typography
-            style={styleTitreThematique}>
-              Réfaction foyers modestes
+          <Typography style={styleTitreThematique}>
+            Réfaction foyers modestes
           </Typography>
+          <p style={styleTitreThematiqueModifPLF}>Abrogée par le PLF 2020</p>
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>

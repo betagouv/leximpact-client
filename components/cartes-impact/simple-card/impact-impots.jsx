@@ -5,6 +5,7 @@ import { Fragment, PureComponent } from "react";
 
 import BlueTooltip from "./blue-tooltip";
 import RedTooltip from "./red-tooltip"
+import formatMilliers from "../../utils/format-milliers";
 
 const styles = () => ({
   container: {
@@ -46,9 +47,9 @@ class SimpleCardImpactImpots extends PureComponent {
     const { classes, isLoading, resultats } = this.props;
 
     const DiffAmendPLF = (-resultats.apres + resultats.avant > 0 ? "+" : "-")
-      + Math.round(Math.abs(-resultats.apres + resultats.plf));
+      + formatMilliers(Math.round(Math.abs(-resultats.apres + resultats.plf)));
     const DiffPlFCodeEx = (-resultats.plf + resultats.avant > 0 ? "+" : "-")
-      + Math.round(Math.abs(-resultats.plf + resultats.avant));
+      + formatMilliers(Math.round(Math.abs(-resultats.plf + resultats.avant)));
 
     return (
       <div className={classes.container}>
@@ -61,9 +62,9 @@ class SimpleCardImpactImpots extends PureComponent {
             inline
             className={classes.impotCodeExistant}
             variant="h3">
-            {-resultats.avant}
+            {formatMilliers(-resultats.avant)}
           </Typography>
-
+          {" "}
           <RedTooltip
             className={classes.stylePLF}
             key="gain"
@@ -83,7 +84,7 @@ class SimpleCardImpactImpots extends PureComponent {
                 inline
                 className={classes.impotPLF}
                 variant="h3">
-                {-resultats.plf}
+                {formatMilliers(-resultats.plf)}
               </Typography>
               <Typography
                 gutterBottom
@@ -115,7 +116,7 @@ class SimpleCardImpactImpots extends PureComponent {
             ) : (
               <Fragment>
                 <Typography gutterBottom inline color="secondary" variant="h3">
-                  {-resultats.apres}
+                  {formatMilliers(-resultats.apres)}
                 </Typography>
                 <Typography gutterBottom inline color="secondary" variant="h5">
                   €
