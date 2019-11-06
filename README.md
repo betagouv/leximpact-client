@@ -9,6 +9,10 @@ LexImpact permet aux administrations, aux parlementaires et à la société civi
 * [Fiche produit](https://beta.gouv.fr/startups/leximpact.html)
 * [LexImpact Beta](https://leximpact.beta.gouv.fr)
 
+Leximpact est constitué de deux parties :
+- [Leximpact-server](https://github.com/betagouv/leximpact-server/) : interface en python utilisant openfisca permettant de mettre en place une API répondant à des questions sur l'impact de modifications de la loi fiscale
+- [Leximpact-client](https://github.com/betagouv/leximpact-client/) : interface web communiquant avec l'API qui met à disposition des usagers un site web permettant de visulaliser les résultats des calculs de l'API
+
 
 ## [EN] Introduction
 
@@ -27,7 +31,16 @@ npm install
 npm run dev
 ```
 
-# Mettre à jour les Snapshots Jest (Tests)
+## Configuration file `.env`
+
+A file name .env is necessary for the client to work properly. The file .env.example can be copied into it.
+
+Variables of environment that should be set are:
+- API_URL : leximpact-client is just a web interface, that does not do computations by itself, but needs to be provided a working [Leximpact-server](https://github.com/betagouv/leximpact-server/) endpoint to fetch results. As of 2019-11-06, a working API example can be found on the endpoint https://api.leximpact.beta.gouv.fr 
+- PORT : describes the port that the client will be setup to (e.g. the website will be accessible from http://127.0.0.1:<PORT> if the client is run locally). If ommited, defaults to 9001
+
+
+# Snapshots Jest (Tests)
 
 ```
 Snapshot tests are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
