@@ -61,7 +61,8 @@ A typical snapshot test case for a mobile app renders a UI component, takes a sn
 
 # Screenshot
 
-<img width="1280" alt="Capture d’écran 2019-04-25 à 03 08 30" src="https://user-images.githubusercontent.com/329236/56703045-6517c780-6707-11e9-9947-9f4e3d72aac2.png">
+<img width="1280" alt="Capture d’écran 2019-11-06" src="https://user-images.githubusercontent.com/17675313/68288289-6a75a780-0084-11ea-9bab-addb613cd2a4.png">
+
 
 # Documentation
 
