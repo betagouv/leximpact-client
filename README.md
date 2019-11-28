@@ -45,21 +45,30 @@ Here ate the environment variables that you have to set:
 - `PORT`: describes the port that the client will be setup to (e.g. the website will be accessible from http://127.0.0.1:<PORT> if the client is run locally). If ommited, defaults to `9001`
 
 
-# Snapshots Jest (Tests)
+# Snapshot testing with Jest
 
-```
 Snapshot tests are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
 
-A typical snapshot test case for a mobile app renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.
+> A typical snapshot test case for a mobile app renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.
+
+
+For more information, please see the Jest [official documentation](https://jestjs.io/docs/en/snapshot-testing).
+
+Here is the command to run these tests:
+
+```shell
+npm run test
 ```
 
-[Documentation Officielle](https://jestjs.io/docs/en/snapshot-testing)
+To update the reference snapshots, run:
 
-```bash
-./node_modules/.bin/jest --updateSnapshots
+```shell
+npm run test --updateSnapshots
 ```
 
-# Icons & Emoji
+This is similar to: `./node_modules/.bin/jest --updateSnapshots`
+
+# Icons & Emoji sources
 
 - [Twitter Emoji](https://iconify.design/icon-sets/twemoji/)
 - [MaterialUI Icons](https://material.io/resources/icons)
