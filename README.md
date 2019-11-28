@@ -9,9 +9,10 @@ LexImpact permet aux administrations, aux parlementaires et à la société civi
 * [Fiche produit](https://beta.gouv.fr/startups/leximpact.html)
 * [LexImpact Beta](https://leximpact.beta.gouv.fr)
 
-Leximpact est constitué de deux parties :
-- [Leximpact-server](https://github.com/betagouv/leximpact-server/) : interface en python utilisant openfisca permettant de mettre en place une API répondant à des questions sur l'impact de modifications de la loi fiscale
-- [Leximpact-client](https://github.com/betagouv/leximpact-client/) : interface web communiquant avec l'API qui met à disposition des usagers un site web permettant de visulaliser les résultats des calculs de l'API
+LexImpact est constitué de deux parties :
+
+- [leximpact-server](https://github.com/betagouv/leximpact-server/) : application en python utilisant [OpenFisca-France](https://github.com/openfisca/openfisca-france) permettant de mettre en place une API Web répondant à des questions sur l'impact de modifications de la loi fiscale,
+- Ici même, [leximpact-client](https://github.com/betagouv/leximpact-client/) : interface web communiquant avec l'API qui met à disposition des usagers un site web permettant de définir des modifications de la loi et d'en visulaliser les résultats calculés par l'API.
 
 
 ## [EN] Introduction
@@ -23,6 +24,10 @@ LexImpact allows civil servants, policy makers and citizens to simulate the _ex 
 * [Elevator pitch (FR)](https://beta.gouv.fr/startups/leximpact.html)
 * [LexImpact Beta](https://leximpact.beta.gouv.fr)
 
+LexImpact has two components:
+
+- [leximpact-server](https://github.com/betagouv/leximpact-server/): a Python application using [OpenFisca-France](https://github.com/openfisca/openfisca-france) and providing a Web API responding to requests on the impact of a change of the tax law,
+- Here, [leximpact-client](https://github.com/betagouv/leximpact-client/): a web interface interacting with leximpact-server API and providing to the users a web site to set law tax changes and see the results calculated by the API.
 
 # How to use
 
