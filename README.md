@@ -68,15 +68,14 @@ npm run test --updateSnapshots
 
 This is similar to: `./node_modules/.bin/jest --updateSnapshots`
 
-# Icons & Emoji sources
-
-- [Twitter Emoji](https://iconify.design/icon-sets/twemoji/)
-- [MaterialUI Icons](https://material.io/resources/icons)
-
 # Screenshot
 
 <img width="1280" alt="Capture d’écran 2019-11-06" src="https://user-images.githubusercontent.com/17675313/68288289-6a75a780-0084-11ea-9bab-addb613cd2a4.png">
 
+# Icons & Emoji sources
+
+- [Twitter Emoji](https://iconify.design/icon-sets/twemoji/)
+- [MaterialUI Icons](https://material.io/resources/icons)
 
 # Documentation
 
