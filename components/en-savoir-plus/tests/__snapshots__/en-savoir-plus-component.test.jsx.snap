@@ -88,7 +88,7 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
           <WithStyles(Button)
             color="inherit"
             fullWidth={true}
-            href="mailto:contact@leximpact.beta.gouv.fr"
+            href="mailto:leximpact@an.fr"
             size="large"
             variant="outlined"
           >
@@ -97,7 +97,7 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
           <p
             className="EnSavoiPlusComponent-pAdresseMail-7"
           >
-            Écrivez-nous à contact@leximpact.beta.gouv.fr !
+            Écrivez-nous à leximpact@an.fr !
           </p>
         </div>
       </div>
