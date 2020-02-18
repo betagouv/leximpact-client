@@ -105,13 +105,13 @@ class EnSavoiPlusComponent extends PureComponent {
                 <Button
                   fullWidth
                   color="inherit"
-                  href="mailto:contact@leximpact.beta.gouv.fr"
+                  href="mailto:leximpact@an.fr"
                   size="large"
                   variant="outlined">
                   Une question ? Un bug ? Un avis ?
                 </Button>
                 <p className={classes.pAdresseMail}>
-                  Écrivez-nous à contact@leximpact.beta.gouv.fr !
+                  Écrivez-nous à leximpact@an.fr !
                 </p>
               </div>
             </div>
