@@ -23,7 +23,7 @@ async function start() {
 
   ------------------------------------ */
   server.get("/bbbc03c2d698ea7ec1194fab549115f1.txt", (req, res) => {
-    res.set("Content-Type", "text/plain").sendStatus(200);
+    res.set("Content-Type", "text/plain").send("");
   });
   server.use("/", express.static(path.join(__dirname, "public")));
   server.use("/static", express.static(path.join(__dirname, "static")));
