@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 
+import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
+import formatMilliers from "../../utils/format-milliers";
 import InputField from "../input-field";
 import OutputField from "../output-field";
-import formatMilliers from "../../utils/format-milliers";
+
+function formatNumber(n) {
+  return formatMilliers(makeNumberGoodLooking(n));
+}
 
 const BaseInputOutputComponent = ({
   baseValue,
@@ -15,28 +20,35 @@ const BaseInputOutputComponent = ({
   outputFieldStyleNonBarre,
   plfFieldStyle,
   plfValue,
-}) => (
-  <Fragment>
-    <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? outputFieldStyleNonBarre : outputFieldStyle} value={formatMilliers(baseValue)} />
-    {Math.abs(baseValue-plfValue) < 0.001 ? " " : <OutputField style={plfFieldStyle} value={formatMilliers(plfValue)} />}
-    <InputField
-      name={name}
-      style={inputFieldStyle}
-      value={formatMilliers(newValue)}
-      onChange={handleInputChange}
-    />
-  </Fragment>
-);
+}) => {
+  const montrerPLF = plfValue !== null && plfValue !== baseValue;
+  return (
+    <Fragment>
+      <OutputField style={montrerPLF ? outputFieldStyle : outputFieldStyleNonBarre} value={formatNumber(baseValue)} />
+      {montrerPLF && <OutputField style={plfFieldStyle} value={formatNumber(plfValue)} />}
+      <InputField
+        name={name}
+        style={inputFieldStyle}
+        value={formatNumber(newValue)}
+        onChange={handleInputChange}
+      />
+    </Fragment>
+  );
+};
+
+BaseInputOutputComponent.defaultProps = {
+  plfValue: null,
+};
 
 BaseInputOutputComponent.propTypes = {
-  baseValue: PropTypes.string.isRequired,
+  baseValue: PropTypes.number.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   inputFieldStyle: PropTypes.shape().isRequired,
   name: PropTypes.string.isRequired,
-  newValue: PropTypes.string.isRequired,
+  newValue: PropTypes.number.isRequired,
   outputFieldStyle: PropTypes.shape().isRequired,
   plfFieldStyle: PropTypes.shape().isRequired,
-  plfValue: PropTypes.string.isRequired,
+  plfValue: PropTypes.number,
 };
 
 export default BaseInputOutputComponent;
