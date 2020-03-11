@@ -31,7 +31,7 @@ export const REFORME_PLF_DEFAULT_STATE = {
   },
 };
 
-const reformePLF = (state = REFORME_PLF_DEFAULT_STATE, action) => {
+const reformePLF = (state = null, action) => {
   // Jamais modifié, utilisé pour montrer le PLF proposé
   // dans les article s'affiche dans les chiffres en jaunes
   switch (action.type) {
