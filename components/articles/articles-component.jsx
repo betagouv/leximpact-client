@@ -226,7 +226,7 @@ class ArticlesComponent extends React.Component {
     }
     // Other parts :
     const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
-    const plfValuet = plft[Math.min(i, plft.length) - 1] * 100;
+    const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] * 100 : null;
     const baseValue = bases[Math.min(i, bases.length - 1)];
     const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
     const baseValueminus1 = bases[Math.min(i - 1, bases.length - 1)];
@@ -335,6 +335,10 @@ class ArticlesComponent extends React.Component {
   }
 }
 
+ArticlesComponent.defaultProps = {
+  reformePLF: null,
+};
+
 ArticlesComponent.propTypes = {
   classes: PropTypes.shape().isRequired,
   handleAddTranche: PropTypes.func.isRequired,
@@ -362,7 +366,7 @@ ArticlesComponent.propTypes = {
         seuils: PropTypes.arrayOf(PropTypes.number),
       }),
     }),
-  }).isRequired,
+  }),
 };
 
 export default withStyles(stylesTheme, { withTheme: true })(ArticlesComponent);
