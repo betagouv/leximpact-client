@@ -2,7 +2,6 @@ import { get } from "lodash";
 import { connect } from "react-redux";
 
 import { updateReformeByName } from "../../../redux/actions";
-import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
 import BaseInputOutputComponent from "./base-input-output-component";
 
 const REGEX_TAUX = RegExp("taux");
@@ -15,15 +14,15 @@ const mapStateToProps = (state, props) => {
 
   let baseValue = get(reformeBase.impot_revenu, name);
   baseValue *= multiplicateur;
-  baseValue = makeNumberGoodLooking(baseValue);
 
-  let plfValue = get(reformePLF, `impot_revenu.${name}`);
-  plfValue *= multiplicateur;
-  plfValue = makeNumberGoodLooking(plfValue);
+  let plfValue;
+  if (reformePLF) {
+    plfValue = get(reformePLF, `impot_revenu.${name}`);
+    plfValue *= multiplicateur;
+  }
 
   let newValue = get(reforme.impot_revenu, name);
   newValue *= multiplicateur;
-  newValue = makeNumberGoodLooking(newValue);
 
   const outputFieldStyle = style.VarCodeexistant;
   const outputFieldStyleNonBarre = style.VarCodeexistantNonBarre;
