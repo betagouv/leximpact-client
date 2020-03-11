@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 
-import formatMilliers from "../../utils/format-milliers";
 import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
+import formatMilliers from "../../utils/format-milliers";
 import OutputField from "../output-field";
 
 function formatNumber(n) {
