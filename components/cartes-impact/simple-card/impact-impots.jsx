@@ -3,9 +3,9 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import BlueTooltip from "./blue-tooltip";
-import RedTooltip from "./red-tooltip"
 import formatMilliers from "../../utils/format-milliers";
+import BlueTooltip from "./blue-tooltip";
+import RedTooltip from "./red-tooltip";
 
 const styles = () => ({
   container: {
@@ -37,7 +37,7 @@ const styles = () => ({
     fontSize: 12,
     marginBottom: 10,
   },
-  stylePLF:{
+  stylePLF: {
     display: "inline-flex",
   },
 });
@@ -65,36 +65,38 @@ class SimpleCardImpactImpots extends PureComponent {
             {formatMilliers(-resultats.avant)}
           </Typography>
           {" "}
-          <RedTooltip
-            className={classes.stylePLF}
-            key="gain"
-            enterDelay={300}
-            leaveDelay={200}
-            placement="bottom-start"
-            title={(
-              <Fragment>
-                {"Avec le PLF, ce foyer doit "}
-                <b>{`${DiffPlFCodeEx}€`}</b>
-                {" d'impôts/an qu'avec le code existant"}
-              </Fragment>
-            )}>
-            <div>
-              <Typography
-                gutterBottom
-                inline
-                className={classes.impotPLF}
-                variant="h3">
-                {formatMilliers(-resultats.plf)}
-              </Typography>
-              <Typography
-                gutterBottom
-                inline
-                className={classes.euroPLF}
-                variant="h5">
+          {resultats.plf !== null && (
+            <RedTooltip
+              key="gain"
+              className={classes.stylePLF}
+              enterDelay={300}
+              leaveDelay={200}
+              placement="bottom-start"
+              title={(
+                <Fragment>
+                  {"Avec le PLF, ce foyer doit "}
+                  <b>{`${DiffPlFCodeEx}€`}</b>
+                  {" d'impôts/an qu'avec le code existant"}
+                </Fragment>
+              )}>
+              <div>
+                <Typography
+                  gutterBottom
+                  inline
+                  className={classes.impotPLF}
+                  variant="h3">
+                  {formatMilliers(-resultats.plf)}
+                </Typography>
+                <Typography
+                  gutterBottom
+                  inline
+                  className={classes.euroPLF}
+                  variant="h5">
                 €
-              </Typography>
-            </div>
-          </RedTooltip>
+                </Typography>
+              </div>
+            </RedTooltip>
+          )}
         </div>
 
 
@@ -103,13 +105,13 @@ class SimpleCardImpactImpots extends PureComponent {
           enterDelay={300}
           leaveDelay={200}
           placement="bottom-start"
-          title={(
+          title={resultats.plf !== null ? (
             <Fragment>
               {"Avec mon amendement, ce foyer doit "}
               <b>{`${DiffAmendPLF}€`}</b>
               {" d'impôts/an qu'avec le PLF 2020"}
             </Fragment>
-          )}>
+          ) : ""}>
           <div>
             {isLoading ? (
               <CircularProgress color="secondary" />
@@ -136,7 +138,7 @@ SimpleCardImpactImpots.propTypes = {
   resultats: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,
-    plf: PropTypes.number.isRequired,
+    plf: PropTypes.number,
   }).isRequired,
 };
 
