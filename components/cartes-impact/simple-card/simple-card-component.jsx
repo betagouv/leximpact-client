@@ -24,9 +24,9 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import DoublePalmTreeIcon from "../../icons/double-palm-tree";
-import SimpleCardImpactImpots from "./impact-impots";
+import formatMilliers from "../../utils/format-milliers";
 import GreyTooltip from "./grey-tooltip";
-import formatMilliers from "../../utils/format-milliers"
+import SimpleCardImpactImpots from "./impact-impots";
 
 const RESIDENCE_ITEMS = [
   // Doit correspondre a ceux definis
@@ -170,17 +170,17 @@ class SimpleCard extends React.Component {
         <div className={classes.cardHeaderButtons}>
           <IconButton
             disableRipple
-            aria-label="Delete"
-            classes={{ root: classes.cardEditDeleteButton }}
-            onClick={handleRemoveCasType(index)}>
-            <CloseIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            disableRipple
             aria-label="Edit"
             classes={{ root: classes.cardEditDeleteButton }}
             onClick={handleShowEditCasTypesPopin(index)}>
             <EditIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            disableRipple
+            aria-label="Delete"
+            classes={{ root: classes.cardEditDeleteButton }}
+            onClick={handleRemoveCasType(index)}>
+            <CloseIcon fontSize="small" />
           </IconButton>
         </div>
       </div>
