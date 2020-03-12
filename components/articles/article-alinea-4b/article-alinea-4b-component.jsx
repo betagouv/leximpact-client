@@ -166,7 +166,9 @@ class Alinea4b extends PureComponent {
   }
 
   render() {
-    const { expandArticlePanelHandler, isPanelExpanded, style } = this.props;
+    const {
+      expandArticlePanelHandler, isPanelExpanded, reformePLF, style,
+    } = this.props;
     return (
       <LexExpansionPanel
         square
@@ -179,7 +181,7 @@ class Alinea4b extends PureComponent {
           <Typography style={styleTitreThematique}>
             Réfaction foyers modestes
           </Typography>
-          <p style={styleTitreThematiqueModifPLF}>Abrogée par le PLF 2020</p>
+          {reformePLF && <p style={styleTitreThematiqueModifPLF}>Abrogée par le PLF 2020</p>}
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
@@ -190,12 +192,17 @@ class Alinea4b extends PureComponent {
   }
 }
 
+Alinea4b.defaultProps = {
+  reformePLF: null,
+};
+
 Alinea4b.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   formulaOutputInputCombiLin: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
+  reformePLF: PropTypes.shape(),
   style: PropTypes.shape().isRequired,
 };
 
