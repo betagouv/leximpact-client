@@ -10,7 +10,7 @@ const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
   const resultats = {
     apres: resBrut.apres[index],
     avant: resBrut.avant[index],
-    plf: resBrut.plf[index],
+    plf: resBrut.plf ? resBrut.plf[index] : null,
   };
   return {
     descCasType,
