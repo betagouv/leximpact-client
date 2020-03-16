@@ -53,7 +53,6 @@ function TextePresentationOpenLeximpact({ classes }) {
         <li>le barème de l&apos;impôt sur le revenu,</li>
         <li>les plafonds du quotient familial,</li>
         <li>la décote,</li>
-        <li>la réfaction foyers modestes,</li>
         <li>la réfaction outre-mers.</li>
       </ul>
 
