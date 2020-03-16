@@ -1,9 +1,7 @@
-import { IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  KeyboardArrowDown as KeyboardArrowDownIcon,
-  KeyboardArrowUp as KeyboardArrowUpIcon,
-} from "@material-ui/icons";
+import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@material-ui/icons/KeyboardArrowDown";
+import { KeyboardArrowUp as KeyboardArrowUpIcon } from "@material-ui/icons/KeyboardArrowUp";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 

@@ -1,11 +1,11 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import warningIcon from "@iconify/icons-twemoji/warning";
 import { Icon, InlineIcon } from "@iconify/react";
-import { Typography } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import { Typography } from "@material-ui/core/Typography";
+import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
@@ -79,17 +79,18 @@ class ArticleAlinea3 extends PureComponent {
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
-        {isUserLogged ?
-          (<div className={classes.warningOutremer}>
-            <Icon icon={warningIcon} />
-            <Icon icon={classicalBuilding} />
-            <span>
+          {isUserLogged
+            ? (
+              <div className={classes.warningOutremer}>
+                <Icon icon={warningIcon} />
+                <Icon icon={classicalBuilding} />
+                <span>
               La modification des paramètres de la décote outre-mer est
               actuellement uniquement prise en compte pour le calcul de l&apos;impôt des
               foyers fiscaux types.
-            </span>
-          </div>
-          ) : null}
+                </span>
+              </div>
+            ) : null}
           <Typography color="inherit" variant="body2">
             3. Le montant de l&apos;impôt résultant de l&apos;application des
             dispositions précédentes est réduit de

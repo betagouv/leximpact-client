@@ -1,10 +1,5 @@
-import { Button, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  AccountBalance as AccountBalanceIcon,
-  Cached as CachedIcon,
-  Face as FaceIcon,
-} from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 

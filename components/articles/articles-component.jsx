@@ -1,7 +1,8 @@
-import {
-  Divider, Grid, Paper, Typography,
-} from "@material-ui/core";
+import { Divider } from "@material-ui/core/Divider";
+import { Grid } from "@material-ui/core/Grid";
+import { Paper } from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -13,6 +14,7 @@ import {
 import InputField from "../articles-inputs/input-field";
 import OutputField from "../articles-inputs/output-field";
 import fillArrayWith from "../utils/array/fillArrayWith";
+import formatMilliers from "../utils/format-milliers";
 import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
@@ -22,7 +24,6 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import makeNumberGoodLooking from "./utils/make-number-good-looking";
-import formatMilliers from "../utils/format-milliers"
 
 const stylesTheme = theme => ({
   paper: {
@@ -167,10 +168,10 @@ class ArticlesComponent extends React.Component {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
           <OutputField
-            style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+            style={Math.abs(baseValue - plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
             value={formatMilliers(baseValue)}
           />
-          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
+          {Math.abs(baseValue - plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
           <InputField
             name={`seuil${i}`}
             style={style.InputSeuil}
@@ -196,11 +197,11 @@ class ArticlesComponent extends React.Component {
           {"– "}
           {/* jaune */}
           <OutputField
-            style={Math.abs(baseValuet-plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+            style={Math.abs(baseValuet - plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
             value={makeNumberGoodLooking(baseValuet)}
           />
           {/* rouge */}
-          {Math.abs(baseValuet-plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
+          {Math.abs(baseValuet - plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
           {/* bleu editable (pourcentage) */}
           <InputField
             name={`taux${i - 1}`}
@@ -211,8 +212,8 @@ class ArticlesComponent extends React.Component {
           %
           <br />
           pour la fraction supérieure à&nbsp;
-          <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
-          {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
+          <OutputField style={Math.abs(baseValue - plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
+          {Math.abs(baseValue - plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
           <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
           {"€."}
         </Typography>
@@ -234,11 +235,11 @@ class ArticlesComponent extends React.Component {
         –
         {" "}
         <OutputField
-          style={Math.abs(baseValuet-plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
+          style={Math.abs(baseValuet - plfValuet) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant}
           value={makeNumberGoodLooking(baseValuet)}
         />
         {/* rouge */}
-        {Math.abs(baseValuet-plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
+        {Math.abs(baseValuet - plfValuet) < 0.001 ? " " : <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
         <InputField
           name={`taux${i - 1}`}
           style={style.InputTaux}
@@ -248,14 +249,14 @@ class ArticlesComponent extends React.Component {
         %
         <br />
         pour la fraction supérieure à&nbsp;
-        <OutputField style={Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValueminus1)} />
-        {Math.abs(baseValueminus1-plfValueminus1) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValueminus1)} />}
+        <OutputField style={Math.abs(baseValueminus1 - plfValueminus1) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValueminus1)} />
+        {Math.abs(baseValueminus1 - plfValueminus1) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValueminus1)} />}
         <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
         €
         <br />
         et inférieure ou égale à&nbsp;
-        <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
-        {Math.abs(baseValue-plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
+        <OutputField style={Math.abs(baseValue - plfValue) < 0.001 ? style.VarCodeexistantNonBarre : style.VarCodeexistant} value={formatMilliers(baseValue)} />
+        {Math.abs(baseValue - plfValue) < 0.001 ? "" : <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
         <InputField
           name={`seuil${i}`}
           style={style.InputSeuil}
@@ -283,7 +284,7 @@ class ArticlesComponent extends React.Component {
 
     return (
       <Paper className={classes.paper}>
-        <ArticleHeader resetVarArticle={handleResetVarArticle} resetVarArticleExistant={handleResetVarArticleExistant}/>
+        <ArticleHeader resetVarArticle={handleResetVarArticle} resetVarArticleExistant={handleResetVarArticleExistant} />
         <Divider />
         <div style={style.DivTitreTheme}>
           <Typography style={style.StyleTitreThematique}>

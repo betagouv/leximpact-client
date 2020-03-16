@@ -1,6 +1,6 @@
-import { Button } from "@material-ui/core";
+import { Button } from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
-import { Menu as MenuIcon } from "@material-ui/icons";
+import { Menu as MenuIcon } from "@material-ui/icons/Menu";
 import PropTypes from "prop-types";
 
 import { showEnSavoirPlusPopin } from "../../redux/actions";

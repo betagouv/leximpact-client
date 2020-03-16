@@ -1,8 +1,9 @@
-import {
-  Button, Grid, IconButton, Typography,
-} from "@material-ui/core";
+import { Button } from "@material-ui/core/Button";
+import { Grid } from "@material-ui/core/Grid";
+import { IconButton } from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon } from "@material-ui/icons";
+import { Typography } from "@material-ui/core/Typography";
+import { Close as CloseIcon } from "@material-ui/icons/Close";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
@@ -66,10 +67,14 @@ class EnSavoiPlusComponent extends PureComponent {
             </Typography>
             <Typography>
               LexImpact est une interface qui permet de
-              <b> simuler,
+              <b>
+                {" "}
+simuler,
               de&nbsp;façon rapide, l&apos;impact des réformes paramétriques de
               l&apos;impôt sur le revenu.
-              </b>  L&apos;estimation des impacts sur des foyers fiscaux types est accessible à tous avec Open LexImpact ; les mesures d&apos;impacts sur la population française et les recettes de l&apos;État sont disponibles en accès restreint sur LexImpact POP.
+              </b>
+              {" "}
+L&apos;estimation des impacts sur des foyers fiscaux types est accessible à tous avec Open LexImpact ; les mesures d&apos;impacts sur la population française et les recettes de l&apos;État sont disponibles en accès restreint sur LexImpact POP.
             </Typography>
             <a className={classes.alink} href="/presentation-et-cgu">
               en savoir plus

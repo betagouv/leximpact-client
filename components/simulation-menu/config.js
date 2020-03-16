@@ -1,8 +1,6 @@
-import {
-  AddCircleOutline as AddCircleOutlineIcon,
-  Share as ShareIcon,
-  ViewQuilt as ViewQuiltIcon,
-} from "@material-ui/icons";
+import { AddCircleOutline as AddCircleOutlineIcon } from "@material-ui/icons/AddCircleOutline";
+import { Share as ShareIcon } from "@material-ui/icons/Share";
+import { ViewQuilt as ViewQuiltIcon } from "@material-ui/icons/ViewQuilt";
 
 import { showAddCasTypesPopin } from "../../redux/actions";
 

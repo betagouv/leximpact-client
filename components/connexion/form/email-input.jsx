@@ -1,10 +1,8 @@
-import {
-  FormGroup,
-  FormLabel,
-  Input,
-  MenuItem,
-  Select,
-} from "@material-ui/core";
+import { FormGroup } from "@material-ui/core/FormGroup";
+import { FormLabel } from "@material-ui/core/FormLabel";
+import { Input } from "@material-ui/core/Input";
+import { MenuItem } from "@material-ui/core/MenuItem";
+import { Select } from "@material-ui/core/Select";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
@@ -77,7 +75,7 @@ class EmailTextInput extends PureComponent {
         value={value}
         onChange={onChange}>
         {domains.map(domainLabel => (
-          <MenuItem className={classes.menuPaper} key={domainLabel} value={domainLabel}>
+          <MenuItem key={domainLabel} className={classes.menuPaper} value={domainLabel}>
             {domainLabel}
           </MenuItem>
         ))}

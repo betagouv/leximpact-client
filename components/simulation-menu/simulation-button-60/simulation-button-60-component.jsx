@@ -1,9 +1,7 @@
-import { Button } from "@material-ui/core";
-import {
-  AccountBalance as AccountBalanceIcon,
-  Cached as CachedIcon,
-  Face as FaceIcon,
-} from "@material-ui/icons";
+import { Button } from "@material-ui/core/Button";
+import { AccountBalance as AccountBalanceIcon } from "@material-ui/icons/AccountBalance";
+import { Cached as CachedIcon } from "@material-ui/icons/Cached";
+import { Face as FaceIcon } from "@material-ui/icons/Face";
 import PropTypes from "prop-types";
 
 const SimulationButton60Component = ({

@@ -2,9 +2,9 @@ import ClassicalBuildingIcon from "@iconify/icons-twemoji/classical-building";
 import PartyPopperIcon from "@iconify/icons-twemoji/party-popper";
 import PeopleHoldingHandsIcon from "@iconify/icons-twemoji/people-holding-hands";
 import { Icon } from "@iconify/react";
-import { IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon } from "@material-ui/icons";
+import { Close as CloseIcon } from "@material-ui/icons/Close";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
