@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 
+import formatMilliers from "../../utils/format-milliers";
 import InputField from "../input-field";
 import OutputField from "../output-field";
-import formatMilliers from "../../utils/format-milliers";
 
 const BaseInputOutputComponent = ({
   baseValue,
@@ -17,8 +17,8 @@ const BaseInputOutputComponent = ({
   plfValue,
 }) => (
   <Fragment>
-    <OutputField style={Math.abs(baseValue-plfValue) < 0.001 ? outputFieldStyleNonBarre : outputFieldStyle} value={formatMilliers(baseValue)} />
-    {Math.abs(baseValue-plfValue) < 0.001 ? " " : <OutputField style={plfFieldStyle} value={formatMilliers(plfValue)} />}
+    <OutputField style={Math.abs(baseValue - plfValue) < 0.001 ? outputFieldStyleNonBarre : outputFieldStyle} value={formatMilliers(baseValue)} />
+    {Math.abs(baseValue - plfValue) < 0.001 ? " " : <OutputField style={plfFieldStyle} value={formatMilliers(plfValue)} />}
     <InputField
       name={name}
       style={inputFieldStyle}

@@ -6,8 +6,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import PropTypes from "prop-types";
-import formatMilliers from "../utils/format-milliers";
 
+import formatMilliers from "../utils/format-milliers";
 
 
 const styles = {
