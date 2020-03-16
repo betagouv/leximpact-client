@@ -1,4 +1,3 @@
-import Typography from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -11,22 +10,9 @@ import formatMilliers from "../utils/format-milliers";
 
 
 const styles = {
-  tableHeader: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "1.125em",
-    height: "0px",
-    verticalAlign: "top",
-    textAlign: "center",
-  },
   cellStyle: {
     padding: "0.6em",
     textAlign: "center",
-  },
-  infinity: {
-    fontSize: "2em",
-    fontWeight: "330",
-    verticalAlign: "sub",
   },
   codeExistant: {
     backgroundColor: "#DED500",
@@ -39,6 +25,11 @@ const styles = {
     marginLeft: "4px",
     marginRight: "4px",
     padding: "3px",
+  },
+  infinity: {
+    fontSize: "2em",
+    fontWeight: "330",
+    verticalAlign: "sub",
   },
   plf: {
     color: "#FF6B6B",
@@ -61,6 +52,14 @@ const styles = {
     marginRight: "4px",
     padding: "3px",
   },
+  tableHeader: {
+    color: "#565656",
+    fontFamily: "Lato",
+    fontSize: "1.125em",
+    height: "0px",
+    textAlign: "center",
+    verticalAlign: "top",
+  },
 };
 
 const NOMBRE_DECILES = 10;
@@ -80,6 +79,7 @@ function createData(
   id += 1;
   return {
     decile,
+    frontiereDecile,
     id,
     impactMoyenFoyer_plf,
     impactMoyenFoyer_reforme,
@@ -89,7 +89,6 @@ function createData(
     recettesEtat,
     recettesEtat_plf,
     recettesEtat_reforme,
-    frontiereDecile,
   };
 }
 
@@ -129,7 +128,9 @@ function imageDecile(id) {
 }
 
 function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
-  const rows = deciles.map((currElement, index) => create_from_deciles(index, currElement, frontieres_deciles[index]));
+  const rows = deciles.map(
+    (currElement, index) => create_from_deciles(index, currElement, frontieres_deciles[index]),
+  );
   const NON_APPLICABLE = "—";
 
   return (
@@ -169,7 +170,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
               &#10877;&nbsp;
-              {row.frontiereDecile == "-" ? (
+              {row.frontiereDecile === "-" ? (
                 <span className={classes.infinity}>∞</span>
               ) : (
                 row.frontiereDecile
@@ -178,13 +179,13 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
               <span style={styles.plf}>
-                {row.impactMoyenFoyer_plf == "-"
+                {row.impactMoyenFoyer_plf === "-"
                   ? NON_APPLICABLE
                   : `${row.impactMoyenFoyer_plf}%`}
               </span>
               &nbsp;
               <span style={styles.reforme}>
-                {row.impactMoyenFoyer_reforme == "-"
+                {row.impactMoyenFoyer_reforme === "-"
                   ? NON_APPLICABLE
                   : `${row.impactMoyenFoyer_reforme}%`}
               </span>

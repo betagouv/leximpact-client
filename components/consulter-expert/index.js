@@ -13,8 +13,8 @@ const mapStateToProps = ({ currentExpandedArticlePanel }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onRemoveConsulterExpert: () => dispatch(closeConsulterExpert()),
   onExpandPanel: () => dispatch(expandArticlePanel(PANEL_NAME)),
+  onRemoveConsulterExpert: () => dispatch(closeConsulterExpert()),
 });
 
 export default connect(

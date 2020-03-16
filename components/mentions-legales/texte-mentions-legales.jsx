@@ -65,13 +65,15 @@ function MyComponent({ classes }) {
           rel="noopener noreferrer"
           target="_blank">
           Twemoji
-        </a>, sous licence&nbsp;
+        </a>
+        , sous licence&nbsp;
         <a
           href="https://creativecommons.org/licenses/by/4.0/"
           rel="noopener noreferrer"
           target="_blank">
           CC-BY 4.0
-        </a>.
+        </a>
+        .
       </p>
     </section>
   );
