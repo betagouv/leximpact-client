@@ -173,8 +173,8 @@ describe("components | connexion | utils", () => {
           default: false,
           disabled: false,
           domains: ["@senat.fr", "@republicains.senat.fr", "@soc.senat.fr", "@uc.senat.fr", "@rdse.senat.fr", "@lrem.senat.fr"],
-          label: "Administrat·eur·rice Sénat"
-        }
+          label: "Administrat·eur·rice Sénat",
+        },
       };
       expect(given).toStrictEqual(AVAILABLE_ROLES);
     });

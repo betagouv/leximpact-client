@@ -79,17 +79,18 @@ class ArticleAlinea3 extends PureComponent {
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
-        {isUserLogged ?
-          (<div className={classes.warningOutremer}>
-            <Icon icon={warningIcon} />
-            <Icon icon={classicalBuilding} />
-            <span>
+          {isUserLogged
+            ? (
+              <div className={classes.warningOutremer}>
+                <Icon icon={warningIcon} />
+                <Icon icon={classicalBuilding} />
+                <span>
               La modification des paramètres de la décote outre-mer est
               actuellement uniquement prise en compte pour le calcul de l&apos;impôt des
               foyers fiscaux types.
-            </span>
-          </div>
-          ) : null}
+                </span>
+              </div>
+            ) : null}
           <Typography color="inherit" variant="body2">
             3. Le montant de l&apos;impôt résultant de l&apos;application des
             dispositions précédentes est réduit de

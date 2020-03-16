@@ -77,7 +77,7 @@ class EmailTextInput extends PureComponent {
         value={value}
         onChange={onChange}>
         {domains.map(domainLabel => (
-          <MenuItem className={classes.menuPaper} key={domainLabel} value={domainLabel}>
+          <MenuItem key={domainLabel} className={classes.menuPaper} value={domainLabel}>
             {domainLabel}
           </MenuItem>
         ))}

@@ -3,9 +3,9 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import BlueTooltip from "./blue-tooltip";
-import RedTooltip from "./red-tooltip"
 import formatMilliers from "../../utils/format-milliers";
+import BlueTooltip from "./blue-tooltip";
+import RedTooltip from "./red-tooltip";
 
 const styles = () => ({
   container: {
@@ -37,7 +37,7 @@ const styles = () => ({
     fontSize: 12,
     marginBottom: 10,
   },
-  stylePLF:{
+  stylePLF: {
     display: "inline-flex",
   },
 });
@@ -66,8 +66,8 @@ class SimpleCardImpactImpots extends PureComponent {
           </Typography>
           {" "}
           <RedTooltip
-            className={classes.stylePLF}
             key="gain"
+            className={classes.stylePLF}
             enterDelay={300}
             leaveDelay={200}
             placement="bottom-start"

@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 import { Field } from "react-final-form";
 
+import formatMilliers from "../../utils/format-milliers";
 import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
-import formatMilliers from "../../utils/format-milliers"
 
 const REVENUS_MENSUEL = generateRevenusMensuel(500);
 const selectOptions = REVENUS_MENSUEL.map((value) => {

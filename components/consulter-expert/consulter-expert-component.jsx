@@ -87,10 +87,10 @@ class ConsulterExpertCard extends PureComponent {
   render() {
     const {
       classes,
-      onRemoveConsulterExpert,
       isPanelExpanded,
       onExpandPanel,
-      
+      onRemoveConsulterExpert,
+
     } = this.props;
 
     return (
