@@ -1,6 +1,6 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import warningIcon from "@iconify/icons-twemoji/warning";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import { Typography } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
@@ -17,13 +17,13 @@ const styles = () => ({
   warningOutremer: {
     backgroundColor: "#FFAC33",
     borderRadius: "4px",
-    margin: "10px",
-    padding: "10px",
-    width: "95%",
     color: "#000000",
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
+    margin: "10px",
+    padding: "10px",
+    width: "95%",
   },
 });
 
@@ -127,8 +127,8 @@ class ArticleAlinea3 extends PureComponent {
 }
 
 ArticleAlinea3.propTypes = {
-  classes: PropTypes.shape().isRequired,
   baseOutputInput: PropTypes.func.isRequired,
+  classes: PropTypes.shape().isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,

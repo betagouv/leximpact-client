@@ -26,8 +26,8 @@ import React, { PureComponent } from "react";
 
 const styles = () => ({
   buttonPosition: {
-    marginTop: "41px",
     marginBottom: "114px",
+    marginTop: "41px",
   },
   cardContainer: {
     minWidth: 50,
@@ -507,8 +507,8 @@ class GagnantsPerdantsCard extends PureComponent {
 }
 GagnantsPerdantsCard.propTypes = {
   classes: PropTypes.shape().isRequired,
-  index: PropTypes.number.isRequired,
   foyers_fiscaux_touches: PropTypes.shape().isRequired,
+  index: PropTypes.number.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,
