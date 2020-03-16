@@ -48,6 +48,9 @@ const styles = theme => ({
     marginRight: "6px",
     width: "316px",
   },
+  menuPaper: {
+    backgroundColor: "rgba(255, 255, 255, 1) !important",
+  },
   selectRoot: {
     fontSize: "18px",
     lineHeight: "2em",
@@ -56,9 +59,6 @@ const styles = theme => ({
       fontSize: "14px",
       width: "120px",
     },
-  },
-  menuPaper: {
-    backgroundColor: "rgba(255, 255, 255, 1) !important",
   },
 });
 

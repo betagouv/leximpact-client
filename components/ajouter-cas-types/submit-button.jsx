@@ -1,4 +1,4 @@
-import { CircularProgress, Fab } from "@material-ui/core";
+import { Fab } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
