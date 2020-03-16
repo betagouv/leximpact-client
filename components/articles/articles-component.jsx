@@ -19,7 +19,6 @@ import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
-import Alinea4b from "./article-alinea-4b";
 import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
@@ -322,12 +321,6 @@ class ArticlesComponent extends React.Component {
             formulaOutputInput={this.renderFormulaOutput}
             style={style}
             onInputChange={handleArticleChange}
-          />
-          <Alinea4b
-            baseOutputInput={this.renderBaseOutputInput}
-            formulaOutputInput={this.renderFormulaOutput}
-            formulaOutputInputCombiLin={this.renderFormulaOuputCombiLin}
-            style={style}
           />
         </div>
       </Paper>
