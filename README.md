@@ -31,6 +31,8 @@ LexImpact has two components:
 
 # How to use
 
+To install and launch the client in developer mode, run the following commands:
+
 ```shell
 npm install
 npm run dev
