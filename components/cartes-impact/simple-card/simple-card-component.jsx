@@ -169,17 +169,17 @@ class SimpleCard extends React.Component {
         <div className={classes.cardHeaderButtons}>
           <IconButton
             disableRipple
-            aria-label="Delete"
-            classes={{ root: classes.cardEditDeleteButton }}
-            onClick={handleRemoveCasType(index)}>
-            <CloseIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            disableRipple
             aria-label="Edit"
             classes={{ root: classes.cardEditDeleteButton }}
             onClick={handleShowEditCasTypesPopin(index)}>
             <EditIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            disableRipple
+            aria-label="Delete"
+            classes={{ root: classes.cardEditDeleteButton }}
+            onClick={handleRemoveCasType(index)}>
+            <CloseIcon fontSize="small" />
           </IconButton>
         </div>
       </div>
