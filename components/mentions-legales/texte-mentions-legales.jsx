@@ -23,7 +23,7 @@ function MyComponent({ classes }) {
       <p>
         Equipe Leximpact de L'Assemblée nationale
       </p>
-      <p>126, rue de l'Université - 75007 Paris.</p>
+      <p>126, rue de l'Université - 75355 Paris 07 SP.</p>
 
       <div className={classes.espaceVide} />
 
