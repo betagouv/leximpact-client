@@ -203,42 +203,42 @@ class GagnantsPerdantsCard extends PureComponent {
       onClickSimPop,
     } = this.props;
 
-    const baisse_plf = Math.round(
+    const baissePlf = Math.round(
       get(foyers_fiscaux_touches, "avant_to_plf.gagnant", 0) / 100000,
     ) / 10;
-    const baisse_reforme = Math.round(
+    const baisseReforme = Math.round(
       get(foyers_fiscaux_touches, "avant_to_apres.gagnant", 0) / 100000,
     ) / 10;
-    const neutre_plf = Math.round(
+    const neutrePlf = Math.round(
       (get(foyers_fiscaux_touches, "avant_to_plf.neutre", 0)
           + get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0))
           / 100000,
     ) / 10;
-    const neutre_reforme = Math.round(
+    const neutreReforme = Math.round(
       (get(foyers_fiscaux_touches, "avant_to_apres.neutre", 0)
           + get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0))
           / 100000,
     ) / 10;
-    const neutre_zero_plf = Math.round(
+    const neutreZeroPlf = Math.round(
       get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0) / 100000,
     ) / 10;
-    const neutre_zero_reforme = Math.round(
+    const neutreZeroReforme = Math.round(
       get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0) / 100000,
     ) / 10;
-    const hausse_plf = Math.round(
+    const haussePlf = Math.round(
       (get(foyers_fiscaux_touches, "avant_to_plf.perdant", 0)
           + get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0))
           / 100000,
     ) / 10;
-    const hausse_reforme = Math.round(
+    const hausseReforme = Math.round(
       (get(foyers_fiscaux_touches, "avant_to_apres.perdant", 0)
           + get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0))
           / 100000,
     ) / 10;
-    const hausse_zero_plf = Math.round(
+    const hausseZeroPlf = Math.round(
       get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0) / 100000,
     ) / 10;
-    const hausse_zero_reforme = Math.round(
+    const hausseZeroReforme = Math.round(
       get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0) / 100000,
     ) / 10;
 
@@ -307,7 +307,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <Typography inline classes={{ root: classes.impactPLF }}>
                             <span>
                               {" "}
-                              {hausse_plf}
+                              {haussePlf}
                             </span>
                             {" "}
                           </Typography>
@@ -323,7 +323,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <Typography inline classes={{ root: classes.impactReforme }}>
                             <span>
                               {" "}
-                              {hausse_reforme}
+                              {hausseReforme}
                             </span>
                             {" "}
                           </Typography>
@@ -343,7 +343,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         <Typography inline classes={{ root: classes.impactPLFDetail }}>
                           <span>
                             {" "}
-                            {hausse_zero_plf}
+                            {hausseZeroPlf}
                           </span>
                           <span>M</span>
                         </Typography>
@@ -352,7 +352,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           classes={{ root: classes.impactReformeDetail }}>
                           <span>
                             {" "}
-                            {hausse_zero_reforme}
+                            {hausseZeroReforme}
                           </span>
                           <span>M</span>
                         </Typography>
@@ -377,7 +377,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <Typography inline classes={{ root: classes.impactPLF }}>
                             <span>
                               {" "}
-                              {baisse_plf}
+                              {baissePlf}
                               {" "}
                             </span>
                             {" "}
@@ -395,7 +395,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <Typography inline classes={{ root: classes.impactReforme }}>
                             <span>
                               {" "}
-                              {baisse_reforme}
+                              {baisseReforme}
                             </span>
                             {" "}
                           </Typography>
@@ -429,7 +429,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <Typography inline classes={{ root: classes.impactPLF }}>
                             <span>
                               {" "}
-                              {neutre_plf}
+                              {neutrePlf}
                             </span>
                             {" "}
                           </Typography>
@@ -446,7 +446,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <Typography inline classes={{ root: classes.impactReforme }}>
                             <span>
                               {" "}
-                              {neutre_reforme}
+                              {neutreReforme}
                             </span>
                             {" "}
                           </Typography>
@@ -467,7 +467,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         <Typography inline classes={{ root: classes.impactPLFDetail }}>
                           <span>
                             {" "}
-                            {neutre_zero_plf}
+                            {neutreZeroPlf}
                           </span>
                           <span>M</span>
                         </Typography>
@@ -476,7 +476,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           classes={{ root: classes.impactReformeDetail }}>
                           <span>
                             {" "}
-                            {neutre_zero_reforme}
+                            {neutreZeroReforme}
                           </span>
                           <span>M</span>
                         </Typography>
