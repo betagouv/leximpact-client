@@ -105,9 +105,12 @@ class CarteEtat extends PureComponent {
       total,
     } = this.props;
     const { apres, avant, plf } = total;
+
+    const montrerPLF = typeof plf === "number";
+
     const totalAvant = getRoundedTotal(avant);
     const totalApres = getRoundedTotal(apres);
-    const totalPLF = getRoundedTotal(plf);
+    const totalPLF = montrerPLF ? getRoundedTotal(plf) : null;
     return (
       <Card>
         <CardContent>
@@ -161,14 +164,20 @@ class CarteEtat extends PureComponent {
                           Md€*
                         </Typography>
                       </div>
-                      <div className="montant-impots">
-                        <Typography inline className="impotEtat plf">
-                          {totalPLF}
-                        </Typography>
-                        <Typography inline className="uniteImpotEtat plf">
-                          Md€*
-                        </Typography>
-                      </div>
+                      {
+                        montrerPLF
+                          ? (
+                            <div className="montant-impots">
+                              <Typography inline className="impotEtat plf">
+                                {totalPLF}
+                              </Typography>
+                              <Typography inline className="uniteImpotEtat plf">
+                                Md€*
+                              </Typography>
+                            </div>
+                          )
+                          : null
+                      }
                       <div className="montant-impots">
                         <Typography inline className="impotEtat apres">
                           {totalApres}
@@ -191,24 +200,26 @@ Estimation à partir des données de l&apos;Enquête
             ]
           )}
         </CardContent>
-        { (isLoadingEtat || isDisabledEtat) ? ("") :
-        (<ExpansionPanel
-          expanded={isPanelExpanded}
-          onChange={expandArticlePanelHandler}>
-          <ExpansionPanelSummary
-            className="styleExpansionPanel"
-            expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.subtitleCarteEtat}>
+        { (isLoadingEtat || isDisabledEtat) ? ("")
+          : (
+            <ExpansionPanel
+              expanded={isPanelExpanded}
+              onChange={expandArticlePanelHandler}>
+              <ExpansionPanelSummary
+                className="styleExpansionPanel"
+                expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.subtitleCarteEtat}>
               En savoir plus sur les déciles de population
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails className="styleExpansionPanel">
-            <SimpopTableurInfosDeciles
-              deciles={deciles}
-              frontieres_deciles={frontieres_deciles}
-            />
-          </ExpansionPanelDetails>
-        </ExpansionPanel>)
+                </Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails className="styleExpansionPanel">
+                <SimpopTableurInfosDeciles
+                  deciles={deciles}
+                  frontieres_deciles={frontieres_deciles}
+                />
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          )
         }
       </Card>
     );
@@ -221,20 +232,20 @@ CarteEtat.propTypes = {
     PropTypes.shape({
       apres: PropTypes.number.isRequired,
       avant: PropTypes.number.isRequired,
-      plf: PropTypes.number.isRequired,
+      plf: PropTypes.number,
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  expandArticlePanelHandler: PropTypes.shape().isRequired,
   frontieres_deciles: PropTypes.bool.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
-  onClickSimPop: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.shape().isRequired,
-  expandArticlePanelHandler: PropTypes.shape().isRequired,
+  onClickSimPop: PropTypes.func.isRequired,
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,
-    plf: PropTypes.number.isRequired,
+    plf: PropTypes.number,
   }).isRequired,
 };
 
