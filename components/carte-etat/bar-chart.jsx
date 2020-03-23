@@ -24,6 +24,12 @@ class BarChart extends PureComponent {
       .map(element => element.apres)
       .reduce(reduceValues, accResApres);
 
+    const montrerPLF = !deciles.find(element => typeof element.plf !== "number");
+
+    if (!montrerPLF) {
+      return [resapres, resavant];
+    }
+
     const accResPLF = { color: "#ff6b6b", id: " " };
     const resplf = deciles
       .map(element => element.plf)
@@ -159,7 +165,7 @@ BarChart.propTypes = {
     PropTypes.shape({
       apres: PropTypes.number.isRequired,
       avant: PropTypes.number.isRequired,
-      plf: PropTypes.number.isRequired,
+      plf: PropTypes.number,
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
