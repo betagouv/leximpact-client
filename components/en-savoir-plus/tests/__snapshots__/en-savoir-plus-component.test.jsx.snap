@@ -35,7 +35,7 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
         <b>
           simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu.
         </b>
-        L'estimation des impacts sur des foyers fiscaux types est accessible à tous avec Open LexImpact ; les mesures d'impacts sur la population française et les recettes de l'État sont disponibles en accès restreint sur LexImpact POP.
+        L&apos;estimation des impacts sur des foyers fiscaux types est accessible à tous avec OPEN LexImpact ; les mesures d&apos;impacts sur la population française et les recettes de l&apos;État sont disponibles en accès restreint sur LexImpact POP.
       </WithStyles(Typography)>
       <a
         className="EnSavoiPlusComponent-alink-1"
