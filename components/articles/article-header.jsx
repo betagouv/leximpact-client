@@ -24,18 +24,18 @@ const stylesTheme = theme => ({
     width: "100%",
   },
   styleCodeExistant: {
-    fontFamily: "Lora",
     backgroundColor: "#DED500",
     backgroundSize: "auto auto",
     color: "#000000",
+    fontFamily: "Lora",
     fontWeight: "bold",
     lineHeight: "10px",
     marginLeft: "8px",
     padding: "3px",
   },
   stylePLF: {
-    fontFamily: "Lora",
     color: "#FF6B6B",
+    fontFamily: "Lora",
     fontWeight: "bold",
     lineHeight: "10px",
     marginLeft: "3px",
@@ -43,18 +43,18 @@ const stylesTheme = theme => ({
   },
   stylePaperTitreMenu: {
     backgroundColor: "rgba(255, 255, 255, 1) !important",
-    padding: "2px",
     fontFamily: "Lato",
+    padding: "2px",
     paddingLeft: "15px",
     paddingRight: "15px",
   },
 
   styleToolBar: {
     display: "flex",
-    minHeight: "50px",
-    justifyContent: "space-between",
     flex: 1,
     flexDirection: "row",
+    justifyContent: "space-between",
+    minHeight: "50px",
   },
   titleArticleCGI: {
     color: "#6C6C6C",
@@ -108,7 +108,7 @@ class ArticleHeader extends PureComponent {
 
 
   render() {
-    const { classes, resetVarArticle, resetVarArticleExistant } = this.props;
+    const { classes } = this.props;
     const { anchorEl } = this.state;
     return (
       <div className={classes.root}>

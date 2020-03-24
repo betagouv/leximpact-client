@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const RemoveTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab variant="extended" color="secondary" size="medium" style={style.Button} onClick={onClick}>
+    <Fab color="secondary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
       <DeleteIcon />
     </Fab>
     <Typography inline variant="caption">

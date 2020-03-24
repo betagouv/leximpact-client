@@ -2,8 +2,7 @@ import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { fetchSimPop } from "../../../redux/actions";
-import { fetchCalculateCompare } from "../../../redux/actions";
+import { fetchCalculateCompare, fetchSimPop } from "../../../redux/actions";
 import SimulationButton60Component from "./simulation-button-60-component";
 
 function useSimulatioButtonAsMobile(width) {

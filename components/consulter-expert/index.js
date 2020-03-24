@@ -5,7 +5,7 @@ import ConsulterExpertCard from "./consulter-expert-component";
 
 const PANEL_NAME = "consulter_expert";
 
-const mapStateToProps  = ({ currentExpandedArticlePanel }) => {
+const mapStateToProps = ({ currentExpandedArticlePanel }) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
   return {
     isPanelExpanded,
@@ -13,8 +13,8 @@ const mapStateToProps  = ({ currentExpandedArticlePanel }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onRemoveConsulterExpert: () => dispatch(closeConsulterExpert()),
   onExpandPanel: () => dispatch(expandArticlePanel(PANEL_NAME)),
+  onRemoveConsulterExpert: () => dispatch(closeConsulterExpert()),
 });
 
 export default connect(

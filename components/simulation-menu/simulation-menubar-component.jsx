@@ -1,10 +1,5 @@
-import { Button, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  AccountBalance as AccountBalanceIcon,
-  Cached as CachedIcon,
-  Face as FaceIcon,
-} from "@material-ui/icons";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
@@ -17,14 +12,14 @@ const styles = () => ({
   container: {
     marginBottom: "15px",
   },
-  styleIcon: {
-    marginRight: "20px",
-  },
   marginIcon: {
     marginRight: "20px",
   },
   miniIcon: {
     height: "15px",
+  },
+  styleIcon: {
+    marginRight: "20px",
   },
 });
 
