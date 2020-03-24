@@ -25,15 +25,15 @@ import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 
 const styles = () => ({
   buttonPosition: {
-    marginTop: "83px",
     marginBottom: "90px",
+    marginTop: "83px",
   },
   div: {
     padding: 7,
   },
   espaceBouton: {
-    minHeight: "210px",
     maxHeight: "300px",
+    minHeight: "210px",
   },
   iconEtat: {
     fontSize: "50px",
@@ -67,8 +67,8 @@ const styles = () => ({
     fontFamily: "Lato",
     fontSize: "12px",
     fontWeight: "regular",
-    marginLeft: "14px",
     marginBottom: "0px", //
+    marginLeft: "14px",
     textAlign: "right",
   },
   subtitleCarteEtat: {

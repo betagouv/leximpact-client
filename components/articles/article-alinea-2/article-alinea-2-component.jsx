@@ -24,10 +24,10 @@ const styleTitreThematiqueModifPLF = {
   fontFamily: "Lora",
   fontSize: "12px",
   fontWeight: "bold",
+  marginLeft: "6px",
+  marginTop: "10px",
   textAlign: "left",
   verticalAlign: "middle",
-  marginTop: "10px",
-  marginLeft: "6px",
 };
 
 class Alinea2 extends PureComponent {

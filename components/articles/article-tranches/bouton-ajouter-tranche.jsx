@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 
 const AddTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab variant="extended" color="secondary" size="medium" style={style.Button} onClick={onClick}>
+    <Fab color="secondary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
       <AddIcon />
     </Fab>
-    <Typography inline variant="caption" >
+    <Typography inline variant="caption">
     Ajouter ou
     </Typography>
   </div>

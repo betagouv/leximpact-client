@@ -9,6 +9,24 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 const styles = theme => ({
+  card: {
+    minWidth: 275,
+  },
+  div: {
+    padding: 7,
+  },
+  iconEtat: {
+    fontSize: "50px",
+  },
+  pom_rouge: {
+    color: "#FF0000",
+  },
+  pom_verte: {
+    color: "#00FF00",
+  },
+  pos: {
+    marginBottom: 12,
+  },
   root: {
     ...theme.mixins.gutters(),
     margin: `${theme.spacing.unit / 2}em auto`,
@@ -17,31 +35,9 @@ const styles = theme => ({
 
     width: "25em",
   },
-  card: {
-    minWidth: 275,
-  },
-
   titre: {
     fontSize: 11,
   },
-  pos: {
-    marginBottom: 12,
-  },
-  div: {
-    padding: 7,
-  },
-
-  iconEtat: {
-    fontSize: "50px",
-  },
-
-  pom_rouge: {
-    color: "#FF0000",
-  },
-  pom_verte: {
-    color: "#00FF00",
-  },
-
   // button: {
   //      margin: theme.spacing.unit,
   // },

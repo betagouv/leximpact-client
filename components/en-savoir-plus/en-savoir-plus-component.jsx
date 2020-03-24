@@ -66,10 +66,14 @@ class EnSavoiPlusComponent extends PureComponent {
             </Typography>
             <Typography>
               LexImpact est une interface qui permet de
-              <b> simuler,
-              de&nbsp;façon rapide, l&apos;impact des réformes paramétriques de
+              <b>
+              simuler, de&nbsp;façon rapide, l&apos;impact des réformes paramétriques de
               l&apos;impôt sur le revenu.
-              </b>  L&apos;estimation des impacts sur des foyers fiscaux types est accessible à tous avec Open LexImpact ; les mesures d&apos;impacts sur la population française et les recettes de l&apos;État sont disponibles en accès restreint sur LexImpact POP.
+              </b>
+              L&apos;estimation des impacts sur des foyers fiscaux types est accessible à
+              tous avec OPEN LexImpact ; les mesures d&apos;impacts sur la population
+              française et les recettes de l&apos;État sont disponibles en accès restreint
+              sur LexImpact POP.
             </Typography>
             <a className={classes.alink} href="/presentation-et-cgu">
               en savoir plus
