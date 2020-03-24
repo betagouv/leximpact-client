@@ -71,7 +71,7 @@ class EnSavoiPlusComponent extends PureComponent {
               l&apos;impôt sur le revenu.
               </b>
               L&apos;estimation des impacts sur des foyers fiscaux types est accessible à
-              tous avec Open LexImpact ; les mesures d&apos;impacts sur la population
+              tous avec OPEN LexImpact ; les mesures d&apos;impacts sur la population
               française et les recettes de l&apos;État sont disponibles en accès restreint
               sur LexImpact POP.
             </Typography>
