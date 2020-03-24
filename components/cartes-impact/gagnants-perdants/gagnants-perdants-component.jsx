@@ -303,7 +303,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                ayant une augmentation de l&apos;IR
+                        ayant une augmentation de l&apos;IR
                       </Typography>
 
                       <div className={classes.containerImpact}>
