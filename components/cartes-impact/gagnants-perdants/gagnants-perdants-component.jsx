@@ -495,7 +495,7 @@ class GagnantsPerdantsCard extends PureComponent {
                     * Chiffrages indicatifs.
                     <br />
                     {" "}
-            Données ERFS-FPR (Insee).
+                    Données ERFS-FPR (Insee).
                   </Typography>
                 </>
               ),
