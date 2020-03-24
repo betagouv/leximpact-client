@@ -485,7 +485,7 @@ class GagnantsPerdantsCard extends PureComponent {
                           <span>M</span>
                         </Typography>
                         <span className={classes.styleTypeImpactDetail}>
-                  &nbsp;de foyers toujours exonérés d&apos;IR
+                          &nbsp;de foyers toujours exonérés d&apos;IR
                         </span>
                       </Typography>
                     </div>
