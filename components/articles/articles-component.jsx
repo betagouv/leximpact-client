@@ -285,13 +285,17 @@ class ArticlesComponent extends React.Component {
       handleResetVarArticle,
       handleResetVarArticleExistant,
       reforme,
+      reformePLF,
     } = this.props;
     const count = reforme.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
       <Paper className={classes.paper}>
-        <ArticleHeader resetVarArticle={handleResetVarArticle} resetVarArticleExistant={handleResetVarArticleExistant} />
+        <ArticleHeader
+          montrerPLF={!!reformePLF}
+          resetVarArticle={handleResetVarArticle}
+          resetVarArticleExistant={handleResetVarArticleExistant} />
         <Divider />
         <div style={style.DivTitreTheme}>
           <Typography style={style.StyleTitreThematique}>

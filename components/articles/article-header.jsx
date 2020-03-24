@@ -108,7 +108,7 @@ class ArticleHeader extends PureComponent {
 
 
   render() {
-    const { classes } = this.props;
+    const { classes, montrerPLF } = this.props;
     const { anchorEl } = this.state;
     return (
       <div className={classes.root}>
@@ -145,12 +145,19 @@ class ArticleHeader extends PureComponent {
                     avec les paramètres du&nbsp;:
                   </span>
                 </div>
-                <MenuItem
-                  className={classes.menuItemPaper}
-                  onClick={this.handleClickPlf}>
-                  <span>-</span>
-                  <span className={classes.stylePLF}>&nbsp;PLF</span>
-                </MenuItem>
+                {
+                  montrerPLF
+                    ? (
+                      <MenuItem
+                        className={classes.menuItemPaper}
+                        onClick={this.handleClickPlf}>
+                        <span>-</span>
+                        <span className={classes.stylePLF}>&nbsp;PLF</span>
+                      </MenuItem>
+                    )
+                    : null
+                }
+
                 <MenuItem
                   className={classes.menuItemPaper}
                   onClick={this.handleClickExistant}>
@@ -169,6 +176,7 @@ class ArticleHeader extends PureComponent {
 }
 ArticleHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
+  montrerPLF: PropTypes.bool.isRequired,
   resetVarArticle: PropTypes.func.isRequired,
   resetVarArticleExistant: PropTypes.func.isRequired,
 };
