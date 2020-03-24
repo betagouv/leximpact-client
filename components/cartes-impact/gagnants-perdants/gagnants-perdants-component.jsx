@@ -492,7 +492,7 @@ class GagnantsPerdantsCard extends PureComponent {
                   </div>
 
                   <Typography className={classes.sourceInsee}>
-            * Chiffrages indicatifs.
+                    * Chiffrages indicatifs.
                     <br />
                     {" "}
             Données ERFS-FPR (Insee).
