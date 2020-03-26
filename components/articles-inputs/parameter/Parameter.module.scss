@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.initialValue {
+  font-weight: bold;
+  text-decoration-color: $amendment-color;
+  text-decoration-line: line-through;
+}
+
+.plfValue {
+  font-weight: bold;
+  color: $plf-color;
+}
+
+.amendmentInput {
+  margin: 0 1rem;
+  width: 80px;
+}
+
+.amendmentValue {
+  font-weight: bold;
+  color: #000000;
+}
+
+.amendmentValueModified {
+  background-color: $amendment-color;
+}
