@@ -8,7 +8,6 @@ import React from "react";
 import {
   BaseInputOutput,
   FormulaOutput,
-  FormulaOutputCombilin,
 } from "../articles-inputs";
 import { Parameter } from "../articles-inputs/parameter";
 import fillArrayWith from "../utils/array/fillArrayWith";
@@ -117,20 +116,10 @@ const style = {
 class ArticlesComponent extends React.Component {
   // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
 
-  renderBaseOutputInput = name => <BaseInputOutput name={name} style={style} />;
+  renderBaseOutputInput = name => <BaseInputOutput name={name} />;
 
   renderFormulaOutput = (name, facteur = 1) => (
     <FormulaOutput facteur={facteur} name={name} style={style} />
-  );
-
-  renderFormulaOuputCombiLin = (name1, fact1, name2, fact2) => (
-    <FormulaOutputCombilin
-      fact1={fact1}
-      fact2={fact2}
-      name1={name1}
-      name2={name2}
-      style={style}
-    />
   );
 
   gimmeIRPartsOfArticle = (i) => {
