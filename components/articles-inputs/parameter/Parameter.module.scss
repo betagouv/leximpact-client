@@ -2,6 +2,7 @@
 
 .initialValue {
   font-weight: bold;
+  margin: 0 0.3rem;
   text-decoration-color: $amendment-color;
   text-decoration-line: line-through;
 }
@@ -12,8 +13,8 @@
 }
 
 .amendmentInput {
-  margin: 0 1rem;
   width: 80px;
+  top: -0.2rem;
 }
 
 .amendmentValue {

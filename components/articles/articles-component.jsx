@@ -10,10 +10,8 @@ import {
   FormulaOutput,
   FormulaOutputCombilin,
 } from "../articles-inputs";
-import InputField from "../articles-inputs/input-field";
-import OutputField from "../articles-inputs/output-field";
+import { Parameter } from "../articles-inputs/parameter";
 import fillArrayWith from "../utils/array/fillArrayWith";
-import formatMilliers from "../utils/format-milliers";
 import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
@@ -21,7 +19,6 @@ import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
-import makeNumberGoodLooking from "./utils/make-number-good-looking";
 
 const stylesTheme = theme => ({
   paper: {
@@ -156,8 +153,6 @@ class ArticlesComponent extends React.Component {
     if (i === 0) {
       const baseValue = bases[Math.min(i, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
-
-      const montrerPLF = plfValue !== null && plfValue !== baseValue;
       return (
         <Typography
           key={i}
@@ -167,16 +162,12 @@ class ArticlesComponent extends React.Component {
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
-          <OutputField
-            style={montrerPLF ? style.VarCodeexistant : style.VarCodeexistantNonBarre}
-            value={formatMilliers(baseValue)}
-          />
-          {montrerPLF && <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
-          <InputField
-            name={`seuil${i}`}
-            style={style.InputSeuil}
-            value={formatMilliers(s[i])}
-            onChange={handleArticleChange}
+          <Parameter
+            editable
+            amendmentValue={s[i]}
+            initialValue={baseValue}
+            plfValue={plfValue}
+            onAmendmentChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           € le taux de&nbsp;:
         </Typography>
@@ -189,36 +180,30 @@ class ArticlesComponent extends React.Component {
       const baseValue = bases[Math.min(i - 1, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
-      const montrerPLF = plfValue !== null && plfValue !== baseValue;
-      const montrerPLFt = plfValuet !== null && plfValuet !== baseValuet;
       return (
         <Typography
           key={i}
           color="inherit"
           style={styleAUtiliser}
           variant="body2">
-          {"– "}
-          {/* jaune */}
-          <OutputField
-            style={montrerPLFt ? style.VarCodeexistant : style.VarCodeexistantNonBarre}
-            value={makeNumberGoodLooking(baseValuet)}
-          />
-          {/* rouge */}
-          {montrerPLFt && <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
-          {/* bleu editable (pourcentage) */}
-          <InputField
-            name={`taux${i - 1}`}
-            style={style.InputTaux}
-            value={t[i - 1] * 100}
-            onChange={handleArticleChange}
+          –
+          <Parameter
+            editable
+            amendmentValue={t[i - 1] * 100}
+            initialValue={baseValuet}
+            plfValue={plfValuet}
+            onAmendmentChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
           <br />
           pour la fraction supérieure à&nbsp;
-          <OutputField style={montrerPLF ? style.VarCodeexistant : style.VarCodeexistantNonBarre} value={formatMilliers(baseValue)} />
-          {montrerPLF && <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
-          <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
-          {"€."}
+          <Parameter
+            amendmentValue={s[i - 1]}
+            editable={false}
+            initialValue={baseValue}
+            plfValue={plfValue}
+          />
+          €.
         </Typography>
       );
     }
@@ -230,9 +215,6 @@ class ArticlesComponent extends React.Component {
     const baseValueminus1 = bases[Math.min(i - 1, bases.length - 1)];
     const plfValueminus1 = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
-    const montrerPLF = plfValue !== null && plfValue !== baseValue;
-    const montrerPLFt = plfValuet !== null && plfValuet !== baseValuet;
-    const montrerPLFminus1 = plfValueminus1 !== null && plfValueminus1 !== baseValueminus1;
     return (
       <Typography
         key={i}
@@ -240,37 +222,32 @@ class ArticlesComponent extends React.Component {
         style={styleAUtiliser}
         variant="body2">
         –
-        {" "}
-        <OutputField
-          style={montrerPLFt ? style.VarCodeexistant : style.VarCodeexistantNonBarre}
-          value={makeNumberGoodLooking(baseValuet)}
-        />
-        {/* rouge */}
-        {montrerPLFt && <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
-        <InputField
-          name={`taux${i - 1}`}
-          style={style.InputTaux}
-          value={makeNumberGoodLooking(t[i - 1] * 100)}
-          onChange={handleArticleChange}
+        <Parameter
+          editable
+          amendmentValue={t[i - 1] * 100}
+          initialValue={baseValuet}
+          plfValue={plfValuet}
+          onAmendmentChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
         <br />
         pour la fraction supérieure à&nbsp;
-        <OutputField style={montrerPLFminus1 ? style.VarCodeexistant : style.VarCodeexistantNonBarre} value={formatMilliers(baseValueminus1)} />
-        {montrerPLFminus1 && <OutputField style={style.VarPLF} value={formatMilliers(plfValueminus1)} />}
-        <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
+        <Parameter
+          amendmentValue={s[i - 1]}
+          editable={false}
+          initialValue={baseValueminus1}
+          plfValue={plfValueminus1}
+        />
         €
         <br />
         et inférieure ou égale à&nbsp;
-        <OutputField style={montrerPLF ? style.VarCodeexistant : style.VarCodeexistantNonBarre} value={formatMilliers(baseValue)} />
-        {montrerPLF && <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
-        <InputField
-          name={`seuil${i}`}
-          style={style.InputSeuil}
-          value={formatMilliers(s[i])}
-          onChange={handleArticleChange}
+        <Parameter
+          editable
+          amendmentValue={s[i]}
+          initialValue={baseValue}
+          plfValue={plfValue}
+          onAmendmentChange={value => handleArticleChange(value, `seuil${i}`)}
         />
-        {" "}
         € ;
       </Typography>
     );

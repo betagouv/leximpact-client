@@ -53,7 +53,6 @@ class Parameter extends PureComponent {
               </span>
             )
         }
-        <span> €</span>
       </span>
     );
   }
