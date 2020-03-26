@@ -1,8 +1,10 @@
 @import '../../../styles/variables.scss';
 
+$input-margin: 0.3rem;
+
 .initialValue {
   font-weight: bold;
-  margin: 0 0.3rem;
+  margin-left: $input-margin;
   text-decoration-color: $amendment-color;
   text-decoration-line: line-through;
 }
@@ -17,11 +19,18 @@
   top: -0.2rem;
 }
 
+.smallInput {
+  width: 40px
+}
+
 .amendmentValue {
   font-weight: bold;
+  margin-left: $input-margin !important;
+  margin-right: $input-margin !important;
   color: #000000;
 }
 
 .amendmentValueModified {
+  padding: 0.1rem;
   background-color: $amendment-color;
 }

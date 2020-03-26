@@ -19,7 +19,7 @@ class Parameter extends PureComponent {
 
   render() {
     const {
-      amendmentValue, editable, initialValue, plfValue,
+      amendmentValue, editable, initialValue, plfValue, size,
     } = this.props;
     const equal = initialValue === amendmentValue;
 
@@ -39,6 +39,7 @@ class Parameter extends PureComponent {
                   [styles.amendmentInput]: true,
                   [styles.amendmentValue]: true,
                   [styles.amendmentValueModified]: !equal,
+                  [styles.smallInput]: size === "small",
                 })}
                 type="number"
                 value={amendmentValue}
@@ -62,6 +63,7 @@ Parameter.defaultProps = {
   editable: false,
   onAmendmentChange: () => {},
   plfValue: null,
+  size: "large",
 };
 
 Parameter.propTypes = {
@@ -70,6 +72,7 @@ Parameter.propTypes = {
   initialValue: PropTypes.number.isRequired,
   onAmendmentChange: PropTypes.func,
   plfValue: PropTypes.number,
+  size: PropTypes.oneOf(["small", "large"]),
 };
 
 export { Parameter };

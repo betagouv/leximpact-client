@@ -181,6 +181,7 @@ class ArticlesComponent extends React.Component {
             amendmentValue={t[i - 1] * 100}
             initialValue={baseValuet}
             plfValue={plfValuet}
+            size="small"
             onAmendmentChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
@@ -216,6 +217,7 @@ class ArticlesComponent extends React.Component {
           amendmentValue={t[i - 1] * 100}
           initialValue={baseValuet}
           plfValue={plfValuet}
+          size="small"
           onAmendmentChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
