@@ -6,7 +6,7 @@ import FormulaOutputComponent from "./formula-output-component";
 const REGEX_TAUX = RegExp("taux");
 
 const mapStateToProps = (state, props) => {
-  const { facteur, name, style } = props;
+  const { facteur, name } = props;
   const { reforme, reformeBase, reformePLF } = state;
 
   const isTauxInput = REGEX_TAUX.test(name);
@@ -28,7 +28,6 @@ const mapStateToProps = (state, props) => {
     baseValue,
     newValue,
     plfValue,
-    style,
   };
 };
 

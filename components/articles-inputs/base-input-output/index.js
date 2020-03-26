@@ -7,7 +7,7 @@ import BaseInputOutputComponent from "./base-input-output-component";
 const REGEX_TAUX = RegExp("taux");
 
 const mapStateToProps = (state, props) => {
-  const { name, style } = props;
+  const { name } = props;
   const { reforme, reformeBase, reformePLF } = state;
   const isTauxValue = REGEX_TAUX.test(name);
   const multiplicateur = isTauxValue ? 100 : 1;
@@ -24,19 +24,9 @@ const mapStateToProps = (state, props) => {
   let newValue = get(reforme.impot_revenu, name);
   newValue *= multiplicateur;
 
-  const outputFieldStyle = style.VarCodeexistant;
-  const outputFieldStyleNonBarre = style.VarCodeexistantNonBarre;
-
-  const plfFieldStyle = style.VarPLF;
-  const inputFieldStyle = isTauxValue ? style.InputTaux : style.InputSeuil;
-
   return {
     baseValue,
-    inputFieldStyle,
     newValue,
-    outputFieldStyle,
-    outputFieldStyleNonBarre,
-    plfFieldStyle,
     plfValue,
   };
 };

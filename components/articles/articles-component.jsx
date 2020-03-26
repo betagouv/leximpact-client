@@ -119,7 +119,7 @@ class ArticlesComponent extends React.Component {
   renderBaseOutputInput = name => <BaseInputOutput name={name} />;
 
   renderFormulaOutput = (name, facteur = 1) => (
-    <FormulaOutput facteur={facteur} name={name} style={style} />
+    <FormulaOutput facteur={facteur} name={name} />
   );
 
   gimmeIRPartsOfArticle = (i) => {
