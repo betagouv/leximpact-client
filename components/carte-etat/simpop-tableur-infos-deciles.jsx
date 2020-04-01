@@ -35,35 +35,35 @@ let id = 0;
 function createData(
   decile,
   frontiereDecile,
-  impactMoyenFoyer_plf,
-  impactMoyenFoyer_reforme,
+  impactMoyenFoyerPlf,
+  impactMoyenFoyerReforme,
   impotMoyenFoyer,
-  impotMoyenFoyer_plf,
-  impotMoyenFoyer_reforme,
+  impotMoyenFoyerPlf,
+  impotMoyenFoyerReforme,
   recettesEtat,
-  recettesEtat_plf,
-  recettesEtat_reforme,
+  recettesEtatPlf,
+  recettesEtatReforme,
 ) {
   id += 1;
   return {
     decile,
     frontiereDecile,
     id,
-    impactMoyenFoyer_plf,
-    impactMoyenFoyer_reforme,
+    impactMoyenFoyerPlf,
+    impactMoyenFoyerReforme,
     impotMoyenFoyer,
-    impotMoyenFoyer_plf,
-    impotMoyenFoyer_reforme,
+    impotMoyenFoyerPlf,
+    impotMoyenFoyerReforme,
     recettesEtat,
-    recettesEtat_plf,
-    recettesEtat_reforme,
+    recettesEtatPlf,
+    recettesEtatReforme,
   };
 }
 
 function createFromDeciles(index, decile, frontiereDecile) {
   const montrerPLF = typeof decile.plf === "number";
 
-  const impactMoyenFoyerPlf = null;
+  let impactMoyenFoyerPlf = null;
   if (montrerPLF) {
     impactMoyenFoyerPlf = decile.avant
       ? formatMilliers(Math.round((decile.plf / decile.avant - 1) * 100))
@@ -73,10 +73,16 @@ function createFromDeciles(index, decile, frontiereDecile) {
     ? formatMilliers(Math.round((decile.apres / decile.avant - 1) * 100))
     : "-";
   const impotMoyenFoyer = formatMilliers(Math.round(decile.avant / decile.poids));
-  const impotMoyenFoyerPlf = montrerPLF ? formatMilliers(Math.round(decile.plf / decile.poids)) : null;
+  let impotMoyenFoyerPlf = null;
+  if (montrerPLF) {
+    impotMoyenFoyerPlf = formatMilliers(Math.round(decile.plf / decile.poids));
+  }
   const impotMoyenFoyerReforme = formatMilliers(Math.round(decile.apres / decile.poids));
   const recettesEtat = formatMilliers(Math.round(decile.avant / 10000000) / 100);
-  const recettesEtatPlf = montrerPLF ? formatMilliers(Math.round(decile.plf / 10000000) / 100) : null;
+  let recettesEtatPlf = null;
+  if (montrerPLF) {
+    recettesEtatPlf = formatMilliers(Math.round(decile.plf / 10000000) / 100);
+  }
   const recettesEtatReforme = formatMilliers(Math.round(decile.apres / 10000000) / 100);
   const frontiere = index + 1 < NOMBRE_DECILES ? formatMilliers(Math.round(frontiereDecile)) : "-";
 
@@ -152,21 +158,21 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
               {
-                row.impactMoyenFoyer_plf === null
+                row.impactMoyenFoyerPlf === null
                   ? null
                   : (
                     <span className={styles2.plf}>
-                      {row.impactMoyenFoyer_plf === "-"
+                      {row.impactMoyenFoyerPlf === "-"
                         ? NON_APPLICABLE
-                        : `${row.impactMoyenFoyer_plf}%`}
+                        : `${row.impactMoyenFoyerPlf}%`}
                     </span>
                   )
               }
               &nbsp;
               <span className={styles2.amendment}>
-                {row.impactMoyenFoyer_reforme === "-"
+                {row.impactMoyenFoyerReforme === "-"
                   ? NON_APPLICABLE
-                  : `${row.impactMoyenFoyer_reforme}%`}
+                  : `${row.impactMoyenFoyerReforme}%`}
               </span>
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
@@ -176,18 +182,18 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
               </span>
               &nbsp;
               {
-                row.impotMoyenFoyer_plf === null
+                row.impotMoyenFoyerPlf === null
                   ? null
                   : (
                     <span className={styles2.plf}>
-                      {row.impotMoyenFoyer_plf}
+                      {row.impotMoyenFoyerPlf}
                       €
                     </span>
                   )
               }
               &nbsp;
               <span className={styles2.amendment}>
-                {row.impotMoyenFoyer_reforme}
+                {row.impotMoyenFoyerReforme}
                 €
               </span>
             </TableCell>
@@ -198,18 +204,18 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
               </span>
               &nbsp;
               {
-                row.recettesEtat_plf === null
+                row.recettesEtatPlf === null
                   ? null
                   : (
                     <span className={styles2.plf}>
-                      {row.recettesEtat_plf}
+                      {row.recettesEtatPlf}
                       Md€
                     </span>
                   )
               }
               &nbsp;
               <span className={styles2.amendment}>
-                {row.recettesEtat_reforme}
+                {row.recettesEtatReforme}
                 Md€
               </span>
             </TableCell>
