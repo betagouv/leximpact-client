@@ -20,6 +20,15 @@ function withTooltip(Tooltip, title, element) {
   );
 }
 
+function toString(number) {
+  // Hack to support negative zeros.
+  // Negative zeros should disappear in the future after cleaning up the application.
+  if (number === 0) {
+    return "0";
+  }
+  return number.toLocaleString();
+}
+
 class Parameter extends PureComponent {
   constructor(props) {
     super(props);
@@ -41,13 +50,13 @@ class Parameter extends PureComponent {
     return (
       <span className={styles.noOverflow}>
         {
-          !equal && <span className={styles.initialValue}>{initialValue.toLocaleString()}</span>
+          !equal && <span className={styles.initialValue}>{toString(initialValue)}</span>
         }
         {
           plfValue !== null && withTooltip(
             PlfTooltip,
             plfTitle,
-            <span className={styles.plfValue}>{plfValue.toLocaleString()}</span>,
+            <span className={styles.plfValue}>{toString(plfValue)}</span>,
           )
         }
         {
@@ -69,7 +78,7 @@ class Parameter extends PureComponent {
                 [styles.amendmentValue]: true,
                 [styles.amendmentValueModified]: !equal,
               })}>
-                {amendmentValue.toLocaleString()}
+                {toString(amendmentValue)}
               </span>
             ))
         }
