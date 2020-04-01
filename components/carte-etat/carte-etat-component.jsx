@@ -97,7 +97,7 @@ class CarteEtat extends PureComponent {
       classes,
       deciles,
       expandArticlePanelHandler,
-      frontieres_deciles,
+      frontieresDeciles,
       isDisabledEtat,
       isLoadingEtat,
       isPanelExpanded,
@@ -215,7 +215,7 @@ Estimation à partir des données de l&apos;Enquête
               <ExpansionPanelDetails className="styleExpansionPanel">
                 <SimpopTableurInfosDeciles
                   deciles={deciles}
-                  frontieres_deciles={frontieres_deciles}
+                  frontieresDeciles={frontieresDeciles}
                 />
               </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -237,7 +237,7 @@ CarteEtat.propTypes = {
     }).isRequired,
   ).isRequired,
   expandArticlePanelHandler: PropTypes.shape().isRequired,
-  frontieres_deciles: PropTypes.bool.isRequired,
+  frontieresDeciles: PropTypes.bool.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   isPanelExpanded: PropTypes.shape().isRequired,

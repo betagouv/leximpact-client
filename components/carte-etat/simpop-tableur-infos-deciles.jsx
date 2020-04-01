@@ -132,9 +132,9 @@ function imageDecile(decileId) {
   return <img key={imageId} alt="" height="24" src={imagePath} width="24" />;
 }
 
-function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
+function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
   const rows = deciles.map(
-    (currElement, index) => create_from_deciles(index, currElement, frontieres_deciles[index]),
+    (currElement, index) => createFromDeciles(index, currElement, frontieresDeciles[index]),
   );
   const NON_APPLICABLE = "—";
 
@@ -255,7 +255,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
   deciles: PropTypes.shape().isRequired,
-  frontieres_deciles: PropTypes.shape().isRequired,
+  frontieresDeciles: PropTypes.shape().isRequired,
 };
 
 export default withStyles(styles)(SimpopTableurInfosDeciles);
