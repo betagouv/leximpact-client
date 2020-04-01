@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+
+.uniteImpotEtat {
+  &.avant {
+    font-family: "Lato";
+    font-size: 30px;
+    color: #000000;
+  }
+  &.plf {
+    /*filter: blur(1.25px);*/
+    font-family: "Lato";
+    font-size: 30px;
+    color: $plf-color;
+  }
+
+  &.apres {
+    /*  filter: blur(1.25px);*/
+    font-family: "Lato";
+    font-size: 30px;
+    color: #000000;
+  }
+}
+
+.impotEtat {
+  &.avant {
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+  }
+  &.plf {
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 40px;
+    /*filter: blur(1.25px);*/
+    color: $plf-color;
+  }
+
+  &.apres {
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 40px;
+    /*  filter: blur(1.25px);*/
+    color: #000000;
+    background-color: $amendment-color;
+    padding: 0.1rem;
+  }
+}

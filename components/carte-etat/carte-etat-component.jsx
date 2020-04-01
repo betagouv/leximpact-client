@@ -17,10 +17,12 @@ import {
   Face as FaceIcon,
 } from "@material-ui/icons";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import BarChart from "./bar-chart";
+import styles2 from "./carte-etat-component.module.scss";
 import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 
 const styles = () => ({
@@ -157,10 +159,20 @@ class CarteEtat extends PureComponent {
                     </div>
                     <div className={classes.simpop}>
                       <div className="montant-impots">
-                        <Typography inline className="impotEtat avant">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.impotEtat]: true,
+                            [styles2.avant]: true,
+                          })}>
                           {totalAvant}
                         </Typography>
-                        <Typography inline className="uniteImpotEtat avant">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.uniteImpotEtat]: true,
+                            [styles2.avant]: true,
+                          })}>
                           Md€*
                         </Typography>
                       </div>
@@ -168,10 +180,20 @@ class CarteEtat extends PureComponent {
                         montrerPLF
                           ? (
                             <div className="montant-impots">
-                              <Typography inline className="impotEtat plf">
+                              <Typography
+                                inline
+                                className={classNames({
+                                  [styles2.impotEtat]: true,
+                                  [styles2.plf]: true,
+                                })}>
                                 {totalPLF}
                               </Typography>
-                              <Typography inline className="uniteImpotEtat plf">
+                              <Typography
+                                inline
+                                className={classNames({
+                                  [styles2.uniteImpotEtat]: true,
+                                  [styles2.plf]: true,
+                                })}>
                                 Md€*
                               </Typography>
                             </div>
@@ -179,10 +201,20 @@ class CarteEtat extends PureComponent {
                           : null
                       }
                       <div className="montant-impots">
-                        <Typography inline className="impotEtat apres">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.impotEtat]: true,
+                            [styles2.apres]: true,
+                          })}>
                           {totalApres}
                         </Typography>
-                        <Typography inline className="uniteImpotEtat apres">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.uniteImpotEtat]: true,
+                            [styles2.apres]: true,
+                          })}>
                           Md€*
                         </Typography>
                       </div>

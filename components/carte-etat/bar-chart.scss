@@ -24,60 +24,6 @@
     padding: 0px;
   }
 
-  .uniteImpotEtat {
-    &.avant {
-      font-family: "Lato";
-      font-weight: regular;
-      font-size: 30px;
-      color: #565656;
-      }
-      &.plf {
-        /*filter: blur(1.25px);*/
-      font-family: "Lato";
-      font-weight: regular;
-      font-size: 30px;
-      color: #ff6b6b;
-      }
-
-      &.apres {
-        /*  filter: blur(1.25px);*/
-      font-family: "Lato";
-      font-weight: regular;
-      font-size: 30px;
-      color: #00a3ff;
-      }
-    }
-
-
-  .impotEtat {
-
-    &.avant {
-      font-family: "Lato";
-      font-weight: bold;
-      font-size: 40px;
-        background-color:#DED500;
-        background-blend-mode: darken;
-        /* ligne à ajouter quand PLF*/
-        text-decoration-color: #FF6B6B;
-        text-decoration-line: line-through;
-      }
-      &.plf {
-        font-family: "Lato";
-        font-weight: bold;
-        font-size: 40px;
-        /*filter: blur(1.25px);*/
-        color: #ff6b6b;
-      }
-
-      &.apres {
-        font-family: "Lato";
-        font-weight: bold;
-        font-size: 40px;
-        /*  filter: blur(1.25px);*/
-          color: #00a3ff;
-        }
-    }
-
   .nobreak {
     overflow: hidden;
   }
