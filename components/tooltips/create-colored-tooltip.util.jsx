@@ -10,11 +10,11 @@ function TooltipWithDefaultProps(props) {
   );
 }
 
-export function createColoredTooltip(backgroundColor) {
+export function createColoredTooltip(backgroundColor, color = "#ffffff") {
   return withStyles(() => ({
     tooltip: {
       backgroundColor,
-      color: "#ffffff",
+      color,
       fontSize: "16px",
       maxWidth: 240,
     },
