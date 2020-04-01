@@ -7,6 +7,7 @@ import TableRow from "@material-ui/core/TableRow";
 import PropTypes from "prop-types";
 
 import formatMilliers from "../utils/format-milliers";
+import styles2 from "./simpop-tableur-infos-deciles.module.scss";
 
 
 const styles = {
@@ -14,43 +15,10 @@ const styles = {
     padding: "0.6em",
     textAlign: "center",
   },
-  codeExistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "4px",
-    marginRight: "4px",
-    padding: "3px",
-  },
   infinity: {
     fontSize: "2em",
     fontWeight: "330",
     verticalAlign: "sub",
-  },
-  plf: {
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "4px",
-    marginRight: "4px",
-    padding: "3px",
-  },
-  reforme: {
-    borderRadius: "0.3em",
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "4px",
-    marginRight: "4px",
-    padding: "3px",
   },
   tableHeader: {
     color: "#565656",
@@ -92,7 +60,7 @@ function createData(
   };
 }
 
-function create_from_deciles(index, decile, frontiereDecile) {
+function createFromDeciles(index, decile, frontiereDecile) {
   const montrerPLF = typeof decile.plf === "number";
 
   const impactMoyenFoyerPlf = null;
@@ -187,7 +155,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                 row.impactMoyenFoyer_plf === null
                   ? null
                   : (
-                    <span style={styles.plf}>
+                    <span className={styles2.plf}>
                       {row.impactMoyenFoyer_plf === "-"
                         ? NON_APPLICABLE
                         : `${row.impactMoyenFoyer_plf}%`}
@@ -195,14 +163,14 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                   )
               }
               &nbsp;
-              <span style={styles.reforme}>
+              <span className={styles2.amendment}>
                 {row.impactMoyenFoyer_reforme === "-"
                   ? NON_APPLICABLE
                   : `${row.impactMoyenFoyer_reforme}%`}
               </span>
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
-              <span style={styles.codeExistant}>
+              <span className={styles2.initial}>
                 {row.impotMoyenFoyer}
                 €
               </span>
@@ -211,20 +179,20 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                 row.impotMoyenFoyer_plf === null
                   ? null
                   : (
-                    <span style={styles.plf}>
+                    <span className={styles2.plf}>
                       {row.impotMoyenFoyer_plf}
                       €
                     </span>
                   )
               }
               &nbsp;
-              <span style={styles.reforme}>
+              <span className={styles2.amendment}>
                 {row.impotMoyenFoyer_reforme}
                 €
               </span>
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
-              <span style={styles.codeExistant}>
+              <span className={styles2.initial}>
                 {row.recettesEtat}
                 Md€
               </span>
@@ -233,14 +201,14 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                 row.recettesEtat_plf === null
                   ? null
                   : (
-                    <span style={styles.plf}>
+                    <span className={styles2.plf}>
                       {row.recettesEtat_plf}
                       Md€
                     </span>
                   )
               }
               &nbsp;
-              <span style={styles.reforme}>
+              <span className={styles2.amendment}>
                 {row.recettesEtat_reforme}
                 Md€
               </span>

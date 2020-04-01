@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+// TODO: avoid duplicate code.
+
+.initial {
+  color: #000000;
+
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 3px;
+}
+
+.plf {
+  color: $plf-color;
+
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 3px;
+}
+
+.amendment {
+  color: #000000;
+  background-color: $amendment-color;
+
+  border-radius: 0.3em;
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 3px;
+}
