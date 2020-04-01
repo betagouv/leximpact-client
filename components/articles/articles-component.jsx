@@ -129,8 +129,8 @@ class ArticlesComponent extends React.Component {
     }
     // Last part
     if (i === nbt) {
-      const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
-      const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] * 100 : null;
+      const baseValuet = baset[Math.min(i, baset.length) - 1];
+      const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] : null;
       const baseValue = bases[Math.min(i - 1, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
@@ -143,7 +143,7 @@ class ArticlesComponent extends React.Component {
           –
           <Parameter
             editable
-            amendmentValue={t[i - 1] * 100}
+            amendmentValue={t[i - 1]}
             initialValue={baseValuet}
             plfValue={plfValuet}
             size="small"
@@ -163,8 +163,8 @@ class ArticlesComponent extends React.Component {
       );
     }
     // Other parts :
-    const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
-    const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] * 100 : null;
+    const baseValuet = baset[Math.min(i, baset.length) - 1];
+    const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] : null;
     const baseValue = bases[Math.min(i, bases.length - 1)];
     const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
     const baseValueminus1 = bases[Math.min(i - 1, bases.length - 1)];
@@ -179,7 +179,7 @@ class ArticlesComponent extends React.Component {
         –
         <Parameter
           editable
-          amendmentValue={t[i - 1] * 100}
+          amendmentValue={t[i - 1]}
           initialValue={baseValuet}
           plfValue={plfValuet}
           size="small"
