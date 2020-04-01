@@ -24,6 +24,8 @@ import { get } from "lodash";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
+import styles2 from "./gagnants-perdants-component.module.scss";
+
 const styles = () => ({
   buttonPosition: {
     marginBottom: "114px",
@@ -109,31 +111,6 @@ const styles = () => ({
     fontFamily: "Lato",
     fontSize: 25,
     fontWeight: "bold",
-
-    //  paddingLeft: "70px",
-  },
-  impactReformeDetail: {
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: 12,
-    fontWeight: "bold",
-  },
-  impactReformeUnite: {
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: 20,
-    fontWeight: "regular",
-    textAlign: "center",
-  },
-  revenusMensuelValue: {
-    color: "#000000",
-    fontFamily: "Lato",
-    fontSize: 18,
-    fontWeight: "normal",
-    textTransform: "none",
-  },
-  revenusMensuelWrapper: {
-    padding: 0,
   },
   sourceInsee: {
     color: "#B1B1B1",
@@ -146,15 +123,10 @@ const styles = () => ({
     marginRight: "15px",
     textAlign: "right",
   },
-  styleGroupIconBleu: {
-    color: "#00A3FF",
-    verticalAlign: "text-bottom",
-  },
   styleGroupIconRouge: {
     color: "#FF6B6B",
     verticalAlign: "text-bottom",
   },
-
   styleIconGagnant: {
     color: "#13CC03",
     verticalAlign: "bottom",
@@ -174,11 +146,6 @@ const styles = () => ({
     fontWeight: "regular",
     paddingLeft: "10px",
     textJustify: "none",
-  },
-  styleTypeImpactDetail: {
-    color: "#909090",
-    fontFamily: "Lato",
-    fontSize: 12,
   },
   subtitleCard: {
     color: "#565656",
@@ -351,27 +318,18 @@ class GagnantsPerdantsCard extends PureComponent {
                             : null
                         }
 
-                        <div>
-                          <Typography inline classes={{ root: classes.impactReforme }}>
-                            <span>
-                              {" "}
-                              {hausseReforme}
-                            </span>
-                            {" "}
-                          </Typography>
-                          <Typography
-                            inline
-                            classes={{ root: classes.impactReformeUnite }}>
-                            <span>M</span>
-                          </Typography>
+                        <div className={styles2.amendment}>
+                          <span className={styles2.amendmentValue}>{hausseReforme}</span>
+                          <span className={styles2.amendmentUnit}> M</span>
                           <GroupIcon
-                            classes={{ root: classes.styleGroupIconBleu }}
+                            className={styles2.amendmentIcon}
                             fontSize="small"
                           />
                         </div>
                       </div>
-                      <Typography classes={{ root: classes.styleTypeImpactDetail }}>
-                        <span>dont</span>
+                      <div className={styles2.details}>
+                        dont
+                        {" "}
                         {
                           montrerPLF
                             ? (
@@ -385,17 +343,10 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <Typography
-                          inline
-                          classes={{ root: classes.impactReformeDetail }}>
-                          <span>
-                            {" "}
-                            {hausseZeroReforme}
-                          </span>
-                          <span>M</span>
-                        </Typography>
-                        <span>&nbsp;de foyers entrant dans l&apos;IR</span>
-                      </Typography>
+                        <span className={styles2.detailsAmendmentValue}>{hausseZeroReforme}</span>
+                        <span className={styles2.detailsAmendmentUnit}> M</span>
+                        &nbsp;de foyers entrant dans l&apos;IR
+                      </div>
                     </div>
                   </div>
 
@@ -434,21 +385,11 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <div>
-                          <Typography inline classes={{ root: classes.impactReforme }}>
-                            <span>
-                              {" "}
-                              {baisseReforme}
-                            </span>
-                            {" "}
-                          </Typography>
-                          <Typography
-                            inline
-                            classes={{ root: classes.impactReformeUnite }}>
-                            <span>M</span>
-                          </Typography>
+                        <div className={styles2.amendment}>
+                          <span className={styles2.amendmentValue}>{baisseReforme}</span>
+                          <span className={styles2.amendmentUnit}> M</span>
                           <GroupIcon
-                            classes={{ root: classes.styleGroupIconBleu }}
+                            className={styles2.amendmentIcon}
                             fontSize="small"
                           />
                         </div>
@@ -490,28 +431,18 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <div>
-                          <Typography inline classes={{ root: classes.impactReforme }}>
-                            <span>
-                              {" "}
-                              {neutreReforme}
-                            </span>
-                            {" "}
-                          </Typography>
-                          <Typography
-                            inline
-                            classes={{ root: classes.impactReformeUnite }}>
-                            <span>M</span>
-                          </Typography>
+                        <div className={styles2.amendment}>
+                          <span className={styles2.amendmentValue}>{neutreReforme}</span>
+                          <span className={styles2.amendmentUnit}> M</span>
                           <GroupIcon
-                            classes={{ root: classes.styleGroupIconBleu }}
+                            className={styles2.amendmentIcon}
                             fontSize="small"
                           />
                         </div>
                       </div>
-
-                      <Typography classes={{ root: classes.styleTypeImpactDetail }}>
-                        <span>dont </span>
+                      <div className={styles2.details}>
+                        dont
+                        {" "}
                         {
                           montrerPLF
                             ? (
@@ -525,19 +456,10 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <Typography
-                          inline
-                          classes={{ root: classes.impactReformeDetail }}>
-                          <span>
-                            {" "}
-                            {neutreZeroReforme}
-                          </span>
-                          <span>M</span>
-                        </Typography>
-                        <span className={classes.styleTypeImpactDetail}>
-                  &nbsp;de foyers toujours exonérés d&apos;IR
-                        </span>
-                      </Typography>
+                        <span className={styles2.detailsAmendmentValue}>{neutreZeroReforme}</span>
+                        <span className={styles2.detailsAmendmentUnit}> M</span>
+                        &nbsp;de foyers toujours exonérés d&apos;IR
+                      </div>
                     </div>
                   </div>
 

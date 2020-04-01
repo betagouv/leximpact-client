@@ -1,0 +1,41 @@
+@import '../../../styles/variables.scss';
+
+.amendment{
+  color: #000000;
+  line-height: 1.5;
+}
+
+.amendmentValue {
+  font-weight: bold;
+  background-color: $amendment-color;
+  font-family: Lato;
+  padding: 0.1rem;
+  font-size: 25px;
+}
+
+.amendmentUnit {
+  font-family: Lato;
+  font-size: 20px;
+}
+
+.amendmentIcon {
+  vertical-align: text-bottom;
+}
+
+.details {
+  color: #909090;
+  font-family: Lato;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.detailsAmendmentValue {
+  color: #000000;
+  font-weight: bold;
+  background-color: $amendment-color;
+}
+
+.detailsAmendmentUnit {
+  color: #000000;
+  font-weight: bold;
+}
