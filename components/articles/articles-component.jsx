@@ -76,41 +76,6 @@ const style = {
   Typographybouton: {
     margin: "10px",
   },
-  VarCodeNew: {
-    color: "#00A3FF",
-    fontWeight: "bold",
-    lineHeight: "10px",
-  },
-  VarCodeexistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    padding: "3px",
-    // toggle off next 2 lines if PLF is unplugged
-    textDecorationColor: "#FF6B6B",
-    textDecorationLine: "line-through",
-    textDecorationSize: "2px",
-  },
-  VarCodeexistantNonBarre: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    padding: "3px",
-  },
-
-  VarPLF: {
-    color: "#FF6B6B",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "3px",
-    marginRight: "5px",
-  },
 };
 
 class ArticlesComponent extends React.Component {
