@@ -16,29 +16,11 @@ const styles = () => ({
     color: "#FF6B6B",
     display: "inline-block",
   },
-  impotCodeExistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#565656",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    padding: "3px",
-    // ligne à ajouter quand PLF
-    textDecorationColor: "#FF6B6B",
-    textDecorationLine: "line-through",
-  },
-  impotPLF: {
-    color: "#FF6B6B",
-    display: "inline-block",
-  },
   legende: {
     color: "#909090",
     fontFamily: "Lato",
     fontSize: 12,
     marginBottom: 10,
-  },
-  stylePLF: {
-    display: "inline-flex",
   },
 });
 
