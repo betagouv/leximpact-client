@@ -80,38 +80,6 @@ const styles = () => ({
     paddingRight: 15,
     paddingTop: 5,
   },
-  impactPLF: {
-    alignSelf: "flex-start",
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: 25,
-    fontWeight: "bold",
-    textAlign: "center",
-
-    //  paddingLeft: "20px",
-  },
-
-  impactPLFDetail: {
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: 12,
-    fontWeight: "bold",
-  },
-  impactPLFUnite: {
-    color: "#FF6B6B",
-    fontFamily: "Lato",
-    fontSize: 20,
-    fontWeight: "regular",
-    textAlign: "center",
-  },
-
-  impactReforme: {
-    alignSelf: "flex-end",
-    color: "#00A3FF",
-    fontFamily: "Lato",
-    fontSize: 25,
-    fontWeight: "bold",
-  },
   sourceInsee: {
     color: "#B1B1B1",
     fontFamily: "Lato",
@@ -122,10 +90,6 @@ const styles = () => ({
     marginLeft: "15px",
     marginRight: "15px",
     textAlign: "right",
-  },
-  styleGroupIconRouge: {
-    color: "#FF6B6B",
-    verticalAlign: "text-bottom",
   },
   styleIconGagnant: {
     color: "#13CC03",
@@ -138,14 +102,6 @@ const styles = () => ({
   styleIconPerdant: {
     color: "#FFAC33",
     verticalAlign: "bottom",
-  },
-  styleTypeImpact: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "1em",
-    fontWeight: "regular",
-    paddingLeft: "10px",
-    textJustify: "none",
   },
   subtitleCard: {
     color: "#565656",
