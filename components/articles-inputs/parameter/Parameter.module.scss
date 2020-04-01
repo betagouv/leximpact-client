@@ -11,6 +11,7 @@ $input-margin: 0.3rem;
 
 .plfValue {
   font-weight: bold;
+  margin-left: $input-margin;
   color: $plf-color;
 }
 
@@ -33,4 +34,8 @@ $input-margin: 0.3rem;
 .amendmentValueModified {
   padding: 0.1rem;
   background-color: $amendment-color;
+}
+
+.noOverflow > span {
+  display: inline-block;
 }

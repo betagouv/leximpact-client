@@ -3,7 +3,22 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
+import { AmendmentTooltip, PlfTooltip } from "../../tooltips";
 import styles from "./Parameter.module.scss";
+
+function withTooltip(Tooltip, title, element) {
+  if (title === null || title === undefined) {
+    return element;
+  }
+
+  return (
+    <Tooltip
+      placement="bottom-start"
+      title={title}>
+      {element}
+    </Tooltip>
+  );
+}
 
 class Parameter extends PureComponent {
   constructor(props) {
@@ -19,20 +34,24 @@ class Parameter extends PureComponent {
 
   render() {
     const {
-      amendmentValue, editable, initialValue, plfValue, size,
+      amendmentTitle, amendmentValue, editable, initialValue, plfTitle, plfValue, size,
     } = this.props;
     const equal = initialValue === amendmentValue;
 
     return (
-      <span>
+      <span className={styles.noOverflow}>
         {
-          !equal && <span className={styles.initialValue}>{initialValue}</span>
+          !equal && <span className={styles.initialValue}>{initialValue.toLocaleString()}</span>
         }
         {
-          plfValue && <span className={styles.plfValue}>{plfValue}</span>
+          plfValue !== null && withTooltip(
+            PlfTooltip,
+            plfTitle,
+            <span className={styles.plfValue}>{plfValue.toLocaleString()}</span>,
+          )
         }
         {
-          editable
+          withTooltip(AmendmentTooltip, amendmentTitle, editable
             ? (
               <TextField
                 className={classNames({
@@ -50,9 +69,9 @@ class Parameter extends PureComponent {
                 [styles.amendmentValue]: true,
                 [styles.amendmentValueModified]: !equal,
               })}>
-                {amendmentValue}
+                {amendmentValue.toLocaleString()}
               </span>
-            )
+            ))
         }
       </span>
     );
@@ -60,17 +79,27 @@ class Parameter extends PureComponent {
 }
 
 Parameter.defaultProps = {
+  amendmentTitle: null,
   editable: false,
-  onAmendmentChange: () => {},
+  onAmendmentChange: () => { },
+  plfTitle: null,
   plfValue: null,
   size: "large",
 };
 
 Parameter.propTypes = {
+  amendmentTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
   amendmentValue: PropTypes.number.isRequired,
   editable: PropTypes.bool,
   initialValue: PropTypes.number.isRequired,
   onAmendmentChange: PropTypes.func,
+  plfTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
   plfValue: PropTypes.number,
   size: PropTypes.oneOf(["small", "large"]),
 };
