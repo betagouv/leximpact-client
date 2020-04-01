@@ -95,40 +95,40 @@ function createData(
 function create_from_deciles(index, decile, frontiereDecile) {
   const montrerPLF = typeof decile.plf === "number";
 
-  const impactMoyenFoyer_plf = null;
+  const impactMoyenFoyerPlf = null;
   if (montrerPLF) {
-    mpactMoyenFoyer_plf = decile.avant
+    impactMoyenFoyerPlf = decile.avant
       ? formatMilliers(Math.round((decile.plf / decile.avant - 1) * 100))
       : "-";
   }
-  const impactMoyenFoyer_reforme = decile.avant
+  const impactMoyenFoyerReforme = decile.avant
     ? formatMilliers(Math.round((decile.apres / decile.avant - 1) * 100))
     : "-";
   const impotMoyenFoyer = formatMilliers(Math.round(decile.avant / decile.poids));
-  const impotMoyenFoyer_plf = montrerPLF ? formatMilliers(Math.round(decile.plf / decile.poids)) : null;
-  const impotMoyenFoyer_reforme = formatMilliers(Math.round(decile.apres / decile.poids));
+  const impotMoyenFoyerPlf = montrerPLF ? formatMilliers(Math.round(decile.plf / decile.poids)) : null;
+  const impotMoyenFoyerReforme = formatMilliers(Math.round(decile.apres / decile.poids));
   const recettesEtat = formatMilliers(Math.round(decile.avant / 10000000) / 100);
-  const recettesEtat_plf = montrerPLF ? formatMilliers(Math.round(decile.plf / 10000000) / 100) : null;
-  const recettesEtat_reforme = formatMilliers(Math.round(decile.apres / 10000000) / 100);
+  const recettesEtatPlf = montrerPLF ? formatMilliers(Math.round(decile.plf / 10000000) / 100) : null;
+  const recettesEtatReforme = formatMilliers(Math.round(decile.apres / 10000000) / 100);
   const frontiere = index + 1 < NOMBRE_DECILES ? formatMilliers(Math.round(frontiereDecile)) : "-";
 
   return createData(
     index + 1,
     formatMilliers(frontiere),
-    impactMoyenFoyer_plf,
-    impactMoyenFoyer_reforme,
+    impactMoyenFoyerPlf,
+    impactMoyenFoyerReforme,
     impotMoyenFoyer,
-    impotMoyenFoyer_plf,
-    impotMoyenFoyer_reforme,
+    impotMoyenFoyerPlf,
+    impotMoyenFoyerReforme,
     recettesEtat,
-    recettesEtat_plf,
-    recettesEtat_reforme,
+    recettesEtatPlf,
+    recettesEtatReforme,
   );
 }
 
-function imageDecile(id) {
-  const imageId = `imageDecile${id}`;
-  const imagePath = `/static/images/decile${id}.png`;
+function imageDecile(decileId) {
+  const imageId = `imageDecile${decileId}`;
+  const imagePath = `/static/images/decile${decileId}.png`;
   return <img key={imageId} alt="" height="24" src={imagePath} width="24" />;
 }
 
