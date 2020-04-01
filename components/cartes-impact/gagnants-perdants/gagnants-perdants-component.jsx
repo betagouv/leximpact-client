@@ -22,7 +22,7 @@ import {
 } from "@material-ui/icons";
 import { get } from "lodash";
 import PropTypes from "prop-types";
-import React, { PureComponent } from "react";
+import React, { Fragment, PureComponent } from "react";
 
 import styles2 from "./gagnants-perdants-component.module.scss";
 
@@ -298,26 +298,17 @@ class GagnantsPerdantsCard extends PureComponent {
                         {
                           montrerPLF
                             ? (
-                              <div>
-                                <Typography inline classes={{ root: classes.impactPLF }}>
-                                  <span>
-                                    {" "}
-                                    {haussePlf}
-                                  </span>
-                                  {" "}
-                                </Typography>
-                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                                  <span>M</span>
-                                </Typography>
+                              <div className={styles2.plf}>
+                                <span className={styles2.plfValue}>{haussePlf}</span>
+                                <span className={styles2.plfUnit}> M</span>
                                 <GroupIcon
-                                  classes={{ root: classes.styleGroupIconRouge }}
+                                  className={styles2.plfIcon}
                                   fontSize="small"
                                 />
                               </div>
                             )
                             : null
                         }
-
                         <div className={styles2.amendment}>
                           <span className={styles2.amendmentValue}>{hausseReforme}</span>
                           <span className={styles2.amendmentUnit}> M</span>
@@ -333,13 +324,10 @@ class GagnantsPerdantsCard extends PureComponent {
                         {
                           montrerPLF
                             ? (
-                              <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                                <span>
-                                  {" "}
-                                  {hausseZeroPlf}
-                                </span>
-                                <span>M</span>
-                              </Typography>
+                              <Fragment>
+                                <span className={styles2.detailsPlfValue}>{hausseZeroPlf}</span>
+                                <span className={styles2.detailsPlfUnit}> M </span>
+                              </Fragment>
                             )
                             : null
                         }
@@ -365,20 +353,11 @@ class GagnantsPerdantsCard extends PureComponent {
                         {
                           montrerPLF
                             ? (
-                              <div>
-                                <Typography inline classes={{ root: classes.impactPLF }}>
-                                  <span>
-                                    {" "}
-                                    {baissePlf}
-                                    {" "}
-                                  </span>
-                                  {" "}
-                                </Typography>
-                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                                  <span>M</span>
-                                </Typography>
+                              <div className={styles2.plf}>
+                                <span className={styles2.plfValue}>{baissePlf}</span>
+                                <span className={styles2.plfUnit}> M</span>
                                 <GroupIcon
-                                  classes={{ root: classes.styleGroupIconRouge }}
+                                  className={styles2.plfIcon}
                                   fontSize="small"
                                 />
                               </div>
@@ -412,19 +391,11 @@ class GagnantsPerdantsCard extends PureComponent {
                         {
                           montrerPLF
                             ? (
-                              <div>
-                                <Typography inline classes={{ root: classes.impactPLF }}>
-                                  <span>
-                                    {" "}
-                                    {neutrePlf}
-                                  </span>
-                                  {" "}
-                                </Typography>
-                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                                  <span>M</span>
-                                </Typography>
+                              <div className={styles2.plf}>
+                                <span className={styles2.plfValue}>{neutrePlf}</span>
+                                <span className={styles2.plfUnit}> M</span>
                                 <GroupIcon
-                                  classes={{ root: classes.styleGroupIconRouge }}
+                                  className={styles2.plfIcon}
                                   fontSize="small"
                                 />
                               </div>
@@ -446,13 +417,10 @@ class GagnantsPerdantsCard extends PureComponent {
                         {
                           montrerPLF
                             ? (
-                              <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                                <span>
-                                  {" "}
-                                  {neutreZeroPlf}
-                                </span>
-                                <span>M</span>
-                              </Typography>
+                              <Fragment>
+                                <span className={styles2.detailsPlfValue}>{neutreZeroPlf}</span>
+                                <span className={styles2.detailsPlfUnit}> M </span>
+                              </Fragment>
                             )
                             : null
                         }

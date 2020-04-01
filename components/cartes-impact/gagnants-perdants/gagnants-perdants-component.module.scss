@@ -1,24 +1,32 @@
 @import '../../../styles/variables.scss';
 
-.amendment{
+.plf {
+  color: $plf-color;
+  line-height: 1.5;
+}
+
+.amendment {
   color: #000000;
   line-height: 1.5;
 }
 
-.amendmentValue {
+.plfValue, .amendmentValue {
   font-weight: bold;
-  background-color: $amendment-color;
   font-family: Lato;
-  padding: 0.1rem;
   font-size: 25px;
 }
 
-.amendmentUnit {
+.amendmentValue {
+  background-color: $amendment-color;
+  padding: 0.1rem;
+}
+
+.plfUnit, .amendmentUnit {
   font-family: Lato;
   font-size: 20px;
 }
 
-.amendmentIcon {
+.plfIcon, .amendmentIcon {
   vertical-align: text-bottom;
 }
 
@@ -27,6 +35,17 @@
   font-family: Lato;
   font-size: 12px;
   line-height: 1.5;
+}
+
+.detailsPlfValue {
+  color: #000000;
+  font-weight: bold;
+  color: $plf-color;
+}
+
+.detailsPlfUnit {
+  color: #000000;
+  font-weight: bold;
 }
 
 .detailsAmendmentValue {
