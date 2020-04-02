@@ -4,7 +4,6 @@ import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({
   casTypes,
-  consulterExpert,
   resBrut,
   token,
   totalPop,
@@ -12,7 +11,6 @@ const mapStateToProps = ({
   const isUserLogged = Boolean(token);
   return {
     casTypes,
-    consulterExpert,
     isUserLogged,
     resBrut,
     totalPop,
