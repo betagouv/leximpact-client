@@ -1,3 +1,4 @@
+import TextField from "@material-ui/core/TextField";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
@@ -21,53 +22,49 @@ class InputField extends PureComponent {
     this.setState({ value: nextProps.value });
   }
 
-  triggerChange = (value, name) => {
+  triggerChange = (value) => {
     const { onChange } = this.props;
-    const noSpacesValue = value.replace(/\s+/g, "");
-    const numberValue = Number(noSpacesValue);
-    onChange(numberValue, name);
+    onChange(value);
   };
 
   handleChange = ({ target }) => {
-    const { name, value } = target;
+    const { value } = target;
     if (this.timer) clearTimeout(this.timer);
     this.setState({ value });
     this.timer = setTimeout(() => {
-      this.triggerChange(value, name);
+      this.props.onChange(value);
     }, WAIT_INTERVAL);
-  };
+  }
 
   handleKeyDown = (e) => {
     const isEnterKeyPressed = e.keyCode === ENTER_KEY;
     if (!isEnterKeyPressed) return;
-    const { name } = this.props;
     const { value } = this.state;
     clearTimeout(this.timer);
-    this.triggerChange(value, name);
-  };
+    this.props.onChange(value);
+  }
 
   render() {
-    const { name, style } = this.props;
     const { value } = this.state;
+    const { className } = this.props;
     return (
-      <input
-        name={name}
-        size="4"
-        style={style}
-        type="text"
+      <TextField
+        className={className}
         value={value}
         onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
-      />
+        onKeyDown={this.handleKeyDown} />
     );
   }
 }
 
+InputField.defaultProps = {
+  className: null,
+};
+
 InputField.propTypes = {
-  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  style: PropTypes.shape().isRequired,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default InputField;

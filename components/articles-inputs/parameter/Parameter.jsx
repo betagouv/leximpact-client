@@ -1,9 +1,9 @@
-import TextField from "@material-ui/core/TextField";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import { AmendmentTooltip, PlfTooltip } from "../../tooltips";
+import InputField from "../input-field";
 import styles from "./Parameter.module.scss";
 
 function withTooltip(Tooltip, title, element) {
@@ -20,7 +20,7 @@ function withTooltip(Tooltip, title, element) {
   );
 }
 
-function toString(number) {
+function formatNumber(number) {
   // Hack to support negative zeros.
   // Negative zeros should disappear in the future after cleaning up the application.
   if (number === 0) {
@@ -29,17 +29,26 @@ function toString(number) {
   return number.toLocaleString();
 }
 
+function parseNumber(str) {
+  return parseFloat(
+    str
+      .replace(/\s/g, "")
+      .replace(/,/g, "."),
+  );
+}
+
+
 class Parameter extends PureComponent {
   constructor(props) {
     super(props);
     this.emitAmendmentChange = this.emitAmendmentChange.bind(this);
   }
 
-  emitAmendmentChange(element) {
+  emitAmendmentChange(value) {
     const { onAmendmentChange } = this.props;
-    const value = parseInt(element.target.value, 10);
-    onAmendmentChange(value);
+    onAmendmentChange(parseNumber(value));
   }
+
 
   render() {
     const {
@@ -50,27 +59,26 @@ class Parameter extends PureComponent {
     return (
       <span className={styles.noOverflow}>
         {
-          !equal && <span className={styles.initialValue}>{toString(initialValue)}</span>
+          !equal && <span className={styles.initialValue}>{formatNumber(initialValue)}</span>
         }
         {
           plfValue !== null && withTooltip(
             PlfTooltip,
             plfTitle,
-            <span className={styles.plfValue}>{toString(plfValue)}</span>,
+            <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
           )
         }
         {
           withTooltip(AmendmentTooltip, amendmentTitle, editable
             ? (
-              <TextField
+              <InputField
                 className={classNames({
                   [styles.amendmentInput]: true,
                   [styles.amendmentValue]: true,
                   [styles.amendmentValueModified]: !equal,
                   [styles.smallInput]: size === "small",
                 })}
-                type="number"
-                value={amendmentValue}
+                value={formatNumber(amendmentValue)}
                 onChange={this.emitAmendmentChange} />
             )
             : (
@@ -78,7 +86,7 @@ class Parameter extends PureComponent {
                 [styles.amendmentValue]: true,
                 [styles.amendmentValueModified]: !equal,
               })}>
-                {toString(amendmentValue)}
+                {formatNumber(amendmentValue)}
               </span>
             ))
         }
