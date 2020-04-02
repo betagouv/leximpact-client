@@ -78,14 +78,13 @@ const styles = () => ({
   },
 });
 
-class ConsulterExpertCard extends PureComponent {
+class InformationPanel extends PureComponent {
   render() {
     const {
       classes,
       isPanelExpanded,
+      onClose,
       onExpandPanel,
-      onRemoveConsulterExpert,
-
     } = this.props;
 
     return (
@@ -147,7 +146,7 @@ class ConsulterExpertCard extends PureComponent {
                 disableRipple
                 aria-label="Delete"
                 classes={{ root: classes.cardEditDeleteButton }}
-                onClick={onRemoveConsulterExpert}>
+                onClick={onClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </div>
@@ -157,11 +156,11 @@ class ConsulterExpertCard extends PureComponent {
     );
   }
 }
-ConsulterExpertCard.propTypes = {
+InformationPanel.propTypes = {
   classes: PropTypes.shape().isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
   onExpandPanel: PropTypes.func.isRequired,
-  onRemoveConsulterExpert: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(ConsulterExpertCard);
+export default withStyles(styles)(InformationPanel);
