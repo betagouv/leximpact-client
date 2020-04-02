@@ -6,12 +6,12 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+// import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+// import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+// import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import { withStyles } from "@material-ui/core/styles";
 import { Close as CloseIcon } from "@material-ui/icons";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
@@ -82,9 +82,9 @@ class InformationPanel extends PureComponent {
   render() {
     const {
       classes,
-      isPanelExpanded,
+      // isPanelExpanded,
       onClose,
-      onExpandPanel,
+      // onExpandPanel,
     } = this.props;
 
     return (
@@ -96,18 +96,17 @@ class InformationPanel extends PureComponent {
             </div>
             <div className={classes.divTitre}>
               <Typography className={classes.titleCard}>
-                Ce que calcule LexImpact
+                Epidémie de Covid-19
               </Typography>
               <Typography className={classes.subtitleCard}>
-                LexImpact fonctionne à euros courants.
-                {" "}
-                <b>
-                  L&apos;inflation n&apos;est pas paramétrée dans le simulateur.
-                </b>
-                <br />
+                Les estimations de Leximpact pour les effets sur le budget de l&apos;état sont
+                calculées à partir de chiffres passés. Les résultats sont donc probablement
+                surestimés, puisque le code existant s&apos;appliquera aux revenus de l&apos;année
+                2020, qui devraient être affectés négativement par les conséquences économiques de
+                l&apos;épidémie, dans une mesure qu&apos;il est à ce jour impossible à prévoir.
               </Typography>
 
-              <ExpansionPanel
+              {/* <ExpansionPanel
                 classes={{ root: classes.styleExpansionPanel }}
                 expanded={isPanelExpanded}
                 onChange={onExpandPanel}>
@@ -138,7 +137,7 @@ class InformationPanel extends PureComponent {
                     baisse de leur revenu réel.
                   </Typography>
                 </ExpansionPanelDetails>
-              </ExpansionPanel>
+              </ExpansionPanel> */}
             </div>
 
             <div className={classes.cardHeaderButtons}>
@@ -158,9 +157,9 @@ class InformationPanel extends PureComponent {
 }
 InformationPanel.propTypes = {
   classes: PropTypes.shape().isRequired,
-  isPanelExpanded: PropTypes.bool.isRequired,
+  // isPanelExpanded: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  onExpandPanel: PropTypes.func.isRequired,
+  // onExpandPanel: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(InformationPanel);
