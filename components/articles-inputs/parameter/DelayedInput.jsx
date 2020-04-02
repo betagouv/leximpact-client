@@ -22,11 +22,6 @@ class InputField extends PureComponent {
     this.setState({ value: nextProps.value });
   }
 
-  triggerChange = (value) => {
-    const { onChange } = this.props;
-    onChange(value);
-  };
-
   handleChange = ({ target }) => {
     const { value } = target;
     if (this.timer) clearTimeout(this.timer);
