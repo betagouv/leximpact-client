@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import { AmendmentTooltip, PlfTooltip } from "../../tooltips";
-import InputField from "../input-field";
+import DelayedInput from "./DelayedInput";
 import styles from "./Parameter.module.scss";
 
 function withTooltip(Tooltip, title, element) {
@@ -71,7 +71,7 @@ class Parameter extends PureComponent {
         {
           withTooltip(AmendmentTooltip, amendmentTitle, editable
             ? (
-              <InputField
+              <DelayedInput
                 className={classNames({
                   [styles.amendmentInput]: true,
                   [styles.amendmentValue]: true,
