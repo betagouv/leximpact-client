@@ -12,14 +12,14 @@ const styles = () => ({
   container: {
     marginBottom: "15px",
   },
-  styleIcon: {
-    marginRight: "20px",
-  },
   marginIcon: {
     marginRight: "20px",
   },
   miniIcon: {
     height: "15px",
+  },
+  styleIcon: {
+    marginRight: "20px",
   },
 });
 

@@ -29,10 +29,10 @@ const styleTitreThematiqueModifPLF = {
   fontFamily: "Lora",
   fontSize: "12px",
   fontWeight: "bold",
+  marginLeft: "6px",
+  marginTop: "10px",
   textAlign: "left",
   verticalAlign: "middle",
-  marginTop: "10px",
-  marginLeft: "6px",
 };
 // permet de gérer le style du label de "supprimer la décote"
 const StyledFormControlLabel = withStyles({

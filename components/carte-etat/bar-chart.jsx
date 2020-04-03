@@ -85,8 +85,8 @@ class BarChart extends PureComponent {
           defs={[]}
           enableGridY={false}
           fill={[]}
-        /*  height={185}
-          width={350}*/
+          /*  height={185}
+          width={350} */
           innerPadding={3}
           keys={keycols}
           labelFormat={v => `${v}Md€`}

@@ -98,7 +98,10 @@ function TexteCguOpenLeximpact({ classes }) {
       <hr />
 
       <p>
-        Nous utilisons des cookies persistants afin d&apos;améliorer l&apos;expérience utilisateur. Ils permettent notamment la sauvegarde de vos cas types. Ces cookies sont conservés sur votre ordinateur même après fermeture de votre navigateur et réutilisé lors des prochaines visites sur nos sites.
+        Nous utilisons des cookies persistants afin d&apos;améliorer l&apos;expérience utilisateur.
+        Ils permettent notamment la sauvegarde de vos cas types. Ces cookies sont conservés sur
+        votre ordinateur même après fermeture de votre navigateur et réutilisé lors des prochaines
+        visites sur nos sites.
       </p>
       <div className={classes.espaceVide} />
 

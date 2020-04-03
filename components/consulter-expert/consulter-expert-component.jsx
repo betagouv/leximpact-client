@@ -1,4 +1,3 @@
-import chartIncreasing from "@iconify/icons-twemoji/chart-increasing";
 import lightBulb from "@iconify/icons-twemoji/light-bulb";
 import { Icon } from "@iconify/react";
 import { Card } from "@material-ui/core/Card";
@@ -16,9 +15,9 @@ import React, { PureComponent } from "react";
 
 const styles = () => ({
   cardContainer: {
+    backgroundColor: "rgba(222, 213, 0, 0.3)",
     minWidth: 50,
     paddingBottom: 0,
-    backgroundColor: "rgba(222, 213, 0, 0.3)",
   },
   cardContent: {
     "&:last-child": {
@@ -44,26 +43,23 @@ const styles = () => ({
     paddingBottom: 5,
     textAlign: "left",
   },
-
   divTitre: {
     display: "inline-block",
     paddingLeft: "3px",
-  },
-
-  subtitleCard: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "0.875em",
-    marginLeft: "10px",
-    textJustify: "left",
-    marginBottom: "0.7em",
   },
   styleExpansionPanel: {
     backgroundColor: "rgba(222, 213, 0, 0)",
     boxShadow: "none",
     padding: "0px",
   },
-
+  subtitleCard: {
+    color: "#565656",
+    fontFamily: "Lato",
+    fontSize: "0.875em",
+    marginBottom: "0.7em",
+    marginLeft: "10px",
+    textJustify: "left",
+  },
   subtitleEnSavoirPlus: {
     color: "#565656",
     fontFamily: "Lato",
@@ -161,9 +157,9 @@ class ConsulterExpertCard extends PureComponent {
 }
 ConsulterExpertCard.propTypes = {
   classes: PropTypes.shape().isRequired,
-  onRemoveConsulterExpert: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
   onExpandPanel: PropTypes.func.isRequired,
+  onRemoveConsulterExpert: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ConsulterExpertCard);

@@ -1,6 +1,3 @@
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { withStyles } from "@material-ui/core/styles";
-import Switch from "@material-ui/core/Switch";
 import { Typography } from "@material-ui/core/Typography";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
@@ -28,25 +25,11 @@ const styleTitreThematiqueModifPLF = {
   fontFamily: "Lora",
   fontSize: "12px",
   fontWeight: "bold",
+  marginLeft: "6px",
+  marginTop: "10px",
   textAlign: "left",
   verticalAlign: "middle",
-  marginTop: "10px",
-  marginLeft: "6px",
 };
-
-const StyledFormControlLabel = withStyles({
-  label: {
-    color: "#565656",
-    display: "inline-block",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    lineHeight: "10px",
-  },
-  root: {
-    display: "block",
-  },
-})(FormControlLabel);
 
 class Alinea4b extends PureComponent {
   alinea4bext() {

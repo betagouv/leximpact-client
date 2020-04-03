@@ -22,8 +22,8 @@ import React, { PureComponent } from "react";
 
 const styles = () => ({
   buttonPosition: {
-    marginTop: "41px",
     marginBottom: "114px",
+    marginTop: "41px",
   },
   cardContainer: {
     minWidth: 50,
@@ -299,7 +299,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                ayant une augmentation de l&apos;IR
+                        ayant une augmentation de l&apos;IR
                       </Typography>
 
                       <div className={classes.containerImpact}>
@@ -370,7 +370,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                ayant une baisse de l&apos;IR
+                        ayant une baisse de l&apos;IR
                       </Typography>
                       <div className={classes.containerImpact}>
                         <div>
@@ -422,7 +422,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                non concernés
+                        non concernés
                       </Typography>
                       <div className={classes.containerImpact}>
                         <div>
@@ -481,17 +481,17 @@ class GagnantsPerdantsCard extends PureComponent {
                           <span>M</span>
                         </Typography>
                         <span className={classes.styleTypeImpactDetail}>
-                  &nbsp;de foyers toujours exonérés d&apos;IR
+                          &nbsp;de foyers toujours exonérés d&apos;IR
                         </span>
                       </Typography>
                     </div>
                   </div>
 
                   <Typography className={classes.sourceInsee}>
-            * Chiffrages indicatifs.
+                    * Chiffrages indicatifs.
                     <br />
                     {" "}
-            Données ERFS-FPR (Insee).
+                    Données ERFS-FPR (Insee).
                   </Typography>
                 </>
               ),
@@ -503,8 +503,8 @@ class GagnantsPerdantsCard extends PureComponent {
 }
 GagnantsPerdantsCard.propTypes = {
   classes: PropTypes.shape().isRequired,
-  index: PropTypes.number.isRequired,
   foyers_fiscaux_touches: PropTypes.shape().isRequired,
+  index: PropTypes.number.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,

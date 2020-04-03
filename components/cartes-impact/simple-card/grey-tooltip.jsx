@@ -1,7 +1,7 @@
 import { withStyles } from "@material-ui/core/styles";
 import { Tooltip } from "@material-ui/core/Tooltip";
 
-const GreyTooltip = withStyles(theme => ({
+const GreyTooltip = withStyles(() => ({
   tooltip: {
     backgroundColor: "#565656",
     color: "#ffffff",
