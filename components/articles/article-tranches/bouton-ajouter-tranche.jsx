@@ -1,6 +1,6 @@
-import { Fab } from "@material-ui/core/Fab";
-import { Typography } from "@material-ui/core/Typography";
-import { Add as AddIcon } from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
+import Typography from "@material-ui/core/Typography";
+import AddIcon from "@material-ui/icons/Add";
 import PropTypes from "prop-types";
 
 const AddTrancheButton = ({ onClick, style }) => (

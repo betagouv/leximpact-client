@@ -1,6 +1,6 @@
 import { withStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core/Typography";
-import { OpenInNew as OpenInNewIcon } from "@material-ui/icons/OpenInNew";
+import Typography from "@material-ui/core/Typography";
+import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import PropTypes from "prop-types";
 
 const stylesTheme = theme => ({

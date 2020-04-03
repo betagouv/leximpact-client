@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core/Grid";
+import Grid from "@material-ui/core/Grid";
 
 import RecettesCard from "./RecettesCard";
 import SimpleCard from "./SimpleCard";

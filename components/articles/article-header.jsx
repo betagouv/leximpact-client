@@ -1,11 +1,11 @@
-import { AppBar } from "@material-ui/core/AppBar";
-import { Button } from "@material-ui/core/Button";
-import { Menu } from "@material-ui/core/Menu";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
-import { Toolbar } from "@material-ui/core/Toolbar";
-import { Typography } from "@material-ui/core/Typography";
-import { Refresh as RefreshIcon } from "@material-ui/icons/Refresh";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import RefreshIcon from "@material-ui/icons/Refresh";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 

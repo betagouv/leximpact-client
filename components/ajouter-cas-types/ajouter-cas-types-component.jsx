@@ -1,7 +1,7 @@
-import { Divider } from "@material-ui/core/Divider";
-import { IconButton } from "@material-ui/core/IconButton";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon } from "@material-ui/icons/Close";
+import CloseIcon from "@material-ui/icons/Close";
 import arrayMutators from "final-form-arrays";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";

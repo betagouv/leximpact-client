@@ -1,6 +1,6 @@
-import { CircularProgress } from "@material-ui/core/CircularProgress";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core/Typography";
+import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 

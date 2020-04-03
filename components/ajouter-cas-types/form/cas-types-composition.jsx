@@ -1,11 +1,11 @@
 import { Icon } from "@iconify/react";
-import { Badge } from "@material-ui/core/Badge";
-import { Button } from "@material-ui/core/Button";
-import { Checkbox } from "@material-ui/core/Checkbox";
-import { IconButton } from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Tooltip } from "@material-ui/core/Tooltip";
-import { HelpOutline as HelpOutlineIcon } from "@material-ui/icons/HelpOutline";
+import Tooltip from "@material-ui/core/Tooltip";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 import { Field } from "react-final-form";

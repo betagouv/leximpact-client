@@ -1,6 +1,6 @@
-import { Dialog } from "@material-ui/core/Dialog";
-import { DialogContent } from "@material-ui/core/DialogContent";
-import { Drawer } from "@material-ui/core/Drawer";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import Drawer from "@material-ui/core/Drawer";
 import { withStyles } from "@material-ui/core/styles/";
 import { flow, get } from "lodash";
 import { withRouter } from "next/router";

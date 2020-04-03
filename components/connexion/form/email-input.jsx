@@ -1,8 +1,8 @@
-import { FormGroup } from "@material-ui/core/FormGroup";
-import { FormLabel } from "@material-ui/core/FormLabel";
-import { Input } from "@material-ui/core/Input";
-import { MenuItem } from "@material-ui/core/MenuItem";
-import { Select } from "@material-ui/core/Select";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormLabel from "@material-ui/core/FormLabel";
+import Input from "@material-ui/core/Input";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";

@@ -1,4 +1,4 @@
-import { ExpansionPanelSummary } from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import { withStyles } from "@material-ui/core/styles";
 
 const LexExpansionPanelSummary = withStyles({

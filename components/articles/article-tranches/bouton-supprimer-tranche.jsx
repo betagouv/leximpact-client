@@ -1,6 +1,6 @@
-import { Fab } from "@material-ui/core/Fab";
-import { Typography } from "@material-ui/core/Typography";
-import { Delete as DeleteIcon } from "@material-ui/icons/Delete";
+import Fab from "@material-ui/core/Fab";
+import Typography from "@material-ui/core/Typography";
+import DeleteIcon from "@material-ui/icons/Delete";
 import PropTypes from "prop-types";
 
 const RemoveTrancheButton = ({ onClick, style }) => (

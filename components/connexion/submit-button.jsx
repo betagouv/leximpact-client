@@ -1,5 +1,5 @@
-import { CircularProgress } from "@material-ui/core/CircularProgress";
-import { Fab } from "@material-ui/core/Fab";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Fab from "@material-ui/core/Fab";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";

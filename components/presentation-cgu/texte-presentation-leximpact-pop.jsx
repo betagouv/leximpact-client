@@ -1,6 +1,6 @@
-import { Button } from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import { Paper } from "@material-ui/core/Paper";
+import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
 import PropTypes from "prop-types";
