@@ -288,11 +288,12 @@ class GagnantsPerdantsCard extends PureComponent {
               </center>
             </div>
           )}
-          {!isDisabledEtat && isLoadingEtat ? (
+          {!isDisabledEtat && isLoadingEtat && (
             <center className={classes.buttonPosition}>
               <CircularProgress color="secondary" />
             </center>
-          ) : (
+          )}
+          {!isDisabledEtat && !isLoadingEtat && (
             <>
               <div className={classes.impactContainer}>
                 <div>
