@@ -9,10 +9,6 @@ function useSimulatioButtonAsMobile(width) {
   return width === "xs" || width === "sm" || width === "md";
 }
 
-function useOptionsAsMobile(width) {
-  return width !== "lg" || width !== "xl";
-}
-
 function useOutilsAsMobile(width) {
   return width === "xs" || width === "sm" || width === "md";
 }
@@ -20,15 +16,11 @@ function useOutilsAsMobile(width) {
 const mapStateToProps = ({ token }, { width }) => {
   const isUserLogged = Boolean(token);
   const outilsItems = [...Config.outilsMenuItems];
-  const optionsItems = [...Config.optionsMenuItems];
   const showOutilsAsMobile = useOutilsAsMobile(width);
-  const showOptionsAsMobile = useOptionsAsMobile(width);
   const showSimulatioButtonAsMobile = useSimulatioButtonAsMobile(width);
   return {
     isUserLogged,
-    optionsItems,
     outilsItems,
-    showOptionsAsMobile,
     showOutilsAsMobile,
     showSimulatioButtonAsMobile,
   };

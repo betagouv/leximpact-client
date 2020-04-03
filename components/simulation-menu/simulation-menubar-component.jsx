@@ -5,7 +5,6 @@ import { PureComponent } from "react";
 
 import SimulationButton5 from "./simulation-button-5";
 import SimulationButton60 from "./simulation-button-60";
-import SimulationOptionsButton from "./simulation-options-menu";
 import SimulationOutilsButton from "./simulation-outils-menu";
 
 const styles = () => ({
@@ -27,9 +26,7 @@ class SimulationMenuBar extends PureComponent {
   renderOutilsAffichage = () => {
     const {
       handleItemWithActionClick,
-      optionsItems,
       outilsItems,
-      showOptionsAsMobile,
       showOutilsAsMobile,
     } = this.props;
     return (
@@ -40,13 +37,6 @@ class SimulationMenuBar extends PureComponent {
           direction="row"
           justify="space-between"
           spacing={24}>
-          <Grid item>
-            <SimulationOptionsButton
-              itemMenuClickHandler={handleItemWithActionClick}
-              items={optionsItems}
-              showMobileView={showOptionsAsMobile}
-            />
-          </Grid>
           <Grid item>
             <SimulationOutilsButton
               itemMenuClickHandler={handleItemWithActionClick}
@@ -96,9 +86,7 @@ SimulationMenuBar.propTypes = {
   classes: PropTypes.shape().isRequired,
   handleItemWithActionClick: PropTypes.func.isRequired,
   handleSimulationClick: PropTypes.func.isRequired,
-  optionsItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   outilsItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  showOptionsAsMobile: PropTypes.bool.isRequired,
   showOutilsAsMobile: PropTypes.bool.isRequired,
   showSimulatioButtonAsMobile: PropTypes.bool.isRequired,
 };

@@ -1,32 +1,10 @@
 import {
   AddCircleOutline as AddCircleOutlineIcon,
-  Share as ShareIcon,
-  ViewQuilt as ViewQuiltIcon,
 } from "@material-ui/icons";
 
 import { showAddCasTypesPopin } from "../../redux/actions";
 
 const config = {
-  optionsMenuItems: [
-    {
-      Icon: ShareIcon,
-      /* TODO: creer une action redux pour cet item du menu */
-      action: () => ({ type: "undefined" }),
-      disabled: true,
-      key: "simpop-share-button",
-      label: "Partager",
-      shortLabel: "Partager",
-    },
-    {
-      Icon: ViewQuiltIcon,
-      /* TODO: creer une action redux pour cet item du menu */
-      action: () => ({ type: "undefined" }),
-      disabled: true,
-      key: "simpop-workspace-button",
-      label: "Espace de travail",
-      shortLabel: "Espace de travail",
-    },
-  ],
   outilsMenuItems: [
     {
       Icon: AddCircleOutlineIcon,
