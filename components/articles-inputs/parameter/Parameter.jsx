@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import { AmendmentTooltip, PlfTooltip } from "../../tooltips";
-import DelayedInput from "./DelayedInput";
+import NumberInput from "./NumberInput";
 import styles from "./Parameter.module.scss";
 
 function withTooltip(Tooltip, title, element) {
@@ -29,30 +29,12 @@ function formatNumber(number) {
   return number.toLocaleString();
 }
 
-function parseNumber(str) {
-  return parseFloat(
-    str
-      .replace(/\s/g, "")
-      .replace(/,/g, "."),
-  );
-}
-
 
 class Parameter extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.emitAmendmentChange = this.emitAmendmentChange.bind(this);
-  }
-
-  emitAmendmentChange(value) {
-    const { onAmendmentChange } = this.props;
-    onAmendmentChange(parseNumber(value));
-  }
-
-
   render() {
     const {
-      amendmentTitle, amendmentValue, editable, initialValue, plfTitle, plfValue, size,
+      amendmentTitle, amendmentValue, editable, initialValue,
+      onAmendmentChange, plfTitle, plfValue, size,
     } = this.props;
     const equal = initialValue === amendmentValue;
 
@@ -71,15 +53,15 @@ class Parameter extends PureComponent {
         {
           withTooltip(AmendmentTooltip, amendmentTitle, editable
             ? (
-              <DelayedInput
+              <NumberInput
                 className={classNames({
                   [styles.amendmentInput]: true,
                   [styles.amendmentValue]: true,
                   [styles.amendmentValueModified]: !equal,
                   [styles.smallInput]: size === "small",
                 })}
-                value={formatNumber(amendmentValue)}
-                onChange={this.emitAmendmentChange} />
+                value={amendmentValue}
+                onChange={onAmendmentChange} />
             )
             : (
               <span className={classNames({
