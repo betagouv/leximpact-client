@@ -43,7 +43,7 @@ class NumberInput extends PureComponent {
 
   handleChange({ target }) {
     const { onChange, value } = this.props;
-    if (value === parseNumber(target.value)) {
+    if (value === parseNumber(target.value) || target.value === "") {
       this.setState({ value: target.value });
     } else {
       onChange(parseNumber(target.value));
