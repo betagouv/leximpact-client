@@ -94,7 +94,7 @@
     "prettier-eslint-cli": "^5.0.0"
   },
   "engines": {
-    "node": "11.10.0",
-    "npm": "6.9.0"
+    "node": "12",
+    "npm": "6.13"
   }
 }
