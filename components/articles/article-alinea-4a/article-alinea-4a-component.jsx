@@ -1,6 +1,3 @@
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { withStyles } from "@material-ui/core/styles";
-import Switch from "@material-ui/core/Switch";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
@@ -34,20 +31,6 @@ const styleTitreThematiqueModifPLF = {
   textAlign: "left",
   verticalAlign: "middle",
 };
-// permet de gérer le style du label de "supprimer la décote"
-const StyledFormControlLabel = withStyles({
-  label: {
-    color: "#565656",
-    display: "inline",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    lineHeight: "10px",
-  },
-  root: {
-    display: "block",
-  },
-})(FormControlLabel);
 
 class Alinea4a extends PureComponent {
   render() {
@@ -97,19 +80,6 @@ class Alinea4a extends PureComponent {
             {formulaOutputInput("decote.taux")}
             %] de son montant pour les contribuables soumis à imposition
             commune.
-            <StyledFormControlLabel
-              disabled
-              control={(
-                <Switch
-                  // checked={this.state.checkedB}
-                  // onChange={this.handleChange("checkedB")}
-                  // value="checkedB"
-                  color="secondary"
-                />
-              )}
-              label="Supprimer la décote"
-              // Mettre les variables de l'amendement à 0 quand le switch est passé.
-            />
           </Typography>
         </LexExpansionPanelDetails>
       </LexExpansionPanel>

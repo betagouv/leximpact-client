@@ -1,19 +1,19 @@
+import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PropTypes from "prop-types";
-import { PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 
 import SimulationButton5 from "./simulation-button-5";
 import SimulationButton60 from "./simulation-button-60";
-import SimulationOptionsButton from "./simulation-options-menu";
-import SimulationOutilsButton from "./simulation-outils-menu";
 
 const styles = () => ({
   container: {
     marginBottom: "15px",
   },
   marginIcon: {
-    marginRight: "20px",
+    marginRight: "15px",
   },
   miniIcon: {
     height: "15px",
@@ -26,11 +26,9 @@ const styles = () => ({
 class SimulationMenuBar extends PureComponent {
   renderOutilsAffichage = () => {
     const {
-      handleItemWithActionClick,
-      optionsItems,
-      outilsItems,
-      showOptionsAsMobile,
-      showOutilsAsMobile,
+      classes,
+      isMobileView,
+      showAddCasTypesPopin,
     } = this.props;
     return (
       <Grid item>
@@ -41,18 +39,23 @@ class SimulationMenuBar extends PureComponent {
           justify="space-between"
           spacing={24}>
           <Grid item>
-            <SimulationOptionsButton
-              itemMenuClickHandler={handleItemWithActionClick}
-              items={optionsItems}
-              showMobileView={showOptionsAsMobile}
-            />
-          </Grid>
-          <Grid item>
-            <SimulationOutilsButton
-              itemMenuClickHandler={handleItemWithActionClick}
-              items={outilsItems}
-              showMobileView={showOutilsAsMobile}
-            />
+            <Button
+              color="default"
+              variant="contained"
+              onClick={showAddCasTypesPopin}
+            >
+              {
+                isMobileView
+                  ? (
+                    <Fragment>
+                      <AddCircleOutlineIcon className={classes.marginIcon} />
+                      <span>Cas type</span>
+                    </Fragment>
+                  )
+                  : "Ajouter un cas type"
+              }
+
+            </Button>
           </Grid>
         </Grid>
       </Grid>
@@ -94,13 +97,9 @@ class SimulationMenuBar extends PureComponent {
 
 SimulationMenuBar.propTypes = {
   classes: PropTypes.shape().isRequired,
-  handleItemWithActionClick: PropTypes.func.isRequired,
-  handleSimulationClick: PropTypes.func.isRequired,
-  optionsItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  outilsItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  showOptionsAsMobile: PropTypes.bool.isRequired,
-  showOutilsAsMobile: PropTypes.bool.isRequired,
-  showSimulatioButtonAsMobile: PropTypes.bool.isRequired,
+  isMobileView: PropTypes.bool.isRequired,
+  isUserLogged: PropTypes.bool.isRequired,
+  showAddCasTypesPopin: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SimulationMenuBar);

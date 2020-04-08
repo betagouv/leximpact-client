@@ -1,9 +1,7 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import warningIcon from "@iconify/icons-twemoji/warning";
 import { Icon } from "@iconify/react";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
-import Switch from "@material-ui/core/Switch";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
@@ -39,20 +37,6 @@ const styleTitreThematique = {
   fontWeight: "bold",
   textAlign: "left",
 };
-
-const StyledFormControlLabel = withStyles({
-  label: {
-    color: "#565656",
-    display: "inline-block",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    lineHeight: "10px",
-  },
-  root: {
-    display: "block",
-  },
-})(FormControlLabel);
 
 class ArticleAlinea3 extends PureComponent {
   render() {
@@ -106,19 +90,6 @@ class ArticleAlinea3 extends PureComponent {
             {baseOutputInput("plafond_qf.abat_dom.plaf_GuyMay")}
             €, pour les contribuables domiciliés dans les départements de la
             Guyane et de Mayotte ;
-            <StyledFormControlLabel
-              disabled
-              control={(
-                <Switch
-                  // checked={this.state.checkedB}
-                  // onChange={this.handleChange("checkedB")}
-                  // value="checkedB"
-                  color="secondary"
-                />
-              )}
-              label="Supprimer la réfaction outre-mer"
-              // Mettre les variables de l'amendement à 0 quand le switch est passé.
-            />
           </Typography>
         </LexExpansionPanelDetails>
       </LexExpansionPanel>
@@ -131,6 +102,7 @@ ArticleAlinea3.propTypes = {
   classes: PropTypes.shape().isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
+  isUserLogged: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,
 };
 
