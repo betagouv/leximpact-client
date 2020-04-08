@@ -1,9 +1,9 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import warningIcon from "@iconify/icons-twemoji/warning";
 import { Icon } from "@iconify/react";
-import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 

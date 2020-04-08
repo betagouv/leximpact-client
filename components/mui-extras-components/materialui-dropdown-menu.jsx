@@ -1,5 +1,7 @@
-import { Button, Menu, SvgIcon } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
 import { withStyles } from "@material-ui/core/styles";
+import SvgIcon from "@material-ui/core/SvgIcon";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
