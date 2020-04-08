@@ -99,14 +99,14 @@ class InformationPanel extends PureComponent {
                 Epidémie de Covid-19
               </Typography>
               <Typography className={classes.subtitleCard}>
-                Les estimations de Leximpact des effets sur le budget de l&apos;État
-                sont calculées à partir de données recalibrées s&apos;appuyant sur des
-                enquêtes d&apos;années antérieures.
+                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
+                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
+                d&apos;années passées.
                 <br />
-                Étant donné les conséquences économiques de l&apos;épidémie actuelle, dans
-                une mesure qu&apos;il est à ce jour impossible à prévoir, les résultats
-                que nous affichons sont très probablement surestimés. Dès que nous aurons
-                plus d&apos;informations, nous recalibrerons notre modèle en conséquence.
+                L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qu&apos;il
+                est à ce jour impossible à prévoir, les résultats que nous affichons sont
+                très probablement surestimés. Dès que nous aurons plus d&apos;informations,
+                nous recalibrerons notre modèle en conséquence.
               </Typography>
 
               {/* <ExpansionPanel
