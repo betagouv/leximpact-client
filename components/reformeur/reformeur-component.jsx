@@ -1,4 +1,6 @@
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import AppBar from "@material-ui/core/AppBar";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
