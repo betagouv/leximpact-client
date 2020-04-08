@@ -1,7 +1,8 @@
-import {
-  Divider, Grid, Paper, Typography,
-} from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import React from "react";
 

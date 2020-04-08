@@ -1,6 +1,8 @@
-import { IconButton, NativeSelect, Tooltip } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import NativeSelect from "@material-ui/core/NativeSelect";
 import { withStyles } from "@material-ui/core/styles";
-import { HelpOutline as HelpOutlineIcon } from "@material-ui/icons";
+import Tooltip from "@material-ui/core/Tooltip";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 import { Field } from "react-final-form";

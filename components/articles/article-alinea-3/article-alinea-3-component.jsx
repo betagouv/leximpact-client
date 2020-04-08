@@ -1,11 +1,11 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import warningIcon from "@iconify/icons-twemoji/warning";
 import { Icon } from "@iconify/react";
-import { Typography } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 

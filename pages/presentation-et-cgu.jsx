@@ -1,6 +1,6 @@
 import "../styles/pages-textes.scss";
 
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import { flow } from "lodash";
 import Head from "next/head";

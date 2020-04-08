@@ -1,4 +1,4 @@
-import { MenuItem } from "@material-ui/core";
+import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
