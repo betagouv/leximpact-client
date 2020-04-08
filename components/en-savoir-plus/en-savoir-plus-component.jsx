@@ -1,8 +1,9 @@
-import {
-  Button, Grid, IconButton, Typography,
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";

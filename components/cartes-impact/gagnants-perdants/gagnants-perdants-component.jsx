@@ -1,25 +1,21 @@
 import familyManGirlGirl from "@iconify/icons-twemoji/family-man-girl-girl";
 import { Icon } from "@iconify/react";
-import {
-  Button,
-  Card,
-  CardContent,
-  CircularProgress,
-  Divider,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  AccountBalance as AccountBalanceIcon,
-  ArrowDownward as ArrowDownwardIcon,
-  ArrowUpward as ArrowUpwardIcon,
-  Cached as CachedIcon,
-  Close as CloseIcon,
-  Face as FaceIcon,
-  Group as GroupIcon,
-  TrendingFlat as TrendingFLatIcon,
-} from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import CachedIcon from "@material-ui/icons/Cached";
+import CloseIcon from "@material-ui/icons/Close";
+import FaceIcon from "@material-ui/icons/Face";
+import GroupIcon from "@material-ui/icons/Group";
+import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
 import { get } from "lodash";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
