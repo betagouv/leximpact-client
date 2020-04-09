@@ -1,4 +1,6 @@
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import AppBar from "@material-ui/core/AppBar";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
@@ -23,10 +25,10 @@ class ReformeurComponent extends PureComponent {
     this.setState({ indextab });
   };
 
-  renderDesktopView = () => (
+  renderDesktopView = montrerPLF => (
     <div className="clearfix">
       <div className="moitie-gauche">
-        <LegendeArticle />
+        <LegendeArticle montrerPLF={montrerPLF} />
         <Articles />
       </div>
       <div className="moitie-droite">
@@ -36,7 +38,7 @@ class ReformeurComponent extends PureComponent {
     </div>
   );
 
-  renderMobileView = () => {
+  renderMobileView = (montrerPLF) => {
     const { indextab } = this.state;
     return (
       <Fragment>
@@ -56,7 +58,7 @@ class ReformeurComponent extends PureComponent {
           index={indextab}
           onChangeIndex={this.handleOnChangeIndex}>
           <div style={{ padding: 24 }}>
-            <LegendeArticle />
+            <LegendeArticle montrerPLF={montrerPLF} />
             <Articles />
           </div>
           <div style={{ padding: 24 }}>
@@ -69,11 +71,11 @@ class ReformeurComponent extends PureComponent {
   };
 
   render() {
-    const { useMobileView } = this.props;
+    const { montrerPLF, useMobileView } = this.props;
     return (
       <div className="main-index">
-        {useMobileView && this.renderMobileView()}
-        {!useMobileView && this.renderDesktopView()}
+        {useMobileView && this.renderMobileView(montrerPLF)}
+        {!useMobileView && this.renderDesktopView(montrerPLF)}
       </div>
     );
   }
@@ -81,6 +83,7 @@ class ReformeurComponent extends PureComponent {
 
 ReformeurComponent.propTypes = {
   initializeAppllicationStoreFromAPI: PropTypes.func.isRequired,
+  montrerPLF: PropTypes.bool.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 

@@ -1,6 +1,9 @@
-import { Avatar, IconButton, Typography } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon, VpnKey as VPNKeyIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import CloseIcon from "@material-ui/icons/Close";
+import VPNKeyIcon from "@material-ui/icons/VpnKey";
 import { FORM_ERROR } from "final-form";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";

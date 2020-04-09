@@ -2,7 +2,7 @@ import CactusIcon from "@iconify/icons-twemoji/cactus";
 import DeciduousTreeIcon from "@iconify/icons-twemoji/deciduous-tree";
 import PalmTreeIcon from "@iconify/icons-twemoji/palm-tree";
 import { Icon } from "@iconify/react";
-import { Chip } from "@material-ui/core";
+import Chip from "@material-ui/core/Chip";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { Field } from "react-final-form";

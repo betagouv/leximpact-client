@@ -21,17 +21,11 @@ export const REFORME_PLF_DEFAULT_STATE = {
       maries_ou_pacses: 1567,
       reduc_postplafond: 1562,
       reduc_postplafond_veuf: 1745,
-      reduction_ss_condition_revenus: {
-        seuil1: 18984,
-        seuil2: 21036,
-        seuil_maj_enf: 3797,
-        taux: 0,
-      },
     },
   },
 };
 
-const reformePLF = (state = REFORME_PLF_DEFAULT_STATE, action) => {
+const reformePLF = (state = null, action) => {
   // Jamais modifié, utilisé pour montrer le PLF proposé
   // dans les article s'affiche dans les chiffres en jaunes
   switch (action.type) {

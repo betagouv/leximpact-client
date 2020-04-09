@@ -1,5 +1,6 @@
-import { Button, Paper } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
+import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
 import PropTypes from "prop-types";
@@ -68,7 +69,6 @@ function TextePresentationLeximpactPop({ classes }) {
         <li>le barème de l&apos;impôt sur le revenu,</li>
         <li>les plafonds du quotient familial,</li>
         <li>la décote,</li>
-        <li>la réfaction foyers modestes,</li>
         <li>la réfaction outre-mers.</li>
       </ul>
 
