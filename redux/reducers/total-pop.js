@@ -1,7 +1,7 @@
 import { get } from "lodash";
 
-//Contient les résultats pour l'état retournées par le serveur
-//avec les réformes par défaut, pour éviter de faire tourner
+// Contient les résultats pour l'état retournées par le serveur
+// avec les réformes par défaut, pour éviter de faire tourner
 // le serveur au premier chargement
 
 const DEFAULT_STATE = {
@@ -70,10 +70,10 @@ const DEFAULT_STATE = {
       neutre: 17935460,
       neutre_zero: 20397517,
     },
-    //plf_to_apres: {
+    // plf_to_apres: {
     //  neutre: 17842026,
     //  neutre_zero: 20490951,
-    //},
+    // },
   },
   frontieres_deciles: [
     3568.34521484375,
@@ -85,7 +85,7 @@ const DEFAULT_STATE = {
     30657.201171875,
     38476.640625,
     53462.8203125,
-    6514120.0
+    6514120.0,
   ],
   total: {
     apres: 66899999990.1038,
