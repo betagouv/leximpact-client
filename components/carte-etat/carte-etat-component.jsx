@@ -101,9 +101,12 @@ class CarteEtat extends PureComponent {
       total,
     } = this.props;
     const { apres, avant, plf } = total;
+
+    const montrerPLF = typeof plf === "number";
+
     const totalAvant = getRoundedTotal(avant);
     const totalApres = getRoundedTotal(apres);
-    const totalPLF = getRoundedTotal(plf);
+    const totalPLF = montrerPLF ? getRoundedTotal(plf) : null;
     return (
       <Card>
         <CardContent>
@@ -157,14 +160,20 @@ class CarteEtat extends PureComponent {
                           Md€*
                         </Typography>
                       </div>
-                      <div className="montant-impots">
-                        <Typography inline className="impotEtat plf">
-                          {totalPLF}
-                        </Typography>
-                        <Typography inline className="uniteImpotEtat plf">
-                          Md€*
-                        </Typography>
-                      </div>
+                      {
+                        montrerPLF
+                          ? (
+                            <div className="montant-impots">
+                              <Typography inline className="impotEtat plf">
+                                {totalPLF}
+                              </Typography>
+                              <Typography inline className="uniteImpotEtat plf">
+                                Md€*
+                              </Typography>
+                            </div>
+                          )
+                          : null
+                      }
                       <div className="montant-impots">
                         <Typography inline className="impotEtat apres">
                           {totalApres}
@@ -219,7 +228,7 @@ CarteEtat.propTypes = {
     PropTypes.shape({
       apres: PropTypes.number.isRequired,
       avant: PropTypes.number.isRequired,
-      plf: PropTypes.number.isRequired,
+      plf: PropTypes.number,
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
@@ -232,7 +241,7 @@ CarteEtat.propTypes = {
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,
-    plf: PropTypes.number.isRequired,
+    plf: PropTypes.number,
   }).isRequired,
 };
 

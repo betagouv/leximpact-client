@@ -1,7 +1,6 @@
 import { get } from "lodash";
 import { connect } from "react-redux";
 
-import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
 import FormulaOutputCombiLin from "./formula-output-combilin";
 
 const mapStateToProps = (state, props) => {
@@ -14,22 +13,22 @@ const mapStateToProps = (state, props) => {
   baseValue1 *= fact1;
   let baseValue2 = get(reformeBase, `impot_revenu.${name2}`);
   baseValue2 *= fact2;
-  let baseValue = baseValue1 + baseValue2;
-  baseValue = makeNumberGoodLooking(baseValue);
+  const baseValue = baseValue1 + baseValue2;
 
-  let plfValue1 = get(reformePLF, `impot_revenu.${name1}`);
-  plfValue1 *= fact1;
-  let plfValue2 = get(reformePLF, `impot_revenu.${name2}`);
-  plfValue2 *= fact2;
-  let plfValue = plfValue1 + plfValue2;
-  plfValue = makeNumberGoodLooking(plfValue);
+  let plfValue;
+  if (reformePLF) {
+    let plfValue1 = get(reformePLF, `impot_revenu.${name1}`);
+    plfValue1 *= fact1;
+    let plfValue2 = get(reformePLF, `impot_revenu.${name2}`);
+    plfValue2 *= fact2;
+    plfValue = plfValue1 + plfValue2;
+  }
 
   let newValue1 = get(reforme, `impot_revenu.${name1}`);
   newValue1 *= fact1;
   let newValue2 = get(reforme, `impot_revenu.${name2}`);
   newValue2 *= fact2;
-  let newValue = newValue1 + newValue2;
-  newValue = makeNumberGoodLooking(newValue);
+  const newValue = newValue1 + newValue2;
 
   return {
     baseValue,

@@ -7,10 +7,12 @@ const PANEL_NAME = "panel4a";
 
 const mapStateToProps = ({
   currentExpandedArticlePanel,
+  reformePLF,
 }) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
   return {
     isPanelExpanded,
+    reformePLF,
   };
 };
 

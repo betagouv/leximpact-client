@@ -302,7 +302,7 @@ SimpleCard.propTypes = {
   resultats: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,
-    plf: PropTypes.number.isRequired,
+    plf: PropTypes.number,
   }).isRequired,
 };
 
