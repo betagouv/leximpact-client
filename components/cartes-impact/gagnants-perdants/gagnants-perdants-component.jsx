@@ -285,7 +285,7 @@ class GagnantsPerdantsCard extends PureComponent {
                 aria-label="Delete"
                 classes={{ root: classes.cardEditDeleteButton }}
               >
-                <CloseIcon fontSize="default" />
+                <CloseIcon fontSize="small" />
               </IconButton>
             </div>
           </div>
@@ -338,7 +338,7 @@ class GagnantsPerdantsCard extends PureComponent {
                             </Typography>
                             <GroupIcon
                               classes={{ root: classes.styleGroupIconRouge }}
-                              fontSize="default"
+                              fontSize="small"
                             />
                           </div>
                         )
@@ -360,7 +360,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       </Typography>
                       <GroupIcon
                         classes={{ root: classes.styleGroupIconBleu }}
-                        fontSize="default"
+                        fontSize="small"
                       />
                     </div>
                   </div>
@@ -422,7 +422,7 @@ class GagnantsPerdantsCard extends PureComponent {
                             </Typography>
                             <GroupIcon
                               classes={{ root: classes.styleGroupIconRouge }}
-                              fontSize="default"
+                              fontSize="small"
                             />
                           </div>
                         )
@@ -443,7 +443,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       </Typography>
                       <GroupIcon
                         classes={{ root: classes.styleGroupIconBleu }}
-                        fontSize="default"
+                        fontSize="small"
                       />
                     </div>
                   </div>
@@ -478,7 +478,7 @@ class GagnantsPerdantsCard extends PureComponent {
                             </Typography>
                             <GroupIcon
                               classes={{ root: classes.styleGroupIconRouge }}
-                              fontSize="default"
+                              fontSize="small"
                             />
                           </div>
                         )
@@ -499,7 +499,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       </Typography>
                       <GroupIcon
                         classes={{ root: classes.styleGroupIconBleu }}
-                        fontSize="default"
+                        fontSize="small"
                       />
                     </div>
                   </div>
