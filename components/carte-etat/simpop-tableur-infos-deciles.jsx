@@ -258,7 +258,7 @@ SimpopTableurInfosDeciles.propTypes = {
     PropTypes.shape({
       apres: PropTypes.number.isRequired,
       avant: PropTypes.number.isRequired,
-      plf: PropTypes.number.isRequired,
+      plf: PropTypes.number,
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
