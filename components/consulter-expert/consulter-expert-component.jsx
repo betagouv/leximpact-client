@@ -1,16 +1,14 @@
 import lightBulb from "@iconify/icons-twemoji/light-bulb";
 import { Icon } from "@iconify/react";
-import {
-  Card,
-  CardContent,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import CloseIcon from "@material-ui/icons/Close";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";

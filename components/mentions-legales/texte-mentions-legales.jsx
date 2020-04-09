@@ -21,11 +21,9 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Incubateur de services numériques (beta.gouv.fr)
-        <br />
-        de la Direction interministérielle du numérique (DINUM).
+        Equipe Leximpact de L'Assemblée nationale
       </p>
-      <p>20, avenue de Ségur - 75007 Paris.</p>
+      <p>126, rue de l'Université - 75355 Paris 07 SP.</p>
 
       <div className={classes.espaceVide} />
 
@@ -33,10 +31,10 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Directeur de la publication : Directeur interministériel du numérique.
+        Directeur de la publication : Secrétaire général de l'Assemblée nationale.
       </p>
 
-      <p>Nadi Bou Hanna</p>
+      <p>Michel Moreau</p>
 
       <div className={classes.espaceVide} />
 

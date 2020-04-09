@@ -7,17 +7,16 @@ import PalmTreeIcon from "@iconify/icons-twemoji/palm-tree";
 import WomanCurlyHairedIcon from "@iconify/icons-twemoji/woman-curly-haired";
 import WomanWhiteHairedIcon from "@iconify/icons-twemoji/woman-white-haired";
 import { Icon } from "@iconify/react";
-import {
-  Badge,
-  Button,
-  Card,
-  CardContent,
-  Divider,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import Badge from "@material-ui/core/Badge";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon, Edit as EditIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import CloseIcon from "@material-ui/icons/Close";
+import EditIcon from "@material-ui/icons/Edit";
 import { get } from "lodash";
 import PropTypes from "prop-types";
 import React from "react";
@@ -303,7 +302,7 @@ SimpleCard.propTypes = {
   resultats: PropTypes.shape({
     apres: PropTypes.number.isRequired,
     avant: PropTypes.number.isRequired,
-    plf: PropTypes.number.isRequired,
+    plf: PropTypes.number,
   }).isRequired,
 };
 

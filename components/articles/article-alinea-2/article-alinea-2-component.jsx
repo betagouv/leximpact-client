@@ -1,5 +1,5 @@
-import { Typography } from "@material-ui/core";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
@@ -36,6 +36,7 @@ class Alinea2 extends PureComponent {
       baseOutputInput,
       expandArticlePanelHandler,
       isPanelExpanded,
+      reformePLF,
       style,
     } = this.props;
     return (
@@ -50,7 +51,7 @@ class Alinea2 extends PureComponent {
           <Typography style={styleTitreThematique}>
             Plafonds du quotient familial
           </Typography>
-          <p style={styleTitreThematiqueModifPLF}>Modifiés par le PLF 2020</p>
+          {reformePLF && <p style={styleTitreThematiqueModifPLF}>Modifiés par le PLF 2020</p>}
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
@@ -112,10 +113,15 @@ class Alinea2 extends PureComponent {
   }
 }
 
+Alinea2.defaultProps = {
+  reformePLF: null,
+};
+
 Alinea2.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
+  reformePLF: PropTypes.shape(),
   style: PropTypes.shape().isRequired,
 };
 

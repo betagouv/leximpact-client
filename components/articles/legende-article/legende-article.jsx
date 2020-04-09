@@ -1,6 +1,6 @@
-import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { OpenInNew as OpenInNewIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import PropTypes from "prop-types";
 
 const stylesTheme = theme => ({
@@ -73,7 +73,7 @@ const stylesTheme = theme => ({
   },
 });
 
-function LegendeArticle({ classes }) {
+function LegendeArticle({ classes, montrerPLF }) {
   return (
     <div className={classes.container}>
       <Typography inline className={classes.styleLegende}>
@@ -82,15 +82,17 @@ function LegendeArticle({ classes }) {
       <Typography inline className={classes.styleCodeExistant}>
         Droit existant
       </Typography>
-      <Typography inline className={classes.styleAvantPLF}>
-        <a
-          className={classes.alink}
-          href="http://www.assemblee-nationale.fr/15/projets/pl2272.asp"
-          target="blank">
-          PLF 2020
-          <OpenInNewIcon className={classes.styleOpenInNewIcon} />
-        </a>
-      </Typography>
+      {montrerPLF && (
+        <Typography inline className={classes.styleAvantPLF}>
+          <a
+            className={classes.alink}
+            href="http://www.assemblee-nationale.fr/15/projets/pl2272.asp"
+            target="blank">
+            PLF 2020
+            <OpenInNewIcon className={classes.styleOpenInNewIcon} />
+          </a>
+        </Typography>
+      )}
       <Typography inline className={classes.styleAmendement}>
         Mon amendement
       </Typography>
@@ -100,5 +102,6 @@ function LegendeArticle({ classes }) {
 
 LegendeArticle.propTypes = {
   classes: PropTypes.shape().isRequired,
+  montrerPLF: PropTypes.bool.isRequired,
 };
 export default withStyles(stylesTheme, { withTheme: true })(LegendeArticle);

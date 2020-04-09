@@ -1,8 +1,5 @@
-import { Typography } from "@material-ui/core";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { withStyles } from "@material-ui/core/styles";
-import Switch from "@material-ui/core/Switch";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
@@ -34,20 +31,6 @@ const styleTitreThematiqueModifPLF = {
   textAlign: "left",
   verticalAlign: "middle",
 };
-// permet de gérer le style du label de "supprimer la décote"
-const StyledFormControlLabel = withStyles({
-  label: {
-    color: "#565656",
-    display: "inline",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    lineHeight: "10px",
-  },
-  root: {
-    display: "block",
-  },
-})(FormControlLabel);
 
 class Alinea4a extends PureComponent {
   render() {
@@ -56,6 +39,7 @@ class Alinea4a extends PureComponent {
       expandArticlePanelHandler,
       formulaOutputInput,
       isPanelExpanded,
+      reformePLF,
       style,
     } = this.props;
     return (
@@ -68,7 +52,7 @@ class Alinea4a extends PureComponent {
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
           <Typography style={styleTitreThematique}>Décote</Typography>
-          <p style={styleTitreThematiqueModifPLF}>Modifiée par le PLF 2020</p>
+          {reformePLF && <p style={styleTitreThematiqueModifPLF}>Modifiée par le PLF 2020</p>}
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
@@ -79,37 +63,17 @@ class Alinea4a extends PureComponent {
             {" "}
             {baseOutputInput("decote.seuil_celib")}
             € et
-            les
             {" "}
-            <OutputField style={style.VarCodeexistant} value="trois quarts" />
-            {" "}
-            [
             {baseOutputInput("decote.taux")}
-            %] de son montant pour les contribuables célibataires, divorcés ou
+            % de son montant pour les contribuables célibataires, divorcés ou
             veufs et de la différence entre
             {baseOutputInput("decote.seuil_couple")}
             {" "}
-            € et les
+            € et
             {" "}
-            <OutputField style={style.VarCodeexistant} value="trois quarts" />
-            {" "}
-            [
             {formulaOutputInput("decote.taux")}
-            %] de son montant pour les contribuables soumis à imposition
+            % de son montant pour les contribuables soumis à imposition
             commune.
-            <StyledFormControlLabel
-              disabled
-              control={(
-                <Switch
-                  // checked={this.state.checkedB}
-                  // onChange={this.handleChange("checkedB")}
-                  // value="checkedB"
-                  color="secondary"
-                />
-              )}
-              label="Supprimer la décote"
-              // Mettre les variables de l'amendement à 0 quand le switch est passé.
-            />
           </Typography>
         </LexExpansionPanelDetails>
       </LexExpansionPanel>
@@ -117,11 +81,16 @@ class Alinea4a extends PureComponent {
   }
 }
 
+Alinea4a.defaultProps = {
+  reformePLF: null,
+};
+
 Alinea4a.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
+  reformePLF: PropTypes.shape(),
   style: PropTypes.shape().isRequired,
 };
 

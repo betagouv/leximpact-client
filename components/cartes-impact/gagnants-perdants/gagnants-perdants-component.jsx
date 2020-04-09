@@ -1,25 +1,21 @@
 import familyManGirlGirl from "@iconify/icons-twemoji/family-man-girl-girl";
 import { Icon } from "@iconify/react";
-import {
-  Button,
-  Card,
-  CardContent,
-  CircularProgress,
-  Divider,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  AccountBalance as AccountBalanceIcon,
-  ArrowDownward as ArrowDownwardIcon,
-  ArrowUpward as ArrowUpwardIcon,
-  Cached as CachedIcon,
-  Close as CloseIcon,
-  Face as FaceIcon,
-  Group as GroupIcon,
-  TrendingFlat as TrendingFLatIcon,
-} from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import CachedIcon from "@material-ui/icons/Cached";
+import CloseIcon from "@material-ui/icons/Close";
+import FaceIcon from "@material-ui/icons/Face";
+import GroupIcon from "@material-ui/icons/Group";
+import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
 import { get } from "lodash";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
@@ -207,42 +203,63 @@ class GagnantsPerdantsCard extends PureComponent {
       onClickSimPop,
     } = this.props;
 
-    const baisse_plf = Math.round(
-      get(foyers_fiscaux_touches, "avant_to_plf.gagnant", 0) / 100000,
-    ) / 10;
-    const baisse_reforme = Math.round(
+    const montrerPLF = !!foyers_fiscaux_touches.avant_to_plf;
+
+    let baissePlf = null;
+    if (montrerPLF) {
+      baissePlf = Math.round(
+        get(foyers_fiscaux_touches, "avant_to_plf.gagnant", 0) / 100000,
+      ) / 10;
+    }
+    const baisseReforme = Math.round(
       get(foyers_fiscaux_touches, "avant_to_apres.gagnant", 0) / 100000,
     ) / 10;
-    const neutre_plf = Math.round(
-      (get(foyers_fiscaux_touches, "avant_to_plf.neutre", 0)
-          + get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0))
-          / 100000,
-    ) / 10;
-    const neutre_reforme = Math.round(
+
+    let neutrePlf = null;
+    if (montrerPLF) {
+      neutrePlf = Math.round(
+        (get(foyers_fiscaux_touches, "avant_to_plf.neutre", 0)
+            + get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0))
+            / 100000,
+      ) / 10;
+    }
+    const neutreReforme = Math.round(
       (get(foyers_fiscaux_touches, "avant_to_apres.neutre", 0)
           + get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0))
           / 100000,
     ) / 10;
-    const neutre_zero_plf = Math.round(
-      get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0) / 100000,
-    ) / 10;
-    const neutre_zero_reforme = Math.round(
+
+    let neutreZeroPlf = null;
+    if (montrerPLF) {
+      neutreZeroPlf = Math.round(
+        get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0) / 100000,
+      ) / 10;
+    }
+    const neutreZeroReforme = Math.round(
       get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0) / 100000,
     ) / 10;
-    const hausse_plf = Math.round(
-      (get(foyers_fiscaux_touches, "avant_to_plf.perdant", 0)
-          + get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0))
-          / 100000,
-    ) / 10;
-    const hausse_reforme = Math.round(
+
+    let haussePlf = null;
+    if (montrerPLF) {
+      haussePlf = Math.round(
+        (get(foyers_fiscaux_touches, "avant_to_plf.perdant", 0)
+            + get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0))
+            / 100000,
+      ) / 10;
+    }
+    const hausseReforme = Math.round(
       (get(foyers_fiscaux_touches, "avant_to_apres.perdant", 0)
           + get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0))
           / 100000,
     ) / 10;
-    const hausse_zero_plf = Math.round(
-      get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0) / 100000,
-    ) / 10;
-    const hausse_zero_reforme = Math.round(
+
+    let hausseZeroPlf = null;
+    if (montrerPLF) {
+      hausseZeroPlf = Math.round(
+        get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0) / 100000,
+      ) / 10;
+    }
+    const hausseZeroReforme = Math.round(
       get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0) / 100000,
     ) / 10;
 
@@ -310,7 +327,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       <Typography inline classes={{ root: classes.impactPLF }}>
                         <span>
                           {" "}
-                          {hausse_plf}
+                          {haussePlf}
                         </span>
                         {" "}
                       </Typography>
@@ -326,14 +343,79 @@ class GagnantsPerdantsCard extends PureComponent {
                       <Typography inline classes={{ root: classes.impactReforme }}>
                         <span>
                           {" "}
-                          {hausse_reforme}
+                          {hausseReforme}
                         </span>
                         {" "}
                       </Typography>
-                      <Typography
-                        inline
-                        classes={{ root: classes.impactReformeUnite }}>
-                        <span>M</span>
+
+                      <div className={classes.containerImpact}>
+                        {
+                          montrerPLF
+                            ? (
+                              <div>
+                                <Typography inline classes={{ root: classes.impactPLF }}>
+                                  <span>
+                                    {" "}
+                                    {haussePlf}
+                                  </span>
+                                  {" "}
+                                </Typography>
+                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                                  <span>M</span>
+                                </Typography>
+                                <GroupIcon
+                                  classes={{ root: classes.styleGroupIconRouge }}
+                                  fontSize="small"
+                                />
+                              </div>
+                            )
+                            : null
+                        }
+
+                        <div>
+                          <Typography inline classes={{ root: classes.impactReforme }}>
+                            <span>
+                              {" "}
+                              {hausseReforme}
+                            </span>
+                            {" "}
+                          </Typography>
+                          <Typography
+                            inline
+                            classes={{ root: classes.impactReformeUnite }}>
+                            <span>M</span>
+                          </Typography>
+                          <GroupIcon
+                            classes={{ root: classes.styleGroupIconBleu }}
+                            fontSize="small"
+                          />
+                        </div>
+                      </div>
+                      <Typography classes={{ root: classes.styleTypeImpactDetail }}>
+                        <span>dont</span>
+                        {
+                          montrerPLF
+                            ? (
+                              <Typography inline classes={{ root: classes.impactPLFDetail }}>
+                                <span>
+                                  {" "}
+                                  {hausseZeroPlf}
+                                </span>
+                                <span>M</span>
+                              </Typography>
+                            )
+                            : null
+                        }
+                        <Typography
+                          inline
+                          classes={{ root: classes.impactReformeDetail }}>
+                          <span>
+                            {" "}
+                            {hausseZeroReforme}
+                          </span>
+                          <span>M</span>
+                        </Typography>
+                        <span>&nbsp;de foyers entrant dans l&apos;IR</span>
                       </Typography>
                       <GroupIcon
                         classes={{ root: classes.styleGroupIconBleu }}
@@ -346,7 +428,7 @@ class GagnantsPerdantsCard extends PureComponent {
                     <Typography inline classes={{ root: classes.impactPLFDetail }}>
                       <span>
                         {" "}
-                        {hausse_zero_plf}
+                        {hausseZeroPlf}
                       </span>
                       <span>M</span>
                     </Typography>
@@ -355,7 +437,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       classes={{ root: classes.impactReformeDetail }}>
                       <span>
                         {" "}
-                        {hausse_zero_reforme}
+                        {hausseZeroReforme}
                       </span>
                       <span>M</span>
                     </Typography>
@@ -380,7 +462,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       <Typography inline classes={{ root: classes.impactPLF }}>
                         <span>
                           {" "}
-                          {baisse_plf}
+                          {baissePlf}
                           {" "}
                         </span>
                         {" "}
@@ -388,29 +470,49 @@ class GagnantsPerdantsCard extends PureComponent {
                       <Typography inline classes={{ root: classes.impactPLFUnite }}>
                         <span>M</span>
                       </Typography>
-                      <GroupIcon
-                        classes={{ root: classes.styleGroupIconRouge }}
-                        fontSize="small"
-                      />
-                    </div>
-
-                    <div>
-                      <Typography inline classes={{ root: classes.impactReforme }}>
-                        <span>
-                          {" "}
-                          {baisse_reforme}
-                        </span>
-                        {" "}
-                      </Typography>
-                      <Typography
-                        inline
-                        classes={{ root: classes.impactReformeUnite }}>
-                        <span>M</span>
-                      </Typography>
-                      <GroupIcon
-                        classes={{ root: classes.styleGroupIconBleu }}
-                        fontSize="small"
-                      />
+                      <div className={classes.containerImpact}>
+                        {
+                          montrerPLF
+                            ? (
+                              <div>
+                                <Typography inline classes={{ root: classes.impactPLF }}>
+                                  <span>
+                                    {" "}
+                                    {baissePlf}
+                                    {" "}
+                                  </span>
+                                  {" "}
+                                </Typography>
+                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                                  <span>M</span>
+                                </Typography>
+                                <GroupIcon
+                                  classes={{ root: classes.styleGroupIconRouge }}
+                                  fontSize="small"
+                                />
+                              </div>
+                            )
+                            : null
+                        }
+                        <div>
+                          <Typography inline classes={{ root: classes.impactReforme }}>
+                            <span>
+                              {" "}
+                              {baisseReforme}
+                            </span>
+                            {" "}
+                          </Typography>
+                          <Typography
+                            inline
+                            classes={{ root: classes.impactReformeUnite }}>
+                            <span>M</span>
+                          </Typography>
+                          <GroupIcon
+                            classes={{ root: classes.styleGroupIconBleu }}
+                            fontSize="small"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -432,24 +534,79 @@ class GagnantsPerdantsCard extends PureComponent {
                       <Typography inline classes={{ root: classes.impactPLF }}>
                         <span>
                           {" "}
-                          {neutre_plf}
+                          {neutrePlf}
                         </span>
                         {" "}
                       </Typography>
-                      <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                        <span>M</span>
-                      </Typography>
-                      <GroupIcon
-                        classes={{ root: classes.styleGroupIconRouge }}
-                        fontSize="small"
-                      />
-                    </div>
+                      <div className={classes.containerImpact}>
+                        {
+                          montrerPLF
+                            ? (
+                              <div>
+                                <Typography inline classes={{ root: classes.impactPLF }}>
+                                  <span>
+                                    {" "}
+                                    {neutrePlf}
+                                  </span>
+                                  {" "}
+                                </Typography>
+                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                                  <span>M</span>
+                                </Typography>
+                                <GroupIcon
+                                  classes={{ root: classes.styleGroupIconRouge }}
+                                  fontSize="small"
+                                />
+                              </div>
+                            )
+                            : null
+                        }
+                        <div>
+                          <Typography inline classes={{ root: classes.impactReforme }}>
+                            <span>
+                              {" "}
+                              {neutreReforme}
+                            </span>
+                            {" "}
+                          </Typography>
+                          <Typography
+                            inline
+                            classes={{ root: classes.impactReformeUnite }}>
+                            <span>M</span>
+                          </Typography>
+                          <GroupIcon
+                            classes={{ root: classes.styleGroupIconBleu }}
+                            fontSize="small"
+                          />
+                        </div>
+                      </div>
 
-                    <div>
-                      <Typography inline classes={{ root: classes.impactReforme }}>
-                        <span>
-                          {" "}
-                          {neutre_reforme}
+                      <Typography classes={{ root: classes.styleTypeImpactDetail }}>
+                        <span>dont </span>
+                        {
+                          montrerPLF
+                            ? (
+                              <Typography inline classes={{ root: classes.impactPLFDetail }}>
+                                <span>
+                                  {" "}
+                                  {neutreZeroPlf}
+                                </span>
+                                <span>M</span>
+                              </Typography>
+                            )
+                            : null
+                        }
+                        <Typography
+                          inline
+                          classes={{ root: classes.impactReformeDetail }}>
+                          <span>
+                            {" "}
+                            {neutreZeroReforme}
+                          </span>
+                          <span>M</span>
+                        </Typography>
+                        <span className={classes.styleTypeImpactDetail}>
+                          &nbsp;de foyers toujours exonérés d&apos;IR
                         </span>
                         {" "}
                       </Typography>
@@ -470,7 +627,7 @@ class GagnantsPerdantsCard extends PureComponent {
                     <Typography inline classes={{ root: classes.impactPLFDetail }}>
                       <span>
                         {" "}
-                        {neutre_zero_plf}
+                        {neutreZeroPlf}
                       </span>
                       <span>M</span>
                     </Typography>
@@ -479,7 +636,7 @@ class GagnantsPerdantsCard extends PureComponent {
                       classes={{ root: classes.impactReformeDetail }}>
                       <span>
                         {" "}
-                        {neutre_zero_reforme}
+                        {neutreZeroReforme}
                       </span>
                       <span>M</span>
                     </Typography>
