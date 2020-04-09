@@ -285,7 +285,7 @@ class GagnantsPerdantsCard extends PureComponent {
                 aria-label="Delete"
                 classes={{ root: classes.cardEditDeleteButton }}
               >
-                <CloseIcon fontSize="small" />
+                <CloseIcon fontSize="default" />
               </IconButton>
             </div>
           </div>
@@ -321,24 +321,30 @@ class GagnantsPerdantsCard extends PureComponent {
                   <Typography inline classes={{ root: classes.titleCard }}>
                         ayant une augmentation de l&apos;IR
                   </Typography>
-
                   <div className={classes.containerImpact}>
-                    <div>
-                      <Typography inline classes={{ root: classes.impactPLF }}>
-                        <span>
-                          {" "}
-                          {haussePlf}
-                        </span>
-                        {" "}
-                      </Typography>
-                      <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                        <span>M</span>
-                      </Typography>
-                      <GroupIcon
-                        classes={{ root: classes.styleGroupIconRouge }}
-                        fontSize="small"
-                      />
-                    </div>
+                    {
+                      montrerPLF
+                        ? (
+                          <div>
+                            <Typography inline classes={{ root: classes.impactPLF }}>
+                              <span>
+                                {" "}
+                                {haussePlf}
+                              </span>
+                              {" "}
+                            </Typography>
+                            <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                              <span>M</span>
+                            </Typography>
+                            <GroupIcon
+                              classes={{ root: classes.styleGroupIconRouge }}
+                              fontSize="default"
+                            />
+                          </div>
+                        )
+                        : null
+                    }
+
                     <div>
                       <Typography inline classes={{ root: classes.impactReforme }}>
                         <span>
@@ -347,91 +353,32 @@ class GagnantsPerdantsCard extends PureComponent {
                         </span>
                         {" "}
                       </Typography>
-
-                      <div className={classes.containerImpact}>
-                        {
-                          montrerPLF
-                            ? (
-                              <div>
-                                <Typography inline classes={{ root: classes.impactPLF }}>
-                                  <span>
-                                    {" "}
-                                    {haussePlf}
-                                  </span>
-                                  {" "}
-                                </Typography>
-                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                                  <span>M</span>
-                                </Typography>
-                                <GroupIcon
-                                  classes={{ root: classes.styleGroupIconRouge }}
-                                  fontSize="small"
-                                />
-                              </div>
-                            )
-                            : null
-                        }
-
-                        <div>
-                          <Typography inline classes={{ root: classes.impactReforme }}>
-                            <span>
-                              {" "}
-                              {hausseReforme}
-                            </span>
-                            {" "}
-                          </Typography>
-                          <Typography
-                            inline
-                            classes={{ root: classes.impactReformeUnite }}>
-                            <span>M</span>
-                          </Typography>
-                          <GroupIcon
-                            classes={{ root: classes.styleGroupIconBleu }}
-                            fontSize="small"
-                          />
-                        </div>
-                      </div>
-                      <Typography classes={{ root: classes.styleTypeImpactDetail }}>
-                        <span>dont</span>
-                        {
-                          montrerPLF
-                            ? (
-                              <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                                <span>
-                                  {" "}
-                                  {hausseZeroPlf}
-                                </span>
-                                <span>M</span>
-                              </Typography>
-                            )
-                            : null
-                        }
-                        <Typography
-                          inline
-                          classes={{ root: classes.impactReformeDetail }}>
-                          <span>
-                            {" "}
-                            {hausseZeroReforme}
-                          </span>
-                          <span>M</span>
-                        </Typography>
-                        <span>&nbsp;de foyers entrant dans l&apos;IR</span>
+                      <Typography
+                        inline
+                        classes={{ root: classes.impactReformeUnite }}>
+                        <span>M</span>
                       </Typography>
                       <GroupIcon
                         classes={{ root: classes.styleGroupIconBleu }}
-                        fontSize="small"
+                        fontSize="default"
                       />
                     </div>
                   </div>
                   <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                     <span>dont</span>
-                    <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                      <span>
-                        {" "}
-                        {hausseZeroPlf}
-                      </span>
-                      <span>M</span>
-                    </Typography>
+                    {
+                      montrerPLF
+                        ? (
+                          <Typography inline classes={{ root: classes.impactPLFDetail }}>
+                            <span>
+                              {" "}
+                              {hausseZeroPlf}
+                            </span>
+                            <span>M</span>
+                          </Typography>
+                        )
+                        : null
+                    }
                     <Typography
                       inline
                       classes={{ root: classes.impactReformeDetail }}>
@@ -458,61 +405,46 @@ class GagnantsPerdantsCard extends PureComponent {
                         ayant une baisse de l&apos;IR
                   </Typography>
                   <div className={classes.containerImpact}>
+                    {
+                      montrerPLF
+                        ? (
+                          <div>
+                            <Typography inline classes={{ root: classes.impactPLF }}>
+                              <span>
+                                {" "}
+                                {baissePlf}
+                                {" "}
+                              </span>
+                              {" "}
+                            </Typography>
+                            <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                              <span>M</span>
+                            </Typography>
+                            <GroupIcon
+                              classes={{ root: classes.styleGroupIconRouge }}
+                              fontSize="default"
+                            />
+                          </div>
+                        )
+                        : null
+                    }
                     <div>
-                      <Typography inline classes={{ root: classes.impactPLF }}>
+                      <Typography inline classes={{ root: classes.impactReforme }}>
                         <span>
                           {" "}
-                          {baissePlf}
-                          {" "}
+                          {baisseReforme}
                         </span>
                         {" "}
                       </Typography>
-                      <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                      <Typography
+                        inline
+                        classes={{ root: classes.impactReformeUnite }}>
                         <span>M</span>
                       </Typography>
-                      <div className={classes.containerImpact}>
-                        {
-                          montrerPLF
-                            ? (
-                              <div>
-                                <Typography inline classes={{ root: classes.impactPLF }}>
-                                  <span>
-                                    {" "}
-                                    {baissePlf}
-                                    {" "}
-                                  </span>
-                                  {" "}
-                                </Typography>
-                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                                  <span>M</span>
-                                </Typography>
-                                <GroupIcon
-                                  classes={{ root: classes.styleGroupIconRouge }}
-                                  fontSize="small"
-                                />
-                              </div>
-                            )
-                            : null
-                        }
-                        <div>
-                          <Typography inline classes={{ root: classes.impactReforme }}>
-                            <span>
-                              {" "}
-                              {baisseReforme}
-                            </span>
-                            {" "}
-                          </Typography>
-                          <Typography
-                            inline
-                            classes={{ root: classes.impactReformeUnite }}>
-                            <span>M</span>
-                          </Typography>
-                          <GroupIcon
-                            classes={{ root: classes.styleGroupIconBleu }}
-                            fontSize="small"
-                          />
-                        </div>
-                      </div>
+                      <GroupIcon
+                        classes={{ root: classes.styleGroupIconBleu }}
+                        fontSize="default"
+                      />
                     </div>
                   </div>
                 </div>
@@ -530,83 +462,33 @@ class GagnantsPerdantsCard extends PureComponent {
                         non concernés
                   </Typography>
                   <div className={classes.containerImpact}>
+                    {
+                      montrerPLF
+                        ? (
+                          <div>
+                            <Typography inline classes={{ root: classes.impactPLF }}>
+                              <span>
+                                {" "}
+                                {neutrePlf}
+                              </span>
+                              {" "}
+                            </Typography>
+                            <Typography inline classes={{ root: classes.impactPLFUnite }}>
+                              <span>M</span>
+                            </Typography>
+                            <GroupIcon
+                              classes={{ root: classes.styleGroupIconRouge }}
+                              fontSize="default"
+                            />
+                          </div>
+                        )
+                        : null
+                    }
                     <div>
-                      <Typography inline classes={{ root: classes.impactPLF }}>
+                      <Typography inline classes={{ root: classes.impactReforme }}>
                         <span>
                           {" "}
-                          {neutrePlf}
-                        </span>
-                        {" "}
-                      </Typography>
-                      <div className={classes.containerImpact}>
-                        {
-                          montrerPLF
-                            ? (
-                              <div>
-                                <Typography inline classes={{ root: classes.impactPLF }}>
-                                  <span>
-                                    {" "}
-                                    {neutrePlf}
-                                  </span>
-                                  {" "}
-                                </Typography>
-                                <Typography inline classes={{ root: classes.impactPLFUnite }}>
-                                  <span>M</span>
-                                </Typography>
-                                <GroupIcon
-                                  classes={{ root: classes.styleGroupIconRouge }}
-                                  fontSize="small"
-                                />
-                              </div>
-                            )
-                            : null
-                        }
-                        <div>
-                          <Typography inline classes={{ root: classes.impactReforme }}>
-                            <span>
-                              {" "}
-                              {neutreReforme}
-                            </span>
-                            {" "}
-                          </Typography>
-                          <Typography
-                            inline
-                            classes={{ root: classes.impactReformeUnite }}>
-                            <span>M</span>
-                          </Typography>
-                          <GroupIcon
-                            classes={{ root: classes.styleGroupIconBleu }}
-                            fontSize="small"
-                          />
-                        </div>
-                      </div>
-
-                      <Typography classes={{ root: classes.styleTypeImpactDetail }}>
-                        <span>dont </span>
-                        {
-                          montrerPLF
-                            ? (
-                              <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                                <span>
-                                  {" "}
-                                  {neutreZeroPlf}
-                                </span>
-                                <span>M</span>
-                              </Typography>
-                            )
-                            : null
-                        }
-                        <Typography
-                          inline
-                          classes={{ root: classes.impactReformeDetail }}>
-                          <span>
-                            {" "}
-                            {neutreZeroReforme}
-                          </span>
-                          <span>M</span>
-                        </Typography>
-                        <span className={classes.styleTypeImpactDetail}>
-                          &nbsp;de foyers toujours exonérés d&apos;IR
+                          {neutreReforme}
                         </span>
                         {" "}
                       </Typography>
@@ -617,20 +499,26 @@ class GagnantsPerdantsCard extends PureComponent {
                       </Typography>
                       <GroupIcon
                         classes={{ root: classes.styleGroupIconBleu }}
-                        fontSize="small"
+                        fontSize="default"
                       />
                     </div>
                   </div>
 
                   <Typography classes={{ root: classes.styleTypeImpactDetail }}>
                     <span>dont </span>
-                    <Typography inline classes={{ root: classes.impactPLFDetail }}>
-                      <span>
-                        {" "}
-                        {neutreZeroPlf}
-                      </span>
-                      <span>M</span>
-                    </Typography>
+                    {
+                      montrerPLF
+                        ? (
+                          <Typography inline classes={{ root: classes.impactPLFDetail }}>
+                            <span>
+                              {" "}
+                              {neutreZeroPlf}
+                            </span>
+                            <span>M</span>
+                          </Typography>
+                        )
+                        : null
+                    }
                     <Typography
                       inline
                       classes={{ root: classes.impactReformeDetail }}>
