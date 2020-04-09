@@ -13,10 +13,6 @@ const styles = () => ({
     padding: 15,
     paddingTop: 5,
   },
-  euroPLF: {
-    color: "#FF6B6B",
-    display: "inline-block",
-  },
   legende: {
     color: "#909090",
     fontFamily: "Lato",
@@ -58,7 +54,7 @@ class SimpleCardImpactImpots extends PureComponent {
           isLoading
             ? <CircularProgress color="secondary" />
             : (
-              <div className={styles2.big}>
+              <div className={styles2.result}>
                 <Parameter
                   amendmentTitle={amendmentTitle}
                   amendmentValue={-resultats.apres}
