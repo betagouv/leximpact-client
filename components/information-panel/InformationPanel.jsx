@@ -2,14 +2,14 @@ import lightBulb from "@iconify/icons-twemoji/light-bulb";
 import { Icon } from "@iconify/react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-// import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-// import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-// import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
@@ -80,10 +80,10 @@ class InformationPanel extends PureComponent {
   render() {
     const {
       classes,
-      // isPanelExpanded,
       onClose,
-      // onExpandPanel,
     } = this.props;
+
+    const isExpansionPanelVisible = false;
 
     return (
       <Card className={classes.cardContainer}>
@@ -107,38 +107,21 @@ class InformationPanel extends PureComponent {
                 nous recalibrerons notre modèle en conséquence.
               </Typography>
 
-              {/* <ExpansionPanel
-                classes={{ root: classes.styleExpansionPanel }}
-                expanded={isPanelExpanded}
-                onChange={onExpandPanel}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography className={classes.subtitleEnSavoirPlus}>
-                    En savoir plus
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Typography className={classes.subtitleEnSavoirPlus}>
-                    La comparaison est effectuée entre le code existant et le
-                    PLF prévu. Or, ces deux codes ne s&apos;appliquent pas aux
-                    mêmes revenus. Afin d&apos;éviter qu&apos;une hausse de
-                    revenu consécutive à l&apos;inflation ne se manifeste par
-                    une hausse du taux d&apos;imposition, le PLF revalorise
-                    souvent les seuils et les plafonds d&apos;un taux
-                    correspondant au taux d&apos;inflation. La comparaison
-                    effectuée par Leximpact est centrée sur les impacts de la
-                    loi, et considère donc un ménage dont&nbsp;
-                    <a
-                      href="https://fr.wikipedia.org/wiki/Valeur_nominale_et_valeur_r%C3%A9elle"
-                      rel="noopener noreferrer"
-                      target="_blank">
-                      le revenu nominal
-                    </a>
-                    &nbsp;ne change pas entre le code existant et le PLF, ce
-                    qui, si on considère l&apos;inflation, signifierait une
-                    baisse de leur revenu réel.
-                  </Typography>
-                </ExpansionPanelDetails>
-              </ExpansionPanel> */}
+              {isExpansionPanelVisible && (
+                <ExpansionPanel
+                  classes={{ root: classes.styleExpansionPanel }}>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography className={classes.subtitleEnSavoirPlus}>
+                      En savoir plus
+                    </Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    <Typography className={classes.subtitleEnSavoirPlus}>
+                      Texte de &quot;En savoir plus&quot;
+                    </Typography>
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              )}
             </div>
 
             <div className={classes.cardHeaderButtons}>
@@ -158,9 +141,7 @@ class InformationPanel extends PureComponent {
 }
 InformationPanel.propTypes = {
   classes: PropTypes.shape().isRequired,
-  // isPanelExpanded: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  // onExpandPanel: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(InformationPanel);
