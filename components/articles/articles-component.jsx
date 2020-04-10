@@ -19,6 +19,7 @@ import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
+import styles2 from "./articles-component.module.scss";
 
 const stylesTheme = theme => ({
   paper: {
@@ -47,18 +48,6 @@ const style = {
     marginRight: "1.5em",
     marginTop: "1em",
   },
-  InputSeuil: {
-    fontSize: "20px",
-    marginLeft: "2px",
-    marginRight: "2px",
-    width: "80px",
-  },
-  InputTaux: {
-    fontSize: "20px",
-    marginLeft: "0px",
-    marginRight: "3px",
-    width: "40px",
-  },
   StyleTitreThematique: {
     color: "#B1B1B1",
     fontFamily: "Lato",
@@ -66,16 +55,6 @@ const style = {
     fontVariantCaps: "all-small-caps",
     fontWeight: "bold",
     textAlign: "left",
-  },
-  Typography: {
-    padding: "5px",
-  },
-  TypographyNouvelleTranche: {
-    color: "#00A3FF",
-    padding: "5px",
-  },
-  Typographybouton: {
-    margin: "10px",
   },
 };
 
@@ -103,7 +82,7 @@ class ArticlesComponent extends React.Component {
     const plft = reformePLF && reformePLF.impot_revenu.bareme.taux;
 
     const nbt = s.length;
-    const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
+    const styleAUtiliser = i > 4 ? styles2.newBracket : styles2.bracket;
     // Part 1
     if (i === 0) {
       const baseValue = bases[Math.min(i, bases.length - 1)];
@@ -111,8 +90,8 @@ class ArticlesComponent extends React.Component {
       return (
         <Typography
           key={i}
+          className={styleAUtiliser}
           color="inherit"
-          style={styleAUtiliser}
           variant="body2">
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
@@ -138,8 +117,8 @@ class ArticlesComponent extends React.Component {
       return (
         <Typography
           key={i}
+          className={styleAUtiliser}
           color="inherit"
-          style={styleAUtiliser}
           variant="body2">
           –
           <Parameter
@@ -174,8 +153,8 @@ class ArticlesComponent extends React.Component {
     return (
       <Typography
         key={i}
+        className={styleAUtiliser}
         color="inherit"
-        style={styleAUtiliser}
         variant="body2">
         –
         <Parameter
