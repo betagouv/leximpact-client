@@ -5,7 +5,7 @@ $input-margin: 0.3rem;
 .initialValue {
   font-weight: bold;
   margin-left: $input-margin;
-  text-decoration-color: $amendment-color;
+  text-decoration-color: $amendment-bg-color;
   text-decoration-line: line-through;
 }
 
@@ -33,7 +33,7 @@ $input-margin: 0.3rem;
 
 .amendmentValueModified {
   padding: 0.1rem;
-  background-color: $amendment-color;
+  background-color: $amendment-bg-color;
 }
 
 .noOverflow > span {
