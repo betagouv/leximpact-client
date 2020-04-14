@@ -1,0 +1,9 @@
+@import 'styles/variables.scss';
+
+.bracket, .newBracket {
+  padding: 5px;
+}
+
+.newBracket {
+  color: $amendment-text-color !important;
+}

@@ -13,10 +13,12 @@ import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import CachedIcon from "@material-ui/icons/Cached";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FaceIcon from "@material-ui/icons/Face";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import BarChart from "./bar-chart";
+import styles2 from "./carte-etat-component.module.scss";
 import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 
 const styles = () => ({
@@ -93,7 +95,7 @@ class CarteEtat extends PureComponent {
       classes,
       deciles,
       expandArticlePanelHandler,
-      frontieres_deciles,
+      frontieresDeciles,
       isDisabledEtat,
       isLoadingEtat,
       isPanelExpanded,
@@ -153,10 +155,20 @@ class CarteEtat extends PureComponent {
                     </div>
                     <div className={classes.simpop}>
                       <div className="montant-impots">
-                        <Typography inline className="impotEtat avant">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.impotEtat]: true,
+                            [styles2.avant]: true,
+                          })}>
                           {totalAvant}
                         </Typography>
-                        <Typography inline className="uniteImpotEtat avant">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.uniteImpotEtat]: true,
+                            [styles2.avant]: true,
+                          })}>
                           Md€*
                         </Typography>
                       </div>
@@ -164,10 +176,20 @@ class CarteEtat extends PureComponent {
                         montrerPLF
                           ? (
                             <div className="montant-impots">
-                              <Typography inline className="impotEtat plf">
+                              <Typography
+                                inline
+                                className={classNames({
+                                  [styles2.impotEtat]: true,
+                                  [styles2.plf]: true,
+                                })}>
                                 {totalPLF}
                               </Typography>
-                              <Typography inline className="uniteImpotEtat plf">
+                              <Typography
+                                inline
+                                className={classNames({
+                                  [styles2.uniteImpotEtat]: true,
+                                  [styles2.plf]: true,
+                                })}>
                                 Md€*
                               </Typography>
                             </div>
@@ -175,10 +197,20 @@ class CarteEtat extends PureComponent {
                           : null
                       }
                       <div className="montant-impots">
-                        <Typography inline className="impotEtat apres">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.impotEtat]: true,
+                            [styles2.apres]: true,
+                          })}>
                           {totalApres}
                         </Typography>
-                        <Typography inline className="uniteImpotEtat apres">
+                        <Typography
+                          inline
+                          className={classNames({
+                            [styles2.uniteImpotEtat]: true,
+                            [styles2.apres]: true,
+                          })}>
                           Md€*
                         </Typography>
                       </div>
@@ -211,7 +243,7 @@ Estimation à partir des données de l&apos;Enquête
               <ExpansionPanelDetails className="styleExpansionPanel">
                 <SimpopTableurInfosDeciles
                   deciles={deciles}
-                  frontieres_deciles={frontieres_deciles}
+                  frontieresDeciles={frontieresDeciles}
                 />
               </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -233,7 +265,7 @@ CarteEtat.propTypes = {
     }).isRequired,
   ).isRequired,
   expandArticlePanelHandler: PropTypes.shape().isRequired,
-  frontieres_deciles: PropTypes.bool.isRequired,
+  frontieresDeciles: PropTypes.bool.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   isPanelExpanded: PropTypes.shape().isRequired,
