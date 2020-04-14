@@ -1,0 +1,42 @@
+@import 'styles/variables';
+
+.legend, .initial, .amendment, .plf {
+  font-family: $default-font-family;
+  font-size: 12px;
+}
+
+.initial {
+  font-weight: bold;
+  color: black;
+  margin-right: 0.3rem;
+}
+
+.plf {
+  font-weight: bold;
+  color: $plf-color;
+  margin-right: 0.3rem;
+
+  a {
+    &:hover {
+      color: #00A3FF;
+      text-decoration: underline;
+    }
+    &:visited {
+      color: $plf-color;
+    }
+    text-decoration: none;
+  }
+
+  .icon {
+    font-size: 12px !important;
+    margin-left: 0.15rem;
+  }
+}
+
+
+.amendment {
+  font-weight: bold;
+  color: black;
+  background-color: $amendment-bg-color;
+  padding: 0.1rem;
+}
