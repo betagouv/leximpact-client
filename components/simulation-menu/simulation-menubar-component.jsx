@@ -5,92 +5,54 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
+import Legende from "../articles/legende-article/legende-article";
 import SimulationButton5 from "./simulation-button-5";
 import SimulationButton60 from "./simulation-button-60";
+import styles2 from "./simulation-menubar-component.module.scss";
 
 const styles = () => ({
-  container: {
-    marginBottom: "15px",
-  },
   marginIcon: {
     marginRight: "15px",
   },
   miniIcon: {
     height: "15px",
   },
-  styleIcon: {
-    marginRight: "20px",
-  },
 });
 
 class SimulationMenuBar extends PureComponent {
-  renderOutilsAffichage = () => {
+  render() {
     const {
-      classes,
-      isMobileView,
+      classes, isMobileView,
+      isUserLogged,
       showAddCasTypesPopin,
     } = this.props;
     return (
-      <Grid item>
-        <Grid
-          container
-          alignItems="center"
-          direction="row"
-          justify="space-between"
-          spacing={24}>
-          <Grid item>
-            <Button
-              color="default"
-              variant="contained"
-              onClick={showAddCasTypesPopin}
-            >
-              {
-                isMobileView
-                  ? (
-                    <Fragment>
-                      <AddCircleOutlineIcon className={classes.marginIcon} />
-                      <span>Cas type</span>
-                    </Fragment>
-                  )
-                  : "Ajouter un cas type"
-              }
-
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
-    );
-  };
-
-  render() {
-    const { classes, isUserLogged } = this.props;
-    return (
-      <Grid
-        container
-        alignItems="center"
-        className={classes.container}
-        direction="row"
-        justify="space-between"
-        spacing={8}>
-        {this.renderOutilsAffichage()}
-        <Grid item>
-          <Grid
-            container
-            alignItems="center"
-            direction="row"
-            justify="space-between"
-            spacing={8}>
-            <Grid item>
-              <SimulationButton5 classes={classes} />
-            </Grid>
-            {isUserLogged && (
-              <Grid item>
-                <SimulationButton60 classes={classes} />
-              </Grid>
-            )}
-          </Grid>
-        </Grid>
-      </Grid>
+      <div className={styles2.container}>
+        <div className={styles2.box}>
+          <Legende montrerPLF={false} />
+          <div className={styles2.grow} />
+          <Button
+            color="default"
+            variant="contained"
+            onClick={showAddCasTypesPopin}
+          >
+            {
+              isMobileView
+                ? (
+                  <Fragment>
+                    <AddCircleOutlineIcon className={classes.marginIcon} />
+                    <span>Cas type</span>
+                  </Fragment>
+                )
+                : "Ajouter un cas type"
+            }
+          </Button>
+          <SimulationButton5 classes={classes} />
+          {isUserLogged && (
+            <SimulationButton60 classes={classes} />
+          )}
+        </div>
+      </div>
     );
   }
 }
