@@ -1,11 +1,10 @@
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import Legende from "../articles/legende-article/legende-article";
+import { Legende } from "./legende";
 import SimulationButton5 from "./simulation-button-5";
 import SimulationButton60 from "./simulation-button-60";
 import styles2 from "./simulation-menubar-component.module.scss";

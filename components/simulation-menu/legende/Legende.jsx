@@ -1,9 +1,9 @@
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import PropTypes from "prop-types";
 
-import styles from "./legende-article.module.scss";
+import styles from "./Legende.module.scss";
 
-function LegendeArticle({ montrerPLF }) {
+function Legende({ montrerPLF }) {
   return (
     <div>
       <div className={styles.legend}>
@@ -25,7 +25,8 @@ function LegendeArticle({ montrerPLF }) {
   );
 }
 
-LegendeArticle.propTypes = {
+Legende.propTypes = {
   montrerPLF: PropTypes.bool.isRequired,
 };
-export default LegendeArticle;
+
+export default Legende;
