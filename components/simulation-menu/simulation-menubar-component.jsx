@@ -21,14 +21,16 @@ const styles = () => ({
 class SimulationMenuBar extends PureComponent {
   render() {
     const {
-      classes, isMobileView,
+      classes,
+      isMobileView,
       isUserLogged,
+      montrerPLF,
       showAddCasTypesPopin,
     } = this.props;
     return (
       <div className={styles2.container}>
         <div className={styles2.box}>
-          <Legende montrerPLF={false} />
+          <Legende montrerPLF={montrerPLF} />
           <div className={styles2.grow} />
           <Button
             color="default"
@@ -60,6 +62,7 @@ SimulationMenuBar.propTypes = {
   classes: PropTypes.shape().isRequired,
   isMobileView: PropTypes.bool.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
+  montrerPLF: PropTypes.bool.isRequired,
   showAddCasTypesPopin: PropTypes.func.isRequired,
 };
 
