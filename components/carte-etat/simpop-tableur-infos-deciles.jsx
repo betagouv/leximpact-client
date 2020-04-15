@@ -254,8 +254,15 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
 
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
-  deciles: PropTypes.shape().isRequired,
-  frontieres_deciles: PropTypes.shape().isRequired,
+  deciles: PropTypes.arrayOf(
+    PropTypes.shape({
+      apres: PropTypes.number.isRequired,
+      avant: PropTypes.number.isRequired,
+      plf: PropTypes.number,
+      poids: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  frontieres_deciles: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default withStyles(styles)(SimpopTableurInfosDeciles);
