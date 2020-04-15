@@ -64,13 +64,20 @@ class SimulationMenuBar extends PureComponent {
               </Button>
             </Grid>
             <Grid item>
-              <SimulationButton5 classes={classes} />
-            </Grid>
-            {isUserLogged && (
-              <Grid item>
-                <SimulationButton60 classes={classes} />
+              <Grid
+                container
+                alignItems="center"
+                spacing={8}>
+                <Grid item>
+                  <SimulationButton5 classes={classes} />
+                </Grid>
+                {isUserLogged && (
+                  <Grid item>
+                    <SimulationButton60 classes={classes} />
+                  </Grid>
+                )}
               </Grid>
-            )}
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
