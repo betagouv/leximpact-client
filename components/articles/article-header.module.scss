@@ -1,0 +1,20 @@
+@import "styles/variables";
+
+.resetParams {
+  padding: 0.5rem;
+  text-align: right;
+
+  button {
+    font-size: 12px !important;
+  }
+  
+  button, svg {
+    text-transform: none !important;
+    color: $amendment-text-color !important;
+    font-family: $default-font-family !important;
+  }
+}
+
+.ml {
+  margin-left: 0.5rem;
+}
