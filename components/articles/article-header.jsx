@@ -19,24 +19,6 @@ const stylesTheme = () => ({
     float: "right !important",
     marginLeft: "10px",
   },
-  styleCodeExistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontFamily: "Lora",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    padding: "3px",
-  },
-  stylePLF: {
-    color: "#FF6B6B",
-    fontFamily: "Lora",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "3px",
-    marginRight: "5px",
-  },
   stylePaperTitreMenu: {
     backgroundColor: "rgba(255, 255, 255, 1) !important",
     fontFamily: "Lato",
@@ -104,7 +86,7 @@ class ArticleHeader extends PureComponent {
                   className={classes.menuItemPaper}
                   onClick={this.handleClickPlf}>
                   <span>-</span>
-                  <span className={classes.stylePLF}>&nbsp;PLF</span>
+                  <span className={styles.plf}>PLF</span>
                 </MenuItem>
               )
               : null
@@ -114,7 +96,7 @@ class ArticleHeader extends PureComponent {
             className={classes.menuItemPaper}
             onClick={this.handleClickExistant}>
             <span>-</span>
-            <span className={classes.styleCodeExistant}>
+            <span className={styles.initial}>
               code existant
             </span>
           </MenuItem>

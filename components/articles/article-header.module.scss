@@ -1,5 +1,21 @@
 @import "styles/variables";
 
+.initial, .plf {
+  font-family: law-font-family;
+  font-weight: bold;
+  line-height: 10px;
+  margin-left: 8px;
+  padding: 3px;
+}
+
+.initial {
+  color: black;
+}
+
+.plf {
+  color: $plf-color;
+}
+
 .resetParams {
   padding: 0.5rem;
   text-align: right;
