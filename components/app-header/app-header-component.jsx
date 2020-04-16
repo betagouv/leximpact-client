@@ -62,7 +62,7 @@ class AppHeaderComponent extends PureComponent {
               {isUserLogged && (
                 <span>
                   <span className={classes.lighterTitle}>LEXIMPACT&nbsp;</span>
-                  <span className={classes.bolderTitle}>POP</span>
+                  <span className={classes.bolderTitle}>IR</span>
                 </span>
               )}
             </Typography>
@@ -80,7 +80,7 @@ class AppHeaderComponent extends PureComponent {
                   <span className={classes.lighterMobileTitle}>
                     LEXIMPACT&nbsp;
                   </span>
-                  <span className={classes.bolderMobileTitle}>POP</span>
+                  <span className={classes.bolderMobileTitle}>IR</span>
                 </span>
               )}
             </Typography>
