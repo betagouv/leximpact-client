@@ -6,13 +6,6 @@ import { Provider } from "react-redux";
 import makeApplicationState from "../redux/make-application-state";
 
 class LexImpactApplicationWrapper extends App {
-  static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-    return { pageProps };
-  }
-
   render() {
     const { Component, pageProps, store } = this.props;
     return (
