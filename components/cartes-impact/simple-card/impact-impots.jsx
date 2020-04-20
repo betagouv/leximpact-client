@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { Parameter } from "../../articles-inputs/parameter";
-import formatMilliers from "../../utils/format-milliers";
+import { formatNumber } from "../../utils";
 import styles2 from "./impact-impots.module.scss";
 
 const styles = () => ({
@@ -26,9 +26,9 @@ class SimpleCardImpactImpots extends PureComponent {
     const { classes, isLoading, resultats } = this.props;
 
     const DiffAmendPLF = (-resultats.apres + resultats.avant > 0 ? "+" : "-")
-      + formatMilliers(Math.round(Math.abs(-resultats.apres + resultats.plf)));
+      + formatNumber(Math.round(Math.abs(-resultats.apres + resultats.plf)));
     const DiffPlFCodeEx = (-resultats.plf + resultats.avant > 0 ? "+" : "-")
-      + formatMilliers(Math.round(Math.abs(-resultats.plf + resultats.avant)));
+      + formatNumber(Math.round(Math.abs(-resultats.plf + resultats.avant)));
 
     const plfTitle = (
       <Fragment>

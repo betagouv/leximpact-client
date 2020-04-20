@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
+import { formatNumber } from "../../utils";
 import NumberInput from "./NumberInput";
 import styles from "./Parameter.module.scss";
 
@@ -19,16 +20,6 @@ function withTooltip(Tooltip, title, element) {
     </Tooltip>
   );
 }
-
-function formatNumber(number) {
-  // Hack to support negative zeros.
-  // Negative zeros should disappear in the future after cleaning up the application.
-  if (number === 0) {
-    return "0";
-  }
-  return number.toLocaleString();
-}
-
 
 class Parameter extends PureComponent {
   render() {
