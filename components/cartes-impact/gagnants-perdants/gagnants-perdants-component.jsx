@@ -261,11 +261,11 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <div className={styles2.amendment}>
-                          <span className={styles2.amendmentValue}>{hausseReforme}</span>
-                          <span className={styles2.amendmentUnit}> M</span>
+                        <div className={styles2.reform}>
+                          <span className={styles2.reformValue}>{hausseReforme}</span>
+                          <span className={styles2.reformUnit}> M</span>
                           <GroupIcon
-                            className={styles2.amendmentIcon}
+                            className={styles2.reformIcon}
                             fontSize="small"
                           />
                         </div>
@@ -283,8 +283,8 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <span className={styles2.detailsAmendmentValue}>{hausseZeroReforme}</span>
-                        <span className={styles2.detailsAmendmentUnit}> M</span>
+                        <span className={styles2.detailsReformValue}>{hausseZeroReforme}</span>
+                        <span className={styles2.detailsReformUnit}> M</span>
                         &nbsp;de foyers entrant dans l&apos;IR
                       </div>
                     </div>
@@ -316,11 +316,11 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <div className={styles2.amendment}>
-                          <span className={styles2.amendmentValue}>{baisseReforme}</span>
-                          <span className={styles2.amendmentUnit}> M</span>
+                        <div className={styles2.reform}>
+                          <span className={styles2.reformValue}>{baisseReforme}</span>
+                          <span className={styles2.reformUnit}> M</span>
                           <GroupIcon
-                            className={styles2.amendmentIcon}
+                            className={styles2.reformIcon}
                             fontSize="small"
                           />
                         </div>
@@ -354,11 +354,11 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <div className={styles2.amendment}>
-                          <span className={styles2.amendmentValue}>{neutreReforme}</span>
-                          <span className={styles2.amendmentUnit}> M</span>
+                        <div className={styles2.reform}>
+                          <span className={styles2.reformValue}>{neutreReforme}</span>
+                          <span className={styles2.reformUnit}> M</span>
                           <GroupIcon
-                            className={styles2.amendmentIcon}
+                            className={styles2.reformIcon}
                             fontSize="small"
                           />
                         </div>
@@ -376,8 +376,8 @@ class GagnantsPerdantsCard extends PureComponent {
                             )
                             : null
                         }
-                        <span className={styles2.detailsAmendmentValue}>{neutreZeroReforme}</span>
-                        <span className={styles2.detailsAmendmentUnit}> M</span>
+                        <span className={styles2.detailsReformValue}>{neutreZeroReforme}</span>
+                        <span className={styles2.detailsReformUnit}> M</span>
                         &nbsp;de foyers toujours exonérés d&apos;IR
                       </div>
                     </div>

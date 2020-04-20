@@ -169,7 +169,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                   )
               }
               &nbsp;
-              <span className={styles2.amendment}>
+              <span className={styles2.reform}>
                 {row.impactMoyenFoyerReforme === "-"
                   ? NON_APPLICABLE
                   : `${row.impactMoyenFoyerReforme}%`}
@@ -192,7 +192,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                   )
               }
               &nbsp;
-              <span className={styles2.amendment}>
+              <span className={styles2.reform}>
                 {row.impotMoyenFoyerReforme}
                 €
               </span>
@@ -214,7 +214,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
                   )
               }
               &nbsp;
-              <span className={styles2.amendment}>
+              <span className={styles2.reform}>
                 {row.recettesEtatReforme}
                 Md€
               </span>

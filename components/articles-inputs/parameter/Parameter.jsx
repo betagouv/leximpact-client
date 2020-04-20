@@ -2,7 +2,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import { AmendmentTooltip, PlfTooltip } from "../../tooltips";
+import { ReformTooltip, PlfTooltip } from "../../tooltips";
 import NumberInput from "./NumberInput";
 import styles from "./Parameter.module.scss";
 
@@ -33,10 +33,10 @@ function formatNumber(number) {
 class Parameter extends PureComponent {
   render() {
     const {
-      amendmentTitle, amendmentValue, editable, initialValue,
-      onAmendmentChange, plfTitle, plfValue, size,
+      editable, initialValue, onReformChange, plfTitle,
+      plfValue, reformTitle, reformValue, size,
     } = this.props;
-    const equal = initialValue === amendmentValue;
+    const equal = initialValue === reformValue;
 
     return (
       <span className={styles.noOverflow}>
@@ -51,24 +51,24 @@ class Parameter extends PureComponent {
           )
         }
         {
-          withTooltip(AmendmentTooltip, amendmentTitle, editable
+          withTooltip(ReformTooltip, reformTitle, editable
             ? (
               <NumberInput
                 className={classNames({
-                  [styles.amendmentInput]: true,
-                  [styles.amendmentValue]: true,
-                  [styles.amendmentValueModified]: !equal,
+                  [styles.reformInput]: true,
+                  [styles.reformValue]: true,
+                  [styles.reformValueModified]: !equal,
                   [styles.smallInput]: size === "small",
                 })}
-                value={amendmentValue}
-                onChange={onAmendmentChange} />
+                value={reformValue}
+                onChange={onReformChange} />
             )
             : (
               <span className={classNames({
-                [styles.amendmentValue]: true,
-                [styles.amendmentValueModified]: !equal,
+                [styles.reformValue]: true,
+                [styles.reformValueModified]: !equal,
               })}>
-                {formatNumber(amendmentValue)}
+                {formatNumber(reformValue)}
               </span>
             ))
         }
@@ -78,23 +78,23 @@ class Parameter extends PureComponent {
 }
 
 Parameter.defaultProps = {
-  amendmentTitle: null,
+  reformTitle: null,
   editable: false,
-  onAmendmentChange: () => { },
+  onReformChange: () => { },
   plfTitle: null,
   plfValue: null,
   size: "large",
 };
 
 Parameter.propTypes = {
-  amendmentTitle: PropTypes.oneOfType([
+  reformTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
-  amendmentValue: PropTypes.number.isRequired,
+  reformValue: PropTypes.number.isRequired,
   editable: PropTypes.bool,
   initialValue: PropTypes.number.isRequired,
-  onAmendmentChange: PropTypes.func,
+  onReformChange: PropTypes.func,
   plfTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,

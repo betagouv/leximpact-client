@@ -5,7 +5,7 @@ $input-margin: 0.3rem;
 .initialValue {
   font-weight: bold;
   margin-left: $input-margin;
-  text-decoration-color: $amendment-bg-color;
+  text-decoration-color: $reform-bg-color;
   text-decoration-line: line-through;
 }
 
@@ -15,7 +15,7 @@ $input-margin: 0.3rem;
   color: $plf-color;
 }
 
-.amendmentInput {
+.reformInput {
   width: 80px;
   top: -0.2rem;
 }
@@ -24,16 +24,16 @@ $input-margin: 0.3rem;
   width: 40px
 }
 
-.amendmentValue {
+.reformValue {
   font-weight: bold;
   margin-left: $input-margin !important;
   margin-right: $input-margin !important;
   color: #000000;
 }
 
-.amendmentValueModified {
+.reformValueModified {
   padding: 0.1rem;
-  background-color: $amendment-bg-color;
+  background-color: $reform-bg-color;
 }
 
 .noOverflow > span {

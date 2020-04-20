@@ -37,7 +37,7 @@ class SimpleCardImpactImpots extends PureComponent {
         {" d'impôts/an qu'avec le code existant"}
       </Fragment>
     );
-    const amendmentTitle = resultats.plf !== null ? (
+    const reformTitle = resultats.plf !== null ? (
       <Fragment>
         {"Avec mon amendement, ce foyer doit "}
         <b>{`${DiffAmendPLF}€`}</b>
@@ -56,12 +56,12 @@ class SimpleCardImpactImpots extends PureComponent {
             : (
               <div className={styles2.result}>
                 <Parameter
-                  amendmentTitle={amendmentTitle}
-                  amendmentValue={-resultats.apres}
                   editable={false}
                   initialValue={-resultats.avant}
                   plfTitle={plfTitle}
-                  plfValue={resultats.plf === null ? resultats.plf : -resultats.plf} />
+                  plfValue={resultats.plf === null ? resultats.plf : -resultats.plf}
+                  reformTitle={reformTitle}
+                  reformValue={-resultats.apres} />
                 €
               </div>
             )

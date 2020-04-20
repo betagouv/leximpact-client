@@ -5,28 +5,28 @@
   line-height: 1.5;
 }
 
-.amendment {
+.reform {
   color: #000000;
   line-height: 1.5;
 }
 
-.plfValue, .amendmentValue {
+.plfValue, .reformValue {
   font-weight: bold;
   font-family: Lato;
   font-size: 25px;
 }
 
-.amendmentValue {
-  background-color: $amendment-bg-color;
+.reformValue {
+  background-color: $reform-bg-color;
   padding: 0.1rem;
 }
 
-.plfUnit, .amendmentUnit {
+.plfUnit, .reformUnit {
   font-family: Lato;
   font-size: 20px;
 }
 
-.plfIcon, .amendmentIcon {
+.plfIcon, .reformIcon {
   vertical-align: text-bottom;
 }
 
@@ -48,13 +48,13 @@
   font-weight: bold;
 }
 
-.detailsAmendmentValue {
+.detailsReformValue {
   color: #000000;
   font-weight: bold;
-  background-color: $amendment-bg-color;
+  background-color: $reform-bg-color;
 }
 
-.detailsAmendmentUnit {
+.detailsReformUnit {
   color: #000000;
   font-weight: bold;
 }

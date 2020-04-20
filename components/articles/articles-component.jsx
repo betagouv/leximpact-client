@@ -98,10 +98,10 @@ class ArticlesComponent extends React.Component {
           }
           <Parameter
             editable
-            amendmentValue={s[i]}
             initialValue={baseValue}
             plfValue={plfValue}
-            onAmendmentChange={value => handleArticleChange(value, `seuil${i}`)}
+            reformValue={s[i]}
+            onReformChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           € le taux de&nbsp;:
         </Typography>
@@ -123,20 +123,20 @@ class ArticlesComponent extends React.Component {
           –
           <Parameter
             editable
-            amendmentValue={t[i - 1]}
             initialValue={baseValuet}
             plfValue={plfValuet}
+            reformValue={t[i - 1]}
             size="small"
-            onAmendmentChange={value => handleArticleChange(value, `taux${i - 1}`)}
+            onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
           <br />
           pour la fraction supérieure à&nbsp;
           <Parameter
-            amendmentValue={s[i - 1]}
             editable={false}
             initialValue={baseValue}
             plfValue={plfValue}
+            reformValue={s[i - 1]}
           />
           €.
         </Typography>
@@ -159,30 +159,30 @@ class ArticlesComponent extends React.Component {
         –
         <Parameter
           editable
-          amendmentValue={t[i - 1]}
           initialValue={baseValuet}
           plfValue={plfValuet}
+          reformValue={t[i - 1]}
           size="small"
-          onAmendmentChange={value => handleArticleChange(value, `taux${i - 1}`)}
+          onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
         <br />
         pour la fraction supérieure à&nbsp;
         <Parameter
-          amendmentValue={s[i - 1]}
           editable={false}
           initialValue={baseValueminus1}
           plfValue={plfValueminus1}
+          reformValue={s[i - 1]}
         />
         €
         <br />
         et inférieure ou égale à&nbsp;
         <Parameter
           editable
-          amendmentValue={s[i]}
           initialValue={baseValue}
           plfValue={plfValue}
-          onAmendmentChange={value => handleArticleChange(value, `seuil${i}`)}
+          reformValue={s[i]}
+          onReformChange={value => handleArticleChange(value, `seuil${i}`)}
         />
         € ;
       </Typography>
