@@ -2,7 +2,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import { ReformTooltip, PlfTooltip } from "../../tooltips";
+import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import NumberInput from "./NumberInput";
 import styles from "./Parameter.module.scss";
 
@@ -33,15 +33,15 @@ function formatNumber(number) {
 class Parameter extends PureComponent {
   render() {
     const {
-      editable, initialValue, onReformChange, plfTitle,
+      baseValue, editable, onReformChange, plfTitle,
       plfValue, reformTitle, reformValue, size,
     } = this.props;
-    const equal = initialValue === reformValue;
+    const equal = baseValue === reformValue;
 
     return (
       <span className={styles.noOverflow}>
         {
-          !equal && <span className={styles.initialValue}>{formatNumber(initialValue)}</span>
+          !equal && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
         }
         {
           plfValue !== null && withTooltip(
@@ -93,7 +93,7 @@ Parameter.propTypes = {
   ]),
   reformValue: PropTypes.number.isRequired,
   editable: PropTypes.bool,
-  initialValue: PropTypes.number.isRequired,
+  baseValue: PropTypes.number.isRequired,
   onReformChange: PropTypes.func,
   plfTitle: PropTypes.oneOfType([
     PropTypes.string,

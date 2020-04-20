@@ -11,7 +11,7 @@ const BaseInputOutputComponent = ({
 }) => (
   <Parameter
     editable
-    initialValue={baseValue}
+    baseValue={baseValue}
     plfValue={plfValue}
     reformValue={newValue}
     onReformChange={value => handleInputChange(value, name)}

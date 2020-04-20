@@ -6,8 +6,8 @@ const FormulaOutputComponent = ({
   baseValue, newValue, plfValue,
 }) => (
   <Parameter
+    baseValue={baseValue}
     editable={false}
-    initialValue={baseValue}
     plfValue={plfValue}
     reformValue={newValue}
   />

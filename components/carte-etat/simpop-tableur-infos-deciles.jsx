@@ -176,7 +176,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
               </span>
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
-              <span className={styles2.initial}>
+              <span className={styles2.base}>
                 {row.impotMoyenFoyer}
                 €
               </span>
@@ -198,7 +198,7 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieresDeciles }) {
               </span>
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
-              <span className={styles2.initial}>
+              <span className={styles2.base}>
                 {row.recettesEtat}
                 Md€
               </span>

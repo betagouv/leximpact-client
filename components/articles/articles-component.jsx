@@ -98,7 +98,7 @@ class ArticlesComponent extends React.Component {
           }
           <Parameter
             editable
-            initialValue={baseValue}
+            baseValue={baseValue}
             plfValue={plfValue}
             reformValue={s[i]}
             onReformChange={value => handleArticleChange(value, `seuil${i}`)}
@@ -123,7 +123,7 @@ class ArticlesComponent extends React.Component {
           –
           <Parameter
             editable
-            initialValue={baseValuet}
+            baseValue={baseValuet}
             plfValue={plfValuet}
             reformValue={t[i - 1]}
             size="small"
@@ -133,8 +133,8 @@ class ArticlesComponent extends React.Component {
           <br />
           pour la fraction supérieure à&nbsp;
           <Parameter
+            baseValue={baseValue}
             editable={false}
-            initialValue={baseValue}
             plfValue={plfValue}
             reformValue={s[i - 1]}
           />
@@ -159,7 +159,7 @@ class ArticlesComponent extends React.Component {
         –
         <Parameter
           editable
-          initialValue={baseValuet}
+          baseValue={baseValuet}
           plfValue={plfValuet}
           reformValue={t[i - 1]}
           size="small"
@@ -169,8 +169,8 @@ class ArticlesComponent extends React.Component {
         <br />
         pour la fraction supérieure à&nbsp;
         <Parameter
+          baseValue={baseValueminus1}
           editable={false}
-          initialValue={baseValueminus1}
           plfValue={plfValueminus1}
           reformValue={s[i - 1]}
         />
@@ -179,7 +179,7 @@ class ArticlesComponent extends React.Component {
         et inférieure ou égale à&nbsp;
         <Parameter
           editable
-          initialValue={baseValue}
+          baseValue={baseValue}
           plfValue={plfValue}
           reformValue={s[i]}
           onReformChange={value => handleArticleChange(value, `seuil${i}`)}
