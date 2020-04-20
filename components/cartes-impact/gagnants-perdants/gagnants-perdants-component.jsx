@@ -243,7 +243,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                ayant une augmentation de l&apos;IR
+                        ayant une augmentation de l&apos;IR
                       </Typography>
 
                       <div className={classes.containerImpact}>
@@ -299,7 +299,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                ayant une baisse de l&apos;IR
+                        ayant une baisse de l&apos;IR
                       </Typography>
                       <div className={classes.containerImpact}>
                         {
@@ -337,7 +337,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         fontSize="medium"
                       />
                       <Typography inline classes={{ root: classes.titleCard }}>
-                non concernés
+                        non concernés
                       </Typography>
                       <div className={classes.containerImpact}>
                         {
@@ -384,10 +384,10 @@ class GagnantsPerdantsCard extends PureComponent {
                   </div>
 
                   <Typography className={classes.sourceInsee}>
-            * Chiffrages indicatifs.
+                    * Chiffrages indicatifs.
                     <br />
                     {" "}
-            Données ERFS-FPR (Insee).
+                    Données ERFS-FPR (Insee).
                   </Typography>
                 </>
               ),
