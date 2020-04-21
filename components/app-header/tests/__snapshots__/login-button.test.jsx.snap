@@ -15,11 +15,6 @@ exports[`components | app-header | index snapshot doit correspondre au snapshot 
       }
     }
   />
-  <span>
-    leximpact 
-  </span>
-  <b>
-    pop
-  </b>
+  Se connecter
 </WithStyles(Button)>
 `;
