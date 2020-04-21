@@ -58,6 +58,7 @@ const styles = () => ({
     fontSize: "0.875em",
     marginBottom: "0.7em",
     marginLeft: "10px",
+    textAlign: "justify",
     textJustify: "left",
   },
   subtitleEnSavoirPlus: {
@@ -97,14 +98,14 @@ class InformationPanel extends PureComponent {
                 Epidémie de Covid-19
               </Typography>
               <Typography className={classes.subtitleCard}>
-                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
-                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
-                d&apos;années passées.
-                <br />
                 L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qu&apos;il
                 est à ce jour impossible à prévoir, les résultats que nous affichons sont
-                très probablement surestimés. Dès que nous aurons plus d&apos;informations,
-                nous recalibrerons notre modèle en conséquence.
+                très probablement surestimés.
+                <br />
+                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
+                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
+                d&apos;années passées. Dès que nous aurons plus d&apos;informations,
+                nous recalibrerons le modèle en conséquence.
               </Typography>
 
               {isExpansionPanelVisible && (
