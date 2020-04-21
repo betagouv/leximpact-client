@@ -46,6 +46,12 @@ Here ate the environment variables that you have to set:
 - `API_URL`: leximpact-client is just a web interface that does not do computations by itself, but needs to be provided a working [leximpact-server](https://github.com/betagouv/leximpact-server/) Web API to fetch results. As of v`1.0.0`, a working API example can be found on: https://api.leximpact.an.fr
 - `PORT`: describes the port that the client will be setup to (e.g. the website will be accessible from http://127.0.0.1:<PORT> if the client is run locally). If ommited, defaults to `9001`
 
+# Affichage du PLF
+
+L'affichage du PLF est contrôlé par l'état redux `reformePLF` et par l'état `resBrut`.
+
+- Pour afficher les valeurs des paramètres, vous devez définir la variable `REFORME_PLF_DEFAULT_STATE` comme valeur par défaut de l'état dans `reforme-plf.js`.
+- Pour afficher les résultats, la réponse de l'API doit inclure une propriété `plf` (voir documentation côté serveur).
 
 # Snapshot testing with Jest
 

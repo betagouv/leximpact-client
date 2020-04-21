@@ -12,7 +12,7 @@ import HeaderMenuButtonMobile from "./menu-button-mobile";
 
 const styles = () => ({
   bolderMobileTitle: {
-    fontSize: 25,
+    fontSize: 17,
     fontWeight: "bold",
   },
   bolderTitle: {
@@ -20,7 +20,7 @@ const styles = () => ({
     fontWeight: "bold",
   },
   lighterMobileTitle: {
-    fontSize: 25,
+    fontSize: 17,
     fontWeight: "regular",
   },
   lighterTitle: {

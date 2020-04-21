@@ -1,11 +1,12 @@
 const formatMilliers = (nombre) => {
-  nombre += "";
+  let result = nombre;
+  result += "";
   const sep = " ";
   const reg = /(\d+)(\d{3})/;
-  while (reg.test(nombre)) {
-    nombre = nombre.replace(reg, `$1${sep}$2`);
+  while (reg.test(result)) {
+    result = result.replace(reg, `$1${sep}$2`);
   }
-  return nombre;
+  return result;
 };
 
 export default formatMilliers;

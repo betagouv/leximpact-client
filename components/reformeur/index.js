@@ -10,7 +10,8 @@ import ReformeurComponent from "./reformeur-component";
 
 const mapStateToProps = (state, { width }) => {
   const useMobileView = width === "xs" || width === "sm";
-  return { useMobileView };
+  const montrerPLF = state.reformePLF !== null;
+  return { montrerPLF, useMobileView };
 };
 
 const mapDispatchToProps = dispatch => ({

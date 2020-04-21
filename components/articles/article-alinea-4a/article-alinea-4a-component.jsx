@@ -39,6 +39,7 @@ class Alinea4a extends PureComponent {
       expandArticlePanelHandler,
       formulaOutputInput,
       isPanelExpanded,
+      reformePLF,
       style,
     } = this.props;
     return (
@@ -51,7 +52,7 @@ class Alinea4a extends PureComponent {
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
           <Typography style={styleTitreThematique}>Décote</Typography>
-          <p style={styleTitreThematiqueModifPLF}>Modifiée par le PLF 2020</p>
+          {reformePLF && <p style={styleTitreThematiqueModifPLF}>Modifiée par le PLF 2020</p>}
         </LexExpansionPanelSummary>
 
         <LexExpansionPanelDetails style={styleExpansionpanel}>
@@ -62,23 +63,16 @@ class Alinea4a extends PureComponent {
             {" "}
             {baseOutputInput("decote.seuil_celib")}
             € et
-            les
             {" "}
-            <OutputField style={style.VarCodeexistant} value="trois quarts" />
-            {" "}
-            [
             {baseOutputInput("decote.taux")}
-            %] de son montant pour les contribuables célibataires, divorcés ou
+            % de son montant pour les contribuables célibataires, divorcés ou
             veufs et de la différence entre
             {baseOutputInput("decote.seuil_couple")}
             {" "}
-            € et les
+            € et
             {" "}
-            <OutputField style={style.VarCodeexistant} value="trois quarts" />
-            {" "}
-            [
             {formulaOutputInput("decote.taux")}
-            %] de son montant pour les contribuables soumis à imposition
+            % de son montant pour les contribuables soumis à imposition
             commune.
           </Typography>
         </LexExpansionPanelDetails>
@@ -87,11 +81,16 @@ class Alinea4a extends PureComponent {
   }
 }
 
+Alinea4a.defaultProps = {
+  reformePLF: null,
+};
+
 Alinea4a.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
   expandArticlePanelHandler: PropTypes.func.isRequired,
   formulaOutputInput: PropTypes.func.isRequired,
   isPanelExpanded: PropTypes.bool.isRequired,
+  reformePLF: PropTypes.shape(),
   style: PropTypes.shape().isRequired,
 };
 

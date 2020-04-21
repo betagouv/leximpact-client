@@ -93,17 +93,22 @@ function createData(
 }
 
 function create_from_deciles(index, decile, frontiereDecile) {
-  const impactMoyenFoyer_plf = decile.avant
-    ? formatMilliers(Math.round((decile.plf / decile.avant - 1) * 100))
-    : "-";
+  const montrerPLF = typeof decile.plf === "number";
+
+  const impactMoyenFoyer_plf = null;
+  if (montrerPLF) {
+    mpactMoyenFoyer_plf = decile.avant
+      ? formatMilliers(Math.round((decile.plf / decile.avant - 1) * 100))
+      : "-";
+  }
   const impactMoyenFoyer_reforme = decile.avant
     ? formatMilliers(Math.round((decile.apres / decile.avant - 1) * 100))
     : "-";
   const impotMoyenFoyer = formatMilliers(Math.round(decile.avant / decile.poids));
-  const impotMoyenFoyer_plf = formatMilliers(Math.round(decile.plf / decile.poids));
+  const impotMoyenFoyer_plf = montrerPLF ? formatMilliers(Math.round(decile.plf / decile.poids)) : null;
   const impotMoyenFoyer_reforme = formatMilliers(Math.round(decile.apres / decile.poids));
   const recettesEtat = formatMilliers(Math.round(decile.avant / 10000000) / 100);
-  const recettesEtat_plf = formatMilliers(Math.round(decile.plf / 10000000) / 100);
+  const recettesEtat_plf = montrerPLF ? formatMilliers(Math.round(decile.plf / 10000000) / 100) : null;
   const recettesEtat_reforme = formatMilliers(Math.round(decile.apres / 10000000) / 100);
   const frontiere = index + 1 < NOMBRE_DECILES ? formatMilliers(Math.round(frontiereDecile)) : "-";
 
@@ -178,11 +183,17 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
               €/an
             </TableCell>
             <TableCell classes={{ root: classes.cellStyle }}>
-              <span style={styles.plf}>
-                {row.impactMoyenFoyer_plf === "-"
-                  ? NON_APPLICABLE
-                  : `${row.impactMoyenFoyer_plf}%`}
-              </span>
+              {
+                row.impactMoyenFoyer_plf === null
+                  ? null
+                  : (
+                    <span style={styles.plf}>
+                      {row.impactMoyenFoyer_plf === "-"
+                        ? NON_APPLICABLE
+                        : `${row.impactMoyenFoyer_plf}%`}
+                    </span>
+                  )
+              }
               &nbsp;
               <span style={styles.reforme}>
                 {row.impactMoyenFoyer_reforme === "-"
@@ -196,10 +207,16 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
                 €
               </span>
               &nbsp;
-              <span style={styles.plf}>
-                {row.impotMoyenFoyer_plf}
-                €
-              </span>
+              {
+                row.impotMoyenFoyer_plf === null
+                  ? null
+                  : (
+                    <span style={styles.plf}>
+                      {row.impotMoyenFoyer_plf}
+                      €
+                    </span>
+                  )
+              }
               &nbsp;
               <span style={styles.reforme}>
                 {row.impotMoyenFoyer_reforme}
@@ -212,10 +229,16 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
                 Md€
               </span>
               &nbsp;
-              <span style={styles.plf}>
-                {row.recettesEtat_plf}
-                Md€
-              </span>
+              {
+                row.recettesEtat_plf === null
+                  ? null
+                  : (
+                    <span style={styles.plf}>
+                      {row.recettesEtat_plf}
+                      Md€
+                    </span>
+                  )
+              }
               &nbsp;
               <span style={styles.reforme}>
                 {row.recettesEtat_reforme}
@@ -231,8 +254,15 @@ function SimpopTableurInfosDeciles({ classes, deciles, frontieres_deciles }) {
 
 SimpopTableurInfosDeciles.propTypes = {
   classes: PropTypes.shape().isRequired,
-  deciles: PropTypes.shape().isRequired,
-  frontieres_deciles: PropTypes.shape().isRequired,
+  deciles: PropTypes.arrayOf(
+    PropTypes.shape({
+      apres: PropTypes.number.isRequired,
+      avant: PropTypes.number.isRequired,
+      plf: PropTypes.number,
+      poids: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  frontieres_deciles: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default withStyles(styles)(SimpopTableurInfosDeciles);
