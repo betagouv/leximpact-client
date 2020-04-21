@@ -63,7 +63,6 @@ class AppHeaderComponent extends PureComponent {
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
               <div>
-                {!isUserLogged && <div className={classes.bolderTitle}>OPEN&nbsp;</div>}
                 <div className={classes.lighterTitle}>LEXIMPACT&nbsp;</div>
                 <div className={classes.bolderTitle}>IR</div>
                 <div className={classes.subTitle}>
@@ -77,7 +76,6 @@ class AppHeaderComponent extends PureComponent {
           {useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
               <span>
-                {!isUserLogged && <span className={classes.bolderMobileTitle}>OPEN&nbsp;</span>}
                 <span className={classes.lighterMobileTitle}>
                   LEXIMPACT&nbsp;
                 </span>
