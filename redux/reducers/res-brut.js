@@ -1,5 +1,7 @@
 import { cloneDeep } from "lodash";
 
+import { SIMULATE_CAS_TYPES_SUCCESS } from "../actions";
+
 const wprm = [1, 1, 1, 1, 1, 1];
 const apres = [0, -1336, -1068, 0, -1723, -820];
 const avant = [0, -1336, -1068, 0, -1723, -820];
@@ -23,7 +25,7 @@ const resBrut = (state = DEFAULT_STATE, action) => {
   let nextKey = null;
   let nextState = null;
   switch (action.type) {
-  case "onCalculateCompareLoaded":
+  case SIMULATE_CAS_TYPES_SUCCESS:
     return cloneDeep(action.data);
   case "onCreateCasType":
     nextKey = getNextStateKey(state);

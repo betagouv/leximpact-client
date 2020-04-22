@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 
-import { fetchCalculateCompare, removeCasType, showEditCasTypesPopin } from "../../../redux/actions";
+import { removeCasType, showEditCasTypesPopin, simulateCasTypes } from "../../../redux/actions";
 import SimpleCard from "./simple-card-component";
 
-const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
-  const isLoading = loading;
+const mapStateToProps = ({ casTypes, resBrut, results }, { index }) => {
+  const isLoading = results.casTypes.isFetching;
   const { name } = casTypes[index];
   const descCasType = casTypes[index];
   const resultats = {
@@ -23,7 +23,7 @@ const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
 const mapDispatchToProps = dispatch => ({
   handleRemoveCasType: index => () => {
     dispatch(removeCasType(index));
-    dispatch(fetchCalculateCompare());
+    dispatch(simulateCasTypes());
   },
   handleShowEditCasTypesPopin: index => () => dispatch(showEditCasTypesPopin(index)),
 });
