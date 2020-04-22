@@ -17,8 +17,8 @@
     "build": "npm run build:client && npm run build:server",
     "start": "NODE_ENV=production node build/dist/server.js",
     "code:check": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
-    "code:fix": "eslint --fix -c .eslintrc.json --ext .js,.jsx --ignore-path .gitignore .",
-    "code:format": "prettier-eslint --write '**/*.{js,jsx}' --ignore-path .gitignore",
+    "code:fix": "eslint --fix -c .eslintrc.json --ext .js,.jsx,.ts,.tsx  --ignore-path .gitignore .",
+    "code:format": "prettier-eslint --write '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
     "test": "jest",
     "cleanup": "rm -rf ./node_modules"
   },

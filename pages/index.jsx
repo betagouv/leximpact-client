@@ -1,5 +1,3 @@
-import "../styles/index.scss";
-
 import { withStyles } from "@material-ui/core/styles/";
 import { flow } from "lodash";
 import Head from "next/head";
@@ -10,6 +8,7 @@ import AppHeader from "../components/app-header";
 import PopinManager from "../components/PopinManager";
 import Reformeur from "../components/reformeur";
 import withRoot from "../lib/withRoot";
+import "../styles/index.scss";
 
 const styles = () => ({});
 

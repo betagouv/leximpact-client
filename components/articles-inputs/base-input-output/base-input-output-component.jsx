@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 
+import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
 import formatMilliers from "../../utils/format-milliers";
 import InputField from "../input-field";
-import makeNumberGoodLooking from "../../articles/utils/make-number-good-looking";
 import OutputField from "../output-field";
 
 function formatNumber(n) {
