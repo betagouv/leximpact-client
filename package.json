@@ -75,6 +75,8 @@
   },
   "devDependencies": {
     "@babel/node": "^7.8.7",
+    "@types/node": "^13.13.2",
+    "@types/react": "^16.9.34",
     "babel-eslint": "^10.1.0",
     "babel-jest": "24.8.0",
     "enzyme": "3.10.0",
@@ -92,11 +94,15 @@
     "nodemon": "^1.19.4",
     "postcss": "^7.0.27",
     "prettier-eslint": "^9.0.1",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "typescript": "^3.8.3"
   },
   "engines": {
     "node": "12",
     "npm": "6.13"
   },
-  "browsers": ["> 1%", "last 4 versions"]
+  "browsers": [
+    "> 1%",
+    "last 4 versions"
+  ]
 }
