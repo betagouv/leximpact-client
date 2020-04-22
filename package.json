@@ -11,10 +11,8 @@
   "keywords": [],
   "license": "AGPL-3.0-or-later",
   "scripts": {
-    "dev": "nodemon --watch server.js --exec babel-node server.js",
-    "build:client": "NODE_ENV=production next build",
-    "build:server": "NODE_ENV=production babel server.js --out-dir build/dist",
-    "build": "npm run build:client && npm run build:server",
+    "dev": "next dev",
+    "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node build/dist/server.js",
     "code:check": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
     "code:fix": "eslint --fix -c .eslintrc.json --ext .js,.jsx,.ts,.tsx  --ignore-path .gitignore .",
@@ -23,8 +21,6 @@
     "cleanup": "rm -rf ./node_modules"
   },
   "dependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/plugin-proposal-pipeline-operator": "^7.8.3",
     "@iconify/icons-twemoji": "^1.0.7",
     "@iconify/react": "^1.1.3",
     "@material-ui/core": "^3.9.4",
@@ -35,9 +31,6 @@
     "@typescript-eslint/parser": "^2.29.0",
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.7.4",
-    "babel-plugin-lodash": "^3.3.4",
-    "babel-plugin-module-resolver": "^3.2.0",
-    "babel-plugin-wrap-in-js": "^1.1.1",
     "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
     "cookie-parser": "^1.4.5",
@@ -72,11 +65,11 @@
     "redux": "^4.0.5",
     "redux-cookies-middleware": "0.2.0",
     "redux-devtools-extension": "2.13.8",
-    "redux-thunk": "^2.3.0",
-    "uuid": "3.3.3"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/node": "^7.8.7",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@types/node": "^13.13.2",
     "@types/react": "^16.9.34",
     "babel-eslint": "^10.1.0",
@@ -93,7 +86,6 @@
     "eslint-plugin-simple-import-sort": "^4.0.0",
     "eslint-plugin-sort-destructure-keys": "^1.3.3",
     "jest": "24.8.0",
-    "nodemon": "^1.19.4",
     "postcss": "^7.0.27",
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0",
