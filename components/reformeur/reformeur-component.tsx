@@ -1,7 +1,6 @@
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
@@ -10,7 +9,17 @@ import LegendeArticle from "../articles/legende-article/legende-article";
 import ImpactCards from "../cartes-impact";
 import SimulationMenuBar from "../simulation-menu";
 
-class ReformeurComponent extends PureComponent {
+interface Props {
+  initializeAppllicationStoreFromAPI: () => void;
+  montrerPLF: boolean;
+  useMobileView: boolean;
+}
+
+interface State {
+  indextab: number;
+}
+
+class ReformeurComponent extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.state = { indextab: 0 };
@@ -25,7 +34,7 @@ class ReformeurComponent extends PureComponent {
     this.setState({ indextab });
   };
 
-  renderDesktopView = montrerPLF => (
+  renderDesktopView = (montrerPLF: boolean) => (
     <div className="clearfix">
       <div className="moitie-gauche">
         <LegendeArticle montrerPLF={montrerPLF} />
@@ -38,7 +47,7 @@ class ReformeurComponent extends PureComponent {
     </div>
   );
 
-  renderMobileView = (montrerPLF) => {
+  renderMobileView = (montrerPLF: boolean) => {
     const { indextab } = this.state;
     return (
       <Fragment>
@@ -80,11 +89,5 @@ class ReformeurComponent extends PureComponent {
     );
   }
 }
-
-ReformeurComponent.propTypes = {
-  initializeAppllicationStoreFromAPI: PropTypes.func.isRequired,
-  montrerPLF: PropTypes.bool.isRequired,
-  useMobileView: PropTypes.bool.isRequired,
-};
 
 export default ReformeurComponent;
