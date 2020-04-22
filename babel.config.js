@@ -6,7 +6,6 @@ function babelConfig(api) {
       "@babel/preset-env",
       {
         targets: {
-          browsers: ["> 1%", "last 4 versions"],
           node: 8,
         },
       },
