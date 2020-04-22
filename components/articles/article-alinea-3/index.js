@@ -5,8 +5,8 @@ import ArticleAlinea3 from "./article-alinea-3-component";
 
 const PANEL_NAME = "panel3";
 
-const mapStateToProps = ({ currentExpandedArticlePanel, token }) => {
-  const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
+const mapStateToProps = ({ display, token }) => {
+  const isPanelExpanded = display.currentExpandedArticlePanel === PANEL_NAME;
   const isUserLogged = Boolean(token);
   return {
     isPanelExpanded,

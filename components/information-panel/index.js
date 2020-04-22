@@ -5,8 +5,8 @@ import InformationPanel from "./InformationPanel";
 
 const PANEL_NAME = "information";
 
-const mapStateToProps = ({ currentExpandedArticlePanel }) => {
-  const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
+const mapStateToProps = ({ display }) => {
+  const isPanelExpanded = display.currentExpandedArticlePanel === PANEL_NAME;
   return {
     isPanelExpanded,
   };

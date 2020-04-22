@@ -4,7 +4,7 @@ import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({
   casTypes,
-  isInformationPanelVisible,
+  display,
   resBrut,
   token,
   totalPop,
@@ -12,7 +12,7 @@ const mapStateToProps = ({
   const isUserLogged = Boolean(token);
   return {
     casTypes,
-    isInformationPanelVisible,
+    isInformationPanelVisible: display.isInformationPanelVisible,
     isUserLogged,
     resBrut,
     totalPop,

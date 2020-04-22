@@ -6,10 +6,10 @@ import ArticleAlinea4a from "./article-alinea-4a-component";
 const PANEL_NAME = "panel4a";
 
 const mapStateToProps = ({
-  currentExpandedArticlePanel,
+  display,
   reformePLF,
 }) => {
-  const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
+  const isPanelExpanded = display.currentExpandedArticlePanel === PANEL_NAME;
   return {
     isPanelExpanded,
     reformePLF,
