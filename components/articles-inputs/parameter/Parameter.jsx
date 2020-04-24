@@ -25,7 +25,7 @@ class Parameter extends PureComponent {
   render() {
     const {
       baseValue, editable, onReformChange, plfTitle,
-      plfValue, reformTitle, reformValue, size,
+      plfValue, reformInputSize, reformTitle, reformValue,
     } = this.props;
     const equal = baseValue === reformValue;
 
@@ -49,7 +49,7 @@ class Parameter extends PureComponent {
                   [styles.reformInput]: true,
                   [styles.reformValue]: true,
                   [styles.reformValueModified]: !equal,
-                  [styles.smallInput]: size === "small",
+                  [styles.smallInput]: reformInputSize === "small",
                 })}
                 value={reformValue}
                 onChange={onReformChange} />
@@ -69,29 +69,29 @@ class Parameter extends PureComponent {
 }
 
 Parameter.defaultProps = {
-  reformTitle: null,
   editable: false,
   onReformChange: () => { },
   plfTitle: null,
   plfValue: null,
-  size: "large",
+  reformInputSize: "large",
+  reformTitle: null,
 };
 
 Parameter.propTypes = {
-  reformTitle: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  reformValue: PropTypes.number.isRequired,
-  editable: PropTypes.bool,
   baseValue: PropTypes.number.isRequired,
+  editable: PropTypes.bool,
   onReformChange: PropTypes.func,
   plfTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
   plfValue: PropTypes.number,
-  size: PropTypes.oneOf(["small", "large"]),
+  reformInputSize: PropTypes.oneOf(["small", "large"]),
+  reformTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  reformValue: PropTypes.number.isRequired,
 };
 
 export { Parameter };

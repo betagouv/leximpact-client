@@ -125,8 +125,8 @@ class ArticlesComponent extends React.Component {
             editable
             baseValue={baseValuet}
             plfValue={plfValuet}
+            reformInputSize="small"
             reformValue={t[i - 1]}
-            size="small"
             onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
@@ -161,8 +161,8 @@ class ArticlesComponent extends React.Component {
           editable
           baseValue={baseValuet}
           plfValue={plfValuet}
+          reformInputSize="small"
           reformValue={t[i - 1]}
-          size="small"
           onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
