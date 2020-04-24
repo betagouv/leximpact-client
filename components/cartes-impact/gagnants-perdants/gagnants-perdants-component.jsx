@@ -207,13 +207,12 @@ class GagnantsPerdantsCard extends PureComponent {
                 disableRipple
                 aria-label="Delete"
                 classes={{ root: classes.cardEditDeleteButton }}
-                //  onClick={handleRemoveCasType(index)}>
               >
                 <CloseIcon fontSize="small" />
               </IconButton>
             </div>
           </div>
-          {isDisabledEtat ? (
+          {isDisabledEtat && (
             <div>
               <center className={classes.buttonPosition}>
                 <Button
@@ -228,170 +227,168 @@ class GagnantsPerdantsCard extends PureComponent {
                 </Button>
               </center>
             </div>
-          ) : (
-            [
-              isLoadingEtat ? (
-                <center className={classes.buttonPosition}>
-                  <CircularProgress color="secondary" />
-                </center>
-              ) : (
-                <>
-                  <div className={classes.impactContainer}>
-                    <div>
-                      <ArrowUpwardIcon
-                        classes={{ root: classes.styleIconPerdant }}
-                        fontSize="medium"
-                      />
-                      <Typography inline classes={{ root: classes.titleCard }}>
+          )}
+          {!isDisabledEtat && isLoadingEtat && (
+            <center className={classes.buttonPosition}>
+              <CircularProgress color="secondary" />
+            </center>
+          )}
+          {!isDisabledEtat && !isLoadingEtat && (
+            <>
+              <div className={classes.impactContainer}>
+                <div>
+                  <ArrowUpwardIcon
+                    classes={{ root: classes.styleIconPerdant }}
+                    fontSize="default"
+                  />
+                  <Typography inline classes={{ root: classes.titleCard }}>
                         ayant une augmentation de l&apos;IR
-                      </Typography>
-
-                      <div className={classes.containerImpact}>
-                        {
-                          montrerPLF
-                            ? (
-                              <div className={styles2.plf}>
-                                <span className={styles2.plfValue}>{haussePlf}</span>
-                                <span className={styles2.plfUnit}> M</span>
-                                <GroupIcon
-                                  className={styles2.plfIcon}
-                                  fontSize="small"
-                                />
-                              </div>
-                            )
-                            : null
-                        }
-                        <div className={styles2.reform}>
-                          <span className={styles2.reformValue}>{hausseReforme}</span>
-                          <span className={styles2.reformUnit}> M</span>
-                          <GroupIcon
-                            className={styles2.reformIcon}
-                            fontSize="small"
-                          />
-                        </div>
-                      </div>
-                      <div className={styles2.details}>
-                        dont
-                        {" "}
-                        {
-                          montrerPLF
-                            ? (
-                              <Fragment>
-                                <span className={styles2.detailsPlfValue}>{hausseZeroPlf}</span>
-                                <span className={styles2.detailsPlfUnit}> M </span>
-                              </Fragment>
-                            )
-                            : null
-                        }
-                        <span className={styles2.detailsReformValue}>{hausseZeroReforme}</span>
-                        <span className={styles2.detailsReformUnit}> M</span>
-                        &nbsp;de foyers entrant dans l&apos;IR
-                      </div>
-                    </div>
-                  </div>
-
-                  <Divider />
-
-                  <div className={classes.impactContainer}>
-                    <div>
-                      <ArrowDownwardIcon
-                        classes={{ root: classes.styleIconGagnant }}
-                        fontSize="medium"
-                      />
-                      <Typography inline classes={{ root: classes.titleCard }}>
-                        ayant une baisse de l&apos;IR
-                      </Typography>
-                      <div className={classes.containerImpact}>
-                        {
-                          montrerPLF
-                            ? (
-                              <div className={styles2.plf}>
-                                <span className={styles2.plfValue}>{baissePlf}</span>
-                                <span className={styles2.plfUnit}> M</span>
-                                <GroupIcon
-                                  className={styles2.plfIcon}
-                                  fontSize="small"
-                                />
-                              </div>
-                            )
-                            : null
-                        }
-                        <div className={styles2.reform}>
-                          <span className={styles2.reformValue}>{baisseReforme}</span>
-                          <span className={styles2.reformUnit}> M</span>
-                          <GroupIcon
-                            className={styles2.reformIcon}
-                            fontSize="small"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Divider />
-
-                  <div className={classes.impactContainer}>
-                    <div>
-                      <TrendingFLatIcon
-                        classes={{ root: classes.styleIconNeutre }}
-                        fontSize="medium"
-                      />
-                      <Typography inline classes={{ root: classes.titleCard }}>
-                        non concernés
-                      </Typography>
-                      <div className={classes.containerImpact}>
-                        {
-                          montrerPLF
-                            ? (
-                              <div className={styles2.plf}>
-                                <span className={styles2.plfValue}>{neutrePlf}</span>
-                                <span className={styles2.plfUnit}> M</span>
-                                <GroupIcon
-                                  className={styles2.plfIcon}
-                                  fontSize="small"
-                                />
-                              </div>
-                            )
-                            : null
-                        }
-                        <div className={styles2.reform}>
-                          <span className={styles2.reformValue}>{neutreReforme}</span>
-                          <span className={styles2.reformUnit}> M</span>
-                          <GroupIcon
-                            className={styles2.reformIcon}
-                            fontSize="small"
-                          />
-                        </div>
-                      </div>
-                      <div className={styles2.details}>
-                        dont
-                        {" "}
-                        {
-                          montrerPLF
-                            ? (
-                              <Fragment>
-                                <span className={styles2.detailsPlfValue}>{neutreZeroPlf}</span>
-                                <span className={styles2.detailsPlfUnit}> M </span>
-                              </Fragment>
-                            )
-                            : null
-                        }
-                        <span className={styles2.detailsReformValue}>{neutreZeroReforme}</span>
-                        <span className={styles2.detailsReformUnit}> M</span>
-                        &nbsp;de foyers toujours exonérés d&apos;IR
-                      </div>
-                    </div>
-                  </div>
-
-                  <Typography className={classes.sourceInsee}>
-                    * Chiffrages indicatifs.
-                    <br />
-                    {" "}
-                    Données ERFS-FPR (Insee).
                   </Typography>
-                </>
-              ),
-            ])}
+
+                  <div className={classes.containerImpact}>
+                    {
+                      montrerPLF
+                        ? (
+                          <div className={styles2.plf}>
+                            <span className={styles2.plfValue}>{haussePlf}</span>
+                            <span className={styles2.plfUnit}> M</span>
+                            <GroupIcon
+                              className={styles2.plfIcon}
+                              fontSize="small"
+                            />
+                          </div>
+                        )
+                        : null
+                    }
+                    <div className={styles2.reform}>
+                      <span className={styles2.reformValue}>{hausseReforme}</span>
+                      <span className={styles2.reformUnit}> M</span>
+                      <GroupIcon
+                        className={styles2.reformIcon}
+                        fontSize="small"
+                      />
+                    </div>
+                  </div>
+                  <div className={styles2.details}>
+                    dont
+                    {" "}
+                    {
+                      montrerPLF
+                        ? (
+                          <Fragment>
+                            <span className={styles2.detailsPlfValue}>{hausseZeroPlf}</span>
+                            <span className={styles2.detailsPlfUnit}> M </span>
+                          </Fragment>
+                        )
+                        : null
+                    }
+                    <span className={styles2.detailsReformValue}>{hausseZeroReforme}</span>
+                    <span className={styles2.detailsReformUnit}> M</span>
+                    &nbsp;de foyers entrant dans l&apos;IR
+                  </div>
+                </div>
+              </div>
+              <Divider />
+
+              <div className={classes.impactContainer}>
+                <div>
+                  <ArrowDownwardIcon
+                    classes={{ root: classes.styleIconGagnant }}
+                    fontSize="default"
+                  />
+                  <Typography inline classes={{ root: classes.titleCard }}>
+                        ayant une baisse de l&apos;IR
+                  </Typography>
+                  <div className={classes.containerImpact}>
+                    {
+                      montrerPLF
+                        ? (
+                          <div className={styles2.plf}>
+                            <span className={styles2.plfValue}>{baissePlf}</span>
+                            <span className={styles2.plfUnit}> M</span>
+                            <GroupIcon
+                              className={styles2.plfIcon}
+                              fontSize="small"
+                            />
+                          </div>
+                        )
+                        : null
+                    }
+                    <div className={styles2.reform}>
+                      <span className={styles2.reformValue}>{baisseReforme}</span>
+                      <span className={styles2.reformUnit}> M</span>
+                      <GroupIcon
+                        className={styles2.reformIcon}
+                        fontSize="small"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Divider />
+
+              <div className={classes.impactContainer}>
+                <div>
+                  <TrendingFLatIcon
+                    classes={{ root: classes.styleIconNeutre }}
+                    fontSize="default"
+                  />
+                  <Typography inline classes={{ root: classes.titleCard }}>
+                        non concernés
+                  </Typography>
+                  <div className={classes.containerImpact}>
+                    {
+                      montrerPLF
+                        ? (
+                          <div className={styles2.plf}>
+                            <span className={styles2.plfValue}>{neutrePlf}</span>
+                            <span className={styles2.plfUnit}> M</span>
+                            <GroupIcon
+                              className={styles2.plfIcon}
+                              fontSize="small"
+                            />
+                          </div>
+                        )
+                        : null
+                    }
+                    <div className={styles2.reform}>
+                      <span className={styles2.reformValue}>{neutreReforme}</span>
+                      <span className={styles2.reformUnit}> M</span>
+                      <GroupIcon
+                        className={styles2.reformIcon}
+                        fontSize="small"
+                      />
+                    </div>
+                  </div>
+                  <div className={styles2.details}>
+                    dont
+                    {" "}
+                    {
+                      montrerPLF
+                        ? (
+                          <Fragment>
+                            <span className={styles2.detailsPlfValue}>{neutreZeroPlf}</span>
+                            <span className={styles2.detailsPlfUnit}> M </span>
+                          </Fragment>
+                        )
+                        : null
+                    }
+                    <span className={styles2.detailsReformValue}>{neutreZeroReforme}</span>
+                    <span className={styles2.detailsReformUnit}> M</span>
+                    &nbsp;de foyers toujours exonérés d&apos;IR
+                  </div>
+                </div>
+              </div>
+
+              <Typography className={classes.sourceInsee}>
+                    * Chiffrages indicatifs.
+                <br />
+                {" "}
+                    Données ERFS-FPR (Insee).
+              </Typography>
+            </>
+          )}
         </CardContent>
       </Card>
     );
@@ -400,7 +397,6 @@ class GagnantsPerdantsCard extends PureComponent {
 GagnantsPerdantsCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   foyers_fiscaux_touches: PropTypes.shape().isRequired,
-  index: PropTypes.number.isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,

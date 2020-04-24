@@ -58,6 +58,7 @@ const styles = () => ({
     fontSize: "0.875em",
     marginBottom: "0.7em",
     marginLeft: "10px",
+    textAlign: "justify",
     textJustify: "left",
   },
   subtitleEnSavoirPlus: {
@@ -76,15 +77,14 @@ const styles = () => ({
   },
 });
 
-class ConsulterExpertCard extends PureComponent {
+class InformationPanel extends PureComponent {
   render() {
     const {
       classes,
-      isPanelExpanded,
-      onExpandPanel,
-      onRemoveConsulterExpert,
-
+      onClose,
     } = this.props;
+
+    const isExpansionPanelVisible = false;
 
     return (
       <Card className={classes.cardContainer}>
@@ -95,49 +95,34 @@ class ConsulterExpertCard extends PureComponent {
             </div>
             <div className={classes.divTitre}>
               <Typography className={classes.titleCard}>
-                Ce que calcule LexImpact
+                Epidémie de Covid-19
               </Typography>
               <Typography className={classes.subtitleCard}>
-                LexImpact fonctionne à euros courants.
-                {" "}
-                <b>
-                  L&apos;inflation n&apos;est pas paramétrée dans le simulateur.
-                </b>
+                L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qu&apos;il
+                est à ce jour impossible à prévoir, les résultats que nous affichons sont
+                très probablement surestimés.
                 <br />
+                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
+                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
+                d&apos;années passées. Dès que nous aurons plus d&apos;informations,
+                nous recalibrerons le modèle en conséquence.
               </Typography>
 
-              <ExpansionPanel
-                classes={{ root: classes.styleExpansionPanel }}
-                expanded={isPanelExpanded}
-                onChange={onExpandPanel}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography className={classes.subtitleEnSavoirPlus}>
-                    En savoir plus
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Typography className={classes.subtitleEnSavoirPlus}>
-                    La comparaison est effectuée entre le code existant et le
-                    PLF prévu. Or, ces deux codes ne s&apos;appliquent pas aux
-                    mêmes revenus. Afin d&apos;éviter qu&apos;une hausse de
-                    revenu consécutive à l&apos;inflation ne se manifeste par
-                    une hausse du taux d&apos;imposition, le PLF revalorise
-                    souvent les seuils et les plafonds d&apos;un taux
-                    correspondant au taux d&apos;inflation. La comparaison
-                    effectuée par Leximpact est centrée sur les impacts de la
-                    loi, et considère donc un ménage dont&nbsp;
-                    <a
-                      href="https://fr.wikipedia.org/wiki/Valeur_nominale_et_valeur_r%C3%A9elle"
-                      rel="noopener noreferrer"
-                      target="_blank">
-                      le revenu nominal
-                    </a>
-                    &nbsp;ne change pas entre le code existant et le PLF, ce
-                    qui, si on considère l&apos;inflation, signifierait une
-                    baisse de leur revenu réel.
-                  </Typography>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
+              {isExpansionPanelVisible && (
+                <ExpansionPanel
+                  classes={{ root: classes.styleExpansionPanel }}>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography className={classes.subtitleEnSavoirPlus}>
+                      En savoir plus
+                    </Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    <Typography className={classes.subtitleEnSavoirPlus}>
+                      Texte de &quot;En savoir plus&quot;
+                    </Typography>
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              )}
             </div>
 
             <div className={classes.cardHeaderButtons}>
@@ -145,7 +130,7 @@ class ConsulterExpertCard extends PureComponent {
                 disableRipple
                 aria-label="Delete"
                 classes={{ root: classes.cardEditDeleteButton }}
-                onClick={onRemoveConsulterExpert}>
+                onClick={onClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </div>
@@ -155,11 +140,9 @@ class ConsulterExpertCard extends PureComponent {
     );
   }
 }
-ConsulterExpertCard.propTypes = {
+InformationPanel.propTypes = {
   classes: PropTypes.shape().isRequired,
-  isPanelExpanded: PropTypes.bool.isRequired,
-  onExpandPanel: PropTypes.func.isRequired,
-  onRemoveConsulterExpert: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(ConsulterExpertCard);
+export default withStyles(styles)(InformationPanel);

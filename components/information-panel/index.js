@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 
-import { closeConsulterExpert, expandArticlePanel } from "../../redux/actions";
-import ConsulterExpertCard from "./consulter-expert-component";
+import { expandArticlePanel, hideInformationPanel } from "../../redux/actions";
+import InformationPanel from "./InformationPanel";
 
-const PANEL_NAME = "consulter_expert";
+const PANEL_NAME = "information";
 
 const mapStateToProps = ({ currentExpandedArticlePanel }) => {
   const isPanelExpanded = currentExpandedArticlePanel === PANEL_NAME;
@@ -13,11 +13,11 @@ const mapStateToProps = ({ currentExpandedArticlePanel }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  onClose: () => dispatch(hideInformationPanel()),
   onExpandPanel: () => dispatch(expandArticlePanel(PANEL_NAME)),
-  onRemoveConsulterExpert: () => dispatch(closeConsulterExpert()),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ConsulterExpertCard);
+)(InformationPanel);

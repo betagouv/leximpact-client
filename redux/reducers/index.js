@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
 import casTypes from "./cas-types";
-import consulterExpert from "./consulter-expert";
 import currentExpandedArticlePanel from "./current-expanded-article-panel";
 import disabledEtat from "./disabled-etat";
+import isInformationPanelVisible from "./is-information-panel-visible";
 import loading from "./loading";
 import loadingEtat from "./loading-etat";
 import reforme from "./reforme";
@@ -15,9 +15,9 @@ import totalPop from "./total-pop";
 
 export default combineReducers({
   casTypes,
-  consulterExpert,
   currentExpandedArticlePanel,
   disabledEtat,
+  isInformationPanelVisible,
   loading,
   loadingEtat,
   reforme,
