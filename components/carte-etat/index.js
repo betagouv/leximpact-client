@@ -9,7 +9,7 @@ const mapStateToProps = ({ loadingEtat, totalPop }) => {
   const { deciles, frontieres_deciles, total } = totalPop;
   return {
     deciles,
-    frontieres_deciles,
+    frontieresDeciles: frontieres_deciles,
     isDisabledEtat,
     isLoadingEtat,
     total,

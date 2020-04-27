@@ -1,86 +1,36 @@
 
-.divTitre {
-  display: inline-block;
-  padding-left: 3px
-}
-.chart-wrapper {
-  height: 210px;
-  display: flex;
-  width: 100%;
-}
-.chart {
-  height: 210px;
-  width: 100%;
-}
-.main-chart{
-  flex: 3,
-}
-.title-wrapper{
-  display: flex;
-}
-.montant-impots{
-  padding: 0px;
-}
-
-.uniteImpotEtat {
-  &.avant {
-    font-family: "Lato";
-    font-weight: regular;
-    font-size: 30px;
-    color: #565656;
-    }
-    &.plf {
-      /*filter: blur(1.25px);*/
-    font-family: "Lato";
-    font-weight: regular;
-    font-size: 30px;
-    color: #ff6b6b;
-    }
-
-    &.apres {
-      /*  filter: blur(1.25px);*/
-    font-family: "Lato";
-    font-weight: regular;
-    font-size: 30px;
-    color: #00a3ff;
-    }
+:global {
+    
+  .divTitre {
+    display: inline-block;
+    padding-left: 3px
+  }
+  .chart-wrapper {
+    height: 210px;
+    display: flex;
+    width: 100%;
+  }
+  .chart {
+    height: 210px;
+    width: 100%;
+  }
+  .main-chart{
+    flex: 3,
+  }
+  .title-wrapper{
+    display: flex;
+  }
+  .montant-impots{
+    padding: 0px;
   }
 
-
-.impotEtat {
-
-  &.avant {
-    font-family: "Lato";
-    font-weight: bold;
-    font-size: 40px;
-      background-color:#DED500;
-      background-blend-mode: darken;
-      /* ligne à ajouter quand PLF*/
-      text-decoration-color: #FF6B6B;
-      text-decoration-line: line-through;
-    }
-    &.plf {
-      font-family: "Lato";
-      font-weight: bold;
-      font-size: 40px;
-      /*filter: blur(1.25px);*/
-      color: #ff6b6b;
-    }
-
-    &.apres {
-      font-family: "Lato";
-      font-weight: bold;
-      font-size: 40px;
-      /*  filter: blur(1.25px);*/
-        color: #00a3ff;
-      }
+  .nobreak {
+    overflow: hidden;
   }
 
-.nobreak {
-  overflow: hidden;
-}
+  .styleExpansionPanel {
+    margin: 0px;
+    overflow-x:scroll;
+  }
 
-.styleExpansionPanel {
-  margin: 0px;
-  overflow-x:scroll;
 }
