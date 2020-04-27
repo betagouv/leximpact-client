@@ -7,7 +7,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-6",
       }
     }
   >
@@ -15,7 +15,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-5",
         }
       }
       component="div"
@@ -33,8 +33,8 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <div
-      className="AppHeaderComponent-loginButtonMobilePlaceholder-5"
+    <WithStyles(LoginButtonMobile)
+      isUserLogged={true}
     />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
@@ -47,7 +47,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-6",
       }
     }
   >
@@ -55,7 +55,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-5",
         }
       }
       component="div"
@@ -73,8 +73,8 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <div
-      className="AppHeaderComponent-loginButtonMobilePlaceholder-5"
+    <WithStyles(LoginButtonMobile)
+      isUserLogged={true}
     />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
@@ -87,7 +87,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-6",
       }
     }
   >
@@ -95,7 +95,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-5",
         }
       }
       component="div"
@@ -113,7 +113,9 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButton) />
+    <WithStyles(LoginButton)
+      isUserLogged={false}
+    />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -125,7 +127,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-6",
       }
     }
   >
@@ -133,7 +135,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-5",
         }
       }
       component="div"
@@ -151,7 +153,9 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile) />
+    <WithStyles(LoginButtonMobile)
+      isUserLogged={false}
+    />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;

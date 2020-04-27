@@ -4,7 +4,7 @@ exports[`components | app-header | index snapshot doit correspondre au snapshot 
 <WithStyles(Button)
   className="LoginButton-button-2"
   color="primary"
-  onClick={[MockFunction]}
+  onClick={[Function]}
   size="medium"
   variant="contained"
 >
@@ -15,11 +15,6 @@ exports[`components | app-header | index snapshot doit correspondre au snapshot 
       }
     }
   />
-  <span>
-    leximpact 
-  </span>
-  <b>
-    pop
-  </b>
+  Se connecter
 </WithStyles(Button)>
 `;
