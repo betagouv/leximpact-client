@@ -11,9 +11,11 @@
   "keywords": [],
   "license": "AGPL-3.0-or-later",
   "scripts": {
-    "dev": "next dev -p 9001",
-    "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production next start -p 9001",
+    "dev": "nodemon --watch server.js --exec babel-node server.js",
+    "build:client": "NODE_ENV=production next build",
+    "build:server": "NODE_ENV=production babel server.js --out-dir build/dist",
+    "build": "npm run build:client && npm run build:server",
+    "start": "NODE_ENV=production node build/dist/server.js",
     "code:check": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
     "code:fix": "eslint --fix -c .eslintrc.json --ext .js,.jsx,.ts,.tsx  --ignore-path .gitignore .",
     "code:format": "prettier-eslint --write '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
@@ -67,6 +69,8 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.8.7",
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@types/node": "^13.13.2",
@@ -85,6 +89,7 @@
     "eslint-plugin-simple-import-sort": "^4.0.0",
     "eslint-plugin-sort-destructure-keys": "^1.3.3",
     "jest": "24.8.0",
+    "nodemon": "^1.19.4",
     "postcss": "^7.0.27",
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0",
