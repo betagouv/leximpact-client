@@ -7,13 +7,13 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 import { Field } from "react-final-form";
 
-import formatMilliers from "../../utils/format-milliers";
+import { formatNumber } from "../../utils";
 import generateRevenusMensuel from "../../utils/maths/generate-revenus-mensuel";
 
 const REVENUS_MENSUEL = generateRevenusMensuel(500);
 const selectOptions = REVENUS_MENSUEL.map((value) => {
   const uniqKey = `revenu_mensuel_${value}`;
-  return <option key={uniqKey} value={value}>{`${formatMilliers(value)} €/mois`}</option>;
+  return <option key={uniqKey} value={value}>{`${formatNumber(value)} €/mois`}</option>;
 });
 
 const styles = () => ({
@@ -87,7 +87,7 @@ const CasTypesRevenus = ({ classes, name }) => (
                 {selectOptions}
               </NativeSelect>
               <span className={classes.label}>
-                {`Soit ${formatMilliers(revenuAnnuel)} €/an`}
+                {`Soit ${formatNumber(revenuAnnuel)} €/an`}
               </span>
             </Fragment>
           );

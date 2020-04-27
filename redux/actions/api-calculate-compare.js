@@ -1,7 +1,6 @@
-import { get } from "lodash";
-
 import request from "../../components/utils/request";
 import { transformCasTypesToData } from "../../components/utils/transform-cas-types-to-data";
+import { formatReforme } from "./format-reforme";
 import { loadingComplete, loadingError, loadingStart } from "./loading";
 
 const fetchCalculateCompare = () => async (dispatch, getState) => {
@@ -11,20 +10,7 @@ const fetchCalculateCompare = () => async (dispatch, getState) => {
   const descriptionCasTypes = transformCasTypesToData(casTypes);
   const body = {
     description_cas_types: descriptionCasTypes,
-    reforme: {
-      ...reforme,
-      impot_revenu: {
-        ...reforme.impot_revenu,
-        bareme: {
-          ...reforme.impot_revenu.bareme,
-          taux: reforme.impot_revenu.bareme.taux.map(taux => taux / 100),
-        },
-        decote: {
-          ...reforme.impot_revenu.decote,
-          taux: reforme.impot_revenu.decote.taux / 100,
-        },
-      },
-    },
+    reforme: formatReforme(reforme),
   };
 
   try {

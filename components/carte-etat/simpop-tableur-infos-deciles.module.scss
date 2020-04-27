@@ -2,7 +2,7 @@
 
 // TODO: avoid duplicate code.
 
-.initial {
+.base {
   color: #000000;
 
   font-family: Lato;
@@ -26,9 +26,9 @@
   padding: 3px;
 }
 
-.amendment {
+.reform {
   color: #000000;
-  background-color: $amendment-bg-color;
+  background-color: $reform-bg-color;
 
   border-radius: 0.3em;
   font-family: Lato;

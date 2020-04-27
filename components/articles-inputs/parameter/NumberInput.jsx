@@ -2,14 +2,7 @@ import TextField from "@material-ui/core/TextField";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-function formatNumber(number) {
-  // Hack to support negative zeros.
-  // Negative zeros should disappear in the future after cleaning up the application.
-  if (number === 0) {
-    return "0";
-  }
-  return number.toLocaleString();
-}
+import { formatNumber } from "../../utils";
 
 function parseNumber(str) {
   return parseFloat(
