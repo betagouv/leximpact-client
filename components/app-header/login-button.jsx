@@ -1,5 +1,6 @@
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import VPNKeyIcon from "@material-ui/icons/VpnKey";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
@@ -45,7 +46,9 @@ class LoginButton extends PureComponent {
         size="medium"
         variant="contained"
         onClick={this.onClick}>
-        <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
+        {isUserLogged
+          ? <ExitToAppIcon classes={{ root: classes.avatarIcon }} />
+          : <VPNKeyIcon classes={{ root: classes.avatarIcon }} />}
         {isUserLogged ? "Se déconnecter" : "Se connecter"}
       </Button>
     );
