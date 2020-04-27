@@ -24,3 +24,17 @@ jobs:
       - run:
           name: Run tests
           command: npm test
+
+  check_linting:
+    docker:
+      - image: node:12
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-node12-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run:
+          name: Check code linting
+          command: npm run code:check
