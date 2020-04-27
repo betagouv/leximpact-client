@@ -152,7 +152,10 @@ class CarteEtat extends PureComponent {
                   <BarChart deciles={deciles} />
                 </div>
                 <div className={classes.simpop}>
-                  <div className="montant-impots">
+                  <div className={classNames({
+                    [styles2.montantImpots]: true,
+                    [styles2.noPLF]: !montrerPLF,
+                  })}>
                     <Typography
                       inline
                       className={classNames({
@@ -173,7 +176,10 @@ class CarteEtat extends PureComponent {
                   {
                     montrerPLF
                       ? (
-                        <div className="montant-impots">
+                        <div className={classNames({
+                          [styles2.montantImpots]: true,
+                          [styles2.noPLF]: !montrerPLF,
+                        })}>
                           <Typography
                             inline
                             className={classNames({
@@ -194,7 +200,10 @@ class CarteEtat extends PureComponent {
                       )
                       : null
                   }
-                  <div className="montant-impots">
+                  <div className={classNames({
+                    [styles2.montantImpots]: true,
+                    [styles2.noPLF]: !montrerPLF,
+                  })}>
                     <Typography
                       inline
                       className={classNames({
