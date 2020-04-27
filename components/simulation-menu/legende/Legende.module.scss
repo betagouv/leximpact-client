@@ -1,6 +1,6 @@
 @import 'styles/variables';
 
-.legend, .initial, .amendment, .plf {
+.legend, .initial, .reform, .plf {
   font-family: $default-font-family;
   font-size: 12px;
 }
@@ -34,9 +34,9 @@
 }
 
 
-.amendment {
+.reform {
   font-weight: bold;
   color: black;
-  background-color: $amendment-bg-color;
+  background-color: $reform-bg-color;
   padding: 0.1rem;
 }
