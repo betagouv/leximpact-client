@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: node:12
 
@@ -43,5 +43,5 @@ workflows:
   version: 2
   test_and_check_linting:
     jobs:
-      - build
+      - test
       - check_linting
