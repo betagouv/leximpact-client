@@ -1,5 +1,6 @@
 import request from "../../../components/utils/request";
 import { transformCasTypesToData } from "../../../components/utils/transform-cas-types-to-data";
+import { formatReforme } from "../format-reforme";
 
 export const SIMULATE_CAS_TYPES_REQUEST = "SIMULATE_CAS_TYPES_REQUEST";
 function simulateCasTypesRequest() {
@@ -30,7 +31,7 @@ const simulateCasTypes = () => (dispatch, getState) => {
   const { casTypes, reforme } = getState();
   const body = {
     description_cas_types: transformCasTypesToData(casTypes),
-    reforme,
+    reforme: formatReforme(reforme),
   };
 
   return request
