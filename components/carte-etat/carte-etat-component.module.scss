@@ -1,0 +1,52 @@
+@import 'styles/variables';
+
+.uniteImpotEtat {
+  &.avant {
+    font-family: $default-font-family;
+    font-size: 30px;
+    color: #000000;
+  }
+  &.plf {
+    font-family: $default-font-family;
+    font-size: 30px;
+    color: $plf-color;
+  }
+
+  &.apres {
+    font-family: $default-font-family;
+    font-size: 30px;
+    color: #000000;
+  }
+}
+
+.impotEtat {
+  &.avant {
+    font-family: $default-font-family;
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+  }
+  &.plf {
+    font-family: $default-font-family;
+    font-weight: bold;
+    font-size: 40px;
+    color: $plf-color;
+  }
+
+  &.apres {
+    font-family: $default-font-family;
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+    background-color: $reform-bg-color;
+    padding: 0.1rem;
+  }
+}
+
+.montantImpots {
+  padding: 0px;
+}
+
+.noPLF {
+  margin-top: 20px;
+}

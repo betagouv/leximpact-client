@@ -5,13 +5,11 @@ import { Fragment, PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
-import LegendeArticle from "../articles/legende-article/legende-article";
 import ImpactCards from "../cartes-impact";
 import SimulationMenuBar from "../simulation-menu";
 
 interface Props {
   initializeAppllicationStoreFromAPI: () => void;
-  montrerPLF: boolean;
   useMobileView: boolean;
 }
 
@@ -34,10 +32,9 @@ class ReformeurComponent extends PureComponent<Props, State> {
     this.setState({ indextab });
   };
 
-  renderDesktopView = (montrerPLF: boolean) => (
+  renderDesktopView = () => (
     <div className="clearfix">
       <div className="moitie-gauche">
-        <LegendeArticle montrerPLF={montrerPLF} />
         <Articles />
       </div>
       <div className="moitie-droite">
@@ -47,7 +44,7 @@ class ReformeurComponent extends PureComponent<Props, State> {
     </div>
   );
 
-  renderMobileView = (montrerPLF: boolean) => {
+  renderMobileView = () => {
     const { indextab } = this.state;
     return (
       <Fragment>
@@ -67,7 +64,6 @@ class ReformeurComponent extends PureComponent<Props, State> {
           index={indextab}
           onChangeIndex={this.handleOnChangeIndex}>
           <div style={{ padding: 24 }}>
-            <LegendeArticle montrerPLF={montrerPLF} />
             <Articles />
           </div>
           <div style={{ padding: 24 }}>
@@ -80,11 +76,11 @@ class ReformeurComponent extends PureComponent<Props, State> {
   };
 
   render() {
-    const { montrerPLF, useMobileView } = this.props;
+    const { useMobileView } = this.props;
     return (
       <div className="main-index">
-        {useMobileView && this.renderMobileView(montrerPLF)}
-        {!useMobileView && this.renderDesktopView(montrerPLF)}
+        {useMobileView && this.renderMobileView()}
+        {!useMobileView && this.renderDesktopView()}
       </div>
     );
   }

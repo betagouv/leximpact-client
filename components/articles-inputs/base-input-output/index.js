@@ -4,39 +4,22 @@ import { connect } from "react-redux";
 import { updateReformeByName } from "../../../redux/actions";
 import BaseInputOutputComponent from "./base-input-output-component";
 
-const REGEX_TAUX = RegExp("taux");
-
 const mapStateToProps = (state, props) => {
-  const { name, style } = props;
+  const { name } = props;
   const { reforme, reformeBase, reformePLF } = state;
-  const isTauxValue = REGEX_TAUX.test(name);
-  const multiplicateur = isTauxValue ? 100 : 1;
 
-  let baseValue = get(reformeBase.impot_revenu, name);
-  baseValue *= multiplicateur;
+  const baseValue = get(reformeBase.impot_revenu, name);
 
   let plfValue;
   if (reformePLF) {
     plfValue = get(reformePLF, `impot_revenu.${name}`);
-    plfValue *= multiplicateur;
   }
 
-  let newValue = get(reforme.impot_revenu, name);
-  newValue *= multiplicateur;
-
-  const outputFieldStyle = style.VarCodeexistant;
-  const outputFieldStyleNonBarre = style.VarCodeexistantNonBarre;
-
-  const plfFieldStyle = style.VarPLF;
-  const inputFieldStyle = isTauxValue ? style.InputTaux : style.InputSeuil;
+  const newValue = get(reforme.impot_revenu, name);
 
   return {
     baseValue,
-    inputFieldStyle,
     newValue,
-    outputFieldStyle,
-    outputFieldStyleNonBarre,
-    plfFieldStyle,
     plfValue,
   };
 };

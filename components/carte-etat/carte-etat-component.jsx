@@ -13,10 +13,12 @@ import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import CachedIcon from "@material-ui/icons/Cached";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FaceIcon from "@material-ui/icons/Face";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import BarChart from "./bar-chart";
+import styles2 from "./carte-etat-component.module.scss";
 import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
 
 const styles = () => ({
@@ -92,7 +94,7 @@ class CarteEtat extends PureComponent {
     const {
       classes,
       deciles,
-      frontieres_deciles,
+      frontieresDeciles,
       isDisabledEtat,
       isLoadingEtat,
       onClickSimPop,
@@ -150,33 +152,72 @@ class CarteEtat extends PureComponent {
                   <BarChart deciles={deciles} />
                 </div>
                 <div className={classes.simpop}>
-                  <div className="montant-impots">
-                    <Typography inline className="impotEtat avant">
+                  <div className={classNames({
+                    [styles2.montantImpots]: true,
+                    [styles2.noPLF]: !montrerPLF,
+                  })}>
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.impotEtat]: true,
+                        [styles2.avant]: true,
+                      })}>
                       {totalAvant}
                     </Typography>
-                    <Typography inline className="uniteImpotEtat avant">
-                          Md€*
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.uniteImpotEtat]: true,
+                        [styles2.avant]: true,
+                      })}>
+                      Md€*
                     </Typography>
                   </div>
                   {
                     montrerPLF
                       ? (
-                        <div className="montant-impots">
-                          <Typography inline className="impotEtat plf">
+                        <div className={classNames({
+                          [styles2.montantImpots]: true,
+                          [styles2.noPLF]: !montrerPLF,
+                        })}>
+                          <Typography
+                            inline
+                            className={classNames({
+                              [styles2.impotEtat]: true,
+                              [styles2.plf]: true,
+                            })}>
                             {totalPLF}
                           </Typography>
-                          <Typography inline className="uniteImpotEtat plf">
-                                Md€*
+                          <Typography
+                            inline
+                            className={classNames({
+                              [styles2.uniteImpotEtat]: true,
+                              [styles2.plf]: true,
+                            })}>
+                            Md€*
                           </Typography>
                         </div>
                       )
                       : null
                   }
-                  <div className="montant-impots">
-                    <Typography inline className="impotEtat apres">
+                  <div className={classNames({
+                    [styles2.montantImpots]: true,
+                    [styles2.noPLF]: !montrerPLF,
+                  })}>
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.impotEtat]: true,
+                        [styles2.apres]: true,
+                      })}>
                       {totalApres}
                     </Typography>
-                    <Typography inline className="uniteImpotEtat apres">
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.uniteImpotEtat]: true,
+                        [styles2.apres]: true,
+                      })}>
                           Md€*
                     </Typography>
                   </div>
@@ -205,7 +246,7 @@ Estimation à partir des données de l&apos;Enquête
               <ExpansionPanelDetails className="styleExpansionPanel">
                 <SimpopTableurInfosDeciles
                   deciles={deciles}
-                  frontieres_deciles={frontieres_deciles}
+                  frontieresDeciles={frontieresDeciles}
                 />
               </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -226,7 +267,7 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-  frontieres_deciles: PropTypes.arrayOf(PropTypes.number).isRequired,
+  frontieresDeciles: PropTypes.arrayOf(PropTypes.number).isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,

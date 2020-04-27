@@ -21,6 +21,7 @@ exports[`components | connexion | roles-input snapshot doit correspondre avec le
         "disabled": false,
         "domains": Array [
           "@assemblee-nationale.fr",
+          "@an.fr",
         ],
         "label": "Administrat·eur·rice Assemblée nationale",
       },
@@ -31,6 +32,7 @@ exports[`components | connexion | roles-input snapshot doit correspondre avec le
           "@clb-an.fr",
           "@clb-dep.fr",
           "@assemblee-nationale.fr",
+          "@an.fr",
           "@groupe-udiagir.fr",
           "@an-en-marche.fr",
           "@gsan.org",
@@ -42,6 +44,7 @@ exports[`components | connexion | roles-input snapshot doit correspondre avec le
         "disabled": false,
         "domains": Array [
           "@assemblee-nationale.fr",
+          "@an.fr",
         ],
         "label": "Député·e",
       },

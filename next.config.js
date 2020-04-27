@@ -7,6 +7,7 @@ const { assign, concat, flow } = require("lodash/fp");
 const { EnvironmentPlugin } = require("webpack");
 
 const nextConfig = {
+  cssModules: true,
   distDir: "build",
   exportPathMap: defaults => ({
     ...defaults,
