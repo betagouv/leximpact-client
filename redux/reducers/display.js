@@ -27,7 +27,7 @@ const display = (state = initialState, action) => {
 
 export default display;
 
-// Other possible version:
+// Other possible version (in this file or in separate files in a subdirectory "display/"):
 
 // function currentExpandedArticlePanel(state = null, action) {
 //   switch (action.type) {

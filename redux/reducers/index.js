@@ -7,7 +7,6 @@ import loadingEtat from "./loading-etat";
 import reforme from "./reforme";
 import reformeBase from "./reforme-base";
 import reformePLF from "./reforme-plf";
-import resBrut from "./res-brut";
 import results from "./results";
 import token from "./token";
 import totalPop from "./total-pop";
@@ -20,7 +19,6 @@ export default combineReducers({
   reforme,
   reformeBase,
   reformePLF,
-  resBrut,
   results,
   token,
   totalPop,
