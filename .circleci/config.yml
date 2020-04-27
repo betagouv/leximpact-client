@@ -38,3 +38,10 @@ jobs:
       - run:
           name: Check code linting
           command: npm run code:check
+
+workflows:
+  version: 2
+  test_and_check_linting:
+    jobs:
+      - build
+      - check_linting
