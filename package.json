@@ -11,9 +11,9 @@
   "keywords": [],
   "license": "AGPL-3.0-or-later",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 9001",
     "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production next start",
+    "start": "NODE_ENV=production next start -p 9001",
     "code:check": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
     "code:fix": "eslint --fix -c .eslintrc.json --ext .js,.jsx,.ts,.tsx  --ignore-path .gitignore .",
     "code:format": "prettier-eslint --write '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
