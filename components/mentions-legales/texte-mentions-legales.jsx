@@ -21,9 +21,9 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Equipe Leximpact de L'Assemblée nationale
+        Equipe Leximpact de L&apos;Assemblée nationale
       </p>
-      <p>126, rue de l'Université - 75355 Paris 07 SP.</p>
+      <p>126, rue de l&apos;Université - 75355 Paris 07 SP.</p>
 
       <div className={classes.espaceVide} />
 
@@ -31,7 +31,7 @@ function MyComponent({ classes }) {
       <hr />
 
       <p>
-        Directeur de la publication : Secrétaire général de l'Assemblée nationale.
+        Directeur de la publication : Secrétaire général de l&apos;Assemblée nationale.
       </p>
 
       <p>Michel Moreau</p>

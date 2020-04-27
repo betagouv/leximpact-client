@@ -38,8 +38,8 @@ const MentionsLegales = ({ classes }) => (
       protégés par la loi, ainsi seules les personnes dûment habilitées peuvent
       y avoir accès. Pour plus d’informations veuillez consulter&nbsp;
     </span>
-    <Link href="/presentation-et-cgu">
-      <a className={classes.link}>nos conditions générales d’utilisation.</a>
+    <Link className={classes.link} href="/presentation-et-cgu">
+      nos conditions générales d’utilisation.
     </Link>
   </div>
 );

@@ -18,7 +18,8 @@
     "jsx-a11y",
     "react",
     "simple-import-sort",
-    "sort-destructure-keys"
+    "sort-destructure-keys",
+    "local"
   ],
   "extends": ["airbnb", "plugin:jest/recommended"],
   "settings": {
@@ -27,6 +28,7 @@
     }
   },
   "rules": {
+    "local/no-material-root-imports": 2,
     "sort-keys": [2, "asc"],
     "array-bracket-newline": ["error", { "multiline": true }],
     "array-element-newline": ["error", "consistent"],

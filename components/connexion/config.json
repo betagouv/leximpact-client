@@ -8,19 +8,19 @@
       "default": true,
       "disabled": false,
       "label": "Député·e",
-      "domains": ["@assemblee-nationale.fr"]
+      "domains": ["@assemblee-nationale.fr", "@an.fr"]
     },
     "collab": {
       "default": false,
       "disabled": false,
       "label": "Collaborat·eur·rice Assemblée nationale",
-      "domains": ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"]
+      "domains": ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@an.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"]
     },
     "admin": {
       "default": false,
       "disabled": false,
       "label": "Administrat·eur·rice Assemblée nationale",
-      "domains": ["@assemblee-nationale.fr"]
+      "domains": ["@assemblee-nationale.fr", "@an.fr"]
     },
     "senat": {
       "default": false,
