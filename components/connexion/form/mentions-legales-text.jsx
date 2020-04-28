@@ -34,7 +34,7 @@ const styles = theme => ({
 const MentionsLegales = ({ classes }) => (
   <div className={classes.mentionsLegales}>
     <span>
-      * La version restreinte de LexImpact IR s’appuie sur des données couvertes par des secrets
+      * La version en accès restreint de LexImpact IR s’appuie sur des données couvertes par des secrets
       protégés par la loi. Ainsi seules les personnes dûment habilitées peuvent
       y avoir accès. Pour plus d’informations veuillez consulter&nbsp;
     </span>
