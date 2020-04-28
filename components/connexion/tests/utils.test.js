@@ -91,21 +91,21 @@ describe("components | connexion | utils", () => {
     it("retourne les noms de domaine pour un député", () => {
       const given = "depute";
       const result = updateDomainsWhenRoleChange(given);
-      const expected = ["@assemblee-nationale.fr"];
+      const expected = ["@assemblee-nationale.fr", "@an.fr"];
       expect(result).toStrictEqual(expected);
     });
 
     it("retourne les noms de domaine pour un collaborateur", () => {
       const given = "collab";
       const result = updateDomainsWhenRoleChange(given);
-      const expected = ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"];
+      const expected = ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@an.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"];
       expect(result).toStrictEqual(expected);
     });
 
     it("retourne les noms de domaine pour un admin", () => {
       const given = "admin";
       const result = updateDomainsWhenRoleChange(given);
-      const expected = ["@assemblee-nationale.fr"];
+      const expected = ["@assemblee-nationale.fr", "@an.fr"];
       expect(result).toStrictEqual(expected);
     });
   });
@@ -142,19 +142,19 @@ describe("components | connexion | utils", () => {
         admin: {
           default: false,
           disabled: false,
-          domains: ["@assemblee-nationale.fr"],
+          domains: ["@assemblee-nationale.fr", "@an.fr"],
           label: "Administrat·eur·rice Assemblée nationale",
         },
         collab: {
           default: false,
           disabled: false,
-          domains: ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"],
+          domains: ["@clb-an.fr", "@clb-dep.fr", "@assemblee-nationale.fr", "@an.fr", "@groupe-udiagir.fr", "@an-en-marche.fr", "@gsan.org"],
           label: "Collaborat·eur·rice Assemblée nationale",
         },
         depute: {
           default: true,
           disabled: false,
-          domains: ["@assemblee-nationale.fr"],
+          domains: ["@assemblee-nationale.fr", "@an.fr"],
           label: "Député·e",
         },
         senat: {

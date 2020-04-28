@@ -2,20 +2,18 @@
 
 .uniteImpotEtat {
   &.avant {
-    font-family: "Lato";
+    font-family: $default-font-family;
     font-size: 30px;
     color: #000000;
   }
   &.plf {
-    /*filter: blur(1.25px);*/
-    font-family: "Lato";
+    font-family: $default-font-family;
     font-size: 30px;
     color: $plf-color;
   }
 
   &.apres {
-    /*  filter: blur(1.25px);*/
-    font-family: "Lato";
+    font-family: $default-font-family;
     font-size: 30px;
     color: #000000;
   }
@@ -23,26 +21,32 @@
 
 .impotEtat {
   &.avant {
-    font-family: "Lato";
+    font-family: $default-font-family;
     font-weight: bold;
     font-size: 40px;
     color: #000000;
   }
   &.plf {
-    font-family: "Lato";
+    font-family: $default-font-family;
     font-weight: bold;
     font-size: 40px;
-    /*filter: blur(1.25px);*/
     color: $plf-color;
   }
 
   &.apres {
-    font-family: "Lato";
+    font-family: $default-font-family;
     font-weight: bold;
     font-size: 40px;
-    /*  filter: blur(1.25px);*/
     color: #000000;
-    background-color: $amendment-bg-color;
+    background-color: $reform-bg-color;
     padding: 0.1rem;
   }
+}
+
+.montantImpots {
+  padding: 0px;
+}
+
+.noPLF {
+  margin-top: 20px;
 }

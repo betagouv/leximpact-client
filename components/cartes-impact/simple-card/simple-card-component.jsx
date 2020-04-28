@@ -23,7 +23,7 @@ import React from "react";
 
 import DoublePalmTreeIcon from "../../icons/double-palm-tree";
 import { NeutralTooltip } from "../../tooltips";
-import formatMilliers from "../../utils/format-milliers";
+import { formatNumber } from "../../utils";
 import SimpleCardImpactImpots from "./impact-impots";
 
 const RESIDENCE_ITEMS = [
@@ -200,7 +200,7 @@ class SimpleCard extends React.Component {
             </Typography>
             <Button disabled classes={{ root: classes.revenusMensuelWrapper }}>
               <span className={classes.revenusMensuelValue}>
-                {formatMilliers(revenusMensuel)}
+                {formatNumber(revenusMensuel)}
                 &nbsp;€/Mois
               </span>
             </Button>

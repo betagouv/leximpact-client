@@ -94,11 +94,9 @@ class CarteEtat extends PureComponent {
     const {
       classes,
       deciles,
-      expandArticlePanelHandler,
       frontieresDeciles,
       isDisabledEtat,
       isLoadingEtat,
-      isPanelExpanded,
       onClickSimPop,
       total,
     } = this.props;
@@ -126,7 +124,7 @@ class CarteEtat extends PureComponent {
             </div>
           </div>
 
-          {isDisabledEtat ? (
+          {isDisabledEtat && (
             <div>
               <center className={classes.buttonPosition}>
                 <Button
@@ -141,98 +139,103 @@ class CarteEtat extends PureComponent {
                 </Button>
               </center>
             </div>
-          ) : (
-            [
-              isLoadingEtat ? (
-                <center className={classes.buttonPosition}>
-                  <CircularProgress color="secondary" />
-                </center>
-              ) : (
-                <div>
-                  <div className="chart-wrapper">
-                    <div className="main-chart">
-                      <BarChart deciles={deciles} />
-                    </div>
-                    <div className={classes.simpop}>
-                      <div className="montant-impots">
-                        <Typography
-                          inline
-                          className={classNames({
-                            [styles2.impotEtat]: true,
-                            [styles2.avant]: true,
-                          })}>
-                          {totalAvant}
-                        </Typography>
-                        <Typography
-                          inline
-                          className={classNames({
-                            [styles2.uniteImpotEtat]: true,
-                            [styles2.avant]: true,
-                          })}>
-                          Md€*
-                        </Typography>
-                      </div>
-                      {
-                        montrerPLF
-                          ? (
-                            <div className="montant-impots">
-                              <Typography
-                                inline
-                                className={classNames({
-                                  [styles2.impotEtat]: true,
-                                  [styles2.plf]: true,
-                                })}>
-                                {totalPLF}
-                              </Typography>
-                              <Typography
-                                inline
-                                className={classNames({
-                                  [styles2.uniteImpotEtat]: true,
-                                  [styles2.plf]: true,
-                                })}>
-                                Md€*
-                              </Typography>
-                            </div>
-                          )
-                          : null
-                      }
-                      <div className="montant-impots">
-                        <Typography
-                          inline
-                          className={classNames({
-                            [styles2.impotEtat]: true,
-                            [styles2.apres]: true,
-                          })}>
-                          {totalApres}
-                        </Typography>
-                        <Typography
-                          inline
-                          className={classNames({
-                            [styles2.uniteImpotEtat]: true,
-                            [styles2.apres]: true,
-                          })}>
-                          Md€*
-                        </Typography>
-                      </div>
-                    </div>
+          )}
+          {!isDisabledEtat && isLoadingEtat && (
+            <center className={classes.buttonPosition}>
+              <CircularProgress color="secondary" />
+            </center>
+          )}
+          {!isDisabledEtat && !isLoadingEtat && (
+            <div>
+              <div className="chart-wrapper">
+                <div className="main-chart">
+                  <BarChart deciles={deciles} />
+                </div>
+                <div className={classes.simpop}>
+                  <div className={classNames({
+                    [styles2.montantImpots]: true,
+                    [styles2.noPLF]: !montrerPLF,
+                  })}>
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.impotEtat]: true,
+                        [styles2.avant]: true,
+                      })}>
+                      {totalAvant}
+                    </Typography>
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.uniteImpotEtat]: true,
+                        [styles2.avant]: true,
+                      })}>
+                      Md€*
+                    </Typography>
                   </div>
-                  <Typography className={classes.sourceInsee}>
+                  {
+                    montrerPLF
+                      ? (
+                        <div className={classNames({
+                          [styles2.montantImpots]: true,
+                          [styles2.noPLF]: !montrerPLF,
+                        })}>
+                          <Typography
+                            inline
+                            className={classNames({
+                              [styles2.impotEtat]: true,
+                              [styles2.plf]: true,
+                            })}>
+                            {totalPLF}
+                          </Typography>
+                          <Typography
+                            inline
+                            className={classNames({
+                              [styles2.uniteImpotEtat]: true,
+                              [styles2.plf]: true,
+                            })}>
+                            Md€*
+                          </Typography>
+                        </div>
+                      )
+                      : null
+                  }
+                  <div className={classNames({
+                    [styles2.montantImpots]: true,
+                    [styles2.noPLF]: !montrerPLF,
+                  })}>
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.impotEtat]: true,
+                        [styles2.apres]: true,
+                      })}>
+                      {totalApres}
+                    </Typography>
+                    <Typography
+                      inline
+                      className={classNames({
+                        [styles2.uniteImpotEtat]: true,
+                        [styles2.apres]: true,
+                      })}>
+                          Md€*
+                    </Typography>
+                  </div>
+                </div>
+              </div>
+              <Typography className={classes.sourceInsee}>
                     * Chiffrages indicatifs.
-                    <br />
-                    {" "}
+                <br />
+                {" "}
 Estimation à partir des données de l&apos;Enquête
                     Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
-                  </Typography>
-                </div>
-              ),
-            ]
+              </Typography>
+            </div>
           )}
         </CardContent>
         { (isLoadingEtat || isDisabledEtat) ? ("")
           : (
-            <ExpansionPanel
-              expanded={isPanelExpanded}
-              onChange={expandArticlePanelHandler}>
+            <ExpansionPanel>
               <ExpansionPanelSummary
                 className="styleExpansionPanel"
                 expandIcon={<ExpandMoreIcon />}>
@@ -264,11 +267,9 @@ CarteEtat.propTypes = {
       poids: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-  expandArticlePanelHandler: PropTypes.shape().isRequired,
-  frontieresDeciles: PropTypes.bool.isRequired,
+  frontieresDeciles: PropTypes.arrayOf(PropTypes.number).isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
-  isPanelExpanded: PropTypes.shape().isRequired,
   onClickSimPop: PropTypes.func.isRequired,
   total: PropTypes.shape({
     apres: PropTypes.number.isRequired,

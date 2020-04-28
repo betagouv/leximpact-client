@@ -6,12 +6,14 @@ import { showAddCasTypesPopin } from "../../redux/actions";
 import SimulationMenuBarComponent from "./simulation-menubar-component";
 
 
-const mapStateToProps = ({ token }, { width }) => {
+const mapStateToProps = ({ reformePLF, token }, { width }) => {
   const isUserLogged = Boolean(token);
   const isMobileView = width === "xs" || width === "sm" || width === "md";
+  const montrerPLF = !!reformePLF;
   return {
     isMobileView,
     isUserLogged,
+    montrerPLF,
   };
 };
 

@@ -13,8 +13,8 @@ export const REFORME_BASE_DEFAULT_STATE = {
       abat_dom: {
         plaf_GuadMarReu: 2450,
         plaf_GuyMay: 4050,
-        taux_GuadMarReu: 0.3,
-        taux_GuyMay: 0.4,
+        taux_GuadMarReu: 30,
+        taux_GuyMay: 40,
       },
       celib: 936,
       celib_enf: 3697,
