@@ -29,6 +29,18 @@ const stylesTheme = theme => ({
       margin: "0em",
     },
   },
+  titleArticleCGI: {
+    color: "#6C6C6C",
+    fontFamily: "Lora",
+    fontSize: "18px",
+    paddingLeft: "6px",
+    [theme.breakpoints.down("xs")]: {
+      color: "#6C6C6C",
+      fontFamily: "Lora",
+      fontSize: "14px",
+      paddingLeft: "6px",
+    },
+  },
 });
 
 const style = {
@@ -213,6 +225,9 @@ class ArticlesComponent extends React.Component {
         <div style={style.DivTitreTheme}>
           <Typography style={style.StyleTitreThematique}>
             Barème et taux
+            <span className={classes.titleArticleCGI}>
+                - Article 197 du CGI - I.1
+            </span>
           </Typography>
           <Divider />
         </div>
