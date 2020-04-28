@@ -89,6 +89,7 @@ class Alinea2 extends PureComponent {
             195 ont droit à une réduction d&apos;impôt égale à
             {" "}
             {baseOutputInput("plafond_qf.reduc_postplafond")}
+            €
             pour chacune de ces demi-parts lorsque la réduction de leur
             cotisation d&apos;impôt est plafonnée en application du premier
             alinéa. La réduction d&apos;impôt est égale à la moitié de cette
