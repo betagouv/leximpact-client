@@ -13,14 +13,6 @@ const mapStateToProps = ({ loadingEtat, totalPop }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onClickSimPop: () => {
-    dispatch(fetchSimPop());
-    dispatch(fetchCalculateCompare());
-  },
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
 )(GagnantsPerdantsCard);
