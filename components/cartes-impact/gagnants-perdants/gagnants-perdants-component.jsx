@@ -120,70 +120,70 @@ class GagnantsPerdantsCard extends PureComponent {
   render() {
     const {
       classes,
-      foyers_fiscaux_touches,
+      foyersFiscauxTouches,
       isDisabledEtat,
       isLoadingEtat,
       onClickSimPop,
     } = this.props;
 
-    const montrerPLF = !!foyers_fiscaux_touches.avant_to_plf;
+    const montrerPLF = !!foyersFiscauxTouches.avant_to_plf;
 
     let baissePlf = null;
     if (montrerPLF) {
       baissePlf = Math.round(
-        get(foyers_fiscaux_touches, "avant_to_plf.gagnant", 0) / 100000,
+        get(foyersFiscauxTouches, "avant_to_plf.gagnant", 0) / 100000,
       ) / 10;
     }
     const baisseReforme = Math.round(
-      get(foyers_fiscaux_touches, "avant_to_apres.gagnant", 0) / 100000,
+      get(foyersFiscauxTouches, "avant_to_apres.gagnant", 0) / 100000,
     ) / 10;
 
     let neutrePlf = null;
     if (montrerPLF) {
       neutrePlf = Math.round(
-        (get(foyers_fiscaux_touches, "avant_to_plf.neutre", 0)
-            + get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0))
+        (get(foyersFiscauxTouches, "avant_to_plf.neutre", 0)
+            + get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0))
             / 100000,
       ) / 10;
     }
     const neutreReforme = Math.round(
-      (get(foyers_fiscaux_touches, "avant_to_apres.neutre", 0)
-          + get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0))
+      (get(foyersFiscauxTouches, "avant_to_apres.neutre", 0)
+          + get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0))
           / 100000,
     ) / 10;
 
     let neutreZeroPlf = null;
     if (montrerPLF) {
       neutreZeroPlf = Math.round(
-        get(foyers_fiscaux_touches, "avant_to_plf.neutre_zero", 0) / 100000,
+        get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0) / 100000,
       ) / 10;
     }
     const neutreZeroReforme = Math.round(
-      get(foyers_fiscaux_touches, "avant_to_apres.neutre_zero", 0) / 100000,
+      get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0) / 100000,
     ) / 10;
 
     let haussePlf = null;
     if (montrerPLF) {
       haussePlf = Math.round(
-        (get(foyers_fiscaux_touches, "avant_to_plf.perdant", 0)
-            + get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0))
+        (get(foyersFiscauxTouches, "avant_to_plf.perdant", 0)
+            + get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0))
             / 100000,
       ) / 10;
     }
     const hausseReforme = Math.round(
-      (get(foyers_fiscaux_touches, "avant_to_apres.perdant", 0)
-          + get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0))
+      (get(foyersFiscauxTouches, "avant_to_apres.perdant", 0)
+          + get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0))
           / 100000,
     ) / 10;
 
     let hausseZeroPlf = null;
     if (montrerPLF) {
       hausseZeroPlf = Math.round(
-        get(foyers_fiscaux_touches, "avant_to_plf.perdant_zero", 0) / 100000,
+        get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0) / 100000,
       ) / 10;
     }
     const hausseZeroReforme = Math.round(
-      get(foyers_fiscaux_touches, "avant_to_apres.perdant_zero", 0) / 100000,
+      get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0) / 100000,
     ) / 10;
 
     return (
@@ -396,7 +396,7 @@ class GagnantsPerdantsCard extends PureComponent {
 }
 GagnantsPerdantsCard.propTypes = {
   classes: PropTypes.shape().isRequired,
-  foyers_fiscaux_touches: PropTypes.shape().isRequired,
+  foyersFiscauxTouches: PropTypes.shape().isRequired,
   isDisabledEtat: PropTypes.bool.isRequired,
   isLoadingEtat: PropTypes.bool.isRequired,
   onClickSimPop: PropTypes.func.isRequired,

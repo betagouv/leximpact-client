@@ -5,9 +5,9 @@ import GagnantsPerdantsCard from "./gagnants-perdants-component";
 const mapStateToProps = ({ loadingEtat, totalPop }) => {
   const isLoadingEtat = loadingEtat === "loading";
   const isDisabledEtat = loadingEtat === "disabled";
-  const { foyers_fiscaux_touches } = totalPop;
+  const { foyersFiscauxTouches } = totalPop;
   return {
-    foyers_fiscaux_touches,
+    foyersFiscauxTouches,
     isDisabledEtat,
     isLoadingEtat,
   };
