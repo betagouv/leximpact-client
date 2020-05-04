@@ -1,0 +1,60 @@
+@import 'styles/variables.scss';
+
+.plf {
+  color: $plf-color;
+  line-height: 1.5;
+}
+
+.reform {
+  color: #000000;
+  line-height: 1.5;
+}
+
+.plfValue, .reformValue {
+  font-weight: bold;
+  font-family: Lato;
+  font-size: 25px;
+}
+
+.reformValue {
+  background-color: $reform-bg-color;
+  padding: 0.1rem;
+}
+
+.plfUnit, .reformUnit {
+  font-family: Lato;
+  font-size: 20px;
+}
+
+.plfIcon, .reformIcon {
+  vertical-align: text-bottom;
+}
+
+.details {
+  color: #909090;
+  font-family: Lato;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.detailsPlfValue {
+  color: #000000;
+  font-weight: bold;
+  color: $plf-color;
+}
+
+.detailsPlfUnit {
+  color: #000000;
+  font-weight: bold;
+}
+
+.detailsReformValue {
+  color: #000000;
+  font-weight: bold;
+  background-color: $reform-bg-color;
+}
+
+.detailsReformUnit {
+  color: #000000;
+  font-weight: bold;
+}

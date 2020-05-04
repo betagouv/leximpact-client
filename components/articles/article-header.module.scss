@@ -1,0 +1,36 @@
+@import "styles/variables";
+
+.initial, .plf {
+  font-family: law-font-family;
+  font-weight: bold;
+  line-height: 10px;
+  margin-left: 8px;
+  padding: 3px;
+}
+
+.initial {
+  color: black;
+}
+
+.plf {
+  color: $plf-color;
+}
+
+.resetParams {
+  padding: 0.5rem;
+  text-align: right;
+
+  button {
+    font-size: 12px !important;
+  }
+  
+  button, svg {
+    text-transform: none !important;
+    color: $reform-text-color !important;
+    font-family: $default-font-family !important;
+  }
+}
+
+.ml {
+  margin-left: 0.5rem;
+}

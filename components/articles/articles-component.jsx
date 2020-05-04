@@ -9,12 +9,9 @@ import React from "react";
 import {
   BaseInputOutput,
   FormulaOutput,
-  FormulaOutputCombilin,
 } from "../articles-inputs";
-import InputField from "../articles-inputs/input-field";
-import OutputField from "../articles-inputs/output-field";
+import { Parameter } from "../articles-inputs/parameter";
 import fillArrayWith from "../utils/array/fillArrayWith";
-import formatMilliers from "../utils/format-milliers";
 import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
@@ -22,7 +19,7 @@ import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
-import makeNumberGoodLooking from "./utils/make-number-good-looking";
+import styles2 from "./articles-component.module.scss";
 
 const stylesTheme = theme => ({
   paper: {
@@ -30,6 +27,18 @@ const stylesTheme = theme => ({
     padding: "0 0 10px 0",
     [theme.breakpoints.down("xs")]: {
       margin: "0em",
+    },
+  },
+  titleArticleCGI: {
+    color: "#6C6C6C",
+    fontFamily: "Lora",
+    fontSize: "18px",
+    paddingLeft: "6px",
+    [theme.breakpoints.down("xs")]: {
+      color: "#6C6C6C",
+      fontFamily: "Lora",
+      fontSize: "14px",
+      paddingLeft: "6px",
     },
   },
 });
@@ -51,18 +60,6 @@ const style = {
     marginRight: "1.5em",
     marginTop: "1em",
   },
-  InputSeuil: {
-    fontSize: "20px",
-    marginLeft: "2px",
-    marginRight: "2px",
-    width: "80px",
-  },
-  InputTaux: {
-    fontSize: "20px",
-    marginLeft: "0px",
-    marginRight: "3px",
-    width: "40px",
-  },
   StyleTitreThematique: {
     color: "#B1B1B1",
     fontFamily: "Lato",
@@ -71,70 +68,15 @@ const style = {
     fontWeight: "bold",
     textAlign: "left",
   },
-  Typography: {
-    padding: "5px",
-  },
-  TypographyNouvelleTranche: {
-    color: "#00A3FF",
-    padding: "5px",
-  },
-  Typographybouton: {
-    margin: "10px",
-  },
-  VarCodeNew: {
-    color: "#00A3FF",
-    fontWeight: "bold",
-    lineHeight: "10px",
-  },
-  VarCodeexistant: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    padding: "3px",
-    // toggle off next 2 lines if PLF is unplugged
-    textDecorationColor: "#FF6B6B",
-    textDecorationLine: "line-through",
-    textDecorationSize: "2px",
-  },
-  VarCodeexistantNonBarre: {
-    backgroundColor: "#DED500",
-    backgroundSize: "auto auto",
-    color: "#000000",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "8px",
-    padding: "3px",
-  },
-
-  VarPLF: {
-    color: "#FF6B6B",
-    fontWeight: "bold",
-    lineHeight: "10px",
-    marginLeft: "3px",
-    marginRight: "5px",
-  },
 };
 
 class ArticlesComponent extends React.Component {
   // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
 
-  renderBaseOutputInput = name => <BaseInputOutput name={name} style={style} />;
+  renderBaseOutputInput = name => <BaseInputOutput name={name} />;
 
   renderFormulaOutput = (name, facteur = 1) => (
-    <FormulaOutput facteur={facteur} name={name} style={style} />
-  );
-
-  renderFormulaOuputCombiLin = (name1, fact1, name2, fact2) => (
-    <FormulaOutputCombilin
-      fact1={fact1}
-      fact2={fact2}
-      name1={name1}
-      name2={name2}
-      style={style}
-    />
+    <FormulaOutput facteur={facteur} name={name} />
   );
 
   gimmeIRPartsOfArticle = (i) => {
@@ -152,32 +94,26 @@ class ArticlesComponent extends React.Component {
     const plft = reformePLF && reformePLF.impot_revenu.bareme.taux;
 
     const nbt = s.length;
-    const styleAUtiliser = i > 4 ? style.TypographyNouvelleTranche : style.Typography;
+    const styleAUtiliser = i > 4 ? styles2.newBracket : styles2.bracket;
     // Part 1
     if (i === 0) {
       const baseValue = bases[Math.min(i, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
-
-      const montrerPLF = plfValue !== null && plfValue !== baseValue;
       return (
         <Typography
           key={i}
+          className={styleAUtiliser}
           color="inherit"
-          style={styleAUtiliser}
           variant="body2">
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
-          <OutputField
-            style={montrerPLF ? style.VarCodeexistant : style.VarCodeexistantNonBarre}
-            value={formatMilliers(baseValue)}
-          />
-          {montrerPLF && <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
-          <InputField
-            name={`seuil${i}`}
-            style={style.InputSeuil}
-            value={formatMilliers(s[i])}
-            onChange={handleArticleChange}
+          <Parameter
+            editable
+            baseValue={baseValue}
+            plfValue={plfValue}
+            reformValue={s[i]}
+            onReformChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           € le taux de&nbsp;:
         </Typography>
@@ -185,93 +121,81 @@ class ArticlesComponent extends React.Component {
     }
     // Last part
     if (i === nbt) {
-      const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
-      const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] * 100 : null;
+      const baseValuet = baset[Math.min(i, baset.length) - 1];
+      const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] : null;
       const baseValue = bases[Math.min(i - 1, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
-      const montrerPLF = plfValue !== null && plfValue !== baseValue;
-      const montrerPLFt = plfValuet !== null && plfValuet !== baseValuet;
       return (
         <Typography
           key={i}
+          className={styleAUtiliser}
           color="inherit"
-          style={styleAUtiliser}
           variant="body2">
-          {"– "}
-          {/* jaune */}
-          <OutputField
-            style={montrerPLFt ? style.VarCodeexistant : style.VarCodeexistantNonBarre}
-            value={makeNumberGoodLooking(baseValuet)}
-          />
-          {/* rouge */}
-          {montrerPLFt && <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
-          {/* bleu editable (pourcentage) */}
-          <InputField
-            name={`taux${i - 1}`}
-            style={style.InputTaux}
-            value={t[i - 1] * 100}
-            onChange={handleArticleChange}
+          –
+          <Parameter
+            editable
+            baseValue={baseValuet}
+            plfValue={plfValuet}
+            reformInputSize="small"
+            reformValue={t[i - 1]}
+            onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
           <br />
           pour la fraction supérieure à&nbsp;
-          <OutputField style={montrerPLF ? style.VarCodeexistant : style.VarCodeexistantNonBarre} value={formatMilliers(baseValue)} />
-          {montrerPLF && <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
-          <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
-          {"€."}
+          <Parameter
+            baseValue={baseValue}
+            editable={false}
+            plfValue={plfValue}
+            reformValue={s[i - 1]}
+          />
+          €.
         </Typography>
       );
     }
     // Other parts :
-    const baseValuet = baset[Math.min(i, baset.length) - 1] * 100;
-    const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] * 100 : null;
+    const baseValuet = baset[Math.min(i, baset.length) - 1];
+    const plfValuet = plft ? plft[Math.min(i, plft.length) - 1] : null;
     const baseValue = bases[Math.min(i, bases.length - 1)];
     const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
     const baseValueminus1 = bases[Math.min(i - 1, bases.length - 1)];
     const plfValueminus1 = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
-    const montrerPLF = plfValue !== null && plfValue !== baseValue;
-    const montrerPLFt = plfValuet !== null && plfValuet !== baseValuet;
-    const montrerPLFminus1 = plfValueminus1 !== null && plfValueminus1 !== baseValueminus1;
     return (
       <Typography
         key={i}
+        className={styleAUtiliser}
         color="inherit"
-        style={styleAUtiliser}
         variant="body2">
         –
-        {" "}
-        <OutputField
-          style={montrerPLFt ? style.VarCodeexistant : style.VarCodeexistantNonBarre}
-          value={makeNumberGoodLooking(baseValuet)}
-        />
-        {/* rouge */}
-        {montrerPLFt && <OutputField style={style.VarPLF} value={makeNumberGoodLooking(plfValuet)} />}
-        <InputField
-          name={`taux${i - 1}`}
-          style={style.InputTaux}
-          value={makeNumberGoodLooking(t[i - 1] * 100)}
-          onChange={handleArticleChange}
+        <Parameter
+          editable
+          baseValue={baseValuet}
+          plfValue={plfValuet}
+          reformInputSize="small"
+          reformValue={t[i - 1]}
+          onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
         <br />
         pour la fraction supérieure à&nbsp;
-        <OutputField style={montrerPLFminus1 ? style.VarCodeexistant : style.VarCodeexistantNonBarre} value={formatMilliers(baseValueminus1)} />
-        {montrerPLFminus1 && <OutputField style={style.VarPLF} value={formatMilliers(plfValueminus1)} />}
-        <OutputField style={style.VarCodeNew} value={formatMilliers(s[i - 1])} />
+        <Parameter
+          baseValue={baseValueminus1}
+          editable={false}
+          plfValue={plfValueminus1}
+          reformValue={s[i - 1]}
+        />
         €
         <br />
         et inférieure ou égale à&nbsp;
-        <OutputField style={montrerPLF ? style.VarCodeexistant : style.VarCodeexistantNonBarre} value={formatMilliers(baseValue)} />
-        {montrerPLF && <OutputField style={style.VarPLF} value={formatMilliers(plfValue)} />}
-        <InputField
-          name={`seuil${i}`}
-          style={style.InputSeuil}
-          value={formatMilliers(s[i])}
-          onChange={handleArticleChange}
+        <Parameter
+          editable
+          baseValue={baseValue}
+          plfValue={plfValue}
+          reformValue={s[i]}
+          onReformChange={value => handleArticleChange(value, `seuil${i}`)}
         />
-        {" "}
         € ;
       </Typography>
     );
@@ -301,6 +225,9 @@ class ArticlesComponent extends React.Component {
         <div style={style.DivTitreTheme}>
           <Typography style={style.StyleTitreThematique}>
             Barème et taux
+            <span className={classes.titleArticleCGI}>
+                - Article 197 du CGI - I.1
+            </span>
           </Typography>
           <Divider />
         </div>

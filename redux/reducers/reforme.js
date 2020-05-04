@@ -17,9 +17,8 @@ const changeValueArray = (arrayToChange, indexToChange, newValue) => {
 
 const updateTaux = (prevState, name, value) => {
   const identifier = parseInt(name.substring(4), 10);
-  const nextValue = value * 0.01;
   let list = get(prevState, "impot_revenu.bareme.taux");
-  list = changeValueArray(list, identifier, nextValue);
+  list = changeValueArray(list, identifier, value);
   set(prevState, "impot_revenu.bareme.taux", list);
   return prevState;
 };
@@ -38,12 +37,7 @@ const updateGenerique = (prevState, name, value) => {
   const regex = RegExp("^[0-9a-zA-Z_.]+$");
   const shouldUpdate = regex.test(identifier);
   if (!shouldUpdate) return prevState;
-  // Tous les noms de variables qui contiennent taux
-  // sont divisés par 100.
-  const regextaux = RegExp("taux");
-  const facteur = regextaux.test(identifier) ? 0.01 : 1;
-  const nextValue = value * facteur;
-  set(prevState, `impot_revenu.${identifier}`, nextValue);
+  set(prevState, `impot_revenu.${identifier}`, value);
   return prevState;
 };
 
