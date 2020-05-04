@@ -46,7 +46,7 @@ class LogoutPopinComponent extends PureComponent {
         </IconButton>
         <h1 className={classes.h1Style}>
           <Icon inline icon={PartyPopperIcon} width="40" />
-          Vous êtes déconnecté de LexImpact POP&nbsp;
+          Vous êtes déconnecté de LexImpact IR&nbsp;
         </h1>
         <p className={classes.pStyle}>
           Vous devez vous reconnecter afin de pouvoir à nouveau

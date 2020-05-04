@@ -16,6 +16,7 @@ const styles = () => ({
     fontWeight: "bold",
   },
   bolderTitle: {
+    display: "inline-block",
     fontSize: 36,
     fontWeight: "bold",
   },
@@ -24,6 +25,7 @@ const styles = () => ({
     fontWeight: "regular",
   },
   lighterTitle: {
+    display: "inline-block",
     fontSize: 36,
     fontWeight: "lighter",
   },
@@ -32,6 +34,13 @@ const styles = () => ({
   },
   loginButtonPlaceholder: {
     minWidth: 190,
+  },
+  subTitle: {
+    display: "inline-block",
+    fontSize: "13px",
+    fontWeight: "bold",
+    lineHeight: 1.2,
+    marginLeft: "10px",
   },
   titleRoot: {
     color: "#FFFFFF",
@@ -53,36 +62,25 @@ class AppHeaderComponent extends PureComponent {
           {!useMobileView && <HeaderMenuButton />}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
-              {!isUserLogged && (
-                <span>
-                  <span className={classes.bolderTitle}>OPEN&nbsp;</span>
-                  <span className={classes.lighterTitle}>LEXIMPACT</span>
-                </span>
-              )}
-              {isUserLogged && (
-                <span>
-                  <span className={classes.lighterTitle}>LEXIMPACT&nbsp;</span>
-                  <span className={classes.bolderTitle}>POP</span>
-                </span>
-              )}
+              <div>
+                <div className={classes.lighterTitle}>LEXIMPACT&nbsp;</div>
+                <div className={classes.bolderTitle}>IR</div>
+                <div className={classes.subTitle}>
+                  IMPÔT SUR
+                  <br />
+                  LE REVENU
+                </div>
+              </div>
             </Typography>
           )}
           {useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
-              {!isUserLogged && (
-                <span>
-                  <span className={classes.bolderMobileTitle}>OPEN&nbsp;</span>
-                  <span className={classes.lighterMobileTitle}>LEXIMPACT</span>
+              <span>
+                <span className={classes.lighterMobileTitle}>
+                  LEXIMPACT&nbsp;
                 </span>
-              )}
-              {isUserLogged && (
-                <span>
-                  <span className={classes.lighterMobileTitle}>
-                    LEXIMPACT&nbsp;
-                  </span>
-                  <span className={classes.bolderMobileTitle}>POP</span>
-                </span>
-              )}
+                <span className={classes.bolderMobileTitle}>IR</span>
+              </span>
             </Typography>
           )}
           {/* bouton connection mode desktop */}

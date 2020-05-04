@@ -29,8 +29,7 @@ function LoginButton({ classes }) {
       variant="contained"
       onClick={showConnexionPopin}>
       <VPNKeyIcon classes={{ root: classes.avatarIcon }} />
-      <span>leximpact&nbsp;</span>
-      <b>pop</b>
+      Se connecter
     </Button>
   );
 }
