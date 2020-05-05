@@ -3,13 +3,15 @@ import Typography from "@material-ui/core/Typography";
 import AddIcon from "@material-ui/icons/Add";
 import PropTypes from "prop-types";
 
+import styles from "./bouton-ajouter-tranche.module.scss";
+
 const AddTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab color="secondary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
+    <Fab color="primary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
       <AddIcon />
     </Fab>
-    <Typography inline variant="caption">
-    Ajouter ou
+    <Typography inline className={styles.amendementText} variant="caption">
+      Ajouter ou
     </Typography>
   </div>
 );

@@ -7,7 +7,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-6",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -15,7 +15,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-5",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
@@ -29,7 +29,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         <span
           className="AppHeaderComponent-bolderMobileTitle-1"
         >
-          POP
+          IR
         </span>
       </span>
     </WithStyles(Typography)>
@@ -47,7 +47,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-6",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -55,7 +55,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-5",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
@@ -69,7 +69,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         <span
           className="AppHeaderComponent-bolderMobileTitle-1"
         >
-          POP
+          IR
         </span>
       </span>
     </WithStyles(Typography)>
@@ -87,7 +87,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-6",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -95,23 +95,30 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-5",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
     >
-      <span>
-        <span
-          className="AppHeaderComponent-bolderTitle-2"
-        >
-          OPEN 
-        </span>
-        <span
+      <div>
+        <div
           className="AppHeaderComponent-lighterTitle-4"
         >
-          LEXIMPACT
-        </span>
-      </span>
+          LEXIMPACT 
+        </div>
+        <div
+          className="AppHeaderComponent-bolderTitle-2"
+        >
+          IR
+        </div>
+        <div
+          className="AppHeaderComponent-subTitle-5"
+        >
+          IMPÔT SUR
+          <br />
+          LE REVENU
+        </div>
+      </div>
     </WithStyles(Typography)>
     <WithStyles(LoginButton)
       isUserLogged={false}
@@ -127,7 +134,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-6",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -135,21 +142,21 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-5",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="AppHeaderComponent-bolderMobileTitle-1"
-        >
-          OPEN 
-        </span>
-        <span
           className="AppHeaderComponent-lighterMobileTitle-3"
         >
-          LEXIMPACT
+          LEXIMPACT 
+        </span>
+        <span
+          className="AppHeaderComponent-bolderMobileTitle-1"
+        >
+          IR
         </span>
       </span>
     </WithStyles(Typography)>

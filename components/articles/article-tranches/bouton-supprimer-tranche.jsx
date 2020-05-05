@@ -3,13 +3,15 @@ import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/Delete";
 import PropTypes from "prop-types";
 
+import styles from "./bouton-supprimer-tranche.module.scss";
+
 const RemoveTrancheButton = ({ onClick, style }) => (
   <div>
-    <Fab color="secondary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
+    <Fab color="primary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
       <DeleteIcon />
     </Fab>
-    <Typography inline variant="caption">
-    Supprimer une tranche
+    <Typography inline className={styles.amendementText} variant="caption">
+      Supprimer une tranche
     </Typography>
   </div>
 );

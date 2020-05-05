@@ -17,7 +17,7 @@ function HeaderMenuButton({ classes }) {
       classes={{ root: classes.menuButtonRoot }}
       onClick={showEnSavoirPlusPopin}>
       <MenuIcon fontSize="small" />
-      &nbsp;Menu
+      &nbsp;Info
     </Button>
   );
 }

@@ -19,7 +19,7 @@ const styles = {
 function TexteCguLeximpactPop({ classes }) {
   return (
     <section className={classes.sectionText}>
-      <h1>Conditions d&apos;utilisation de LexImpact POP</h1>
+      <h1>Conditions d&apos;utilisation de la version en accès restreint de LexImpact IR</h1>
 
       <p>
         Pour fournir les impacts agrégés sur le budget de l’État et leurs effets
@@ -85,8 +85,8 @@ function TexteCguLeximpactPop({ classes }) {
       <h2>Vocabulaire</h2>
       <hr />
 
-      <p>« Nous » se réfère à l&apos;éditeur de LexImpact POP</p>
-      <p>« Vous » se réfère à un·e usager habilité·e de LexImpact POP</p>
+      <p>« Nous » se réfère à l&apos;éditeur de LexImpact IR</p>
+      <p>« Vous » se réfère à un·e usager habilité·e de LexImpact IR</p>
 
       <div className={classes.espaceVide} />
 
@@ -94,7 +94,7 @@ function TexteCguLeximpactPop({ classes }) {
       <hr />
 
       <p>
-        Si vous effectuez une simulation LexImpact POP, vous acceptez ces
+        Si vous effectuez une simulation LexImpact IR, vous acceptez ces
         conditions d&apos;utilisation, comme indiqué dans l&apos;
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=4DD6F3DB5C5E37E9A1B6AB6733B4A8D5.tplgfr21s_3?idArticle=LEGIARTI000031367350&cidTexte=LEGITEXT000031366350&categorieLien=id&dateTexte="
@@ -107,8 +107,8 @@ function TexteCguLeximpactPop({ classes }) {
       </p>
 
       <p>
-        L&apos;utilisation de LexImpact POP requiert une connexion internet et
-        un navigateur récent, LexImpact POP ne&nbsp;fonctionne pas sur Internet
+        L&apos;utilisation de LexImpact IR requiert une connexion internet et
+        un navigateur récent, LexImpact IR ne&nbsp;fonctionne pas sur Internet
         Explorer. Vous pouvez installer en autonomie Chrome ou Firefox, sans
         droits d&apos;administration sur votre poste.
       </p>
@@ -147,7 +147,7 @@ function TexteCguLeximpactPop({ classes }) {
           précédent
           {" "}
           <br />
-          et que vous n&apos;arrivez pas à vous connecter à LexImpact POP :
+          et que vous n&apos;arrivez pas à vous connecter à LexImpact IR :
         </b>
       </p>
       <Divider className={classes.dividerSansMarge} />
@@ -195,14 +195,14 @@ function TexteCguLeximpactPop({ classes }) {
       <ul>
         <li>
           L&apos;accord de l&apos;INSEE est indispensable pour étendre
-          l&apos;accès de l&apos;outil LexImpact POP à tout nouvel organisme.
+          l&apos;accès de la version en accès restreint de LexImpact IR à tout nouvel organisme.
           {" "}
         </li>
 
         <li>
           Merci de bien vouloir nous transmettre une demande par le biais de
           notre formulaire de&nbsp;contact en indiquant dans l&apos;objet
-          «&nbsp;demande d’accès LexImpact POP&nbsp;».
+          «&nbsp;demande d’accès LexImpact IR&nbsp;».
         </li>
       </ul>
 
@@ -222,8 +222,8 @@ function TexteCguLeximpactPop({ classes }) {
         simulation est stockée, tenue à&nbsp;jour en permanence et transmise
         régulièrement à&nbsp;l&apos;INSEE. Pour accéder au service, LexImpact
         POP vous demande votre adresse mail. Afin d&apos;éviter les usages
-        abusifs, LexImpact POP conserve également des données sur le nombre de
-        simulations effectuées par usager. Ces informations ne seront en aucun
+        abusifs, LexImpact IR conserve également des données sur le nombre de
+        simulations sur la population effectuées par usager. Ces informations ne seront en aucun
         cas utilisées pour d&apos;autres fins ou revendues à un tiers.
       </p>
 
@@ -239,7 +239,7 @@ function TexteCguLeximpactPop({ classes }) {
       <p>
         Nous nous engageons à ne jamais exploiter les informations que vous nous
         transmettrez dans un but commercial ou publicitaire. De manière
-        générale, LexImpact POP n&apos;accepte aucune forme de publicité.
+        générale, LexImpact IR n&apos;accepte aucune forme de publicité.
       </p>
 
       <p>
@@ -266,7 +266,7 @@ function TexteCguLeximpactPop({ classes }) {
       <hr />
 
       <p>
-        Nous mettons LexImpact POP à disposition sans garantie sur sa
+        Nous mettons LexImpact IR à disposition sans garantie sur sa
         disponibilité, avec obligation de moyens et non de résultats. Cela
         signifie que d&apos;éventuelles indisponibilités n&apos;ouvriront pas
         droit à compensation financière.
@@ -286,7 +286,7 @@ function TexteCguLeximpactPop({ classes }) {
       <p>
         {" "}
         La simulation d&apos;impact sur un foyer fiscal type dépend à la fois de
-        l’interface LexImpact POP mais également des mises à jour régulières
+        l’interface LexImpact IR mais également des mises à jour régulières
         d&apos;OpenFisca. Dès qu&apos;une loi est modifiée, les équipes
         contributrices et bénévoles d’OpenFisca se chargent de faire évoluer le
         code informatique pour qu&apos;il fonctionne selon la nouvelle
@@ -296,7 +296,7 @@ function TexteCguLeximpactPop({ classes }) {
 
       <p>
         {" "}
-        LexImpact n&apos;est pas un simulateur d&apos;impôt sur le revenu
+        LexImpact IR n&apos;est pas un simulateur d&apos;impôt sur le revenu
         individuel, c&apos;est un outil de chiffrage conçu pour évaluer les
         impacts d&apos;une réforme. Les résultats calculés par ce simulateur ont
         une valeur informative et ne représentent en aucun cas une décision
@@ -313,8 +313,8 @@ function TexteCguLeximpactPop({ classes }) {
         {" "}
         Par ailleurs, concernant les impacts agrégés sur le budget de
         l&apos;État et leurs effets sur des déciles de&nbsp;population,
-        LexImpact POP ne propose pas une analyse des effets comportementaux.
-        Cela signifie que LexImpact POP se tient stricto sensu aux effets
+        LexImpact IR ne propose pas une analyse des effets comportementaux.
+        Cela signifie que LexImpact IR se tient stricto sensu aux effets
         théoriques de l&apos;application de la loi, sans prendre en&nbsp;compte
         les éventuels changements de comportements des contribuables (par
         exemple, le départ de&nbsp;français à l&apos;étranger ou le retour de
@@ -325,8 +325,8 @@ function TexteCguLeximpactPop({ classes }) {
         En raison des limites inhérentes à l&apos;échantillon employé et aux
         méthodes utilisées pour extraire de cette base de données les
         informations nécessaires au calcul des effets agrégés des modifications
-        de la loi, Leximpact POP ne saurait garantir l&apos;exactitude des
-        prévisions affichées dans l&apos;interface, qui sont seulement données à
+        de la loi, Leximpact IR ne saurait garantir l&apos;exactitude des
+        prévisions d'effets sur la population affichées dans l&apos;interface, qui sont seulement données à
         titre indicatif. Les résultats obtenus sont à considérer comme un ordre
         de grandeur.
       </p>
@@ -337,14 +337,14 @@ function TexteCguLeximpactPop({ classes }) {
       <hr />
 
       <p>
-        Nous pouvons faire évoluer LexImpact POP sans information préalable.
+        Nous pouvons faire évoluer LexImpact IR sans information préalable.
         Nous ajoutons régulièrement des variables, raffinons l&apos;interface et
         modifions des formulations sur la base de vos retours et des évolutions
         règlementaires.
       </p>
 
       <p>
-        Nous pouvons suspendre l&apos;accès à LexImpact POP sans information
+        Nous pouvons suspendre l&apos;accès à LexImpact IR sans information
         préalable, notamment pour des raisons de maintenance. Nous mettons
         l&apos;application à jour plusieurs fois par mois.
         L&apos;indisponibilité ne dépasse généralement pas une dizaine de

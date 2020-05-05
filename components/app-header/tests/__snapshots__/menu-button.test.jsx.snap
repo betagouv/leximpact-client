@@ -12,6 +12,6 @@ exports[`components | app-header | index snapshot doit correspondre au snapshot 
   <pure(MenuIcon)
     fontSize="small"
   />
-   Menu
+   Info
 </WithStyles(Button)>
 `;
