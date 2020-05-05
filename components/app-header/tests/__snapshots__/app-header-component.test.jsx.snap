@@ -2,7 +2,7 @@
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode desktop 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
@@ -42,7 +42,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode mobile 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
@@ -82,7 +82,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode desktop 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
@@ -120,7 +120,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode mobile 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
