@@ -11,7 +11,7 @@ import SimulationButton60 from "./simulation-button-60";
 
 const styles = () => ({
   container: {
-    margin: "15px 0",
+    marginBottom: "15px",
   },
   marginIcon: {
     marginRight: "15px",
