@@ -12,14 +12,26 @@ const styleExpansionpanel = {
 };
 
 class Alinea2 extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { expanded: false };
+    this.onExpandedChange = this.onExpandedChange.bind(this);
+  }
+
+  onExpandedChange() {
+    const { expanded } = this.state;
+    this.setState({ expanded: !expanded });
+  }
+
   render() {
-    const { expandArticlePanelHandler, isPanelExpanded, style } = this.props;
+    const { style } = this.props;
+    const { expanded } = this.state;
     return (
       <LexExpansionPanel
         square
-        expanded={isPanelExpanded}
+        expanded={expanded}
         style={style.Typography}
-        onChange={expandArticlePanelHandler}>
+        onChange={this.onExpandedChange}>
         <LexExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           style={styleExpansionpanel}>
@@ -40,8 +52,6 @@ class Alinea2 extends PureComponent {
 }
 
 Alinea2.propTypes = {
-  expandArticlePanelHandler: PropTypes.func.isRequired,
-  isPanelExpanded: PropTypes.bool.isRequired,
   style: PropTypes.shape().isRequired,
 };
 

@@ -1,6 +1,4 @@
-import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
@@ -19,21 +17,7 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import styles2 from "./articles-component.module.scss";
-
-const stylesTheme = theme => ({
-  titleArticleCGI: {
-    color: "#6C6C6C",
-    fontFamily: "Lora",
-    fontSize: "18px",
-    paddingLeft: "6px",
-    [theme.breakpoints.down("xs")]: {
-      color: "#6C6C6C",
-      fontFamily: "Lora",
-      fontSize: "14px",
-      paddingLeft: "6px",
-    },
-  },
-});
+import { PrimaryParameterExpandablePanel as PrimaryExpandablePanel } from "./expandable-panels/PrimaryParameterExpandablePanel";
 
 const style = {
   Button: {
@@ -45,20 +29,6 @@ const style = {
     marginLeft: "1.5em",
     marginRight: "1.5em",
     marginTop: "0",
-  },
-  DivTitreTheme: {
-    marginBottom: "0em",
-    marginLeft: "1.5em",
-    marginRight: "1.5em",
-    marginTop: "1em",
-  },
-  StyleTitreThematique: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: "20px",
-    fontVariantCaps: "all-small-caps",
-    fontWeight: "bold",
-    textAlign: "left",
   },
 };
 
@@ -195,9 +165,7 @@ class ArticlesComponent extends React.Component {
 
   render() {
     const {
-      classes,
       handleAddTranche,
-      handleArticleChange,
       handleRemoveTranche,
       handleResetVarArticle,
       handleResetVarArticleExistant,
@@ -213,38 +181,46 @@ class ArticlesComponent extends React.Component {
           montrerPLF={!!reformePLF}
           resetVarArticle={handleResetVarArticle}
           resetVarArticleExistant={handleResetVarArticleExistant} />
-        <Divider />
-        <div style={style.DivTitreTheme}>
-          <Typography style={style.StyleTitreThematique}>
-            Barème et taux
-            <span className={classes.titleArticleCGI}>
-                - Article 197 du CGI - I.1
-            </span>
-          </Typography>
-          <Divider />
-        </div>
-        <div style={style.Div}>
-          <Alinea0 style={style} />
-          {articleTranches}
-          <Grid container spacing={0}>
-            <Grid item sm={3}>
-              <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
+        <div style={{ marginRight: "1em" }}>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.1"
+            title="Barème et taux"
+          >
+            <Alinea0 style={style} />
+            {articleTranches}
+            <Grid container spacing={0}>
+              <Grid item sm={3}>
+                <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
+              </Grid>
+              <Grid item sm={6}>
+                <BoutonSupprimerTranche
+                  style={style}
+                  onClick={handleRemoveTranche}
+                />
+              </Grid>
             </Grid>
-            <Grid item sm={6}>
-              <BoutonSupprimerTranche
-                style={style}
-                onClick={handleRemoveTranche}
-              />
-            </Grid>
-          </Grid>
-          <Alinea2 baseOutputInput={this.renderBaseOutputInput} style={style} />
-          <Alinea3 baseOutputInput={this.renderBaseOutputInput} style={style} />
-          <Alinea4a
-            baseOutputInput={this.renderBaseOutputInput}
-            formulaOutputInput={this.renderFormulaOutput}
-            style={style}
-            onInputChange={handleArticleChange}
-          />
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.2"
+            title="Plafonds du quotient familial"
+          >
+            <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.3"
+            title="Réfaction outre-mer"
+          >
+            <Alinea3 baseOutputInput={this.renderBaseOutputInput} />
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.4a"
+            title="Décote"
+          >
+            <Alinea4a
+              baseOutputInput={this.renderBaseOutputInput}
+              formulaOutputInput={this.renderFormulaOutput}
+            />
+          </PrimaryExpandablePanel>
         </div>
       </Fragment>
     );
@@ -256,7 +232,6 @@ ArticlesComponent.defaultProps = {
 };
 
 ArticlesComponent.propTypes = {
-  classes: PropTypes.shape().isRequired,
   handleAddTranche: PropTypes.func.isRequired,
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
@@ -285,4 +260,4 @@ ArticlesComponent.propTypes = {
   }),
 };
 
-export default withStyles(stylesTheme, { withTheme: true })(ArticlesComponent);
+export default ArticlesComponent;

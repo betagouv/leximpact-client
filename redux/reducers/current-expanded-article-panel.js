@@ -1,4 +1,4 @@
-const DEFAULT_STATE = null;
+const DEFAULT_STATE = "Barème et taux";
 
 const currentExpandedArticlePanel = (state = DEFAULT_STATE, action) => {
   let nextState = null;
