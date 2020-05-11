@@ -61,7 +61,9 @@ class ArticlesComponent extends React.Component {
       const baseValue = bases[Math.min(i, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
       return (
-        <div className={styles.text}>
+        <div
+          key={i}
+          className={styles.text}>
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
@@ -84,10 +86,12 @@ class ArticlesComponent extends React.Component {
       const plfValue = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
       return (
-        <div className={classNames({
-          [styles.text]: true,
-          [styles.newTranche]: newTranche,
-        })}>
+        <div
+          key={i}
+          className={classNames({
+            [styles.text]: true,
+            [styles.newTranche]: newTranche,
+          })}>
           –
           <Parameter
             editable
@@ -119,10 +123,12 @@ class ArticlesComponent extends React.Component {
     const plfValueminus1 = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
     return (
-      <div className={classNames({
-        [styles.text]: true,
-        [styles.newTranche]: newTranche,
-      })}>
+      <div
+        key={i}
+        className={classNames({
+          [styles.text]: true,
+          [styles.newTranche]: newTranche,
+        })}>
         –
         <Parameter
           editable
