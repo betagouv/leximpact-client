@@ -52,14 +52,6 @@ const styles = theme => ({
   spanBolder: {
     fontWeight: "bold",
   },
-  spanLeximpactBolder: {
-    fontFamily: "Lato",
-    fontSize: 34,
-    fontWeight: "bold",
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 26,
-    },
-  },
   spanLeximpactLigther: {
     fontFamily: "Lato",
     fontSize: 34,
@@ -130,8 +122,7 @@ class Connexion extends PureComponent {
           </Avatar>
         </div>
         <Typography classes={{ root: classes.title }}>
-          <span className={classes.spanLeximpactLigther}>LEXIMPACT&nbsp;</span>
-          <span className={classes.spanLeximpactBolder}>POP</span>
+          <span className={classes.spanLeximpactLigther}>CONNEXION</span>
         </Typography>
         {this.renderConnexionForm()}
         {this.renderConnexionSuccess()}

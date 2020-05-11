@@ -1,9 +1,11 @@
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import VPNKeyIcon from "@material-ui/icons/VpnKey";
 import PropTypes from "prop-types";
+import { PureComponent } from "react";
 
-import { showConnexionPopin } from "../../redux/actions";
+import { logOut, showConnexionPopin } from "../../redux/actions";
 
 const styles = () => ({
   button: {
@@ -17,21 +19,39 @@ const styles = () => ({
   },
 });
 
-function LoginButtonMobile({ classes }) {
-  return (
-    <Button
-      className={classes.button}
-      color="primary"
-      size="small"
-      variant="contained"
-      onClick={showConnexionPopin}>
-      <VPNKeyIcon />
-    </Button>
-  );
+class LoginButtonMobile extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    const { isUserLogged } = this.props;
+    if (isUserLogged) {
+      logOut();
+    } else {
+      showConnexionPopin();
+    }
+  }
+
+  render() {
+    const { classes, isUserLogged } = this.props;
+    return (
+      <Button
+        className={classes.button}
+        color="primary"
+        size="small"
+        variant="contained"
+        onClick={this.onClick}>
+        {isUserLogged ? <ExitToAppIcon /> : <VPNKeyIcon />}
+      </Button>
+    );
+  }
 }
 
 LoginButtonMobile.propTypes = {
   classes: PropTypes.shape().isRequired,
+  isUserLogged: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(LoginButtonMobile);
