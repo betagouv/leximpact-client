@@ -8,18 +8,19 @@ import styles from "./PrimaryExpandablePanel.module.scss";
 export class PrimaryExpandablePanel extends PureComponent {
   constructor(props) {
     super(props);
-    this.onExpand = this.onExpand.bind(this);
+    const { expanded } = this.props;
+    this.state = { expanded };
+    this.onExpandedChange = this.onExpandedChange.bind(this);
   }
 
-  onExpand() {
-    const { onExpandedChange } = this.props;
-    onExpandedChange(!this.expanded);
+  onExpandedChange() {
+    const { expanded } = this.state;
+    this.setState({ expanded: !expanded });
   }
 
   render() {
-    const {
-      children, expanded, subTitle, title,
-    } = this.props;
+    const { children, subTitle, title } = this.props;
+    const { expanded } = this.state;
     return (
       <div>
         <div className={styles.header}>
@@ -33,7 +34,7 @@ export class PrimaryExpandablePanel extends PureComponent {
             </span>
           </div>
           <div>
-            <button className={styles.btn} type="button" onClick={this.onExpand}>
+            <button className={styles.btn} type="button" onClick={this.onExpandedChange}>
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </button>
           </div>
@@ -48,10 +49,13 @@ export class PrimaryExpandablePanel extends PureComponent {
   }
 }
 
+PrimaryExpandablePanel.defaultProps = {
+  expanded: false,
+};
+
 PrimaryExpandablePanel.propTypes = {
   children: PropTypes.node.isRequired,
-  expanded: PropTypes.bool.isRequired,
-  onExpandedChange: PropTypes.func.isRequired,
+  expanded: PropTypes.bool,
   subTitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

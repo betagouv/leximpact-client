@@ -16,7 +16,7 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import styles2 from "./articles-component.module.scss";
-import { PrimaryParameterExpandablePanel as PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
 
 const style = {
   Button: {
@@ -182,6 +182,7 @@ class ArticlesComponent extends React.Component {
           resetVarArticleExistant={handleResetVarArticleExistant} />
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
+            expanded
             subTitle="Article 197 du CGI - I.1"
             title="Barème et taux"
           >
