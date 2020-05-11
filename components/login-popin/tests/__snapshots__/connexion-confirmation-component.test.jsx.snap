@@ -26,7 +26,7 @@ exports[`components | login-popin-component snapshot doit correspondre quand le 
       inline={true}
       width="40"
     />
-     Vous êtes bien connectés à LexImpact POP 
+     Vous êtes bien connectés à LexImpact IR 
   </h1>
   <p
     className="LoginPopinComponent-pStyle-3"

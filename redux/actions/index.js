@@ -1,4 +1,5 @@
 export * from "./loading";
+export { default as logOut } from "./log-out";
 export * from "./loading-etat";
 export { default as hideInformationPanel } from "./hide-information-panel";
 export { default as closeCurrentPopin } from "./popin-close-current";
