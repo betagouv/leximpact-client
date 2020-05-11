@@ -1,0 +1,12 @@
+@import 'styles/variables';
+
+.text {
+  font-size: 18px;
+  font-family: $law-font-family;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.newTranche {
+  color: $reform-text-color;
+}
