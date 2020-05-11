@@ -1,13 +1,15 @@
 import AppBar from "@material-ui/core/AppBar";
+import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import PropTypes from "prop-types";
-import { Fragment, PureComponent } from "react";
+import { PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
 import ImpactCards from "../cartes-impact";
 import SimulationMenuBar from "../simulation-menu";
+import styles from "./reformeur-component.module.scss";
 
 class ReformeurComponent extends PureComponent {
   constructor(props) {
@@ -25,11 +27,11 @@ class ReformeurComponent extends PureComponent {
   };
 
   renderDesktopView = () => (
-    <div className="clearfix">
-      <div className="moitie-gauche">
+    <div className={styles.container}>
+      <Paper square className={styles.parameters}>
         <Articles />
-      </div>
-      <div className="moitie-droite">
+      </Paper>
+      <div className={styles.results}>
         <SimulationMenuBar />
         <ImpactCards />
       </div>
@@ -39,7 +41,7 @@ class ReformeurComponent extends PureComponent {
   renderMobileView = () => {
     const { indextab } = this.state;
     return (
-      <Fragment>
+      <div>
         <AppBar color="default" position="static">
           <Tabs
             indicatorColor="primary"
@@ -56,25 +58,25 @@ class ReformeurComponent extends PureComponent {
           index={indextab}
           onChangeIndex={this.handleOnChangeIndex}>
           <div style={{ padding: 24 }}>
-            <Articles />
+            <Paper>
+              <Articles />
+            </Paper>
           </div>
           <div style={{ padding: 24 }}>
             <SimulationMenuBar />
             <ImpactCards />
           </div>
         </SwipeableViews>
-      </Fragment>
+      </div>
     );
   };
 
   render() {
     const { useMobileView } = this.props;
-    return (
-      <div className="main-index">
-        {useMobileView && this.renderMobileView()}
-        {!useMobileView && this.renderDesktopView()}
-      </div>
-    );
+    if (useMobileView) {
+      return this.renderMobileView();
+    }
+    return this.renderDesktopView();
   }
 }
 

@@ -1,10 +1,9 @@
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 
 import {
   BaseInputOutput,
@@ -22,13 +21,6 @@ import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche"
 import styles2 from "./articles-component.module.scss";
 
 const stylesTheme = theme => ({
-  paper: {
-    margin: "1em",
-    padding: "0 0 10px 0",
-    [theme.breakpoints.down("xs")]: {
-      margin: "0em",
-    },
-  },
   titleArticleCGI: {
     color: "#6C6C6C",
     fontFamily: "Lora",
@@ -216,7 +208,7 @@ class ArticlesComponent extends React.Component {
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
-      <Paper className={classes.paper}>
+      <Fragment>
         <ArticleHeader
           montrerPLF={!!reformePLF}
           resetVarArticle={handleResetVarArticle}
@@ -254,7 +246,7 @@ class ArticlesComponent extends React.Component {
             onInputChange={handleArticleChange}
           />
         </div>
-      </Paper>
+      </Fragment>
     );
   }
 }

@@ -50,7 +50,7 @@ class AppHeaderComponent extends PureComponent {
   render() {
     const { classes, isUserLogged, useMobileView } = this.props;
     return (
-      <AppBar position="static">
+      <AppBar position="relative">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
           {useMobileView && <HeaderMenuButtonMobile />}
           {!useMobileView && <HeaderMenuButton />}

@@ -8,11 +8,6 @@
     font-family: "Lato";
   }
 
-  .main-index {
-    background-image: url(../static/images/tramebackground.png);
-    width: auto;
-  }
-
   html {
     background-image: url(../static/images/tramebackground.png);
   }
@@ -21,27 +16,6 @@
   input.mui-number-stepper::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-
-  @media screen and (min-width: 500px) {
-    .moitie-gauche {
-      box-sizing: border-box;
-      position: absolute;
-      width: 600px;
-      float: left;
-    }
-
-    .moitie-droite {
-      box-sizing: border-box;
-      margin-left: 620px;
-      margin-right: 32px;
-      margin-top: 1em;
-      float: left;
-    }
-  }
-
-  .clearfix {
-    clear: both;
   }
 
   .heading {
