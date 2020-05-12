@@ -99,7 +99,7 @@
     "node": "12",
     "npm": "6.13"
   },
-  "browsers": [
+  "browserslist": [
     "> 1%",
     "last 4 versions"
   ]
