@@ -8,9 +8,9 @@ import {
 } from "../../redux/actions";
 import ReformeurComponent from "./reformeur-component";
 
-const mapStateToProps = ({ isInformationPanelVisible }, { width }) => {
+const mapStateToProps = (state, { width }) => {
   const useMobileView = width === "xs" || width === "sm";
-  return { isInformationPanelVisible, useMobileView };
+  return { useMobileView };
 };
 
 const mapDispatchToProps = dispatch => ({

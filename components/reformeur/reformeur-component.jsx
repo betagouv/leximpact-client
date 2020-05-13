@@ -8,7 +8,6 @@ import SwipeableViews from "react-swipeable-views";
 
 import Articles from "../articles";
 import ImpactCards from "../cartes-impact";
-import InformationPanel from "../information-panel";
 import SimulationMenuBar from "../simulation-menu";
 import styles from "./reformeur-component.module.scss";
 
@@ -27,25 +26,20 @@ class ReformeurComponent extends PureComponent {
     this.setState({ indextab });
   };
 
-  renderDesktopView = () => {
-    const { isInformationPanelVisible } = this.props;
-    return (
-      <div className={styles.container}>
-        <Paper square className={styles.parameters}>
-          <Articles />
-        </Paper>
-        <div className={styles.results}>
-          <SimulationMenuBar />
-          {isInformationPanelVisible && <InformationPanel />}
-          <ImpactCards />
-        </div>
+  renderDesktopView = () => (
+    <div className={styles.container}>
+      <Paper square className={styles.parameters}>
+        <Articles />
+      </Paper>
+      <div className={styles.results}>
+        <SimulationMenuBar />
+        <ImpactCards />
       </div>
-    );
-  };
+    </div>
+  );
 
   renderMobileView = () => {
     const { indextab } = this.state;
-    const { isInformationPanelVisible } = this.props;
     return (
       <div>
         <AppBar color="default" position="static">
@@ -70,7 +64,6 @@ class ReformeurComponent extends PureComponent {
           </div>
           <div style={{ padding: 24 }}>
             <SimulationMenuBar />
-            {isInformationPanelVisible && <InformationPanel />}
             <ImpactCards />
           </div>
         </SwipeableViews>
@@ -89,7 +82,6 @@ class ReformeurComponent extends PureComponent {
 
 ReformeurComponent.propTypes = {
   initializeAppllicationStoreFromAPI: PropTypes.func.isRequired,
-  isInformationPanelVisible: PropTypes.bool.isRequired,
   useMobileView: PropTypes.bool.isRequired,
 };
 
