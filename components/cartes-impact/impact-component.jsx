@@ -11,7 +11,7 @@ class ImpactComponent extends PureComponent {
   render() {
     const { casTypes, isInformationPanelVisible, isUserLogged } = this.props;
     return (
-      <Grid container alignItems="stretch" spacing={24}>
+      <Grid container spacing={24}>
         {isInformationPanelVisible && (
           <Grid item xs={12}>
             <InformationPanel />
