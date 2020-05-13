@@ -5,13 +5,14 @@ import { PureComponent } from "react";
 import CarteEtat from "../carte-etat";
 import InformationPanel from "../information-panel";
 import GagnantsPerdantsCard from "./gagnants-perdants";
+import styles from "./impact-component.module.scss";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   render() {
     const { casTypes, isInformationPanelVisible, isUserLogged } = this.props;
     return (
-      <Grid container spacing={24}>
+      <Grid container className={styles.container} spacing={24}>
         {isInformationPanelVisible && (
           <Grid item lg={12} md={12} sm={12} xl={12} xs={12}>
             {/* affichage de la carte etat */}
