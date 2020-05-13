@@ -16,6 +16,7 @@ import React, { PureComponent } from "react";
 const styles = () => ({
   cardContainer: {
     backgroundColor: "rgba(222, 213, 0, 0.3)",
+    marginBottom: 15,
     minWidth: 50,
     paddingBottom: 0,
   },
