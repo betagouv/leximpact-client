@@ -11,22 +11,19 @@ class ImpactComponent extends PureComponent {
   render() {
     const { casTypes, isInformationPanelVisible, isUserLogged } = this.props;
     return (
-      <Grid container spacing={24}>
+      <Grid container alignItems="stretch" spacing={24}>
         {isInformationPanelVisible && (
-          <Grid item lg={12} md={12} sm={12} xl={12} xs={12}>
-            {/* affichage de la carte etat */}
+          <Grid item xs={12}>
             <InformationPanel />
           </Grid>
         )}
         {isUserLogged && (
-          <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
-            {/* affichage de la carte etat */}
+          <Grid item lg={8} sm={6} xs={12}>
             <CarteEtat />
           </Grid>
         )}
         {isUserLogged && (
-          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
-            {/* affichage de la carte etat */}
+          <Grid item lg={4} sm={6} xs={12}>
             <GagnantsPerdantsCard />
           </Grid>
         )}
