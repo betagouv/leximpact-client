@@ -1,6 +1,7 @@
-import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
+
+import styles from "../articles.module.scss";
 
 class Alinea4a extends PureComponent {
   render() {
@@ -9,7 +10,7 @@ class Alinea4a extends PureComponent {
       formulaOutputInput,
     } = this.props;
     return (
-      <Typography color="inherit" variant="body2">
+      <div className={styles.text}>
         4. a. Le montant de l&apos;impôt résultant de l&apos;application des
         dispositions précédentes est diminué, dans la limite de son montant,
         de la différence entre
@@ -27,7 +28,7 @@ class Alinea4a extends PureComponent {
         {formulaOutputInput("decote.taux")}
         % de son montant pour les contribuables soumis à imposition
         commune.
-      </Typography>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 
@@ -15,7 +15,7 @@ import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
-import styles2 from "./articles-component.module.scss";
+import styles from "./articles.module.scss";
 import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
 
 const style = {
@@ -55,17 +55,15 @@ class ArticlesComponent extends React.Component {
     const plft = reformePLF && reformePLF.impot_revenu.bareme.taux;
 
     const nbt = s.length;
-    const styleAUtiliser = i > 4 ? styles2.newBracket : styles2.bracket;
+    const newTranche = i > 4;
     // Part 1
     if (i === 0) {
       const baseValue = bases[Math.min(i, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
       return (
-        <Typography
+        <div
           key={i}
-          className={styleAUtiliser}
-          color="inherit"
-          variant="body2">
+          className={styles.text}>
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
@@ -77,7 +75,7 @@ class ArticlesComponent extends React.Component {
             onReformChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           € le taux de&nbsp;:
-        </Typography>
+        </div>
       );
     }
     // Last part
@@ -88,11 +86,12 @@ class ArticlesComponent extends React.Component {
       const plfValue = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
       return (
-        <Typography
+        <div
           key={i}
-          className={styleAUtiliser}
-          color="inherit"
-          variant="body2">
+          className={classNames({
+            [styles.text]: true,
+            [styles.newTranche]: newTranche,
+          })}>
           –
           <Parameter
             editable
@@ -112,7 +111,7 @@ class ArticlesComponent extends React.Component {
             reformValue={s[i - 1]}
           />
           €.
-        </Typography>
+        </div>
       );
     }
     // Other parts :
@@ -124,11 +123,12 @@ class ArticlesComponent extends React.Component {
     const plfValueminus1 = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
     return (
-      <Typography
+      <div
         key={i}
-        className={styleAUtiliser}
-        color="inherit"
-        variant="body2">
+        className={classNames({
+          [styles.text]: true,
+          [styles.newTranche]: newTranche,
+        })}>
         –
         <Parameter
           editable
@@ -158,7 +158,7 @@ class ArticlesComponent extends React.Component {
           onReformChange={value => handleArticleChange(value, `seuil${i}`)}
         />
         € ;
-      </Typography>
+      </div>
     );
   };
 
