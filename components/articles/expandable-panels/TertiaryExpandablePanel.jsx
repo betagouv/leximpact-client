@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import styles from "./SecondaryExpandablePanel.module.scss";
+import styles from "./TertiaryExpandablePanel.module.scss";
 
 const LexExpansionPanelSummary = withStyles({
   content: {
@@ -53,7 +53,7 @@ const LexExpansionPanel = withStyles({
   },
 })(ExpansionPanel);
 
-export class SecondaryExpandablePanel extends PureComponent {
+export class TertiaryExpandablePanel extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { expanded: false };
@@ -89,7 +89,7 @@ export class SecondaryExpandablePanel extends PureComponent {
   }
 }
 
-SecondaryExpandablePanel.propTypes = {
+TertiaryExpandablePanel.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
 };

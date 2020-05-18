@@ -16,7 +16,7 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import styles from "./articles.module.scss";
-import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
+import { PrimaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
 
 const style = {
   Button: {
@@ -186,10 +186,10 @@ class ArticlesComponent extends React.Component {
             subTitle="Article 197 du CGI - I.1"
             title="Barème et taux"
           >
-            <SecondaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
+            <TertiaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
               visés à l&apos;article 4 B, il est fait application des règles
               suivantes pour le calcul de l&apos;impôt sur le revenu :
-            </SecondaryExpandablePanel>
+            </TertiaryExpandablePanel>
             {articleTranches}
             <Grid container spacing={0}>
               <Grid item sm={3}>
