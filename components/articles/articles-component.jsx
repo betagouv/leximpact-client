@@ -16,7 +16,7 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import styles from "./articles.module.scss";
-import { PrimaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
 
 const style = {
   Button: {
@@ -184,7 +184,7 @@ class ArticlesComponent extends React.Component {
           <PrimaryExpandablePanel
             expanded
             subTitle="Article 197 du CGI - I.1"
-            title="Barème et taux"
+            title="Barème"
           >
             <TertiaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
               visés à l&apos;article 4 B, il est fait application des règles
@@ -204,10 +204,16 @@ class ArticlesComponent extends React.Component {
             </Grid>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
-            subTitle="Article 197 du CGI - I.2"
-            title="Plafonds du quotient familial"
+            expanded
+            subTitle="Articles 194, 195 et 197 du CGI"
+            title="Quotient familial"
           >
-            <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+            <SecondaryExpandablePanel
+              subTitle="Articles 197 - I.2"
+              title="Plafonds"
+            >
+              <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+            </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
             subTitle="Article 197 du CGI - I.3"

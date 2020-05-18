@@ -2,22 +2,31 @@
 
 $padding-x: 30px;
 $padding-y: 15px;
+$header-padding-left: 7px;
+
+.container {
+  margin-top: -$padding-y;
+  margin-bottom: -$padding-y;
+  margin-left: -$header-padding-left;
+}
 
 .header {
-  background-color: #f1f1f1;
-  padding: 5px 10px 5px $padding-x;
+  background-color: #e3e3e3;
+  padding: 5px 10px 5px $header-padding-left;
   display: flex;
   align-items: center;
   flex-direction: row;
 
   .title {
+    color: #717171;
     font-weight: bold;
-    text-transform: uppercase;
+    font-size: 16px;
     font-family: $default-font-family;
   }
 
   .subTitle {
     color: #696969;
+    font-size: 14px;
     font-family: $law-font-family;
   }
 
@@ -40,5 +49,5 @@ $padding-y: 15px;
 .content {
   padding-top: $padding-y;
   padding-bottom: $padding-y;
-  padding-left: $padding-x;
+  padding-left: $header-padding-left;
 }
