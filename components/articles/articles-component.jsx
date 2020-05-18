@@ -17,6 +17,7 @@ import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import styles from "./articles.module.scss";
 import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
+import { ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 const style = {
   Button: {
@@ -163,6 +164,7 @@ class ArticlesComponent extends React.Component {
   };
 
   render() {
+    const isQfEnabled = document.location.href.indexOf("qf=true") !== -1;
     const {
       handleAddTranche,
       handleRemoveTranche,
@@ -208,12 +210,28 @@ class ArticlesComponent extends React.Component {
             subTitle="Articles 194, 195 et 197 du CGI"
             title="Quotient familial"
           >
+            {isQfEnabled && (
+              <SecondaryExpandablePanel
+                subTitle="Articles 194 - I.§1"
+                title="Règles générales"
+              >
+                <ReglesGenerales />
+              </SecondaryExpandablePanel>
+            )}
             <SecondaryExpandablePanel
               subTitle="Articles 197 - I.2"
               title="Plafonds"
             >
               <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
             </SecondaryExpandablePanel>
+            {isQfEnabled && (
+              <SecondaryExpandablePanel
+                subTitle="Articles 194 et 195"
+                title="Règles spécifiques"
+              >
+                <ReglesSpecifiques />
+              </SecondaryExpandablePanel>
+            )}
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
             subTitle="Article 197 du CGI - I.3"

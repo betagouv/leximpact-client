@@ -5,8 +5,6 @@ $padding-y: 15px;
 $header-padding-left: 7px;
 
 .container {
-  margin-top: -$padding-y;
-  margin-bottom: -$padding-y;
   margin-left: -$header-padding-left;
 }
 
@@ -18,7 +16,7 @@ $header-padding-left: 7px;
   flex-direction: row;
 
   .title {
-    color: #717171;
+    color: #565656;
     font-weight: bold;
     font-size: 16px;
     font-family: $default-font-family;
