@@ -1,17 +1,18 @@
 import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
-import { Fragment, PureComponent } from "react";
+import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
 import InformationPanel from "../information-panel";
 import GagnantsPerdantsCard from "./gagnants-perdants";
+import styles from "./impact-component.module.scss";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   render() {
     const { casTypes, isInformationPanelVisible, isUserLogged } = this.props;
     return (
-      <Fragment>
+      <div className={styles.container}>
         <Grid container spacing={24}>
           {isInformationPanelVisible && (
             <Grid item xs={12}>
@@ -39,7 +40,7 @@ class ImpactComponent extends PureComponent {
             );
           })}
         </Grid>
-      </Fragment>
+      </div>
     );
   }
 }
