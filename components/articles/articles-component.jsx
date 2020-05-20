@@ -206,7 +206,6 @@ class ArticlesComponent extends React.Component {
             </Grid>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
-            expanded
             subTitle="Articles 194, 195 et 197 du CGI"
             title="Quotient familial"
           >
