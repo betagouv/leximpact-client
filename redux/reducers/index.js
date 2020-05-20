@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
 
 import casTypes from "./cas-types";
-import currentExpandedArticlePanel from "./current-expanded-article-panel";
 import disabledEtat from "./disabled-etat";
 import isInformationPanelVisible from "./is-information-panel-visible";
 import loading from "./loading";
@@ -15,7 +14,6 @@ import totalPop from "./total-pop";
 
 export default combineReducers({
   casTypes,
-  currentExpandedArticlePanel,
   disabledEtat,
   isInformationPanelVisible,
   loading,
