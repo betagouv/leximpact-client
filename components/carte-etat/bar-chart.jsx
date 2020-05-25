@@ -1,9 +1,9 @@
-import "./bar-chart.scss";
-
 // Adapted from https://github.com/eipex2/nivo-cra/tree/master/src/
 import { ResponsiveBar } from "@nivo/bar";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
+
+import "./bar-chart.scss";
 
 class BarChart extends PureComponent {
   reformatResultat = () => {

@@ -1,11 +1,10 @@
-import "../styles/index.scss";
-
 import { flow } from "lodash";
 import Head from "next/head";
 import { Fragment, PureComponent } from "react";
 
 import AppHeader from "../components/app-header";
 import withRoot from "../lib/withRoot";
+import "../styles/index.scss";
 
 class VosRetoursPage extends PureComponent {
   render() {

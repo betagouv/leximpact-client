@@ -11,7 +11,16 @@ import ImpactCards from "../cartes-impact";
 import SimulationMenuBar from "../simulation-menu";
 import styles from "./reformeur-component.module.scss";
 
-class ReformeurComponent extends PureComponent {
+interface Props {
+  initializeAppllicationStoreFromAPI: () => void;
+  useMobileView: boolean;
+}
+
+interface State {
+  indextab: number;
+}
+
+class ReformeurComponent extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.state = { indextab: 0 };
@@ -79,10 +88,5 @@ class ReformeurComponent extends PureComponent {
     return this.renderDesktopView();
   }
 }
-
-ReformeurComponent.propTypes = {
-  initializeAppllicationStoreFromAPI: PropTypes.func.isRequired,
-  useMobileView: PropTypes.bool.isRequired,
-};
 
 export default ReformeurComponent;
