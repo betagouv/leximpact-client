@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 64px);
+}
+
+.parameters {
+  height: 100%;
+  overflow-y: scroll;
+  margin-left: 1em;
+  width: 600px;
+  padding-top: 1em;
+}
+
+.results {
+  height: 100%;
+  flex: 1;
+  padding: 1em;
+}

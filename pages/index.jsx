@@ -1,4 +1,5 @@
-import { withStyles } from "@material-ui/core/styles/";
+import "../styles/index.scss";
+
 import { flow } from "lodash";
 import Head from "next/head";
 import { withRouter } from "next/router";
@@ -8,9 +9,7 @@ import AppHeader from "../components/app-header";
 import PopinManager from "../components/PopinManager";
 import Reformeur from "../components/reformeur";
 import withRoot from "../lib/withRoot";
-import "../styles/index.scss";
-
-const styles = () => ({});
+import styles from "./index.module.scss";
 
 class IndexPage extends PureComponent {
   render() {
@@ -19,8 +18,10 @@ class IndexPage extends PureComponent {
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader />
-        <Reformeur />
+        <div className={styles.container}>
+          <AppHeader />
+          <Reformeur />
+        </div>
         <PopinManager />
       </Fragment>
     );
@@ -28,7 +29,6 @@ class IndexPage extends PureComponent {
 }
 
 export default flow(
-  withStyles(styles),
   withRouter,
   withRoot,
 )(IndexPage);

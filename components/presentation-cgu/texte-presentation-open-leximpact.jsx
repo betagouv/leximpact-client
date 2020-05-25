@@ -21,11 +21,9 @@ const styles = {
 function TextePresentationOpenLeximpact({ classes }) {
   return (
     <Paper className={classes.paperItem}>
-      <h2>OPEN LexImpact</h2>
-      <p>OPEN Leximpact est un service accessible à&nbsp;toutes et tous. </p>
-
-      <p>
-        Il vous permet de simuler les impacts d&apos;une réforme sur des foyers
+      <h2>LexImpact IR en accès libre</h2>
+      <p>La version en accès libre de LexImpact IR permet à&nbsp;toutes et tous
+        de simuler les impacts d&apos;une réforme sur des foyers
         fiscaux types. Le&nbsp;service ne vous permet pas de simuler votre
         situation personnelle.
       </p>
@@ -35,7 +33,7 @@ function TextePresentationOpenLeximpact({ classes }) {
       <p>
         Dans le cadre de l&apos;actuel périmètre, limité à&nbsp;l&apos;Article
         197 du Code général des impôts, concernant spécifiquement l&apos;impôt
-        sur le revenu, OPEN LexImpact permet de simuler et de comparer :
+        sur le revenu, LexImpact permet de simuler et de comparer :
       </p>
       <ul>
         <li>les impacts du code existant,</li>
@@ -58,14 +56,14 @@ function TextePresentationOpenLeximpact({ classes }) {
       </ul>
 
       <p>
-        OPEN LexImpact permet également de modifier le revenu net à déclarer des
-        foyers fiscaux types prédéfinis sur l&apos;interface.
+        La version en accès libre de LexImpact permet également de modifier 
+        le revenu net à déclarer des foyers fiscaux types prédéfinis sur l&apos;interface.
       </p>
 
       <Divider className={classes.dividerMarge} />
 
       <p>
-        L&apos;utilisation d&apos;OPEN LexImpact est libre, facultative et
+        L&apos;utilisation de LexImpact est libre, facultative et
         gratuite ; toute utilisation du&nbsp;service est subordonnée à
         l&apos;acceptation préalable et au respect intégral des conditions
         générales d&apos;utilisation (CGU) disponibles ci-après&nbsp;:
@@ -75,7 +73,7 @@ function TextePresentationOpenLeximpact({ classes }) {
 
       <Link href="/conditions-d-utilisation-openleximpact">
         <Button fullWidth color="secondary" size="large" variant="contained">
-          CGU OPEN LexImpact
+          CGU LexImpact en accès libre
         </Button>
       </Link>
     </Paper>

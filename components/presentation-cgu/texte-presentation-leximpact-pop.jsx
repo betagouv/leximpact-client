@@ -21,9 +21,9 @@ const styles = {
 function TextePresentationLeximpactPop({ classes }) {
   return (
     <Paper className={classes.paperItem}>
-      <h2>LexImpact POP</h2>
+      <h2>LexImpact IR en accès restreint</h2>
       <p>
-        LexImpact POP est
+        La version en accès restreint de LexImpact IR est
         {" "}
         <b>
           uniquement accessible à&nbsp;des personnes habilitées, parties
@@ -32,7 +32,7 @@ function TextePresentationLeximpactPop({ classes }) {
       </p>
 
       <p>
-        En plus de ce que permet de faire OPEN LexImpact, LexImpact POP vous
+        En plus de ce que permet de faire la version ouverte de LexImpact, sa version en accès restreint vous
         permet de&nbsp;simuler les impacts macros d&apos;une réforme sur la
         population et les recettes de l&apos;État.
       </p>
@@ -42,7 +42,7 @@ function TextePresentationLeximpactPop({ classes }) {
       <p>
         Dans le cadre de l&apos;actuel périmètre, limité à&nbsp;l&apos;Article
         197 du Code général des impôts, concernant spécifiquement l&apos;impôt
-        sur le revenu, LexImpact POP permet d&apos;évaluer et&nbsp;de comparer :
+        sur le revenu, la version en accès restreint de LexImpact permet d&apos;évaluer et&nbsp;de comparer :
         {" "}
       </p>
       <ul>
@@ -76,7 +76,7 @@ function TextePresentationLeximpactPop({ classes }) {
 
       <p>
         Afin de pouvoir chiffrer les impacts sur le budget de l&apos;État
-        notamment, LexImpact POP s&apos;appuie sur des données représentatives
+        notamment, la version en accès restreint de LexImpact s&apos;appuie sur des données représentatives
         de la population, couvertes par des secrets protégés par la loi. Ainsi,
         seules les personnes dûment habilitées peuvent y avoir accès.
         {" "}
@@ -94,7 +94,7 @@ function TextePresentationLeximpactPop({ classes }) {
       <Link href="/conditions-d-utilisation-leximpactpop">
         <Button fullWidth color="secondary" size="large" variant="contained">
           {" "}
-          CGU LexImpact POP
+          CGU LexImpact en accès restreint
         </Button>
       </Link>
     </Paper>

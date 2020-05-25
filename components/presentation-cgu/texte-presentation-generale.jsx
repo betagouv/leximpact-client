@@ -107,10 +107,10 @@ function TextePresentationGenerale({ classes }) {
         deux usagers différents :
       </p>
       <ul>
-        <li>le grand public (OPEN LexImpact) ;</li>
+        <li>le grand public (accès libre) ;</li>
         <li>
           des personnes dûment habilitées participant à l&apos;élaboration de la
-          loi (LexImpact POP).
+          loi (connexion requise).
         </li>
       </ul>
 

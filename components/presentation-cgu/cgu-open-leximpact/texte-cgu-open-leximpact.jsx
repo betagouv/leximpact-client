@@ -15,13 +15,13 @@ const styles = {
 function TexteCguOpenLeximpact({ classes }) {
   return (
     <section className={classes.sectionText}>
-      <h1>Conditions d&apos;utilisation d&apos;OPEN LexImpact</h1>
+      <h1>Conditions d&apos;utilisation de LexImpact IR</h1>
 
       <h2>Vocabulaire</h2>
       <hr />
 
-      <p>« Nous » se réfère à l&apos;éditeur d&apos;OPEN LexImpact.</p>
-      <p>« Vous » se réfère à un·e usager d&apos;OPEN LexImpact.</p>
+      <p>« Nous » se réfère à l&apos;éditeur de LexImpact IR.</p>
+      <p>« Vous » se réfère à un·e usager de LexImpact IR.</p>
 
       <div className={classes.espaceVide} />
 
@@ -29,12 +29,12 @@ function TexteCguOpenLeximpact({ classes }) {
       <hr />
 
       <p>
-        OPEN LexImpact est en accès libre à l&apos;adresse&nbsp;
+        La version ouverte de LexImpact IR est en accès libre à l&apos;adresse&nbsp;
         <a
-          href="https://leximpact.beta.gouv.fr/"
+          href="https://leximpact.an.fr/"
           rel="noopener noreferrer"
           target="_blank">
-          leximpact.beta.gouv.fr
+          leximpact.an.fr
         </a>
         . Son utilisation est gratuite et&nbsp;facultative.
       </p>
@@ -46,8 +46,8 @@ function TexteCguOpenLeximpact({ classes }) {
       </p>
 
       <p>
-        L&apos;utilisation d&apos;OPEN LexImpact requiert une connexion internet
-        et un navigateur récent, OPEN LexImpact ne fonctionne pas sur Internet
+        L&apos;utilisation de LexImpact IR requiert une connexion internet
+        et un navigateur récent, LexImpact IR ne fonctionne pas sur Internet
         Explorer. Vous pouvez installer en autonomie Chrome ou Firefox,
         sans&nbsp;droits d&apos;administration sur votre poste.
       </p>
@@ -65,7 +65,7 @@ function TexteCguOpenLeximpact({ classes }) {
       <hr />
 
       <p>
-        Lors de l&apos;utilisation du service, OPEN LexImpact ne vous demande ni
+        Lors de l&apos;utilisation du service, LexImpact IR ne vous demande ni
         ne stocke d&apos;information nominative telle que noms, prénoms ou
         adresses.
       </p>
@@ -83,7 +83,7 @@ function TexteCguOpenLeximpact({ classes }) {
       <p>
         Nous nous engageons à ne jamais exploiter les informations que vous nous
         transmettrez dans un but commercial ou publicitaire. De manière
-        générale, OPEN LexImpact n&apos;accepte aucune forme de publicité.
+        générale, LexImpact IR n&apos;accepte aucune forme de publicité.
       </p>
 
       <p>
@@ -109,7 +109,7 @@ function TexteCguOpenLeximpact({ classes }) {
       <hr />
 
       <p>
-        Nous mettons OPEN LexImpact à disposition sans garantie sur sa
+        Nous mettons LexImpact IR à disposition sans garantie sur sa
         disponibilité, avec obligation de moyens et non de résultats. Cela&nbsp;signifie que
         d&apos;éventuelles indisponibilités n&apos;ouvriront pas droit à
         compensation financière.
@@ -129,7 +129,7 @@ function TexteCguOpenLeximpact({ classes }) {
       <p>
         {" "}
         La simulation d&apos;impact sur un foyer fiscal type dépend à la fois de
-        l’interface OPEN LexImpact mais également des mises à jour régulières
+        l’interface LexImpact IR mais également des mises à jour régulières
         d&apos;OpenFisca. Dès qu&apos;une loi est modifiée, les équipes
         contributrices et bénévoles d’OpenFisca se chargent de faire évoluer le
         code informatique pour qu&apos;il fonctionne selon la nouvelle
@@ -161,14 +161,14 @@ function TexteCguOpenLeximpact({ classes }) {
       <hr />
 
       <p>
-        Nous pouvons faire évoluer OPEN LexImpact sans information préalable.
+        Nous pouvons faire évoluer LexImpact IR sans information préalable.
         Nous ajoutons régulièrement des variables, raffinons l&apos;interface et
         modifions des formulations sur la base de vos retours et des évolutions
         règlementaires.
       </p>
 
       <p>
-        Nous pouvons suspendre l&apos;accès à OPEN LexImpact sans information
+        Nous pouvons suspendre l&apos;accès à LexImpact IR sans information
         préalable, notamment pour des raisons de maintenance. Nous mettons
         l&apos;application à jour plusieurs fois par mois.
         L&apos;indisponibilité ne dépasse généralement pas une dizaine de

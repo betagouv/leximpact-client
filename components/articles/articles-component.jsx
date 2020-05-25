@@ -1,10 +1,7 @@
-import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+import classNames from "classnames";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 
 import {
   BaseInputOutput,
@@ -12,24 +9,14 @@ import {
 } from "../articles-inputs";
 import { Parameter } from "../articles-inputs/parameter";
 import fillArrayWith from "../utils/array/fillArrayWith";
-import Alinea0 from "./article-alinea-0";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
-import styles2 from "./articles-component.module.scss";
-
-const stylesTheme = theme => ({
-  paper: {
-    margin: "1em",
-    padding: "0 0 10px 0",
-    [theme.breakpoints.down("xs")]: {
-      margin: "0em",
-    },
-  },
-});
+import styles from "./articles.module.scss";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
 
 const style = {
   Button: {
@@ -41,20 +28,6 @@ const style = {
     marginLeft: "1.5em",
     marginRight: "1.5em",
     marginTop: "0",
-  },
-  DivTitreTheme: {
-    marginBottom: "0em",
-    marginLeft: "1.5em",
-    marginRight: "1.5em",
-    marginTop: "1em",
-  },
-  StyleTitreThematique: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: "20px",
-    fontVariantCaps: "all-small-caps",
-    fontWeight: "bold",
-    textAlign: "left",
   },
 };
 
@@ -82,17 +55,15 @@ class ArticlesComponent extends React.Component {
     const plft = reformePLF && reformePLF.impot_revenu.bareme.taux;
 
     const nbt = s.length;
-    const styleAUtiliser = i > 4 ? styles2.newBracket : styles2.bracket;
+    const newTranche = i > 4;
     // Part 1
     if (i === 0) {
       const baseValue = bases[Math.min(i, bases.length - 1)];
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
       return (
-        <Typography
+        <div
           key={i}
-          className={styleAUtiliser}
-          color="inherit"
-          variant="body2">
+          className={styles.text}>
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
@@ -104,7 +75,7 @@ class ArticlesComponent extends React.Component {
             onReformChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           € le taux de&nbsp;:
-        </Typography>
+        </div>
       );
     }
     // Last part
@@ -115,11 +86,12 @@ class ArticlesComponent extends React.Component {
       const plfValue = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
       return (
-        <Typography
+        <div
           key={i}
-          className={styleAUtiliser}
-          color="inherit"
-          variant="body2">
+          className={classNames({
+            [styles.text]: true,
+            [styles.newTranche]: newTranche,
+          })}>
           –
           <Parameter
             editable
@@ -139,7 +111,7 @@ class ArticlesComponent extends React.Component {
             reformValue={s[i - 1]}
           />
           €.
-        </Typography>
+        </div>
       );
     }
     // Other parts :
@@ -151,11 +123,12 @@ class ArticlesComponent extends React.Component {
     const plfValueminus1 = plfs ? plfs[Math.min(i - 1, plfs.length - 1)] : null;
 
     return (
-      <Typography
+      <div
         key={i}
-        className={styleAUtiliser}
-        color="inherit"
-        variant="body2">
+        className={classNames({
+          [styles.text]: true,
+          [styles.newTranche]: newTranche,
+        })}>
         –
         <Parameter
           editable
@@ -185,15 +158,13 @@ class ArticlesComponent extends React.Component {
           onReformChange={value => handleArticleChange(value, `seuil${i}`)}
         />
         € ;
-      </Typography>
+      </div>
     );
   };
 
   render() {
     const {
-      classes,
       handleAddTranche,
-      handleArticleChange,
       handleRemoveTranche,
       handleResetVarArticle,
       handleResetVarArticleExistant,
@@ -204,42 +175,57 @@ class ArticlesComponent extends React.Component {
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
-      <Paper className={classes.paper}>
+      <Fragment>
         <ArticleHeader
           montrerPLF={!!reformePLF}
           resetVarArticle={handleResetVarArticle}
           resetVarArticleExistant={handleResetVarArticleExistant} />
-        <Divider />
-        <div style={style.DivTitreTheme}>
-          <Typography style={style.StyleTitreThematique}>
-            Barème et taux
-          </Typography>
-          <Divider />
-        </div>
-        <div style={style.Div}>
-          <Alinea0 style={style} />
-          {articleTranches}
-          <Grid container spacing={0}>
-            <Grid item sm={3}>
-              <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
+        <div style={{ marginRight: "1em" }}>
+          <PrimaryExpandablePanel
+            expanded
+            subTitle="Article 197 du CGI - I.1"
+            title="Barème et taux"
+          >
+            <SecondaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
+              visés à l&apos;article 4 B, il est fait application des règles
+              suivantes pour le calcul de l&apos;impôt sur le revenu :
+            </SecondaryExpandablePanel>
+            {articleTranches}
+            <Grid container spacing={0}>
+              <Grid item sm={3}>
+                <BoutonAjouterTranche style={style} onClick={handleAddTranche} />
+              </Grid>
+              <Grid item sm={6}>
+                <BoutonSupprimerTranche
+                  style={style}
+                  onClick={handleRemoveTranche}
+                />
+              </Grid>
             </Grid>
-            <Grid item sm={6}>
-              <BoutonSupprimerTranche
-                style={style}
-                onClick={handleRemoveTranche}
-              />
-            </Grid>
-          </Grid>
-          <Alinea2 baseOutputInput={this.renderBaseOutputInput} style={style} />
-          <Alinea3 baseOutputInput={this.renderBaseOutputInput} style={style} />
-          <Alinea4a
-            baseOutputInput={this.renderBaseOutputInput}
-            formulaOutputInput={this.renderFormulaOutput}
-            style={style}
-            onInputChange={handleArticleChange}
-          />
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.2"
+            title="Plafonds du quotient familial"
+          >
+            <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.3"
+            title="Réfaction outre-mer"
+          >
+            <Alinea3 baseOutputInput={this.renderBaseOutputInput} />
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            subTitle="Article 197 du CGI - I.4a"
+            title="Décote"
+          >
+            <Alinea4a
+              baseOutputInput={this.renderBaseOutputInput}
+              formulaOutputInput={this.renderFormulaOutput}
+            />
+          </PrimaryExpandablePanel>
         </div>
-      </Paper>
+      </Fragment>
     );
   }
 }
@@ -249,7 +235,6 @@ ArticlesComponent.defaultProps = {
 };
 
 ArticlesComponent.propTypes = {
-  classes: PropTypes.shape().isRequired,
   handleAddTranche: PropTypes.func.isRequired,
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
@@ -278,4 +263,4 @@ ArticlesComponent.propTypes = {
   }),
 };
 
-export default withStyles(stylesTheme, { withTheme: true })(ArticlesComponent);
+export default ArticlesComponent;
