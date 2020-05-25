@@ -42,7 +42,7 @@ function casTypes(state = initialState, action) {
       isFetching: false,
     };
   case "onCreateCasType":
-    const nextKey = Object.keys(state.wprm).length;
+    const nextKey = Object.keys(state.items.wprm).length;
     return {
       ...state,
       items: {
