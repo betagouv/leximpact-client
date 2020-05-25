@@ -1,5 +1,3 @@
-import "../styles/pages-textes.scss";
-
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import { flow } from "lodash";
@@ -12,6 +10,7 @@ import TextePresentationGenerale from "../components/presentation-cgu/texte-pres
 import TextePresentationLeximpactPop from "../components/presentation-cgu/texte-presentation-leximpact-pop";
 import TextePresentationOpenLeximpact from "../components/presentation-cgu/texte-presentation-open-leximpact";
 import withRoot from "../lib/withRoot";
+import "../styles/pages-textes.scss";
 
 const styles = () => ({
   gridSection: {

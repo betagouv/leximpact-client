@@ -1,0 +1,16 @@
+.container {
+  height: calc(100% - 31px);
+  overflow-y: scroll;
+  margin: -12px -12px 0 -12px;
+}
+
+.container > * {
+  width: 100% !important;
+  margin: 0px!important;
+}
+
+@media screen and (max-width: 1427px) {
+  .container {
+    height: calc(100% - 72px);
+  }
+}
