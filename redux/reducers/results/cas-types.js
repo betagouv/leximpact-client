@@ -46,10 +46,10 @@ function casTypes(state = initialState, action) {
     return {
       ...state,
       items: {
-        apres: { ...state.apres, [nextKey]: 0 },
-        avant: { ...state.avant, [nextKey]: 0 },
-        plf: state.plf ? { ...state.plf, [nextKey]: 0 } : null,
-        wprm: { ...state.wprm, [nextKey]: 1 },
+        apres: { ...state.items.apres, [nextKey]: 0 },
+        avant: { ...state.items.avant, [nextKey]: 0 },
+        plf: state.items.plf ? { ...state.items.plf, [nextKey]: 0 } : null,
+        wprm: { ...state.items.wprm, [nextKey]: 1 },
       },
     };
   default:
