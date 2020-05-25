@@ -1,10 +1,11 @@
 @import 'styles/variables';
 
-$padding-left: 24px;
+$padding-x: 30px;
+$padding-y: 15px;
 
 .header {
   background-color: #f1f1f1;
-  padding: 5px 10px 5px $padding-left;
+  padding: 5px 10px 5px $padding-x;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -37,5 +38,6 @@ $padding-left: 24px;
 }
 
 .content {
-  padding: $padding-left / 2 $padding-left;
+  padding-bottom: $padding-y;
+  padding-left: $padding-x;
 }

@@ -1,62 +1,15 @@
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import { withStyles } from "@material-ui/core/styles";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import styles from "./SecondaryExpandablePanel.module.scss";
 
-const LexExpansionPanelSummary = withStyles({
-  content: {
-    "&$expanded": {
-      margin: "3px 0",
-      padding: "1px",
-    },
-  },
-  expanded: {},
-  root: {
-    "&$expanded": {
-      minHeight: 20,
-    },
-    backgroundColor: "rgba(0,0,0,0)",
-    borderBottom: "1px solid rgba(177,177,177,0.50)",
-    height: 32,
-    marginBottom: -1,
-  },
-})(props => <ExpansionPanelSummary {...props} />);
-
-const LexExpansionPanelDetails = withStyles(theme => ({
-  root: {
-    padding: theme.spacing.unit * 2,
-  },
-}))(ExpansionPanelDetails);
-
-
-LexExpansionPanelSummary.muiName = "ExpansionPanelSummary";
-
-const LexExpansionPanel = withStyles({
-  expanded: {
-    margin: "auto",
-    padding: "1px",
-  },
-  root: {
-    "&:before": {
-      display: "none",
-    },
-    "&:not(:last-child)": {
-      borderBottom: 0,
-    },
-    border: "0px solid rgba(0,0,0,.125)",
-    boxShadow: "none",
-  },
-})(ExpansionPanel);
-
 export class SecondaryExpandablePanel extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    const { expanded } = this.props;
+    this.state = { expanded };
     this.onExpandedChange = this.onExpandedChange.bind(this);
   }
 
@@ -66,30 +19,43 @@ export class SecondaryExpandablePanel extends PureComponent {
   }
 
   render() {
-    const { children, title } = this.props;
+    const { children, subTitle, title } = this.props;
     const { expanded } = this.state;
     return (
-      <LexExpansionPanel
-        square
-        expanded={expanded}
-        onChange={this.onExpandedChange}>
-        <LexExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}>
-          <span className={styles.title}>
-            {title}
-          </span>
-        </LexExpansionPanelSummary>
-        <LexExpansionPanelDetails>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.text}>
+            <span className={styles.title}>{title}</span>
+            <span className={styles.subTitle}>
+              {" "}
+              -
+              {" "}
+              {subTitle}
+            </span>
+          </div>
+          <div>
+            <button className={styles.btn} type="button" onClick={this.onExpandedChange}>
+              {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </button>
+          </div>
+        </div>
+        {expanded && (
           <div className={styles.content}>
             {children}
           </div>
-        </LexExpansionPanelDetails>
-      </LexExpansionPanel>
+        )}
+      </div>
     );
   }
 }
 
+SecondaryExpandablePanel.defaultProps = {
+  expanded: false,
+};
+
 SecondaryExpandablePanel.propTypes = {
   children: PropTypes.node.isRequired,
+  expanded: PropTypes.bool,
+  subTitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

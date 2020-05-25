@@ -16,7 +16,8 @@ import ArticleHeader from "./article-header";
 import BoutonAjouterTranche from "./article-tranches/bouton-ajouter-tranche";
 import BoutonSupprimerTranche from "./article-tranches/bouton-supprimer-tranche";
 import styles from "./articles.module.scss";
-import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
+import { ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 const style = {
   Button: {
@@ -163,6 +164,7 @@ class ArticlesComponent extends React.Component {
   };
 
   render() {
+    const isQfEnabled = document.location.href.indexOf("qf=true") !== -1;
     const {
       handleAddTranche,
       handleRemoveTranche,
@@ -184,12 +186,12 @@ class ArticlesComponent extends React.Component {
           <PrimaryExpandablePanel
             expanded
             subTitle="Article 197 du CGI - I.1"
-            title="Barème et taux"
+            title="Barème"
           >
-            <SecondaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
+            <TertiaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
               visés à l&apos;article 4 B, il est fait application des règles
               suivantes pour le calcul de l&apos;impôt sur le revenu :
-            </SecondaryExpandablePanel>
+            </TertiaryExpandablePanel>
             {articleTranches}
             <Grid container spacing={0}>
               <Grid item sm={3}>
@@ -204,10 +206,31 @@ class ArticlesComponent extends React.Component {
             </Grid>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
-            subTitle="Article 197 du CGI - I.2"
-            title="Plafonds du quotient familial"
+            subTitle="Articles 194, 195 et 197 du CGI"
+            title="Quotient familial"
           >
-            <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+            {isQfEnabled && (
+              <SecondaryExpandablePanel
+                subTitle="Articles 194 - I.§1"
+                title="Règles générales"
+              >
+                <ReglesGenerales />
+              </SecondaryExpandablePanel>
+            )}
+            <SecondaryExpandablePanel
+              subTitle="Articles 197 - I.2"
+              title="Plafonds"
+            >
+              <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+            </SecondaryExpandablePanel>
+            {isQfEnabled && (
+              <SecondaryExpandablePanel
+                subTitle="Articles 194 et 195"
+                title="Règles spécifiques"
+              >
+                <ReglesSpecifiques />
+              </SecondaryExpandablePanel>
+            )}
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
             subTitle="Article 197 du CGI - I.3"
