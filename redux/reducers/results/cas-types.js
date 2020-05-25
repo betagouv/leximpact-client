@@ -22,33 +22,36 @@ const initialState = {
 function casTypes(state = initialState, action) {
   switch (action.type) {
   case SIMULATE_CAS_TYPES_REQUEST:
-    return Object.assign({}, state, {
+    return {
+      ...state,
       didInvalidate: false,
       isFetching: true,
-    });
+    };
   case SIMULATE_CAS_TYPES_SUCCESS:
-    return Object.assign({}, state, {
+    return {
       didInvalidate: false,
       isFetching: false,
       items: cloneDeep(action.data),
-    });
+    };
   case SIMULATE_CAS_TYPES_FAILURE:
     // The console.log is temporary.
     console.log(action.error);
-    return Object.assign({}, state, {
+    return {
+      ...state,
       didInvalidate: true,
       isFetching: false,
-    });
+    };
   case "onCreateCasType":
     const nextKey = Object.keys(state.wprm).length;
-    return Object.assign({}, state, {
+    return {
+      ...state,
       items: {
         apres: { ...state.apres, [nextKey]: 0 },
         avant: { ...state.avant, [nextKey]: 0 },
         plf: state.plf ? { ...state.plf, [nextKey]: 0 } : null,
         wprm: { ...state.wprm, [nextKey]: 1 },
       },
-    });
+    };
   default:
     return state;
   }
