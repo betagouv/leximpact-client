@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  install:
     docker:
       - image: node:12
 
@@ -20,6 +20,16 @@ jobs:
           key: v1-node12-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+
+  test:
+    docker:
+      - image: node:12
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-node12-{{ .Branch }}-{{ checksum "package.json" }}
 
       - run:
           name: Run tests
@@ -43,5 +53,10 @@ workflows:
   version: 2
   test_and_check_linting:
     jobs:
-      - test
-      - check_linting
+      - install
+      - test:
+          requires:
+            - install
+      - check_linting:
+          requires:
+            - install
