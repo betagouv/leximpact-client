@@ -22,7 +22,8 @@ function TextePresentationOpenLeximpact({ classes }) {
   return (
     <Paper className={classes.paperItem}>
       <h2>LexImpact IR en accès libre</h2>
-      <p>La version en accès libre de LexImpact IR permet à&nbsp;toutes et tous
+      <p>
+        La version en accès libre de LexImpact IR permet à&nbsp;toutes et tous
         de simuler les impacts d&apos;une réforme sur des foyers
         fiscaux types. Le&nbsp;service ne vous permet pas de simuler votre
         situation personnelle.
@@ -56,7 +57,7 @@ function TextePresentationOpenLeximpact({ classes }) {
       </ul>
 
       <p>
-        La version en accès libre de LexImpact permet également de modifier 
+        La version en accès libre de LexImpact permet également de modifier
         le revenu net à déclarer des foyers fiscaux types prédéfinis sur l&apos;interface.
       </p>
 
