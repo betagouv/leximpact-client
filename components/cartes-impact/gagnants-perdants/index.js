@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 
+import { fetchCalculateCompare, fetchSimPop } from "../../../redux/actions";
 import GagnantsPerdantsCard from "./gagnants-perdants-component";
 
 const mapStateToProps = ({ loadingEtat, totalPop }) => {
@@ -13,6 +14,14 @@ const mapStateToProps = ({ loadingEtat, totalPop }) => {
   };
 };
 
+const mapDispatchToProps = dispatch => ({
+  onClickSimPop: () => {
+    dispatch(fetchSimPop());
+    dispatch(fetchCalculateCompare());
+  },
+});
+
 export default connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(GagnantsPerdantsCard);
