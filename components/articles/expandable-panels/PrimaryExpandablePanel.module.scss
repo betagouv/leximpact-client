@@ -9,6 +9,7 @@ $padding-y: 15px;
   display: flex;
   align-items: center;
   flex-direction: row;
+  cursor: pointer;
 
   .title {
     font-weight: bold;
@@ -21,16 +22,10 @@ $padding-y: 15px;
     font-family: $law-font-family;
   }
 
-  .btn {
-    cursor: pointer;
-    border: none;
-    background-color: inherit;
-  }
+}
 
-  .btn:hover {
-    background-color: #e1e1e1;
-  }
-
+.header:hover {
+  background-color: #e1e1e1;
 }
 
 .text {
