@@ -17,11 +17,27 @@
   ],
   "extends": ["airbnb", "plugin:jest/recommended"],
   "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
     "react": {
       "version": "detect"
     }
   },
   "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "json": "always"
+      }
+    ],
     "local/no-material-root-imports": 2,
     "sort-keys": [2, "asc"],
     "array-bracket-newline": ["error", { "multiline": true }],
