@@ -1,0 +1,123 @@
+$second-column-width: 150px;
+$row-padding-x: 20px;
+
+$row-primary-color: #f1f1f1;
+$row-second-color: white;
+
+$inside-border: 1px solid #e0e0e1;
+$outside-border: 1px solid #b1b1b1;
+
+.container {
+  border: $outside-border;
+  border-radius: 4px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 20px;
+    }
+
+    :first-child {
+      flex: auto;
+    }
+  
+    :last-child {
+      border-left: $inside-border;
+      width: $second-column-width;
+      min-width: $second-column-width;
+    }
+  }
+
+  .row {
+    padding: 0 $row-padding-x;
+
+    .separator {
+      height: 8px;
+      display: flex;
+      flex-direction: row;
+
+      :first-child {
+        flex: auto;
+      }
+    
+      :last-child {
+        border-left: $inside-border;
+        width: $second-column-width - $row-padding-x;
+        min-width: $second-column-width - $row-padding-x;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+
+      .situation {
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 20px;
+        text-align: left;
+      }
+
+      .parts {
+        
+        > div {
+          display: flex;
+          flex-direction: row;
+          > div {
+            padding: 0 5px;
+          }
+        }
+
+        .description, .value {
+          width: $second-column-width - $row-padding-x;
+          min-width: $second-column-width - $row-padding-x;
+        }
+
+        .value {
+          border-left: $inside-border;
+          text-align: center;
+        }
+
+      }
+
+      .parts>div:nth-child(odd) {
+        background-color: $row-primary-color;
+      }
+
+      .parts>div:nth-child(even) {
+        background-color: $row-second-color;
+      }
+
+    }
+
+    .deleteRow {
+      padding-bottom: $row-padding-x / 2;
+      text-align: center;
+    }
+
+    .addNewRow {
+      text-align: center;
+    }
+
+    .partSupplementaire, .addNewRow {
+      padding: $row-padding-x / 2 0;
+    }
+  }
+
+  .row:nth-child(even) {
+    background-color: $row-primary-color;
+  }
+}
+
+.smallInput {
+  width: 30px
+}

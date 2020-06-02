@@ -2,7 +2,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import PropTypes from "prop-types";
 import { PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
