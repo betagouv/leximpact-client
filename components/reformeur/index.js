@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 
 import {
-  fetchCalculateCompare,
   fetchMetadataCasTypes,
+  simulateCasTypes,
 } from "../../redux/actions";
 import ReformeurComponent from "./reformeur-component";
 
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchMetadataCasTypes()).then(() => {
       // lance le calcul des cas types la premiere fois
       // que le reformeur s'affiche
-      dispatch(fetchCalculateCompare());
+      dispatch(simulateCasTypes());
     });
   },
 });
