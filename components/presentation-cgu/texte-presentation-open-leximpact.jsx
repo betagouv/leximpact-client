@@ -22,7 +22,8 @@ function TextePresentationOpenLeximpact({ classes }) {
   return (
     <Paper className={classes.paperItem}>
       <h2>LexImpact IR en accès libre</h2>
-      <p>La version en accès libre de LexImpact IR permet à&nbsp;toutes et tous
+      <p>
+        La version en accès libre de LexImpact IR permet à&nbsp;toutes et tous
         de simuler les impacts d&apos;une réforme sur des foyers
         fiscaux types. Le&nbsp;service ne vous permet pas de simuler votre
         situation personnelle.
@@ -47,7 +48,11 @@ function TextePresentationOpenLeximpact({ classes }) {
 
       <Divider className={classes.dividerMarge} />
 
-      <p>Les paramètres modifiables dans l&apos;Article 197 du CGI sont :</p>
+      <p>
+        Les paramètres modifiables dans l&apos;Article 197 du
+        <abbr title="Code général des impôts">CGI</abbr>
+        sont :
+      </p>
       <ul>
         <li>le barème de l&apos;impôt sur le revenu,</li>
         <li>les plafonds du quotient familial,</li>
@@ -56,7 +61,7 @@ function TextePresentationOpenLeximpact({ classes }) {
       </ul>
 
       <p>
-        La version en accès libre de LexImpact permet également de modifier 
+        La version en accès libre de LexImpact permet également de modifier
         le revenu net à déclarer des foyers fiscaux types prédéfinis sur l&apos;interface.
       </p>
 

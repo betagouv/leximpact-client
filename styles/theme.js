@@ -89,7 +89,7 @@ const theme = createMuiTheme({
     },
     secondary: {
       light: "#FF6B6B",
-      main: "#00A3FF",
+      main: "#343BFF",
       // dark: will be calculated from palette.secondary.main,
       contrastText: "#FFFFFF",
     },

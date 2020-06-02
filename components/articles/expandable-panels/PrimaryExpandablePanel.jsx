@@ -6,10 +6,13 @@ import { PureComponent } from "react";
 import styles from "./PrimaryExpandablePanel.module.scss";
 
 export class PrimaryExpandablePanel extends PureComponent {
+  static lastId = 0;
+
   constructor(props) {
     super(props);
+    PrimaryExpandablePanel.lastId += 1;
     const { expanded } = this.props;
-    this.state = { expanded };
+    this.state = { expanded, id: PrimaryExpandablePanel.lastId };
     this.onExpandedChange = this.onExpandedChange.bind(this);
   }
 
@@ -20,10 +23,19 @@ export class PrimaryExpandablePanel extends PureComponent {
 
   render() {
     const { children, subTitle, title } = this.props;
-    const { expanded } = this.state;
+    const { expanded, id } = this.state;
     return (
       <div>
-        <div className={styles.header}>
+        <div
+          aria-controls={`primary-panel${id}-content`}
+          aria-disabled="false"
+          aria-expanded={expanded}
+          className={styles.header}
+          id={`primary-panel${id}-header`}
+          role="button"
+          tabIndex="0"
+          onClick={this.onExpandedChange}
+          onKeyDown={e => e.key === "Enter" && this.onExpandedChange()}>
           <div className={styles.text}>
             <span className={styles.title}>{title}</span>
             <span className={styles.subTitle}>
@@ -34,13 +46,13 @@ export class PrimaryExpandablePanel extends PureComponent {
             </span>
           </div>
           <div>
-            <button className={styles.btn} type="button" onClick={this.onExpandedChange}>
+            <span aria-disabled="false" aria-hidden="true" className={styles.btn} type="button">
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </button>
+            </span>
           </div>
         </div>
         {expanded && (
-          <div className={styles.content}>
+          <div aria-labelledby={`primary-panel${id}-header`} className={styles.content} id={`primary-panel${id}-content`} role="region">
             {children}
           </div>
         )}
