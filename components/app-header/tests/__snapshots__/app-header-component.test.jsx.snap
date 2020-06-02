@@ -2,12 +2,12 @@
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode desktop 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -15,7 +15,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
@@ -29,12 +29,12 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         <span
           className="AppHeaderComponent-bolderMobileTitle-1"
         >
-          POP
+          IR
         </span>
       </span>
     </WithStyles(Typography)>
-    <div
-      className="AppHeaderComponent-loginButtonMobilePlaceholder-5"
+    <WithStyles(LoginButtonMobile)
+      isUserLogged={true}
     />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
@@ -42,12 +42,12 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode mobile 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -55,7 +55,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
@@ -69,12 +69,12 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         <span
           className="AppHeaderComponent-bolderMobileTitle-1"
         >
-          POP
+          IR
         </span>
       </span>
     </WithStyles(Typography)>
-    <div
-      className="AppHeaderComponent-loginButtonMobilePlaceholder-5"
+    <WithStyles(LoginButtonMobile)
+      isUserLogged={true}
     />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
@@ -82,12 +82,12 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode desktop 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -95,37 +95,46 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
     >
-      <span>
-        <span
-          className="AppHeaderComponent-bolderTitle-2"
-        >
-          OPEN 
-        </span>
-        <span
+      <div>
+        <div
           className="AppHeaderComponent-lighterTitle-4"
         >
-          LEXIMPACT
-        </span>
-      </span>
+          LEXIMPACT 
+        </div>
+        <div
+          className="AppHeaderComponent-bolderTitle-2"
+        >
+          IR
+        </div>
+        <div
+          className="AppHeaderComponent-subTitle-5"
+        >
+          IMPÔT SUR
+          <br />
+          LE REVENU
+        </div>
+      </div>
     </WithStyles(Typography)>
-    <WithStyles(LoginButton) />
+    <WithStyles(LoginButton)
+      isUserLogged={false}
+    />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode mobile 1`] = `
 <WithStyles(AppBar)
-  position="static"
+  position="relative"
 >
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-8",
+        "root": "AppHeaderComponent-toolbarRoot-7",
       }
     }
   >
@@ -133,25 +142,27 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-7",
+          "root": "AppHeaderComponent-titleRoot-6",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="AppHeaderComponent-bolderMobileTitle-1"
-        >
-          OPEN 
-        </span>
-        <span
           className="AppHeaderComponent-lighterMobileTitle-3"
         >
-          LEXIMPACT
+          LEXIMPACT 
+        </span>
+        <span
+          className="AppHeaderComponent-bolderMobileTitle-1"
+        >
+          IR
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile) />
+    <WithStyles(LoginButtonMobile)
+      isUserLogged={false}
+    />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;

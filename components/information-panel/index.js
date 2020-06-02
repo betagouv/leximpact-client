@@ -1,20 +1,12 @@
 import { connect } from "react-redux";
 
-import { expandArticlePanel, hideInformationPanel } from "../../redux/actions";
+import { hideInformationPanel } from "../../redux/actions";
 import InformationPanel from "./InformationPanel";
 
-const PANEL_NAME = "information";
-
-const mapStateToProps = ({ display }) => {
-  const isPanelExpanded = display.currentExpandedArticlePanel === PANEL_NAME;
-  return {
-    isPanelExpanded,
-  };
-};
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(hideInformationPanel()),
-  onExpandPanel: () => dispatch(expandArticlePanel(PANEL_NAME)),
 });
 
 export default connect(

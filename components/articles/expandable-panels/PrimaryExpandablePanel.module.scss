@@ -1,0 +1,38 @@
+@import 'styles/variables';
+
+$padding-x: 30px;
+$padding-y: 15px;
+
+.header {
+  background-color: #f1f1f1;
+  padding: 5px 10px 5px $padding-x;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+
+  .title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: $default-font-family;
+  }
+
+  .subTitle {
+    color: #696969;
+    font-family: $law-font-family;
+  }
+
+}
+
+.header:hover {
+  background-color: #e1e1e1;
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.content {
+  padding-bottom: $padding-y;
+  padding-left: $padding-x;
+}

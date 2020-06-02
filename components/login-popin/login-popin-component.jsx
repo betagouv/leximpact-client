@@ -47,7 +47,7 @@ class LoginPopinComponent extends PureComponent {
         </IconButton>
         <h1 className={classes.h1Style}>
           <Icon inline icon={PartyPopperIcon} width="40" />
-          &nbsp;Vous êtes bien connectés à LexImpact POP&nbsp;
+          &nbsp;Vous êtes bien connectés à LexImpact IR&nbsp;
         </h1>
         <p className={classes.pStyle}>
           Vous pouvez désormais

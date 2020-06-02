@@ -1,24 +1,11 @@
 import { connect } from "react-redux";
 
-import { expandArticlePanel } from "../../../redux/actions";
 import ArticleAlinea3 from "./article-alinea-3-component";
 
-const PANEL_NAME = "panel3";
-
-const mapStateToProps = ({ display, token }) => {
-  const isPanelExpanded = display.currentExpandedArticlePanel === PANEL_NAME;
-  const isUserLogged = Boolean(token);
-  return {
-    isPanelExpanded,
-    isUserLogged,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  expandArticlePanelHandler: () => dispatch(expandArticlePanel(PANEL_NAME)),
+const mapStateToProps = ({ token }) => ({
+  isUserLogged: Boolean(token),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
 )(ArticleAlinea3);

@@ -15,7 +15,6 @@ function parseNumber(str) {
 class NumberInput extends PureComponent {
   constructor(props) {
     super(props);
-    this.timer = null;
     this.handleChange = this.handleChange.bind(this);
     const { value } = this.props;
     this.state = {

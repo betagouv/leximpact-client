@@ -1,0 +1,1 @@
+export { ReglesGenerales } from "./ReglesGenerales";

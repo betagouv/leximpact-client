@@ -19,7 +19,7 @@ function Legende({ montrerPLF }) {
             </a>
           </span>
         )}
-        <span className={styles.reform}>Mon amendment</span>
+        <span className={styles.reform}>Mon amendement</span>
       </div>
     </div>
   );

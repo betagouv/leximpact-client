@@ -10,9 +10,8 @@ exports[`components | connexion | index snapshot doit correspondre avec les prop
       "closeButton": "Connexion-closeButton-4",
       "form": "Connexion-form-5",
       "spanBolder": "Connexion-spanBolder-6",
-      "spanLeximpactBolder": "Connexion-spanLeximpactBolder-7",
-      "spanLeximpactLigther": "Connexion-spanLeximpactLigther-8",
-      "title": "Connexion-title-9",
+      "spanLeximpactLigther": "Connexion-spanLeximpactLigther-7",
+      "title": "Connexion-title-8",
     }
   }
   onClosePopin={[MockFunction]}

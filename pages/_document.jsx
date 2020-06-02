@@ -52,7 +52,7 @@ class MyDocument extends Document {
     const { pageContext } = this.props;
 
     return (
-      <html dir="ltr" lang="en">
+      <html dir="ltr" lang="fr">
         <Head>
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}

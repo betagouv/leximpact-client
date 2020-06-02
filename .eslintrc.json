@@ -1,18 +1,12 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 9,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "es6": true,
     "node": true
   },
   "plugins": [
+    "@typescript-eslint",
     "import",
     "jest",
     "jsx-a11y",
@@ -76,6 +70,7 @@
     "simple-import-sort/sort": "error",
     "import/prefer-default-export": "off",
     "sort-destructure-keys/sort-destructure-keys": 2,
-    "jsx-a11y/label-has-for": 0
+    "jsx-a11y/label-has-for": 0,
+    "react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }]
   }
 }
