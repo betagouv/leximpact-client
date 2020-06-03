@@ -23,15 +23,14 @@ export interface ParametersState {
       reduc_postplafond: number;
       reduc_postplafond_veuf: number;
     };
-    // The ? is temporary.
-    calculNombreParts?: {
+    calculNombreParts: {
       partsSelonNombrePAC: {
         veuf: number;
         mariesOuPacses: number;
         celibataire: number;
         divorce: number
       }[];
-      partsParPacAuDela: number;
+      partsParPACAuDela: number;
       partsParPACChargePartagee: {
         zeroChargePrincipale: {
           deuxPremiers: number;
