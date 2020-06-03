@@ -24,10 +24,10 @@ function withTooltip(Tooltip, title, element) {
 class Parameter extends PureComponent {
   render() {
     const {
-      baseValue, editable, onReformChange, plfTitle,
-      plfValue, reformInputSize, reformTitle, reformValue,
+      amendementValue, baseValue, editable, onAmendementChange,
+      plfTitle, plfValue, reformInputSize, reformTitle,
     } = this.props;
-    const equal = baseValue === reformValue;
+    const equal = baseValue === amendementValue;
 
     return (
       <span className={styles.noOverflow}>
@@ -47,19 +47,19 @@ class Parameter extends PureComponent {
               <NumberInput
                 className={classNames({
                   [styles.reformInput]: true,
-                  [styles.reformValue]: true,
-                  [styles.reformValueModified]: !equal,
+                  [styles.amendementValue]: true,
+                  [styles.amendementValueModified]: !equal,
                   [styles.smallInput]: reformInputSize === "small",
                 })}
-                value={reformValue}
-                onChange={onReformChange} />
+                value={amendementValue}
+                onChange={onAmendementChange} />
             )
             : (
               <span className={classNames({
-                [styles.reformValue]: true,
-                [styles.reformValueModified]: !equal,
+                [styles.amendementValue]: true,
+                [styles.amendementValueModified]: !equal,
               })}>
-                {formatNumber(reformValue)}
+                {formatNumber(amendementValue)}
               </span>
             ))
         }
@@ -70,7 +70,7 @@ class Parameter extends PureComponent {
 
 Parameter.defaultProps = {
   editable: false,
-  onReformChange: () => { },
+  onAmendementChange: () => { },
   plfTitle: null,
   plfValue: null,
   reformInputSize: "large",
@@ -78,9 +78,10 @@ Parameter.defaultProps = {
 };
 
 Parameter.propTypes = {
+  amendementValue: PropTypes.number.isRequired,
   baseValue: PropTypes.number.isRequired,
   editable: PropTypes.bool,
-  onReformChange: PropTypes.func,
+  onAmendementChange: PropTypes.func,
   plfTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
@@ -91,7 +92,6 @@ Parameter.propTypes = {
     PropTypes.string,
     PropTypes.element,
   ]),
-  reformValue: PropTypes.number.isRequired,
 };
 
 export { Parameter };

@@ -11,10 +11,10 @@ const BaseInputOutputComponent = ({
 }) => (
   <Parameter
     editable
+    amendementValue={newValue}
     baseValue={baseValue}
     plfValue={plfValue}
-    reformValue={newValue}
-    onReformChange={value => handleInputChange(value, name)}
+    onAmendementChange={value => handleInputChange(value, name)}
   />
 );
 

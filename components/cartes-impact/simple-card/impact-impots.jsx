@@ -56,12 +56,12 @@ class SimpleCardImpactImpots extends PureComponent {
             : (
               <div className={styles2.result}>
                 <Parameter
+                  amendementValue={-resultats.apres}
                   baseValue={-resultats.avant}
                   editable={false}
                   plfTitle={plfTitle}
                   plfValue={resultats.plf === null ? resultats.plf : -resultats.plf}
-                  reformTitle={reformTitle}
-                  reformValue={-resultats.apres} />
+                  reformTitle={reformTitle} />
                 €
               </div>
             )
