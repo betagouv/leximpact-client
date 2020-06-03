@@ -28,10 +28,10 @@ function simulateCasTypesSuccess(data) {
 const simulateCasTypes = () => (dispatch, getState) => {
   dispatch(simulateCasTypesRequest());
 
-  const { casTypes, reforme } = getState();
+  const { casTypes, parameters } = getState();
   const body = {
     description_cas_types: transformCasTypesToData(casTypes),
-    reforme: formatReforme(reforme),
+    reforme: formatReforme(parameters.amendement),
   };
 
   return request

@@ -6,16 +6,16 @@ import BaseInputOutputComponent from "./base-input-output-component";
 
 const mapStateToProps = (state, props) => {
   const { name } = props;
-  const { reforme, reformeBase, reformePLF } = state;
+  const { amendement, base, plf } = state.parameters;
 
-  const baseValue = get(reformeBase.impot_revenu, name);
+  const baseValue = get(base.impot_revenu, name);
 
   let plfValue;
-  if (reformePLF) {
-    plfValue = get(reformePLF, `impot_revenu.${name}`);
+  if (plf) {
+    plfValue = get(plf, `impot_revenu.${name}`);
   }
 
-  const newValue = get(reforme.impot_revenu, name);
+  const newValue = get(amendement.impot_revenu, name);
 
   return {
     baseValue,

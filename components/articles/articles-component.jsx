@@ -21,8 +21,6 @@ import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePan
 import { ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 class ArticlesComponent extends React.Component {
-  // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
-
   renderBaseOutputInput = name => <BaseInputOutput name={name} />;
 
   renderFormulaOutput = (name, facteur = 1) => (
@@ -31,17 +29,17 @@ class ArticlesComponent extends React.Component {
 
   gimmeIRPartsOfArticle = (i) => {
     const {
+      amendement,
+      base,
       handleArticleChange,
-      reforme,
-      reformeBase,
-      reformePLF,
+      plf,
     } = this.props;
-    const s = reforme.impot_revenu.bareme.seuils;
-    const t = reforme.impot_revenu.bareme.taux;
-    const bases = reformeBase.impot_revenu.bareme.seuils;
-    const baset = reformeBase.impot_revenu.bareme.taux;
-    const plfs = reformePLF && reformePLF.impot_revenu.bareme.seuils;
-    const plft = reformePLF && reformePLF.impot_revenu.bareme.taux;
+    const s = amendement.impot_revenu.bareme.seuils;
+    const t = amendement.impot_revenu.bareme.taux;
+    const bases = base.impot_revenu.bareme.seuils;
+    const baset = base.impot_revenu.bareme.taux;
+    const plfs = plf && plf.impot_revenu.bareme.seuils;
+    const plft = plf && plf.impot_revenu.bareme.taux;
 
     const nbt = s.length;
     const newTranche = i > 4;
@@ -154,20 +152,20 @@ class ArticlesComponent extends React.Component {
   render() {
     const isQfEnabled = document.location.href.indexOf("qf=true") !== -1;
     const {
+      amendement,
       handleAddTranche,
       handleRemoveTranche,
       handleResetVarArticle,
       handleResetVarArticleExistant,
-      reforme,
-      reformePLF,
+      plf,
     } = this.props;
-    const count = reforme.impot_revenu.bareme.seuils.length + 1;
+    const count = amendement.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
       <Fragment>
         <ArticleHeader
-          montrerPLF={!!reformePLF}
+          montrerPLF={!!plf}
           resetVarArticle={handleResetVarArticle}
           resetVarArticleExistant={handleResetVarArticleExistant} />
         <div style={{ marginRight: "1em" }}>
@@ -239,30 +237,30 @@ class ArticlesComponent extends React.Component {
 }
 
 ArticlesComponent.defaultProps = {
-  reformePLF: null,
+  plf: null,
 };
 
 ArticlesComponent.propTypes = {
+  amendement: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
+  base: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
   handleAddTranche: PropTypes.func.isRequired,
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
   handleResetVarArticle: PropTypes.func.isRequired,
   handleResetVarArticleExistant: PropTypes.func.isRequired,
-  reforme: PropTypes.shape({
-    impot_revenu: PropTypes.shape({
-      bareme: PropTypes.shape({
-        seuils: PropTypes.arrayOf(PropTypes.number),
-      }),
-    }),
-  }).isRequired,
-  reformeBase: PropTypes.shape({
-    impot_revenu: PropTypes.shape({
-      bareme: PropTypes.shape({
-        seuils: PropTypes.arrayOf(PropTypes.number),
-      }),
-    }),
-  }).isRequired,
-  reformePLF: PropTypes.shape({
+  plf: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
         seuils: PropTypes.arrayOf(PropTypes.number),

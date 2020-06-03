@@ -48,9 +48,9 @@ Here ate the environment variables that you have to set:
 
 # Affichage du PLF
 
-L'affichage du PLF est contrôlé par l'état redux `reformePLF` et par l'état `results.casTypes`.
+L'affichage du PLF est contrôlé par l'état redux `parameters.plf` et par l'état `results.casTypes`.
 
-- Pour afficher les valeurs des paramètres, vous devez définir la variable `REFORME_PLF_DEFAULT_STATE` comme valeur par défaut de l'état dans `reforme-plf.js`.
+- Pour afficher les valeurs des paramètres, vous devez définir la variable `PLF_DEFAULT_STATE` comme valeur par défaut de l'état dans `parameters/plf.ts`.
 - Pour afficher les résultats, la réponse de l'API doit inclure une propriété `plf` (voir documentation côté serveur).
 
 # Snapshot testing with Jest

@@ -1,4 +1,4 @@
-export const REFORME_PLF_DEFAULT_STATE = {
+export const BASE_DEFAULT_STATE = {
   impot_revenu: {
     bareme: {
       seuils: [10064, 25659, 73369, 157806],
@@ -25,13 +25,4 @@ export const REFORME_PLF_DEFAULT_STATE = {
   },
 };
 
-const reformePLF = (state = null, action) => {
-  // Jamais modifié, utilisé pour montrer le PLF proposé
-  // dans les article s'affiche dans les chiffres en jaunes
-  switch (action.type) {
-  default:
-    return state;
-  }
-};
-
-export default reformePLF;
+export const base = (state = BASE_DEFAULT_STATE) => state;
