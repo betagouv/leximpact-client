@@ -1,5 +1,6 @@
+import { setIn } from "immutable";
 import { cloneDeep, get, set } from "lodash";
-import { ParametersState } from "types/parameters";
+import { ParametersState, UpdateParameterAction } from "types/parameters";
 
 import { BASE_DEFAULT_STATE } from "./base";
 import { PLF_DEFAULT_STATE } from "./plf";
@@ -74,6 +75,8 @@ const removeTranche = (prevState: ParametersState): ParametersState => {
   return prevState;
 };
 
+const updateParameter = (state: ParametersState, path: string, value: any): ParametersState => setIn(state, path.split("."), value);
+
 export const amendement = (state: ParametersState = DEFAULT_STATE, action): ParametersState => {
   const { name, value } = action || {};
   const nextState = cloneDeep(state);
@@ -94,6 +97,12 @@ export const amendement = (state: ParametersState = DEFAULT_STATE, action): Para
     return cloneDeep(PLF_DEFAULT_STATE);
   case "onResetVarArticleExistant":
     return cloneDeep(BASE_DEFAULT_STATE);
+  case "UPDATE_PARAMETER":
+    return updateParameter(
+      state,
+      (action as UpdateParameterAction).path,
+      (action as UpdateParameterAction).value,
+    );
   default:
     return nextState;
   }
