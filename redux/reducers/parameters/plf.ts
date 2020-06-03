@@ -1,4 +1,6 @@
-export const PLF_DEFAULT_STATE = {
+import { ParametersState } from "types/parameters";
+
+export const PLF_DEFAULT_STATE: ParametersState = {
   impot_revenu: {
     bareme: {
       seuils: [10064, 25659, 73369, 157806],
@@ -25,4 +27,4 @@ export const PLF_DEFAULT_STATE = {
   },
 };
 
-export const plf = (state = null) => state;
+export const plf = (state: ParametersState|null = null) => state;
