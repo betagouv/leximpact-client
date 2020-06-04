@@ -6,7 +6,7 @@ import {
   fetchMetadataCasTypes,
   simulateCasTypes,
 } from "../../redux/actions";
-import ReformeurComponent from "./reformeur-component";
+import { SimulationPage } from "./SimulationPage";
 
 const mapStateToProps = (state, { width }) => {
   const useMobileView = width === "xs" || width === "sm";
@@ -31,4 +31,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-)(ReformeurComponent);
+)(SimulationPage);

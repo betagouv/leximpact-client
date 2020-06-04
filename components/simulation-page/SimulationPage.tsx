@@ -5,21 +5,25 @@ import Tabs from "@material-ui/core/Tabs";
 import { PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
-import Articles from "../articles";
-import ImpactCards from "../cartes-impact";
+import AppHeader from "../app-header";
 import SimulationMenuBar from "../simulation-menu";
-import styles from "./reformeur-component.module.scss";
+import styles from "./SimulationPage.module.scss";
 
 interface Props {
   initializeAppllicationStoreFromAPI: () => void;
   useMobileView: boolean;
+  title: string;
+  subTitle1: string;
+  subTitle2: string;
+  parameters: JSX.Element;
+  results: JSX.Element;
 }
 
 interface State {
   indextab: number;
 }
 
-class ReformeurComponent extends PureComponent<Props, State> {
+export class SimulationPage extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.state = { indextab: 0 };
@@ -34,20 +38,24 @@ class ReformeurComponent extends PureComponent<Props, State> {
     this.setState({ indextab });
   };
 
-  renderDesktopView = () => (
-    <div className={styles.container}>
-      <Paper square className={styles.parameters}>
-        <Articles />
-      </Paper>
-      <div className={styles.results}>
-        <SimulationMenuBar />
-        <ImpactCards />
+  renderDesktopView = () => {
+    const { parameters, results } = this.props;
+    return (
+      <div className={styles.container}>
+        <Paper square className={styles.parameters}>
+          {parameters}
+        </Paper>
+        <div className={styles.results}>
+          <SimulationMenuBar />
+          {results}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 
   renderMobileView = () => {
     const { indextab } = this.state;
+    const { parameters, results } = this.props;
     return (
       <div>
         <AppBar color="default" position="static">
@@ -67,12 +75,12 @@ class ReformeurComponent extends PureComponent<Props, State> {
           onChangeIndex={this.handleOnChangeIndex}>
           <div style={{ padding: 24 }}>
             <Paper>
-              <Articles />
+              {parameters}
             </Paper>
           </div>
           <div style={{ padding: 24 }}>
             <SimulationMenuBar />
-            <ImpactCards />
+            {results}
           </div>
         </SwipeableViews>
       </div>
@@ -80,12 +88,14 @@ class ReformeurComponent extends PureComponent<Props, State> {
   };
 
   render() {
-    const { useMobileView } = this.props;
-    if (useMobileView) {
-      return this.renderMobileView();
-    }
-    return this.renderDesktopView();
+    const {
+      subTitle1, subTitle2, title, useMobileView,
+    } = this.props;
+    return (
+      <div className={styles.page}>
+        <AppHeader subTitle1={subTitle1} subTitle2={subTitle2} title={title} />
+        {useMobileView ? this.renderMobileView() : this.renderDesktopView()}
+      </div>
+    );
   }
 }
-
-export default ReformeurComponent;
