@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import styles from "../articles.module.scss";
+import styles from "../../articles.module.scss";
 
-class Alinea2 extends PureComponent {
+export class Plafonds extends PureComponent {
   render() {
     const {
       baseOutputInput,
@@ -67,8 +67,6 @@ class Alinea2 extends PureComponent {
   }
 }
 
-Alinea2.propTypes = {
+Plafonds.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
 };
-
-export default Alinea2;
