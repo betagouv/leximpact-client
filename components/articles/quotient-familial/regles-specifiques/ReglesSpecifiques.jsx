@@ -28,6 +28,7 @@ export class ReglesSpecifiques extends PureComponent {
         Lorsque les enfants sont réputés être à la charge égale de chacun des parents, ils ouvrent
         droit à une majoration de :
         <br />
+        <br />
         a)
         <StateParameter
           editable
@@ -42,6 +43,7 @@ export class ReglesSpecifiques extends PureComponent {
         />
         part à compter du troisième, lorsque par ailleurs le contribuable n&apos;assume la charge
         exclusive ou principale d&apos;aucun enfant ;
+        <br />
         <br />
         b)
         <StateParameter
@@ -58,6 +60,7 @@ export class ReglesSpecifiques extends PureComponent {
         part à compter du deuxième, lorsque par ailleurs le contribuable assume la charge exclusive
         ou principale d&apos;un enfant ;
         <br />
+        <br />
         c)
         <StateParameter
           editable
@@ -67,10 +70,12 @@ export class ReglesSpecifiques extends PureComponent {
         part pour chacun des enfants, lorsque par ailleurs le contribuable assume la charge
         exclusive ou principale d&apos;au moins deux enfants.
         <br />
+        <br />
+        <TertiaryExpandablePanel title="Pour l'application des dispositions [...]">
         Pour l&apos;application des dispositions du premier alinéa, sont assimilées à des enfants
         à charge les personnes considérées comme étant à la charge du contribuable en vertu de
         l&apos;article 196 A bis.
-        <br />
+        </TertiaryExpandablePanel>
         <h3>Parent isolé</h3>
         II. Pour l&apos;imposition des contribuables célibataires ou divorcés qui vivent seuls,
         le nombre de parts prévu au I est augmenté de

@@ -38,6 +38,7 @@ class Alinea2 extends PureComponent {
         {baseOutputInput("plafond_qf.celib")}
         € ;
         <br />
+        <br />
         Les contribuables qui bénéficient d&apos;une demi-part au titre des
         a, b, c, d, d bis, e et f du 1 ainsi que des 2 à 6 de l&apos;article
         195 ont droit à une réduction d&apos;impôt égale à
