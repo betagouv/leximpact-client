@@ -1,6 +1,11 @@
-import { setIn } from "immutable";
+import { getIn, setIn } from "immutable";
 import { cloneDeep, get, set } from "lodash";
-import { ParametersState, UpdateParameterAction } from "types/parameters";
+import {
+  AddNewLineInParameterArrayAction,
+  ParametersState,
+  RemoveLastLineInParameterArrayAction,
+  UpdateParameterAction,
+} from "types/parameters";
 
 import { BASE_DEFAULT_STATE } from "./base";
 import { PLF_DEFAULT_STATE } from "./plf";
@@ -77,6 +82,29 @@ const removeTranche = (prevState: ParametersState): ParametersState => {
 
 const updateParameter = (state: ParametersState, path: string, value: any): ParametersState => setIn(state, path.split("."), value);
 
+const addNewLineInParameterArray = (state: ParametersState, path: string): ParametersState => {
+  const propertyNames = path.split(".");
+  const array = getIn(state, propertyNames, -1);
+  if (!Array.isArray(array)) {
+    throw new Error(`The value at ${path} should be an array. Got: ${typeof array}`);
+  }
+  const newLine = { ...array[array.length - 1] };
+  return setIn(state, propertyNames, [...array, newLine]);
+};
+
+const removeLastLineInParameterArray = (state: ParametersState, path: string): ParametersState => {
+  const propertyNames = path.split(".");
+  const array = getIn(state, propertyNames, -1);
+  if (!Array.isArray(array)) {
+    throw new Error(`The value at ${path} should be an array. Got: ${typeof array}`);
+  }
+  if (array.length === 1) {
+    return state;
+  }
+  const newArray = array.slice(0, array.length - 1);
+  return setIn(state, propertyNames, newArray);
+};
+
 export const amendement = (state: ParametersState = DEFAULT_STATE, action): ParametersState => {
   const { name, value } = action || {};
   const nextState = cloneDeep(state);
@@ -102,6 +130,16 @@ export const amendement = (state: ParametersState = DEFAULT_STATE, action): Para
       state,
       (action as UpdateParameterAction).path,
       (action as UpdateParameterAction).value,
+    );
+  case "ADD_NEW_LINE_IN_PARAMETER_ARRAY":
+    return addNewLineInParameterArray(
+      state,
+      (action as AddNewLineInParameterArrayAction).path,
+    );
+  case "REMOVE_LAST_LINE_IN_PARAMETER_ARRAY":
+    return removeLastLineInParameterArray(
+      state,
+      (action as RemoveLastLineInParameterArrayAction).path,
     );
   default:
     return nextState;
