@@ -84,7 +84,7 @@ const updateParameter = (state: ParametersState, path: string, value: any): Para
 
 const addNewLineInParameterArray = (state: ParametersState, path: string): ParametersState => {
   const propertyNames = path.split(".");
-  const array = getIn(state, propertyNames, -1);
+  const array = getIn(state, propertyNames, undefined);
   if (!Array.isArray(array)) {
     throw new Error(`The value at ${path} should be an array. Got: ${typeof array}`);
   }
@@ -94,7 +94,7 @@ const addNewLineInParameterArray = (state: ParametersState, path: string): Param
 
 const removeLastLineInParameterArray = (state: ParametersState, path: string): ParametersState => {
   const propertyNames = path.split(".");
-  const array = getIn(state, propertyNames, -1);
+  const array = getIn(state, propertyNames, undefined);
   if (!Array.isArray(array)) {
     throw new Error(`The value at ${path} should be an array. Got: ${typeof array}`);
   }

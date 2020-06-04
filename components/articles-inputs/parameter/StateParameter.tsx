@@ -7,11 +7,11 @@ import { Parameter } from "./Parameter";
 
 const mapStateToProps = ({ parameters }: RootState, { path }) => {
   const propertNames = path.split(".");
-  const defaultValue = -1;
+  const defaultValue = undefined;
   return {
     amendementValue: getIn(parameters.amendement, propertNames, defaultValue),
     baseValue: getIn(parameters.base, propertNames, defaultValue),
-    plfValue: parameters.plf && getIn(parameters.plf, propertNames, defaultValue),
+    plfValue: getIn(parameters.plf, propertNames, defaultValue),
   };
 };
 

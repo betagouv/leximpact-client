@@ -32,7 +32,8 @@ class Parameter extends PureComponent {
     return (
       <span className={styles.noOverflow}>
         {
-          !equal && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
+          baseValue !== null && !equal
+          && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
         }
         {
           plfValue !== null && withTooltip(
@@ -69,6 +70,7 @@ class Parameter extends PureComponent {
 }
 
 Parameter.defaultProps = {
+  baseValue: null,
   editable: false,
   onAmendementChange: () => { },
   plfTitle: null,
@@ -79,7 +81,7 @@ Parameter.defaultProps = {
 
 Parameter.propTypes = {
   amendementValue: PropTypes.number.isRequired,
-  baseValue: PropTypes.number.isRequired,
+  baseValue: PropTypes.number,
   editable: PropTypes.bool,
   onAmendementChange: PropTypes.func,
   plfTitle: PropTypes.oneOfType([
