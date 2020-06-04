@@ -10,6 +10,7 @@ import {
   FormulaOutput,
 } from "../articles-inputs";
 import { Parameter } from "../articles-inputs/parameter";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "../expandable-panels";
 import fillArrayWith from "../utils/array/fillArrayWith";
 import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
@@ -17,7 +18,6 @@ import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import styles from "./articles.module.scss";
 import { Button } from "./buttons";
-import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
 import { ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 class ArticlesComponent extends React.Component {
