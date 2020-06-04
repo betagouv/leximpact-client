@@ -7,12 +7,16 @@ import { Parameter } from "./Parameter";
 
 const mapStateToProps = ({ parameters }: RootState, { path }) => {
   const propertNames = path.split(".");
-  const defaultValue = undefined;
-  return {
-    amendementValue: getIn(parameters.amendement, propertNames, defaultValue),
-    baseValue: getIn(parameters.base, propertNames, defaultValue),
-    plfValue: getIn(parameters.plf, propertNames, defaultValue),
-  };
+
+  const amendementValue = getIn(parameters.amendement, propertNames, undefined);
+  if (amendementValue === undefined) {
+    throw new Error(`No parameter value found at ${path}. Are you sure the path is correct?`);
+  }
+
+  const baseValue = getIn(parameters.base, propertNames, undefined);
+  const plfValue = getIn(parameters.plf, propertNames, undefined);
+
+  return { amendementValue, baseValue, plfValue };
 };
 
 const mapDispatchToProps = (dispatch, { path }) => ({
