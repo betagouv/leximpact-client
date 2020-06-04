@@ -46,9 +46,11 @@ const styles = () => ({
   },
 });
 
-class AppHeaderComponent extends PureComponent {
+class AppHeader extends PureComponent {
   render() {
-    const { classes, isUserLogged, useMobileView } = this.props;
+    const {
+      classes, isUserLogged, subTitle1, subTitle2, title, useMobileView,
+    } = this.props;
     return (
       <AppBar position="relative">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
@@ -58,12 +60,14 @@ class AppHeaderComponent extends PureComponent {
             <Typography classes={{ root: classes.titleRoot }} component="div">
               <div>
                 <div className={classes.lighterTitle}>LEXIMPACT&nbsp;</div>
-                <div className={classes.bolderTitle}>IR</div>
-                <div className={classes.subTitle}>
-                  IMPÔT SUR
-                  <br />
-                  LE REVENU
-                </div>
+                {title && <div className={classes.bolderTitle}>{title}</div>}
+                {subTitle1 && (
+                  <div className={classes.subTitle}>
+                    {subTitle1}
+                    <br />
+                    {subTitle2}
+                  </div>
+                )}
               </div>
             </Typography>
           )}
@@ -73,7 +77,7 @@ class AppHeaderComponent extends PureComponent {
                 <span className={classes.lighterMobileTitle}>
                   LEXIMPACT&nbsp;
                 </span>
-                <span className={classes.bolderMobileTitle}>IR</span>
+                {title && <span className={classes.bolderMobileTitle}>{title}</span>}
               </span>
             </Typography>
           )}
@@ -85,10 +89,19 @@ class AppHeaderComponent extends PureComponent {
   }
 }
 
-AppHeaderComponent.propTypes = {
+AppHeader.defaultProps = {
+  subTitle1: null,
+  subTitle2: null,
+  title: null,
+};
+
+AppHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
   isUserLogged: PropTypes.bool.isRequired,
+  subTitle1: PropTypes.string,
+  subTitle2: PropTypes.string,
+  title: PropTypes.string,
   useMobileView: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(AppHeaderComponent);
+export default withStyles(styles)(AppHeader);

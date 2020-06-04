@@ -2,7 +2,7 @@ import withWidth from "@material-ui/core/withWidth";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import AppHeaderComponent from "./app-header-component";
+import AppHeader from "./AppHeader";
 
 const mapStateToProps = (state, { width }) => {
   const useMobileView = width === "xs";
@@ -18,4 +18,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-)(AppHeaderComponent);
+)(AppHeader);
