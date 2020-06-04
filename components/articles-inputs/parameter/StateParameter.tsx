@@ -31,8 +31,8 @@ type Props = PropsFromRedux & {
   editable?: boolean;
   path: string;
   plfTitle?: string|JSX.Element;
-  reformInputSize?: "small"|"large";
-  reformTitle?: string|JSX.Element;
+  amendementInputSize?: "small"|"large";
+  amendementTitle?: string|JSX.Element;
 }
 
 function StateParameter(props: Props) {

@@ -63,8 +63,8 @@ const SubRow = ({ description, index, name }: { description: string, name: strin
     <div className={styles.value}>
       <StateParameter
         editable
+        amendementInputSize="small"
         path={`impot_revenu.calculNombreParts.partsSelonNombrePAC.${index}.${name}`}
-        reformInputSize="small"
       />
     </div>
   </div>
@@ -79,8 +79,8 @@ const PartSupplementaireContent = () => (
     {" "}
     <StateParameter
       editable
+      amendementInputSize="small"
       path="impot_revenu.calculNombreParts.partsParPACAuDela"
-      reformInputSize="small"
     />
     {" "}
     part

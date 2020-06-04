@@ -24,8 +24,8 @@ function withTooltip(Tooltip, title, element) {
 class Parameter extends PureComponent {
   render() {
     const {
-      amendementValue, baseValue, editable, onAmendementChange,
-      plfTitle, plfValue, reformInputSize, reformTitle,
+      amendementInputSize, amendementTitle, amendementValue, baseValue,
+      editable, onAmendementChange, plfTitle, plfValue,
     } = this.props;
     const equal = baseValue === amendementValue;
 
@@ -43,14 +43,14 @@ class Parameter extends PureComponent {
           )
         }
         {
-          withTooltip(ReformTooltip, reformTitle, editable
+          withTooltip(ReformTooltip, amendementTitle, editable
             ? (
               <NumberInput
                 className={classNames({
-                  [styles.reformInput]: true,
+                  [styles.amendementInput]: true,
                   [styles.amendementValue]: true,
                   [styles.amendementValueModified]: !equal,
-                  [styles.smallInput]: reformInputSize === "small",
+                  [styles.smallInput]: amendementInputSize === "small",
                 })}
                 value={amendementValue}
                 onChange={onAmendementChange} />
@@ -75,8 +75,8 @@ Parameter.defaultProps = {
   onAmendementChange: () => { },
   plfTitle: null,
   plfValue: null,
-  reformInputSize: "large",
-  reformTitle: null,
+  amendementInputSize: "large",
+  amendementTitle: null,
 };
 
 Parameter.propTypes = {
@@ -89,8 +89,8 @@ Parameter.propTypes = {
     PropTypes.element,
   ]),
   plfValue: PropTypes.number,
-  reformInputSize: PropTypes.oneOf(["small", "large"]),
-  reformTitle: PropTypes.oneOfType([
+  amendementInputSize: PropTypes.oneOf(["small", "large"]),
+  amendementTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),

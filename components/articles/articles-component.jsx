@@ -81,10 +81,10 @@ class ArticlesComponent extends React.Component {
           –
           <Parameter
             editable
+            amendementInputSize="small"
             amendementValue={t[i - 1]}
             baseValue={baseValuet}
             plfValue={plfValuet}
-            reformInputSize="small"
             onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
@@ -118,10 +118,10 @@ class ArticlesComponent extends React.Component {
         –
         <Parameter
           editable
+          amendementInputSize="small"
           amendementValue={t[i - 1]}
           baseValue={baseValuet}
           plfValue={plfValuet}
-          reformInputSize="small"
           onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
