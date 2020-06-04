@@ -39,10 +39,7 @@ export class PrimaryExpandablePanel extends PureComponent {
           <div className={styles.text}>
             <span className={styles.title}>{title}</span>
             <span className={styles.subTitle}>
-              {" "}
-              -
-              {" "}
-              {subTitle}
+              {subTitle && ` - ${subTitle}`}
             </span>
           </div>
           <div>
@@ -63,11 +60,12 @@ export class PrimaryExpandablePanel extends PureComponent {
 
 PrimaryExpandablePanel.defaultProps = {
   expanded: false,
+  subTitle: "",
 };
 
 PrimaryExpandablePanel.propTypes = {
   children: PropTypes.node.isRequired,
   expanded: PropTypes.bool,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
