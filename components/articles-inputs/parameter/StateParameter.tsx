@@ -5,11 +5,15 @@ import { RootState } from "types";
 
 import { Parameter } from "./Parameter";
 
-const mapStateToProps = ({ parameters }: RootState, { path }) => ({
-  amendementValue: getIn(parameters.amendement, path.split("."), -1),
-  baseValue: getIn(parameters.base, path.split("."), -1),
-  plfValue: parameters.plf && getIn(parameters.plf, path.split("."), -1),
-});
+const mapStateToProps = ({ parameters }: RootState, { path }) => {
+  const propertNames = path.split(".");
+  const defaultValue = -1;
+  return {
+    amendementValue: getIn(parameters.amendement, propertNames, defaultValue),
+    baseValue: getIn(parameters.base, propertNames, defaultValue),
+    plfValue: parameters.plf && getIn(parameters.plf, propertNames, defaultValue),
+  };
+};
 
 const mapDispatchToProps = (dispatch, { path }) => ({
   onAmendementChange: value => dispatch(updateParameter(path, value)),
