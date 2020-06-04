@@ -1,7 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
-import classNames from "classnames";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 
@@ -16,7 +15,6 @@ import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
-import styles from "./articles.module.scss";
 import { Button } from "./buttons";
 import { ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
@@ -51,8 +49,7 @@ class ArticlesComponent extends React.Component {
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
       return (
         <div
-          key={i}
-          className={styles.text}>
+          key={i}>
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
@@ -77,10 +74,7 @@ class ArticlesComponent extends React.Component {
       return (
         <div
           key={i}
-          className={classNames({
-            [styles.text]: true,
-            [styles.newTranche]: newTranche,
-          })}>
+          className={newTranche}>
           –
           <Parameter
             editable
@@ -114,10 +108,7 @@ class ArticlesComponent extends React.Component {
     return (
       <div
         key={i}
-        className={classNames({
-          [styles.text]: true,
-          [styles.newTranche]: newTranche,
-        })}>
+        className={newTranche}>
         –
         <Parameter
           editable

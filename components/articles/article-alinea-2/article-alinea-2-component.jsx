@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
-import { PureComponent } from "react";
-
-import styles from "../articles.module.scss";
+import { Fragment, PureComponent } from "react";
 
 class Alinea2 extends PureComponent {
   render() {
@@ -9,7 +7,7 @@ class Alinea2 extends PureComponent {
       baseOutputInput,
     } = this.props;
     return (
-      <div className={styles.text}>
+      <Fragment>
         2. La réduction d&apos;impôt résultant de l&apos;application du
         quotient familial ne peut excéder
         {baseOutputInput("plafond_qf.maries_ou_pacses")}
@@ -61,7 +59,7 @@ class Alinea2 extends PureComponent {
         présent 2. Cette réduction d&apos;impôt ne peut toutefois excéder
         l&apos;augmentation de la cotisation d&apos;impôt résultant du
         plafonnement.
-      </div>
+      </Fragment>
     );
   }
 }

@@ -35,4 +35,7 @@ $padding-y: 15px;
 .content {
   padding-bottom: $padding-y;
   padding-left: $padding-x;
+  font-family: $law-font-family;
+  font-size: $law-font-size;
+  line-height: $law-line-height;
 }

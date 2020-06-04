@@ -1,7 +1,6 @@
 import { Part } from "interfaces";
-import { PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 
-import articleStyle from "../../articles.module.scss";
 import { QfTable } from "./QfTable";
 import styles from "./ReglesGenerales.module.scss";
 
@@ -29,14 +28,14 @@ const PARTS_MOCK: Part[] = [
 export class ReglesGenerales extends PureComponent {
   render() {
     return (
-      <div className={articleStyle.text}>
+      <Fragment>
         I. Le nombre de parts à prendre en considération pour la division du revenu
         imposable prévue à l&apos;article 193 est déterminé conformément aux dispositions
         suivantes :
         <div className={styles.table}>
           <QfTable parts={PARTS_MOCK} />
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

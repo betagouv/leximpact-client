@@ -1,11 +1,9 @@
-import { PureComponent } from "react";
-
-import styles from "../../articles.module.scss";
+import { Fragment, PureComponent } from "react";
 
 export class ReglesSpecifiques extends PureComponent {
   render() {
     return (
-      <div className={styles.text}>
+      <Fragment>
         <h3>Enfants à charge partagée</h3>
         Lorsque les époux font l'objet d'une imposition séparée en application du 4 de l'article 6, chacun d'eux est considéré comme un célibataire ayant à sa charge les enfants dont il assume à titre principal l'entretien. Dans cette situation, ainsi qu'en cas de divorce, de rupture du pacte civil de solidarité ou de toute séparation de fait de parents non mariés, l'enfant est considéré, jusqu'à preuve du contraire, comme étant à la charge du parent chez lequel il réside à titre principal.
         <br />
@@ -23,7 +21,7 @@ export class ReglesSpecifiques extends PureComponent {
         <br />
         <h3>Parent isolé</h3>
         II. Pour l'imposition des contribuables célibataires ou divorcés qui vivent seuls, le nombre de parts prévu au I est augmenté de 0,5 lorsqu'ils supportent à titre exclusif ou principal la charge d'au moins un enfant. Lorsqu'ils entretiennent uniquement des enfants dont la charge est réputée également partagée avec l'autre parent, la majoration est de 0,25 pour un seul enfant et de 0,5 si les enfants sont au moins deux. Ces dispositions s'appliquent nonobstant la perception éventuelle d'une pension alimentaire versée en vertu d'une convention de divorce par consentement mutuel déposée au rang des minutes d'un notaire ou d'une décision de justice pour l'entretien desdits enfants.
-      </div>
+      </Fragment>
     );
   }
 }
