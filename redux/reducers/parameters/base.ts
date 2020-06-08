@@ -23,7 +23,7 @@ export const BASE_DEFAULT_STATE: ParametersState = {
           celibataire: 1, divorce: 1, mariesOuPacses: 2, veuf: 1,
         },
         {
-          celibataire: 5, divorce: 5, mariesOuPacses: 5, veuf: 5,
+          celibataire: 1.5, divorce: 1.5, mariesOuPacses: 2.5, veuf: 2.5,
         },
         {
           celibataire: 2, divorce: 2, mariesOuPacses: 3, veuf: 3,
