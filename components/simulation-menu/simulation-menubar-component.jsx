@@ -1,10 +1,10 @@
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PropTypes from "prop-types";
-import { Fragment, PureComponent } from "react";
+import { PureComponent } from "react";
 
+import { Button } from "./button";
 import { Legende } from "./legende";
 import SimulationButton5 from "./simulation-button-5";
 import SimulationButton60 from "./simulation-button-60";
@@ -47,21 +47,12 @@ class SimulationMenuBar extends PureComponent {
             spacing={8}>
             <Grid item>
               <Button
-                color="default"
-                variant="contained"
-                onClick={showAddCasTypesPopin}
-              >
-                {
-                  isMobileView
-                    ? (
-                      <Fragment>
-                        <AddCircleOutlineIcon className={classes.marginIcon} />
-                        <span>Cas type</span>
-                      </Fragment>
-                    )
-                    : "Ajouter un cas type"
-                }
-              </Button>
+                caption="Ajouter un cas type"
+                isMobileView={isMobileView}
+                mobileCaption="Cas type"
+                mobileIcon={<AddCircleOutlineIcon />}
+                type="secondary"
+                onClick={showAddCasTypesPopin} />
             </Grid>
             <Grid item>
               <Grid
