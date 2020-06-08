@@ -1,20 +1,20 @@
 import { connect } from "react-redux";
 
-import { fetchCalculateCompare, removeCasType, showEditCasTypesPopin } from "../../../redux/actions";
+import { removeCasType, showEditCasTypesPopin, simulateCasTypes } from "../../../redux/actions";
 import SimpleCard from "./simple-card-component";
 
-const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
-  const isLoading = loading;
+const mapStateToProps = ({ casTypes, results }, { index }) => {
+  const { isFetching, items } = results.casTypes;
   const { name } = casTypes[index];
   const descCasType = casTypes[index];
   const resultats = {
-    apres: resBrut.apres[index],
-    avant: resBrut.avant[index],
-    plf: resBrut.plf ? resBrut.plf[index] : null,
+    apres: items.apres[index],
+    avant: items.avant[index],
+    plf: items.plf ? items.plf[index] : null,
   };
   return {
     descCasType,
-    isLoading,
+    isLoading: isFetching,
     name,
     resultats,
   };
@@ -23,7 +23,7 @@ const mapStateToProps = ({ casTypes, loading, resBrut }, { index }) => {
 const mapDispatchToProps = dispatch => ({
   handleRemoveCasType: index => () => {
     dispatch(removeCasType(index));
-    dispatch(fetchCalculateCompare());
+    dispatch(simulateCasTypes());
   },
   handleShowEditCasTypesPopin: index => () => dispatch(showEditCasTypesPopin(index)),
 });

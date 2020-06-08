@@ -3,8 +3,4 @@ export const jaiCliqueSurLeBouton = unParametreOptionnel => ({
   unParametreOptionnel,
 });
 
-// export const loadingStart = () => ({
-//   type: "onLoadingStart",
-// });
-
 export default jaiCliqueSurLeBouton;

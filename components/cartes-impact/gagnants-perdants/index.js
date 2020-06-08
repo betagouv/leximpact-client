@@ -17,7 +17,7 @@ const mapStateToProps = ({ loadingEtat, totalPop }) => {
 const mapDispatchToProps = dispatch => ({
   onClickSimPop: () => {
     dispatch(fetchSimPop());
-    dispatch(fetchCalculateCompare());
+    dispatch(simulateCasTypes());
   },
 });
 

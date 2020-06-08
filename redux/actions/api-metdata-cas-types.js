@@ -1,17 +1,17 @@
 import request from "../../components/utils/request";
-import { loadingComplete, loadingError, loadingStart } from "./loading";
+// import { loadingComplete, loadingError, loadingStart } from "./loading";
 
 const fetchMetadataCasTypes = () => (dispatch, getState) => {
   const { token } = getState();
-  dispatch(loadingStart());
+  // dispatch(loadingStart());
   return request
     .post("/metadata/description_cas_types")
     .then((payload) => {
-      dispatch(loadingComplete());
+      // dispatch(loadingComplete());
       dispatch({ payload, token, type: "onInitializeCasTypes" });
     })
     .catch((err) => {
-      dispatch(loadingError(err));
+      // dispatch(loadingError(err));
       // eslint-disable-next-line no-console
       console.log("Can’t access  response. Blocked by browser?");
     });

@@ -38,6 +38,7 @@
         "json": "always"
       }
     ],
+    "no-case-declarations": 0,
     "local/no-material-root-imports": 2,
     "sort-keys": [2, "asc"],
     "array-bracket-newline": ["error", { "multiline": true }],
