@@ -1,4 +1,3 @@
-import { Part } from "interfaces";
 import { PureComponent } from "react";
 
 import articleStyle from "../../articles.module.scss";

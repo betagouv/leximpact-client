@@ -2,7 +2,6 @@ import babyIcon from "@iconify/icons-twemoji/baby";
 import { Icon } from "@iconify/react";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Part } from "interfaces";
 import { Fragment, PureComponent } from "react";
 
 import NumberInput from "../../../articles-inputs/parameter/NumberInput";
