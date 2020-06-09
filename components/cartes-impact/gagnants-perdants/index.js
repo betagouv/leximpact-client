@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { fetchCalculateCompare, fetchSimPop } from "../../../redux/actions";
+import { fetchSimPop, simulateCasTypes } from "../../../redux/actions";
 import GagnantsPerdantsCard from "./gagnants-perdants-component";
 
 const mapStateToProps = ({ loadingEtat, totalPop }) => {
