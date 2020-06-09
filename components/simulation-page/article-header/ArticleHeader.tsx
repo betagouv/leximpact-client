@@ -3,10 +3,13 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import RefreshIcon from "@material-ui/icons/Refresh";
-import PropTypes from "prop-types";
 import { PureComponent } from "react";
+import { connect, ConnectedProps } from "react-redux";
+import { RootState } from "types";
+import { ParametersState } from "types/parameters";
 
-import styles from "./article-header.module.scss";
+import { resetAmendementToBase, resetAmendementToPlf } from "../../../redux/actions";
+import styles from "./ArticleHeader.module.scss";
 
 const stylesTheme = () => ({
   menuItemPaper: {
@@ -28,7 +31,21 @@ const stylesTheme = () => ({
   },
 });
 
-class ArticleHeader extends PureComponent {
+type Props = {
+  classes: any;
+  topic: keyof ParametersState;
+}
+
+const mapStateToProps = ({ parameters }: RootState) => ({ displayPLF: !!parameters.plf });
+
+const mapDispatchToProps = (dispatch, ownProps: Props) => ({
+  resetAmendementToBase: () => dispatch(resetAmendementToBase(ownProps.topic)),
+  resetAmendementToPlf: () => dispatch(resetAmendementToPlf(ownProps.topic)),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+class ArticleHeader extends PureComponent<ConnectedProps<typeof connector> & Props> {
   state = {
     anchorEl: null,
   };
@@ -42,18 +59,20 @@ class ArticleHeader extends PureComponent {
   };
 
   handleClickPlf = () => {
-    this.props.resetVarArticle();
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.resetAmendementToPlf();
     this.setState({ anchorEl: null });
   };
 
-  handleClickExistant = () => {
-    this.props.resetVarArticleExistant();
+  handleClickBase = () => {
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.resetAmendementToBase();
     this.setState({ anchorEl: null });
   };
 
 
   render() {
-    const { classes, montrerPLF } = this.props;
+    const { classes, displayPLF } = this.props;
     const { anchorEl } = this.state;
     return (
       <div className={styles.resetParams}>
@@ -80,7 +99,7 @@ class ArticleHeader extends PureComponent {
             </span>
           </div>
           {
-            montrerPLF
+            displayPLF
               ? (
                 <MenuItem
                   className={classes.menuItemPaper}
@@ -94,7 +113,7 @@ class ArticleHeader extends PureComponent {
 
           <MenuItem
             className={classes.menuItemPaper}
-            onClick={this.handleClickExistant}>
+            onClick={this.handleClickBase}>
             <span>-</span>
             <span className={styles.initial}>
               code existant
@@ -105,11 +124,5 @@ class ArticleHeader extends PureComponent {
     );
   }
 }
-ArticleHeader.propTypes = {
-  classes: PropTypes.shape().isRequired,
-  montrerPLF: PropTypes.bool.isRequired,
-  resetVarArticle: PropTypes.func.isRequired,
-  resetVarArticleExistant: PropTypes.func.isRequired,
-};
 
-export default withStyles(stylesTheme, { withTheme: true })(ArticleHeader);
+export default withStyles(stylesTheme as any, { withTheme: true })(connector(ArticleHeader));

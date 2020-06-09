@@ -15,7 +15,6 @@ import {
 import fillArrayWith from "../utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
-import ArticleHeader from "./article-header";
 import { Button } from "./buttons";
 import { Plafonds, ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
@@ -147,19 +146,12 @@ class ArticlesComponent extends React.Component {
       amendement,
       handleAddTranche,
       handleRemoveTranche,
-      handleResetVarArticle,
-      handleResetVarArticleExistant,
-      plf,
     } = this.props;
     const count = amendement.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
       <Fragment>
-        <ArticleHeader
-          montrerPLF={!!plf}
-          resetVarArticle={handleResetVarArticle}
-          resetVarArticleExistant={handleResetVarArticleExistant} />
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
@@ -250,8 +242,6 @@ ArticlesComponent.propTypes = {
   handleAddTranche: PropTypes.func.isRequired,
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
-  handleResetVarArticle: PropTypes.func.isRequired,
-  handleResetVarArticleExistant: PropTypes.func.isRequired,
   plf: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({

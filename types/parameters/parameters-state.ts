@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 export interface ParametersState {
+  dotations: {};
   impot_revenu: {
     bareme: {
       seuils: number[];

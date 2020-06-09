@@ -32,6 +32,7 @@ class IndexPage extends PureComponent {
           subTitle1="Dotations"
           subTitle2="Communes"
           title="DSR"
+          topic="dotations"
         />
         <PopinManager />
       </Fragment>

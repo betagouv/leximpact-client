@@ -4,14 +4,17 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import { PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
+import { ParametersState } from "types/parameters";
 
 import AppHeader from "../app-header";
+import { ArticleHeader } from "./article-header";
 import { SimulationMenuBar } from "./simulation-menu";
 import styles from "./SimulationPage.module.scss";
 
 interface Props {
   initializeAppllicationStoreFromAPI: () => void;
   useMobileView: boolean;
+  topic: keyof ParametersState;
   title: string;
   subTitle1: string;
   subTitle2: string;
@@ -54,11 +57,12 @@ export class SimulationPage extends PureComponent<Props, State> {
 
   renderDesktopView = () => {
     const {
-      parameters, primaryButtons, results, secondaryButtons,
+      parameters, primaryButtons, results, secondaryButtons, topic,
     } = this.props;
     return (
       <div className={styles.container}>
         <Paper square className={styles.parameters}>
+          <ArticleHeader topic={topic} />
           {parameters}
         </Paper>
         <div className={styles.results}>
@@ -76,7 +80,7 @@ export class SimulationPage extends PureComponent<Props, State> {
   renderMobileView = () => {
     const { indextab } = this.state;
     const {
-      parameters, primaryButtons, results, secondaryButtons,
+      parameters, primaryButtons, results, secondaryButtons, topic,
     } = this.props;
     return (
       <div>
@@ -97,6 +101,7 @@ export class SimulationPage extends PureComponent<Props, State> {
           onChangeIndex={this.handleOnChangeIndex}>
           <div style={{ padding: 24 }}>
             <Paper>
+              <ArticleHeader topic={topic} />
               {parameters}
             </Paper>
           </div>

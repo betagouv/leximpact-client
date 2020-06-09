@@ -89,6 +89,7 @@ class IndexPage extends PureComponent {
           subTitle1="IMPÔT SUR"
           subTitle2="LE REVENU"
           title="IR"
+          topic="impot_revenu"
         />
         <PopinManager />
       </Fragment>

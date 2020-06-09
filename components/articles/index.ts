@@ -4,8 +4,6 @@ import { RootState } from "types";
 import {
   addTranche,
   removeTranche,
-  resetVarArticle,
-  resetVarArticleExistant,
   updateReformeByName,
 } from "../../redux/actions";
 import ArticlesComponent from "./articles-component";
@@ -23,12 +21,6 @@ const mapDispatchToProps = dispatch => ({
 
   handleRemoveTranche: () => {
     dispatch(removeTranche());
-  },
-  handleResetVarArticle: () => {
-    dispatch(resetVarArticle());
-  },
-  handleResetVarArticleExistant: () => {
-    dispatch(resetVarArticleExistant());
   },
 });
 
