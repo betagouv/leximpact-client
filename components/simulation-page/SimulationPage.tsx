@@ -6,7 +6,7 @@ import { PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
 
 import AppHeader from "../app-header";
-import SimulationMenuBar from "../simulation-menu";
+import SimulationMenuBar from "./simulation-menu";
 import styles from "./SimulationPage.module.scss";
 
 interface Props {
