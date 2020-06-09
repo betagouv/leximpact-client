@@ -6,10 +6,10 @@ const FormulaOutputComponent = ({
   baseValue, newValue, plfValue,
 }) => (
   <Parameter
+    amendementValue={newValue}
     baseValue={baseValue}
     editable={false}
     plfValue={plfValue}
-    reformValue={newValue}
   />
 );
 

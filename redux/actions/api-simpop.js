@@ -14,9 +14,9 @@ const TOKEN_ERROR_POSSIBLE_MESSAGES = [
 const fetchSimPop = () => async (dispatch, getState) => {
   dispatch(loadingEtatStart());
   currentTimestamp = Date.now().toString();
-  const { reforme, token } = getState();
+  const { parameters, token } = getState();
   const body = {
-    reforme: formatReforme(reforme),
+    reforme: formatReforme(parameters.amendement),
     timestamp: currentTimestamp,
     token,
   };

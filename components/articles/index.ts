@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { RootState } from "types";
 
 import {
   addTranche,
@@ -9,11 +10,7 @@ import {
 } from "../../redux/actions";
 import ArticlesComponent from "./articles-component";
 
-const mapStateToProps = ({ reforme, reformeBase, reformePLF }) => ({
-  reforme,
-  reformeBase,
-  reformePLF,
-});
+const mapStateToProps = ({ parameters }: RootState) => parameters;
 
 const mapDispatchToProps = dispatch => ({
   handleAddTranche: () => {

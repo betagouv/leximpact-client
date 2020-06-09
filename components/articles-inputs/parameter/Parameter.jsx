@@ -24,15 +24,16 @@ function withTooltip(Tooltip, title, element) {
 class Parameter extends PureComponent {
   render() {
     const {
-      baseValue, editable, onReformChange, plfTitle,
-      plfValue, reformInputSize, reformTitle, reformValue,
+      amendementInputSize, amendementTitle, amendementValue, baseValue,
+      editable, onAmendementChange, plfTitle, plfValue,
     } = this.props;
-    const equal = baseValue === reformValue;
+    const equal = baseValue === amendementValue;
 
     return (
       <span className={styles.noOverflow}>
         {
-          !equal && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
+          baseValue !== null && !equal
+          && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
         }
         {
           plfValue !== null && withTooltip(
@@ -42,24 +43,24 @@ class Parameter extends PureComponent {
           )
         }
         {
-          withTooltip(ReformTooltip, reformTitle, editable
+          withTooltip(ReformTooltip, amendementTitle, editable
             ? (
               <NumberInput
                 className={classNames({
-                  [styles.reformInput]: true,
-                  [styles.reformValue]: true,
-                  [styles.reformValueModified]: !equal,
-                  [styles.smallInput]: reformInputSize === "small",
+                  [styles.amendementInput]: true,
+                  [styles.amendementValue]: true,
+                  [styles.amendementValueModified]: !equal,
+                  [styles.smallInput]: amendementInputSize === "small",
                 })}
-                value={reformValue}
-                onChange={onReformChange} />
+                value={amendementValue}
+                onChange={onAmendementChange} />
             )
             : (
               <span className={classNames({
-                [styles.reformValue]: true,
-                [styles.reformValueModified]: !equal,
+                [styles.amendementValue]: true,
+                [styles.amendementValueModified]: !equal,
               })}>
-                {formatNumber(reformValue)}
+                {formatNumber(amendementValue)}
               </span>
             ))
         }
@@ -69,29 +70,30 @@ class Parameter extends PureComponent {
 }
 
 Parameter.defaultProps = {
+  baseValue: null,
   editable: false,
-  onReformChange: () => { },
+  onAmendementChange: () => { },
   plfTitle: null,
   plfValue: null,
-  reformInputSize: "large",
-  reformTitle: null,
+  amendementInputSize: "large",
+  amendementTitle: null,
 };
 
 Parameter.propTypes = {
-  baseValue: PropTypes.number.isRequired,
+  amendementValue: PropTypes.number.isRequired,
+  baseValue: PropTypes.number,
   editable: PropTypes.bool,
-  onReformChange: PropTypes.func,
+  onAmendementChange: PropTypes.func,
   plfTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
   plfValue: PropTypes.number,
-  reformInputSize: PropTypes.oneOf(["small", "large"]),
-  reformTitle: PropTypes.oneOfType([
+  amendementInputSize: PropTypes.oneOf(["small", "large"]),
+  amendementTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
-  reformValue: PropTypes.number.isRequired,
 };
 
 export { Parameter };

@@ -21,9 +21,9 @@ const styles = () => ({
 });
 
 
-const mapStateToProps = ({ reformePLF }, { width }) => {
+const mapStateToProps = ({ parameters }, { width }) => {
   const isMobileView = width === "xs" || width === "sm" || width === "md";
-  const montrerPLF = !!reformePLF;
+  const montrerPLF = !!parameters.plf;
   return {
     isMobileView,
     montrerPLF,
