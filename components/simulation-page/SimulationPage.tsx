@@ -17,6 +17,20 @@ interface Props {
   subTitle2: string;
   parameters: JSX.Element;
   results: JSX.Element;
+  primaryButtons: {
+    onClick: () => void;
+    icon?: JSX.Element;
+    caption: string;
+    mobileCaption: string;
+    mobileIcon?: JSX.Element;
+  }[];
+  secondaryButtons?: {
+    onClick: () => void;
+    icon?: JSX.Element;
+    caption: string;
+    mobileCaption: string;
+    mobileIcon?: JSX.Element;
+  }[];
 }
 
 interface State {
@@ -39,14 +53,19 @@ export class SimulationPage extends PureComponent<Props, State> {
   };
 
   renderDesktopView = () => {
-    const { parameters, results } = this.props;
+    const {
+      parameters, primaryButtons, results, secondaryButtons,
+    } = this.props;
     return (
       <div className={styles.container}>
         <Paper square className={styles.parameters}>
           {parameters}
         </Paper>
         <div className={styles.results}>
-          <SimulationMenuBar />
+          <SimulationMenuBar
+            primaryButtons={primaryButtons}
+            secondaryButtons={secondaryButtons}
+          />
           {results}
         </div>
       </div>
@@ -55,7 +74,9 @@ export class SimulationPage extends PureComponent<Props, State> {
 
   renderMobileView = () => {
     const { indextab } = this.state;
-    const { parameters, results } = this.props;
+    const {
+      parameters, primaryButtons, results, secondaryButtons,
+    } = this.props;
     return (
       <div>
         <AppBar color="default" position="static">
@@ -79,7 +100,9 @@ export class SimulationPage extends PureComponent<Props, State> {
             </Paper>
           </div>
           <div style={{ padding: 24 }}>
-            <SimulationMenuBar />
+            <SimulationMenuBar
+              primaryButtons={primaryButtons}
+              secondaryButtons={secondaryButtons} />
             {results}
           </div>
         </SwipeableViews>

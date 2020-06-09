@@ -1,9 +1,8 @@
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
-import PropTypes from "prop-types";
 
 import styles from "./Legende.module.scss";
 
-function Legende({ montrerPLF }) {
+export function Legende({ montrerPLF }: { montrerPLF: boolean }) {
   return (
     <div>
       <div className={styles.legend}>
@@ -24,9 +23,3 @@ function Legende({ montrerPLF }) {
     </div>
   );
 }
-
-Legende.propTypes = {
-  montrerPLF: PropTypes.bool.isRequired,
-};
-
-export default Legende;

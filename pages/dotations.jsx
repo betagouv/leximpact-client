@@ -1,3 +1,4 @@
+import HomeIcon from "@material-ui/icons/Home";
 import { flow } from "lodash";
 import Head from "next/head";
 import { withRouter } from "next/router";
@@ -18,6 +19,16 @@ class IndexPage extends PureComponent {
         </Head>
         <SimulationPage
           parameters={<Articles />}
+          primaryButtons={[
+            {
+              caption: "Estimer",
+              icon: <HomeIcon />,
+              mobileCaption: "Estimer",
+              mobileIcon: <HomeIcon />,
+              onClick: () => {},
+            },
+          ]}
+          secondaryButtons={[]}
           subTitle1="Dotations"
           subTitle2="Communes"
           title="DSR"
