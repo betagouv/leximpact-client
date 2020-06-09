@@ -1,11 +1,10 @@
-import { Part } from "interfaces";
 import { PureComponent } from "react";
 
 import articleStyle from "../../articles.module.scss";
 import { QfTable } from "./QfTable";
 import styles from "./ReglesGenerales.module.scss";
 
-const PARTS_MOCK: Part[] = [
+const PARTS_MOCK = [
   {
     celibataire: 1,
     divorce: 1,

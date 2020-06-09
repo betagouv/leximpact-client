@@ -42,12 +42,16 @@ class ArticleHeader extends PureComponent {
   };
 
   handleClickPlf = () => {
-    this.props.resetVarArticle();
+    const { resetVarArticle } = this.props;
+    resetVarArticle();
+
     this.setState({ anchorEl: null });
   };
 
   handleClickExistant = () => {
-    this.props.resetVarArticleExistant();
+    const { resetVarArticleExistant } = this.props;
+    resetVarArticleExistant();
+
     this.setState({ anchorEl: null });
   };
 

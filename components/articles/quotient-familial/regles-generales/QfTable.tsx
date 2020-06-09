@@ -2,7 +2,6 @@ import babyIcon from "@iconify/icons-twemoji/baby";
 import { Icon } from "@iconify/react";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Part } from "interfaces";
 import { Fragment, PureComponent } from "react";
 
 import NumberInput from "../../../articles-inputs/parameter/NumberInput";
@@ -29,7 +28,7 @@ const Separator = () => (
   </div>
 );
 
-const Row = ({ lastRow, nbrePacs, part }: { lastRow: boolean, nbrePacs: number, part: Part }) => (
+const Row = ({ lastRow, nbrePacs, part }: { lastRow: boolean, nbrePacs: number, part }) => (
   <Fragment>
     <Separator />
     <div className={styles.content}>
@@ -104,7 +103,7 @@ const PartSupplementaireContent = () => (
 );
 
 interface Props {
-  parts: Part[];
+  parts;
 }
 
 export class QfTable extends PureComponent<Props> {
