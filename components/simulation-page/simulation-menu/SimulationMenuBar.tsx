@@ -1,6 +1,9 @@
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
+import withWidth from "@material-ui/core/withWidth";
 import { PureComponent } from "react";
+import { connect, ConnectedProps } from "react-redux";
+import { compose } from "redux";
 
 import { Button } from "./button";
 import { Legende } from "./legende";
@@ -17,10 +20,22 @@ const styles = () => ({
   },
 });
 
-interface Props {
+
+const mapStateToProps = ({ reformePLF }, { width }) => {
+  const isMobileView = width === "xs" || width === "sm" || width === "md";
+  const montrerPLF = !!reformePLF;
+  return {
+    isMobileView,
+    montrerPLF,
+  };
+};
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux & {
   classes: any;
-  isMobileView: boolean;
-  montrerPLF: boolean;
   primaryButtons: {
     onClick: () => void;
     icon?: JSX.Element;
@@ -112,4 +127,9 @@ class SimulationMenuBar extends PureComponent<Props> {
   }
 }
 
-export default withStyles(styles)(SimulationMenuBar);
+const ConnectedSimulationMenuBar = compose(
+  withWidth(),
+  connector,
+)(withStyles(styles)(SimulationMenuBar));
+
+export { ConnectedSimulationMenuBar as SimulationMenuBar };
