@@ -1,3 +1,5 @@
+import { ParametersState } from "./parameters-state";
+
 export interface UpdateParameterAction {
   type: "UPDATE_PARAMETER";
   path: string;
@@ -14,7 +16,19 @@ export interface RemoveLastLineInParameterArrayAction {
   path: string;
 }
 
+export interface ResetAmendementToBaseAction {
+  type: "RESET_AMENDEMENT_TO_BASE",
+  topic: keyof ParametersState,
+}
+
+export interface ResetAmendementToPlfAction {
+  type: "RESET_AMENDEMENT_TO_PLF",
+  topic: keyof ParametersState,
+}
+
 export type ParameterAction =
   UpdateParameterAction |
   AddNewLineInParameterArrayAction |
-  RemoveLastLineInParameterArrayAction;
+  RemoveLastLineInParameterArrayAction |
+  ResetAmendementToBaseAction |
+  ResetAmendementToPlfAction;
