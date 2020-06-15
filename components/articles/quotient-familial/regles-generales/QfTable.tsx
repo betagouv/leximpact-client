@@ -113,7 +113,12 @@ class QfTable extends PureComponent<Props> {
       <div className={styles.container}>
         <div className={styles.header}>
           <div>Situation de famille</div>
-          <div>Nombre de parts</div>
+          <div>
+            Nombre
+            {" "}
+            <br />
+            de parts
+          </div>
         </div>
         {
           lines.map((_, index) => (
