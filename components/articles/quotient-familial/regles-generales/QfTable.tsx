@@ -2,13 +2,16 @@ import babyIcon from "@iconify/icons-twemoji/baby";
 import { Icon } from "@iconify/react";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { StateParameter } from "components/articles-inputs/parameter";
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
-import { addNewLineInParameterArray, removeLastLineInParameterArray } from "redux/actions/parameters";
-import { RootState } from "types";
-import { ParametersState } from "types/parameters";
 
+import { addNewLineInParameterArray, removeLastLineInParameterArray } from "../../../../redux/actions/parameters";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../types";
+// eslint-disable-next-line no-unused-vars
+import { ParametersState } from "../../../../types/parameters";
+import { StateParameter } from "../../../articles-inputs/parameter";
 import { Button } from "../../buttons";
 import styles from "./QfTable.module.scss";
 
@@ -55,7 +58,9 @@ const Row = ({ index, lastRow }: { lastRow: boolean, index: number }) => (
   </Fragment>
 );
 
-const SubRow = ({ description, index, name }: { description: string, name: string, index: number }) => (
+const SubRow = (
+  { description, index, name }: { description: string, name: string, index: number },
+) => (
   <div>
     <div className={styles.description}>
       {description}

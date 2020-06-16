@@ -1,12 +1,16 @@
 import { getIn, setIn } from "immutable";
 import { cloneDeep, get, set } from "lodash";
-import {
-  AddNewLineInParameterArrayAction,
-  ParametersState,
-  RemoveLastLineInParameterArrayAction,
-  UpdateParameterAction,
-} from "types/parameters";
 
+import {
+  // eslint-disable-next-line no-unused-vars
+  AddNewLineInParameterArrayAction,
+  // eslint-disable-next-line no-unused-vars
+  ParametersState,
+  // eslint-disable-next-line no-unused-vars
+  RemoveLastLineInParameterArrayAction,
+  // eslint-disable-next-line no-unused-vars
+  UpdateParameterAction,
+} from "../../../types/parameters";
 import { BASE_DEFAULT_STATE } from "./base";
 import { PLF_DEFAULT_STATE } from "./plf";
 

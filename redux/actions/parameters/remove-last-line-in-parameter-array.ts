@@ -1,4 +1,5 @@
-import { RemoveLastLineInParameterArrayAction } from "types/parameters";
+// eslint-disable-next-line no-unused-vars
+import { RemoveLastLineInParameterArrayAction } from "../../../types/parameters";
 
 export function removeLastLineInParameterArray(path: string): RemoveLastLineInParameterArrayAction {
   return {

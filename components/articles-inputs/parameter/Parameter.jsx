@@ -70,16 +70,21 @@ class Parameter extends PureComponent {
 }
 
 Parameter.defaultProps = {
+  amendementInputSize: "large",
+  amendementTitle: null,
   baseValue: null,
   editable: false,
   onAmendementChange: () => { },
   plfTitle: null,
   plfValue: null,
-  amendementInputSize: "large",
-  amendementTitle: null,
 };
 
 Parameter.propTypes = {
+  amendementInputSize: PropTypes.oneOf(["small", "large"]),
+  amendementTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
   amendementValue: PropTypes.number.isRequired,
   baseValue: PropTypes.number,
   editable: PropTypes.bool,
@@ -89,11 +94,6 @@ Parameter.propTypes = {
     PropTypes.element,
   ]),
   plfValue: PropTypes.number,
-  amendementInputSize: PropTypes.oneOf(["small", "large"]),
-  amendementTitle: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
 };
 
 export { Parameter };
