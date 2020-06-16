@@ -5,14 +5,12 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import CachedIcon from "@material-ui/icons/Cached";
-import CloseIcon from "@material-ui/icons/Close";
 import FaceIcon from "@material-ui/icons/Face";
 import GroupIcon from "@material-ui/icons/Group";
 import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
@@ -38,14 +36,6 @@ const styles = () => ({
     padding: 0,
     width: "moz-available",
   },
-  cardEditDeleteButton: {
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
-    margin: 0,
-    marginLeft: 0,
-    padding: 0,
-  },
   cardHeader: {
     display: "flex",
     flex: 1,
@@ -54,11 +44,6 @@ const styles = () => ({
     padding: 15,
     paddingBottom: 5,
     textAlign: "left",
-  },
-  cardHeaderButtons: {
-    maxWidth: 15,
-    minWidth: 15,
-    width: 15,
   },
   containerImpact: {
     alignContent: "flex-start",
@@ -200,16 +185,6 @@ class GagnantsPerdantsCard extends PureComponent {
               <Typography className={classes.subtitleCard}>
                 en millions par rapport au droit existant*
               </Typography>
-            </div>
-
-            <div className={classes.cardHeaderButtons}>
-              <IconButton
-                disableRipple
-                aria-label="Delete"
-                classes={{ root: classes.cardEditDeleteButton }}
-              >
-                <CloseIcon fontSize="small" />
-              </IconButton>
             </div>
           </div>
           {isDisabledEtat && (
