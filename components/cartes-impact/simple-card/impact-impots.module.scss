@@ -1,4 +1,6 @@
+@import 'styles/variables';
+
 .result {
   font-size: 40px;
-  font-family: Lato;
+  font-family: $default-font-family;
 }
