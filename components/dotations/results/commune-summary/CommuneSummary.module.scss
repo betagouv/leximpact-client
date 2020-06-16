@@ -1,0 +1,55 @@
+@import 'styles/variables';
+
+.total {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.nouvellementEligible, .plusEligible, .toujoursEligible {
+  font-size: 14px;
+}
+
+.nouvellementEligible, .plusEligible {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  :last-child {
+    margin-left: 5px;
+  }
+}
+
+.amendement {
+  background-color: $amendement-bg-color;
+}
+
+.nouvellementEligible {
+
+  .icon {
+    color: #13CC03;
+  }
+
+}
+
+.plusEligible {
+
+  .icon {
+    color: #FFAC33;
+  }
+
+}
+
+.toujoursEligible {
+  margin-top: 5px;
+  color: grey;
+}
+
+.expansionPanel {
+  margin: -15px !important;
+
+  .expansionPanelTitle {
+    color: darkgrey;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
