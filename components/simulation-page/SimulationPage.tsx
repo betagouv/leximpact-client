@@ -4,8 +4,9 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import { PureComponent } from "react";
 import SwipeableViews from "react-swipeable-views";
-import { ParametersState } from "types/parameters";
 
+// eslint-disable-next-line no-unused-vars
+import { ParametersState } from "../../types/parameters";
 import AppHeader from "../app-header";
 import { ArticleHeader } from "./article-header";
 import { SimulationMenuBar } from "./simulation-menu";

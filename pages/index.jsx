@@ -47,6 +47,7 @@ const casTypesIcon = <FaceIcon tag="cas type" />;
 class IndexPage extends PureComponent {
   render() {
     const {
+      // eslint-disable-next-line no-shadow
       isUserLogged, showAddCasTypesPopin, simulateCasTypes, simulatePopulation,
     } = this.props;
 
@@ -99,6 +100,7 @@ class IndexPage extends PureComponent {
 }
 
 IndexPage.propTypes = {
+  isUserLogged: PropTypes.bool.isRequired,
   showAddCasTypesPopin: PropTypes.func.isRequired,
   simulateCasTypes: PropTypes.func.isRequired,
   simulatePopulation: PropTypes.func.isRequired,

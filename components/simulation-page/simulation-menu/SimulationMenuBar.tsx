@@ -2,6 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import withWidth from "@material-ui/core/withWidth";
 import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 import { compose } from "redux";
 

@@ -1,4 +1,5 @@
-import { ResetAmendementToPlfAction } from "types/parameters";
+// eslint-disable-next-line no-unused-vars
+import { ResetAmendementToPlfAction } from "../../../types/parameters";
 
 export function resetAmendementToPlf(topic: ResetAmendementToPlfAction["topic"]): ResetAmendementToPlfAction {
   return {

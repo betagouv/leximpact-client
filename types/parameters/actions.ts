@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { ParametersState } from "./parameters-state";
 
 export interface UpdateParameterAction {

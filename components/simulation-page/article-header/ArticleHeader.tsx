@@ -4,11 +4,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
-import { RootState } from "types";
-import { ParametersState } from "types/parameters";
 
 import { resetAmendementToBase, resetAmendementToPlf } from "../../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../types";
+// eslint-disable-next-line no-unused-vars
+import { ParametersState } from "../../../types/parameters";
 import styles from "./ArticleHeader.module.scss";
 
 const stylesTheme = () => ({
