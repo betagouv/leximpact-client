@@ -15,6 +15,7 @@ import {
 import fillArrayWith from "../utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
+import styles from "./articles.module.scss";
 import { Button } from "./buttons";
 import { Plafonds, ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
@@ -72,7 +73,7 @@ class ArticlesComponent extends React.Component {
       return (
         <div
           key={i}
-          className={newTranche}>
+          className={newTranche ? styles.newTranche : undefined}>
           –
           <Parameter
             editable
@@ -106,7 +107,7 @@ class ArticlesComponent extends React.Component {
     return (
       <div
         key={i}
-        className={newTranche}>
+        className={newTranche ? styles.newTranche : undefined}>
         –
         <Parameter
           editable
