@@ -11,18 +11,15 @@ import {
 } from "../articles-inputs";
 import { Parameter } from "../articles-inputs/parameter";
 import fillArrayWith from "../utils/array/fillArrayWith";
-import Alinea2 from "./article-alinea-2";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import styles from "./articles.module.scss";
 import { Button } from "./buttons";
 import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
-import { ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
+import { Plafonds, ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 class ArticlesComponent extends React.Component {
-  // const nbt = props.reformeBase.impot_revenu.bareme.seuils.length;
-
   renderBaseOutputInput = name => <BaseInputOutput name={name} />;
 
   renderFormulaOutput = (name, facteur = 1) => (
@@ -31,17 +28,17 @@ class ArticlesComponent extends React.Component {
 
   gimmeIRPartsOfArticle = (i) => {
     const {
+      amendement,
+      base,
       handleArticleChange,
-      reforme,
-      reformeBase,
-      reformePLF,
+      plf,
     } = this.props;
-    const s = reforme.impot_revenu.bareme.seuils;
-    const t = reforme.impot_revenu.bareme.taux;
-    const bases = reformeBase.impot_revenu.bareme.seuils;
-    const baset = reformeBase.impot_revenu.bareme.taux;
-    const plfs = reformePLF && reformePLF.impot_revenu.bareme.seuils;
-    const plft = reformePLF && reformePLF.impot_revenu.bareme.taux;
+    const s = amendement.impot_revenu.bareme.seuils;
+    const t = amendement.impot_revenu.bareme.taux;
+    const bases = base.impot_revenu.bareme.seuils;
+    const baset = base.impot_revenu.bareme.taux;
+    const plfs = plf && plf.impot_revenu.bareme.seuils;
+    const plft = plf && plf.impot_revenu.bareme.taux;
 
     const nbt = s.length;
     const newTranche = i > 4;
@@ -58,10 +55,10 @@ class ArticlesComponent extends React.Component {
           }
           <Parameter
             editable
+            amendementValue={s[i]}
             baseValue={baseValue}
             plfValue={plfValue}
-            reformValue={s[i]}
-            onReformChange={value => handleArticleChange(value, `seuil${i}`)}
+            onAmendementChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           € le taux de&nbsp;:
         </div>
@@ -84,20 +81,20 @@ class ArticlesComponent extends React.Component {
           –
           <Parameter
             editable
+            amendementInputSize="small"
+            amendementValue={t[i - 1]}
             baseValue={baseValuet}
             plfValue={plfValuet}
-            reformInputSize="small"
-            reformValue={t[i - 1]}
-            onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
+            onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
           %
           <br />
           pour la fraction supérieure à&nbsp;
           <Parameter
+            amendementValue={s[i - 1]}
             baseValue={baseValue}
             editable={false}
             plfValue={plfValue}
-            reformValue={s[i - 1]}
           />
           €.
         </div>
@@ -121,30 +118,30 @@ class ArticlesComponent extends React.Component {
         –
         <Parameter
           editable
+          amendementInputSize="small"
+          amendementValue={t[i - 1]}
           baseValue={baseValuet}
           plfValue={plfValuet}
-          reformInputSize="small"
-          reformValue={t[i - 1]}
-          onReformChange={value => handleArticleChange(value, `taux${i - 1}`)}
+          onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
         %
         <br />
         pour la fraction supérieure à&nbsp;
         <Parameter
+          amendementValue={s[i - 1]}
           baseValue={baseValueminus1}
           editable={false}
           plfValue={plfValueminus1}
-          reformValue={s[i - 1]}
         />
         €
         <br />
         et inférieure ou égale à&nbsp;
         <Parameter
           editable
+          amendementValue={s[i]}
           baseValue={baseValue}
           plfValue={plfValue}
-          reformValue={s[i]}
-          onReformChange={value => handleArticleChange(value, `seuil${i}`)}
+          onAmendementChange={value => handleArticleChange(value, `seuil${i}`)}
         />
         € ;
       </div>
@@ -154,20 +151,20 @@ class ArticlesComponent extends React.Component {
   render() {
     const isQfEnabled = document.location.href.indexOf("qf=true") !== -1;
     const {
+      amendement,
       handleAddTranche,
       handleRemoveTranche,
       handleResetVarArticle,
       handleResetVarArticleExistant,
-      reforme,
-      reformePLF,
+      plf,
     } = this.props;
-    const count = reforme.impot_revenu.bareme.seuils.length + 1;
+    const count = amendement.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
       <Fragment>
         <ArticleHeader
-          montrerPLF={!!reformePLF}
+          montrerPLF={!!plf}
           resetVarArticle={handleResetVarArticle}
           resetVarArticleExistant={handleResetVarArticleExistant} />
         <div style={{ marginRight: "1em" }}>
@@ -206,7 +203,7 @@ class ArticlesComponent extends React.Component {
               subTitle="Articles 197 - I.2"
               title="Plafonds"
             >
-              <Alinea2 baseOutputInput={this.renderBaseOutputInput} />
+              <Plafonds baseOutputInput={this.renderBaseOutputInput} />
             </SecondaryExpandablePanel>
             {isQfEnabled && (
               <SecondaryExpandablePanel
@@ -239,30 +236,30 @@ class ArticlesComponent extends React.Component {
 }
 
 ArticlesComponent.defaultProps = {
-  reformePLF: null,
+  plf: null,
 };
 
 ArticlesComponent.propTypes = {
+  amendement: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
+  base: PropTypes.shape({
+    impot_revenu: PropTypes.shape({
+      bareme: PropTypes.shape({
+        seuils: PropTypes.arrayOf(PropTypes.number),
+      }),
+    }),
+  }).isRequired,
   handleAddTranche: PropTypes.func.isRequired,
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
   handleResetVarArticle: PropTypes.func.isRequired,
   handleResetVarArticleExistant: PropTypes.func.isRequired,
-  reforme: PropTypes.shape({
-    impot_revenu: PropTypes.shape({
-      bareme: PropTypes.shape({
-        seuils: PropTypes.arrayOf(PropTypes.number),
-      }),
-    }),
-  }).isRequired,
-  reformeBase: PropTypes.shape({
-    impot_revenu: PropTypes.shape({
-      bareme: PropTypes.shape({
-        seuils: PropTypes.arrayOf(PropTypes.number),
-      }),
-    }),
-  }).isRequired,
-  reformePLF: PropTypes.shape({
+  plf: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({
         seuils: PropTypes.arrayOf(PropTypes.number),

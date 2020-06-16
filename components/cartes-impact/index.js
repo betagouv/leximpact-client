@@ -17,9 +17,4 @@ const mapStateToProps = ({
   };
 };
 
-const mapDispatchToProps = null;
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ImpactComponent);
+export default connect(mapStateToProps)(ImpactComponent);

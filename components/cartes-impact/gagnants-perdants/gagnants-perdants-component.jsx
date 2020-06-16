@@ -261,7 +261,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         : null
                     }
                     <div className={styles2.reform}>
-                      <span className={styles2.reformValue}>{hausseReforme}</span>
+                      <span className={styles2.amendementValue}>{hausseReforme}</span>
                       <span className={styles2.reformUnit}> M</span>
                       <GroupIcon
                         className={styles2.reformIcon}
@@ -315,7 +315,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         : null
                     }
                     <div className={styles2.reform}>
-                      <span className={styles2.reformValue}>{baisseReforme}</span>
+                      <span className={styles2.amendementValue}>{baisseReforme}</span>
                       <span className={styles2.reformUnit}> M</span>
                       <GroupIcon
                         className={styles2.reformIcon}
@@ -353,7 +353,7 @@ class GagnantsPerdantsCard extends PureComponent {
                         : null
                     }
                     <div className={styles2.reform}>
-                      <span className={styles2.reformValue}>{neutreReforme}</span>
+                      <span className={styles2.amendementValue}>{neutreReforme}</span>
                       <span className={styles2.reformUnit}> M</span>
                       <GroupIcon
                         className={styles2.reformIcon}

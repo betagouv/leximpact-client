@@ -4,9 +4,7 @@ import casTypes from "./cas-types";
 import disabledEtat from "./disabled-etat";
 import display from "./display";
 import loadingEtat from "./loading-etat";
-import reforme from "./reforme";
-import reformeBase from "./reforme-base";
-import reformePLF from "./reforme-plf";
+import { parameters } from "./parameters";
 import results from "./results";
 import token from "./token";
 import totalPop from "./total-pop";
@@ -16,9 +14,7 @@ export default combineReducers({
   disabledEtat,
   display,
   loadingEtat,
-  reforme,
-  reformeBase,
-  reformePLF,
+  parameters,
   results,
   token,
   totalPop,

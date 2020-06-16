@@ -5,18 +5,18 @@ import FormulaOutputComponent from "./formula-output-component";
 
 const mapStateToProps = (state, props) => {
   const { facteur, name } = props;
-  const { reforme, reformeBase, reformePLF } = state;
+  const { amendement, base, plf } = state.parameters;
 
-  let baseValue = get(reformeBase, `impot_revenu.${name}`);
+  let baseValue = get(base, `impot_revenu.${name}`);
   baseValue *= facteur;
 
   let plfValue;
-  if (reformePLF) {
-    plfValue = get(reformePLF, `impot_revenu.${name}`);
+  if (plf) {
+    plfValue = get(plf, `impot_revenu.${name}`);
     plfValue *= facteur;
   }
 
-  let newValue = get(reforme, `impot_revenu.${name}`);
+  let newValue = get(amendement, `impot_revenu.${name}`);
   newValue *= facteur;
 
   return {

@@ -7,13 +7,11 @@ import {
   resetVarArticleExistant,
   updateReformeByName,
 } from "../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../types";
 import ArticlesComponent from "./articles-component";
 
-const mapStateToProps = ({ reforme, reformeBase, reformePLF }) => ({
-  reforme,
-  reformeBase,
-  reformePLF,
-});
+const mapStateToProps = ({ parameters }: RootState) => parameters;
 
 const mapDispatchToProps = dispatch => ({
   handleAddTranche: () => {

@@ -3,8 +3,15 @@ import { Icon } from "@iconify/react";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
-import NumberInput from "../../../articles-inputs/parameter/NumberInput";
+import { addNewLineInParameterArray, removeLastLineInParameterArray } from "../../../../redux/actions/parameters";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../types";
+// eslint-disable-next-line no-unused-vars
+import { ParametersState } from "../../../../types/parameters";
+import { StateParameter } from "../../../articles-inputs/parameter";
 import { Button } from "../../buttons";
 import styles from "./QfTable.module.scss";
 
@@ -28,62 +35,43 @@ const Separator = () => (
   </div>
 );
 
-const Row = ({ lastRow, nbrePacs, part }: { lastRow: boolean, nbrePacs: number, part }) => (
+const Row = ({ index, lastRow }: { lastRow: boolean, index: number }) => (
   <Fragment>
     <Separator />
     <div className={styles.content}>
       <div className={styles.situation}>
         <div>
-          {babyIcons(nbrePacs)}
+          {babyIcons(index)}
         </div>
         <div>
-          { nbrePacs === 0 ? "sans enfants à charge" : `ayant ${toFr(nbrePacs)} enfant${nbrePacs > 1 ? "s" : ""} à charge`}
+          { index === 0 ? "sans enfants à charge" : `ayant ${toFr(index)} enfant${index > 1 ? "s" : ""} à charge`}
         </div>
       </div>
       <div className={styles.parts}>
-        <SubRow description="Célibataire" value={part.celibataire} />
-        <SubRow description="Divorcé" value={part.divorce} />
-        <SubRow description="Veuf" value={part.veuf} />
-        <SubRow description="Marié" value={part.mariesOuPacses} />
+        <SubRow description="Célibataire" index={index} name="celibataire" />
+        <SubRow description="Divorcé" index={index} name="divorce" />
+        <SubRow description="Veuf" index={index} name="veuf" />
+        <SubRow description="Marié" index={index} name="mariesOuPacses" />
       </div>
     </div>
     {!lastRow && <Separator />}
   </Fragment>
 );
 
-const SubRow = ({ description, value }: { description: string, value: number }) => (
+const SubRow = (
+  { description, index, name }: { description: string, name: string, index: number },
+) => (
   <div>
     <div className={styles.description}>
       {description}
     </div>
     <div className={styles.value}>
-      <NumberInput className={styles.smallInput} value={value} />
+      <StateParameter
+        editable
+        amendementInputSize="small"
+        path={`impot_revenu.calculNombreParts.partsSelonNombrePAC.${index}.${name}`}
+      />
     </div>
-  </div>
-);
-
-const DeleteRow = () => (
-  <div className={styles.deleteRow}>
-    <Button
-      caption="Supprimer une ligne"
-      icons={<DeleteIcon />}
-      onClick={() => {}}
-    />
-  </div>
-);
-
-const AddNewRow = () => (
-  <div className={styles.addNewRow}>
-    <Button
-      caption="Ajouter une nouvelle ligne"
-      icons={(
-        <Fragment>
-          <AddIcon />
-          <Icon height="24" icon={babyIcon} width="24" />
-        </Fragment>
-      )}
-      onClick={() => {}}
-    />
   </div>
 );
 
@@ -94,7 +82,11 @@ const PartSupplementaireContent = () => (
     <br />
     d&apos;[une]
     {" "}
-    <NumberInput className={styles.smallInput} value={1} />
+    <StateParameter
+      editable
+      amendementInputSize="small"
+      path="impot_revenu.calculNombreParts.partsParPACAuDela"
+    />
     {" "}
     part
     <br />
@@ -102,33 +94,68 @@ const PartSupplementaireContent = () => (
   </div>
 );
 
-interface Props {
-  parts;
+const mapStateToProps = ({ parameters }: RootState) => ({
+  lines: parameters.amendement.impot_revenu.calculNombreParts.partsSelonNombrePAC,
+});
+
+const mapDispatchToProps = dispatch => ({
+  addNewLine: () => dispatch(addNewLineInParameterArray("impot_revenu.calculNombreParts.partsSelonNombrePAC")),
+  removeLastLine: () => dispatch(removeLastLineInParameterArray("impot_revenu.calculNombreParts.partsSelonNombrePAC")),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {
+
 }
 
-export class QfTable extends PureComponent<Props> {
+class QfTable extends PureComponent<Props> {
   render() {
-    const { parts } = this.props;
+    const { addNewLine, lines, removeLastLine } = this.props;
     return (
       <div className={styles.container}>
         <div className={styles.header}>
           <div>Situation de famille</div>
-          <div>Nombre de parts</div>
+          <div>
+            Nombre
+            {" "}
+            <br />
+            de parts
+          </div>
         </div>
         {
-          parts.map((part, index) => (
+          lines.map((_, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <div key={index} className={styles.row}>
-              <Row lastRow={index === parts.length - 1} nbrePacs={index} part={part} />
+              <Row index={index} lastRow={index === lines.length - 1} />
             </div>
           ))
         }
         <div className={styles.row} />
         <div className={styles.row}>
-          <DeleteRow />
+          <div className={styles.deleteRow}>
+            <Button
+              caption="Supprimer une ligne"
+              icons={<DeleteIcon />}
+              onClick={removeLastLine}
+            />
+          </div>
         </div>
         <div className={styles.row}>
-          <AddNewRow />
+          <div className={styles.addNewRow}>
+            <Button
+              caption="Ajouter une nouvelle ligne"
+              icons={(
+                <Fragment>
+                  <AddIcon />
+                  <Icon height="24" icon={babyIcon} width="24" />
+                </Fragment>
+              )}
+              onClick={addNewLine}
+            />
+          </div>
         </div>
         <div className={styles.row}>
           <PartSupplementaireContent />
@@ -137,3 +164,7 @@ export class QfTable extends PureComponent<Props> {
     );
   }
 }
+
+const ConnectedQfTable = connector(QfTable);
+
+export { ConnectedQfTable as QfTable };

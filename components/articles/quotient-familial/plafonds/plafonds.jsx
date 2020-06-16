@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import styles from "../articles.module.scss";
+import styles from "../../articles.module.scss";
 
-class Alinea2 extends PureComponent {
+export class Plafonds extends PureComponent {
   render() {
     const {
       baseOutputInput,
@@ -25,7 +25,7 @@ class Alinea2 extends PureComponent {
         part accordée au titre du premier enfant à charge est limitée à
         {baseOutputInput("plafond_qf.celib_enf")}
         {" "}
-        € Lorsque les
+        €. Lorsque les
         contribuables entretiennent uniquement des enfants dont la charge
         est réputée également partagée entre l&apos;un et l&apos;autre des
         parents, la réduction d&apos;impôt correspondant à la demi-part
@@ -37,6 +37,7 @@ class Alinea2 extends PureComponent {
         excéder
         {baseOutputInput("plafond_qf.celib")}
         € ;
+        <br />
         <br />
         Les contribuables qui bénéficient d&apos;une demi-part au titre des
         a, b, c, d, d bis, e et f du 1 ainsi que des 2 à 6 de l&apos;article
@@ -66,8 +67,6 @@ class Alinea2 extends PureComponent {
   }
 }
 
-Alinea2.propTypes = {
+Plafonds.propTypes = {
   baseOutputInput: PropTypes.func.isRequired,
 };
-
-export default Alinea2;
