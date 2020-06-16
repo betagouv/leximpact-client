@@ -10,7 +10,7 @@ const fetchMetadataCasTypes = () => (dispatch, getState) => {
       // dispatch(loadingComplete());
       dispatch({ payload, token, type: "onInitializeCasTypes" });
     })
-    .catch((err) => {
+    .catch((err) => { // eslint-disable-line no-unused-vars
       // dispatch(loadingError(err));
       // eslint-disable-next-line no-console
       console.log("Can’t access  response. Blocked by browser?");

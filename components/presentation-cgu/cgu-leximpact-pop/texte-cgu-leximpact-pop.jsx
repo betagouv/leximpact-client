@@ -326,9 +326,9 @@ function TexteCguLeximpactPop({ classes }) {
         méthodes utilisées pour extraire de cette base de données les
         informations nécessaires au calcul des effets agrégés des modifications
         de la loi, Leximpact IR ne saurait garantir l&apos;exactitude des
-        prévisions d'effets sur la population affichées dans l&apos;interface, qui sont seulement données à
-        titre indicatif. Les résultats obtenus sont à considérer comme un ordre
-        de grandeur.
+        prévisions d&apos;effets sur la population affichées dans l&apos;interface,
+        qui sont seulement données à titre indicatif.
+        Les résultats obtenus sont à considérer comme un ordre de grandeur.
       </p>
 
       <div className={classes.espaceVide} />

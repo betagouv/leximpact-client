@@ -1,4 +1,5 @@
-import { AddNewLineInParameterArrayAction } from "types/parameters";
+// eslint-disable-next-line no-unused-vars
+import { AddNewLineInParameterArrayAction } from "../../../types/parameters";
 
 export function addNewLineInParameterArray(path: string): AddNewLineInParameterArrayAction {
   return {

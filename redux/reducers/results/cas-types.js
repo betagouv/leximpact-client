@@ -35,7 +35,7 @@ function casTypes(state = initialState, action) {
     };
   case SIMULATE_CAS_TYPES_FAILURE:
     // The console.log is temporary.
-    console.log(action.error);
+    console.log(action.error); // eslint-disable-line no-console
     return {
       ...state,
       didInvalidate: true,

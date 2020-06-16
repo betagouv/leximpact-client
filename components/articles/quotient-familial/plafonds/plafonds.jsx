@@ -23,7 +23,7 @@ export class Plafonds extends PureComponent {
         part accordée au titre du premier enfant à charge est limitée à
         {baseOutputInput("plafond_qf.celib_enf")}
         {" "}
-        € Lorsque les
+        €. Lorsque les
         contribuables entretiennent uniquement des enfants dont la charge
         est réputée également partagée entre l&apos;un et l&apos;autre des
         parents, la réduction d&apos;impôt correspondant à la demi-part

@@ -43,6 +43,7 @@ const populationIcon = (
 
 const casTypesIcon = <FaceIcon tag="cas type" />;
 
+
 class IndexPage extends PureComponent {
   render() {
     const {
