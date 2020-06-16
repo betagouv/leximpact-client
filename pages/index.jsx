@@ -1,5 +1,3 @@
-import "../styles/index.scss";
-
 import { flow } from "lodash";
 import Head from "next/head";
 import { withRouter } from "next/router";
@@ -9,7 +7,9 @@ import AppHeader from "../components/app-header";
 import PopinManager from "../components/PopinManager";
 import Reformeur from "../components/reformeur";
 import withRoot from "../lib/withRoot";
+import "../styles/index.scss";
 import styles from "./index.module.scss";
+
 
 class IndexPage extends PureComponent {
   render() {

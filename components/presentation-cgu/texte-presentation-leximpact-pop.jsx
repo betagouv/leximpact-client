@@ -32,9 +32,9 @@ function TextePresentationLeximpactPop({ classes }) {
       </p>
 
       <p>
-        En plus de ce que permet de faire la version ouverte de LexImpact, sa version en accès restreint vous
-        permet de&nbsp;simuler les impacts macros d&apos;une réforme sur la
-        population et les recettes de l&apos;État.
+        En plus de ce que permet de faire la version ouverte de LexImpact, sa version
+        en accès restreint vous permet de&nbsp;simuler les impacts macros d&apos;une réforme
+        sur la population et les recettes de l&apos;État.
       </p>
 
       <Divider className={classes.dividerMarge} />
@@ -42,7 +42,8 @@ function TextePresentationLeximpactPop({ classes }) {
       <p>
         Dans le cadre de l&apos;actuel périmètre, limité à&nbsp;l&apos;Article
         197 du Code général des impôts, concernant spécifiquement l&apos;impôt
-        sur le revenu, la version en accès restreint de LexImpact permet d&apos;évaluer et&nbsp;de comparer :
+        sur le revenu, la version en accès restreint de LexImpact permet d&apos;évaluer
+        et&nbsp;de comparer :
         {" "}
       </p>
       <ul>
@@ -80,9 +81,9 @@ function TextePresentationLeximpactPop({ classes }) {
 
       <p>
         Afin de pouvoir chiffrer les impacts sur le budget de l&apos;État
-        notamment, la version en accès restreint de LexImpact s&apos;appuie sur des données représentatives
-        de la population, couvertes par des secrets protégés par la loi. Ainsi,
-        seules les personnes dûment habilitées peuvent y avoir accès.
+        notamment, la version en accès restreint de LexImpact s&apos;appuie sur des données
+        représentatives de la population, couvertes par des secrets protégés par la loi.
+        Ainsi, seules les personnes dûment habilitées peuvent y avoir accès.
         {" "}
       </p>
 

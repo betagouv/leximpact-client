@@ -61,7 +61,7 @@ const DEFAULT_STATE = {
       poids: 3833003.6956836134,
     },
   ],
-  foyers_fiscaux_touches: {
+  foyersFiscauxTouches: {
     // avant_to_plf: {
     //     neutre_zero: 20245399,
     //     gagnant: 18087578
@@ -75,7 +75,7 @@ const DEFAULT_STATE = {
     //  neutre_zero: 20490951,
     // },
   },
-  frontieres_deciles: [
+  frontieresDeciles: [
     3568.34521484375,
     9481.0546875,
     13182.486328125,
@@ -100,8 +100,8 @@ const totalPop = (state = DEFAULT_STATE, action) => {
   case "onSimPopFetchResult":
     return {
       deciles: get(action, "data.deciles"),
-      foyers_fiscaux_touches: get(action, "data.foyers_fiscaux_touches"),
-      frontieres_deciles: get(action, "data.frontieres_deciles"),
+      foyersFiscauxTouches: get(action, "data.foyers_fiscaux_touches"),
+      frontieresDeciles: get(action, "data.frontieres_deciles"),
       total: get(action, "data.total"),
     };
   default:

@@ -59,7 +59,7 @@ ImpactComponent.propTypes = {
   isUserLogged: PropTypes.bool.isRequired,
   totalPop: PropTypes.shape({
     deciles: PropTypes.arrayOf(PropTypes.shape()),
-    frontieres_deciles: PropTypes.arrayOf(PropTypes.number),
+    frontieresDeciles: PropTypes.arrayOf(PropTypes.number),
     total: PropTypes.shape(),
   }).isRequired,
 };
