@@ -56,7 +56,7 @@ const styles = () => ({
     fontSize: "1.125em",
     fontWeight: "bold",
     marginLeft: "10px",
-    textJustify: "none",
+    textAlign: "left",
   },
 });
 
