@@ -2,12 +2,11 @@
 
 exports[`components | app-header | index snapshot doit correspondre au snapshot existant 1`] = `
 <WithStyles(Button)
-  classes={
-    Object {
-      "root": "HeaderMenuButton-menuButtonRoot-1",
-    }
-  }
+  className="HeaderMenuButton-button-1"
+  color="primary"
   onClick={[MockFunction]}
+  size="medium"
+  variant="contained"
 >
   <pure(MenuIcon)
     fontSize="small"
