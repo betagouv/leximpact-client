@@ -2,11 +2,8 @@
 
 exports[`components | app-header | index snapshot doit correspondre au snapshot existant 1`] = `
 <WithStyles(Button)
-  className="LoginButton-button-2"
-  color="primary"
+  className="LoginButton-menuButtonRoot-2"
   onClick={[Function]}
-  size="medium"
-  variant="contained"
 >
   <pure(VpnKeyIcon)
     classes={

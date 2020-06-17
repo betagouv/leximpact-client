@@ -8,14 +8,8 @@ import { PureComponent } from "react";
 import { logOut, showConnexionPopin } from "../../redux/actions";
 
 const styles = () => ({
-  button: {
-    "&:hover": {
-      color: "#FFFFFF",
-    },
-    backgroundColor: "#FFFFFF",
-    color: "#646008",
-    fontSize: "12px",
-    textTransform: "uppercase",
+  menuButtonRoot: {
+    color: "#FFFFFF",
   },
 });
 
@@ -38,10 +32,7 @@ class LoginButtonMobile extends PureComponent {
     const { classes, isUserLogged } = this.props;
     return (
       <Button
-        className={classes.button}
-        color="primary"
-        size="small"
-        variant="contained"
+        className={classes.menuButtonRoot}
         onClick={this.onClick}>
         {isUserLogged ? <ExitToAppIcon /> : <VPNKeyIcon />}
       </Button>
