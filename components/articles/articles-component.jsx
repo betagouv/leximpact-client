@@ -16,7 +16,7 @@ import Alinea4a from "./article-alinea-4a";
 import ArticleHeader from "./article-header";
 import styles from "./articles.module.scss";
 import { Button } from "./buttons";
-import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
+import { ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel } from "./expandable-panels";
 import { Plafonds, ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 class ArticlesComponent extends React.Component {
@@ -173,10 +173,14 @@ class ArticlesComponent extends React.Component {
             subTitle="Article 197 du CGI - I.1"
             title="Barème"
           >
-            <TertiaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
+            <br />
+            <ExpandableText caption="I. En ce qui concerne les contribuables">
+              I. En ce qui concerne les contribuables
               visés à l&apos;article 4 B, il est fait application des règles
               suivantes pour le calcul de l&apos;impôt sur le revenu :
-            </TertiaryExpandablePanel>
+            </ExpandableText>
+            <br />
+            <br />
             {articleTranches}
             <Grid container spacing={0}>
               <Grid item sm={3}>
