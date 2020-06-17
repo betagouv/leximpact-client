@@ -23,13 +23,21 @@ export class Results extends PureComponent {
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneType
               departement="Isère"
+              dotationParHab={0}
+              eligible={false}
+              habitants={327}
               name="Vaujany"
+              potentielFinancier={8854}
             />
           </Grid>
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneType
+              eligible
               departement="Quasquara"
+              dotationParHab={128}
+              habitants={57}
               name="Corse-du-sud"
+              potentielFinancier={122}
             />
           </Grid>
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>

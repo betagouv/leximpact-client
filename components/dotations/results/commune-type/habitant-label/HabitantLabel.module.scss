@@ -1,0 +1,13 @@
+.label {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #fff0bf;
+  border-radius: 8px;
+  padding: 2px 5px;
+  box-shadow: 0 5px 2px -2px gray;
+
+  :last-child {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
