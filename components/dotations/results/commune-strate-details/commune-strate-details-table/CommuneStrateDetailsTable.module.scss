@@ -1,0 +1,72 @@
+@import 'styles/variables';
+
+.container {
+  overflow-x: auto;
+}
+
+.table {
+  border: none;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  thead {
+    th {
+      vertical-align: top;
+    }
+
+    tr:first-child {
+      color: $dark-grey-text-color;
+
+      // .link {
+      //   cursor: pointer;
+      //   color: $light-grey-text-color;
+      //   font-size: 12px;
+      // }
+
+      th:first-child {
+        text-align: left;
+      }
+    }
+
+    tr:last-child {
+      th {
+        color: $middle-grey-text-color;
+        font-size: 12px;
+      }
+    }
+  }
+
+  tbody {
+    font-weight: bold;
+
+    tr:nth-child(odd) {
+      background-color: $light-grey-bg-color;
+    }  
+
+    th[scope="row"] {
+      color: $dark-grey-text-color;
+      text-align: left;
+    }
+
+    .light {
+      font-weight: normal;
+      color: $middle-grey-text-color;
+    }
+
+    .lighter {
+      font-weight: normal;
+      color: $light-grey-text-color;
+      margin-bottom: 3px;
+    }
+  }
+
+
+  td {
+    height: 50px;
+    text-align: center;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+}

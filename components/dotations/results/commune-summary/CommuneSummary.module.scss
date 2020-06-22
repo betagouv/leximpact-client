@@ -41,14 +41,14 @@
 
 .toujoursEligible {
   margin-top: 5px;
-  color: grey;
+  color: $light-grey-text-color;
 }
 
 .expansionPanel {
   margin: -15px !important;
 
   .expansionPanelTitle {
-    color: darkgrey;
+    color: $middle-grey-text-color;
     font-weight: bold;
     font-size: 12px;
   }

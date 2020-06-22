@@ -1,7 +1,9 @@
+@import "styles/variables";
+
 $second-column-width: 150px;
 $row-padding-x: 20px;
 
-$row-primary-color: #f1f1f1;
+$row-primary-color: $light-grey-bg-color;
 $row-second-color: white;
 
 $inside-border: 1px solid #e0e0e1;

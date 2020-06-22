@@ -1,0 +1,1 @@
+export { CommuneStrateDetailsTable } from "./CommuneStrateDetailsTable";

@@ -4,7 +4,7 @@ $padding-x: 30px;
 $padding-y: 15px;
 
 .header {
-  background-color: #f1f1f1;
+  background-color: $light-grey-bg-color;
   padding: 5px 10px 5px $padding-x;
   display: flex;
   align-items: center;

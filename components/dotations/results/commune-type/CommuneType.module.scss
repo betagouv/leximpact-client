@@ -1,10 +1,12 @@
+@import "styles/variables";
+
 .habitants {
   margin-bottom: 10px;
 }
 
 .resultCaption {
   font-size: 14px;
-  color: gray;
+  color: $light-grey-text-color;
 }
 
 .eligibilite {
