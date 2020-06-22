@@ -11,14 +11,8 @@ const styles = () => ({
   avatarIcon: {
     marginRight: "9px",
   },
-  button: {
-    "&:hover": {
-      color: "#FFFFFF",
-    },
-    backgroundColor: "#FFFFFF",
-    color: "#646008",
-    fontSize: "16px",
-    textTransform: "uppercase",
+  menuButtonRoot: {
+    color: "#FFFFFF",
   },
 });
 
@@ -41,10 +35,7 @@ class LoginButton extends PureComponent {
     const { classes, isUserLogged } = this.props;
     return (
       <Button
-        className={classes.button}
-        color="primary"
-        size="medium"
-        variant="contained"
+        className={classes.menuButtonRoot}
         onClick={this.onClick}>
         {isUserLogged
           ? <ExitToAppIcon classes={{ root: classes.avatarIcon }} />

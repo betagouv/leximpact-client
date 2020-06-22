@@ -6,15 +6,24 @@ import PropTypes from "prop-types";
 import { showEnSavoirPlusPopin } from "../../redux/actions";
 
 const styles = {
-  menuButtonRoot: {
-    color: "#FFFFFF",
+  button: {
+    "&:hover": {
+      color: "#FFFFFF",
+    },
+    backgroundColor: "#FFFFFF",
+    color: "#646008",
+    fontSize: "16px",
+    textTransform: "uppercase",
   },
 };
 
 function HeaderMenuButton({ classes }) {
   return (
     <Button
-      classes={{ root: classes.menuButtonRoot }}
+      className={classes.button}
+      color="primary"
+      size="medium"
+      variant="contained"
       onClick={showEnSavoirPlusPopin}>
       <MenuIcon fontSize="small" />
     </Button>
