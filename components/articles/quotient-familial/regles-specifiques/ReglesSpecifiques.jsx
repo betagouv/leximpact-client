@@ -11,7 +11,7 @@ export class ReglesSpecifiques extends PureComponent {
         <h3>Enfants à charge partagée</h3>
         <ExpandableText caption="Lorsque les époux font l'objet d'une imposition séparée">
         Lorsque les époux font l&apos;objet d&apos;une imposition séparée en application du 4 de
-        l&apos;article 6,chacun d&apos;eux est considéré comme un célibataire ayant à sa charge
+        l&apos;article 6, chacun d&apos;eux est considéré comme un célibataire ayant à sa charge
         les enfants dont il assume à titre principal l&apos;entretien. Dans cette situation, ainsi
         qu&apos;en cas de divorce, de rupture du pacte civil de solidarité ou de toute séparation
         de fait de parents non mariés, l&apos;enfant est considéré, jusqu&apos;à preuve du
