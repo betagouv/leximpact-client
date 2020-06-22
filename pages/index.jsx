@@ -77,6 +77,7 @@ class IndexPage extends PureComponent {
           <title>LexImpact - Impôt sur le revenu</title>
         </Head>
         <SimulationPage
+          showLoginButton
           parameters={<Articles />}
           primaryButtons={primaryButtons}
           results={<ImpactCards />}

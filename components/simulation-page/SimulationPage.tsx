@@ -17,6 +17,7 @@ interface Props {
   useMobileView: boolean;
   topic: keyof ParametersState;
   title: string;
+  showLoginButton: boolean;
   subTitle1: string;
   subTitle2: string;
   parameters: JSX.Element;
@@ -119,11 +120,15 @@ export class SimulationPage extends PureComponent<Props, State> {
 
   render() {
     const {
-      subTitle1, subTitle2, title, useMobileView,
+      showLoginButton, subTitle1, subTitle2, title, useMobileView,
     } = this.props;
     return (
       <div className={styles.page}>
-        <AppHeader subTitle1={subTitle1} subTitle2={subTitle2} title={title} />
+        <AppHeader
+          showLoginButton={showLoginButton}
+          subTitle1={subTitle1}
+          subTitle2={subTitle2}
+          title={title} />
         {useMobileView ? this.renderMobileView() : this.renderDesktopView()}
       </div>
     );

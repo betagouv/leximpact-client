@@ -29,6 +29,7 @@ class IndexPage extends PureComponent {
             },
           ]}
           secondaryButtons={[]}
+          showLoginButton={false}
           subTitle1="Dotations"
           subTitle2="Communes"
           title="DSR"

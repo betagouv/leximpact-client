@@ -49,7 +49,7 @@ const styles = () => ({
 class AppHeader extends PureComponent {
   render() {
     const {
-      classes, isUserLogged, subTitle1, subTitle2, title, useMobileView,
+      classes, isUserLogged, showLoginButton, subTitle1, subTitle2, title, useMobileView,
     } = this.props;
     return (
       <AppBar position="relative">
@@ -81,8 +81,9 @@ class AppHeader extends PureComponent {
               </span>
             </Typography>
           )}
-          {!useMobileView && <LoginButton isUserLogged={isUserLogged} />}
-          {useMobileView && <LoginButtonMobile isUserLogged={isUserLogged} />}
+          {showLoginButton && !useMobileView && <LoginButton isUserLogged={isUserLogged} />}
+          {showLoginButton && useMobileView && <LoginButtonMobile isUserLogged={isUserLogged} />}
+          {!showLoginButton && <div />}
         </Toolbar>
       </AppBar>
     );
@@ -98,6 +99,7 @@ AppHeader.defaultProps = {
 AppHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
   isUserLogged: PropTypes.bool.isRequired,
+  showLoginButton: PropTypes.bool.isRequired,
   subTitle1: PropTypes.string,
   subTitle2: PropTypes.string,
   title: PropTypes.string,
