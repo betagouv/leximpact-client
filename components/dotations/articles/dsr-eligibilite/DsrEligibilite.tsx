@@ -1,6 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
 import NumberInput from "../../../articles-inputs/parameter/NumberInput";
+import { ExpandableText } from "../../../expandable-panels";
 
 export class DsrEligibilite extends PureComponent {
   render() {
@@ -11,9 +12,13 @@ export class DsrEligibilite extends PureComponent {
         <NumberInput value={10000} />
         habitants et à certains chefs-lieux d&apos;arrondissement de moins de
         <NumberInput value={20000} />
-        habitants pour tenir compte, d&apos;une part, des charges qu&apos;ils supportent pour
+        habitants
+        {" "}
+        <ExpandableText>
+        pour tenir compte, d&apos;une part, des charges qu&apos;ils supportent pour
         contribuer au maintien de la vie sociale en milieu rural, d&apos;autre part, de
         l&apos;insuffisance de leurs ressources fiscales.
+        </ExpandableText>
         <br />
         <br />
         Cette dotation comporte trois fractions. La variation annuelle de la dotation de solidarité

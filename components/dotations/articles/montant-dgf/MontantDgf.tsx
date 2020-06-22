@@ -1,7 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
 import NumberInput from "../../../articles-inputs/parameter/NumberInput";
-import { TertiaryExpandablePanel } from "../../../expandable-panels";
+import { ExpandableText } from "../../../expandable-panels";
 
 export class MontantDgf extends PureComponent {
   render() {
@@ -12,8 +12,8 @@ export class MontantDgf extends PureComponent {
         par la loi de finances.
         <br />
         <br />
-        <TertiaryExpandablePanel
-          title="... lire la suite, concernant les montants de toutes les années 2011"
+        <ExpandableText
+          caption="... Voir tous les montants depuis 2011"
         >
           En 2011, ce montant, égal à 41 307 701 000 €, est diminué de 42 844 000 € en
           application du II de l&apos;article 6 de la loi n° 2008-1443 du 30 décembre
@@ -43,7 +43,10 @@ export class MontantDgf extends PureComponent {
           <br />
           <br />
           En 2019, ce montant est égal à 26 948 048 000 €.
-        </TertiaryExpandablePanel>
+          <br />
+          <br />
+        </ExpandableText>
+        <br />
         <br />
         En 2020, ce montant est égal à
         {" "}

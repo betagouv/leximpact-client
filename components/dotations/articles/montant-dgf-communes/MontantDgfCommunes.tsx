@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { TertiaryExpandablePanel } from "../../../expandable-panels";
+import { ExpandableText } from "../../../expandable-panels";
 
 export class MontantDgfCommunes extends PureComponent {
   render() {
@@ -17,8 +17,8 @@ export class MontantDgfCommunes extends PureComponent {
         L. 1613-1 et le montant des dotations prévues aux articles L. 3334-1 et L. 4332-4.
         <br />
         <br />
-        <TertiaryExpandablePanel
-          title="... lire la suite, paragraphes de la loi désormais caducs"
+        <ExpandableText
+          caption="... Voir les paragraphes de la loi désormais caducs"
         >
           Pour chacune des années 2005 à 2009, la progression de la dotation globale de
           fonctionnement des communes et de leurs groupements est affectée en priorité,
@@ -29,7 +29,7 @@ export class MontantDgfCommunes extends PureComponent {
           500 millions d&apos;euros, l&apos;affectation prévue à la phrase précédente est
           limitée à 24 % de l&apos;accroissement constaté. Pour 2009 et pour 2010, et à
           titre dérogatoire, elle s&apos;établit au minimum à 70 millions d&apos;euros.
-        </TertiaryExpandablePanel>
+        </ExpandableText>
 
       </Fragment>
     );
