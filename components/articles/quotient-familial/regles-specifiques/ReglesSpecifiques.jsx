@@ -1,13 +1,12 @@
-import { PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 
 import { StateParameter } from "../../../articles-inputs/parameter";
-import styles from "../../articles.module.scss";
-import { ExpandableText } from "../../expandable-panels";
+import { ExpandableText } from "../../../expandable-panels";
 
 export class ReglesSpecifiques extends PureComponent {
   render() {
     return (
-      <div className={styles.text}>
+      <Fragment>
         <h3>Enfants à charge partagée</h3>
         <ExpandableText caption="Lorsque les époux font l'objet d'une imposition séparée">
         Lorsque les époux font l&apos;objet d&apos;une imposition séparée en application du 4 de
@@ -106,7 +105,7 @@ export class ReglesSpecifiques extends PureComponent {
         perception éventuelle d&apos;une pension alimentaire versée en vertu d&apos;une
         convention de divorce par consentement mutuel déposée au rang des minutes d&apos;un
         notaire ou d&apos;une décision de justice pour l&apos;entretien desdits enfants.
-      </div>
+      </Fragment>
     );
   }
 }

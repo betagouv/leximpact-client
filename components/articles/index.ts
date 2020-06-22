@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import {
   addTranche,
   removeTranche,
-  resetVarArticle,
-  resetVarArticleExistant,
   updateReformeByName,
 } from "../../redux/actions";
 // eslint-disable-next-line no-unused-vars
@@ -24,12 +22,6 @@ const mapDispatchToProps = dispatch => ({
 
   handleRemoveTranche: () => {
     dispatch(removeTranche());
-  },
-  handleResetVarArticle: () => {
-    dispatch(resetVarArticle());
-  },
-  handleResetVarArticleExistant: () => {
-    dispatch(resetVarArticleExistant());
   },
 });
 

@@ -1,6 +1,6 @@
 import { createShallow } from "@material-ui/core/test-utils";
 
-import AppHeaderComponent from "../app-header-component";
+import AddHeader from "../AppHeader";
 
 const CURRENT_NODE_ENV = process.env;
 
@@ -22,28 +22,28 @@ describe("components | app-header | index", () => {
   describe("snapshot", () => {
     it("doit correspondre quand l'user n'est pas connecté en mode desktop", () => {
       const props = { isUserLogged: false, useMobileView: false };
-      const wrapper = shallow(<AppHeaderComponent {...props} />);
+      const wrapper = shallow(<AddHeader {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
 
     it("doit correspondre quand l'user n'est pas connecté en mode mobile", () => {
       const props = { isUserLogged: false, useMobileView: true };
-      const wrapper = shallow(<AppHeaderComponent {...props} />);
+      const wrapper = shallow(<AddHeader {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
 
     it("doit correspondre quand l'user est connecté en mode desktop", () => {
       const props = { isUserLogged: true, useMobileView: true };
-      const wrapper = shallow(<AppHeaderComponent {...props} />);
+      const wrapper = shallow(<AddHeader {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
 
     it("doit correspondre quand l'user est connecté en mode mobile", () => {
       const props = { isUserLogged: true, useMobileView: true };
-      const wrapper = shallow(<AppHeaderComponent {...props} />);
+      const wrapper = shallow(<AddHeader {...props} />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });
