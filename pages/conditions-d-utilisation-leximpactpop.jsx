@@ -14,7 +14,7 @@ class PageCGULexImpactPop extends PureComponent {
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader />
+        <AppHeader showLoginButton={false} />
         <TexteCguLeximpactPop />
       </Fragment>
     );

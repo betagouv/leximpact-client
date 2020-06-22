@@ -7,7 +7,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-7",
+        "root": "AppHeader-toolbarRoot-7",
       }
     }
   >
@@ -15,27 +15,20 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-6",
+          "root": "AppHeader-titleRoot-6",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="AppHeaderComponent-lighterMobileTitle-3"
+          className="AppHeader-lighterMobileTitle-3"
         >
           LEXIMPACT 
         </span>
-        <span
-          className="AppHeaderComponent-bolderMobileTitle-1"
-        >
-          IR
-        </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile)
-      isUserLogged={true}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -47,7 +40,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-7",
+        "root": "AppHeader-toolbarRoot-7",
       }
     }
   >
@@ -55,27 +48,20 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-6",
+          "root": "AppHeader-titleRoot-6",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="AppHeaderComponent-lighterMobileTitle-3"
+          className="AppHeader-lighterMobileTitle-3"
         >
           LEXIMPACT 
         </span>
-        <span
-          className="AppHeaderComponent-bolderMobileTitle-1"
-        >
-          IR
-        </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile)
-      isUserLogged={true}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -87,7 +73,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-7",
+        "root": "AppHeader-toolbarRoot-7",
       }
     }
   >
@@ -95,34 +81,20 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-6",
+          "root": "AppHeader-titleRoot-6",
         }
       }
       component="div"
     >
       <div>
         <div
-          className="AppHeaderComponent-lighterTitle-4"
+          className="AppHeader-lighterTitle-4"
         >
           LEXIMPACT 
         </div>
-        <div
-          className="AppHeaderComponent-bolderTitle-2"
-        >
-          IR
-        </div>
-        <div
-          className="AppHeaderComponent-subTitle-5"
-        >
-          IMPÔT SUR
-          <br />
-          LE REVENU
-        </div>
       </div>
     </WithStyles(Typography)>
-    <WithStyles(LoginButton)
-      isUserLogged={false}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -134,7 +106,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
   <WithStyles(Toolbar)
     classes={
       Object {
-        "root": "AppHeaderComponent-toolbarRoot-7",
+        "root": "AppHeader-toolbarRoot-7",
       }
     }
   >
@@ -142,27 +114,20 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     <WithStyles(Typography)
       classes={
         Object {
-          "root": "AppHeaderComponent-titleRoot-6",
+          "root": "AppHeader-titleRoot-6",
         }
       }
       component="div"
     >
       <span>
         <span
-          className="AppHeaderComponent-lighterMobileTitle-3"
+          className="AppHeader-lighterMobileTitle-3"
         >
           LEXIMPACT 
         </span>
-        <span
-          className="AppHeaderComponent-bolderMobileTitle-1"
-        >
-          IR
-        </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile)
-      isUserLogged={false}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
