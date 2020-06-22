@@ -28,9 +28,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile)
-      isUserLogged={true}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -63,9 +61,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile)
-      isUserLogged={true}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -98,9 +94,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </div>
       </div>
     </WithStyles(Typography)>
-    <WithStyles(LoginButton)
-      isUserLogged={false}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
@@ -133,9 +127,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
         </span>
       </span>
     </WithStyles(Typography)>
-    <WithStyles(LoginButtonMobile)
-      isUserLogged={false}
-    />
+    <div />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;
