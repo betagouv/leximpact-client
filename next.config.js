@@ -7,9 +7,6 @@ const { EnvironmentPlugin } = require("webpack");
 
 const nextConfig = {
   distDir: "build",
-  exportPathMap: defaults => ({
-    ...defaults,
-  }),
   webpack: (webpackConfig) => {
     const isProductionEnvironment = env === "production";
     const envPlugin = !isProductionEnvironment
