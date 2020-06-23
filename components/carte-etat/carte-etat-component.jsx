@@ -110,11 +110,11 @@ class CarteEtat extends PureComponent {
     return (
       <Card>
         <CardContent>
-          <div className="title-wrapper">
-            <div className="divTitre">
+          <div className={styles2.titleWrapper}>
+            <div className={styles2.divTitre}>
               <Icon height="40" icon={classicalBuilding} width="40" />
             </div>
-            <div className="divTitre">
+            <div className={styles2.divTitre}>
               <Typography className={classes.titleCarteEtat}>
                 Recettes de l&apos;État sur l&apos;impôt sur le revenu
               </Typography>
@@ -147,8 +147,8 @@ class CarteEtat extends PureComponent {
           )}
           {!isDisabledEtat && !isLoadingEtat && (
             <div>
-              <div className="chart-wrapper">
-                <div className="main-chart">
+              <div className={styles2.chartWrapper}>
+                <div className={styles2.mainChart}>
                   <BarChart deciles={deciles} />
                 </div>
                 <div className={classes.simpop}>
@@ -237,13 +237,13 @@ Estimation à partir des données de l&apos;Enquête
           : (
             <ExpansionPanel>
               <ExpansionPanelSummary
-                className="styleExpansionPanel"
+                className={styles2.styleExpansionPanel}
                 expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.subtitleCarteEtat}>
               En savoir plus sur les déciles de population
                 </Typography>
               </ExpansionPanelSummary>
-              <ExpansionPanelDetails className="styleExpansionPanel">
+              <ExpansionPanelDetails className={styles2.styleExpansionPanel}>
                 <SimpopTableurInfosDeciles
                   deciles={deciles}
                   frontieresDeciles={frontieresDeciles}

@@ -3,7 +3,7 @@ import { ResponsiveBar } from "@nivo/bar";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import "./bar-chart.scss";
+import styles from "./bar-chart.module.scss";
 
 class BarChart extends PureComponent {
   reformatResultat = () => {
@@ -68,7 +68,7 @@ class BarChart extends PureComponent {
     const keycols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const data = this.reformatResultat();
     return (
-      <div className="chart">
+      <div className={styles.chart}>
         <ResponsiveBar
           animate
           enableGridX
