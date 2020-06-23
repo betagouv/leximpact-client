@@ -68,7 +68,7 @@ class SimulationMenuBar extends PureComponent<Props> {
         alignItems="center"
         className={classes.container}
         justify="space-between"
-        spacing={8}>
+        spacing={1}>
         <Grid item>
           <Legende montrerPLF={montrerPLF} />
         </Grid>
@@ -76,12 +76,12 @@ class SimulationMenuBar extends PureComponent<Props> {
           <Grid
             container
             alignItems="center"
-            spacing={8}>
+            spacing={1}>
             <Grid item>
               <Grid
                 container
                 alignItems="center"
-                spacing={8}>
+                spacing={1}>
                 {
                   secondaryButtons.map((button, index) => (
                     // eslint-disable-next-line react/no-array-index-key
@@ -103,7 +103,7 @@ class SimulationMenuBar extends PureComponent<Props> {
               <Grid
                 container
                 alignItems="center"
-                spacing={8}>
+                spacing={1}>
                 {
                   primaryButtons.map((button, index) => (
                     // eslint-disable-next-line react/no-array-index-key

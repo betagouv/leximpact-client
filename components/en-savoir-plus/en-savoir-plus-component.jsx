@@ -22,7 +22,7 @@ const styles = theme => ({
   container: {
     backgroundColor: "#FFFFFF",
     flexGrow: 1,
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(4),
   },
   divButton: {
     padding: "10px",
