@@ -1,13 +1,11 @@
 const env = process.env.NODE_ENV;
-const withSass = require("@zeit/next-sass");
 const withImages = require("next-images");
 const DotenvPlugin = require("dotenv-webpack");
-const { assign, concat, flow } = require("lodash/fp");
+const { assign, concat } = require("lodash/fp");
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { EnvironmentPlugin } = require("webpack");
 
 const nextConfig = {
-  cssModules: true,
   distDir: "build",
   exportPathMap: defaults => ({
     ...defaults,
@@ -22,4 +20,4 @@ const nextConfig = {
   },
 };
 
-module.exports = flow([withSass, withImages])(nextConfig);
+module.exports = withImages(nextConfig);
