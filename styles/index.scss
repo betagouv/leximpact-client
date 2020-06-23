@@ -12,11 +12,4 @@
     margin: 0;
   }
 
-  // This style is hack: it is defined globally but it is intended
-  // to only be used by the component parameter.
-  input {
-    font-family: $law-font-family !important;
-    font-weight: bold !important;
-    font-size: 18px !important;
-  }
 }

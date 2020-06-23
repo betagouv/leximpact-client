@@ -18,6 +18,12 @@ $input-margin: 0.3rem;
 .amendementInput {
   width: 80px;
   top: -0.2rem;
+
+  input {
+    font-family: $law-font-family;
+    font-weight: bold;
+    font-size: $law-font-size;
+  }
 }
 
 .smallInput {
