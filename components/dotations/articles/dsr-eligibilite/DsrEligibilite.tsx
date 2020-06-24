@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import NumberInput from "../../../articles-inputs/parameter/number-input";
+import { NumberInput } from "../../../articles-inputs/parameter/number-input";
 import { ExpandableText } from "../../../expandable-panels";
 
 export class DsrEligibilite extends PureComponent {
