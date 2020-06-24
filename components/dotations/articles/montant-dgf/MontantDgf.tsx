@@ -50,7 +50,7 @@ export class MontantDgf extends PureComponent {
         <br />
         En 2020, ce montant est égal à
         {" "}
-        <NumberInput value={26846874416} />
+        <NumberInput value={26846874416} onChange={() => {}} />
         {" "}
         €.
       </Fragment>

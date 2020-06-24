@@ -9,9 +9,9 @@ export class DsrEligibilite extends PureComponent {
     return (
       <Fragment>
         La dotation de solidarité rurale est attribuée aux communes de moins de
-        <NumberInput value={10000} />
+        <NumberInput value={10000} onChange={() => {}} />
         habitants et à certains chefs-lieux d&apos;arrondissement de moins de
-        <NumberInput value={20000} />
+        <NumberInput value={20000} onChange={() => {}} />
         habitants
         {" "}
         <ExpandableText>
