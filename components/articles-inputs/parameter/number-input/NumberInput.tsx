@@ -1,10 +1,9 @@
 import TextField from "@material-ui/core/TextField";
-import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import { formatNumber } from "../../utils";
+import { formatNumber } from "../../../utils";
 
-function parseNumber(str) {
+function parseNumber(str: string): number {
   return parseFloat(
     str
       .replace(/\s/g, "")
@@ -12,7 +11,17 @@ function parseNumber(str) {
   );
 }
 
-class NumberInput extends PureComponent {
+interface State {
+  value: string;
+}
+
+interface Props {
+  className?: string;
+  value: number;
+  onChange: (value: number) => void;
+}
+
+export class NumberInput extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +32,7 @@ class NumberInput extends PureComponent {
   }
 
   // eslint-disable-next-line react/no-deprecated
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const { value } = this.state;
     if (nextProps.value === parseNumber(value)) {
       return;
@@ -53,15 +62,3 @@ class NumberInput extends PureComponent {
     );
   }
 }
-
-NumberInput.defaultProps = {
-  className: null,
-};
-
-NumberInput.propTypes = {
-  className: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-export default NumberInput;

@@ -31,7 +31,7 @@ export class Button extends PureComponent<Props> {
         <Fab color="primary" size="medium" style={style.Button} variant="extended" onClick={onClick}>
           {icons}
         </Fab>
-        <Typography inline className={styles.amendementText} variant="caption" onClick={onClick}>
+        <Typography className={styles.amendementText} variant="caption" onClick={onClick}>
           {caption}
         </Typography>
       </div>
