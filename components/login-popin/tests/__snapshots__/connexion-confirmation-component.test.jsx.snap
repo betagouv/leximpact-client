@@ -2,14 +2,14 @@
 
 exports[`components | login-popin-component snapshot doit correspondre quand le token est dans l'url 1`] = `
 <div>
-  <WithStyles(IconButton)
+  <WithStyles(ForwardRef(IconButton))
     className="LoginPopinComponent-closeButton-1"
     onClick={[MockFunction]}
   >
-    <pure(CloseIcon)
+    <CloseIcon
       fontSize="small"
     />
-  </WithStyles(IconButton)>
+  </WithStyles(ForwardRef(IconButton))>
   <h1
     className="LoginPopinComponent-h1Style-2"
   >

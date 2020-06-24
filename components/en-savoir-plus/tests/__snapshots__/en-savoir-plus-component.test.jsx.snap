@@ -4,47 +4,47 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
 <div
   className="EnSavoiPlusComponent-container-3"
 >
-  <WithStyles(IconButton)
+  <WithStyles(ForwardRef(IconButton))
     className="EnSavoiPlusComponent-closeButton-2"
     onClick={[MockFunction]}
   >
-    <pure(CloseIcon)
+    <CloseIcon
       fontSize="small"
     />
-  </WithStyles(IconButton)>
-  <WithStyles(Grid)
+  </WithStyles(ForwardRef(IconButton))>
+  <WithStyles(ForwardRef(Grid))
     alignItems="flex-start"
     container={true}
     direction="row"
     justify="space-between"
   >
-    <WithStyles(Grid)
+    <WithStyles(ForwardRef(Grid))
       className="EnSavoiPlusComponent-gridItemText-6"
       item={true}
       xs={6}
     >
-      <WithStyles(Typography)>
+      <WithStyles(ForwardRef(Typography))>
         <span
           className="EnSavoiPlusComponent-spanTitreIntro-8"
         >
           LexImpact, c'est quoi ?
         </span>
-      </WithStyles(Typography)>
-      <WithStyles(Typography)>
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))>
         LexImpact IR est une interface qui permet de
         <b>
           simuler, de façon rapide, l'impact des réformes paramétriques de l'impôt sur le revenu.
         </b>
         L'estimation des impacts sur des foyers fiscaux types est accessible à tous ; les mesures d'impacts sur la population française et les recettes de l'État sont disponibles en accès restreint.
-      </WithStyles(Typography)>
+      </WithStyles(ForwardRef(Typography))>
       <a
         className="EnSavoiPlusComponent-alink-1"
         href="/presentation-et-cgu"
       >
         en savoir plus
       </a>
-    </WithStyles(Grid)>
-    <WithStyles(Grid)
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
       className="EnSavoiPlusComponent-gridItemButtons-5"
       item={true}
       xs={6}
@@ -56,14 +56,14 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
           <Link
             href="/presentation-et-cgu"
           >
-            <WithStyles(Button)
+            <WithStyles(ForwardRef(Button))
               color="inherit"
               fullWidth={true}
               size="large"
               variant="outlined"
             >
               Présentation et conditions d'utilisation
-            </WithStyles(Button)>
+            </WithStyles(ForwardRef(Button))>
           </Link>
         </div>
         <div
@@ -72,20 +72,20 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
           <Link
             href="/mentions-legales"
           >
-            <WithStyles(Button)
+            <WithStyles(ForwardRef(Button))
               color="inherit"
               fullWidth={true}
               size="large"
               variant="outlined"
             >
               Mentions légales
-            </WithStyles(Button)>
+            </WithStyles(ForwardRef(Button))>
           </Link>
         </div>
         <div
           className="EnSavoiPlusComponent-divButton-4"
         >
-          <WithStyles(Button)
+          <WithStyles(ForwardRef(Button))
             color="inherit"
             fullWidth={true}
             href="mailto:leximpact@an.fr"
@@ -93,7 +93,7 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
             variant="outlined"
           >
             Une question ? Un bug ? Un avis ?
-          </WithStyles(Button)>
+          </WithStyles(ForwardRef(Button))>
           <p
             className="EnSavoiPlusComponent-pAdresseMail-7"
           >
@@ -101,7 +101,7 @@ exports[`components | en-savoir-plus-component snapshot doit correspondre avec l
           </p>
         </div>
       </div>
-    </WithStyles(Grid)>
-  </WithStyles(Grid)>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
 </div>
 `;
