@@ -3,9 +3,7 @@ import warningIcon from "@iconify/icons-twemoji/warning";
 import { Icon } from "@iconify/react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { PureComponent } from "react";
-
-import styles2 from "../articles.module.scss";
+import { Fragment, PureComponent } from "react";
 
 const styles = () => ({
   warningOutremer: {
@@ -29,7 +27,7 @@ class ArticleAlinea3 extends PureComponent {
       isUserLogged,
     } = this.props;
     return (
-      <div className={styles2.text}>
+      <Fragment>
         {isUserLogged ? (
           <div className={classes.warningOutremer}>
             <Icon icon={warningIcon} />
@@ -55,7 +53,7 @@ class ArticleAlinea3 extends PureComponent {
         {baseOutputInput("plafond_qf.abat_dom.plaf_GuyMay")}
         €, pour les contribuables domiciliés dans les départements de la
         Guyane et de Mayotte ;
-      </div>
+      </Fragment>
     );
   }
 }

@@ -1,7 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
-import classNames from "classnames";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 
@@ -10,13 +9,14 @@ import {
   FormulaOutput,
 } from "../articles-inputs";
 import { Parameter } from "../articles-inputs/parameter";
+import {
+  ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel,
+} from "../expandable-panels";
 import fillArrayWith from "../utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
-import ArticleHeader from "./article-header";
 import styles from "./articles.module.scss";
 import { Button } from "./buttons";
-import { PrimaryExpandablePanel, SecondaryExpandablePanel, TertiaryExpandablePanel } from "./expandable-panels";
 import { Plafonds, ReglesGenerales, ReglesSpecifiques } from "./quotient-familial";
 
 class ArticlesComponent extends React.Component {
@@ -48,8 +48,7 @@ class ArticlesComponent extends React.Component {
       const plfValue = plfs ? plfs[Math.min(i, plfs.length - 1)] : null;
       return (
         <div
-          key={i}
-          className={styles.text}>
+          key={i}>
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
           }
@@ -74,10 +73,7 @@ class ArticlesComponent extends React.Component {
       return (
         <div
           key={i}
-          className={classNames({
-            [styles.text]: true,
-            [styles.newTranche]: newTranche,
-          })}>
+          className={newTranche ? styles.newTranche : undefined}>
           –
           <Parameter
             editable
@@ -111,10 +107,7 @@ class ArticlesComponent extends React.Component {
     return (
       <div
         key={i}
-        className={classNames({
-          [styles.text]: true,
-          [styles.newTranche]: newTranche,
-        })}>
+        className={newTranche ? styles.newTranche : undefined}>
         –
         <Parameter
           editable
@@ -153,29 +146,26 @@ class ArticlesComponent extends React.Component {
       amendement,
       handleAddTranche,
       handleRemoveTranche,
-      handleResetVarArticle,
-      handleResetVarArticleExistant,
-      plf,
     } = this.props;
     const count = amendement.impot_revenu.bareme.seuils.length + 1;
     const articleTranches = fillArrayWith(count, this.gimmeIRPartsOfArticle);
 
     return (
       <Fragment>
-        <ArticleHeader
-          montrerPLF={!!plf}
-          resetVarArticle={handleResetVarArticle}
-          resetVarArticleExistant={handleResetVarArticleExistant} />
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
             subTitle="Article 197 du CGI - I.1"
             title="Barème"
           >
-            <TertiaryExpandablePanel title="I. En ce qui concerne les contribuables ...">
+            <br />
+            <ExpandableText caption="I. En ce qui concerne les contribuables">
+              I. En ce qui concerne les contribuables
               visés à l&apos;article 4 B, il est fait application des règles
               suivantes pour le calcul de l&apos;impôt sur le revenu :
-            </TertiaryExpandablePanel>
+            </ExpandableText>
+            <br />
+            <br />
             {articleTranches}
             <Grid container spacing={0}>
               <Grid item sm={3}>
@@ -252,8 +242,6 @@ ArticlesComponent.propTypes = {
   handleAddTranche: PropTypes.func.isRequired,
   handleArticleChange: PropTypes.func.isRequired,
   handleRemoveTranche: PropTypes.func.isRequired,
-  handleResetVarArticle: PropTypes.func.isRequired,
-  handleResetVarArticleExistant: PropTypes.func.isRequired,
   plf: PropTypes.shape({
     impot_revenu: PropTypes.shape({
       bareme: PropTypes.shape({

@@ -14,7 +14,7 @@ class PageMentionsLegales extends PureComponent {
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader />
+        <AppHeader showLoginButton={false} />
         <TexteMentionsLegales />
       </Fragment>
     );

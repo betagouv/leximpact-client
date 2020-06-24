@@ -13,7 +13,7 @@ class VosRetoursPage extends PureComponent {
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader />
+        <AppHeader showLoginButton={false} />
         <h1>Vos retours sont précieux</h1>
       </Fragment>
     );

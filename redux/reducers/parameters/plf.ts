@@ -2,6 +2,7 @@
 import { ParametersState } from "../../../types/parameters";
 
 export const PLF_DEFAULT_STATE: ParametersState = {
+  dotations: {},
   impot_revenu: {
     bareme: {
       seuils: [10064, 25659, 73369, 157806],

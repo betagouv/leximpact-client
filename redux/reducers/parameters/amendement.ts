@@ -125,10 +125,10 @@ export const amendement = (state: ParametersState = DEFAULT_STATE, action): Para
     return updateGenerique(nextState, name, value);
   case "onUpdateReformePlafond":
     return updateGenerique(nextState, name, value);
-  case "onResetVarArticle":
-    return cloneDeep(PLF_DEFAULT_STATE);
-  case "onResetVarArticleExistant":
-    return cloneDeep(BASE_DEFAULT_STATE);
+  case "RESET_AMENDEMENT_TO_PLF":
+    return setIn(state, [action.topic], cloneDeep(PLF_DEFAULT_STATE[action.topic]));
+  case "RESET_AMENDEMENT_TO_BASE":
+    return setIn(state, [action.topic], cloneDeep(BASE_DEFAULT_STATE[action.topic]));
   case "UPDATE_PARAMETER":
     return updateParameter(
       state,
