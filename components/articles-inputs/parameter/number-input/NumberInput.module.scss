@@ -1,0 +1,10 @@
+.value {
+  font:inherit;
+  border: none;
+  background-color: inherit;
+  border-bottom: 1px solid black;
+}
+
+.value:focus {
+  outline: none;
+}

@@ -1,7 +1,7 @@
-import TextField from "@material-ui/core/TextField";
 import { PureComponent } from "react";
 
 import { formatNumber } from "../../../utils";
+import styles from "./NumberInput.module.scss";
 
 function parseNumber(str: string): number {
   return parseFloat(
@@ -55,8 +55,8 @@ export class NumberInput extends PureComponent<Props, State> {
     const { value } = this.state;
     const { className } = this.props;
     return (
-      <TextField
-        className={className}
+      <input
+        className={`${styles.value} ${className || ""}`}
         value={value}
         onChange={this.handleChange} />
     );
