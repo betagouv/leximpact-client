@@ -8,6 +8,8 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
+import styles2 from "./EnSavoirPlus.module.scss";
+
 const styles = theme => ({
   alink: {
     color: "#565656",
@@ -46,7 +48,7 @@ const styles = theme => ({
   },
 });
 
-class EnSavoiPlusComponent extends PureComponent {
+class EnSavoirPlus extends PureComponent {
   render() {
     const { classes, onClosePopin } = this.props;
     return (
@@ -65,16 +67,18 @@ class EnSavoiPlusComponent extends PureComponent {
                 LexImpact, c&apos;est quoi ?
               </span>
             </Typography>
-            <Typography>
+            <p className={styles2.paragraph}>
               LexImpact IR est une interface qui permet de
+              {" "}
               <b>
               simuler, de façon rapide, l&apos;impact des réformes paramétriques de
               l&apos;impôt sur le revenu.
               </b>
+              {" "}
               L&apos;estimation des impacts sur des foyers fiscaux types est accessible à
               tous ; les mesures d&apos;impacts sur la population
               française et les recettes de l&apos;État sont disponibles en accès restreint.
-            </Typography>
+            </p>
             <a className={classes.alink} href="/presentation-et-cgu">
               en savoir plus
             </a>
@@ -126,9 +130,9 @@ class EnSavoiPlusComponent extends PureComponent {
   }
 }
 
-EnSavoiPlusComponent.propTypes = {
+EnSavoirPlus.propTypes = {
   classes: PropTypes.shape().isRequired,
   onClosePopin: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(EnSavoiPlusComponent);
+export default withStyles(styles)(EnSavoirPlus);
