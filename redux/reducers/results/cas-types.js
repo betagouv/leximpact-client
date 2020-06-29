@@ -2,7 +2,6 @@ import { cloneDeep } from "lodash";
 
 import { SIMULATE_CAS_TYPES_FAILURE, SIMULATE_CAS_TYPES_REQUEST, SIMULATE_CAS_TYPES_SUCCESS } from "../../actions";
 
-const wprm = [1, 1, 1, 1, 1, 1];
 const apres = [0, -1336, -1068, 0, -1723, -820];
 const avant = [0, -1336, -1068, 0, -1723, -820];
 
@@ -15,7 +14,6 @@ const initialState = {
   items: {
     apres: toIndexedObject(apres),
     avant: toIndexedObject(avant),
-    wprm: toIndexedObject(wprm),
   },
 };
 
@@ -42,14 +40,13 @@ function casTypes(state = initialState, action) {
       isFetching: false,
     };
   case "onCreateCasType":
-    const nextKey = Object.keys(state.items.wprm).length;
+    const nextKey = Object.keys(state.items.avant).length;
     return {
       ...state,
       items: {
         apres: { ...state.items.apres, [nextKey]: 0 },
         avant: { ...state.items.avant, [nextKey]: 0 },
         plf: state.items.plf ? { ...state.items.plf, [nextKey]: 0 } : null,
-        wprm: { ...state.items.wprm, [nextKey]: 1 },
       },
     };
   default:
