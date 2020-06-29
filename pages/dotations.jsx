@@ -8,7 +8,6 @@ import { Articles } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
 import SimulationPage from "../components/simulation-page";
 import withRoot from "../lib/withRoot";
-import "../styles/index.scss";
 
 class IndexPage extends PureComponent {
   render() {
