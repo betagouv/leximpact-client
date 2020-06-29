@@ -12,7 +12,7 @@ import { validateEmailInputField } from "../utils";
 
 const styles = theme => ({
   fieldsContainer: {
-    alignItems: "flex-start",
+    alignItems: "flex-end",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
