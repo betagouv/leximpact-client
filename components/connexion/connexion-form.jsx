@@ -25,7 +25,7 @@ const FORM_DECORATORS = createDecorator({
 
 const styles = theme => ({
   form: {
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     width: "100%", // Fix IE 11 issue.
   },
 });

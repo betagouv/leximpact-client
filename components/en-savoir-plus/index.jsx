@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { closeCurrentPopin } from "../../redux/actions";
-import EnSavoirPlusComponent from "./en-savoir-plus-component";
+import EnSavoirPlus from "./EnSavoirPlus";
 
 const mapStateToProps = null;
 
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(EnSavoirPlusComponent);
+)(EnSavoirPlus);

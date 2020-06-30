@@ -5,7 +5,6 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ["\"Lato\", sans-serif", "Lora"].join(","),
     fontWeightMedium: 500,
-    useNextVariants: true,
 
     // TYPOGRAPHIE SIMULATEUR
 
@@ -35,14 +34,6 @@ const theme = createMuiTheme({
       // fontWeight: 'light'
     },
 
-    subtitle1: {
-      fontSize: 12,
-    },
-
-    body1: {
-      fontWeight: 500,
-    },
-
     button: {
       fontStyle: "regular",
       fontWeight: 700,
@@ -63,17 +54,7 @@ const theme = createMuiTheme({
       fontSize: "24px",
       fontWeight: "bold",
     },
-    // h4: {},
-    // h6: {},
 
-    body2: {
-      fontFamily: "Lora",
-      fontSize: "18px",
-    },
-
-    subtitle2: {
-      fontSize: 12,
-    },
   },
 
   palette: {

@@ -34,10 +34,10 @@ const styles = theme => ({
   menuButton: {
     boxShadow: "none",
     flex: "none",
-    minWidth: theme.spacing.unit * 4,
+    minWidth: theme.spacing(4),
     paddingLeft: 0,
     paddingRight: 0,
-    width: theme.spacing.unit * 4,
+    width: theme.spacing(4),
   },
   menuPositionLeft: {
     borderBottomRightRadius: 0,
@@ -48,7 +48,7 @@ const styles = theme => ({
     borderTopLeftRadius: 0,
   },
   root: {
-    borderRadius: theme.spacing.unit / 2,
+    borderRadius: theme.spacing(0.5),
   },
   rootContained: {
     boxShadow: theme.shadows[4],

@@ -59,11 +59,20 @@
 .chartWrapper {
   height: 210px;
   display: flex;
-  width: 100%;
 }
 
 .mainChart{
-  flex: 3,
+  flex: 1;
+}
+
+.simpop {
+  margin-top: 10px;
+  padding-left: "3px";
+
+  > div {
+    display: flex;
+    align-items: baseline;
+  }
 }
 
 .titleWrapper {
@@ -73,4 +82,12 @@
 .styleExpansionPanel {
   margin: 0px;
   overflow-x:scroll;
+}
+
+.sourceInsee {
+  color: #B1B1B1;
+  font-family: $default-font-family;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 15px;
 }

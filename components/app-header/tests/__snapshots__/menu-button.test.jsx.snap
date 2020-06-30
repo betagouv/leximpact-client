@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components | app-header | index snapshot doit correspondre au snapshot existant 1`] = `
-<WithStyles(Button)
+<WithStyles(ForwardRef(Button))
   className="HeaderMenuButton-button-1"
   color="primary"
   onClick={[MockFunction]}
   size="medium"
   variant="contained"
 >
-  <pure(MenuIcon)
+  <MenuIcon
     fontSize="small"
   />
    Info
-</WithStyles(Button)>
+</WithStyles(ForwardRef(Button))>
 `;
