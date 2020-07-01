@@ -1,7 +1,7 @@
 import Grid from "@material-ui/core/Grid";
 import { PureComponent } from "react";
 
-import { CommuneSearch } from "./commune-search";
+// import { CommuneSearch } from "./commune-search";
 import { CommuneStrateDetails } from "./commune-strate-details";
 import { CommuneSummary } from "./commune-summary";
 import { CommuneType } from "./commune-type";

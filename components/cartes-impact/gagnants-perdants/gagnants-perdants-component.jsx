@@ -161,9 +161,9 @@ class GagnantsPerdantsCard extends PureComponent {
                   classes={{ root: classes.styleIconPerdant }}
                   fontSize="default"
                 />
-                  <span className={styles2.titleCard}>
+                <span className={styles2.titleCard}>
                       ayant une augmentation de l&apos;IR
-                  </span>
+                </span>
 
                 <div className={classes.containerImpact}>
                   {
@@ -216,9 +216,9 @@ class GagnantsPerdantsCard extends PureComponent {
               classes={{ root: classes.styleIconGagnant }}
               fontSize="default"
             />
-                  <span className={styles2.titleCard}>
+            <span className={styles2.titleCard}>
                   ayant une baisse de l&apos;IR
-                  </span>
+            </span>
 
             <div className={classes.containerImpact}>
               {
@@ -253,9 +253,9 @@ class GagnantsPerdantsCard extends PureComponent {
                 classes={{ root: classes.styleIconNeutre }}
                 fontSize="default"
               />
-                  <span className={styles2.titleCard}>
+              <span className={styles2.titleCard}>
                     non concernés
-                  </span>
+              </span>
 
               <div className={classes.containerImpact}>
                 {
