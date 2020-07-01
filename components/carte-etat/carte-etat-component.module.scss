@@ -51,6 +51,43 @@
   margin-top: 20px;
 }
 
-.expansionPanel {
-  margin: -15px !important;
+.divTitre {
+  display: inline-block;
+  padding-left: 3px
+}
+
+.chartWrapper {
+  height: 210px;
+  display: flex;
+}
+
+.mainChart{
+  flex: 1;
+}
+
+.simpop {
+  margin-top: 10px;
+  padding-left: "3px";
+
+  > div {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+}
+
+.styleExpansionPanel {
+  margin: 0px;
+  overflow-x:scroll;
+}
+
+.sourceInsee {
+  color: #B1B1B1;
+  font-family: $default-font-family;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 15px;
 }

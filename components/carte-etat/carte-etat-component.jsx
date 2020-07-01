@@ -50,22 +50,6 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
-  simpop: {
-    display: "flex",
-    flex: "1",
-    flexDirection: "column",
-    height: "25vh",
-    marginTop: "10px",
-    paddingLeft: "3px",
-    width: "50%",
-  },
-  sourceInsee: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    textAlign: "right",
-  },
   subtitleCarteEtat: {
     color: "#565656",
     fontFamily: "Lato",
@@ -124,11 +108,11 @@ class CarteEtat extends PureComponent {
             )}
             {!isDisabledEtat && !isLoadingEtat && (
               <div>
-                <div className="chart-wrapper">
-                  <div className="main-chart">
+                <div className={styles2.chartWrapper}>
+                  <div className={styles2.mainChart}>
                     <BarChart deciles={deciles} />
                   </div>
-                  <div className={classes.simpop}>
+                  <div className={styles2.simpop}>
                     <div className={classNames({
                       [styles2.montantImpots]: true,
                       [styles2.noPLF]: !montrerPLF,
@@ -200,13 +184,12 @@ class CarteEtat extends PureComponent {
                     </div>
                   </div>
                 </div>
-                <Typography className={classes.sourceInsee}>
+                <div className={styles2.sourceInsee}>
                   * Chiffrages indicatifs.
                   <br />
-                  {" "}
                   Estimation à partir des données de l&apos;Enquête
                   Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
-                </Typography>
+                </div>
               </div>
             )}
           </Fragment>
@@ -215,13 +198,13 @@ class CarteEtat extends PureComponent {
           : (
             <ExpansionPanel className={styles2.expansionPanel}>
               <ExpansionPanelSummary
-                className="styleExpansionPanel"
+                className={styles2.styleExpansionPanel}
                 expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.subtitleCarteEtat}>
               En savoir plus sur les déciles de population
                 </Typography>
               </ExpansionPanelSummary>
-              <ExpansionPanelDetails className="styleExpansionPanel">
+              <ExpansionPanelDetails className={styles2.styleExpansionPanel}>
                 <SimpopTableurInfosDeciles
                   deciles={deciles}
                   frontieresDeciles={frontieresDeciles}

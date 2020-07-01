@@ -29,7 +29,6 @@ function withRoot(Component) {
       // context.
       return (
         <MuiThemeProvider
-          sheetsManager={pageContext.sheetsManager}
           theme={pageContext.theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to */}
           {/* build upon. */}

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components | app-header | index snapshot doit correspondre au snapshot existant 1`] = `
-<WithStyles(Button)
+<WithStyles(ForwardRef(Button))
   className="LoginButton-menuButtonRoot-2"
   onClick={[Function]}
 >
-  <pure(VpnKeyIcon)
+  <VpnKeyIcon
     classes={
       Object {
         "root": "LoginButton-avatarIcon-1",
@@ -13,5 +13,5 @@ exports[`components | app-header | index snapshot doit correspondre au snapshot 
     }
   />
   Se connecter
-</WithStyles(Button)>
+</WithStyles(ForwardRef(Button))>
 `;

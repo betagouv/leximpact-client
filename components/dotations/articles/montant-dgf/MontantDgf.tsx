@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import NumberInput from "../../../articles-inputs/parameter/NumberInput";
+import { NumberInput } from "../../../articles-inputs/parameter/number-input";
 import { ExpandableText } from "../../../expandable-panels";
 
 export class MontantDgf extends PureComponent {
@@ -50,7 +50,7 @@ export class MontantDgf extends PureComponent {
         <br />
         En 2020, ce montant est égal à
         {" "}
-        <NumberInput value={26846874416} />
+        <NumberInput value={26846874416} onChange={() => {}} />
         {" "}
         €.
       </Fragment>

@@ -41,7 +41,7 @@ class LoginPopinComponent extends PureComponent {
   render() {
     const { classes, onClosePopin } = this.props;
     return (
-      <div className="container">
+      <div>
         <IconButton className={classes.closeButton} onClick={onClosePopin}>
           <CloseIcon fontSize="small" />
         </IconButton>

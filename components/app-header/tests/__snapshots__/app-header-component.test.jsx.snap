@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode desktop 1`] = `
-<WithStyles(AppBar)
+<WithStyles(ForwardRef(AppBar))
   position="relative"
 >
-  <WithStyles(Toolbar)
+  <WithStyles(ForwardRef(Toolbar))
     classes={
       Object {
         "root": "AppHeader-toolbarRoot-7",
@@ -12,7 +12,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     }
   >
     <WithStyles(HeaderMenuButton) />
-    <WithStyles(Typography)
+    <WithStyles(ForwardRef(Typography))
       classes={
         Object {
           "root": "AppHeader-titleRoot-6",
@@ -27,17 +27,17 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
           LEXIMPACT 
         </span>
       </span>
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <div />
-  </WithStyles(Toolbar)>
-</WithStyles(AppBar)>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
 `;
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user est connecté en mode mobile 1`] = `
-<WithStyles(AppBar)
+<WithStyles(ForwardRef(AppBar))
   position="relative"
 >
-  <WithStyles(Toolbar)
+  <WithStyles(ForwardRef(Toolbar))
     classes={
       Object {
         "root": "AppHeader-toolbarRoot-7",
@@ -45,7 +45,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     }
   >
     <WithStyles(HeaderMenuButton) />
-    <WithStyles(Typography)
+    <WithStyles(ForwardRef(Typography))
       classes={
         Object {
           "root": "AppHeader-titleRoot-6",
@@ -60,17 +60,17 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
           LEXIMPACT 
         </span>
       </span>
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <div />
-  </WithStyles(Toolbar)>
-</WithStyles(AppBar)>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
 `;
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode desktop 1`] = `
-<WithStyles(AppBar)
+<WithStyles(ForwardRef(AppBar))
   position="relative"
 >
-  <WithStyles(Toolbar)
+  <WithStyles(ForwardRef(Toolbar))
     classes={
       Object {
         "root": "AppHeader-toolbarRoot-7",
@@ -78,7 +78,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     }
   >
     <WithStyles(HeaderMenuButton) />
-    <WithStyles(Typography)
+    <WithStyles(ForwardRef(Typography))
       classes={
         Object {
           "root": "AppHeader-titleRoot-6",
@@ -93,17 +93,17 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
           LEXIMPACT 
         </div>
       </div>
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <div />
-  </WithStyles(Toolbar)>
-</WithStyles(AppBar)>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
 `;
 
 exports[`components | app-header | index snapshot doit correspondre quand l'user n'est pas connecté en mode mobile 1`] = `
-<WithStyles(AppBar)
+<WithStyles(ForwardRef(AppBar))
   position="relative"
 >
-  <WithStyles(Toolbar)
+  <WithStyles(ForwardRef(Toolbar))
     classes={
       Object {
         "root": "AppHeader-toolbarRoot-7",
@@ -111,7 +111,7 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
     }
   >
     <WithStyles(HeaderMenuButton) />
-    <WithStyles(Typography)
+    <WithStyles(ForwardRef(Typography))
       classes={
         Object {
           "root": "AppHeader-titleRoot-6",
@@ -126,8 +126,8 @@ exports[`components | app-header | index snapshot doit correspondre quand l'user
           LEXIMPACT 
         </span>
       </span>
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <div />
-  </WithStyles(Toolbar)>
-</WithStyles(AppBar)>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
 `;

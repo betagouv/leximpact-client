@@ -4,7 +4,7 @@ import { PureComponent } from "react";
 
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
-import NumberInput from "./NumberInput";
+import { NumberInput } from "./number-input";
 import styles from "./Parameter.module.scss";
 
 function withTooltip(Tooltip, title, element) {

@@ -16,7 +16,6 @@ import withRoot from "../lib/withRoot";
 import {
   disabledEtat, fetchSimPop, showAddCasTypesPopin, simulateCasTypes,
 } from "../redux/actions";
-import "../styles/index.scss";
 
 const mapStateToProps = ({ token }) => ({
   isUserLogged: !!token,

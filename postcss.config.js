@@ -1,12 +1,10 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const autoprefixer = require("autoprefixer");
-
-const postcssConfig = {
+module.exports = {
   plugins: [
-    autoprefixer({
-      flexbox: true,
-    }),
+    [
+      "autoprefixer",
+      {
+        flexbox: true,
+      },
+    ],
   ],
 };
-
-module.exports = postcssConfig;

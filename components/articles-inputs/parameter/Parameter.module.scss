@@ -17,22 +17,21 @@ $input-margin: 0.3rem;
 
 .amendementInput {
   width: 80px;
-  top: -0.2rem;
 }
 
 .smallInput {
-  width: 40px
+  width: 40px;
 }
 
 .amendementValue {
   font-weight: bold;
   margin-left: $input-margin !important;
   margin-right: $input-margin !important;
-  color: #000000;
 }
 
 .amendementValueModified {
   padding: 0.1rem;
+  margin: -0.1rem;
   background-color: $amendement-bg-color;
 }
 
