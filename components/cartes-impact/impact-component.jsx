@@ -14,7 +14,7 @@ class ImpactComponent extends PureComponent {
     return (
       <div className={styles.container}>
         <Grid container spacing={3}>
-          {isInformationPanelVisible && (
+          {isInformationPanelVisible && isUserLogged && (
             <Grid item xs={12}>
               <InformationPanel />
             </Grid>
