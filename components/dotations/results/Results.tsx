@@ -40,9 +40,9 @@ export class Results extends PureComponent {
               potentielFinancier={122}
             />
           </Grid>
-          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+          {/* <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSearch />
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
     );

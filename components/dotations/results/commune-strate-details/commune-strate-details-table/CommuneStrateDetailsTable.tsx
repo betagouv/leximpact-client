@@ -37,8 +37,7 @@ export class CommuneStrateDetailsTable extends PureComponent {
                 <Parameter
                   amendementValue={1200}
                   baseValue={1201}
-                  editable={false}
-                  plfValue={1100} />
+                  editable={false} />
               </td>
               <td>
                 <Parameter
@@ -50,8 +49,7 @@ export class CommuneStrateDetailsTable extends PureComponent {
                 <Parameter
                   amendementValue={35}
                   baseValue={36}
-                  editable={false}
-                  plfValue={22} />
+                  editable={false} />
               </td>
             </tr>
             <tr>
