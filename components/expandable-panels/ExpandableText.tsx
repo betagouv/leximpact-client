@@ -44,7 +44,7 @@ export class ExpandableText extends PureComponent<Props, State> {
               onClick={this.reduce}
               onKeyDown={e => e.key === "Enter" && this.reduce()}>
               {" "}
-              [... lire moins
+              [ lire moins
               {" "}
               <RemoveCircleOutlineIcon />
               {" "}
