@@ -11,7 +11,7 @@ export class Results extends PureComponent {
   render() {
     return (
       <div className={styles.container}>
-        <Grid container spacing={24}>
+        <Grid container spacing={3}>
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSummary />
           </Grid>
@@ -19,7 +19,7 @@ export class Results extends PureComponent {
             <CommuneStrateDetails />
           </Grid>
         </Grid>
-        <Grid container spacing={24}>
+        <Grid container spacing={3}>
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneType
               departement="Isère"
