@@ -1,5 +1,9 @@
 @import "./variables";
 
+body {
+  font-size: 1rem !important;
+}
+
 h1 {
   font-family: $default-font-family;
   color: $dark-grey-text-color;

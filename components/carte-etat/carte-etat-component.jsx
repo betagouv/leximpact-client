@@ -51,24 +51,6 @@ const styles = () => ({
   pom_verte: {
     color: "#00FF00",
   },
-  simpop: {
-    display: "flex",
-    flex: "1",
-    flexDirection: "column",
-    height: "25vh",
-    marginTop: "10px",
-    paddingLeft: "3px",
-    width: "50%",
-  },
-  sourceInsee: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: "12px",
-    fontWeight: "regular",
-    marginBottom: "0px", //
-    marginLeft: "14px",
-    textAlign: "right",
-  },
   subtitleCarteEtat: {
     color: "#565656",
     fontFamily: "Lato",
@@ -151,7 +133,7 @@ class CarteEtat extends PureComponent {
                 <div className={styles2.mainChart}>
                   <BarChart deciles={deciles} />
                 </div>
-                <div className={classes.simpop}>
+                <div className={styles2.simpop}>
                   <div className={classNames({
                     [styles2.montantImpots]: true,
                     [styles2.noPLF]: !montrerPLF,
@@ -218,18 +200,17 @@ class CarteEtat extends PureComponent {
                         [styles2.uniteImpotEtat]: true,
                         [styles2.apres]: true,
                       })}>
-                          Md€*
+                      Md€*
                     </Typography>
                   </div>
                 </div>
               </div>
-              <Typography className={classes.sourceInsee}>
-                    * Chiffrages indicatifs.
+              <div className={styles2.sourceInsee}>
+                * Chiffrages indicatifs.
                 <br />
-                {" "}
-Estimation à partir des données de l&apos;Enquête
-                    Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
-              </Typography>
+                Estimation à partir des données de l&apos;Enquête
+                Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
+              </div>
             </div>
           )}
         </CardContent>

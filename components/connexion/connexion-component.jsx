@@ -18,7 +18,7 @@ const styles = theme => ({
   avatar: {
     backgroundColor: theme.palette.primary.main,
     height: 80,
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     width: 80,
     [theme.breakpoints.down("xs")]: {
       height: 60,
@@ -46,7 +46,7 @@ const styles = theme => ({
     top: 10,
   },
   form: {
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     width: "100%", // Fix IE 11 issue.
   },
   spanBolder: {
