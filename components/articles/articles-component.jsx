@@ -159,8 +159,9 @@ class ArticlesComponent extends React.Component {
             title="Barème"
           >
             <br />
-            <ExpandableText caption="I. En ce qui concerne les contribuables">
-              I. En ce qui concerne les contribuables
+            I. En ce qui concerne les contribuables
+            {" "}
+            <ExpandableText>
               visés à l&apos;article 4 B, il est fait application des règles
               suivantes pour le calcul de l&apos;impôt sur le revenu :
             </ExpandableText>
