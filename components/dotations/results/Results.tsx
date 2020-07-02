@@ -33,10 +33,10 @@ export class Results extends PureComponent {
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneType
               eligible
-              departement="Quasquara"
+              departement="Corse-du-sud"
               dotationParHab={128}
               habitants={57}
-              name="Corse-du-sud"
+              name="Quasquara"
               potentielFinancier={122}
             />
           </Grid>
