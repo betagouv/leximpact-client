@@ -1,0 +1,1 @@
+export { CommuneType } from "./CommuneType";

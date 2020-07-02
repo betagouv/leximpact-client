@@ -69,7 +69,6 @@ export class SimulationPage extends PureComponent<Props, State> {
         </Paper>
         <div className={styles.results}>
           <SimulationMenuBar
-
             primaryButtons={primaryButtons}
             secondaryButtons={secondaryButtons}
           />

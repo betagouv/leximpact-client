@@ -9,10 +9,6 @@ import { formatNumber } from "../../utils";
 import styles2 from "./impact-impots.module.scss";
 
 const styles = () => ({
-  container: {
-    padding: 15,
-    paddingTop: 5,
-  },
   legende: {
     color: "#909090",
     fontFamily: "Lato",
@@ -46,7 +42,7 @@ class SimpleCardImpactImpots extends PureComponent {
     ) : null;
 
     return (
-      <div className={classes.container}>
+      <Fragment>
         <Typography className={classes.legende}>
           <span>Impôt sur le revenu par an</span>
         </Typography>
@@ -66,7 +62,7 @@ class SimpleCardImpactImpots extends PureComponent {
               </div>
             )
         }
-      </div>
+      </Fragment>
     );
   }
 }

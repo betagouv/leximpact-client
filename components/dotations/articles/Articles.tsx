@@ -15,8 +15,10 @@ export class Articles extends PureComponent {
         {/* Article header */}
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
+            expanded
             title="Montant des dotations">
             <SecondaryExpandablePanel
+              expanded
               subTitle="Article L1613-1 du CGCT"
               title="Montant de la dotation globale de fonctionnement (DGF)">
               <MontantDgf />

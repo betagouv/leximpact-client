@@ -59,7 +59,6 @@ const styles = () => ({
     marginBottom: "0.7em",
     marginLeft: "10px",
     textAlign: "justify",
-    textJustify: "left",
   },
   subtitleEnSavoirPlus: {
     color: "#565656",
@@ -73,7 +72,6 @@ const styles = () => ({
     fontSize: "1.125em",
     fontWeight: "bold",
     marginLeft: "10px",
-    textJustify: "none",
   },
 });
 

@@ -51,11 +51,6 @@
   margin-top: 20px;
 }
 
-.divTitre {
-  display: inline-block;
-  padding-left: 3px
-}
-
 .chartWrapper {
   height: 210px;
   display: flex;
@@ -75,10 +70,6 @@
   }
 }
 
-.titleWrapper {
-  display: flex;
-}
-
 .styleExpansionPanel {
   margin: 0px;
   overflow-x:scroll;
@@ -90,4 +81,8 @@
   font-size: 12px;
   text-align: right;
   margin-left: 15px;
+}
+
+.expansionPanel {
+  margin: -15px !important;
 }
