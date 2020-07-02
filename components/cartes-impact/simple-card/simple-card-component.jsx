@@ -9,18 +9,14 @@ import WomanWhiteHairedIcon from "@iconify/icons-twemoji/woman-white-haired";
 import { Icon } from "@iconify/react";
 import Badge from "@material-ui/core/Badge";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
-import EditIcon from "@material-ui/icons/Edit";
 import { get } from "lodash";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 
+import { Card } from "../../card";
 import DoublePalmTreeIcon from "../../icons/double-palm-tree";
 import { NeutralTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
@@ -62,60 +58,15 @@ const styles = () => ({
   badgeRoot: {
     verticalAlign: "inherit",
   },
-  cardContainer: {
-    minWidth: 50,
-    paddingBottom: 0,
-  },
-  cardContent: {
-    "&:last-child": {
-      paddingBottom: 0,
-    },
-    padding: 0,
-  },
-  cardEditDeleteButton: {
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
-    margin: 0,
-    marginLeft: 9,
-    padding: 0,
-  },
-  cardHeader: {
-    display: "flex",
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 15,
-    paddingBottom: 5,
-  },
-  cardHeaderButtons: {
-    maxWidth: 60,
-    minWidth: 60,
-    width: 60,
-  },
-  cardName: {
-    color: "#B1B1B1",
-    fontFamily: "Lato",
-    fontSize: 18,
-    fontWeight: "bold",
-    lineHeight: "1.1rem",
-  },
   iconsContainer: {
     display: "flex",
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 15,
-    paddingTop: 5,
   },
   residenceIcon: {
     margin: 0,
     padding: 0,
-  },
-  revenusMensuelContainer: {
-    padding: 15,
-    paddingBottom: 0,
-    paddingTop: 0,
   },
   revenusMensuelLegend: {
     color: "#909090",
@@ -149,64 +100,26 @@ class SimpleCard extends React.Component {
     );
   };
 
-  renderCardHeader = () => {
-    const {
-      classes,
-      descCasType,
-      handleRemoveCasType,
-      handleShowEditCasTypesPopin,
-      index,
-    } = this.props;
-    const { name } = descCasType;
-    return (
-      <div className={classes.cardHeader}>
-        <div>
-          <Typography classes={{ root: classes.cardName }}>
-            <span>{name}</span>
-          </Typography>
-        </div>
-        <div className={classes.cardHeaderButtons}>
-          <IconButton
-            disableRipple
-            aria-label="Edit"
-            classes={{ root: classes.cardEditDeleteButton }}
-            onClick={handleShowEditCasTypesPopin(index)}>
-            <EditIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            disableRipple
-            aria-label="Delete"
-            classes={{ root: classes.cardEditDeleteButton }}
-            onClick={handleRemoveCasType(index)}>
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        </div>
-      </div>
-    );
-  };
-
   renderRevenuMensuel = () => {
     const { classes, descCasType } = this.props;
     const { revenusNetMensuel } = descCasType;
     const revenusMensuel = Math.round(revenusNetMensuel);
     return (
-      <div className={classes.revenusMensuelContainer}>
-        <NeutralTooltip
-          placement="top"
-          title="Revenus nets tels que délarés par le contribuable, divisés par 12">
-          <span>
-            <Typography classes={{ root: classes.revenusMensuelLegend }}>
-              <span>Revenus nets à déclarer</span>
-            </Typography>
-            <Button disabled classes={{ root: classes.revenusMensuelWrapper }}>
-              <span className={classes.revenusMensuelValue}>
-                {formatNumber(revenusMensuel)}
-                &nbsp;€/Mois
-              </span>
-            </Button>
-          </span>
-        </NeutralTooltip>
-      </div>
+      <NeutralTooltip
+        placement="top"
+        title="Revenus nets tels que délarés par le contribuable, divisés par 12">
+        <span>
+          <Typography classes={{ root: classes.revenusMensuelLegend }}>
+            <span>Revenus nets à déclarer</span>
+          </Typography>
+          <Button disabled classes={{ root: classes.revenusMensuelWrapper }}>
+            <span className={classes.revenusMensuelValue}>
+              {formatNumber(revenusMensuel)}
+              &nbsp;€/Mois
+            </span>
+          </Button>
+        </span>
+      </NeutralTooltip>
     );
   };
 
@@ -268,26 +181,32 @@ class SimpleCard extends React.Component {
     );
   };
 
+
   render() {
-    const { classes, isLoading, resultats } = this.props;
+    const {
+      classes, descCasType, handleRemoveCasType,
+      handleShowEditCasTypesPopin, index, isLoading, resultats,
+    } = this.props;
+    const { name } = descCasType;
     return (
-      <Card className={classes.cardContainer}>
-        <CardContent className={classes.cardContent}>
-          {/* CARD HEADER */}
-          {this.renderCardHeader()}
-          {/* ICONS */}
-          <div className={classes.iconsContainer}>
-            {this.renderPersonsIcons()}
-            {this.renderLieuDeResidence()}
-          </div>
-          <div>{this.renderRevenuMensuel()}</div>
-          <Divider />
-          <SimpleCardImpactImpots isLoading={isLoading} resultats={resultats} />
-        </CardContent>
-      </Card>
+      <Card
+        content1={(
+          <Fragment>
+            <div className={classes.iconsContainer}>
+              {this.renderPersonsIcons()}
+              {this.renderLieuDeResidence()}
+            </div>
+            <div>{this.renderRevenuMensuel()}</div>
+          </Fragment>
+        )}
+        content2={<SimpleCardImpactImpots isLoading={isLoading} resultats={resultats} />}
+        title={name}
+        onClose={handleRemoveCasType(index)}
+        onEdit={handleShowEditCasTypesPopin(index)} />
     );
   }
 }
+
 SimpleCard.propTypes = {
   classes: PropTypes.shape().isRequired,
   descCasType: PropTypes.shape().isRequired,

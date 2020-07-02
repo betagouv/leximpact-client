@@ -1,0 +1,9 @@
+.text {
+  font-size: 18px;
+  font-weight: bold;
+
+  :last-child {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}

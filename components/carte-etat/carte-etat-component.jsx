@@ -1,8 +1,6 @@
 import classicalBuilding from "@iconify/icons-twemoji/classical-building";
 import { Icon } from "@iconify/react";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -15,8 +13,9 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FaceIcon from "@material-ui/icons/Face";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 
+import { Card } from "../card";
 import BarChart from "./bar-chart";
 import styles2 from "./carte-etat-component.module.scss";
 import SimpopTableurInfosDeciles from "./simpop-tableur-infos-deciles";
@@ -57,13 +56,6 @@ const styles = () => ({
     fontSize: "0.875em",
     padding: "0 0 10px 10px",
   },
-  titleCarteEtat: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "1.125em",
-    fontWeight: "bold",
-    padding: "0 0 0 10px",
-  },
 });
 
 function getRoundedTotal(value) {
@@ -90,133 +82,121 @@ class CarteEtat extends PureComponent {
     const totalApres = getRoundedTotal(apres);
     const totalPLF = montrerPLF ? getRoundedTotal(plf) : null;
     return (
-      <Card>
-        <CardContent>
-          <div className={styles2.titleWrapper}>
-            <div className={styles2.divTitre}>
-              <Icon height="40" icon={classicalBuilding} width="40" />
-            </div>
-            <div className={styles2.divTitre}>
-              <Typography className={classes.titleCarteEtat}>
-                Recettes de l&apos;État sur l&apos;impôt sur le revenu
-              </Typography>
-              <Typography className={classes.subtitleCarteEtat}>
-                par décile de population et par an
-              </Typography>
-            </div>
-          </div>
-
-          {isDisabledEtat && (
-            <div>
+      <Card
+        content1={(
+          <Fragment>
+            {isDisabledEtat && (
+              <div>
+                <center className={classes.buttonPosition}>
+                  <Button
+                    color="secondary"
+                    size="medium"
+                    variant="outlined"
+                    onClick={onClickSimPop}>
+                    <AccountBalanceIcon />
+                    <FaceIcon className={classes.marginIcon} />
+                    &nbsp;Estimer ~60&quot;
+                    <CachedIcon className={classes.miniIcon} />
+                  </Button>
+                </center>
+              </div>
+            )}
+            {!isDisabledEtat && isLoadingEtat && (
               <center className={classes.buttonPosition}>
-                <Button
-                  color="secondary"
-                  size="medium"
-                  variant="outlined"
-                  onClick={onClickSimPop}>
-                  <AccountBalanceIcon />
-                  <FaceIcon className={classes.marginIcon} />
-                  &nbsp;Estimer ~60&quot;
-                  <CachedIcon className={classes.miniIcon} />
-                </Button>
+                <CircularProgress color="secondary" />
               </center>
-            </div>
-          )}
-          {!isDisabledEtat && isLoadingEtat && (
-            <center className={classes.buttonPosition}>
-              <CircularProgress color="secondary" />
-            </center>
-          )}
-          {!isDisabledEtat && !isLoadingEtat && (
-            <div>
-              <div className={styles2.chartWrapper}>
-                <div className={styles2.mainChart}>
-                  <BarChart deciles={deciles} />
-                </div>
-                <div className={styles2.simpop}>
-                  <div className={classNames({
-                    [styles2.montantImpots]: true,
-                    [styles2.noPLF]: !montrerPLF,
-                  })}>
-                    <Typography
-                      inline
-                      className={classNames({
-                        [styles2.impotEtat]: true,
-                        [styles2.avant]: true,
-                      })}>
-                      {totalAvant}
-                    </Typography>
-                    <Typography
-                      inline
-                      className={classNames({
-                        [styles2.uniteImpotEtat]: true,
-                        [styles2.avant]: true,
-                      })}>
-                      Md€*
-                    </Typography>
+            )}
+            {!isDisabledEtat && !isLoadingEtat && (
+              <div>
+                <div className={styles2.chartWrapper}>
+                  <div className={styles2.mainChart}>
+                    <BarChart deciles={deciles} />
                   </div>
-                  {
-                    montrerPLF
-                      ? (
-                        <div className={classNames({
-                          [styles2.montantImpots]: true,
-                          [styles2.noPLF]: !montrerPLF,
+                  <div className={styles2.simpop}>
+                    <div className={classNames({
+                      [styles2.montantImpots]: true,
+                      [styles2.noPLF]: !montrerPLF,
+                    })}>
+                      <Typography
+                        inline
+                        className={classNames({
+                          [styles2.impotEtat]: true,
+                          [styles2.avant]: true,
                         })}>
-                          <Typography
-                            inline
-                            className={classNames({
-                              [styles2.impotEtat]: true,
-                              [styles2.plf]: true,
-                            })}>
-                            {totalPLF}
-                          </Typography>
-                          <Typography
-                            inline
-                            className={classNames({
-                              [styles2.uniteImpotEtat]: true,
-                              [styles2.plf]: true,
-                            })}>
+                        {totalAvant}
+                      </Typography>
+                      <Typography
+                        inline
+                        className={classNames({
+                          [styles2.uniteImpotEtat]: true,
+                          [styles2.avant]: true,
+                        })}>
+                        Md€*
+                      </Typography>
+                    </div>
+                    {
+                      montrerPLF
+                        ? (
+                          <div className={classNames({
+                            [styles2.montantImpots]: true,
+                            [styles2.noPLF]: !montrerPLF,
+                          })}>
+                            <Typography
+                              inline
+                              className={classNames({
+                                [styles2.impotEtat]: true,
+                                [styles2.plf]: true,
+                              })}>
+                              {totalPLF}
+                            </Typography>
+                            <Typography
+                              inline
+                              className={classNames({
+                                [styles2.uniteImpotEtat]: true,
+                                [styles2.plf]: true,
+                              })}>
+                              Md€*
+                            </Typography>
+                          </div>
+                        )
+                        : null
+                    }
+                    <div className={classNames({
+                      [styles2.montantImpots]: true,
+                      [styles2.noPLF]: !montrerPLF,
+                    })}>
+                      <Typography
+                        inline
+                        className={classNames({
+                          [styles2.impotEtat]: true,
+                          [styles2.apres]: true,
+                        })}>
+                        {totalApres}
+                      </Typography>
+                      <Typography
+                        inline
+                        className={classNames({
+                          [styles2.uniteImpotEtat]: true,
+                          [styles2.apres]: true,
+                        })}>
                             Md€*
-                          </Typography>
-                        </div>
-                      )
-                      : null
-                  }
-                  <div className={classNames({
-                    [styles2.montantImpots]: true,
-                    [styles2.noPLF]: !montrerPLF,
-                  })}>
-                    <Typography
-                      inline
-                      className={classNames({
-                        [styles2.impotEtat]: true,
-                        [styles2.apres]: true,
-                      })}>
-                      {totalApres}
-                    </Typography>
-                    <Typography
-                      inline
-                      className={classNames({
-                        [styles2.uniteImpotEtat]: true,
-                        [styles2.apres]: true,
-                      })}>
-                      Md€*
-                    </Typography>
+                      </Typography>
+                    </div>
                   </div>
                 </div>
+                <div className={styles2.sourceInsee}>
+                  * Chiffrages indicatifs.
+                  <br />
+                  Estimation à partir des données de l&apos;Enquête
+                  Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
+                </div>
               </div>
-              <div className={styles2.sourceInsee}>
-                * Chiffrages indicatifs.
-                <br />
-                Estimation à partir des données de l&apos;Enquête
-                Revenus Fiscaux et Sociaux (ERFS-FPR) de l&apos;Insee.
-              </div>
-            </div>
-          )}
-        </CardContent>
-        { (isLoadingEtat || isDisabledEtat) ? ("")
+            )}
+          </Fragment>
+        )}
+        content2={(isLoadingEtat || isDisabledEtat) ? null
           : (
-            <ExpansionPanel>
+            <ExpansionPanel className={styles2.expansionPanel}>
               <ExpansionPanelSummary
                 className={styles2.styleExpansionPanel}
                 expandIcon={<ExpandMoreIcon />}>
@@ -233,7 +213,10 @@ class CarteEtat extends PureComponent {
             </ExpansionPanel>
           )
         }
-      </Card>
+        icon={<Icon height="40" icon={classicalBuilding} width="40" />}
+        subTitle="par décile de population et par an"
+        title="Recettes de l&apos;État sur l&apos;impôt sur le revenu"
+      />
     );
   }
 }

@@ -4,7 +4,7 @@ import Head from "next/head";
 import { withRouter } from "next/router";
 import { Fragment, PureComponent } from "react";
 
-import { Articles } from "../components/dotations";
+import { Articles, Results } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
 import SimulationPage from "../components/simulation-page";
 import withRoot from "../lib/withRoot";
@@ -27,6 +27,7 @@ class IndexPage extends PureComponent {
               onClick: () => {},
             },
           ]}
+          results={<Results />}
           secondaryButtons={[]}
           showLoginButton={false}
           subTitle1="Dotations"
