@@ -9,9 +9,9 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { resetAmendementToBase, resetAmendementToPlf } from "../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../types";
+import { RootState } from "../../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
-import { ParametersState } from "../../../types/parameters";
+import { ParametersState } from "../../../redux/reducers/parameters";
 import styles from "./ArticleHeader.module.scss";
 
 const stylesTheme = () => ({

@@ -4,7 +4,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { updateParameter } from "../../../redux/actions/parameters/update-parameter";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../types";
+import { RootState } from "../../../redux/reducers";
 import { Parameter } from "./Parameter";
 
 const mapStateToProps = ({ parameters }: RootState, { path }) => {

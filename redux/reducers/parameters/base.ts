@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { ParametersState } from "../../../types/parameters";
+import { ParametersState } from "./parameters-state";
 
 export const BASE_DEFAULT_STATE: ParametersState = {
   dotations: {},

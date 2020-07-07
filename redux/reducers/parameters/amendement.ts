@@ -5,13 +5,13 @@ import {
   // eslint-disable-next-line no-unused-vars
   AddNewLineInParameterArrayAction,
   // eslint-disable-next-line no-unused-vars
-  ParametersState,
-  // eslint-disable-next-line no-unused-vars
   RemoveLastLineInParameterArrayAction,
   // eslint-disable-next-line no-unused-vars
   UpdateParameterAction,
-} from "../../../types/parameters";
+} from "../../actions";
 import { BASE_DEFAULT_STATE } from "./base";
+// eslint-disable-next-line no-unused-vars
+import { ParametersState } from "./parameters-state";
 import { PLF_DEFAULT_STATE } from "./plf";
 
 const DEFAULT_STATE = cloneDeep(PLF_DEFAULT_STATE);
