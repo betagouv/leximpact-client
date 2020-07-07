@@ -79,7 +79,7 @@ class EnSavoirPlus extends PureComponent {
               tous ; les mesures d&apos;impacts sur la population
               française et les recettes de l&apos;État sont disponibles en accès restreint.
             </p>
-            <Link className={classes.alink} href="/presentation-et-cgu">
+            <Link href="/presentation-et-cgu">
               en savoir plus
             </Link>
           </Grid>
