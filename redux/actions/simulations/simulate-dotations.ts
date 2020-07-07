@@ -73,7 +73,7 @@ export const simulateDotations = () => (dispatch, getState) => {
   };
 
   return request
-    .post("/TODO:addTheURL", body)
+    .post("/dotations", body)
     // TODO: handle result
     .then(payload => dispatch(simulateDotationsSuccess(payload)))
     .catch(err => dispatch(simulateDotationsFailure(err)));
