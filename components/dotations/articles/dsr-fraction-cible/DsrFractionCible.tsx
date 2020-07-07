@@ -1,12 +1,26 @@
 import { Fragment, PureComponent } from "react";
 
+import { StateParameter } from "../../../articles-inputs/parameter";
+
 export class DsrFractionCible extends PureComponent {
   render() {
     // Article L2334-22-1 du CGCT
     return (
       <Fragment>
-        La troisième fraction de la dotation de solidarité rurale est attribuée aux dix
-        mille premières communes de moins de 10 000 habitants, parmi celles éligibles
+        La troisième fraction de la dotation de solidarité rurale est attribuée aux [
+        {" "}
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.cible.eligibilite.premieresCommunes"
+        />
+        {" "}
+        ] premières communes de moins de
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popMax"
+        />
+        {" "}
+        habitants, parmi celles éligibles
         au moins à l&apos;une des deux premières fractions de la dotation de solidarité
         rurale, classées en fonction décroissante d&apos;un indice synthétique.
         <br />
@@ -25,7 +39,23 @@ export class DsrFractionCible extends PureComponent {
         <br />
         <br />
         L&apos;indice synthétique est obtenu par addition des rapports définis aux a et b en
-        pondérant le premier par 70 % et le deuxième par 30 %.
+        pondérant le premier par
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier"
+        />
+        {" "}
+        % et le deuxième par
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu"
+        />
+        {" "}
+        %.
         <br />
         <br />
         Le montant attribué à ces communes au titre de cette fraction est calculé dans les

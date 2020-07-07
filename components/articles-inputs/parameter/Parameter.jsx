@@ -51,6 +51,7 @@ class Parameter extends PureComponent {
                   [styles.amendementValue]: true,
                   [styles.amendementValueModified]: !equal,
                   [styles.smallInput]: amendementInputSize === "small",
+                  [styles.xlInput]: amendementInputSize === "xl",
                 })}
                 value={amendementValue}
                 onChange={onAmendementChange} />
@@ -80,7 +81,7 @@ Parameter.defaultProps = {
 };
 
 Parameter.propTypes = {
-  amendementInputSize: PropTypes.oneOf(["small", "large"]),
+  amendementInputSize: PropTypes.oneOf(["small", "large", "xl"]),
   amendementTitle: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,

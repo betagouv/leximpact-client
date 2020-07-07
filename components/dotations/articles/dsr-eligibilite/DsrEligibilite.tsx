@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { NumberInput } from "../../../articles-inputs/parameter/number-input";
+import { StateParameter } from "../../../articles-inputs/parameter";
 import { ExpandableText } from "../../../expandable-panels";
 
 export class DsrEligibilite extends PureComponent {
@@ -9,9 +9,13 @@ export class DsrEligibilite extends PureComponent {
     return (
       <Fragment>
         La dotation de solidarité rurale est attribuée aux communes de moins de
-        <NumberInput value={10000} onChange={() => {}} />
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.eligibilite.popMax" />
         habitants et à certains chefs-lieux d&apos;arrondissement de moins de
-        <NumberInput value={20000} onChange={() => {}} />
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.eligibilite.popChefLieuMax" />
         habitants
         {" "}
         <ExpandableText>

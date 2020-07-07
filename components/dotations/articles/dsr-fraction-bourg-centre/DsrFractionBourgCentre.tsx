@@ -1,12 +1,22 @@
 import { Fragment, PureComponent } from "react";
 
+import { StateParameter } from "../../../articles-inputs/parameter";
+
 export class DsrFractionBourgCentre extends PureComponent {
   render() {
     // Article L2334-21  du CGCT
     return (
       <Fragment>
         La première fraction de la dotation de solidarité rurale est attribuée aux communes
-        dont la population représente au moins 15 % de la population du canton, aux communes
+        dont la population représente au moins
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.eligibilite.partPopCantonMin"
+        />
+        {" "}
+        % de la population du canton, aux communes
         sièges des bureaux centralisateurs, ainsi qu&apos;aux communes chefs-lieux de canton
         au 1er janvier 2014 ;
         <br />
@@ -17,22 +27,64 @@ export class DsrFractionBourgCentre extends PureComponent {
         1° Situées dans une agglomération :
         <br />
         <br />
-        a) Représentant au moins 10 % de la population du département ou comptant plus de
-        250 000 habitants ;
+        a) Représentant au moins
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.partPopDepartementMin"
+        />
+        {" "}
+        % de la population du département ou comptant plus de
+        {" "}
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.popMin"
+        />
+        {" "}
+        habitants ;
         <br />
         <br />
-        b) Comptant une commune soit de plus de 100 000 habitants, soit chef-lieu de département ;
+        b) Comptant une commune soit de plus de
+        {" "}
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.popCommuneMin"
+        />
+        {" "}
+        habitants, soit chef-lieu de département ;
         <br />
         <br />
-        2° Situées dans un canton dont la commune chef-lieu compte plus de 10 000 habitants,
+        2° Situées dans un canton dont la commune chef-lieu compte plus de
+        {" "}
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.canton.popChefLieuMin"
+        />
+        {" "}
+        habitants,
         à l&apos;exception des communes sièges des bureaux centralisateurs ;
         <br />
         <br />
         3° Alinéa abrogé ;
         <br />
         <br />
-        4° Dont le potentiel financier par habitant est supérieur au double du potentiel financier
-        moyen par habitant des communes de moins de 10 000 habitants.
+        4° Dont le potentiel financier par habitant est supérieur [à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.potentielFinancier.rapportPotentielFinancierMoyen"
+        />
+        {" "}
+        fois] du potentiel financier
+        moyen par habitant des communes de moins de
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popMax"
+        />
+        {" "}
+        habitants.
         <br />
         <br />
         Bénéficient également de cette fraction les chefs-lieux d&apos;arrondissement au
@@ -43,17 +95,46 @@ export class DsrFractionBourgCentre extends PureComponent {
         L&apos;attribution revenant à chaque commune est déterminée en fonction :
         <br />
         <br />
-        a) De la population prise en compte dans la limite de 10 000 habitants ;
+        a) De la population prise en compte dans la limite de
+        {" "}
+        <StateParameter
+          editable
+          path="dotations.communes.dsr.bourgCentre.attribution.popLimite"
+        />
+        {" "}
+        habitants ;
         <br />
         <br />
         b) De l&apos;écart entre le potentiel financier moyen par habitant des communes de moins
-        de 10 000 habitants et le potentiel financier par habitant de la commune ;
+        de
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popMax"
+        />
+        {" "}
+        habitants et le potentiel financier par habitant de la commune ;
         <br />
         <br />
-        c) De l&apos;effort fiscal pris en compte dans la limite de 1,2 ;
+        c) De l&apos;effort fiscal pris en compte dans la limite de
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.attribution.effortFiscalLimite"
+        />
+        {" "}
+        ;
         <br />
         <br />
-        d) D&apos;un coefficient multiplicateur égal à 1,3 pour les communes situées en zones de
+        d) D&apos;un coefficient multiplicateur égal à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.attribution.coefMultiplicateurRevitalisationRurale"
+        />
+        {" "}
+        pour les communes situées en zones de
         revitalisation rurale telles que définies à l&apos;article 1465 A du code général des
         impôts.
         <br />
@@ -73,7 +154,23 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         <br />
         A compter de 2012, l&apos;attribution d&apos;une commune éligible ne peut être ni
-        inférieure à 90 % ni supérieure à 120 % du montant perçu l&apos;année précédente.
+        inférieure à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMin"
+        />
+        {" "}
+        ni supérieure à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMax"
+        />
+        {" "}
+        % du montant perçu l&apos;année précédente.
         <br />
         <br />
         Pour l&apos;application du présent article, les limites territoriales des cantons sont

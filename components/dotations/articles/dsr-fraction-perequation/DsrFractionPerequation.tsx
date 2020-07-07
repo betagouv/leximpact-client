@@ -1,5 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
+import { StateParameter } from "../../../articles-inputs/parameter";
+
 export class DsrFractionPerequation extends PureComponent {
   render() {
     // Article L2334-22 du CGCT
@@ -7,20 +9,44 @@ export class DsrFractionPerequation extends PureComponent {
       <Fragment>
         La deuxième fraction de la dotation de solidarité rurale est attribuée aux
         communes dont le potentiel financier par habitant, tel qu&apos;il est défini
-        à l&apos;article L. 2334-4, est inférieur au double du potentiel financier
+        à l&apos;article L. 2334-4, est inférieur [à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.eligibilite.rapportPotentielFinancier"
+        />
+        {" "}
+        fois] du potentiel financier
         moyen par habitant des communes appartenant au même groupe démographique.
         <br />
         <br />
         Cette fraction est répartie :
         <br />
         <br />
-        1° Pour 30 % de son montant, en fonction de la population pondérée par
+        1° Pour
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancier"
+        />
+        {" "}
+        % de son montant, en fonction de la population pondérée par
         l&apos;écart entre le potentiel financier par habitant de la commune et le
         potentiel financier moyen par habitant des communes appartenant au même
         groupe démographique ainsi que par l&apos;effort fiscal plafonné à 1,2 ;
         <br />
         <br />
-        2° Pour 30 % de son montant, proportionnellement à la longueur de la voirie
+        2° Pour
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.attribution.repartition.ponderationLongueurVoirie"
+        />
+        {" "}
+        % de son montant, proportionnellement à la longueur de la voirie
         classée dans le domaine public communal ; pour les communes situées en zone
         de montagne ou pour les communes insulaires, la longueur de la voirie est
         doublée. Pour l&apos;application du présent article, une commune insulaire
@@ -30,13 +56,35 @@ export class DsrFractionPerequation extends PureComponent {
         intercommunale ;
         <br />
         <br />
-        3° Pour 30 % de son montant, proportionnellement au nombre d&apos;enfants de
+        3° Pour
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.attribution.repartition.ponderationNbreEnfants"
+        />
+        {" "}
+        % de son montant, proportionnellement au nombre d&apos;enfants de
         trois à seize ans domiciliés dans la commune, établi lors du dernier recensement.
         <br />
         <br />
-        4° Pour 10 % de son montant au maximum, en fonction de l&apos;écart entre le
+        4° Pour
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancierParHectare"
+        />
+        {" "}
+        % de son montant au maximum, en fonction de l&apos;écart entre le
         potentiel financier par hectare de la commune et le potentiel financier moyen
-        par hectare des communes de moins de 10 000 habitants.
+        par hectare des communes de moins de
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popMax"
+        />
+        {" "}
+        habitants.
         <br />
         <br />
         Toutefois, sous réserve des dispositions du 4° ci-dessus, chacun des pourcentages
@@ -52,7 +100,23 @@ export class DsrFractionPerequation extends PureComponent {
         <br />
         <br />
         A compter de 2012, l&apos;attribution au titre de cette fraction d&apos;une commune
-        éligible ne peut être ni inférieure à 90 % ni supérieure à 120 % du montant perçu
+        éligible ne peut être ni inférieure à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.attribution.pourcentageAttributionMin"
+        />
+        {" "}
+        % ni supérieure à
+        {" "}
+        <StateParameter
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsr.perequation.attribution.pourcentageAttributionMax"
+        />
+        {" "}
+        % du montant perçu
         l&apos;année précédente.
       </Fragment>
     );

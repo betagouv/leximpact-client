@@ -33,7 +33,7 @@ type Props = PropsFromRedux & {
   editable?: boolean;
   path: string;
   plfTitle?: string|JSX.Element;
-  amendementInputSize?: "small"|"large";
+  amendementInputSize?: "small"|"large"|"xl";
   amendementTitle?: string|JSX.Element;
 }
 
