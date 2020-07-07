@@ -162,7 +162,7 @@ export class DsrFractionBourgCentre extends PureComponent {
           path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMin"
         />
         {" "}
-        ni supérieure à
+        % ni supérieure à
         {" "}
         <StateParameter
           editable
