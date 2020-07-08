@@ -15,7 +15,7 @@ export const BASE_DOTATIONS_DEFAULT_STATE: DotationsState = {
         popChefLieuMax: 20000,
         popMax: 10000,
       },
-      // Article L2334-21  du CGCT
+      // Article L2334-21 du CGCT
       bourgCentre: {
         eligibilite: {
           partPopCantonMin: 15,

@@ -10,7 +10,7 @@ export interface DotationsState {
         popMax: number;
         popChefLieuMax: number;
       }
-      // Article L2334-21  du CGCT
+      // Article L2334-21 du CGCT
       bourgCentre: {
         eligibilite: {
           partPopCantonMin: number;

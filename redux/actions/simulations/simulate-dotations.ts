@@ -42,24 +42,25 @@ function simulateDotationsSuccess(dotations: any): SimulateDotationsSuccessActio
 }
 
 function convertRates(dotations: DotationsState): DotationsState {
+  let result = dotations;
   const paths: string[] = [
-    "dotations.communes.dsr.bourgCentre.eligibilite.partPopCantonMin",
-    "dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.partPopDepartementMin",
-    "dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMin",
-    "dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMax",
-    "dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancier",
-    "dotations.communes.dsr.perequation.attribution.repartition.ponderationLongueurVoirie",
-    "dotations.communes.dsr.perequation.attribution.repartition.ponderationNbreEnfants",
-    "dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancierParHectare",
-    "dotations.communes.dsr.perequation.attribution.pourcentageAttributionMin",
-    "dotations.communes.dsr.perequation.attribution.pourcentageAttributionMax",
-    "dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier",
-    "dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu",
+    "communes.dsr.bourgCentre.eligibilite.partPopCantonMin",
+    "communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.partPopDepartementMin",
+    "communes.dsr.bourgCentre.attribution.pourcentageAttributionMin",
+    "communes.dsr.bourgCentre.attribution.pourcentageAttributionMax",
+    "communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancier",
+    "communes.dsr.perequation.attribution.repartition.ponderationLongueurVoirie",
+    "communes.dsr.perequation.attribution.repartition.ponderationNbreEnfants",
+    "communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancierParHectare",
+    "communes.dsr.perequation.attribution.pourcentageAttributionMin",
+    "communes.dsr.perequation.attribution.pourcentageAttributionMax",
+    "communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier",
+    "communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu",
   ];
   paths.forEach((path) => {
-    updateIn(dotations, path.split("."), rate => rate / 100);
+    result = updateIn(result, path.split("."), rate => rate / 100);
   });
-  return dotations;
+  return result;
 }
 
 export const simulateDotations = () => (dispatch, getState) => {

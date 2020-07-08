@@ -4,7 +4,7 @@ import { StateParameter } from "../../../articles-inputs/parameter";
 
 export class DsrFractionBourgCentre extends PureComponent {
   render() {
-    // Article L2334-21  du CGCT
+    // Article L2334-21 du CGCT
     return (
       <Fragment>
         La première fraction de la dotation de solidarité rurale est attribuée aux communes
