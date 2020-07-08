@@ -66,8 +66,9 @@ function convertRates(dotations: DotationsState): DotationsState {
 export const simulateDotations = () => (dispatch, getState) => {
   dispatch(simulateDotationsRequest());
 
-  const { parameters } = getState() as RootState;
+  const { descriptions, parameters } = getState() as RootState;
   const body = {
+    descriptionCasTypes: descriptions.dotations.communesTypes.map(({ code }) => ({ code })),
     reforme: {
       dotations: convertRates(parameters.amendement.dotations),
     },
