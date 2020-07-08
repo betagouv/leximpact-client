@@ -7,13 +7,15 @@ import {
   updateCasType,
 } from "../../redux/actions";
 // eslint-disable-next-line no-unused-vars
+import { CasType } from "../../redux/reducers/descriptions/ir";
+// eslint-disable-next-line no-unused-vars
 import { RootState } from "../../types";
 import AjouterCasTypesComponent from "./ajouter-cas-types-component";
 
-const randomGender = () => Math.random() < 0.49;
+const randomGender = () => (Math.random() < 0.49 ? 1 : 0);
 
 const DEFAULT_PERSON_VALUES = {
-  acienCombattant: 0,
+  ancienCombattant: 0,
   chargePartagee: 0,
   gender: randomGender(),
   invalide: 0,
@@ -23,7 +25,7 @@ const DEFAULT_PERSON_VALUES = {
   veufVeuve: 0,
 };
 
-const DEFAULT_CAS_TYPES = {
+const DEFAULT_CAS_TYPES: CasType = {
   lieuResidence: 0,
   name: "Foyer fiscal type",
   nbCouple: 1,

@@ -2,10 +2,35 @@ import { cloneDeep } from "lodash";
 
 import { transformDataToCasTypes } from "../../../../components/utils/transform-data-to-cas-types";
 
+interface Person {
+  /* All are actually booleans. */
+  ancienCombattant: number;
+  chargePartagee: number;
+  gender: number;
+  invalide: number;
+  isChild: number;
+  parentIsole: number;
+  plus65ans: number;
+  veufVeuve: number;
+}
+
+export interface CasType {
+  name: string;
+  // Actually a boolean.
+  lieuResidence: number;
+  nbCouple: number;
+  nbEnfants: number;
+  persons: {
+    childs: Person[];
+    parents: Person[];
+  };
+  revenusNetMensuel: number;
+}
+
 // le default state est rempli via les cookies
 // grace a la lib "redux-cookies-middleware"
 // voir le fichier "./pages/_app.jsx"
-const DEFAULT_STATE = [];
+const DEFAULT_STATE: CasType[] = [];
 
 // lors de la connexion de l'user à la page
 // https://<domain>/connection/<token>
@@ -32,7 +57,7 @@ const createCasType = (state, action) => {
   return nextState;
 };
 
-export const casTypes = (state = DEFAULT_STATE, action) => {
+export const casTypes = (state: CasType[] = DEFAULT_STATE, action): CasType[] => {
   switch (action.type) {
   case "onConnexionTokenLogout":
     return [];
