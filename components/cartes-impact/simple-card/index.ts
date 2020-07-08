@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import { removeCasType, showEditCasTypesPopin, simulateCasTypes } from "../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../types";
+import { RootState } from "../../../redux/reducers";
 import SimpleCard from "./simple-card-component";
 
 const mapStateToProps = ({ descriptions, results }: RootState, { index }) => {

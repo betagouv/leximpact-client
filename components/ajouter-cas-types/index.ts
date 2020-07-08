@@ -7,9 +7,9 @@ import {
   updateCasType,
 } from "../../redux/actions";
 // eslint-disable-next-line no-unused-vars
-import { CasType } from "../../redux/reducers/descriptions/ir";
+import { RootState } from "../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../types";
+import { CasType } from "../../redux/reducers/descriptions/ir";
 import AjouterCasTypesComponent from "./ajouter-cas-types-component";
 
 const randomGender = () => (Math.random() < 0.49 ? 1 : 0);

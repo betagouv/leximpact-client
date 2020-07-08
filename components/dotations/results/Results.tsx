@@ -4,7 +4,7 @@ import { PureComponent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../types";
+import { RootState } from "../../../redux/reducers";
 // import { CommuneSearch } from "./commune-search";
 import { CommuneStrateDetails } from "./commune-strate-details";
 import { CommuneSummary } from "./commune-summary";

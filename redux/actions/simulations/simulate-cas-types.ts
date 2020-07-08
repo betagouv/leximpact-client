@@ -1,7 +1,7 @@
 import request from "../../../components/utils/request";
 import { transformCasTypesToData } from "../../../components/utils/transform-cas-types-to-data";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../types";
+import { RootState } from "../../reducers";
 import { formatReforme } from "../format-reforme";
 
 export const SIMULATE_CAS_TYPES_REQUEST = "SIMULATE_CAS_TYPES_REQUEST";
