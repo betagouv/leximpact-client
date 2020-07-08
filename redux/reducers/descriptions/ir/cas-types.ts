@@ -1,6 +1,6 @@
 import { cloneDeep } from "lodash";
 
-import { transformDataToCasTypes } from "../../components/utils/transform-data-to-cas-types";
+import { transformDataToCasTypes } from "../../../../components/utils/transform-data-to-cas-types";
 
 // le default state est rempli via les cookies
 // grace a la lib "redux-cookies-middleware"
@@ -32,7 +32,7 @@ const createCasType = (state, action) => {
   return nextState;
 };
 
-const casTypes = (state = DEFAULT_STATE, action) => {
+export const casTypes = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
   case "onConnexionTokenLogout":
     return [];
@@ -49,5 +49,3 @@ const casTypes = (state = DEFAULT_STATE, action) => {
     return state;
   }
 };
-
-export default casTypes;

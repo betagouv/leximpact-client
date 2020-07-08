@@ -1,16 +1,18 @@
 import { connect } from "react-redux";
 
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../types";
 import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({
-  casTypes,
+  descriptions,
   display,
   token,
   totalPop,
-}) => {
+}: RootState) => {
   const isUserLogged = Boolean(token);
   return {
-    casTypes,
+    casTypes: descriptions.ir.casTypes,
     isInformationPanelVisible: display.isInformationPanelVisible,
     isUserLogged,
     totalPop,

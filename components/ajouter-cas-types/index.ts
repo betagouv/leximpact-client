@@ -6,6 +6,8 @@ import {
   simulateCasTypes,
   updateCasType,
 } from "../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../types";
 import AjouterCasTypesComponent from "./ajouter-cas-types-component";
 
 const randomGender = () => Math.random() < 0.49;
@@ -33,11 +35,11 @@ const DEFAULT_CAS_TYPES = {
   revenusNetMensuel: 500,
 };
 
-const mapStateToProps = ({ casTypes }, { index }) => {
+const mapStateToProps = ({ descriptions }: RootState, { index }) => {
   const defaultPersonValue = { ...DEFAULT_PERSON_VALUES };
   let casTypesInitialValues = { ...DEFAULT_CAS_TYPES };
   if (index >= 0) {
-    casTypesInitialValues = casTypes[index];
+    casTypesInitialValues = descriptions.ir.casTypes[index];
   }
   return {
     casTypesInitialValues,

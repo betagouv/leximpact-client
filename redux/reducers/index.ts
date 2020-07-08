@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 
-import casTypes from "./cas-types";
 import { descriptions } from "./descriptions";
 import disabledEtat from "./disabled-etat";
 import display from "./display";
@@ -11,7 +10,6 @@ import token from "./token";
 import totalPop from "./total-pop";
 
 const rootReducer = combineReducers({
-  casTypes,
   descriptions,
   disabledEtat,
   display,
