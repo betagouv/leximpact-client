@@ -9,7 +9,6 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import CachedIcon from "@material-ui/icons/Cached";
 import FaceIcon from "@material-ui/icons/Face";
-import GroupIcon from "@material-ui/icons/Group";
 import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
 import { get } from "lodash";
 import React, { Fragment, PureComponent } from "react";
@@ -21,17 +20,12 @@ import { fetchSimPop, simulateCasTypes } from "../../../redux/actions";
 import { RootState } from "../../../redux/reducers";
 import { Card } from "../../card";
 import styles2 from "./gagnants-perdants-component.module.scss";
+import { GagnantsPerdantsContent } from "./GagnantsPerdantsContent";
 
 const styles = () => ({
   buttonPosition: {
     marginBottom: "114px",
     marginTop: "41px",
-  },
-  containerImpact: {
-    alignContent: "flex-start",
-    display: "flex",
-    justifyContent: "space-around",
-    paddingBottom: "0px",
   },
   sourceInsee: {
     color: "#B1B1B1",
@@ -53,14 +47,6 @@ const styles = () => ({
   styleIconPerdant: {
     color: "#FFAC33",
     verticalAlign: "bottom",
-  },
-  titleCard: {
-    color: "#565656",
-    fontFamily: "Lato",
-    fontSize: "1.125em",
-    fontWeight: "bold",
-    marginLeft: "10px",
-    textAlign: "left",
   },
 });
 
@@ -102,7 +88,7 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
 
     const montrerPLF = !!foyersFiscauxTouches.avant_to_plf;
 
-    let baissePlf: number|null = null;
+    let baissePlf: number | null = null;
     if (montrerPLF) {
       baissePlf = Math.round(
         get(foyersFiscauxTouches, "avant_to_plf.gagnant", 0) / 100000,
@@ -112,21 +98,21 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
       get(foyersFiscauxTouches, "avant_to_apres.gagnant", 0) / 100000,
     ) / 10;
 
-    let neutrePlf: number|null = null;
+    let neutrePlf: number | null = null;
     if (montrerPLF) {
       neutrePlf = Math.round(
         (get(foyersFiscauxTouches, "avant_to_plf.neutre", 0)
-            + get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0))
-            / 100000,
+          + get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0))
+        / 100000,
       ) / 10;
     }
     const neutreReforme = Math.round(
       (get(foyersFiscauxTouches, "avant_to_apres.neutre", 0)
-          + get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0))
-          / 100000,
+        + get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0))
+      / 100000,
     ) / 10;
 
-    let neutreZeroPlf: number|null = null;
+    let neutreZeroPlf: number | null = null;
     if (montrerPLF) {
       neutreZeroPlf = Math.round(
         get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0) / 100000,
@@ -136,21 +122,21 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
       get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0) / 100000,
     ) / 10;
 
-    let haussePlf: number|null = null;
+    let haussePlf: number | null = null;
     if (montrerPLF) {
       haussePlf = Math.round(
         (get(foyersFiscauxTouches, "avant_to_plf.perdant", 0)
-            + get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0))
-            / 100000,
+          + get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0))
+        / 100000,
       ) / 10;
     }
     const hausseReforme = Math.round(
       (get(foyersFiscauxTouches, "avant_to_apres.perdant", 0)
-          + get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0))
-          / 100000,
+        + get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0))
+      / 100000,
     ) / 10;
 
-    let hausseZeroPlf: number|null = null;
+    let hausseZeroPlf: number | null = null;
     if (montrerPLF) {
       hausseZeroPlf = Math.round(
         get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0) / 100000,
@@ -186,149 +172,52 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
               </div>
             )}
             {!isDisabledEtat && !isLoadingEtat && (
-              <div>
-                <ArrowUpwardIcon
-                  classes={{ root: classes.styleIconPerdant }}
-                  fontSize="default"
-                />
-                <span className={styles2.titleCard}>
-                      ayant une augmentation de l&apos;IR
-                </span>
-
-                <div className={classes.containerImpact}>
-                  {
-                    montrerPLF
-                      ? (
-                        <div className={styles2.plf}>
-                          <span className={styles2.plfValue}>{haussePlf}</span>
-                          <span className={styles2.plfUnit}> M</span>
-                          <GroupIcon
-                            className={styles2.plfIcon}
-                            fontSize="small"
-                          />
-                        </div>
-                      )
-                      : null
-                  }
-                  <div className={styles2.reform}>
-                    <span className={styles2.amendementValue}>{hausseReforme}</span>
-                    <span className={styles2.reformUnit}> M</span>
-                    <GroupIcon
-                      className={styles2.reformIcon}
-                      fontSize="small"
-                    />
-                  </div>
-                </div>
-                <div className={styles2.details}>
-                  dont
-                  {" "}
-                  {
-                    montrerPLF
-                      ? (
-                        <Fragment>
-                          <span className={styles2.detailsPlfValue}>{hausseZeroPlf}</span>
-                          <span className={styles2.detailsPlfUnit}> M </span>
-                        </Fragment>
-                      )
-                      : null
-                  }
-                  <span className={styles2.detailsReformValue}>{hausseZeroReforme}</span>
-                  <span className={styles2.detailsReformUnit}> M</span>
-                  &nbsp;de foyers entrant dans l&apos;IR
-                </div>
-              </div>
+              <GagnantsPerdantsContent
+                amendement={hausseReforme}
+                caption="&nbsp;de foyers entrant dans l&apos;IR"
+                captionAmendement={hausseZeroReforme}
+                captionPlf={hausseZeroPlf ?? undefined}
+                icon={(
+                  <ArrowUpwardIcon
+                    classes={{ root: classes.styleIconPerdant }}
+                    fontSize="default"
+                  />
+                )}
+                plf={haussePlf ?? undefined}
+                title="ayant une augmentation de l&apos;IR"
+              />
             )}
           </Fragment>
         )}
         content2={(!isDisabledEtat && !isLoadingEtat) ? (
-          <div>
-            <ArrowDownwardIcon
-              classes={{ root: classes.styleIconGagnant }}
-              fontSize="default"
-            />
-            <span className={styles2.titleCard}>
-                  ayant une baisse de l&apos;IR
-            </span>
-
-            <div className={classes.containerImpact}>
-              {
-                montrerPLF
-                  ? (
-                    <div className={styles2.plf}>
-                      <span className={styles2.plfValue}>{baissePlf}</span>
-                      <span className={styles2.plfUnit}> M</span>
-                      <GroupIcon
-                        className={styles2.plfIcon}
-                        fontSize="small"
-                      />
-                    </div>
-                  )
-                  : null
-              }
-              <div className={styles2.reform}>
-                <span className={styles2.amendementValue}>{baisseReforme}</span>
-                <span className={styles2.reformUnit}> M</span>
-                <GroupIcon
-                  className={styles2.reformIcon}
-                  fontSize="small"
-                />
-              </div>
-            </div>
-          </div>
+          <GagnantsPerdantsContent
+            amendement={baisseReforme}
+            icon={(
+              <ArrowDownwardIcon
+                classes={{ root: classes.styleIconGagnant }}
+                fontSize="default"
+              />
+            )}
+            plf={baissePlf ?? undefined}
+            title="ayant une baisse de l&apos;IR"
+          />
         ) : null}
         content3={(!isDisabledEtat && !isLoadingEtat) ? (
           <Fragment>
-            <div>
-              <TrendingFLatIcon
-                classes={{ root: classes.styleIconNeutre }}
-                fontSize="default"
-              />
-              <span className={styles2.titleCard}>
-                    non concernés
-              </span>
-
-              <div className={classes.containerImpact}>
-                {
-                  montrerPLF
-                    ? (
-                      <div className={styles2.plf}>
-                        <span className={styles2.plfValue}>{neutrePlf}</span>
-                        <span className={styles2.plfUnit}> M</span>
-                        <GroupIcon
-                          className={styles2.plfIcon}
-                          fontSize="small"
-                        />
-                      </div>
-                    )
-                    : null
-                }
-                <div className={styles2.reform}>
-                  <span className={styles2.amendementValue}>{neutreReforme}</span>
-                  <span className={styles2.reformUnit}> M</span>
-                  <GroupIcon
-                    className={styles2.reformIcon}
-                    fontSize="small"
-                  />
-                </div>
-              </div>
-              <div className={styles2.details}>
-                dont
-                {" "}
-                {
-                  montrerPLF
-                    ? (
-                      <Fragment>
-                        <span className={styles2.detailsPlfValue}>{neutreZeroPlf}</span>
-                        <span className={styles2.detailsPlfUnit}> M </span>
-                      </Fragment>
-                    )
-                    : null
-                }
-                <span className={styles2.detailsReformValue}>{neutreZeroReforme}</span>
-                <span className={styles2.detailsReformUnit}> M</span>
-                &nbsp;de foyers toujours exonérés d&apos;IR
-              </div>
-            </div>
+            <GagnantsPerdantsContent
+              amendement={neutreReforme}
+              caption="&nbsp;de foyers toujours exonérés d&apos;IR"
+              captionAmendement={neutreZeroReforme}
+              captionPlf={neutreZeroPlf ?? undefined}
+              icon={(
+                <TrendingFLatIcon
+                  classes={{ root: classes.styleIconNeutre }}
+                  fontSize="default"
+                />
+              )}
+              plf={neutrePlf ?? undefined}
+              title="non concernés"
+            />
             <Typography className={classes.sourceInsee}>
               * Chiffrages indicatifs.
               <br />
