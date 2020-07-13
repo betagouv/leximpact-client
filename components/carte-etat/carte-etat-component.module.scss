@@ -1,5 +1,9 @@
 @import 'styles/variables';
 
+.center {
+  text-align: center;
+}
+
 .uniteImpotEtat {
   &.avant {
     font-family: $default-font-family;

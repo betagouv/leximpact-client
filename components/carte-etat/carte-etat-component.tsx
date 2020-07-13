@@ -12,9 +12,13 @@ import CachedIcon from "@material-ui/icons/Cached";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FaceIcon from "@material-ui/icons/Face";
 import classNames from "classnames";
-import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+import { fetchSimPop, simulateCasTypes } from "../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../redux/reducers";
 import { Card } from "../card";
 import BarChart from "./bar-chart";
 import styles2 from "./carte-etat-component.module.scss";
@@ -63,7 +67,35 @@ function getRoundedTotal(value) {
   return rounded;
 }
 
-class CarteEtat extends PureComponent {
+const mapStateToProps = ({ loadingEtat, results }: RootState) => {
+  const isLoadingEtat = loadingEtat === "loading";
+  const isDisabledEtat = loadingEtat === "disabled";
+  const { deciles, frontieresDeciles, total } = results.totalPop;
+  return {
+    deciles,
+    frontieresDeciles,
+    isDisabledEtat,
+    isLoadingEtat,
+    total,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  onClickSimPop: () => {
+    dispatch(fetchSimPop());
+    dispatch(simulateCasTypes());
+  },
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux & {
+  classes: any;
+}
+
+class CarteEtat extends PureComponent<Props> {
   render() {
     const {
       classes,
@@ -87,7 +119,7 @@ class CarteEtat extends PureComponent {
           <Fragment>
             {isDisabledEtat && (
               <div>
-                <center className={classes.buttonPosition}>
+                <div className={`${classes.buttonPosition} ${styles2.center}`}>
                   <Button
                     color="secondary"
                     size="medium"
@@ -98,13 +130,13 @@ class CarteEtat extends PureComponent {
                     &nbsp;Estimer ~60&quot;
                     <CachedIcon className={classes.miniIcon} />
                   </Button>
-                </center>
+                </div>
               </div>
             )}
             {!isDisabledEtat && isLoadingEtat && (
-              <center className={classes.buttonPosition}>
+              <div className={`${classes.buttonPosition} ${styles2.center}`}>
                 <CircularProgress color="secondary" />
-              </center>
+              </div>
             )}
             {!isDisabledEtat && !isLoadingEtat && (
               <div>
@@ -118,7 +150,6 @@ class CarteEtat extends PureComponent {
                       [styles2.noPLF]: !montrerPLF,
                     })}>
                       <Typography
-                        inline
                         className={classNames({
                           [styles2.impotEtat]: true,
                           [styles2.avant]: true,
@@ -126,7 +157,6 @@ class CarteEtat extends PureComponent {
                         {totalAvant}
                       </Typography>
                       <Typography
-                        inline
                         className={classNames({
                           [styles2.uniteImpotEtat]: true,
                           [styles2.avant]: true,
@@ -142,7 +172,6 @@ class CarteEtat extends PureComponent {
                             [styles2.noPLF]: !montrerPLF,
                           })}>
                             <Typography
-                              inline
                               className={classNames({
                                 [styles2.impotEtat]: true,
                                 [styles2.plf]: true,
@@ -150,7 +179,6 @@ class CarteEtat extends PureComponent {
                               {totalPLF}
                             </Typography>
                             <Typography
-                              inline
                               className={classNames({
                                 [styles2.uniteImpotEtat]: true,
                                 [styles2.plf]: true,
@@ -166,7 +194,6 @@ class CarteEtat extends PureComponent {
                       [styles2.noPLF]: !montrerPLF,
                     })}>
                       <Typography
-                        inline
                         className={classNames({
                           [styles2.impotEtat]: true,
                           [styles2.apres]: true,
@@ -174,7 +201,6 @@ class CarteEtat extends PureComponent {
                         {totalApres}
                       </Typography>
                       <Typography
-                        inline
                         className={classNames({
                           [styles2.uniteImpotEtat]: true,
                           [styles2.apres]: true,
@@ -221,25 +247,4 @@ class CarteEtat extends PureComponent {
   }
 }
 
-CarteEtat.propTypes = {
-  classes: PropTypes.shape().isRequired,
-  deciles: PropTypes.arrayOf(
-    PropTypes.shape({
-      apres: PropTypes.number.isRequired,
-      avant: PropTypes.number.isRequired,
-      plf: PropTypes.number,
-      poids: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
-  frontieresDeciles: PropTypes.arrayOf(PropTypes.number).isRequired,
-  isDisabledEtat: PropTypes.bool.isRequired,
-  isLoadingEtat: PropTypes.bool.isRequired,
-  onClickSimPop: PropTypes.func.isRequired,
-  total: PropTypes.shape({
-    apres: PropTypes.number.isRequired,
-    avant: PropTypes.number.isRequired,
-    plf: PropTypes.number,
-  }).isRequired,
-};
-
-export default withStyles(styles)(CarteEtat);
+export default withStyles(styles)(connector(CarteEtat));
