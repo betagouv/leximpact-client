@@ -1,10 +1,45 @@
+/* eslint-disable camelcase */
 import { get } from "lodash";
 
-// Contient les résultats pour l'état retournées par le serveur
-// avec les réformes par défaut, pour éviter de faire tourner
-// le serveur au premier chargement
+interface State {
+  deciles: {
+    apres: number;
+    avant: number;
+    poids: number;
+    plf?: number;
+  }[];
+  foyersFiscauxTouches: {
+    avant_to_plf?: {
+      neutre?: number;
+      neutre_zero?: number;
+      gagnant?: number;
+      perdant?: number;
+      perdant_zero?: number;
+    }
+    avant_to_apres: {
+      neutre?: number;
+      neutre_zero?: number;
+      gagnant?: number;
+      perdant?: number;
+      perdant_zero?: number;
+    }
+    plf_to_apres?: {
+      neutre?: number;
+      neutre_zero?: number;
+      gagnant?: number;
+      perdant?: number;
+      perdant_zero?: number;
+    }
+  };
+  frontieresDeciles: number[];
+  total: {
+    apres: number;
+    avant: number;
+    plf?: number;
+  };
+}
 
-const DEFAULT_STATE = {
+const DEFAULT_STATE: State = {
   deciles: [
     {
       apres: 0.0,
@@ -95,7 +130,7 @@ const DEFAULT_STATE = {
 };
 
 
-const totalPop = (state = DEFAULT_STATE, action) => {
+const totalPop = (state: State = DEFAULT_STATE, action): State => {
   switch (action.type) {
   case "onSimPopFetchResult":
     return {

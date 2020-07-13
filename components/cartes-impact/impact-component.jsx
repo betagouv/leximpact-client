@@ -4,7 +4,7 @@ import { PureComponent } from "react";
 
 import CarteEtat from "../carte-etat";
 import InformationPanel from "../information-panel";
-import GagnantsPerdantsCard from "./gagnants-perdants";
+import { GagnantsPerdantsCard } from "./gagnants-perdants";
 import styles from "./impact-component.module.scss";
 import SimpleCard from "./simple-card";
 
@@ -57,11 +57,6 @@ ImpactComponent.propTypes = {
   ).isRequired,
   isInformationPanelVisible: PropTypes.bool.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
-  totalPop: PropTypes.shape({
-    deciles: PropTypes.arrayOf(PropTypes.shape()),
-    frontieresDeciles: PropTypes.arrayOf(PropTypes.number),
-    total: PropTypes.shape(),
-  }).isRequired,
 };
 
 export default ImpactComponent;

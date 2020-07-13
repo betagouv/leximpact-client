@@ -12,9 +12,13 @@ import FaceIcon from "@material-ui/icons/Face";
 import GroupIcon from "@material-ui/icons/Group";
 import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
 import { get } from "lodash";
-import PropTypes from "prop-types";
 import React, { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+import { fetchSimPop, simulateCasTypes } from "../../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../redux/reducers";
 import { Card } from "../../card";
 import styles2 from "./gagnants-perdants-component.module.scss";
 
@@ -60,7 +64,33 @@ const styles = () => ({
   },
 });
 
-class GagnantsPerdantsCard extends PureComponent {
+const mapStateToProps = ({ loadingEtat, results }: RootState) => {
+  const isLoadingEtat = loadingEtat === "loading";
+  const isDisabledEtat = loadingEtat === "disabled";
+  const { foyersFiscauxTouches } = results.totalPop;
+  return {
+    foyersFiscauxTouches,
+    isDisabledEtat,
+    isLoadingEtat,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  onClickSimPop: () => {
+    dispatch(fetchSimPop());
+    dispatch(simulateCasTypes());
+  },
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {
+  classes: any;
+}
+
+class GagnantsPerdantsCard extends PureComponent<Props> {
   render() {
     const {
       classes,
@@ -72,7 +102,7 @@ class GagnantsPerdantsCard extends PureComponent {
 
     const montrerPLF = !!foyersFiscauxTouches.avant_to_plf;
 
-    let baissePlf = null;
+    let baissePlf: number|null = null;
     if (montrerPLF) {
       baissePlf = Math.round(
         get(foyersFiscauxTouches, "avant_to_plf.gagnant", 0) / 100000,
@@ -82,7 +112,7 @@ class GagnantsPerdantsCard extends PureComponent {
       get(foyersFiscauxTouches, "avant_to_apres.gagnant", 0) / 100000,
     ) / 10;
 
-    let neutrePlf = null;
+    let neutrePlf: number|null = null;
     if (montrerPLF) {
       neutrePlf = Math.round(
         (get(foyersFiscauxTouches, "avant_to_plf.neutre", 0)
@@ -96,7 +126,7 @@ class GagnantsPerdantsCard extends PureComponent {
           / 100000,
     ) / 10;
 
-    let neutreZeroPlf = null;
+    let neutreZeroPlf: number|null = null;
     if (montrerPLF) {
       neutreZeroPlf = Math.round(
         get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0) / 100000,
@@ -106,7 +136,7 @@ class GagnantsPerdantsCard extends PureComponent {
       get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0) / 100000,
     ) / 10;
 
-    let haussePlf = null;
+    let haussePlf: number|null = null;
     if (montrerPLF) {
       haussePlf = Math.round(
         (get(foyersFiscauxTouches, "avant_to_plf.perdant", 0)
@@ -120,7 +150,7 @@ class GagnantsPerdantsCard extends PureComponent {
           / 100000,
     ) / 10;
 
-    let hausseZeroPlf = null;
+    let hausseZeroPlf: number|null = null;
     if (montrerPLF) {
       hausseZeroPlf = Math.round(
         get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0) / 100000,
@@ -136,7 +166,7 @@ class GagnantsPerdantsCard extends PureComponent {
           <Fragment>
             {isDisabledEtat && (
               <div>
-                <center className={classes.buttonPosition}>
+                <div className={`${classes.buttonPosition} ${styles2.center}`}>
                   <Button
                     color="secondary"
                     size="medium"
@@ -147,13 +177,13 @@ class GagnantsPerdantsCard extends PureComponent {
                     &nbsp;Estimer ~60&quot;
                     <CachedIcon className={classes.miniIcon} />
                   </Button>
-                </center>
+                </div>
               </div>
             )}
             {!isDisabledEtat && isLoadingEtat && (
-              <center className={classes.buttonPosition}>
+              <div className={`${classes.buttonPosition} ${styles2.center}`}>
                 <CircularProgress color="secondary" />
-              </center>
+              </div>
             )}
             {!isDisabledEtat && !isLoadingEtat && (
               <div>
@@ -210,7 +240,7 @@ class GagnantsPerdantsCard extends PureComponent {
             )}
           </Fragment>
         )}
-        content2={!isDisabledEtat && !isLoadingEtat && (
+        content2={(!isDisabledEtat && !isLoadingEtat) ? (
           <div>
             <ArrowDownwardIcon
               classes={{ root: classes.styleIconGagnant }}
@@ -245,8 +275,8 @@ class GagnantsPerdantsCard extends PureComponent {
               </div>
             </div>
           </div>
-        )}
-        content3={!isDisabledEtat && !isLoadingEtat && (
+        ) : null}
+        content3={(!isDisabledEtat && !isLoadingEtat) ? (
           <Fragment>
             <div>
               <TrendingFLatIcon
@@ -306,7 +336,7 @@ class GagnantsPerdantsCard extends PureComponent {
               Données ERFS-FPR (Insee).
             </Typography>
           </Fragment>
-        )}
+        ) : null}
         icon={<Icon height="40" icon={familyManGirlGirl} width="40" />}
         subTitle="en millions par rapport au droit existant*"
         title="Nombre de foyers fiscaux"
@@ -314,12 +344,5 @@ class GagnantsPerdantsCard extends PureComponent {
     );
   }
 }
-GagnantsPerdantsCard.propTypes = {
-  classes: PropTypes.shape().isRequired,
-  foyersFiscauxTouches: PropTypes.shape().isRequired,
-  isDisabledEtat: PropTypes.bool.isRequired,
-  isLoadingEtat: PropTypes.bool.isRequired,
-  onClickSimPop: PropTypes.func.isRequired,
-};
 
-export default withStyles(styles)(GagnantsPerdantsCard);
+export default withStyles(styles as any)(connector(GagnantsPerdantsCard));
