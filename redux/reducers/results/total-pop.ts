@@ -33,7 +33,7 @@ interface State {
   };
   frontieresDeciles: number[];
   total: {
-    apres: number;
+    apres?: number;
     avant: number;
     plf?: number;
   };
@@ -123,7 +123,7 @@ const DEFAULT_STATE: State = {
     6514120.0,
   ],
   total: {
-    apres: 66899999990.1038,
+    // apres: 66899999990.1038,
     avant: 66900000000.0,
     // plf: 66909549705.9914,
   },

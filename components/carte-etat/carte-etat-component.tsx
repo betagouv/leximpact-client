@@ -62,9 +62,8 @@ const styles = () => ({
   },
 });
 
-function getRoundedTotal(value) {
-  const rounded = Math.round(value / 100000000) / 10;
-  return rounded;
+function inBillions(value: number): number {
+  return Math.round(value / 100000000) / 10;
 }
 
 const mapStateToProps = ({ loadingEtat, results }: RootState) => {
@@ -110,9 +109,9 @@ class CarteEtat extends PureComponent<Props> {
 
     const montrerPLF = typeof plf === "number";
 
-    const totalAvant = getRoundedTotal(avant);
-    const totalApres = getRoundedTotal(apres);
-    const totalPLF = montrerPLF ? getRoundedTotal(plf) : null;
+    const totalAvant = inBillions(avant);
+    const totalApres = typeof apres === "number" ? inBillions(apres) : null;
+    const totalPLF = typeof plf === "number" ? inBillions(plf) : null;
     return (
       <Card
         content1={(
@@ -189,25 +188,29 @@ class CarteEtat extends PureComponent<Props> {
                         )
                         : null
                     }
-                    <div className={classNames({
-                      [styles2.montantImpots]: true,
-                      [styles2.noPLF]: !montrerPLF,
-                    })}>
-                      <Typography
-                        className={classNames({
-                          [styles2.impotEtat]: true,
-                          [styles2.apres]: true,
+                    {
+                      totalApres !== null ? (
+                        <div className={classNames({
+                          [styles2.montantImpots]: true,
+                          [styles2.noPLF]: !montrerPLF,
                         })}>
-                        {totalApres}
-                      </Typography>
-                      <Typography
-                        className={classNames({
-                          [styles2.uniteImpotEtat]: true,
-                          [styles2.apres]: true,
-                        })}>
-                            Md€*
-                      </Typography>
-                    </div>
+                          <Typography
+                            className={classNames({
+                              [styles2.impotEtat]: true,
+                              [styles2.apres]: true,
+                            })}>
+                            {totalApres}
+                          </Typography>
+                          <Typography
+                            className={classNames({
+                              [styles2.uniteImpotEtat]: true,
+                              [styles2.apres]: true,
+                            })}>
+                                Md€*
+                          </Typography>
+                        </div>
+                      ) : null
+                    }
                   </div>
                 </div>
                 <div className={styles2.sourceInsee}>
