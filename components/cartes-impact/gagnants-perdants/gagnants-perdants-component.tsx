@@ -10,7 +10,6 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import CachedIcon from "@material-ui/icons/Cached";
 import FaceIcon from "@material-ui/icons/Face";
 import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
-import { get } from "lodash";
 import React, { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
