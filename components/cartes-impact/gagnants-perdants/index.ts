@@ -1,12 +1,14 @@
 import { connect } from "react-redux";
 
 import { fetchSimPop, simulateCasTypes } from "../../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../redux/reducers";
 import GagnantsPerdantsCard from "./gagnants-perdants-component";
 
-const mapStateToProps = ({ loadingEtat, totalPop }) => {
+const mapStateToProps = ({ loadingEtat, results }: RootState) => {
   const isLoadingEtat = loadingEtat === "loading";
   const isDisabledEtat = loadingEtat === "disabled";
-  const { foyersFiscauxTouches } = totalPop;
+  const { foyersFiscauxTouches } = results.totalPop;
   return {
     foyersFiscauxTouches,
     isDisabledEtat,
