@@ -16,7 +16,7 @@ interface State {
       perdant?: number;
       perdant_zero?: number;
     }
-    avant_to_apres: {
+    avant_to_apres?: {
       neutre?: number;
       neutre_zero?: number;
       gagnant?: number;
@@ -98,13 +98,13 @@ const DEFAULT_STATE: State = {
   ],
   foyersFiscauxTouches: {
     // avant_to_plf: {
-    //     neutre_zero: 20245399,
-    //     gagnant: 18087578
+    //   neutre_zero: 20245399,
+    //   gagnant: 18087578,
     // },
-    avant_to_apres: {
-      neutre: 17935460,
-      neutre_zero: 20397517,
-    },
+    // avant_to_apres: {
+    //   neutre: 17935460,
+    //   neutre_zero: 20397517,
+    // },
     // plf_to_apres: {
     //  neutre: 17842026,
     //  neutre_zero: 20490951,

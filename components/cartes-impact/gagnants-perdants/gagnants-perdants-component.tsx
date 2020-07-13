@@ -86,41 +86,43 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
       onClickSimPop,
     } = this.props;
 
-    const montrerPLF = !!foyersFiscauxTouches.avant_to_plf;
+    const baissePlf = foyersFiscauxTouches.avant_to_plf
+      && (foyersFiscauxTouches.avant_to_plf.gagnant || 0);
 
-    let baissePlf: number | null = null;
-    if (montrerPLF) {
-      baissePlf = get(foyersFiscauxTouches, "avant_to_plf.gagnant", 0);
-    }
-    const baisseReforme = get(foyersFiscauxTouches, "avant_to_apres.gagnant", 0);
+    const baisseReforme = foyersFiscauxTouches.avant_to_apres
+      && (foyersFiscauxTouches.avant_to_apres.gagnant || 0);
 
-    let neutrePlf: number | null = null;
-    if (montrerPLF) {
-      neutrePlf = get(foyersFiscauxTouches, "avant_to_plf.neutre", 0)
-          + get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0);
-    }
-    const neutreReforme = get(foyersFiscauxTouches, "avant_to_apres.neutre", 0)
-        + get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0);
+    const neutrePlf = foyersFiscauxTouches.avant_to_plf
+      && (
+        (foyersFiscauxTouches.avant_to_plf.neutre || 0)
+        + (foyersFiscauxTouches.avant_to_plf.neutre_zero || 0)
+      );
+    const neutreReforme = foyersFiscauxTouches.avant_to_apres
+      && (
+        (foyersFiscauxTouches.avant_to_apres.neutre || 0)
+        + (foyersFiscauxTouches.avant_to_apres.neutre_zero || 0)
+      );
 
-    let neutreZeroPlf: number | null = null;
-    if (montrerPLF) {
-      neutreZeroPlf = get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0);
-    }
-    const neutreZeroReforme = get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0);
+    const neutreZeroPlf = foyersFiscauxTouches.avant_to_plf
+      && (foyersFiscauxTouches.avant_to_plf.neutre_zero || 0);
+    const neutreZeroReforme = foyersFiscauxTouches.avant_to_apres
+      && (foyersFiscauxTouches.avant_to_apres.neutre_zero || 0);
 
-    let haussePlf: number | null = null;
-    if (montrerPLF) {
-      haussePlf = get(foyersFiscauxTouches, "avant_to_plf.perdant", 0)
-          + get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0);
-    }
-    const hausseReforme = get(foyersFiscauxTouches, "avant_to_apres.perdant", 0)
-        + get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0);
+    const haussePlf = foyersFiscauxTouches.avant_to_plf
+      && (
+        (foyersFiscauxTouches.avant_to_plf.perdant || 0)
+        + (foyersFiscauxTouches.avant_to_plf.perdant_zero || 0)
+      );
+    const hausseReforme = foyersFiscauxTouches.avant_to_apres
+      && (
+        (foyersFiscauxTouches.avant_to_apres.perdant || 0)
+        + (foyersFiscauxTouches.avant_to_apres.perdant_zero || 0)
+      );
 
-    let hausseZeroPlf: number | null = null;
-    if (montrerPLF) {
-      hausseZeroPlf = get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0);
-    }
-    const hausseZeroReforme = get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0);
+    const hausseZeroPlf = foyersFiscauxTouches.avant_to_plf
+      && (foyersFiscauxTouches.avant_to_plf.perdant_zero || 0);
+    const hausseZeroReforme = foyersFiscauxTouches.avant_to_apres
+      && (foyersFiscauxTouches.avant_to_apres.perdant_zero || 0);
 
     return (
       <Card
@@ -152,14 +154,14 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
                 amendement={hausseReforme}
                 caption="&nbsp;de foyers entrant dans l&apos;IR"
                 captionAmendement={hausseZeroReforme}
-                captionPlf={hausseZeroPlf ?? undefined}
+                captionPlf={hausseZeroPlf}
                 icon={(
                   <ArrowUpwardIcon
                     classes={{ root: classes.styleIconPerdant }}
                     fontSize="default"
                   />
                 )}
-                plf={haussePlf ?? undefined}
+                plf={haussePlf}
                 title="ayant une augmentation de l&apos;IR"
               />
             )}
@@ -174,7 +176,7 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
                 fontSize="default"
               />
             )}
-            plf={baissePlf ?? undefined}
+            plf={baissePlf}
             title="ayant une baisse de l&apos;IR"
           />
         ) : null}
@@ -184,14 +186,14 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
               amendement={neutreReforme}
               caption="&nbsp;de foyers toujours exonérés d&apos;IR"
               captionAmendement={neutreZeroReforme}
-              captionPlf={neutreZeroPlf ?? undefined}
+              captionPlf={neutreZeroPlf}
               icon={(
                 <TrendingFLatIcon
                   classes={{ root: classes.styleIconNeutre }}
                   fontSize="default"
                 />
               )}
-              plf={neutrePlf ?? undefined}
+              plf={neutrePlf}
               title="non concernés"
             />
             <Typography className={classes.sourceInsee}>

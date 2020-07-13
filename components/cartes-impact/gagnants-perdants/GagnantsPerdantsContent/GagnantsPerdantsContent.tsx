@@ -7,7 +7,7 @@ interface Props {
   icon: JSX.Element;
   title: string;
   plf?: number;
-  amendement: number;
+  amendement?: number;
   caption?: string;
   captionPlf?: number;
   captionAmendement?: number;
@@ -43,17 +43,22 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
               )
               : null
           }
-          <div className={styles.amendement}>
-            <span className={styles.amendementValue}>{inMillions(amendement)}</span>
-            <span className={styles.amendementUnit}> M</span>
-            <GroupIcon
-              className={styles.amendementIcon}
-              fontSize="small"
-            />
-          </div>
+          {
+            typeof amendement === "number"
+              ? (
+                <div className={styles.amendement}>
+                  <span className={styles.amendementValue}>{inMillions(amendement)}</span>
+                  <span className={styles.amendementUnit}> M</span>
+                  <GroupIcon
+                    className={styles.amendementIcon}
+                    fontSize="small"
+                  />
+                </div>
+              ) : null
+          }
         </div>
         {
-          caption && (
+          caption && (typeof amendement === "number" || typeof plf === "number") && (
             <div className={styles.details}>
               dont
               {" "}
@@ -67,8 +72,17 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
                   )
                   : null
               }
-              <span className={styles.detailsAmendementValue}>{inMillions(captionAmendement || 0)}</span>
-              <span className={styles.detailsAmendementUnit}> M</span>
+              {
+                typeof captionAmendement === "number"
+                  ? (
+                    <Fragment>
+                      <span className={styles.detailsAmendementValue}>
+                        {inMillions(captionAmendement)}
+                      </span>
+                      <span className={styles.detailsAmendementUnit}> M</span>
+                    </Fragment>
+                  ) : null
+              }
               {caption}
             </div>
           )
