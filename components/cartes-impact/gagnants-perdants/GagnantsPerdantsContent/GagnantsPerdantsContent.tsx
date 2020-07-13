@@ -13,6 +13,10 @@ interface Props {
   captionAmendement?: number;
 }
 
+function inMillions(n: number): number {
+  return Math.round(n / 100000) / 10;
+}
+
 export class GagnantsPerdantsContent extends PureComponent<Props> {
   render() {
     const {
@@ -29,7 +33,7 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
             typeof plf === "number"
               ? (
                 <div className={styles.plf}>
-                  <span className={styles.plfValue}>{plf}</span>
+                  <span className={styles.plfValue}>{inMillions(plf)}</span>
                   <span className={styles.plfUnit}> M</span>
                   <GroupIcon
                     className={styles.plfIcon}
@@ -40,7 +44,7 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
               : null
           }
           <div className={styles.amendement}>
-            <span className={styles.amendementValue}>{amendement}</span>
+            <span className={styles.amendementValue}>{inMillions(amendement)}</span>
             <span className={styles.amendementUnit}> M</span>
             <GroupIcon
               className={styles.amendementIcon}
@@ -57,13 +61,13 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
                 typeof captionPlf === "number"
                   ? (
                     <Fragment>
-                      <span className={styles.detailsPlfValue}>{captionPlf}</span>
+                      <span className={styles.detailsPlfValue}>{inMillions(captionPlf)}</span>
                       <span className={styles.detailsPlfUnit}> M </span>
                     </Fragment>
                   )
                   : null
               }
-              <span className={styles.detailsAmendementValue}>{captionAmendement}</span>
+              <span className={styles.detailsAmendementValue}>{inMillions(captionAmendement || 0)}</span>
               <span className={styles.detailsAmendementUnit}> M</span>
               {caption}
             </div>

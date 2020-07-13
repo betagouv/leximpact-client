@@ -90,61 +90,37 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
 
     let baissePlf: number | null = null;
     if (montrerPLF) {
-      baissePlf = Math.round(
-        get(foyersFiscauxTouches, "avant_to_plf.gagnant", 0) / 100000,
-      ) / 10;
+      baissePlf = get(foyersFiscauxTouches, "avant_to_plf.gagnant", 0);
     }
-    const baisseReforme = Math.round(
-      get(foyersFiscauxTouches, "avant_to_apres.gagnant", 0) / 100000,
-    ) / 10;
+    const baisseReforme = get(foyersFiscauxTouches, "avant_to_apres.gagnant", 0);
 
     let neutrePlf: number | null = null;
     if (montrerPLF) {
-      neutrePlf = Math.round(
-        (get(foyersFiscauxTouches, "avant_to_plf.neutre", 0)
-          + get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0))
-        / 100000,
-      ) / 10;
+      neutrePlf = get(foyersFiscauxTouches, "avant_to_plf.neutre", 0)
+          + get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0);
     }
-    const neutreReforme = Math.round(
-      (get(foyersFiscauxTouches, "avant_to_apres.neutre", 0)
-        + get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0))
-      / 100000,
-    ) / 10;
+    const neutreReforme = get(foyersFiscauxTouches, "avant_to_apres.neutre", 0)
+        + get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0);
 
     let neutreZeroPlf: number | null = null;
     if (montrerPLF) {
-      neutreZeroPlf = Math.round(
-        get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0) / 100000,
-      ) / 10;
+      neutreZeroPlf = get(foyersFiscauxTouches, "avant_to_plf.neutre_zero", 0);
     }
-    const neutreZeroReforme = Math.round(
-      get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0) / 100000,
-    ) / 10;
+    const neutreZeroReforme = get(foyersFiscauxTouches, "avant_to_apres.neutre_zero", 0);
 
     let haussePlf: number | null = null;
     if (montrerPLF) {
-      haussePlf = Math.round(
-        (get(foyersFiscauxTouches, "avant_to_plf.perdant", 0)
-          + get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0))
-        / 100000,
-      ) / 10;
+      haussePlf = get(foyersFiscauxTouches, "avant_to_plf.perdant", 0)
+          + get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0);
     }
-    const hausseReforme = Math.round(
-      (get(foyersFiscauxTouches, "avant_to_apres.perdant", 0)
-        + get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0))
-      / 100000,
-    ) / 10;
+    const hausseReforme = get(foyersFiscauxTouches, "avant_to_apres.perdant", 0)
+        + get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0);
 
     let hausseZeroPlf: number | null = null;
     if (montrerPLF) {
-      hausseZeroPlf = Math.round(
-        get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0) / 100000,
-      ) / 10;
+      hausseZeroPlf = get(foyersFiscauxTouches, "avant_to_plf.perdant_zero", 0);
     }
-    const hausseZeroReforme = Math.round(
-      get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0) / 100000,
-    ) / 10;
+    const hausseZeroReforme = get(foyersFiscauxTouches, "avant_to_apres.perdant_zero", 0);
 
     return (
       <Card
