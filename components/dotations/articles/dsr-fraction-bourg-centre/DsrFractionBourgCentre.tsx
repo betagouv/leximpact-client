@@ -88,7 +88,17 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         <br />
         Bénéficient également de cette fraction les chefs-lieux d&apos;arrondissement au
-        31 décembre 2014, dont la population est comprise entre 10 000 et 20 000 habitants,
+        31 décembre 2014, dont la population est comprise entre
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popMax" />
+        {" "}
+        et
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popChefLieuMax" />
+        {" "}
+        habitants,
         qui n&apos;entrent pas dans les cas prévus aux 1° et 4° ci-dessus.
         <br />
         <br />
