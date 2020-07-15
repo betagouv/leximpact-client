@@ -50,7 +50,8 @@ function TextePresentationOpenLeximpact({ classes }) {
 
       <p>
         Les paramètres modifiables dans l&apos;Article 197 du
-        &nbsp;<abbr title="Code général des impôts">CGI</abbr>
+        &nbsp;
+        <abbr title="Code général des impôts">CGI</abbr>
         &nbsp;sont :
       </p>
       <ul>
