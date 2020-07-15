@@ -1,3 +1,11 @@
+import {
+  // eslint-disable-next-line no-unused-vars
+  SimulateDotationsFailureAction,
+  // eslint-disable-next-line no-unused-vars
+  SimulateDotationsRequestAction,
+  // eslint-disable-next-line no-unused-vars
+  SimulateDotationsSuccessAction,
+} from "../../../actions";
 // eslint-disable-next-line no-unused-vars
 import { AsyncState, DotationsDiffState } from "../interfaces";
 
@@ -6,8 +14,31 @@ const DEFAULT_STATE: AsyncState<DotationsDiffState> = {
   state: null,
 };
 
+type DotationsAction =
+  SimulateDotationsFailureAction |
+  SimulateDotationsRequestAction |
+  SimulateDotationsSuccessAction;
+
 export function dotations(
-  state: AsyncState<DotationsDiffState> = DEFAULT_STATE,
+  state: AsyncState<DotationsDiffState> = DEFAULT_STATE, action: DotationsAction,
 ): AsyncState<DotationsDiffState> {
-  return state;
+  switch (action.type) {
+  case "SIMULATE_DOTATIONS_FAILURE":
+    return {
+      isFetching: false,
+      state: null,
+    };
+  case "SIMULATE_DOTATIONS_REQUEST":
+    return {
+      isFetching: true,
+      state: null,
+    };
+  case "SIMULATE_DOTATIONS_SUCCESS":
+    return {
+      isFetching: false,
+      state: action.dotations.baseToPlf,
+    };
+  default:
+    return state;
+  }
 }

@@ -28,13 +28,59 @@ function simulateDotationsFailure(error: any): SimulateDotationsFailureAction {
   };
 }
 
-export interface SimulateDotationsSuccessAction {
-  type: "SIMULATE_DOTATIONS_SUCCESS",
-  dotations: any,
+interface ResponseBody {
+  amendement: {
+    communes: {
+      dsr: {
+        eligibles: number;
+        strates: {
+          // Borne supérieure de la strate
+          habitants: number;
+          // Représentation de la strate dans la population totale
+          partPopTotale: number;
+          // Potentiel financier moyen par habitant
+          potentielFinancierMoyenParHab: number;
+          // Nombre de communes éligibles
+          eligibles: number;
+          // Dotation moyenne par habitant
+          dotationMoyenneParHab: number;
+          // Part des dotations accordées à cette strate dans la dotation totale.
+          partDotationTotale: number;
+        }[],
+        communes: {
+          code: string; // OR id, I'm ok with both.
+          eligible: boolean;
+          dotationParHab: number;
+        }[]
+      }
+    }
+  }
+  base: ResponseBody["amendement"]
+  plf: ResponseBody["amendement"]
+  baseToPlf: {
+    communes: {
+      dsr: {
+        nouvellementEligibles: number;
+        plusEligibles: number;
+      }
+    }
+  }
+  plfToAmendement: {
+    communes: {
+      dsr: {
+        nouvellementEligibles: number;
+        plusEligibles: number;
+      }
+    }
+  }
 }
 
-// TODO: use the proper type
-function simulateDotationsSuccess(dotations: any): SimulateDotationsSuccessAction {
+export interface SimulateDotationsSuccessAction {
+  type: "SIMULATE_DOTATIONS_SUCCESS",
+  dotations: ResponseBody,
+}
+
+function simulateDotationsSuccess(dotations: ResponseBody): SimulateDotationsSuccessAction {
   return {
     dotations,
     type: "SIMULATE_DOTATIONS_SUCCESS",
@@ -76,7 +122,6 @@ export const simulateDotations = () => (dispatch, getState) => {
 
   return request
     .post("/dotations", body)
-    // TODO: handle result
     .then(payload => dispatch(simulateDotationsSuccess(payload)))
     .catch(err => dispatch(simulateDotationsFailure(err)));
 };
