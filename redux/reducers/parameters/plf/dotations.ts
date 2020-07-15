@@ -37,8 +37,8 @@ export const PLF_DOTATIONS_DEFAULT_STATE: DotationsState = {
           popLimite: 10000,
           effortFiscalLimite: 1.2,
           coefMultiplicateurRevitalisationRurale: 1.3,
-          pourcentageAttributionMin: 90,
-          pourcentageAttributionMax: 120,
+          // pourcentageAttributionMin: 90,
+          // pourcentageAttributionMax: 120,
           // plafonnementPopulation: {
           //   500: 100,
           //   1000: 500,
@@ -58,8 +58,8 @@ export const PLF_DOTATIONS_DEFAULT_STATE: DotationsState = {
             ponderationNbreEnfants: 30,
             ponderationPotentielFinancierParHectare: 10,
           },
-          pourcentageAttributionMin: 90,
-          pourcentageAttributionMax: 120,
+          // pourcentageAttributionMin: 90,
+          // pourcentageAttributionMax: 120,
         },
       },
       // Article L2334-22-1 du CGCT

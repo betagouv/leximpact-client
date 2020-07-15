@@ -32,8 +32,8 @@ export interface DotationsState {
           popLimite: number;
           effortFiscalLimite: number;
           coefMultiplicateurRevitalisationRurale: number;
-          pourcentageAttributionMin: number;
-          pourcentageAttributionMax: number;
+          // pourcentageAttributionMin: number;
+          // pourcentageAttributionMax: number;
           // plafonnementPopulation: {
           //   [recensement: number]: number;
           // }
@@ -51,8 +51,8 @@ export interface DotationsState {
             ponderationNbreEnfants: number;
             ponderationPotentielFinancierParHectare: number;
           }
-          pourcentageAttributionMin: number;
-          pourcentageAttributionMax: number;
+          // pourcentageAttributionMin: number;
+          // pourcentageAttributionMax: number;
         }
       }
       // Article L2334-22-1 du CGCT

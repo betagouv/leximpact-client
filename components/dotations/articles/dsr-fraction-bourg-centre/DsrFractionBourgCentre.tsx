@@ -164,23 +164,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         <br />
         A compter de 2012, l&apos;attribution d&apos;une commune éligible ne peut être ni
-        inférieure à
-        {" "}
-        <StateParameter
-          editable
-          amendementInputSize="small"
-          path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMin"
-        />
-        {" "}
-        % ni supérieure à
-        {" "}
-        <StateParameter
-          editable
-          amendementInputSize="small"
-          path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMax"
-        />
-        {" "}
-        % du montant perçu l&apos;année précédente.
+        inférieure à 90 % ni supérieure à 120 % du montant perçu l&apos;année précédente.
         <br />
         <br />
         Pour l&apos;application du présent article, les limites territoriales des cantons sont
