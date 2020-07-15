@@ -26,7 +26,7 @@ function withTooltip(
 interface Props {
   amendementInputSize?: "small"|"xl"|null;
   amendementTitle?: string|JSX.Element|null;
-  amendementValue: number;
+  amendementValue?: number;
   baseValue?: number|null;
   editable?: boolean,
   onAmendementChange?: (value: number) => void,
@@ -46,17 +46,13 @@ export class Parameter extends PureComponent<Props> {
       <span className={styles.noOverflow}>
         {
           baseValue !== null && baseValue !== undefined && !equal
-          && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
+          && <span className={classNames({
+            [styles.baseValue]: true,
+            [styles.crossedOut]: amendementValue !== undefined
+          })}>{formatNumber(baseValue)}</span>
         }
         {
-          plfValue !== null && plfValue !== undefined && withTooltip(
-            PlfTooltip,
-            plfTitle,
-            <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
-          )
-        }
-        {
-          withTooltip(ReformTooltip, amendementTitle, editable
+          amendementValue !== undefined && withTooltip(ReformTooltip, amendementTitle, editable
             ? (
               <NumberInput
                 className={classNames({
@@ -77,6 +73,13 @@ export class Parameter extends PureComponent<Props> {
                 {formatNumber(amendementValue)}
               </span>
             ))
+        }
+        {
+          plfValue !== null && plfValue !== undefined && withTooltip(
+            PlfTooltip,
+            plfTitle,
+            <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
+          )
         }
       </span>
     );
