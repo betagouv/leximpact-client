@@ -100,23 +100,7 @@ export class DsrFractionPerequation extends PureComponent {
         <br />
         <br />
         A compter de 2012, l&apos;attribution au titre de cette fraction d&apos;une commune
-        éligible ne peut être ni inférieure à
-        {" "}
-        <StateParameter
-          editable
-          amendementInputSize="small"
-          path="dotations.communes.dsr.perequation.attribution.pourcentageAttributionMin"
-        />
-        {" "}
-        % ni supérieure à
-        {" "}
-        <StateParameter
-          editable
-          amendementInputSize="small"
-          path="dotations.communes.dsr.perequation.attribution.pourcentageAttributionMax"
-        />
-        {" "}
-        % du montant perçu
+        éligible ne peut être ni inférieure à 90 % ni supérieure à 120 % du montant perçu
         l&apos;année précédente.
       </Fragment>
     );

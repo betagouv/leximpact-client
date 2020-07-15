@@ -9,13 +9,17 @@ export class DsrEligibilite extends PureComponent {
     return (
       <Fragment>
         La dotation de solidarité rurale est attribuée aux communes de moins de
+        {" "}
         <StateParameter
           editable
           path="dotations.communes.dsr.eligibilite.popMax" />
+        {" "}
         habitants et à certains chefs-lieux d&apos;arrondissement de moins de
+        {" "}
         <StateParameter
           editable
           path="dotations.communes.dsr.eligibilite.popChefLieuMax" />
+        {" "}
         habitants
         {" "}
         <ExpandableText>
