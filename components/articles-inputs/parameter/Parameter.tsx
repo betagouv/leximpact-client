@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
@@ -7,8 +6,10 @@ import { formatNumber } from "../../utils";
 import { NumberInput } from "./number-input";
 import styles from "./Parameter.module.scss";
 
-function withTooltip(Tooltip, title, element) {
-  if (title === null || title === undefined) {
+function withTooltip(
+  Tooltip: any, title: string|JSX.Element|undefined|null, element: JSX.Element
+): JSX.Element {
+  if (title == null || title === undefined) {
     return element;
   }
 
@@ -21,22 +22,34 @@ function withTooltip(Tooltip, title, element) {
   );
 }
 
-class Parameter extends PureComponent {
+/* The |null are added because we have JS files using this component. */
+interface Props {
+  amendementInputSize?: "small"|"xl"|null;
+  amendementTitle?: string|JSX.Element|null;
+  amendementValue: number;
+  baseValue?: number|null;
+  editable?: boolean,
+  onAmendementChange?: (value: number) => void,
+  plfTitle?: string|JSX.Element|null;
+  plfValue?: number|null;
+}
+
+export class Parameter extends PureComponent<Props> {
   render() {
     const {
       amendementInputSize, amendementTitle, amendementValue, baseValue,
       editable, onAmendementChange, plfTitle, plfValue,
     } = this.props;
     const equal = baseValue === amendementValue;
-
+  
     return (
       <span className={styles.noOverflow}>
         {
-          baseValue !== null && !equal
+          baseValue !== null && baseValue !== undefined && !equal
           && <span className={styles.baseValue}>{formatNumber(baseValue)}</span>
         }
         {
-          plfValue !== null && withTooltip(
+          plfValue !== null && plfValue !== undefined && withTooltip(
             PlfTooltip,
             plfTitle,
             <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
@@ -54,7 +67,7 @@ class Parameter extends PureComponent {
                   [styles.xlInput]: amendementInputSize === "xl",
                 })}
                 value={amendementValue}
-                onChange={onAmendementChange} />
+                onChange={onAmendementChange || (() => {})} />
             )
             : (
               <span className={classNames({
@@ -69,32 +82,3 @@ class Parameter extends PureComponent {
     );
   }
 }
-
-Parameter.defaultProps = {
-  amendementInputSize: "large",
-  amendementTitle: null,
-  baseValue: null,
-  editable: false,
-  onAmendementChange: () => { },
-  plfTitle: null,
-  plfValue: null,
-};
-
-Parameter.propTypes = {
-  amendementInputSize: PropTypes.oneOf(["small", "large", "xl"]),
-  amendementTitle: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  amendementValue: PropTypes.number.isRequired,
-  baseValue: PropTypes.number,
-  editable: PropTypes.bool,
-  onAmendementChange: PropTypes.func,
-  plfTitle: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  plfValue: PropTypes.number,
-};
-
-export { Parameter };
