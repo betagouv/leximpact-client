@@ -1,5 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import { ResetAmendementToBaseAction } from "../../../types/parameters";
+import { ParametersState } from "../../reducers/parameters";
+
+export interface ResetAmendementToBaseAction {
+  type: "RESET_AMENDEMENT_TO_BASE",
+  topic: keyof ParametersState,
+}
 
 export function resetAmendementToBase(topic: ResetAmendementToBaseAction["topic"]): ResetAmendementToBaseAction {
   return {

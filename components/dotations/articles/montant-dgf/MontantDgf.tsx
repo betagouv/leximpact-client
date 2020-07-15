@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { NumberInput } from "../../../articles-inputs/parameter/number-input";
+import { StateParameter } from "../../../articles-inputs/parameter";
 import { ExpandableText } from "../../../expandable-panels";
 
 export class MontantDgf extends PureComponent {
@@ -50,7 +50,10 @@ export class MontantDgf extends PureComponent {
         <br />
         En 2020, ce montant est égal à
         {" "}
-        <NumberInput value={26846874416} onChange={() => {}} />
+        <StateParameter
+          editable
+          amendementInputSize="xl"
+          path="dotations.montants.dgf" />
         {" "}
         €.
       </Fragment>

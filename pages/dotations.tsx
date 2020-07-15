@@ -3,14 +3,26 @@ import { flow } from "lodash";
 import Head from "next/head";
 import { withRouter } from "next/router";
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
 import { Articles, Results } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
 import SimulationPage from "../components/simulation-page";
 import withRoot from "../lib/withRoot";
+import { simulateDotations } from "../redux/actions";
 
-class IndexPage extends PureComponent {
+const mapDispatchToProps = dispatch => ({
+  simulate: () => dispatch(simulateDotations()),
+});
+
+const connector = connect(null, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+class DotationPage extends PureComponent<PropsFromRedux> {
   render() {
+    const { simulate } = this.props;
     return (
       <Fragment>
         <Head>
@@ -24,7 +36,7 @@ class IndexPage extends PureComponent {
               icon: <HomeIcon />,
               mobileCaption: "Estimer",
               mobileIcon: <HomeIcon />,
-              onClick: () => {},
+              onClick: simulate,
             },
           ]}
           results={<Results />}
@@ -44,4 +56,5 @@ class IndexPage extends PureComponent {
 export default flow(
   withRouter,
   withRoot,
-)(IndexPage);
+  connector,
+)(DotationPage);
