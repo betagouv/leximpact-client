@@ -3,6 +3,7 @@ export interface DotationsDiffState {
     dsr: {
       nouvellementEligibles: number;
       plusEligibles: number;
+      toujoursEligibles: number;
     }
   }
 }

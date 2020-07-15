@@ -62,6 +62,7 @@ interface ResponseBody {
       dsr: {
         nouvellementEligibles: number;
         plusEligibles: number;
+        toujoursEligibles: number;
       }
     }
   }
@@ -70,6 +71,7 @@ interface ResponseBody {
       dsr: {
         nouvellementEligibles: number;
         plusEligibles: number;
+        toujoursEligibles: number;
       }
     }
   }

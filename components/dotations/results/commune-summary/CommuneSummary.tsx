@@ -6,24 +6,35 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { PureComponent } from "react";
 
-import { Parameter } from "../../../articles-inputs";
 import { Card } from "../../../card";
 import styles from "./CommuneSummary.module.scss";
+import { ResultValues } from "../../../articles-inputs/parameter";
+import { RootState } from "../../../../redux/reducers";
+import { ConnectedProps, connect } from "react-redux";
 
-export class CommuneSummary extends PureComponent {
+const mapStateToProps = ({ results }: RootState) => ({
+  nouvellementEligibles: results.plfToAmendement.dotations.state?.communes.dsr.nouvellementEligibles,
+  plusEligibles: results.plfToAmendement.dotations.state?.communes.dsr.plusEligibles,
+  toujoursEligibles: results.plfToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
+})
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {}
+
+class CommuneSummary extends PureComponent<Props> {
   render() {
-    const nouvellementEligibles = 22;
-    const plusEligibles = 133;
-    const toujoursEligibles = 2687;
+    const { nouvellementEligibles, plusEligibles, toujoursEligibles } = this.props;
     return (
       <Card
         content1={(
           <div>
             <div className={styles.total}>
-              <Parameter
-                amendementValue={4887}
-                baseValue={5000}
-                editable={false} />
+              <ResultValues
+                path="dotations.state.communes.dsr.eligibles"
+              />
             </div>
             <div className={styles.nouvellementEligible}>
               <ArrowUpwardIcon
@@ -73,3 +84,7 @@ export class CommuneSummary extends PureComponent {
     );
   }
 }
+
+const ConnectedCommuneSummary = connector(CommuneSummary);
+
+export { ConnectedCommuneSummary as CommuneSummary };
