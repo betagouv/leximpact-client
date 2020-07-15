@@ -9,7 +9,7 @@ import results from "./results";
 import token from "./token";
 import totalPop from "./total-pop";
 
-export default combineReducers({
+const rootReducer = combineReducers({
   casTypes,
   disabledEtat,
   display,
@@ -19,3 +19,7 @@ export default combineReducers({
   token,
   totalPop,
 });
+
+export default rootReducer;
+
+export type RootState = ReturnType<typeof rootReducer>;

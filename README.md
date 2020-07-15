@@ -29,7 +29,64 @@ LexImpact has two components:
 - [leximpact-server](https://github.com/betagouv/leximpact-server/): a Python application using [OpenFisca-France](https://github.com/openfisca/openfisca-france) and providing a Web API responding to requests on the impact of a change of the tax law,
 - Here, [leximpact-client](https://github.com/betagouv/leximpact-client/): a web interface interacting with leximpact-server API and providing to the users a web site to set law tax changes and see the results calculated by the API.
 
-# How to use
+## Organisation de l'état redux
+
+L'état redux est en cours de re-factorisation. Voici la manière dont il se présentera à terme:
+
+```bash
+- parameters # Paramètres de loi modifiables (panneau latéral de gauche)
+  - amendement # Valeurs modifiées par l'utilisateur
+    - ir
+    - dotations
+  - base # Valeurs présentes dans le code en vigueur
+    - ir
+    - dotations
+  - plf # Valeurs proposées par le Projet de Loi des Finances
+    - ir
+    - dotations
+  - interfaces # Descriptions des états (identiques dans amendement, base et plf)
+    - ir
+    - dotations
+- results # Résultats de la simulation
+  - amendement # Résultats correspondant aux valeurs modifiées par l'utilisateur
+    - ir
+    - dotations
+  - base # Résultats correspondant aux valeurs du code en vigueur
+    - ir
+    - dotations
+  - plf # Résultats correspondant aux valeurs proposées par le Projet de Loi des Finances
+    - ir
+    - dotations
+  - baseToPlf # Résultats comparant le PLF avec le code existant
+    - ir
+    - dotations
+  - plfToAmendement  # Résultats comparant le PLF avec les valeurs proposées par l'utilisateur
+    - ir
+    - dotations
+  - interfaces # Descriptions des états (identiques dans amendement, base et plf)
+    - ir
+    - dotations
+- descriptions # Autres paramètres de la simulation qui ne sont pas des paramètres de la loi.
+  - ir
+    - casTypes
+  - dotations
+    - communesTypes
+- auth # Elements d'authentification
+- display # Element d'affichage (l'affichage d'un message d'information est géré dans cette section)
+  - ir
+  - dotations
+```
+
+Les données asynchrones (comme les résultats de la simulation) sont décrites par cette interface:
+
+```typescript
+export interface AsyncItems<T> {
+  isFetching: boolean;
+  items: T;
+}
+```
+
+## How to use
 
 To install and launch the client in developer mode, run the following commands:
 
