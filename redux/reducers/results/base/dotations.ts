@@ -17,9 +17,6 @@ const DEFAULT_STATE: AsyncState<DotationsState> = {
         eligibles: 10000,
         strates: [
           {
-            habitants: 500,
-            partPopTotale: 700,
-            potentielFinancierMoyenParHab: 55,
             eligibles: 22,
             dotationMoyenneParHab: 56,
             partDotationTotale: 22,
