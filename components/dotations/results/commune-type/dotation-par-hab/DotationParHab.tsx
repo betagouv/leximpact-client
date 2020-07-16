@@ -1,17 +1,20 @@
 import { PureComponent } from "react";
 
 import styles from "./DotationParHab.module.scss";
+import { ResultValues } from "../../../../articles-inputs/parameter";
 
 interface Props {
-  dotationParHab: number;
+  index: number;
 }
 
 export class DotationParHab extends PureComponent<Props> {
   render() {
-    const { dotationParHab } = this.props;
+    const { index } = this.props;
     return (
       <div className={styles.text}>
-        {dotationParHab}
+        <ResultValues 
+          path={`dotations.state.communes.dsr.communes.${index}.dotationParHab`}
+        />
         <span> €/hab</span>
       </div>
     );

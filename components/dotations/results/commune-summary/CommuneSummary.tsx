@@ -67,18 +67,18 @@ class CommuneSummary extends PureComponent<Props> {
             </div>
           </div>
         )}
-        content2={(
-          <ExpansionPanel className={styles.expansionPanel}>
-            <ExpansionPanelSummary
-              className={styles.expansionPanelTitle}
-              expandIcon={<ExpandMoreIcon />}>
-                Détails de la répartition par fraction
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              Détails
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        )}
+        // content2={(
+        //   <ExpansionPanel className={styles.expansionPanel}>
+        //     <ExpansionPanelSummary
+        //       className={styles.expansionPanelTitle}
+        //       expandIcon={<ExpandMoreIcon />}>
+        //         Détails de la répartition par fraction
+        //     </ExpansionPanelSummary>
+        //     <ExpansionPanelDetails>
+        //       Détails
+        //     </ExpansionPanelDetails>
+        //   </ExpansionPanel>
+        // )}
         title="Nombre de communes éligibles"
       />
     );

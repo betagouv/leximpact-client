@@ -4,9 +4,9 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../redux/reducers";
 import { Parameter } from "./Parameter";
-import { getResultValues } from "../../../redux/utils";
+import { getResultNumberValues } from "../../../redux/utils";
 
-const mapStateToProps = ({ results }: RootState, { path }) => getResultValues(results, path);
+const mapStateToProps = ({ results }: RootState, { path }) => getResultNumberValues(results, path);
 
 const connector = connect(mapStateToProps);
 
