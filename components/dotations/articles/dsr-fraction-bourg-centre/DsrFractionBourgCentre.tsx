@@ -88,7 +88,17 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         <br />
         Bénéficient également de cette fraction les chefs-lieux d&apos;arrondissement au
-        31 décembre 2014, dont la population est comprise entre 10 000 et 20 000 habitants,
+        31 décembre 2014, dont la population est comprise entre
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popMax" />
+        {" "}
+        et
+        {" "}
+        <StateParameter
+          path="dotations.communes.dsr.eligibilite.popChefLieuMax" />
+        {" "}
+        habitants,
         qui n&apos;entrent pas dans les cas prévus aux 1° et 4° ci-dessus.
         <br />
         <br />
@@ -154,23 +164,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         <br />
         A compter de 2012, l&apos;attribution d&apos;une commune éligible ne peut être ni
-        inférieure à
-        {" "}
-        <StateParameter
-          editable
-          amendementInputSize="small"
-          path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMin"
-        />
-        {" "}
-        % ni supérieure à
-        {" "}
-        <StateParameter
-          editable
-          amendementInputSize="small"
-          path="dotations.communes.dsr.bourgCentre.attribution.pourcentageAttributionMax"
-        />
-        {" "}
-        % du montant perçu l&apos;année précédente.
+        inférieure à 90 % ni supérieure à 120 % du montant perçu l&apos;année précédente.
         <br />
         <br />
         Pour l&apos;application du présent article, les limites territoriales des cantons sont

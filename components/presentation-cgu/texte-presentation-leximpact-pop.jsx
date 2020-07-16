@@ -67,8 +67,9 @@ function TextePresentationLeximpactPop({ classes }) {
 
       <p>
         Les paramètres modifiables dans l&apos;Article 197 du
+        &nbsp;
         <abbr title="Code général des impôts">CGI</abbr>
-        sont :
+        &nbsp;sont :
       </p>
       <ul>
         <li>le barème de l&apos;impôt sur le revenu,</li>

@@ -46,14 +46,14 @@ function convertRates(dotations: DotationsState): DotationsState {
   const paths: string[] = [
     "communes.dsr.bourgCentre.eligibilite.partPopCantonMin",
     "communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.partPopDepartementMin",
-    "communes.dsr.bourgCentre.attribution.pourcentageAttributionMin",
-    "communes.dsr.bourgCentre.attribution.pourcentageAttributionMax",
+    // "communes.dsr.bourgCentre.attribution.pourcentageAttributionMin",
+    // "communes.dsr.bourgCentre.attribution.pourcentageAttributionMax",
     "communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancier",
     "communes.dsr.perequation.attribution.repartition.ponderationLongueurVoirie",
     "communes.dsr.perequation.attribution.repartition.ponderationNbreEnfants",
     "communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancierParHectare",
-    "communes.dsr.perequation.attribution.pourcentageAttributionMin",
-    "communes.dsr.perequation.attribution.pourcentageAttributionMax",
+    // "communes.dsr.perequation.attribution.pourcentageAttributionMin",
+    // "communes.dsr.perequation.attribution.pourcentageAttributionMax",
     "communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier",
     "communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu",
   ];
