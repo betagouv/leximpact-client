@@ -1,4 +1,4 @@
-const formatNumber = number => number
+const formatNumber = (number: number): string => number
   .toString()
   .replace(".", ",")
   // https://stackoverflow.com/a/32013016/3942056

@@ -14,28 +14,33 @@ class BarChart extends PureComponent {
       return { ...acc, [keycols[index]]: value };
     };
 
+    const result = [];
+
     const accResAvant = { color: "#ded500", id: "  " };
     const resavant = deciles
       .map(element => element.avant)
       .reduce(reduceValues, accResAvant);
+    result.push(resavant);
 
-    const accResApres = { color: "#00a3ff", id: "" };
-    const resapres = deciles
-      .map(element => element.apres)
-      .reduce(reduceValues, accResApres);
-
-    const montrerPLF = !deciles.find(element => typeof element.plf !== "number");
-
-    if (!montrerPLF) {
-      return [resapres, resavant];
+    const showPLF = !deciles.find(element => typeof element.plf !== "number");
+    if (showPLF) {
+      const accResPLF = { color: "#ff6b6b", id: " " };
+      const resplf = deciles
+        .map(element => element.plf)
+        .reduce(reduceValues, accResPLF);
+      result.push(resplf);
     }
 
-    const accResPLF = { color: "#ff6b6b", id: " " };
-    const resplf = deciles
-      .map(element => element.plf)
-      .reduce(reduceValues, accResPLF);
+    const showAmendement = !deciles.find(element => typeof element.apres !== "number");
+    if (showAmendement) {
+      const accResApres = { color: "#00a3ff", id: "" };
+      const resapres = deciles
+        .map(element => element.apres)
+        .reduce(reduceValues, accResApres);
+      result.push(resapres);
+    }
 
-    return [resapres, resplf, resavant];
+    return result;
   };
 
   render() {
@@ -163,7 +168,7 @@ class BarChart extends PureComponent {
 BarChart.propTypes = {
   deciles: PropTypes.arrayOf(
     PropTypes.shape({
-      apres: PropTypes.number.isRequired,
+      apres: PropTypes.number,
       avant: PropTypes.number.isRequired,
       plf: PropTypes.number,
       poids: PropTypes.number.isRequired,

@@ -12,8 +12,8 @@ interface Props {
   onClose?: () => void;
   onEdit?: () => void;
   content1: JSX.Element;
-  content2?: JSX.Element;
-  content3?: JSX.Element;
+  content2?: JSX.Element | null;
+  content3?: JSX.Element | null;
 }
 
 export class Card extends PureComponent<Props> {
