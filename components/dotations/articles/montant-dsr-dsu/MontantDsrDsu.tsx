@@ -1,35 +1,65 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
 
 export class MontantDsrDsu extends PureComponent {
   render() {
     // Article L2334-1 du CGCT
     return (
       <Fragment>
-        Une dotation globale de fonctionnement est instituée en faveur des communes
-        et de certains de leurs groupements. Elle se compose d&apos;une dotation
-        forfaitaire et d&apos;une dotation d&apos;aménagement.
+        <ExpandablePanelSubTitle subTitle="Article 194 - I. § 2 à 4" 
+        title="Définition de la dotation d'aménagement et des enveloppes dédiées à la DSR et à la DSU" />
+        <ExpandableText caption="Il est institué une dotation d&apos;aménagement qui regroupe">
+        Il est institué une dotation d&apos;aménagement qui regroupe une dotation au bénéfice 
+        des groupements de communes, une dotation nationale de péréquation, une dotation de 
+        solidarité urbaine et de cohésion sociale, une dotation de solidarité rurale, 
+        une dotation d&apos;amorçage en faveur des communes nouvelles et une dotation de compétences intercommunales.
+        Le montant de la dotation d&apos;aménagement est égal à la différence entre l&apos;ensemble des ressources affectées 
+        à la dotation globale de fonctionnement des communes et l&apos;ensemble formé par la dotation forfaitaire prévue à 
+        l&apos;article L. 2334-7 et la dotation forfaitaire des communes nouvelles prévue à l&apos;article L. 2113-20.
         <br />
         <br />
-        Le montant de la dotation globale de fonctionnement mentionnée au premier alinéa
-        est égal à la différence entre le montant de la dotation prévue à l&apos;article
-        L. 1613-1 et le montant des dotations prévues aux articles L. 3334-1 et L. 4332-4.
-        <br />
-        <br />
-        <ExpandableText
-          caption="... Voir les paragraphes de la loi désormais caducs"
-        >
-          Pour chacune des années 2005 à 2009, la progression de la dotation globale de
-          fonctionnement des communes et de leurs groupements est affectée en priorité,
-          à concurrence de 120 millions d&apos;euros, à la dotation de solidarité urbaine
-          et de cohésion sociale prévue à l&apos;article L. 2334-15. Si, pour chacune des
-          années 2005 à 2009, le montant de l&apos;accroissement de la dotation globale de
-          fonctionnement des communes et de certains de leurs groupements est inférieur à
-          500 millions d&apos;euros, l&apos;affectation prévue à la phrase précédente est
-          limitée à 24 % de l&apos;accroissement constaté. Pour 2009 et pour 2010, et à
-          titre dérogatoire, elle s&apos;établit au minimum à 70 millions d&apos;euros.
+        Après prélèvement de la dotation d&apos;intercommunalité prévue aux articles L. 5211-28 et
+         L. 5842-8, de la dotation de compensation prévue à l&apos;article L. 5211-28-1, 
+         de la quote-part destinée aux communes d&apos;outre-mer prévue à l&apos;article L. 2334-23-1, 
+         de la dotation d&apos;amorçage en faveur des communes nouvelles et de la dotation 
+         de compétences intercommunales, le solde de la dotation d&apos;aménagement est réparti 
+         entre la dotation nationale de péréquation, la dotation de solidarité urbaine 
+         et de cohésion sociale, la dotation de solidarité rurale et la dotation nationale de péréquation.
         </ExpandableText>
+        <br />
+        <br />
+        <ExpandablePanelSubTitle subTitle="Article 194 - I. § 2 à 4" 
+        title="Variation annuelle de la DSR et de la DSU" />
+         <ExpandableText caption="À compter de 2004, la variation annuelle du solde de la dotation d&apos;aménagement est répartie par le comité des finances locales">
+        À compter de 2004, la variation annuelle du solde de la dotation d&apos;aménagement
+        est répartie par le comité des finances locales entre la dotation nationale de péréquation, 
+        la dotation de solidarité urbaine et de cohésion sociale et la dotation de solidarité rurale, 
+        ainsi qu&apos;entre les différentes parts ou fractions de ces dotations, quand elles existent.
+        </ExpandableText>
+        <br />
+        <br />
+        En 2020, les montants mis en répartition au titre de la dotation de solidarité urbaine 
+        et de cohésion sociale et de la dotation de solidarité rurale augmentent au moins de 
+        90 millions d&apos;euros chacun par rapport aux montants mis en répartition en 2019. 
+        Cette augmentation est financée par les minorations prévues à l'article L. 2334-7-1.
+        <br />
+        <br />
+        BOUTON Ajouter une majoration DSR/DSU en 2021
+        <br />
+        <br />
+        BOUTON Ajouter une minoration DSR/DSU en 2021
+        <br />
+        <br />
+        <ExpandableText caption="À compter de 2012, [paragraphe caduc]">
+        À compter de 2012,le montant mis en répartition au titre de la dotation nationale de péréquation
+        est au moins égal à celui mis en répartition l&apos;année précédente.
+        </ExpandableText>
+        <br />
+        <br />
+        Le comité des finances locales peut majorer le montant des dotations mentionnées 
+        au présent article, en compensant les majorations correspondantes dans 
+        les conditions prévues à l'article L. 2334-7-1.
 
       </Fragment>
     );
