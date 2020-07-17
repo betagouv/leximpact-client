@@ -28,6 +28,11 @@ export class Articles extends PureComponent {
               title="Montant de la DGF communes">
               <MontantDgfCommunes />
             </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-13"
+              title="Montants de la DSR et de la DSU">
+              <MontantDgfCommunes />
+            </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
             title="Dotation de solidarité rurale">
