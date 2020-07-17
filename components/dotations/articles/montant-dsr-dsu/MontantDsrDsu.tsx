@@ -2,7 +2,7 @@ import { Fragment, PureComponent } from "react";
 
 import { ExpandableText } from "../../../expandable-panels";
 
-export class MontantDgfCommunes extends PureComponent {
+export class MontantDsrDsu extends PureComponent {
   render() {
     // Article L2334-1 du CGCT
     return (

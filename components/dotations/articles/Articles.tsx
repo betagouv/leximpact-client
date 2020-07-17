@@ -30,7 +30,7 @@ export class Articles extends PureComponent {
               <MontantDgfCommunes />
             </SecondaryExpandablePanel>
             <SecondaryExpandablePanel
-              subTitle="Article L2334-13"
+              subTitle="Article L2334-13 du CGCT"
               title="Montants de la DSR et de la DSU">
               <MontantDsrDSu />
             </SecondaryExpandablePanel>
