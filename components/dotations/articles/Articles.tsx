@@ -8,6 +8,7 @@ import { DsrFractionPerequation } from "./dsr-fraction-perequation";
 import { MontantDgf } from "./montant-dgf";
 import { MontantDgfCommunes } from "./montant-dgf-communes";
 import { MontantDsrDsu } from "./montant-dsr-dsu";
+import { DsuEligibilite } from "./dsu-eligibilite";
 
 export class Articles extends PureComponent {
   render() {
@@ -56,6 +57,14 @@ export class Articles extends PureComponent {
               subTitle="Article L2334-22-1"
               title="Fraction &quot;cible&quot;">
               <DsrFractionCible />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            title="Dotation de solidarité urbaine">
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-16 du CGCT"
+              title="Périmètre général d'éligibilité">
+              <DsuEligibilite />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
         </div>
