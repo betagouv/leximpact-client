@@ -7,7 +7,7 @@ import { DsrFractionCible } from "./dsr-fraction-cible";
 import { DsrFractionPerequation } from "./dsr-fraction-perequation";
 import { MontantDgf } from "./montant-dgf";
 import { MontantDgfCommunes } from "./montant-dgf-communes";
-import { MontantDsrDSu } from "./montant-dsr-dsu";
+import { MontantDsrDsu } from "./montant-dsr-dsu";
 
 export class Articles extends PureComponent {
   render() {
@@ -31,8 +31,8 @@ export class Articles extends PureComponent {
             </SecondaryExpandablePanel>
             <SecondaryExpandablePanel
               subTitle="Article L2334-13 du CGCT"
-              title="Montants de la DSR et de la DSU">
-              <MontantDsrDSu />
+              title="Montants de la dotation de solidarité rurale (DSR) et de la dotation de solidarité urbaine (DSU)">
+              <MontantDsrDsu />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
