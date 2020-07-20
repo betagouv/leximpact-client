@@ -88,6 +88,30 @@ export class DsuIndice extends PureComponent {
         <br />
         <br />
         Le revenu pris en considération pour l'application du 4° est le dernier revenu imposable connu.
+        <br />
+        <br />
+        <ExpandablePanelSubTitle subTitle="§ 9 à 11" 
+        title="Calcul de l'indice synthétique" />
+        L'indice synthétique de ressources et de charges est obtenu par addition des 
+        rapports visés aux 1°, 2°, 3° et 4°, 
+        <br />
+        en pondérant le premier par 45 %,
+        <br />
+        le deuxième par 15 %, 
+        <br />
+         le troisième par 30 %  
+        <br />
+        et le quatrième par 10 %.   
+        <br />
+        <br />
+        Toutefois, chacun des pourcentages de pondération peut être majoré ou 
+        minoré pour l'ensemble des communes bénéficiaires d'au plus [cinq] 5 points 
+        dans des conditions fixées par un décret en Conseil d'État.
+        <br />
+        <br />
+        Les communes sont classées en fonction de la valeur décroissante 
+        de leur indice synthétique.
+
 
       </Fragment>
     );
