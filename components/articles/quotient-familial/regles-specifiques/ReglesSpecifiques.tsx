@@ -33,43 +33,53 @@ export class ReglesSpecifiques extends PureComponent {
         <br />
         <br />
         a)
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.zeroChargePrincipale.deuxPremiers"
         />
+        {" "}
         part pour chacun des deux premiers et
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.zeroChargePrincipale.suivants"
         />
+        {" "}
         part à compter du troisième, lorsque par ailleurs le contribuable n&apos;assume la charge
         exclusive ou principale d&apos;aucun enfant ;
         <br />
         <br />
         b)
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.unChargePrincipale.premier"
         />
+        {" "}
         part pour le premier et
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.unChargePrincipale.suivants"
         />
+        {" "}
         part à compter du deuxième, lorsque par ailleurs le contribuable assume la charge exclusive
         ou principale d&apos;un enfant ;
         <br />
         <br />
         c)
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.deuxOuPlusChargePrincipale.suivants"
         />
+        {" "}
         part pour chacun des enfants, lorsque par ailleurs le contribuable assume la charge
         exclusive ou principale d&apos;au moins deux enfants.
         <br />
@@ -84,25 +94,31 @@ export class ReglesSpecifiques extends PureComponent {
         <ExpandablePanelSubTitle subTitle="Article 194 - II." title="Parent isolé" />
         II. Pour l&apos;imposition des contribuables célibataires ou divorcés qui vivent seuls,
         le nombre de parts prévu au I est augmenté de
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.bonusParentIsole.auMoinsUnChargePrincipale"
         />
+        {" "}
         lorsqu&apos;ils supportent à titre exclusif ou principal la charge d&apos;au moins un
         enfant.Lorsqu&apos;ils entretiennent uniquement des enfants dont la charge est réputée
         également partagée avec l&apos;autre parent, la majoration est de
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.bonusParentIsole.zeroChargePrincipaleUnPartage"
         />
+        {" "}
         pour un seul enfant et de
+        {" "}
         <StateParameter
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.bonusParentIsole.zeroChargeprincipaleDeuxOuPlusPartage"
         />
+        {" "}
         si les enfants sont au moins deux. Ces dispositions s&apos;appliquent nonobstant la
         perception éventuelle d&apos;une pension alimentaire versée en vertu d&apos;une
         convention de divorce par consentement mutuel déposée au rang des minutes d&apos;un

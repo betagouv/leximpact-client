@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { PureComponent } from "react";
+import { PureComponent, Fragment } from "react";
 
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
@@ -41,24 +41,39 @@ export class Parameter extends PureComponent<Props> {
       editable, onAmendementChange, plfTitle, plfValue,
     } = this.props;
     const equal = baseValue === amendementValue;
+
+    function isDefined(value: number|null|undefined): value is number {
+        // The "=== null" checks is still needed because there are .jsx files using defaultProps.
+      return value !== null && value !== undefined;
+    }
   
     return (
       <span className={styles.noOverflow}>
         {
-          (baseValue === null || baseValue === undefined)
-            && (amendementValue === null || amendementValue === undefined)
-            && (plfValue === null || plfValue === undefined)
-            ? "-" : null
+          !isDefined(baseValue) && !isDefined(plfValue) && !isDefined(amendementValue) && "-"
+        }
+                {
+          isDefined(plfValue) && withTooltip(
+            PlfTooltip,
+            plfTitle,
+            <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
+          )
         }
         {
-          baseValue !== null && baseValue !== undefined && !equal
+          isDefined(plfValue) && (isDefined(baseValue) || isDefined(amendementValue)) && <span>&nbsp;&nbsp;</span>
+        }
+        {
+          isDefined(baseValue) && !equal
           && <span className={classNames({
             [styles.baseValue]: true,
             [styles.crossedOut]: amendementValue !== undefined
           })}>{formatNumber(baseValue)}</span>
         }
         {
-          amendementValue !== undefined && withTooltip(ReformTooltip, amendementTitle, editable
+          isDefined(baseValue) && isDefined(amendementValue) && !equal && <span>&nbsp;&nbsp;</span>
+        }
+        {
+          isDefined(amendementValue) && withTooltip(ReformTooltip, amendementTitle, editable
             ? (
               <NumberInput
                 className={classNames({
@@ -79,13 +94,6 @@ export class Parameter extends PureComponent<Props> {
                 {formatNumber(amendementValue)}
               </span>
             ))
-        }
-        {
-          plfValue !== null && plfValue !== undefined && withTooltip(
-            PlfTooltip,
-            plfTitle,
-            <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
-          )
         }
       </span>
     );

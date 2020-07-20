@@ -1,10 +1,7 @@
 @import 'styles/variables.scss';
 
-$input-margin: 0.3rem;
-
 .baseValue {
   font-weight: bold;
-  margin-left: $input-margin;
   text-decoration-color: $amendement-bg-color;
 }
 
@@ -14,7 +11,6 @@ $input-margin: 0.3rem;
 
 .plfValue {
   font-weight: bold;
-  margin-left: $input-margin;
   color: $plf-color;
 }
 
@@ -32,8 +28,6 @@ $input-margin: 0.3rem;
 
 .amendementValue {
   font-weight: bold;
-  margin-left: $input-margin !important;
-  margin-right: $input-margin !important;
 }
 
 .amendementValueModified {

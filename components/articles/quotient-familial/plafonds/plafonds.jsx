@@ -10,7 +10,9 @@ export class Plafonds extends PureComponent {
       <Fragment>
         2. La réduction d&apos;impôt résultant de l&apos;application du
         quotient familial ne peut excéder
+        {" "}
         {baseOutputInput("plafond_qf.maries_ou_pacses")}
+        {" "}
         € par demi-part ou
         la moitié de cette somme par quart de part s&apos;ajoutant à une
         part pour les contribuables célibataires, divorcés, veufs ou soumis
@@ -21,6 +23,7 @@ export class Plafonds extends PureComponent {
         l&apos;article 6 qui répondent aux conditions fixées au II de
         l&apos;article 194, la réduction d&apos;impôt correspondant à la
         part accordée au titre du premier enfant à charge est limitée à
+        {" "}
         {baseOutputInput("plafond_qf.celib_enf")}
         {" "}
         €. Lorsque les
@@ -33,7 +36,9 @@ export class Plafonds extends PureComponent {
         quotient familial, accordée aux contribuables qui bénéficient des
         dispositions des a, b et e du 1 de l&apos;article 195, ne peut
         excéder
+        {" "}
         {baseOutputInput("plafond_qf.celib")}
+        {" "}
         € ;
         <br />
         <br />
@@ -42,6 +47,7 @@ export class Plafonds extends PureComponent {
         195 ont droit à une réduction d&apos;impôt égale à
         {" "}
         {baseOutputInput("plafond_qf.reduc_postplafond")}
+        {" "}
         €
         pour chacune de ces demi-parts lorsque la réduction de leur
         cotisation d&apos;impôt est plafonnée en application du premier
@@ -53,7 +59,9 @@ export class Plafonds extends PureComponent {
         qui bénéficient d&apos;une part supplémentaire de quotient familial
         en application du I de l&apos;article 194 ont droit à une réduction
         d&apos;impôt égale à
+        {" "}
         {baseOutputInput("plafond_qf.reduc_postplafond_veuf")}
+        {" "}
         € pour cette
         part supplémentaire lorsque la réduction de leur cotisation
         d&apos;impôt est plafonnée en application du premier alinéa du
