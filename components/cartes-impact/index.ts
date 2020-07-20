@@ -8,14 +8,12 @@ const mapStateToProps = ({
   descriptions,
   display,
   token,
-  totalPop,
 }: RootState) => {
   const isUserLogged = Boolean(token);
   return {
     casTypes: descriptions.ir.casTypes,
     isInformationPanelVisible: display.isInformationPanelVisible,
     isUserLogged,
-    totalPop,
   };
 };
 
