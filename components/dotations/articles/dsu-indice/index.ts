@@ -1,0 +1,1 @@
+export { DsuIndice } from "./DsuIndice";
