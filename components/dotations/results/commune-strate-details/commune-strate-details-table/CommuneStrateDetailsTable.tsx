@@ -1,15 +1,17 @@
-import { PureComponent, Fragment } from "react";
-
-import styles from "./CommuneStrateDetailsTable.module.scss";
-import { RootState } from "../../../../../redux/reducers";
-import { connect, ConnectedProps } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { ResultValues } from "../../../../articles-inputs/parameter";
+import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
-const mapStateToProps = ({ results, descriptions }: RootState) => ({
-  isFetching: results.amendement.dotations.isFetching ||
-    results.base.dotations.isFetching ||
-    results.plf.dotations.isFetching,
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../../redux/reducers";
+import { ResultValues } from "../../../../articles-inputs/parameter";
+import styles from "./CommuneStrateDetailsTable.module.scss";
+
+const mapStateToProps = ({ descriptions, results }: RootState) => ({
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
   strates: descriptions.dotations.strates,
 });
 
@@ -58,13 +60,19 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         ) : (
                           <Fragment>
                             <div className={styles.lighter}>jusqu&apos;à</div>
-                            {strate.habitants} h.
+                            {strate.habitants}
+                            {" "}
+                            h.
                           </Fragment>
                         )
                       }
 
                     </th>
-                    <td className={styles.light}>{strate.partPopTotale} %</td>
+                    <td className={styles.light}>
+                      {strate.partPopTotale}
+                      {" "}
+                      %
+                    </td>
                     <td className={styles.light}>{strate.potentielFinancierMoyenParHab}</td>
                     <td>
                       <ResultValues

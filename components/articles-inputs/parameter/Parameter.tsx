@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { PureComponent, Fragment } from "react";
+import { PureComponent } from "react";
 
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
@@ -7,7 +7,7 @@ import { NumberInput } from "./number-input";
 import styles from "./Parameter.module.scss";
 
 function withTooltip(
-  Tooltip: any, title: string|JSX.Element|undefined|null, element: JSX.Element
+  Tooltip: any, title: string|JSX.Element|undefined|null, element: JSX.Element,
 ): JSX.Element {
   if (title == null || title === undefined) {
     return element;
@@ -43,16 +43,17 @@ export class Parameter extends PureComponent<Props> {
     const equal = baseValue === amendementValue;
 
     function isDefined(value: number|null|undefined): value is number {
-        // The "=== null" checks is still needed because there are .jsx files using defaultProps.
+      // The "=== null" checks is still needed because there are .jsx files using defaultProps.
       return value !== null && value !== undefined;
     }
-  
+
     return (
       <span className={styles.noOverflow}>
         {
-          !isDefined(baseValue) && !isDefined(plfValue) && !isDefined(amendementValue) && "-"
+          !isDefined(baseValue) && !isDefined(plfValue) && !isDefined(amendementValue)
+            && "-"
         }
-                {
+        {
           isDefined(plfValue) && withTooltip(
             PlfTooltip,
             plfTitle,
@@ -60,14 +61,19 @@ export class Parameter extends PureComponent<Props> {
           )
         }
         {
-          isDefined(plfValue) && (isDefined(baseValue) || isDefined(amendementValue)) && <span>&nbsp;&nbsp;</span>
+          isDefined(plfValue) && (isDefined(baseValue) || isDefined(amendementValue))
+            && <span>&nbsp;&nbsp;</span>
         }
         {
           isDefined(baseValue) && !equal
-          && <span className={classNames({
-            [styles.baseValue]: true,
-            [styles.crossedOut]: amendementValue !== undefined
-          })}>{formatNumber(baseValue)}</span>
+          && (
+            <span className={classNames({
+              [styles.baseValue]: true,
+              [styles.crossedOut]: amendementValue !== undefined,
+            })}>
+              {formatNumber(baseValue)}
+            </span>
+          )
         }
         {
           isDefined(baseValue) && isDefined(amendementValue) && !equal && <span>&nbsp;&nbsp;</span>

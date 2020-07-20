@@ -13,7 +13,7 @@ export default combineReducers({
   base,
   baseToAmendement,
   baseToPlf,
-  plf,
   casTypes,
+  plf,
   totalPop,
 });

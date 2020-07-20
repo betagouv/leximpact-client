@@ -1,5 +1,10 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../redux/reducers/descriptions/dotations";
 import { Card } from "../../../card";
@@ -8,14 +13,11 @@ import { DotationParHab } from "./dotation-par-hab";
 import { Eligibilite } from "./eligibilite";
 import { HabitantLabel } from "./habitant-label";
 import { PotentielFinancier } from "./potentiel-financier";
-import { RootState } from "../../../../redux/reducers";
-import { connect, ConnectedProps } from "react-redux";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 const mapStateToProps = ({ results }: RootState) => ({
-  isFetching: results.amendement.dotations.isFetching ||
-    results.base.dotations.isFetching ||
-    results.plf.dotations.isFetching,
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
 });
 
 const connector = connect(mapStateToProps);
@@ -29,7 +31,7 @@ type Props = PropsFromRedux & Commune & {
 class CommuneType extends PureComponent<Props> {
   render() {
     const {
-      departement, index, habitants, name, potentielFinancier, isFetching
+      departement, habitants, index, isFetching, name, potentielFinancier,
     } = this.props;
     return (
       <Card
@@ -44,18 +46,18 @@ class CommuneType extends PureComponent<Props> {
           </Fragment>
         )}
         content2={
-          isFetching ? <CircularProgress /> :
-          (
-          <Fragment>
-            <div className={styles.resultCaption}>
+          isFetching ? <CircularProgress />
+            : (
+              <Fragment>
+                <div className={styles.resultCaption}>
               Eligibilité et montant de la DSR
-            </div>
-            <div className={styles.eligibilite}>
-              <Eligibilite index={index} />
-            </div>
-            <DotationParHab index={index} />
-          </Fragment>
-        )}
+                </div>
+                <div className={styles.eligibilite}>
+                  <Eligibilite index={index} />
+                </div>
+                <DotationParHab index={index} />
+              </Fragment>
+            )}
         subTitle={departement}
         title={name}
       />

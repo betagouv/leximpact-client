@@ -5,16 +5,19 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 // import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../redux/reducers";
+import { Parameter, ResultValues } from "../../../articles-inputs/parameter";
 import { Card } from "../../../card";
 import styles from "./CommuneSummary.module.scss";
-import { ResultValues, Parameter } from "../../../articles-inputs/parameter";
-import { RootState } from "../../../../redux/reducers";
-import { ConnectedProps, connect } from "react-redux";
 
 const mapStateToProps = ({ results }: RootState) => ({
   amendement: {
-    nouvellementEligibles: results.baseToAmendement.dotations.state?.communes.dsr.nouvellementEligibles,
+    nouvellementEligibles: results.baseToAmendement
+      .dotations.state?.communes.dsr.nouvellementEligibles,
     plusEligibles: results.baseToAmendement.dotations.state?.communes.dsr.plusEligibles,
     toujoursEligibles: results.baseToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
   },
@@ -22,8 +25,8 @@ const mapStateToProps = ({ results }: RootState) => ({
     nouvellementEligibles: results.baseToPlf.dotations.state?.communes.dsr.nouvellementEligibles,
     plusEligibles: results.baseToPlf.dotations.state?.communes.dsr.plusEligibles,
     toujoursEligibles: results.baseToPlf.dotations.state?.communes.dsr.toujoursEligibles,
-  }
-})
+  },
+});
 
 const connector = connect(mapStateToProps);
 

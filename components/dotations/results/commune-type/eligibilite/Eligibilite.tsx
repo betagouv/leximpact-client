@@ -1,17 +1,19 @@
 import classNames from "classnames";
 import { PureComponent } from "react";
-
-import styles from "./Eligibilite.module.scss";
-import { getResultBoolValues } from "../../../../../redux/utils";
-import { RootState } from "../../../../../redux/reducers";
+// eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
-import { Parameter } from "../../../../articles-inputs";
 
-function getEligibilite(value: boolean|undefined): 'éligible'|'non éligible'|undefined {
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../../redux/reducers";
+import { getResultBoolValues } from "../../../../../redux/utils";
+import { Parameter } from "../../../../articles-inputs";
+import styles from "./Eligibilite.module.scss";
+
+function getEligibilite(value: boolean|undefined): "éligible"|"non éligible"|undefined {
   if (value === undefined) {
-    return undefined
-  };
-  return value ? "éligible" : "non éligible"
+    return undefined;
+  }
+  return value ? "éligible" : "non éligible";
 }
 
 const mapStateToProps = ({ results }: RootState, { index }: { index: number }) => getResultBoolValues(results, `dotations.state.communes.dsr.communes.${index}.eligible`);
@@ -26,7 +28,7 @@ type Props = PropsFromRedux & {
 
 class Eligibilite extends PureComponent<Props> {
   render() {
-    const { amendementValue, plfValue, baseValue } = this.props;
+    const { amendementValue, baseValue, plfValue } = this.props;
     return (
       <div className={styles.container}>
         <div>
@@ -37,7 +39,7 @@ class Eligibilite extends PureComponent<Props> {
             plfValue={getEligibilite(plfValue) as any} />
         </div>
         {
-          typeof amendementValue !== 'undefined' && (
+          typeof amendementValue !== "undefined" && (
             <div className={classNames({
               [styles.spot]: true,
               [styles.eligible]: amendementValue,
@@ -53,4 +55,3 @@ class Eligibilite extends PureComponent<Props> {
 const ConnectedEligibilite = connector(Eligibilite);
 
 export { ConnectedEligibilite as Eligibilite };
-

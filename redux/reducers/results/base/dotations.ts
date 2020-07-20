@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import {
   // eslint-disable-next-line no-unused-vars
   SimulateDotationsFailureAction,

@@ -36,12 +36,12 @@ class Results extends PureComponent<Props> {
         </Grid>
         <Grid container spacing={3}>
           {communesTypes.map((communeType, index) => (
-            <Grid item lg={4} md={6} sm={6} xl={3} xs={12} key={communeType.code}>
+            <Grid key={communeType.code} item lg={4} md={6} sm={6} xl={3} xs={12}>
               <CommuneType
-                index={index}
                 code={communeType.code}
                 departement={communeType.departement}
                 habitants={communeType.habitants}
+                index={index}
                 name={communeType.name}
                 potentielFinancier={communeType.potentielFinancier}
               />

@@ -17,9 +17,9 @@ const DEFAULT_STATE: AsyncState<DotationsDiffState> = {
         nouvellementEligibles: 60,
         plusEligibles: 10,
         toujoursEligibles: 4090,
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
 type DotationsAction =

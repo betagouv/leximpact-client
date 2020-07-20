@@ -1,5 +1,7 @@
-import { RootState } from "../reducers";
 import { getIn } from "immutable";
+
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../reducers";
 
 export function getResultNumberValues(results: RootState["results"], path: string): {
   amendementValue: number | undefined,
