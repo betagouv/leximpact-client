@@ -1,13 +1,13 @@
 import { Fragment, PureComponent } from "react";
 
 import { StateParameter } from "../../../articles-inputs/parameter";
-import { ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
 
 export class ReglesSpecifiques extends PureComponent {
   render() {
     return (
       <Fragment>
-        <h3>Enfants à charge partagée</h3>
+        <ExpandablePanelSubTitle subTitle="Article 194 - I. § 2 à 4" title="Enfants à charge partagée" />
         <ExpandableText caption="Lorsque les époux font l'objet d'une imposition séparée">
         Lorsque les époux font l&apos;objet d&apos;une imposition séparée en application du 4 de
         l&apos;article 6, chacun d&apos;eux est considéré comme un célibataire ayant à sa charge
@@ -79,7 +79,9 @@ export class ReglesSpecifiques extends PureComponent {
         à charge les personnes considérées comme étant à la charge du contribuable en vertu de
         l&apos;article 196 A bis.
         </ExpandableText>
-        <h3>Parent isolé</h3>
+        <br />
+        <br />
+        <ExpandablePanelSubTitle subTitle="Article 194 - II." title="Parent isolé" />
         II. Pour l&apos;imposition des contribuables célibataires ou divorcés qui vivent seuls,
         le nombre de parts prévu au I est augmenté de
         <StateParameter

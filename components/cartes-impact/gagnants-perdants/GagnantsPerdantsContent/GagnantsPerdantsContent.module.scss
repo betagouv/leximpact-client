@@ -1,0 +1,75 @@
+@import 'styles/variables.scss';
+
+.plf {
+  color: $plf-color;
+  line-height: 1.5;
+}
+
+.amendement {
+  color: #000000;
+  line-height: 1.5;
+}
+
+.plfValue, .amendementValue {
+  font-weight: bold;
+  font-family: Lato;
+  font-size: 25px;
+}
+
+.amendementValue {
+  background-color: $amendement-bg-color;
+  padding: 0.1rem;
+}
+
+.plfUnit, .amendementUnit {
+  font-family: Lato;
+  font-size: 20px;
+}
+
+.plfIcon, .amendementIcon {
+  vertical-align: text-bottom;
+}
+
+.details {
+  color: #909090;
+  font-family: Lato;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.detailsPlfValue {
+  color: #000000;
+  font-weight: bold;
+  color: $plf-color;
+}
+
+.detailsPlfUnit {
+  color: #000000;
+  font-weight: bold;
+}
+
+.detailsAmendementValue {
+  color: #000000;
+  font-weight: bold;
+  background-color: $amendement-bg-color;
+}
+
+.detailsAmendementUnit {
+  color: #000000;
+  font-weight: bold;
+}
+
+.titleCard {
+  color: $dark-grey-text-color;
+  font-family: $default-font-family;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.containerImpact {
+  align-content: flex-start;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0;
+}

@@ -1,0 +1,1 @@
+export { GagnantsPerdantsContent } from "./GagnantsPerdantsContent";

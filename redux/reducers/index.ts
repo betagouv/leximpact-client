@@ -7,7 +7,6 @@ import loadingEtat from "./loading-etat";
 import { parameters } from "./parameters";
 import results from "./results";
 import token from "./token";
-import totalPop from "./total-pop";
 
 const rootReducer = combineReducers({
   descriptions,
@@ -17,7 +16,6 @@ const rootReducer = combineReducers({
   parameters,
   results,
   token,
-  totalPop,
 });
 
 export default rootReducer;
