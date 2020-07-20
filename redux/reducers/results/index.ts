@@ -5,13 +5,13 @@ import { base } from "./base";
 import { baseToPlf } from "./baseToPlf";
 import casTypes from "./cas-types";
 import { plf } from "./plf";
-import { plfToAmendement } from "./plfToAmendement";
+import { baseToAmendement } from "./baseToAmendement";
 
 export default combineReducers({
   amendement,
   base,
+  baseToAmendement,
   baseToPlf,
   casTypes,
   plf,
-  plfToAmendement,
 });

@@ -60,7 +60,7 @@ L'état redux est en cours de re-factorisation. Voici la manière dont il se pr�
   - baseToPlf # Résultats comparant le PLF avec le code existant
     - ir
     - dotations
-  - plfToAmendement  # Résultats comparant le PLF avec les valeurs proposées par l'utilisateur
+  - baseToAmendement  # Résultats comparant les valeurs proposées par l'utilisateur avec le code existant
     - ir
     - dotations
   - interfaces # Descriptions des états (identiques dans amendement, base et plf)

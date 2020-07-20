@@ -2,6 +2,6 @@ import { combineReducers } from "redux";
 
 import { dotations } from "./dotations";
 
-export const plfToAmendement = combineReducers({
+export const baseToAmendement = combineReducers({
   dotations,
 });

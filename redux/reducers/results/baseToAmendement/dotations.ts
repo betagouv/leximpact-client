@@ -44,7 +44,7 @@ export function dotations(
   case "SIMULATE_DOTATIONS_SUCCESS":
     return {
       isFetching: false,
-      state: action.dotations.plfToAmendement,
+      state: action.dotations.baseToAmendement,
     };
   default:
     return state;

@@ -13,9 +13,9 @@ import { RootState } from "../../../../redux/reducers";
 import { ConnectedProps, connect } from "react-redux";
 
 const mapStateToProps = ({ results }: RootState) => ({
-  nouvellementEligibles: results.plfToAmendement.dotations.state?.communes.dsr.nouvellementEligibles,
-  plusEligibles: results.plfToAmendement.dotations.state?.communes.dsr.plusEligibles,
-  toujoursEligibles: results.plfToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
+  nouvellementEligibles: results.baseToAmendement.dotations.state?.communes.dsr.nouvellementEligibles,
+  plusEligibles: results.baseToAmendement.dotations.state?.communes.dsr.plusEligibles,
+  toujoursEligibles: results.baseToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
 })
 
 const connector = connect(mapStateToProps);

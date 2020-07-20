@@ -60,15 +60,7 @@ interface ResponseBody {
       }
     }
   }
-  plfToAmendement: {
-    communes: {
-      dsr: {
-        nouvellementEligibles: number;
-        plusEligibles: number;
-        toujoursEligibles: number;
-      }
-    }
-  }
+  baseToAmendement: ResponseBody["baseToPlf"]
 }
 
 export interface SimulateDotationsSuccessAction {
