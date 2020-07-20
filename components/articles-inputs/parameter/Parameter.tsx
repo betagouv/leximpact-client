@@ -45,6 +45,12 @@ export class Parameter extends PureComponent<Props> {
     return (
       <span className={styles.noOverflow}>
         {
+          (baseValue === null || baseValue === undefined)
+            && (amendementValue === null || amendementValue === undefined)
+            && (plfValue === null || plfValue === undefined)
+            ? "-" : null
+        }
+        {
           baseValue !== null && baseValue !== undefined && !equal
           && <span className={classNames({
             [styles.baseValue]: true,
