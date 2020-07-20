@@ -50,8 +50,19 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                 strates.map((strate, index) => (
                   <tr key={strate.habitants}>
                     <th scope="row">
-                      <div className={styles.lighter}>jusqu&apos;à</div>
-                      {strate.habitants} h.
+                      {
+                        strate.habitants === -1 ? (
+                          <Fragment>
+                            <div className={styles.lighter}>au-delà.</div>
+                          </Fragment>
+                        ) : (
+                          <Fragment>
+                            <div className={styles.lighter}>jusqu&apos;à</div>
+                            {strate.habitants} h.
+                          </Fragment>
+                        )
+                      }
+
                     </th>
                     <td className={styles.light}>{strate.partPopTotale} %</td>
                     <td className={styles.light}>{strate.potentielFinancierMoyenParHab}</td>

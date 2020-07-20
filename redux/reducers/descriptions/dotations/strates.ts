@@ -1,5 +1,6 @@
 interface Strate {
   // Borne supérieure de la strate
+  // Par convention, -1 est considéré comme l'infini (absence de borne supérieure).
   habitants: number;
   // Représentation de la strate dans la population totale
   partPopTotale: number;
@@ -19,7 +20,7 @@ const DEFAULT_STATE: Strate[] = [
     potentielFinancierMoyenParHab: 12,
   },
   {
-    habitants: Infinity,
+    habitants: -1,
     partPopTotale: 2,
     potentielFinancierMoyenParHab: 67,
   },
