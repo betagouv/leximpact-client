@@ -9,6 +9,8 @@ import { MontantDgf } from "./montant-dgf";
 import { MontantDgfCommunes } from "./montant-dgf-communes";
 import { MontantDsrDsu } from "./montant-dsr-dsu";
 import { DsuEligibilite } from "./dsu-eligibilite";
+import { DsuRepartition } from "./dsu-repartition";
+import { DsuIndice } from "./dsu-indice";
 
 export class Articles extends PureComponent {
   render() {
@@ -65,6 +67,16 @@ export class Articles extends PureComponent {
               subTitle="Article L2334-16 du CGCT"
               title="Périmètre général d'éligibilité">
               <DsuEligibilite />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-18-2 du CGCT"
+              title="Répartition">
+              <DsuRepartition />
+            </SecondaryExpandablePanel>
+             <SecondaryExpandablePanel
+              subTitle="Article L2334-17 du CGCT"
+              title="Définition de l’indice synthétique">
+              <DsuIndice />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
         </div>
