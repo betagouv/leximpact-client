@@ -1,5 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
+// eslint-disable-next-line no-unused-vars
+import { Commune } from "../../../../redux/reducers/descriptions/dotations";
 import { Card } from "../../../card";
 import styles from "./CommuneType.module.scss";
 import { DotationParHab } from "./dotation-par-hab";
@@ -7,16 +9,12 @@ import { Eligibilite } from "./eligibilite";
 import { HabitantLabel } from "./habitant-label";
 import { PotentielFinancier } from "./potentiel-financier";
 
-interface Commune {
-  name: string;
-  departement: string;
-  habitants: number;
-  potentielFinancier: number;
+interface CommuneResult {
   eligible: boolean;
   dotationParHab: number;
 }
 
-export class CommuneType extends PureComponent<Commune> {
+export class CommuneType extends PureComponent<Commune & CommuneResult> {
   render() {
     const {
       departement, dotationParHab, eligible, habitants, name, potentielFinancier,
@@ -46,8 +44,6 @@ export class CommuneType extends PureComponent<Commune> {
         )}
         subTitle={departement}
         title={name}
-        onClose={() => { }}
-        onEdit={() => { }}
       />
     );
   }

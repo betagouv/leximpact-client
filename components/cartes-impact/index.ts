@@ -5,13 +5,13 @@ import { RootState } from "../../redux/reducers";
 import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({
-  casTypes,
+  descriptions,
   display,
   token,
 }: RootState) => {
   const isUserLogged = Boolean(token);
   return {
-    casTypes,
+    casTypes: descriptions.ir.casTypes,
     isInformationPanelVisible: display.isInformationPanelVisible,
     isUserLogged,
   };

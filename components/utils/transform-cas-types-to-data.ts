@@ -1,4 +1,7 @@
-export const transformCasTypesToData = casTypes => casTypes.map((obj) => {
+// eslint-disable-next-line no-unused-vars
+import { CasType } from "../../redux/reducers/descriptions/ir";
+
+export const transformCasTypesToData = (casTypes: CasType[]) => casTypes.map((obj) => {
   const {
     lieuResidence,
     nbCouple,

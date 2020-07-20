@@ -1,5 +1,7 @@
 import request from "../../../components/utils/request";
 import { transformCasTypesToData } from "../../../components/utils/transform-cas-types-to-data";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../reducers";
 import { formatReforme } from "../format-reforme";
 
 export const SIMULATE_CAS_TYPES_REQUEST = "SIMULATE_CAS_TYPES_REQUEST";
@@ -28,9 +30,9 @@ function simulateCasTypesSuccess(data) {
 const simulateCasTypes = () => (dispatch, getState) => {
   dispatch(simulateCasTypesRequest());
 
-  const { casTypes, parameters } = getState();
+  const { descriptions, parameters } = getState() as RootState;
   const body = {
-    description_cas_types: transformCasTypesToData(casTypes),
+    description_cas_types: transformCasTypesToData(descriptions.ir.casTypes),
     reforme: formatReforme(parameters.amendement),
   };
 

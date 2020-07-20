@@ -14,6 +14,9 @@
 */
 import { get } from "lodash";
 
+// eslint-disable-next-line no-unused-vars
+import { CasType } from "../../redux/reducers/descriptions/ir";
+
 const DEFAULT_NAME = "Foyer fiscal type";
 
 // export uniquement pour les tests
@@ -38,7 +41,7 @@ const createPersons = (length, data, defaultValues, quantities) => {
   return childs;
 };
 
-export const transformDataToCasTypes = datas => datas.map((data) => {
+export const transformDataToCasTypes = (datas): CasType[] => datas.map((data) => {
   const name = DEFAULT_NAME;
   const revenusAnnuel = get(data, "revenu");
   const lieuResidence = get(data, "outre_mer");
