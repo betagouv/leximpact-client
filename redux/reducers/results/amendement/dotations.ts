@@ -14,12 +14,22 @@ const DEFAULT_STATE: AsyncState<DotationsState> = {
   state: {
     communes: {
       dsr: {
-        eligibles: 10050,
+        eligibles: 10001,
         strates: [
           {
-            eligibles: 22,
-            dotationMoyenneParHab: 56,
-            partDotationTotale: 22,
+            eligibles: 23,
+            dotationMoyenneParHab: 57,
+            partDotationTotale: 23,
+          },
+          {
+            eligibles: 2,
+            dotationMoyenneParHab: 78,
+            partDotationTotale: 3,
+          },
+          {
+            eligibles: 24,
+            dotationMoyenneParHab: 12,
+            partDotationTotale: 36,
           },
         ],
         communes: [
@@ -30,8 +40,8 @@ const DEFAULT_STATE: AsyncState<DotationsState> = {
           },
           {
             code: "2A253",
-            eligible: false,
-            dotationParHab: 88,
+            eligible: true,
+            dotationParHab: 56,
           },
         ],
       },

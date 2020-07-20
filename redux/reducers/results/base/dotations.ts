@@ -21,6 +21,16 @@ const DEFAULT_STATE: AsyncState<DotationsState> = {
             dotationMoyenneParHab: 56,
             partDotationTotale: 22,
           },
+          {
+            eligibles: 2,
+            dotationMoyenneParHab: 78,
+            partDotationTotale: 3,
+          },
+          {
+            eligibles: 24,
+            dotationMoyenneParHab: 12,
+            partDotationTotale: 36,
+          },
         ],
         communes: [
           {
@@ -31,7 +41,7 @@ const DEFAULT_STATE: AsyncState<DotationsState> = {
           {
             code: "2A253",
             eligible: false,
-            dotationParHab: 88,
+            dotationParHab: 0,
           },
         ],
       },
