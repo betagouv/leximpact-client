@@ -18,6 +18,11 @@ const DEFAULT_STATE: Strate[] = [
     partPopTotale: 14,
     potentielFinancierMoyenParHab: 12,
   },
+  {
+    habitants: Infinity,
+    partPopTotale: 2,
+    potentielFinancierMoyenParHab: 67,
+  },
 ];
 
 export function strates(state: Strate[] = DEFAULT_STATE): Strate[] {

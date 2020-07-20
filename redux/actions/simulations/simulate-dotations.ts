@@ -33,6 +33,7 @@ interface RequestBody {
     dotations: DotationsState;
   },
   descriptionCasTypes: { code: string }[];
+  strates: { habitants: number }[];
 }
 
 interface ResponseBody {
@@ -113,6 +114,7 @@ export const simulateDotations = () => (dispatch, getState) => {
     reforme: {
       dotations: convertRates(parameters.amendement.dotations),
     },
+    strates: descriptions.dotations.strates.map(({ habitants }) => ({ habitants })),
   };
 
   return request
