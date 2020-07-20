@@ -63,6 +63,12 @@ export class Articles extends PureComponent {
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
             title="Dotation de solidarité urbaine">
+            <br />
+            La dotation de solidarité urbaine et de cohésion sociale 
+            a pour objet de contribuer à l'amélioration des conditions 
+            de vie dans les communes urbaines confrontées à une insuffisance 
+            de leurs ressources et supportant des charges élevées. - Article L2334-15 du CGCT
+            <br />
             <SecondaryExpandablePanel
               subTitle="Article L2334-16 du CGCT"
               title="Périmètre général d'éligibilité">
