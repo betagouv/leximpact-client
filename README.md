@@ -29,7 +29,9 @@ LexImpact has two components:
 - [leximpact-server](https://github.com/betagouv/leximpact-server/): a Python application using [OpenFisca-France](https://github.com/openfisca/openfisca-france) and providing a Web API responding to requests on the impact of a change of the tax law,
 - Here, [leximpact-client](https://github.com/betagouv/leximpact-client/): a web interface interacting with leximpact-server API and providing to the users a web site to set law tax changes and see the results calculated by the API.
 
-## Organisation de l'état redux
+## Organisation de l'état de l'application
+
+![Etat de l'application](./redux-state.png)
 
 L'état redux est en cours de re-factorisation. Voici la manière dont il se présentera à terme:
 
