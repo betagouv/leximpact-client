@@ -1,13 +1,14 @@
 import { Fragment, PureComponent } from "react";
 
 import { StateParameter } from "../../../articles-inputs/parameter";
-import { ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
 
 export class DsuRepartition extends PureComponent {
   render() {
     // Article L2334-20 du CGCT
     return (
       <Fragment>
+      <ExpandablePanelSubTitle subTitle="Article L2334-18-2" title="Règle générale" />
         La dotation revenant à chaque commune éligible est égale au produit
          de sa population par la valeur de l&apos;indice qui lui est attribué. 
          Ce produit est pondéré par l&apos;effort fiscal dans la limite de 1,3 et 
@@ -38,6 +39,18 @@ export class DsuRepartition extends PureComponent {
         l&apos;article L. 2334-18-4. Les communes qui n&apos;étaient pas éligibles
          à la dotation l&apos;année précédant l&apos;année de versement bénéficient 
          d&apos;une attribution calculée en application du présent article.
+         <br />
+        <br />
+         <ExpandablePanelSubTitle subTitle="Article L2334-18-4" title="Règle en cas d&apos;augmentation de la dotation" />
+         L&apos;augmentation de la dotation, après répartition des attributions calculées en application 
+         des articles L. 2334-16 à L. 2334-18-3, est répartie entre les deux catégories démographiques 
+         au prorata de leur population dans le total des communes bénéficiaires.
+        <br />
+        <br />
+        La part d&apos;augmentation est répartie entre les communes bénéficiaires 
+        dans les conditions prévues aux deux premiers alinéas de 
+        l&apos;article L. 2334-18-2. Les communes qui n&apos;étaient pas éligibles à la dotation 
+        l&apos;année précédant la répartition ne bénéficient pas de cette part. 
       </Fragment>
     );
   }
