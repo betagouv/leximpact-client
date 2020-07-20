@@ -7,6 +7,12 @@ import { RootState } from "../../../../../redux/reducers";
 import { connect, ConnectedProps } from "react-redux";
 import { Parameter } from "../../../../articles-inputs";
 
+function getEligibilite(value: boolean|undefined): 'éligible'|'non éligible'|undefined {
+  if (value === undefined) {
+    return undefined
+  };
+  return value ? "éligible" : "non éligible"
+}
 
 const mapStateToProps = ({ results }: RootState, { index }: { index: number }) => getResultBoolValues(results, `dotations.state.communes.dsr.communes.${index}.eligible`);
 
@@ -26,9 +32,9 @@ class Eligibilite extends PureComponent<Props> {
         <div>
           {/* Hack: Parameter only accepts numbers */}
           <Parameter
-            amendementValue={(amendementValue ? "éligible" : "non éligible") as any}
-            baseValue={(baseValue ? "éligible" : "non éligible") as any}
-            plfValue={(plfValue ? "éligible" : "non éligible") as any} />
+            amendementValue={getEligibilite(amendementValue) as any}
+            baseValue={getEligibilite(baseValue) as any}
+            plfValue={getEligibilite(plfValue) as any} />
         </div>
         {
           typeof amendementValue !== 'undefined' && (
