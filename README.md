@@ -80,9 +80,9 @@ L'état redux est en cours de re-factorisation. Voici la manière dont il se pr�
 Les données asynchrones (comme les résultats de la simulation) sont décrites par cette interface:
 
 ```typescript
-export interface AsyncItems<T> {
+export interface AsyncState<T> {
   isFetching: boolean;
-  items: T;
+  state: T | null;
 }
 ```
 
