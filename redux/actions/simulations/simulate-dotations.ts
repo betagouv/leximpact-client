@@ -28,6 +28,13 @@ function simulateDotationsFailure(error: any): SimulateDotationsFailureAction {
   };
 }
 
+interface RequestBody {
+  reforme: {
+    dotations: DotationsState;
+  },
+  descriptionCasTypes: { code: string }[];
+}
+
 interface ResponseBody {
   amendement: {
     communes: {
@@ -101,7 +108,7 @@ export const simulateDotations = () => (dispatch, getState) => {
   dispatch(simulateDotationsRequest());
 
   const { descriptions, parameters } = getState() as RootState;
-  const body = {
+  const body: RequestBody = {
     descriptionCasTypes: descriptions.dotations.communesTypes.map(({ code }) => ({ code })),
     reforme: {
       dotations: convertRates(parameters.amendement.dotations),
