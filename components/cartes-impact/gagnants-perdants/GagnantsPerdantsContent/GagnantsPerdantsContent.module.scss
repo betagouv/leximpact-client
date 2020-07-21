@@ -1,5 +1,7 @@
 @import 'styles/variables.scss';
 
+$spacing: 8px;
+
 .plf {
   color: $plf-color;
   line-height: 1.5;
@@ -35,6 +37,7 @@
   font-family: Lato;
   font-size: 12px;
   line-height: 1.5;
+  padding-top: $spacing;
 }
 
 .detailsPlfValue {
@@ -71,5 +74,5 @@
   align-content: flex-start;
   display: flex;
   justify-content: space-around;
-  padding-bottom: 0;
+  padding-top: $spacing;
 }

@@ -67,7 +67,7 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
                   ? (
                     <Fragment>
                       <span className={styles.detailsPlfValue}>{inMillions(captionPlf)}</span>
-                      <span className={styles.detailsPlfUnit}> M </span>
+                      <span className={styles.detailsPlfUnit}> M</span>
                     </Fragment>
                   )
                   : null
