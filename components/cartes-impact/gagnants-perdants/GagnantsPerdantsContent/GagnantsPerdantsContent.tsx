@@ -2,6 +2,7 @@ import GroupIcon from "@material-ui/icons/Group";
 import { Fragment, PureComponent } from "react";
 
 import styles from "./GagnantsPerdantsContent.module.scss";
+import { SubCard } from "../../../card";
 
 interface Props {
   icon: JSX.Element;
@@ -23,11 +24,10 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
       amendement, caption, captionAmendement, captionPlf, icon, plf, title,
     } = this.props;
     return (
-      <div>
-        {icon}
-        <span className={styles.titleCard}>
-          {title}
-        </span>
+      <SubCard
+        title={title}
+        icon={icon}
+      >
         <div className={styles.containerImpact}>
           {
             typeof plf === "number"
@@ -87,7 +87,7 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
             </div>
           )
         }
-      </div>
+      </SubCard>
     );
   }
 }
