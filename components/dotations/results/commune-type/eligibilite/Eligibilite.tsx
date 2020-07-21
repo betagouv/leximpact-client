@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
@@ -8,6 +7,7 @@ import { RootState } from "../../../../../redux/reducers";
 import { getResultBoolValues } from "../../../../../redux/utils";
 import { Parameter } from "../../../../articles-inputs";
 import styles from "./Eligibilite.module.scss";
+import { EligibiliteSpot } from "../../common";
 
 function getEligibilite(value: boolean|undefined): "éligible"|"non éligible"|undefined {
   if (value === undefined) {
@@ -40,10 +40,7 @@ class Eligibilite extends PureComponent<Props> {
         </div>
         {
           typeof amendementValue !== "undefined" && (
-            <div className={classNames({
-              [styles.spot]: true,
-              [styles.eligible]: amendementValue,
-            })} />
+            <EligibiliteSpot eligible={amendementValue} />
           )
         }
       </div>
