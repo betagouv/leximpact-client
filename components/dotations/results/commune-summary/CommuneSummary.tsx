@@ -1,9 +1,5 @@
-// import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-// import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-// import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
@@ -11,8 +7,9 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
 import { Parameter, ResultValues } from "../../../articles-inputs/parameter";
-import { Card } from "../../../card";
+import { Card, SubCard } from "../../../card";
 import styles from "./CommuneSummary.module.scss";
+import { EligibiliteSpot } from "../common";
 
 const mapStateToProps = ({ results }: RootState) => ({
   amendement: {
@@ -46,53 +43,30 @@ class CommuneSummary extends PureComponent<Props> {
                 path="dotations.state.communes.dsr.eligibles"
               />
             </div>
-            <div className={styles.nouvellementEligible}>
-              <ArrowUpwardIcon
-                className={styles.icon}
-                fontSize="default"
-              />
-              {" "}
-              <Parameter
-                amendementValue={amendement.nouvellementEligibles}
-                plfValue={plf.nouvellementEligibles} />
-              {" "}
-              <span>nouvellement éligibles</span>
-            </div>
-            <div className={styles.plusEligible}>
-              <ArrowDownwardIcon
-                className={styles.icon}
-                fontSize="default"
-              />
-              {" "}
-              <Parameter
-                amendementValue={amendement.plusEligibles}
-                plfValue={plf.plusEligibles} />
-              {" "}
-              <span> plus éligibles</span>
-            </div>
-            <div className={styles.toujoursEligible}>
-              soit
-              {" "}
-              <Parameter
-                amendementValue={amendement.toujoursEligibles}
-                plfValue={plf.toujoursEligibles} />
-              {" "}
-              communes bénéficiant toujours de la DSR pour 2021.
-            </div>
           </div>
         )}
-        // content2={(
-        //   <ExpansionPanel className={styles.expansionPanel}>
-        //     <ExpansionPanelSummary
-        //       className={styles.expansionPanelTitle}
-        //       expandIcon={<ExpandMoreIcon />}>
-        //         Détails de la répartition par fraction
-        //     </ExpansionPanelSummary>
-        //     <ExpansionPanelDetails>
-        //       Détails
-        //     </ExpansionPanelDetails>
-        //   </ExpansionPanel>
-        // )}
+        content2={(
+          <SubCard
+            icon={<EligibiliteSpot eligible />}
+            title="Nouvellement éligibles"
+            subTitle="par rapport au droit existant"
+          >
+            <Parameter
+              amendementValue={amendement.nouvellementEligibles}
+              plfValue={plf.nouvellementEligibles} />
+          </SubCard>
+        )}
+        content3={(
+          <SubCard
+            icon={<EligibiliteSpot eligible={false} />}
+            title="Nouvellement non-éligibles"
+            subTitle="par rapport au droit existant"
+          >
+            <Parameter
+              amendementValue={amendement.plusEligibles}
+              plfValue={plf.plusEligibles} />
+          </SubCard>
+        )}
         title="Nombre de communes éligibles"
       />
     );
