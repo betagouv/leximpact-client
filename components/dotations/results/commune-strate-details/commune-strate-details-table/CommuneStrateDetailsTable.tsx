@@ -7,6 +7,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { RootState } from "../../../../../redux/reducers";
 import { ResultValues } from "../../../../articles-inputs/parameter";
 import styles from "./CommuneStrateDetailsTable.module.scss";
+import { formatNumber } from "../../../../utils";
 
 const mapStateToProps = ({ descriptions, results }: RootState) => ({
   isFetching: results.amendement.dotations.isFetching
@@ -69,21 +70,25 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
 
                     </th>
                     <td className={styles.light}>
-                      {strate.partPopTotale}
+                      {formatNumber(strate.partPopTotale, { decimals: 0 })}
                       {" "}
                       %
                     </td>
-                    <td className={styles.light}>{strate.potentielFinancierMoyenParHab}</td>
+                    <td className={styles.light}>
+                      {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
+                    </td>
                     <td>
                       <ResultValues
                         path={`dotations.state.communes.dsr.strates.${index}.eligibles`} />
                     </td>
                     <td>
                       <ResultValues
+                        decimals={2}
                         path={`dotations.state.communes.dsr.strates.${index}.dotationMoyenneParHab`} />
                     </td>
                     <td>
                       <ResultValues
+                        decimals={0}
                         path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
                     </td>
                   </tr>

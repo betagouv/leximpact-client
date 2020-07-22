@@ -28,6 +28,7 @@ interface Props {
   amendementTitle?: string|JSX.Element|null;
   amendementValue?: number;
   baseValue?: number|null;
+  decimals?: number;
   editable?: boolean,
   onAmendementChange?: (value: number) => void,
   plfTitle?: string|JSX.Element|null;
@@ -38,7 +39,7 @@ export class Parameter extends PureComponent<Props> {
   render() {
     const {
       amendementInputSize, amendementTitle, amendementValue, baseValue,
-      editable, onAmendementChange, plfTitle, plfValue,
+      decimals, editable, onAmendementChange, plfTitle, plfValue,
     } = this.props;
     const equal = baseValue === amendementValue;
 
@@ -57,7 +58,7 @@ export class Parameter extends PureComponent<Props> {
           isDefined(plfValue) && withTooltip(
             PlfTooltip,
             plfTitle,
-            <span className={styles.plfValue}>{formatNumber(plfValue)}</span>,
+            <span className={styles.plfValue}>{formatNumber(plfValue, { decimals })}</span>,
           )
         }
         {
@@ -71,7 +72,7 @@ export class Parameter extends PureComponent<Props> {
               [styles.baseValue]: true,
               [styles.crossedOut]: amendementValue !== undefined,
             })}>
-              {formatNumber(baseValue)}
+              {formatNumber(baseValue, { decimals })}
             </span>
           )
         }
@@ -97,7 +98,7 @@ export class Parameter extends PureComponent<Props> {
                 [styles.amendementValue]: true,
                 [styles.amendementValueModified]: !equal,
               })}>
-                {formatNumber(amendementValue)}
+                {formatNumber(amendementValue, { decimals })}
               </span>
             ))
         }
