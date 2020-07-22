@@ -5,7 +5,7 @@ import VPNKeyIcon from "@material-ui/icons/VpnKey";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import { logOut, showConnexionPopin } from "../../redux/actions";
+import { logOut, showConnexionPopin } from "../../../redux/actions";
 
 const styles = () => ({
   avatarIcon: {
