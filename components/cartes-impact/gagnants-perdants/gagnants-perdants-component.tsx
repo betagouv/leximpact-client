@@ -17,7 +17,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { fetchSimPop, simulateCasTypes } from "../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../redux/reducers";
-import { Card } from "../../card";
+import { Card } from "../../common";
 import styles2 from "./gagnants-perdants-component.module.scss";
 import { GagnantsPerdantsContent } from "./GagnantsPerdantsContent";
 

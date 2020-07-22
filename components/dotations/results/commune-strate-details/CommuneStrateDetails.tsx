@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-import { Card } from "../../../card";
+import { Card } from "../../../common";
 import { CommuneStrateDetailsTable } from "./commune-strate-details-table";
 
 export class CommuneStrateDetails extends PureComponent {

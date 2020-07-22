@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-import { Card } from "../../../card";
+import { Card } from "../../../common";
 import { SearchInput } from "./search-input";
 
 export class CommuneSearch extends PureComponent {
