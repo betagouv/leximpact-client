@@ -1,6 +1,7 @@
 const formatNumber = (number: number, options: { decimals?: number } = {}): string => {
   if (options.decimals !== undefined) {
-    const factor = Math.pow(10, options.decimals);
+    const factor = 10 ** options.decimals;
+    // eslint-disable-next-line no-param-reassign
     number = Math.round(number * factor) / factor;
   }
   return number
@@ -10,6 +11,6 @@ const formatNumber = (number: number, options: { decimals?: number } = {}): stri
     // (?=pattern) is the lookahead, \d{3} is 3 digits, and (pattern)+ meansrepeat the
     // last pattern one or more times (greedily) until a the end of the String $
     .replace(/(\d)(?=(\d{3})+$)/g, "$1 ");
-}  
+};
 
 export default formatNumber;

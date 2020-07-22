@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 
-import styles from "./PotentielFinancier.module.scss";
 import { formatNumber } from "../../../../utils";
+import styles from "./PotentielFinancier.module.scss";
 
 interface Props {
   potentielFinancier: number;

@@ -120,12 +120,21 @@ export const simulateDotations = () => (dispatch, getState) => {
   return request
     .post("/dotations", body)
     .then((payload: ResponseBody) => {
-      payload.amendement.communes.dsr.strates.forEach(strate => { strate.partDotationTotale *= 100 });
+      payload.amendement.communes.dsr.strates.forEach((strate) => {
+        // eslint-disable-next-line no-param-reassign
+        strate.partDotationTotale *= 100;
+      });
       if (payload.plf) {
-        payload.plf.communes.dsr.strates.forEach(strate => { strate.partDotationTotale *= 100 });
+        payload.plf.communes.dsr.strates.forEach((strate) => {
+          // eslint-disable-next-line no-param-reassign
+          strate.partDotationTotale *= 100;
+        });
       }
-      payload.base.communes.dsr.strates.forEach(strate => { strate.partDotationTotale *= 100 });
-      dispatch(simulateDotationsSuccess(payload))
+      payload.base.communes.dsr.strates.forEach((strate) => {
+        // eslint-disable-next-line no-param-reassign
+        strate.partDotationTotale *= 100;
+      });
+      dispatch(simulateDotationsSuccess(payload));
     })
     .catch(err => dispatch(simulateDotationsFailure(err)));
 };
