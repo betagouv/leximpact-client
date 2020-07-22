@@ -4,8 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import { Parameter } from "../../common";
-import { formatNumber } from "../../utils";
+import { Parameter } from "../../../common";
+import { formatNumber } from "../../../utils";
 import styles2 from "./impact-impots.module.scss";
 
 const styles = () => ({

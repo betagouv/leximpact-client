@@ -9,7 +9,7 @@ import { Fragment, PureComponent } from "react";
 import { connect } from "react-redux";
 
 import { Articles } from "../components/ir";
-import ImpactCards from "../components/cartes-impact";
+import { CartesImpact as ImpactCards } from "../components/ir";
 import PopinManager from "../components/PopinManager";
 import SimulationPage from "../components/simulation-page";
 import withRoot from "../lib/withRoot";
