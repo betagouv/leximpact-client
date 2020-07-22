@@ -88,6 +88,20 @@ export interface AsyncState<T> {
 }
 ```
 
+## Organisation des composants
+
+```bash
+- common # Composants communs à toutes les pages
+- dotations # Composants spécifiques à la page dotations
+  - common # Composants communs à plusieurs parties de la page
+  - articles # Section paramètres à gauche
+  - results # Resultats à droite
+    - common
+    - ...
+- ir # Composants spécifiques à la page ir
+- ... # Composants spécifiques à la page ...
+```
+
 ## How to use
 
 To install and launch the client in developer mode, run the following commands:
