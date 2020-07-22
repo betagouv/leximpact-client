@@ -12,42 +12,7 @@ import { AsyncState, DotationsState } from "../interfaces";
 
 const DEFAULT_STATE: AsyncState<DotationsState> = {
   isFetching: false,
-  state: {
-    communes: {
-      dsr: {
-        eligibles: 10000,
-        strates: [
-          {
-            eligibles: 22,
-            dotationMoyenneParHab: 56,
-            partDotationTotale: 22,
-          },
-          {
-            eligibles: 2,
-            dotationMoyenneParHab: 78,
-            partDotationTotale: 3,
-          },
-          {
-            eligibles: 24,
-            dotationMoyenneParHab: 12,
-            partDotationTotale: 36,
-          },
-        ],
-        communes: [
-          {
-            code: "38527",
-            eligible: true,
-            dotationParHab: 33,
-          },
-          {
-            code: "2A253",
-            eligible: false,
-            dotationParHab: 0,
-          },
-        ],
-      },
-    },
-  },
+  state: null,
 };
 
 type DotationsAction =
