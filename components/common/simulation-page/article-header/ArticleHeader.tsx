@@ -7,11 +7,11 @@ import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
-import { resetAmendementToBase, resetAmendementToPlf } from "../../../redux/actions";
+import { resetAmendementToBase, resetAmendementToPlf } from "../../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../redux/reducers";
+import { RootState } from "../../../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
-import { ParametersState } from "../../../redux/reducers/parameters";
+import { ParametersState } from "../../../../redux/reducers/parameters";
 import styles from "./ArticleHeader.module.scss";
 
 const stylesTheme = () => ({

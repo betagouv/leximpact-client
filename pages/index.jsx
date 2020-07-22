@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 import { Articles } from "../components/ir";
 import { CartesImpact as ImpactCards } from "../components/ir";
 import PopinManager from "../components/PopinManager";
-import SimulationPage from "../components/simulation-page";
+import { SimulationPage } from "../components/common";
 import withRoot from "../lib/withRoot";
 import {
   disabledEtat, fetchSimPop, showAddCasTypesPopin, simulateCasTypes,

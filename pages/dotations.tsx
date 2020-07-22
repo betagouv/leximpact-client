@@ -8,7 +8,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { Articles, Results } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
-import SimulationPage from "../components/simulation-page";
+import { SimulationPage } from "../components/common";
 import withRoot from "../lib/withRoot";
 import { simulateDotations } from "../redux/actions";
 

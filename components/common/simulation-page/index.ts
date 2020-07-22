@@ -5,7 +5,7 @@ import { compose } from "redux";
 import {
   fetchMetadataCasTypes,
   simulateCasTypes,
-} from "../../redux/actions";
+} from "../../../redux/actions";
 import { SimulationPage } from "./SimulationPage";
 
 const mapStateToProps = (state, { width }) => {
