@@ -7,7 +7,7 @@ import SwipeableViews from "react-swipeable-views";
 
 // eslint-disable-next-line no-unused-vars
 import { ParametersState } from "../../redux/reducers/parameters";
-import AppHeader from "../app-header";
+import { AppHeader } from "../common";
 import { ArticleHeader } from "./article-header";
 import { SimulationMenuBar } from "./simulation-menu";
 import styles from "./SimulationPage.module.scss";

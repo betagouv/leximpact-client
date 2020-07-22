@@ -5,7 +5,7 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import AppHeader from "../components/app-header";
+import { AppHeader } from "../components/common";
 import TextePresentationGenerale from "../components/presentation-cgu/texte-presentation-generale";
 import TextePresentationLeximpactPop from "../components/presentation-cgu/texte-presentation-leximpact-pop";
 import TextePresentationOpenLeximpact from "../components/presentation-cgu/texte-presentation-open-leximpact";
