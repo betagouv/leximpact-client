@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { hideInformationPanel } from "../../redux/actions";
+import { hideInformationPanel } from "../../../../redux/actions";
 import InformationPanel from "./InformationPanel";
 
 const mapStateToProps = () => ({});

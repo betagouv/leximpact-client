@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "./carte-etat";
-import InformationPanel from "../../information-panel";
+import InformationPanel from "./information-panel";
 import { GagnantsPerdantsCard } from "./gagnants-perdants";
 import styles from "./impact-component.module.scss";
 import SimpleCard from "./simple-card";
