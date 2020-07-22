@@ -7,12 +7,12 @@ import React, { Fragment } from "react";
 import {
   BaseInputOutput,
   FormulaOutput,
-} from "../articles-inputs";
-import { Parameter } from "../articles-inputs/parameter";
+} from "../../articles-inputs";
+import { Parameter } from "../../articles-inputs/parameter";
 import {
   ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel,
-} from "../common";
-import fillArrayWith from "../utils/array/fillArrayWith";
+} from "../../common";
+import fillArrayWith from "../../utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import styles from "./articles.module.scss";

@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 import { connect } from "react-redux";
 
-import Articles from "../components/articles";
+import { Articles } from "../components/ir";
 import ImpactCards from "../components/cartes-impact";
 import PopinManager from "../components/PopinManager";
 import SimulationPage from "../components/simulation-page";
