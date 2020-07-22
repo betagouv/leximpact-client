@@ -10,16 +10,16 @@ const DEFAULT_STATE: Commune[] = [
   {
     code: "38527",
     departement: "Isère",
-    habitants: 327,
+    habitants: 882,
     name: "Vaujany",
-    potentielFinancier: 8854,
+    potentielFinancier: 8854.43,
   },
   {
     code: "2A253",
     departement: "Corse-du-sud",
-    habitants: 57,
+    habitants: 83,
     name: "Quasquara",
-    potentielFinancier: 122,
+    potentielFinancier: 222.69,
   },
 ];
 
