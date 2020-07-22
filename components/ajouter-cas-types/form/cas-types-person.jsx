@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 import { Field } from "react-final-form";
 
-import { MUINumberStepper } from "../../mui-extras-components";
+import { MUINumberStepper } from "./mui-extras-components";
 
 const styles = {
   container: {
