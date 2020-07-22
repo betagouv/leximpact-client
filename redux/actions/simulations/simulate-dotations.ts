@@ -1,6 +1,6 @@
 import { updateIn } from "immutable";
 
-import request from "../../../components/utils/request";
+import request from "../../../components/common/utils/request";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../reducers";
 // eslint-disable-next-line no-unused-vars

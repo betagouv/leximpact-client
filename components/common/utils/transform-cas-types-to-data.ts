@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CasType } from "../../redux/reducers/descriptions/ir";
+import { CasType } from "../../../redux/reducers/descriptions/ir";
 
 export const transformCasTypesToData = (casTypes: CasType[]) => casTypes.map((obj) => {
   const {

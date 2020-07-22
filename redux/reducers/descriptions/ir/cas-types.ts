@@ -1,6 +1,6 @@
 import { cloneDeep } from "lodash";
 
-import { transformDataToCasTypes } from "../../../../components/utils/transform-data-to-cas-types";
+import { transformDataToCasTypes } from "../../../../components/common/utils/transform-data-to-cas-types";
 
 interface Person {
   /* All are actually booleans. */

@@ -15,7 +15,7 @@
 import { get } from "lodash";
 
 // eslint-disable-next-line no-unused-vars
-import { CasType } from "../../redux/reducers/descriptions/ir";
+import { CasType } from "../../../redux/reducers/descriptions/ir";
 
 const DEFAULT_NAME = "Foyer fiscal type";
 
