@@ -50,24 +50,20 @@ class CommuneSummary extends PureComponent<Props> {
                 className={styles.icon}
                 fontSize="default"
               />
-              {" "}
               <Parameter
                 amendementValue={amendement.nouvellementEligibles}
                 plfValue={plf.nouvellementEligibles} />
-              {" "}
-              <span>nouvellement éligibles</span>
+              <span>&nbsp;nouvellement éligibles</span>
             </div>
             <div className={styles.plusEligible}>
               <ArrowDownwardIcon
                 className={styles.icon}
                 fontSize="default"
               />
-              {" "}
               <Parameter
                 amendementValue={amendement.plusEligibles}
                 plfValue={plf.plusEligibles} />
-              {" "}
-              <span> plus éligibles</span>
+              <span>&nbsp;plus éligibles</span>
             </div>
             <div className={styles.toujoursEligible}>
               soit

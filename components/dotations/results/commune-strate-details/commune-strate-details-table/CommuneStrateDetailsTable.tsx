@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
-import { ResultValues } from "../../../../common";
+import { ResultValues, formatNumber } from "../../../../common";
 import styles from "./CommuneStrateDetailsTable.module.scss";
 
 const mapStateToProps = ({ descriptions, results }: RootState) => ({
@@ -69,22 +69,28 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
 
                     </th>
                     <td className={styles.light}>
-                      {strate.partPopTotale}
+                      {formatNumber(strate.partPopTotale, { decimals: 0 })}
                       {" "}
                       %
                     </td>
-                    <td className={styles.light}>{strate.potentielFinancierMoyenParHab}</td>
+                    <td className={styles.light}>
+                      {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
+                    </td>
                     <td>
                       <ResultValues
                         path={`dotations.state.communes.dsr.strates.${index}.eligibles`} />
                     </td>
                     <td>
                       <ResultValues
+                        decimals={2}
                         path={`dotations.state.communes.dsr.strates.${index}.dotationMoyenneParHab`} />
                     </td>
                     <td>
                       <ResultValues
+                        decimals={0}
                         path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
+                      {" "}
+                      %
                     </td>
                   </tr>
                 ))

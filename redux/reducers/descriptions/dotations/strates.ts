@@ -10,21 +10,36 @@ interface Strate {
 
 const DEFAULT_STATE: Strate[] = [
   {
-    habitants: 100000,
-    partPopTotale: 28,
-    potentielFinancierMoyenParHab: 28,
+    habitants: 2000,
+    partPopTotale: 0.22389436108802008,
+    potentielFinancierMoyenParHab: 806.3499063581453,
   },
   {
-    habitants: 200000,
-    partPopTotale: 14,
-    potentielFinancierMoyenParHab: 12,
+    habitants: 4000,
+    partPopTotale: 0.10856365997591765,
+    potentielFinancierMoyenParHab: 939.0537604104303,
+  },
+  {
+    habitants: 6000,
+    partPopTotale: 0.07158035189319084,
+    potentielFinancierMoyenParHab: 1026.9505233119069,
+  },
+  {
+    habitants: 8000,
+    partPopTotale: 0.04999598238894948,
+    potentielFinancierMoyenParHab: 1058.6630157744887,
+  },
+  {
+    habitants: 10000,
+    partPopTotale: 0.03996589802203137,
+    potentielFinancierMoyenParHab: 1091.3171801542212,
   },
   {
     habitants: -1,
-    partPopTotale: 2,
-    potentielFinancierMoyenParHab: 67,
+    partPopTotale: 0.5059997466318906,
+    potentielFinancierMoyenParHab: 1286.9993111322344,
   },
-];
+].map(e => ({ ...e, partPopTotale: e.partPopTotale * 100 }));
 
 export function strates(state: Strate[] = DEFAULT_STATE): Strate[] {
   return state;

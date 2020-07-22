@@ -11,15 +11,7 @@ import { AsyncState, DotationsDiffState } from "../interfaces";
 
 const DEFAULT_STATE: AsyncState<DotationsDiffState> = {
   isFetching: false,
-  state: {
-    communes: {
-      dsr: {
-        nouvellementEligibles: 60,
-        plusEligibles: 10,
-        toujoursEligibles: 4090,
-      },
-    },
-  },
+  state: null,
 };
 
 type DotationsAction =
