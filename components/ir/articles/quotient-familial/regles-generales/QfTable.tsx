@@ -9,7 +9,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { addNewLineInParameterArray, removeLastLineInParameterArray } from "../../../../../redux/actions/parameters";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
-import { StateParameter } from "../../../../articles-inputs/parameter";
+import { StateParameter } from "../../../../common";
 import { Button } from "../../buttons";
 import styles from "./QfTable.module.scss";
 

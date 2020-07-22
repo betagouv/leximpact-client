@@ -2,9 +2,9 @@ import { getIn } from "immutable";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
-import { updateParameter } from "../../../redux/actions/parameters/update-parameter";
+import { updateParameter } from "../../../../redux/actions/parameters/update-parameter";
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../redux/reducers";
+import { RootState } from "../../../../redux/reducers";
 import { Parameter } from "./Parameter";
 
 const mapStateToProps = ({ parameters }: RootState, { path }) => {

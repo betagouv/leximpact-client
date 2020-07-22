@@ -1,7 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { StateParameter } from "../../../articles-inputs/parameter";
-import { ExpandableText } from "../../../common";
+import { ExpandableText, StateParameter } from "../../../common";
 
 export class DsrEligibilite extends PureComponent {
   render() {

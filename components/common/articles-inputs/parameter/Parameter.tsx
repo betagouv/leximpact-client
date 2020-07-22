@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { PureComponent } from "react";
 
-import { PlfTooltip, ReformTooltip } from "../../tooltips";
-import { formatNumber } from "../../utils";
+import { PlfTooltip, ReformTooltip } from "../../../tooltips";
+import { formatNumber } from "../../../utils";
 import { NumberInput } from "./number-input";
 import styles from "./Parameter.module.scss";
 

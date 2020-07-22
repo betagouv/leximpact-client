@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { connect } from "react-redux";
 
-import { updateReformeByName } from "../../../redux/actions";
+import { updateReformeByName } from "../../../../redux/actions";
 import BaseInputOutputComponent from "./base-input-output-component";
 
 const mapStateToProps = (state, props) => {

@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-import { formatNumber } from "../../../utils";
+import { formatNumber } from "../../../../utils";
 import styles from "./NumberInput.module.scss";
 
 function parseNumber(str: string): number {

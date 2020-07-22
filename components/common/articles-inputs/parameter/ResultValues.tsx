@@ -2,8 +2,8 @@
 import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../../redux/reducers";
-import { getResultNumberValues } from "../../../redux/utils";
+import { RootState } from "../../../../redux/reducers";
+import { getResultNumberValues } from "../../../../redux/utils";
 import { Parameter } from "./Parameter";
 
 const mapStateToProps = ({ results }: RootState, { path }) => getResultNumberValues(results, path);

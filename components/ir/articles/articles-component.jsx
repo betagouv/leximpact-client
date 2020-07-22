@@ -7,8 +7,8 @@ import React, { Fragment } from "react";
 import {
   BaseInputOutput,
   FormulaOutput,
-} from "../../articles-inputs";
-import { Parameter } from "../../articles-inputs/parameter";
+} from "../../common";
+import { Parameter } from "../../common";
 import {
   ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel,
 } from "../../common";
