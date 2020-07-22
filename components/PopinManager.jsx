@@ -10,7 +10,7 @@ import { Fragment, PureComponent } from "react";
 import { closeCurrentPopin } from "../redux/actions";
 import AjouterCasTypes from "./ir/ajouter-cas-types";
 import LoginForm from "./connexion";
-import EnSavoirPlus from "./en-savoir-plus";
+import EnSavoirPlus from "./ir/en-savoir-plus";
 import { LoginPopin, LogoutPopin } from "./ir";
 
 const styles = theme => ({
