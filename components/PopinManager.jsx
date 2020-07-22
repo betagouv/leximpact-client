@@ -11,7 +11,7 @@ import { closeCurrentPopin } from "../redux/actions";
 import AjouterCasTypes from "./ajouter-cas-types";
 import LoginForm from "./connexion";
 import EnSavoirPlus from "./en-savoir-plus";
-import Loginpopin from "./login-popin";
+import Loginpopin from "./ir/login-popin";
 import LogoutPopin from "./logout-popin";
 
 const styles = theme => ({

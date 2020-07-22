@@ -3,7 +3,7 @@ import { withRouter } from "next/router";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import { closeCurrentPopin, connexionTokenLogin } from "../../redux/actions";
+import { closeCurrentPopin, connexionTokenLogin } from "../../../redux/actions";
 import LoginPopinComponent from "./login-popin-component";
 
 const mapStateToProps = (state, { router }) => {
