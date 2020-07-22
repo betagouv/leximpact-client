@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { Parameter } from "../../../common";
-import { formatNumber } from "../../../utils";
+import { formatNumber } from "../../../common";
 import styles2 from "./impact-impots.module.scss";
 
 const styles = () => ({

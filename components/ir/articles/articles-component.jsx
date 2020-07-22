@@ -12,7 +12,7 @@ import { Parameter } from "../../common";
 import {
   ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel,
 } from "../../common";
-import fillArrayWith from "../../utils/array/fillArrayWith";
+import fillArrayWith from "../../common/utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
 import styles from "./articles.module.scss";

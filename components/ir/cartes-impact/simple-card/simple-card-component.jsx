@@ -19,7 +19,7 @@ import React, { Fragment } from "react";
 import { Card } from "../../../common";
 import DoublePalmTreeIcon from "../../../icons/double-palm-tree";
 import { NeutralTooltip } from "../../../common";
-import { formatNumber } from "../../../utils";
+import { formatNumber } from "../../../common";
 import SimpleCardImpactImpots from "./impact-impots";
 
 const RESIDENCE_ITEMS = [

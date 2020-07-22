@@ -8,7 +8,7 @@ import { FORM_ERROR } from "final-form";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
-import request from "../utils/request";
+import request from "../common/utils/request";
 import ConnexionForm from "./connexion-form";
 import ConnexionSuccess from "./connexion-form-success";
 import MentionsLegales from "./form/mentions-legales-text";

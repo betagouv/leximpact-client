@@ -6,8 +6,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
 // eslint-disable-next-line no-unused-vars
-import { RootState } from "../../redux/reducers";
-import { formatNumber } from "../common";
+import { RootState } from "../../../../redux/reducers";
+import { formatNumber } from "../../../common";
 import styles2 from "./simpop-tableur-infos-deciles.module.scss";
 
 const styles = {
