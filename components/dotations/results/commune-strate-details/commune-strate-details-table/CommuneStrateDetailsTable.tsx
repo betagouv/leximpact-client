@@ -90,6 +90,8 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                       <ResultValues
                         decimals={0}
                         path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
+                      {" "}
+                      %
                     </td>
                   </tr>
                 ))

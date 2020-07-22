@@ -39,7 +39,7 @@ const DEFAULT_STATE: Strate[] = [
     partPopTotale: 0.5059997466318906,
     potentielFinancierMoyenParHab: 1286.9993111322344,
   },
-];
+].map(e => ({ ...e, partPopTotale: e.partPopTotale * 100 }));
 
 export function strates(state: Strate[] = DEFAULT_STATE): Strate[] {
   return state;

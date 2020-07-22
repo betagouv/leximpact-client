@@ -36,7 +36,7 @@ export function dotations(
   case "SIMULATE_DOTATIONS_SUCCESS":
     return {
       isFetching: false,
-      state: action.dotations.baseToPlf,
+      state: action.dotations.baseToPlf || null,
     };
   default:
     return state;

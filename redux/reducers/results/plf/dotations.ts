@@ -37,7 +37,7 @@ export function dotations(
   case "SIMULATE_DOTATIONS_SUCCESS":
     return {
       isFetching: false,
-      state: action.dotations.plf,
+      state: action.dotations.plf || null,
     };
   default:
     return state;
