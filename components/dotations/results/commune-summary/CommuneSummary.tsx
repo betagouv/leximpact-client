@@ -10,8 +10,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { Parameter, ResultValues } from "../../../common";
-import { Card } from "../../../common";
+import { Card, Parameter, ResultValues } from "../../../common";
 import styles from "./CommuneSummary.module.scss";
 
 const mapStateToProps = ({ results }: RootState) => ({

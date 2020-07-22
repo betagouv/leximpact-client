@@ -6,11 +6,11 @@ import React, { Fragment } from "react";
 
 import {
   BaseInputOutput,
+  ExpandableText,
   FormulaOutput,
-} from "../../common";
-import { Parameter } from "../../common";
-import {
-  ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel,
+  Parameter,
+  PrimaryExpandablePanel,
+  SecondaryExpandablePanel,
 } from "../../common";
 import fillArrayWith from "../../common/utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";

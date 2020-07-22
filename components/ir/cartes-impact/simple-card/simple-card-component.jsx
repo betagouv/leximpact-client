@@ -16,10 +16,8 @@ import { get } from "lodash";
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 
-import { Card } from "../../../common";
+import { Card, formatNumber, NeutralTooltip } from "../../../common";
 import DoublePalmTreeIcon from "../../../common/icons/double-palm-tree";
-import { NeutralTooltip } from "../../../common";
-import { formatNumber } from "../../../common";
 import SimpleCardImpactImpots from "./impact-impots";
 
 const RESIDENCE_ITEMS = [

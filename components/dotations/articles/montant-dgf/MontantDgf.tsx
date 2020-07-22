@@ -1,7 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { StateParameter } from "../../../common";
-import { ExpandableText } from "../../../common";
+import { ExpandableText, StateParameter } from "../../../common";
 
 export class MontantDgf extends PureComponent {
   render() {

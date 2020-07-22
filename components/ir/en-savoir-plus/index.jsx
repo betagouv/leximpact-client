@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { closeCurrentPopin } from "../../redux/actions";
+import { closeCurrentPopin } from "../../../redux/actions";
 import EnSavoirPlus from "./EnSavoirPlus";
 
 const mapStateToProps = null;

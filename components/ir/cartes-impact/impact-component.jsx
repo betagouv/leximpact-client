@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import CarteEtat from "./carte-etat";
-import InformationPanel from "./information-panel";
 import { GagnantsPerdantsCard } from "./gagnants-perdants";
 import styles from "./impact-component.module.scss";
+import InformationPanel from "./information-panel";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {

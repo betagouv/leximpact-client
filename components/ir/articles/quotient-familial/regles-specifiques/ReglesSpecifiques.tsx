@@ -1,7 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { StateParameter } from "../../../../common";
-import { ExpandablePanelSubTitle, ExpandableText } from "../../../../common";
+import { ExpandablePanelSubTitle, ExpandableText, StateParameter } from "../../../../common";
 
 export class ReglesSpecifiques extends PureComponent {
   render() {

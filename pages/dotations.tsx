@@ -6,9 +6,9 @@ import { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
+import { SimulationPage } from "../components/common";
 import { Articles, Results } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
-import { SimulationPage } from "../components/common";
 import withRoot from "../lib/withRoot";
 import { simulateDotations } from "../redux/actions";
 
