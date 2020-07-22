@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../expandable-panels";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
 import { DsrEligibilite } from "./dsr-eligibilite";
 import { DsrFractionBourgCentre } from "./dsr-fraction-bourg-centre";
 import { DsrFractionCible } from "./dsr-fraction-cible";

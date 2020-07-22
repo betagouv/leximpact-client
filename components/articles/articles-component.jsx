@@ -11,7 +11,7 @@ import {
 import { Parameter } from "../articles-inputs/parameter";
 import {
   ExpandableText, PrimaryExpandablePanel, SecondaryExpandablePanel,
-} from "../expandable-panels";
+} from "../common";
 import fillArrayWith from "../utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
 import Alinea4a from "./article-alinea-4a";
