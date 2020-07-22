@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { Field } from "react-final-form";
 
-import DoublePalmTreeIcon from "../../icons/double-palm-tree";
+import DoublePalmTreeIcon from "../../../icons/double-palm-tree";
 
 const styles = {
   button: {

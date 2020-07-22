@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { closeCurrentPopin } from "../redux/actions";
-import AjouterCasTypes from "./ajouter-cas-types";
+import AjouterCasTypes from "./ir/ajouter-cas-types";
 import LoginForm from "./connexion";
 import EnSavoirPlus from "./en-savoir-plus";
 import { LoginPopin, LogoutPopin } from "./ir";
