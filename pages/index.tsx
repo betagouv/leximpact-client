@@ -2,8 +2,8 @@ import Head from "next/head";
 import { Fragment, PureComponent } from "react";
 
 import { AppHeader } from "../components/common";
-import withRoot from "../lib/withRoot";
 import { HomeContent } from "../components/home";
+import withRoot from "../lib/withRoot";
 
 class HomePage extends PureComponent {
   render() {

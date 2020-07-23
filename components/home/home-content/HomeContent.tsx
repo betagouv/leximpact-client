@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 
-import styles from "./HomeContent.module.scss";
 import { HomeNavigation } from "./home-navigation";
+import styles from "./HomeContent.module.scss";
 
 export class HomeContent extends PureComponent {
   render() {
@@ -9,6 +9,6 @@ export class HomeContent extends PureComponent {
       <div className={styles.page}>
         <HomeNavigation />
       </div>
-    )
+    );
   }
 }
