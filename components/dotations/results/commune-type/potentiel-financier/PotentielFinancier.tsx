@@ -1,5 +1,6 @@
 import { PureComponent } from "react";
 
+import { formatNumber } from "../../../../utils";
 import styles from "./PotentielFinancier.module.scss";
 
 interface Props {
@@ -11,7 +12,7 @@ export class PotentielFinancier extends PureComponent<Props> {
     const { potentielFinancier } = this.props;
     return (
       <div className={styles.text}>
-        {potentielFinancier}
+        {formatNumber(potentielFinancier, { decimals: 2 })}
         <span> € potentiel financier / hab</span>
       </div>
     );

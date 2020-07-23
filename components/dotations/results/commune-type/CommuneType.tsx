@@ -1,5 +1,10 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../redux/reducers/descriptions/dotations";
 import { Card } from "../../../card";
@@ -9,15 +14,24 @@ import { Eligibilite } from "./eligibilite";
 import { HabitantLabel } from "./habitant-label";
 import { PotentielFinancier } from "./potentiel-financier";
 
-interface CommuneResult {
-  eligible: boolean;
-  dotationParHab: number;
+const mapStateToProps = ({ results }: RootState) => ({
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
+});
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & Commune & {
+  index: number;
 }
 
-export class CommuneType extends PureComponent<Commune & CommuneResult> {
+class CommuneType extends PureComponent<Props> {
   render() {
     const {
-      departement, dotationParHab, eligible, habitants, name, potentielFinancier,
+      departement, habitants, index, isFetching, name, potentielFinancier,
     } = this.props;
     return (
       <Card
@@ -31,20 +45,26 @@ export class CommuneType extends PureComponent<Commune & CommuneResult> {
             />
           </Fragment>
         )}
-        content2={(
-          <Fragment>
-            <div className={styles.resultCaption}>
+        content2={
+          isFetching ? <CircularProgress />
+            : (
+              <Fragment>
+                <div className={styles.resultCaption}>
               Eligibilité et montant de la DSR
-            </div>
-            <div className={styles.eligibilite}>
-              <Eligibilite eligible={eligible} />
-            </div>
-            <DotationParHab dotationParHab={dotationParHab} />
-          </Fragment>
-        )}
+                </div>
+                <div className={styles.eligibilite}>
+                  <Eligibilite index={index} />
+                </div>
+                <DotationParHab index={index} />
+              </Fragment>
+            )}
         subTitle={departement}
         title={name}
       />
     );
   }
 }
+
+const ConnectedCommuneType = connector(CommuneType);
+
+export { ConnectedCommuneType as CommuneType };

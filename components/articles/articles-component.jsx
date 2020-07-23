@@ -50,7 +50,7 @@ class ArticlesComponent extends React.Component {
         <div
           key={i}>
           {
-            "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède"
+            "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède "
           }
           <Parameter
             editable
@@ -59,6 +59,7 @@ class ArticlesComponent extends React.Component {
             plfValue={plfValue}
             onAmendementChange={value => handleArticleChange(value, `seuil${i}`)}
           />
+          {" "}
           € le taux de&nbsp;:
         </div>
       );
@@ -75,6 +76,7 @@ class ArticlesComponent extends React.Component {
           key={i}
           className={newTranche ? styles.newTranche : undefined}>
           –
+          {" "}
           <Parameter
             editable
             amendementInputSize="small"
@@ -83,15 +85,18 @@ class ArticlesComponent extends React.Component {
             plfValue={plfValuet}
             onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
+          {" "}
           %
           <br />
-          pour la fraction supérieure à&nbsp;
+          pour la fraction supérieure à
+          {" "}
           <Parameter
             amendementValue={s[i - 1]}
             baseValue={baseValue}
             editable={false}
             plfValue={plfValue}
           />
+          {" "}
           €.
         </div>
       );
@@ -109,6 +114,7 @@ class ArticlesComponent extends React.Component {
         key={i}
         className={newTranche ? styles.newTranche : undefined}>
         –
+        {" "}
         <Parameter
           editable
           amendementInputSize="small"
@@ -117,18 +123,22 @@ class ArticlesComponent extends React.Component {
           plfValue={plfValuet}
           onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
+        {" "}
         %
         <br />
-        pour la fraction supérieure à&nbsp;
+        pour la fraction supérieure à
+        {" "}
         <Parameter
           amendementValue={s[i - 1]}
           baseValue={baseValueminus1}
           editable={false}
           plfValue={plfValueminus1}
         />
+        {" "}
         €
         <br />
-        et inférieure ou égale à&nbsp;
+        et inférieure ou égale à
+        {" "}
         <Parameter
           editable
           amendementValue={s[i]}
@@ -136,6 +146,7 @@ class ArticlesComponent extends React.Component {
           plfValue={plfValue}
           onAmendementChange={value => handleArticleChange(value, `seuil${i}`)}
         />
+        {" "}
         € ;
       </div>
     );

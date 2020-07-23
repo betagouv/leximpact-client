@@ -41,16 +41,23 @@ class ArticleAlinea3 extends PureComponent {
         ) : null}
         3. Le montant de l&apos;impôt résultant de l&apos;application des
         dispositions précédentes est réduit de
+        {" "}
         {baseOutputInput("plafond_qf.abat_dom.taux_GuadMarReu")}
+        {" "}
         %, dans la limite de
+        {" "}
         {baseOutputInput("plafond_qf.abat_dom.plaf_GuadMarReu")}
+        {" "}
         € pour les
         contribuables domiciliés dans les départements de la Guadeloupe, de
         la Martinique et de la Réunion ; cette réduction est égale à
         {" "}
         {baseOutputInput("plafond_qf.abat_dom.taux_GuyMay")}
+        {" "}
         %, dans la limite de
+        {" "}
         {baseOutputInput("plafond_qf.abat_dom.plaf_GuyMay")}
+        {" "}
         €, pour les contribuables domiciliés dans les départements de la
         Guyane et de Mayotte ;
       </Fragment>

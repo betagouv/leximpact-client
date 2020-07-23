@@ -14,16 +14,20 @@ class Alinea4a extends PureComponent {
         de la différence entre
         {" "}
         {baseOutputInput("decote.seuil_celib")}
+        {" "}
         € et
         {" "}
         {baseOutputInput("decote.taux")}
+        {" "}
         % de son montant pour les contribuables célibataires, divorcés ou
         veufs et de la différence entre
+        {" "}
         {baseOutputInput("decote.seuil_couple")}
         {" "}
         € et
         {" "}
         {formulaOutputInput("decote.taux")}
+        {" "}
         % de son montant pour les contribuables soumis à imposition
         commune.
       </Fragment>

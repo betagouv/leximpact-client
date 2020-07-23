@@ -1,10 +1,32 @@
-import { PureComponent } from "react";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
-import { Parameter } from "../../../../articles-inputs";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../../redux/reducers";
+import { ResultValues } from "../../../../articles-inputs/parameter";
+import { formatNumber } from "../../../../utils";
 import styles from "./CommuneStrateDetailsTable.module.scss";
 
-export class CommuneStrateDetailsTable extends PureComponent {
+const mapStateToProps = ({ descriptions, results }: RootState) => ({
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
+  strates: descriptions.dotations.strates,
+});
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {
+
+}
+
+class CommuneStrateDetailsTable extends PureComponent<Props> {
   render() {
+    const { isFetching, strates } = this.props;
     return (
       <div className={styles.container}>
         <table className={styles.table}>
@@ -25,47 +47,66 @@ export class CommuneStrateDetailsTable extends PureComponent {
               <th>Potentiel financier moyen par hab.</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">
-                <div className={styles.lighter}>jusqu&apos;à</div>
-                500 h.
-              </th>
-              <td className={styles.light}>6,4%</td>
-              <td className={styles.light}>657</td>
-              <td>
-                <Parameter
-                  amendementValue={1200}
-                  baseValue={1201}
-                  editable={false} />
-              </td>
-              <td>
-                <Parameter
-                  amendementValue={61}
-                  baseValue={59}
-                  editable={false} />
-              </td>
-              <td>
-                <Parameter
-                  amendementValue={35}
-                  baseValue={36}
-                  editable={false} />
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <div className={styles.lighter}>jusqu&apos;à</div>
-                1000 h.
-              </th>
-              <td className={styles.light}>6,4%</td>
-              <td className={styles.light}>657</td>
-              <td>1200</td>
-              <td>61</td>
-              <td>36</td>
-            </tr>
-          </tbody>
+          {!isFetching && (
+            <tbody>
+              {
+                strates.map((strate, index) => (
+                  <tr key={strate.habitants}>
+                    <th scope="row">
+                      {
+                        strate.habitants === -1 ? (
+                          <Fragment>
+                            <div className={styles.lighter}>au-delà.</div>
+                          </Fragment>
+                        ) : (
+                          <Fragment>
+                            <div className={styles.lighter}>jusqu&apos;à</div>
+                            {strate.habitants}
+                            {" "}
+                            h.
+                          </Fragment>
+                        )
+                      }
+
+                    </th>
+                    <td className={styles.light}>
+                      {formatNumber(strate.partPopTotale, { decimals: 0 })}
+                      {" "}
+                      %
+                    </td>
+                    <td className={styles.light}>
+                      {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
+                    </td>
+                    <td>
+                      <ResultValues
+                        path={`dotations.state.communes.dsr.strates.${index}.eligibles`} />
+                    </td>
+                    <td>
+                      <ResultValues
+                        decimals={2}
+                        path={`dotations.state.communes.dsr.strates.${index}.dotationMoyenneParHab`} />
+                    </td>
+                    <td>
+                      <ResultValues
+                        decimals={0}
+                        path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
+                      {" "}
+                      %
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          )}
         </table>
+        {
+          isFetching && <CircularProgress />
+        }
       </div>
     );
   }
 }
+
+const ConnectedCommuneStrateDetailsTable = connector(CommuneStrateDetailsTable);
+
+export { ConnectedCommuneStrateDetailsTable as CommuneStrateDetailsTable };

@@ -28,13 +28,55 @@ function simulateDotationsFailure(error: any): SimulateDotationsFailureAction {
   };
 }
 
-export interface SimulateDotationsSuccessAction {
-  type: "SIMULATE_DOTATIONS_SUCCESS",
-  dotations: any,
+interface RequestBody {
+  reforme: {
+    dotations: DotationsState;
+  },
+  descriptionCasTypes: { code: string }[];
+  strates: { habitants: number }[];
 }
 
-// TODO: use the proper type
-function simulateDotationsSuccess(dotations: any): SimulateDotationsSuccessAction {
+interface ResponseBody {
+  amendement: {
+    communes: {
+      dsr: {
+        eligibles: number;
+        strates: {
+          // Nombre de communes éligibles
+          eligibles: number;
+          // Dotation moyenne par habitant
+          dotationMoyenneParHab: number;
+          // Part des dotations accordées à cette strate dans la dotation totale.
+          partDotationTotale: number;
+        }[],
+        communes: {
+          code: string; // OR id, I'm ok with both.
+          eligible: boolean;
+          dotationParHab: number;
+        }[]
+      }
+    }
+  }
+  base: ResponseBody["amendement"]
+  plf?: ResponseBody["amendement"]
+  baseToAmendement: {
+    communes: {
+      dsr: {
+        nouvellementEligibles: number;
+        plusEligibles: number;
+        toujoursEligibles: number;
+      }
+    }
+  }
+  baseToPlf?: ResponseBody["baseToAmendement"]
+}
+
+export interface SimulateDotationsSuccessAction {
+  type: "SIMULATE_DOTATIONS_SUCCESS",
+  dotations: ResponseBody,
+}
+
+function simulateDotationsSuccess(dotations: ResponseBody): SimulateDotationsSuccessAction {
   return {
     dotations,
     type: "SIMULATE_DOTATIONS_SUCCESS",
@@ -67,16 +109,32 @@ export const simulateDotations = () => (dispatch, getState) => {
   dispatch(simulateDotationsRequest());
 
   const { descriptions, parameters } = getState() as RootState;
-  const body = {
+  const body: RequestBody = {
     descriptionCasTypes: descriptions.dotations.communesTypes.map(({ code }) => ({ code })),
     reforme: {
       dotations: convertRates(parameters.amendement.dotations),
     },
+    strates: descriptions.dotations.strates.map(({ habitants }) => ({ habitants })),
   };
 
   return request
     .post("/dotations", body)
-    // TODO: handle result
-    .then(payload => dispatch(simulateDotationsSuccess(payload)))
+    .then((payload: ResponseBody) => {
+      payload.amendement.communes.dsr.strates.forEach((strate) => {
+        // eslint-disable-next-line no-param-reassign
+        strate.partDotationTotale *= 100;
+      });
+      if (payload.plf) {
+        payload.plf.communes.dsr.strates.forEach((strate) => {
+          // eslint-disable-next-line no-param-reassign
+          strate.partDotationTotale *= 100;
+        });
+      }
+      payload.base.communes.dsr.strates.forEach((strate) => {
+        // eslint-disable-next-line no-param-reassign
+        strate.partDotationTotale *= 100;
+      });
+      dispatch(simulateDotationsSuccess(payload));
+    })
     .catch(err => dispatch(simulateDotationsFailure(err)));
 };

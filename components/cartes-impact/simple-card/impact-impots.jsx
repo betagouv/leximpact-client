@@ -58,6 +58,7 @@ class SimpleCardImpactImpots extends PureComponent {
                   editable={false}
                   plfTitle={plfTitle}
                   plfValue={resultats.plf === null ? resultats.plf : -resultats.plf} />
+                {" "}
                 €
               </div>
             )
