@@ -8,10 +8,9 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 import { connect } from "react-redux";
 
-import Articles from "../components/articles";
-import ImpactCards from "../components/cartes-impact";
+import { SimulationPage } from "../components/common";
+import { Articles, CartesImpact as ImpactCards } from "../components/ir";
 import PopinManager from "../components/PopinManager";
-import SimulationPage from "../components/simulation-page";
 import withRoot from "../lib/withRoot";
 import {
   disabledEtat, fetchSimPop, showAddCasTypesPopin, simulateCasTypes,

@@ -2,7 +2,7 @@ import { flow } from "lodash";
 import Head from "next/head";
 import { Fragment, PureComponent } from "react";
 
-import AppHeader from "../components/app-header";
+import { AppHeader } from "../components/common";
 import withRoot from "../lib/withRoot";
 
 class VosRetoursPage extends PureComponent {

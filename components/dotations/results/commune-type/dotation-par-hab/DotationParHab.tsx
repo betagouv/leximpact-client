@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-import { ResultValues } from "../../../../articles-inputs/parameter";
+import { ResultValues } from "../../../../common";
 import styles from "./DotationParHab.module.scss";
 
 interface Props {

@@ -7,7 +7,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { RootState } from "../../../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../redux/reducers/descriptions/dotations";
-import { Card } from "../../../card";
+import { Card } from "../../../common";
 import styles from "./CommuneType.module.scss";
 import { DotationParHab } from "./dotation-par-hab";
 import { Eligibilite } from "./eligibilite";
