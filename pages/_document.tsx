@@ -5,7 +5,11 @@ import JssProvider from "react-jss/lib/JssProvider";
 import createPageContext from "../lib/createPageContext";
 import getPageContext from "../lib/getPageContext";
 
-class MyDocument extends Document {
+interface Props {
+  pageContext: any;
+}
+
+class MyDocument extends Document<Props> {
   static getInitialProps(ctx) {
     // Resolution order
     //

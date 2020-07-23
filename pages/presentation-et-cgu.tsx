@@ -30,7 +30,11 @@ const styles = () => ({
   },
 });
 
-class ExamplePage extends PureComponent {
+interface Props {
+  classes: any;
+}
+
+class ExamplePage extends PureComponent<Props> {
   render() {
     const { classes } = this.props;
     return (
@@ -58,10 +62,6 @@ class ExamplePage extends PureComponent {
     );
   }
 }
-
-ExamplePage.propTypes = {
-  classes: PropTypes.shape().isRequired,
-};
 
 export default flow(
   withStyles(styles),

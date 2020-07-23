@@ -4,9 +4,9 @@ import FaceIcon from "@material-ui/icons/Face";
 import { flow } from "lodash";
 import Head from "next/head";
 import { withRouter } from "next/router";
-import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
-import { connect } from "react-redux";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
 import { SimulationPage } from "../components/common";
 import { Articles, CartesImpact as ImpactCards } from "../components/ir";
@@ -15,8 +15,10 @@ import withRoot from "../lib/withRoot";
 import {
   disabledEtat, fetchSimPop, showAddCasTypesPopin, simulateCasTypes,
 } from "../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../redux/reducers";
 
-const mapStateToProps = ({ token }) => ({
+const mapStateToProps = ({ token }: RootState) => ({
   isUserLogged: !!token,
 });
 
@@ -34,15 +36,22 @@ const mapDispatchToProps = dispatch => ({
 
 const populationIcon = (
   <Fragment>
-    <AccountBalanceIcon tag="macro" />
-    <FaceIcon tag="cas type" />
+    <AccountBalanceIcon />
+    <FaceIcon />
   </Fragment>
 );
 
-const casTypesIcon = <FaceIcon tag="cas type" />;
+const casTypesIcon = <FaceIcon />;
 
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
-class IndexPage extends PureComponent {
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {
+
+}
+
+class IndexPage extends PureComponent<Props> {
   render() {
     const {
       // eslint-disable-next-line no-shadow
@@ -98,18 +107,8 @@ class IndexPage extends PureComponent {
   }
 }
 
-IndexPage.propTypes = {
-  isUserLogged: PropTypes.bool.isRequired,
-  showAddCasTypesPopin: PropTypes.func.isRequired,
-  simulateCasTypes: PropTypes.func.isRequired,
-  simulatePopulation: PropTypes.func.isRequired,
-};
-
 export default flow(
   withRouter,
   withRoot,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connector,
 )(IndexPage);
