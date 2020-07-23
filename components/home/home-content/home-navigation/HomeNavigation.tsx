@@ -8,7 +8,7 @@ export class HomeNavigation extends PureComponent {
     return (
       <div className={styles.navigation}>
         <h1>Estimer les impacts <br/> d'une modification de la loi :</h1>
-        <button onClick={() => Router.push('/')}> sur l'impôt sur le revenu</button>
+        <button onClick={() => Router.push('/ir')}> sur l'impôt sur le revenu</button>
         <button onClick={() => Router.push('/dotations')}> sur les dotations aux collectivités territoriales</button>
       </div>
     )
