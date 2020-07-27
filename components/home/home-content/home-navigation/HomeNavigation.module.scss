@@ -6,7 +6,9 @@
   }
 
   button {
-    display: block;
+    display: flex;
+    align-items: center;
+
     width: 100%;
     text-align: left;
     cursor: pointer;
@@ -16,8 +18,12 @@
     background-color: white;
     font-weight: bold;
     font-size: 1.25rem;
-    padding-left: 20px;
 
     margin-bottom: 20px;
+
+    > img {
+      height: 50px;
+      margin: 0 10px;
+    }
   }
 }
