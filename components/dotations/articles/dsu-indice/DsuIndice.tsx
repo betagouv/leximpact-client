@@ -40,9 +40,8 @@ export class DsuIndice extends PureComponent {
         <br />
          <ExpandablePanelSubTitle subTitle="§ 7 à 8" 
          title="Définition des paramètres considérés" />
-        <ExpandableText caption="Les logements sociaux retenus pour 
-        l&apos;application du présent article sont">  
-        Les logements sociaux retenus pour l&apos;application du présent article sont 
+        Les logements sociaux retenus pour l&apos;application du présent article sont&nbsp;
+        <ExpandableText caption="... en savoir plus">  
         les logements locatifs appartenant aux organismes d&apos;habitations 
         à loyer modéré, aux sociétés 
         d&apos;économie mixte locales et aux filiales de la société ICADE, 
@@ -78,10 +77,11 @@ export class DsuIndice extends PureComponent {
         </ExpandableText>
         <br />
         <br />
-        <ExpandableText caption="Les aides au logement retenues pour l&apos;application du 
-        présent article sont">
-        Les aides au logement retenues pour l'application du présent article sont, dans
-        des conditions définies par décret en Conseil d'Etat, les prestations prévues
+        Les aides au logement retenues pour l&apos;application du 
+        présent article sont,&nbsp;
+        <ExpandableText caption="... en savoir plus">
+        dans
+        des conditions définies par décret en Conseil d'État, les prestations prévues
         aux articles L. 351-1 du code de la construction et de l'habitation et L. 542-1
         et L. 831-1 du code de la sécurité sociale.
         </ExpandableText>
