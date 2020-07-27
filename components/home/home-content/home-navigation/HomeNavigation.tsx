@@ -13,13 +13,13 @@ export class HomeNavigation extends PureComponent {
           d&apos;une modification de la loi :
         </h1>
         <button type="button" onClick={() => Router.push("/ir")}>
-          <img src="/icons/picto-impot-sur-le-revenu.png" alt=""/>
+          <img alt="" src="/icons/picto-impot-sur-le-revenu.png" />
           sur l&apos;impôt sur le revenu
         </button>
-        <button type="button" onClick={() => Router.push("/dotations")}>
-          <img src="/icons/picto-dotations-communes.png" alt=""/>
+        {/* <button type="button" onClick={() => Router.push("/dotations")}>
+          <img alt="" src="/icons/picto-dotations-communes.png" />
           sur les dotations aux collectivités territoriales
-        </button>
+        </button> */}
       </div>
     );
   }
