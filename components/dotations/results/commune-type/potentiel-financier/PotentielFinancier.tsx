@@ -13,12 +13,9 @@ export class PotentielFinancier extends PureComponent<Props> {
     return (
       <Fragment>
         <div>
-          <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
-          <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
-          <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
-          <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
-          <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
-          <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
+          {new Array(Math.trunc(potentielFinancier / 1500) + 1).fill(true).map(() => (
+            <img alt="" className={styles.icon} src="/icons/picto-potentiel-financier.png" />
+          ))}
         </div>
         <div className={styles.text}>
           {formatNumber(potentielFinancier, { decimals: 2 })}
