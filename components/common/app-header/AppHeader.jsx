@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import LoginButton from "./login-button";
-import LoginButtonMobile from "./login-button-mobile";
 import HeaderMenuButton from "./menu-button";
 import HeaderMenuButtonMobile from "./menu-button-mobile";
 
@@ -81,8 +80,7 @@ class AppHeader extends PureComponent {
               </span>
             </Typography>
           )}
-          {showLoginButton && !useMobileView && <LoginButton isUserLogged={isUserLogged} />}
-          {showLoginButton && useMobileView && <LoginButtonMobile isUserLogged={isUserLogged} />}
+          {showLoginButton && <LoginButton isMobile={useMobileView} isUserLogged={isUserLogged} />}
           {!showLoginButton && <div />}
         </Toolbar>
       </AppBar>
