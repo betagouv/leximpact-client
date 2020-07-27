@@ -3,8 +3,9 @@
 // import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import CircularProgress from "@material-ui/core/CircularProgress";
 // import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { PureComponent } from "react";
+import { PureComponent, Fragment } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
@@ -20,6 +21,9 @@ const mapStateToProps = ({ results }: RootState) => ({
     plusEligibles: results.baseToAmendement.dotations.state?.communes.dsr.plusEligibles,
     toujoursEligibles: results.baseToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
   },
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
   plf: {
     nouvellementEligibles: results.baseToPlf.dotations.state?.communes.dsr.nouvellementEligibles,
     plusEligibles: results.baseToPlf.dotations.state?.communes.dsr.plusEligibles,
@@ -35,10 +39,10 @@ type Props = PropsFromRedux & {}
 
 class CommuneSummary extends PureComponent<Props> {
   render() {
-    const { amendement, plf } = this.props;
+    const { amendement, isFetching, plf } = this.props;
     return (
       <Card
-        content1={(
+        content1={isFetching ? <CircularProgress /> : (
           <div>
             <div className={styles.total}>
               <ResultValues
