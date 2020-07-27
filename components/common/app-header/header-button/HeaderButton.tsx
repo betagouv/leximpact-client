@@ -7,7 +7,7 @@ interface Props {
   caption?: string;
   icon: JSX.Element;
   isMobile: boolean;
-  onClick: () => void;
+  onClick: (e: any) => void;
 }
 
 export class HeaderButton extends PureComponent<Props> {
