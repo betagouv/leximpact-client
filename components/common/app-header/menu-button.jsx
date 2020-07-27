@@ -3,8 +3,6 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import PropTypes from "prop-types";
 
-import { showEnSavoirPlusPopin } from "../../../redux/actions";
-
 const styles = {
   button: {
     "&:hover": {
@@ -23,8 +21,7 @@ function HeaderMenuButton({ classes }) {
       className={classes.button}
       color="primary"
       size="medium"
-      variant="contained"
-      onClick={showEnSavoirPlusPopin}>
+      variant="contained">
       <MenuIcon fontSize="small" />
       &nbsp;Info
     </Button>

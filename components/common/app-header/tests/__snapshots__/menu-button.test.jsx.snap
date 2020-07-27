@@ -4,7 +4,6 @@ exports[`components | app-header | index snapshot doit correspondre au snapshot 
 <WithStyles(ForwardRef(Button))
   className="HeaderMenuButton-button-1"
   color="primary"
-  onClick={[MockFunction]}
   size="medium"
   variant="contained"
 >
