@@ -5,12 +5,12 @@ import { DsrEligibilite } from "./dsr-eligibilite";
 import { DsrFractionBourgCentre } from "./dsr-fraction-bourg-centre";
 import { DsrFractionCible } from "./dsr-fraction-cible";
 import { DsrFractionPerequation } from "./dsr-fraction-perequation";
+import { DsuEligibilite } from "./dsu-eligibilite";
+import { DsuIndice } from "./dsu-indice";
+import { DsuRepartition } from "./dsu-repartition";
 import { MontantDgf } from "./montant-dgf";
 import { MontantDgfCommunes } from "./montant-dgf-communes";
 import { MontantDsrDsu } from "./montant-dsr-dsu";
-import { DsuEligibilite } from "./dsu-eligibilite";
-import { DsuRepartition } from "./dsu-repartition";
-import { DsuIndice } from "./dsu-indice";
 
 export class Articles extends PureComponent {
   render() {
@@ -42,7 +42,7 @@ export class Articles extends PureComponent {
             title="Dotation de solidarité rurale">
             <SecondaryExpandablePanel
               subTitle="Article L2334-20 du CGCT"
-              title="Périmètre général d'éligibilité">
+              title="Périmètre général d&apos;éligibilité">
               <DsrEligibilite />
             </SecondaryExpandablePanel>
             <SecondaryExpandablePanel
@@ -64,14 +64,14 @@ export class Articles extends PureComponent {
           <PrimaryExpandablePanel
             title="Dotation de solidarité urbaine">
             <br />
-            La dotation de solidarité urbaine et de cohésion sociale 
-            a pour objet de contribuer à l'amélioration des conditions 
-            de vie dans les communes urbaines confrontées à une insuffisance 
+            La dotation de solidarité urbaine et de cohésion sociale
+            a pour objet de contribuer à l&apos;amélioration des conditions
+            de vie dans les communes urbaines confrontées à une insuffisance
             de leurs ressources et supportant des charges élevées. - Article L2334-15 du CGCT
             <br />
             <SecondaryExpandablePanel
               subTitle="Article L2334-16 du CGCT"
-              title="Périmètre général d'éligibilité">
+              title="Périmètre général d&apos;éligibilité">
               <DsuEligibilite />
             </SecondaryExpandablePanel>
             <SecondaryExpandablePanel
@@ -79,7 +79,7 @@ export class Articles extends PureComponent {
               title="Répartition">
               <DsuRepartition />
             </SecondaryExpandablePanel>
-             <SecondaryExpandablePanel
+            <SecondaryExpandablePanel
               subTitle="Article L2334-17 du CGCT"
               title="Définition de l’indice synthétique">
               <DsuIndice />
