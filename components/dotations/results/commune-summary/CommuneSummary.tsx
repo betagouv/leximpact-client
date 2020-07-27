@@ -47,7 +47,7 @@ class CommuneSummary extends PureComponent<Props> {
         )}
         content2={(
           <SubCard
-            icon={<EligibiliteSpot eligible />}
+            icon={<EligibiliteSpot eligible small />}
             title="Nouvellement éligibles"
             subTitle="par rapport au droit existant"
           >
@@ -58,7 +58,7 @@ class CommuneSummary extends PureComponent<Props> {
         )}
         content3={(
           <SubCard
-            icon={<EligibiliteSpot eligible={false} />}
+            icon={<EligibiliteSpot eligible={false} small />}
             title="Nouvellement non-éligibles"
             subTitle="par rapport au droit existant"
           >
