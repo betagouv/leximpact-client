@@ -80,6 +80,7 @@ class CommuneSummary extends PureComponent<Props> {
             </div>
           </div>
         )}
+        icon={<img alt="" className={styles.image} src="/icons/picto-communes-eligibles.png" />}
         // content2={(
         //   <ExpansionPanel className={styles.expansionPanel}>
         //     <ExpansionPanelSummary
