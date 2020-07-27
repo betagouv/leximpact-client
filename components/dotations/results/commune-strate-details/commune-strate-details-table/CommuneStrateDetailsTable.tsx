@@ -60,7 +60,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         ) : (
                           <Fragment>
                             <div className={styles.lighter}>jusqu&apos;à</div>
-                            {strate.habitants}
+                            {formatNumber(strate.habitants)}
                             {" "}
                             h.
                           </Fragment>
