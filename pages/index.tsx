@@ -12,7 +12,7 @@ class HomePage extends PureComponent {
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader showLoginButton={false} />
+        <AppHeader showHomeButton={false} showLoginButton={false} />
         <HomeContent />
       </Fragment>
     );

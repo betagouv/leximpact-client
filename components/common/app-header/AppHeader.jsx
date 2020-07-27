@@ -47,12 +47,13 @@ const styles = () => ({
 class AppHeader extends PureComponent {
   render() {
     const {
-      classes, isUserLogged, showLoginButton, subTitle1, subTitle2, title, useMobileView,
+      classes, isUserLogged, showHomeButton, showLoginButton, subTitle1, subTitle2, title, useMobileView,
     } = this.props;
     return (
       <AppBar position="relative">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
-          <HeaderMenuButton isMobile={useMobileView} />
+          {showHomeButton && <HeaderMenuButton isMobile={useMobileView} />}
+          {!showHomeButton && <div />}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
               <div>
@@ -87,6 +88,7 @@ class AppHeader extends PureComponent {
 }
 
 AppHeader.defaultProps = {
+  showHomeButton: true,
   subTitle1: null,
   subTitle2: null,
   title: null,
@@ -95,6 +97,7 @@ AppHeader.defaultProps = {
 AppHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
   isUserLogged: PropTypes.bool.isRequired,
+  showHomeButton: PropTypes.bool,
   showLoginButton: PropTypes.bool.isRequired,
   subTitle1: PropTypes.string,
   subTitle2: PropTypes.string,
