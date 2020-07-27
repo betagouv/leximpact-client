@@ -1,11 +1,11 @@
 // import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 // import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 // import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import CircularProgress from "@material-ui/core/CircularProgress";
 // import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { PureComponent, Fragment } from "react";
+import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
