@@ -37,9 +37,17 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                 {/* <br />
                 <span className={styles.link}>[replier ces colonnes]</span> */}
               </th>
-              <th rowSpan={2}>Nombre de communes éligibles</th>
+              <th rowSpan={2}>
+                Nombre
+                <br />
+                de communes éligibles
+              </th>
               <th rowSpan={2}>Dotation moyenne par habitant</th>
-              <th rowSpan={2}>Répartition de la dotation</th>
+              <th rowSpan={2}>
+                Répartition
+                <br />
+                de la dotation
+              </th>
             </tr>
             <tr>
               <th>Proportion population par strate</th>
@@ -60,7 +68,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         ) : (
                           <Fragment>
                             <div className={styles.lighter}>jusqu&apos;à</div>
-                            {strate.habitants}
+                            {formatNumber(strate.habitants)}
                             {" "}
                             h.
                           </Fragment>

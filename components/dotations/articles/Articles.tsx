@@ -16,22 +16,9 @@ export class Articles extends PureComponent {
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
-            title="Montant des dotations">
-            <SecondaryExpandablePanel
-              expanded
-              subTitle="Article L1613-1 du CGCT"
-              title="Montant de la dotation globale de fonctionnement (DGF)">
-              <MontantDgf />
-            </SecondaryExpandablePanel>
-            <SecondaryExpandablePanel
-              subTitle="Article L2334-1"
-              title="Montant de la DGF communes">
-              <MontantDgfCommunes />
-            </SecondaryExpandablePanel>
-          </PrimaryExpandablePanel>
-          <PrimaryExpandablePanel
             title="Dotation de solidarité rurale">
             <SecondaryExpandablePanel
+              expanded
               subTitle="Article L2334-20 du CGCT"
               title="Périmètre général d'éligibilité">
               <DsrEligibilite />
@@ -50,6 +37,19 @@ export class Articles extends PureComponent {
               subTitle="Article L2334-22-1"
               title="Fraction &quot;cible&quot;">
               <DsrFractionCible />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            title="Montant des dotations">
+            <SecondaryExpandablePanel
+              subTitle="Article L1613-1 du CGCT"
+              title="Montant de la dotation globale de fonctionnement (DGF)">
+              <MontantDgf />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-1"
+              title="Montant de la DGF communes">
+              <MontantDgfCommunes />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
         </div>

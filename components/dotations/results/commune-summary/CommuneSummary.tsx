@@ -1,6 +1,7 @@
 // import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 // import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 // import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 // import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -20,6 +21,9 @@ const mapStateToProps = ({ results }: RootState) => ({
     plusEligibles: results.baseToAmendement.dotations.state?.communes.dsr.plusEligibles,
     toujoursEligibles: results.baseToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
   },
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
   plf: {
     nouvellementEligibles: results.baseToPlf.dotations.state?.communes.dsr.nouvellementEligibles,
     plusEligibles: results.baseToPlf.dotations.state?.communes.dsr.plusEligibles,
@@ -35,10 +39,10 @@ type Props = PropsFromRedux & {}
 
 class CommuneSummary extends PureComponent<Props> {
   render() {
-    const { amendement, plf } = this.props;
+    const { amendement, isFetching, plf } = this.props;
     return (
       <Card
-        content1={(
+        content1={isFetching ? <CircularProgress /> : (
           <div>
             <div className={styles.total}>
               <ResultValues
@@ -76,6 +80,7 @@ class CommuneSummary extends PureComponent<Props> {
             </div>
           </div>
         )}
+        icon={<img alt="" className={styles.image} src="/icons/picto-communes-eligibles.png" />}
         // content2={(
         //   <ExpansionPanel className={styles.expansionPanel}>
         //     <ExpansionPanelSummary
