@@ -1,7 +1,7 @@
 import GroupIcon from "@material-ui/icons/Group";
 import { Fragment, PureComponent } from "react";
 
-import { SubCard } from "../../../card";
+import { SubCard } from "../../../../common";
 import styles from "./GagnantsPerdantsContent.module.scss";
 
 interface Props {
