@@ -5,8 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
 import { getResultBoolValues } from "../../../../../redux/utils";
-import { Parameter } from "../../../../articles-inputs";
-import { EligibiliteSpot } from "../../common";
+import { EligibiliteSpot, Parameter } from "../../common";
 import styles from "./Eligibilite.module.scss";
 
 function getEligibilite(value: boolean|undefined): "éligible"|"non éligible"|undefined {

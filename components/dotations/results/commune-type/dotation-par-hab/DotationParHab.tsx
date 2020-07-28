@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-import { ResultValues } from "../../../../articles-inputs/parameter";
+import { ResultValues } from "../../../../common";
 import styles from "./DotationParHab.module.scss";
 
 interface Props {
@@ -13,6 +13,7 @@ export class DotationParHab extends PureComponent<Props> {
     return (
       <div className={styles.text}>
         <ResultValues
+          decimals={2}
           path={`dotations.state.communes.dsr.communes.${index}.dotationParHab`}
         />
         <span> €/hab</span>

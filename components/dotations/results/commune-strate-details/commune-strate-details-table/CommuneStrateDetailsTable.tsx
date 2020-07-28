@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
-import { ResultValues } from "../../../../articles-inputs/parameter";
+import { formatNumber, ResultValues } from "../../../../common";
 import styles from "./CommuneStrateDetailsTable.module.scss";
 
 const mapStateToProps = ({ descriptions, results }: RootState) => ({
@@ -37,9 +37,17 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                 {/* <br />
                 <span className={styles.link}>[replier ces colonnes]</span> */}
               </th>
-              <th rowSpan={2}>Nombre de communes éligibles</th>
+              <th rowSpan={2}>
+                Nombre
+                <br />
+                de communes éligibles
+              </th>
               <th rowSpan={2}>Dotation moyenne par habitant</th>
-              <th rowSpan={2}>Répartition de la dotation</th>
+              <th rowSpan={2}>
+                Répartition
+                <br />
+                de la dotation
+              </th>
             </tr>
             <tr>
               <th>Proportion population par strate</th>
@@ -60,7 +68,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         ) : (
                           <Fragment>
                             <div className={styles.lighter}>jusqu&apos;à</div>
-                            {strate.habitants}
+                            {formatNumber(strate.habitants)}
                             {" "}
                             h.
                           </Fragment>
@@ -69,22 +77,28 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
 
                     </th>
                     <td className={styles.light}>
-                      {strate.partPopTotale}
+                      {formatNumber(strate.partPopTotale, { decimals: 0 })}
                       {" "}
                       %
                     </td>
-                    <td className={styles.light}>{strate.potentielFinancierMoyenParHab}</td>
+                    <td className={styles.light}>
+                      {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
+                    </td>
                     <td>
                       <ResultValues
                         path={`dotations.state.communes.dsr.strates.${index}.eligibles`} />
                     </td>
                     <td>
                       <ResultValues
+                        decimals={2}
                         path={`dotations.state.communes.dsr.strates.${index}.dotationMoyenneParHab`} />
                     </td>
                     <td>
                       <ResultValues
+                        decimals={0}
                         path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
+                      {" "}
+                      %
                     </td>
                   </tr>
                 ))

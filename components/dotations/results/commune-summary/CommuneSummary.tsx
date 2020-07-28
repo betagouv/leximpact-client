@@ -1,3 +1,4 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import HomeIcon from "@material-ui/icons/Home";
 import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
@@ -5,8 +6,9 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { ResultValues } from "../../../articles-inputs/parameter";
-import { Card, SubCard } from "../../../card";
+import {
+  Card, ResultValues, SubCard,
+} from "../../../common";
 import { EligibiliteSpot } from "../common";
 import styles from "./CommuneSummary.module.scss";
 
@@ -17,6 +19,9 @@ const mapStateToProps = ({ results }: RootState) => ({
     plusEligibles: results.baseToAmendement.dotations.state?.communes.dsr.plusEligibles,
     toujoursEligibles: results.baseToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
   },
+  isFetching: results.amendement.dotations.isFetching
+    || results.base.dotations.isFetching
+    || results.plf.dotations.isFetching,
   plf: {
     nouvellementEligibles: results.baseToPlf.dotations.state?.communes.dsr.nouvellementEligibles,
     plusEligibles: results.baseToPlf.dotations.state?.communes.dsr.plusEligibles,
@@ -58,10 +63,10 @@ function renderSubCardContent(plf: number|undefined, amendement: number|undefine
 
 class CommuneSummary extends PureComponent<Props> {
   render() {
-    const { amendement, plf } = this.props;
+    const { amendement, isFetching, plf } = this.props;
     return (
       <Card
-        content1={(
+        content1={isFetching ? <CircularProgress /> : (
           <div>
             <div className={styles.total}>
               <ResultValues
@@ -90,6 +95,7 @@ class CommuneSummary extends PureComponent<Props> {
             {renderSubCardContent(plf.plusEligibles, amendement.plusEligibles)}
           </SubCard>
         ) : null}
+        icon={<img alt="" className={styles.image} src="/icons/picto-communes-eligibles.png" />}
         title="Nombre de communes éligibles"
       />
     );

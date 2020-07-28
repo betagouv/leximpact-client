@@ -8,18 +8,25 @@ export interface Commune {
 
 const DEFAULT_STATE: Commune[] = [
   {
-    code: "38527",
-    departement: "Isère",
-    habitants: 327,
-    name: "Vaujany",
-    potentielFinancier: 8854,
+    code: "76384",
+    departement: "Seine-Maritime",
+    habitants: 9131,
+    name: "Lillebonne",
+    potentielFinancier: 2188.612857,
   },
   {
-    code: "2A253",
-    departement: "Corse-du-sud",
-    habitants: 57,
-    name: "Quasquara",
-    potentielFinancier: 122,
+    code: "76214",
+    departement: "Seine-Maritime",
+    habitants: 272,
+    name: "Dénestanville",
+    potentielFinancier: 706.242647,
+  },
+  {
+    code: "77186",
+    departement: "Seine-et-Marne",
+    habitants: 15841,
+    name: "Fontainebleau",
+    potentielFinancier: 1110.296193,
   },
 ];
 

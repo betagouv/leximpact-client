@@ -1,6 +1,6 @@
 import { updateIn } from "immutable";
 
-import request from "../../../components/utils/request";
+import request from "../../../components/common/utils/request";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../reducers";
 // eslint-disable-next-line no-unused-vars
@@ -58,8 +58,8 @@ interface ResponseBody {
     }
   }
   base: ResponseBody["amendement"]
-  plf: ResponseBody["amendement"]
-  baseToPlf: {
+  plf?: ResponseBody["amendement"]
+  baseToAmendement: {
     communes: {
       dsr: {
         nouvellementEligibles: number;
@@ -68,7 +68,7 @@ interface ResponseBody {
       }
     }
   }
-  baseToAmendement: ResponseBody["baseToPlf"]
+  baseToPlf?: ResponseBody["baseToAmendement"]
 }
 
 export interface SimulateDotationsSuccessAction {
@@ -119,6 +119,22 @@ export const simulateDotations = () => (dispatch, getState) => {
 
   return request
     .post("/dotations", body)
-    .then(payload => dispatch(simulateDotationsSuccess(payload)))
+    .then((payload: ResponseBody) => {
+      payload.amendement.communes.dsr.strates.forEach((strate) => {
+        // eslint-disable-next-line no-param-reassign
+        strate.partDotationTotale *= 100;
+      });
+      if (payload.plf) {
+        payload.plf.communes.dsr.strates.forEach((strate) => {
+          // eslint-disable-next-line no-param-reassign
+          strate.partDotationTotale *= 100;
+        });
+      }
+      payload.base.communes.dsr.strates.forEach((strate) => {
+        // eslint-disable-next-line no-param-reassign
+        strate.partDotationTotale *= 100;
+      });
+      dispatch(simulateDotationsSuccess(payload));
+    })
     .catch(err => dispatch(simulateDotationsFailure(err)));
 };
