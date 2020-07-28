@@ -59,7 +59,9 @@ export class DsrFractionCible extends PureComponent {
         <br />
         <br />
         Le montant attribué à ces communes au titre de cette fraction est calculé dans les
-        conditions prévues à l&apos;article L. 2334-22.
+        conditions prévues à&nbsp;
+        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000036433094&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=" target="_blank">l&apos;article L. 2334-22</a>
+.
         <br />
         <br />
         Lorsqu&apos;une commune cesse de remplir les conditions requises pour bénéficier de

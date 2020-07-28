@@ -9,7 +9,10 @@ export class DsrFractionPerequation extends PureComponent {
       <Fragment>
         La deuxième fraction de la dotation de solidarité rurale est attribuée aux
         communes dont le potentiel financier par habitant, tel qu&apos;il est défini
-        à l&apos;article L. 2334-4, est inférieur [à
+        à&nbsp;
+        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000036589500&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=20181231" target="_blank">l&apos;article L. 2334-4</a>
+,
+        est inférieur [à
         {" "}
         <StateParameter
           editable
@@ -90,16 +93,16 @@ export class DsrFractionPerequation extends PureComponent {
         Toutefois, sous réserve des dispositions du 4° ci-dessus, chacun des pourcentages
         de pondération peut être majoré ou minoré pour l&apos;ensemble des communes
         bénéficiaires d&apos;au plus cinq points dans des conditions fixées par décret
-        en Conseil d&apos;Etat, après avis du comité des finances locales.
+        en Conseil d&apos;État, après avis du comité des finances locales.
         <br />
         <br />
         Lorsqu&apos;une commune cesse d&apos;être éligible en 2012 à cette fraction de
         la dotation de solidarité rurale, elle perçoit, à titre de garantie, une
-        attribution égale à 90 % en 2012,75 % en 2013 et 50 % en 2014 du montant perçu
+        attribution égale à 90 % en 2012, 75 % en 2013 et 50 % en 2014 du montant perçu
         en 2011.
         <br />
         <br />
-        A compter de 2012, l&apos;attribution au titre de cette fraction d&apos;une commune
+        À compter de 2012, l&apos;attribution au titre de cette fraction d&apos;une commune
         éligible ne peut être ni inférieure à 90 % ni supérieure à 120 % du montant perçu
         l&apos;année précédente.
       </Fragment>
