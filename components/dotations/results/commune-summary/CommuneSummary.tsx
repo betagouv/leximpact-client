@@ -1,15 +1,14 @@
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import HomeIcon from "@material-ui/icons/Home";
 import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { Parameter, ResultValues } from "../../../articles-inputs/parameter";
+import { ResultValues } from "../../../articles-inputs/parameter";
 import { Card, SubCard } from "../../../card";
-import styles from "./CommuneSummary.module.scss";
 import { EligibiliteSpot } from "../common";
+import styles from "./CommuneSummary.module.scss";
 
 const mapStateToProps = ({ results }: RootState) => ({
   amendement: {
@@ -31,6 +30,32 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux & {}
 
+function renderSubCardContent(plf: number|undefined, amendement: number|undefined): JSX.Element {
+  return (
+    <div className={styles.subCardContent}>
+      {
+        typeof plf === "number" && plf !== 0
+          ? (
+            <div className={styles.plf}>
+              {plf}
+              <HomeIcon fontSize="default" />
+            </div>
+          )
+          : null
+      }
+      {
+        typeof amendement === "number" && amendement !== 0
+          ? (
+            <div className={styles.amendement}>
+              {amendement}
+              <HomeIcon fontSize="default" />
+            </div>
+          ) : null
+      }
+    </div>
+  );
+}
+
 class CommuneSummary extends PureComponent<Props> {
   render() {
     const { amendement, plf } = this.props;
@@ -45,28 +70,26 @@ class CommuneSummary extends PureComponent<Props> {
             </div>
           </div>
         )}
-        content2={(
+        // Do not display the content if both fields are undefined OR equal zero.
+        content2={(plf.nouvellementEligibles || amendement.nouvellementEligibles) ? (
           <SubCard
             icon={<EligibiliteSpot eligible small />}
+            subTitle="par rapport au droit existant"
             title="Nouvellement éligibles"
-            subTitle="par rapport au droit existant"
           >
-            <Parameter
-              amendementValue={amendement.nouvellementEligibles}
-              plfValue={plf.nouvellementEligibles} />
+            {renderSubCardContent(plf.nouvellementEligibles, amendement.nouvellementEligibles)}
           </SubCard>
-        )}
-        content3={(
+        ) : null}
+        // Do not display the content if both fields are undefined OR equal zero.
+        content3={(plf.plusEligibles || amendement.plusEligibles) ? (
           <SubCard
-            icon={<EligibiliteSpot eligible={false} small />}
-            title="Nouvellement non-éligibles"
+            icon={<EligibiliteSpot small eligible={false} />}
             subTitle="par rapport au droit existant"
+            title="Nouvellement non-éligibles"
           >
-            <Parameter
-              amendementValue={amendement.plusEligibles}
-              plfValue={plf.plusEligibles} />
+            {renderSubCardContent(plf.plusEligibles, amendement.plusEligibles)}
           </SubCard>
-        )}
+        ) : null}
         title="Nombre de communes éligibles"
       />
     );

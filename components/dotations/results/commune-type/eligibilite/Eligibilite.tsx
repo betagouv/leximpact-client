@@ -6,8 +6,8 @@ import { connect, ConnectedProps } from "react-redux";
 import { RootState } from "../../../../../redux/reducers";
 import { getResultBoolValues } from "../../../../../redux/utils";
 import { Parameter } from "../../../../articles-inputs";
-import styles from "./Eligibilite.module.scss";
 import { EligibiliteSpot } from "../../common";
+import styles from "./Eligibilite.module.scss";
 
 function getEligibilite(value: boolean|undefined): "éligible"|"non éligible"|undefined {
   if (value === undefined) {

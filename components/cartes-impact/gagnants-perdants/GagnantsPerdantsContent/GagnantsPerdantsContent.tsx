@@ -1,8 +1,8 @@
 import GroupIcon from "@material-ui/icons/Group";
 import { Fragment, PureComponent } from "react";
 
-import styles from "./GagnantsPerdantsContent.module.scss";
 import { SubCard } from "../../../card";
+import styles from "./GagnantsPerdantsContent.module.scss";
 
 interface Props {
   icon: JSX.Element;
@@ -25,8 +25,8 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
     } = this.props;
     return (
       <SubCard
-        title={title}
         icon={icon}
+        title={title}
       >
         <div className={styles.containerImpact}>
           {

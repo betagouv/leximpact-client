@@ -1,4 +1,4 @@
-import { PureComponent, Fragment } from "react";
+import { Fragment, PureComponent } from "react";
 
 import styles from "./SubCard.module.scss";
 
@@ -10,7 +10,9 @@ interface Props {
 
 export class SubCard extends PureComponent<Props> {
   render() {
-    const { children, icon, title, subTitle } = this.props;
+    const {
+      children, icon, subTitle, title,
+    } = this.props;
     return (
       <Fragment>
         <div className={styles.header}>
@@ -30,6 +32,6 @@ export class SubCard extends PureComponent<Props> {
           {children}
         </div>
       </Fragment>
-    )
+    );
   }
 }
