@@ -105,7 +105,7 @@ export class DsrFractionPerequation extends PureComponent {
         en Conseil d&apos;État, après avis du comité des finances locales.
         <br />
         <br />
-        <ExpandablePanelSubTitle subTitle="§ 8 à 9" title="Garanties et progression d'évolution du montant" />
+        <ExpandablePanelSubTitle subTitle="§ 8 à 9" title="Garanties" />
         <ExpandableText caption="Alinéa caduc">
         Lorsqu&apos;une commune cesse d&apos;être éligible en 2012 à cette fraction de
         la dotation de solidarité rurale, elle perçoit, à titre de garantie, une

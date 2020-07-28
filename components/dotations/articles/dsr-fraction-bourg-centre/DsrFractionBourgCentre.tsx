@@ -167,7 +167,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         impôts.
         </div>
         <br />
-        <ExpandablePanelSubTitle subTitle="§ 15 à 18" title="Garanties et progression d'évolution du montant" />
+        <ExpandablePanelSubTitle subTitle="§ 15 à 18" title="Garanties" />
         Lorsqu&apos;une commune cesse de remplir les conditions requises pour bénéficier de
         cette fraction de la dotation de solidarité rurale, cette commune perçoit, à titre
         de garantie non renouvelable, une attribution égale à la moitié de celle qu&apos;elle

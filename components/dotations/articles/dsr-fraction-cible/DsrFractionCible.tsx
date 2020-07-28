@@ -2,7 +2,7 @@ import { StylesContext } from "@material-ui/styles";
 import { Fragment, PureComponent } from "react";
 
 import { StateParameter } from "../../../articles-inputs/parameter";
-import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle } from "../../../expandable-panels";
 import styles from "./DsrFractionCible.module.scss";
 
 export class DsrFractionCible extends PureComponent {
