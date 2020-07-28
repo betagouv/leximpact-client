@@ -6,7 +6,13 @@ export class DsuEligibilite extends PureComponent {
     return (
       <Fragment>
         Bénéficient de la dotation prévue à&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=F44078F38E38A1654AF303BFACDD5B7E.tplgfr38s_3?idArticle=LEGIARTI000033878737&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=" target="_blank">l&apos;article L. 2334-15</a>
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=F44078F38E38A1654AF303BFACDD5B7E.tplgfr38s_3?idArticle=LEGIARTI000033878737&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte="
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-15
+        </a>
         &nbsp;:
         <br />
         <br />
@@ -14,7 +20,13 @@ export class DsuEligibilite extends PureComponent {
          classées, chaque année, en fonction d&apos;un indice synthétique de ressources
          et de charges défini à
         {" "}
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000038834291&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=" target="_blank">l&apos;article L. 2334-17 ;</a>
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000038834291&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte="
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-17 ;
+        </a>
         <br />
         <br />
         2° Le [premier dixième] 10 premiers % des communes dont la population est
@@ -22,7 +34,13 @@ export class DsuEligibilite extends PureComponent {
         en fonction d&apos;un indice synthétique de ressources
         et de charges défini à
         {" "}
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000006390830&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-18.</a>
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000006390830&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-18.
+        </a>
         <br />
         <br />
         Toutefois, ne peuvent être éligibles les communes dont le potentiel financier

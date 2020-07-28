@@ -196,8 +196,14 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         La population prise en compte est celle définie à
         {" "}
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000033878277&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-2</a>
-&nbsp;:
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000033878277&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-2
+        </a>
+        &nbsp;:
         <br />
         <br />
         <div className={styles.list1}>

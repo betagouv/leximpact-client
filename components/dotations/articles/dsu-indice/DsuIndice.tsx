@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle, ExpandableText } from "../../../common";
 
 
 export class DsuIndice extends PureComponent {
@@ -11,7 +11,13 @@ export class DsuIndice extends PureComponent {
         <ExpandablePanelSubTitle subTitle="§ 1 à 5" title="Structure de l&apos;indice synthétique" />
         L&apos;indice synthétique de ressources et de charges mentionné
         à&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-16</a>
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-16
+        </a>
         &nbsp;pour les communes de 10 000 habitants
         et plus est constitué :
         <br />
@@ -19,8 +25,14 @@ export class DsuIndice extends PureComponent {
         1° Du rapport entre le potentiel financier par habitant des communes
         de 10 000 habitants et plus et le potentiel financier par habitant
         de la commune, tel que défini à&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000036589500&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=20181231" target="_blank">l&apos;article L. 2334-4</a>
-&nbsp;;
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000036589500&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=20181231"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-4
+        </a>
+        &nbsp;;
         <br />
         <br />
         2° Du rapport entre la proportion de logements sociaux dans le total
@@ -39,8 +51,14 @@ export class DsuIndice extends PureComponent {
         de 10 000 habitants et plus et le revenu par habitant de la commune,
         calculé en prenant en compte la population définie au premier alinéa
         de&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000033878277&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-2</a>
-.
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000033878277&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-2
+        </a>
+        .
         <br />
         <br />
         <ExpandablePanelSubTitle

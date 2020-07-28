@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle } from "../../../common";
 
 export class DsuRepartition extends PureComponent {
   render() {
@@ -33,12 +33,24 @@ export class DsuRepartition extends PureComponent {
         <br />
         <br />
         À compter de 2017, les communes éligibles au titre de&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-16</a>
-&nbsp;
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-16
+        </a>
+        &nbsp;
         perçoivent une dotation égale à celle perçue
         l&apos;année précédente, majorée de l&apos;augmentation prévue à&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814522&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-18-4</a>
-.
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814522&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-18-4
+        </a>
+        .
         Les communes qui n&apos;étaient pas éligibles
          à la dotation l&apos;année précédant l&apos;année de versement bénéficient
          d&apos;une attribution calculée en application du présent article.
@@ -47,18 +59,36 @@ export class DsuRepartition extends PureComponent {
         <ExpandablePanelSubTitle subTitle="Article L2334-18-4" title="Règle en cas d&apos;augmentation de la dotation" />
          L&apos;augmentation de la dotation, après répartition des attributions
          calculées en application des articles&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">L. 2334-16</a>
-&nbsp;à&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814534&cidTexte=LEGITEXT000006070633&dateTexte=20170101">L. 2334-18-3</a>
-,
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          L. 2334-16
+        </a>
+        &nbsp;à&nbsp;
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814534&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          L. 2334-18-3
+        </a>
+        ,
          est répartie entre les deux catégories démographiques
          au prorata de leur population dans le total des communes bénéficiaires.
         <br />
         <br />
         La part d&apos;augmentation est répartie entre les communes bénéficiaires
         dans les conditions prévues aux deux premiers alinéas de&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814543&cidTexte=LEGITEXT000006070633&dateTexte=20170101" target="_blank">l&apos;article L. 2334-18-2</a>
-.
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814543&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-18-2
+        </a>
+        .
         Les communes qui n&apos;étaient pas éligibles à la dotation
         l&apos;année précédant la répartition ne bénéficient pas de cette part.
       </Fragment>

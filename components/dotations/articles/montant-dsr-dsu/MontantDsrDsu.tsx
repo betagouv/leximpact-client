@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle, ExpandableText } from "../../../common";
 
 export class MontantDsrDsu extends PureComponent {
   render() {

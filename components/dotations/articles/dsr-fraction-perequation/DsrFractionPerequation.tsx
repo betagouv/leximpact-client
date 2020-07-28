@@ -12,7 +12,13 @@ export class DsrFractionPerequation extends PureComponent {
         La deuxième fraction de la dotation de solidarité rurale est attribuée aux
         communes dont le potentiel financier par habitant, tel qu&apos;il est défini
         à&nbsp;
-        <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000036589500&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=20181231" target="_blank">l&apos;article L. 2334-4</a>
+        <a
+          href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000036589500&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte=20181231"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          l&apos;article L. 2334-4
+        </a>
 ,
         est inférieur
         <span className={styles.bold}>
