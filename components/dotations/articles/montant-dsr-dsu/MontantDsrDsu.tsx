@@ -7,10 +7,7 @@ export class MontantDsrDsu extends PureComponent {
     // Article L2334-1 du CGCT
     return (
       <Fragment>
-        <ExpandablePanelSubTitle
-          subTitle="Article 194 - I. § 2 à 4"
-          title="Définition de la dotation d'aménagement et des enveloppes dédiées à la DSR et à la DSU" />
-        <ExpandableText caption="Il est institué une dotation d&apos;aménagement qui regroupe">
+        <ExpandableText caption="Lire le début de l'article définissant la dotation d'aménagement">
         Il est institué une dotation d&apos;aménagement qui regroupe une dotation au bénéfice
         des groupements de communes, une dotation nationale de péréquation, une dotation de
         solidarité urbaine et de cohésion sociale, une dotation de solidarité rurale,
