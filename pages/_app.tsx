@@ -6,7 +6,11 @@ import { Provider } from "react-redux";
 import makeApplicationState from "../redux/make-application-state";
 import "../styles/styles.scss";
 
-class LexImpactApplicationWrapper extends App {
+interface Props {
+  store: any;
+}
+
+class LexImpactApplicationWrapper extends App<Props> {
   render() {
     const { Component, pageProps, store } = this.props;
     return (

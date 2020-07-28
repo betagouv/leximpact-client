@@ -4,7 +4,6 @@ export * from "./display";
 export * from "./parameters";
 export * from "./simulations";
 export { default as closeCurrentPopin } from "./popin-close-current";
-export { default as showEnSavoirPlusPopin } from "./popin-show-en-savoir-plus";
 export { default as showConnexionPopin } from "./popin-show-connexion";
 export { default as addTranche } from "./articles-add-tranche";
 export { default as removeTranche } from "./articles-remove-tranche";
