@@ -9,7 +9,7 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import CachedIcon from "@material-ui/icons/Cached";
 import FaceIcon from "@material-ui/icons/Face";
-import TrendingFLatIcon from "@material-ui/icons/TrendingFlat";
+import NotInterestedIcon from "@material-ui/icons/NotInterested";
 import React, { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
@@ -187,7 +187,7 @@ class GagnantsPerdantsCard extends PureComponent<Props> {
               captionAmendement={neutreZeroReforme}
               captionPlf={neutreZeroPlf}
               icon={(
-                <TrendingFLatIcon
+                <NotInterestedIcon
                   classes={{ root: classes.styleIconNeutre }}
                   fontSize="default"
                 />
