@@ -34,7 +34,7 @@ export class Articles extends PureComponent {
             </SecondaryExpandablePanel>
             <SecondaryExpandablePanel
               subTitle="Article L2334-13 du CGCT"
-              title="Montants de la dotation de solidarité rurale (DSR) et de la dotation de solidarité urbaine (DSU)">
+              title="Montants de la DSR et de la DSU">
               <MontantDsrDsu />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
