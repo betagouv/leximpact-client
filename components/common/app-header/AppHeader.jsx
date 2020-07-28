@@ -47,7 +47,8 @@ const styles = () => ({
 class AppHeader extends PureComponent {
   render() {
     const {
-      classes, isUserLogged, showHomeButton, showLoginButton, subTitle1, subTitle2, title, useMobileView,
+      classes, isUserLogged, showHomeButton, showLoginButton,
+      subTitle1, subTitle2, title, useMobileView,
     } = this.props;
     return (
       <AppBar position="relative">

@@ -13,10 +13,7 @@ const mapStateToProps = (state, { router }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleUpdateConnexionToken: (token) => {
-    const action = connexionTokenLogin(token);
-    dispatch(action);
-  },
+  handleUpdateConnexionToken: token => dispatch(connexionTokenLogin(token)),
   onClosePopin: () => dispatch(closeCurrentPopin()),
 });
 

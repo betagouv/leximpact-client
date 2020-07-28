@@ -1,7 +1,7 @@
 import Router from "next/router";
 
 const closeCurrentPopin = () => {
-  Router.push("/");
+  Router.push("/ir");
   return { type: "closeCurrentPopin" };
 };
 
