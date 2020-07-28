@@ -1,4 +1,4 @@
-import request from "../../components/utils/request";
+import request from "../../components/common/utils/request";
 import connexionTokenLogout from "./connexion-token-logout";
 import { formatReforme } from "./format-reforme";
 import { loadingEtatComplete, loadingEtatError, loadingEtatStart } from "./loading-etat";

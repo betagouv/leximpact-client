@@ -1,6 +1,5 @@
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import Drawer from "@material-ui/core/Drawer";
 import { withStyles } from "@material-ui/core/styles/";
 import { flow, get } from "lodash";
 import { withRouter } from "next/router";
@@ -8,11 +7,9 @@ import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { closeCurrentPopin } from "../redux/actions";
-import AjouterCasTypes from "./ajouter-cas-types";
-import LoginForm from "./connexion";
-import EnSavoirPlus from "./en-savoir-plus";
-import Loginpopin from "./login-popin";
-import LogoutPopin from "./logout-popin";
+import { LoginPopin, LogoutPopin } from "./ir";
+import AjouterCasTypes from "./ir/ajouter-cas-types";
+import LoginForm from "./ir/connexion";
 
 const styles = theme => ({
   dialog: {
@@ -85,22 +82,9 @@ class PopinManager extends PureComponent {
         open={showPopin}
         onClose={closeCurrentPopin}>
         <DialogContent classes={{ root: classes.dialogContent }}>
-          <Loginpopin />
+          <LoginPopin />
         </DialogContent>
       </Dialog>
-    );
-  };
-
-  renderEnSavoirPlus = (popinType) => {
-    const showPopin = popinType === "en-savoir-plus";
-    return (
-      <Drawer
-        anchor="bottom"
-        open={showPopin}
-        variant="temporary"
-        onClose={closeCurrentPopin}>
-        <EnSavoirPlus />
-      </Drawer>
     );
   };
 
@@ -125,7 +109,6 @@ class PopinManager extends PureComponent {
     const popinType = get(router, pathString, false);
     return (
       <Fragment>
-        {this.renderEnSavoirPlus(popinType)}
         {this.renderConnexion(popinType)}
         {this.renderLoginpopin(popinType)}
         {this.renderAjouterCasTypes(popinType)}

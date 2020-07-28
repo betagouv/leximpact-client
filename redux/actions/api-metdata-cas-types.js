@@ -1,4 +1,4 @@
-import request from "../../components/utils/request";
+import request from "../../components/common/utils/request";
 // import { loadingComplete, loadingError, loadingStart } from "./loading";
 
 const fetchMetadataCasTypes = () => (dispatch, getState) => {

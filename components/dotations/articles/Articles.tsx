@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../expandable-panels";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
 import { DsrEligibilite } from "./dsr-eligibilite";
 import { DsrFractionBourgCentre } from "./dsr-fraction-bourg-centre";
 import { DsrFractionCible } from "./dsr-fraction-cible";
@@ -9,7 +9,7 @@ import { DsuEligibilite } from "./dsu-eligibilite";
 import { DsuIndice } from "./dsu-indice";
 import { DsuRepartition } from "./dsu-repartition";
 import { MontantDgf } from "./montant-dgf";
-import { MontantDgfCommunes } from "./montant-dgf-communes";
+// import { MontantDgfCommunes } from "./montant-dgf-communes";
 import { MontantDsrDsu } from "./montant-dsr-dsu";
 
 export class Articles extends PureComponent {

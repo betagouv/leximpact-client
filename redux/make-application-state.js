@@ -12,7 +12,7 @@ import { CAS_TYPES_NAME, setAuthCookie, TOKEN_NAME } from "./set-auth-cookie";
 // enregistre et lit les cookies du navigateur
 // state to persist in cookies
 const paths = {
-  casTypes: { name: CAS_TYPES_NAME },
+  "descriptions.ir.casTypes": { name: CAS_TYPES_NAME },
   token: { name: TOKEN_NAME },
 };
 

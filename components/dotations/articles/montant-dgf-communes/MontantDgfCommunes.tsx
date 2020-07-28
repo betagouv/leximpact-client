@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandableText } from "../../../expandable-panels";
+import { ExpandableText } from "../../../common";
 
 export class MontantDgfCommunes extends PureComponent {
   render() {

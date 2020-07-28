@@ -1,0 +1,29 @@
+.navigation {
+  width: 600px;
+
+  h1 {
+    color: black;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    height: 60px;
+    border: solid black 2px;
+    border-radius: 5px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+
+    margin-bottom: 20px;
+
+    > img {
+      height: 50px;
+      margin: 0 10px;
+    }
+  }
+}

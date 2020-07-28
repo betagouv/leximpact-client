@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import casTypes from "./cas-types";
+import { descriptions } from "./descriptions";
 import disabledEtat from "./disabled-etat";
 import display from "./display";
 import loadingEtat from "./loading-etat";
@@ -9,7 +9,7 @@ import results from "./results";
 import token from "./token";
 
 const rootReducer = combineReducers({
-  casTypes,
+  descriptions,
   disabledEtat,
   display,
   loadingEtat,

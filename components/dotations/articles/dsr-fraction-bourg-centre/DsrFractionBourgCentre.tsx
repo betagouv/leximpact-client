@@ -1,7 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { StateParameter } from "../../../articles-inputs/parameter";
-import { ExpandablePanelSubTitle, ExpandableText } from "../../../expandable-panels";
+import { ExpandablePanelSubTitle, ExpandableText, StateParameter } from "../../../common";
 import styles from "./DsrFractionBourgCentre.module.scss";
 
 export class DsrFractionBourgCentre extends PureComponent {

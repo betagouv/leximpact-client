@@ -13,14 +13,6 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-
-  :last-child {
-    margin-left: 5px;
-  }
-}
-
-.amendement {
-  background-color: $amendement-bg-color;
 }
 
 .nouvellementEligible {
@@ -52,4 +44,8 @@
     font-weight: bold;
     font-size: 12px;
   }
+}
+
+.image {
+  height: 40px;
 }

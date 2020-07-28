@@ -1,14 +1,29 @@
 import Grid from "@material-ui/core/Grid";
 import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../redux/reducers";
 // import { CommuneSearch } from "./commune-search";
 import { CommuneStrateDetails } from "./commune-strate-details";
 import { CommuneSummary } from "./commune-summary";
 import { CommuneType } from "./commune-type";
 import styles from "./Results.module.scss";
 
-export class Results extends PureComponent {
+const mapStateToProps = ({ descriptions }: RootState) => ({
+  communesTypes: descriptions.dotations.communesTypes,
+});
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & {}
+
+class Results extends PureComponent<Props> {
   render() {
+    const { communesTypes } = this.props;
     return (
       <div className={styles.container}>
         <Grid container spacing={3}>
@@ -20,26 +35,18 @@ export class Results extends PureComponent {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
-            <CommuneType
-              departement="Isère"
-              dotationParHab={0}
-              eligible={false}
-              habitants={327}
-              name="Vaujany"
-              potentielFinancier={8854}
-            />
-          </Grid>
-          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
-            <CommuneType
-              eligible
-              departement="Corse-du-sud"
-              dotationParHab={128}
-              habitants={57}
-              name="Quasquara"
-              potentielFinancier={122}
-            />
-          </Grid>
+          {communesTypes.map((communeType, index) => (
+            <Grid key={communeType.code} item lg={4} md={6} sm={6} xl={3} xs={12}>
+              <CommuneType
+                code={communeType.code}
+                departement={communeType.departement}
+                habitants={communeType.habitants}
+                index={index}
+                name={communeType.name}
+                potentielFinancier={communeType.potentielFinancier}
+              />
+            </Grid>
+          ))}
           {/* <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSearch />
           </Grid> */}
@@ -48,3 +55,7 @@ export class Results extends PureComponent {
     );
   }
 }
+
+const ConnectedResults = connector(Results);
+
+export { ConnectedResults as Results };
