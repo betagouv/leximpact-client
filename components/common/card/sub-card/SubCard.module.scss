@@ -1,0 +1,28 @@
+@import 'styles/variables';
+
+.header {
+  display: flex;
+  flex-direction: row;
+
+
+  .icon {
+    margin-right: 7px;
+  }
+
+  .titles {
+    flex: 1;
+
+    .title {
+      font-weight: bold;
+      font-size: 1rem;
+      color: $dark-grey-text-color;
+    }
+
+    .subTitle {
+      font-size: 0.875rem;
+      color: $dark-grey-text-color;
+    }
+
+  } 
+
+}

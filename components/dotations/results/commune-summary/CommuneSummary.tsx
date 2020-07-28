@@ -1,17 +1,15 @@
-// import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-// import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-// import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import HomeIcon from "@material-ui/icons/Home";
 import { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { Card, Parameter, ResultValues } from "../../../common";
+import {
+  Card, ResultValues, SubCard,
+} from "../../../common";
+import { EligibiliteSpot } from "../common";
 import styles from "./CommuneSummary.module.scss";
 
 const mapStateToProps = ({ results }: RootState) => ({
@@ -37,6 +35,32 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux & {}
 
+function renderSubCardContent(plf: number|undefined, amendement: number|undefined): JSX.Element {
+  return (
+    <div className={styles.subCardContent}>
+      {
+        typeof plf === "number" && plf !== 0
+          ? (
+            <div className={styles.plf}>
+              {plf}
+              <HomeIcon fontSize="default" />
+            </div>
+          )
+          : null
+      }
+      {
+        typeof amendement === "number" && amendement !== 0
+          ? (
+            <div className={styles.amendement}>
+              {amendement}
+              <HomeIcon fontSize="default" />
+            </div>
+          ) : null
+      }
+    </div>
+  );
+}
+
 class CommuneSummary extends PureComponent<Props> {
   render() {
     const { amendement, isFetching, plf } = this.props;
@@ -49,50 +73,29 @@ class CommuneSummary extends PureComponent<Props> {
                 path="dotations.state.communes.dsr.eligibles"
               />
             </div>
-            <div className={styles.nouvellementEligible}>
-              <ArrowUpwardIcon
-                className={styles.icon}
-                fontSize="default"
-              />
-              <Parameter
-                amendementValue={amendement.nouvellementEligibles}
-                plfValue={plf.nouvellementEligibles} />
-              <span>&nbsp;nouvellement éligibles</span>
-            </div>
-            <div className={styles.plusEligible}>
-              <ArrowDownwardIcon
-                className={styles.icon}
-                fontSize="default"
-              />
-              <Parameter
-                amendementValue={amendement.plusEligibles}
-                plfValue={plf.plusEligibles} />
-              <span>&nbsp;plus éligibles</span>
-            </div>
-            <div className={styles.toujoursEligible}>
-              soit
-              {" "}
-              <Parameter
-                amendementValue={amendement.toujoursEligibles}
-                plfValue={plf.toujoursEligibles} />
-              {" "}
-              communes bénéficiant toujours de la DSR pour 2021.
-            </div>
           </div>
         )}
+        // Do not display the content if both fields are undefined OR equal zero.
+        content2={(plf.nouvellementEligibles || amendement.nouvellementEligibles) ? (
+          <SubCard
+            icon={<EligibiliteSpot eligible small />}
+            subTitle="par rapport au droit existant"
+            title="Nouvellement éligibles"
+          >
+            {renderSubCardContent(plf.nouvellementEligibles, amendement.nouvellementEligibles)}
+          </SubCard>
+        ) : null}
+        // Do not display the content if both fields are undefined OR equal zero.
+        content3={(plf.plusEligibles || amendement.plusEligibles) ? (
+          <SubCard
+            icon={<EligibiliteSpot small eligible={false} />}
+            subTitle="par rapport au droit existant"
+            title="Nouvellement non-éligibles"
+          >
+            {renderSubCardContent(plf.plusEligibles, amendement.plusEligibles)}
+          </SubCard>
+        ) : null}
         icon={<img alt="" className={styles.image} src="/icons/picto-communes-eligibles.png" />}
-        // content2={(
-        //   <ExpansionPanel className={styles.expansionPanel}>
-        //     <ExpansionPanelSummary
-        //       className={styles.expansionPanelTitle}
-        //       expandIcon={<ExpandMoreIcon />}>
-        //         Détails de la répartition par fraction
-        //     </ExpansionPanelSummary>
-        //     <ExpansionPanelDetails>
-        //       Détails
-        //     </ExpansionPanelDetails>
-        //   </ExpansionPanel>
-        // )}
         title="Nombre de communes éligibles"
       />
     );

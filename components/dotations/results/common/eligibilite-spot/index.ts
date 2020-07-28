@@ -1,0 +1,1 @@
+export { EligibiliteSpot } from "./EligibiliteSpot";

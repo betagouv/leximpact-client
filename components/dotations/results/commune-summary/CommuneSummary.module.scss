@@ -5,44 +5,25 @@
   margin-bottom: 15px;
 }
 
-.nouvellementEligible, .plusEligible, .toujoursEligible {
-  font-size: 14px;
-}
-
-.nouvellementEligible, .plusEligible {
-  font-weight: bold;
+.subCardContent {
   display: flex;
-  align-items: center;
-}
+  justify-content: space-around;
+  font-weight: bold;
+  padding-top: 10px;
 
-.nouvellementEligible {
-
-  .icon {
-    color: #13CC03;
+  .plf {
+    color: $plf-color;
   }
 
-}
-
-.plusEligible {
-
-  .icon {
-    color: #FFAC33;
+  .amendement {
+    background-color: $amendement-bg-color;
   }
 
-}
-
-.toujoursEligible {
-  margin-top: 5px;
-  color: $light-grey-text-color;
-}
-
-.expansionPanel {
-  margin: -15px !important;
-
-  .expansionPanelTitle {
-    color: $middle-grey-text-color;
-    font-weight: bold;
-    font-size: 12px;
+  .plf, .amendement {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding: 2px;
   }
 }
 

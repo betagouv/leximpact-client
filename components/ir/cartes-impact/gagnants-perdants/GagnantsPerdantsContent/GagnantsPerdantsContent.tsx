@@ -1,6 +1,7 @@
 import GroupIcon from "@material-ui/icons/Group";
 import { Fragment, PureComponent } from "react";
 
+import { SubCard } from "../../../../common";
 import styles from "./GagnantsPerdantsContent.module.scss";
 
 interface Props {
@@ -23,11 +24,10 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
       amendement, caption, captionAmendement, captionPlf, icon, plf, title,
     } = this.props;
     return (
-      <div>
-        {icon}
-        <span className={styles.titleCard}>
-          {title}
-        </span>
+      <SubCard
+        icon={icon}
+        title={title}
+      >
         <div className={styles.containerImpact}>
           {
             typeof plf === "number"
@@ -67,7 +67,7 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
                   ? (
                     <Fragment>
                       <span className={styles.detailsPlfValue}>{inMillions(captionPlf)}</span>
-                      <span className={styles.detailsPlfUnit}> M </span>
+                      <span className={styles.detailsPlfUnit}> M</span>
                     </Fragment>
                   )
                   : null
@@ -87,7 +87,7 @@ export class GagnantsPerdantsContent extends PureComponent<Props> {
             </div>
           )
         }
-      </div>
+      </SubCard>
     );
   }
 }

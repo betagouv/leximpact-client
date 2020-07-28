@@ -1,5 +1,7 @@
 @import 'styles/variables.scss';
 
+$spacing: 8px;
+
 .plf {
   color: $plf-color;
   line-height: 1.5;
@@ -35,6 +37,7 @@
   font-family: Lato;
   font-size: 12px;
   line-height: 1.5;
+  padding-top: $spacing;
 }
 
 .detailsPlfValue {
@@ -59,17 +62,9 @@
   font-weight: bold;
 }
 
-.titleCard {
-  color: $dark-grey-text-color;
-  font-family: $default-font-family;
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
 .containerImpact {
   align-content: flex-start;
   display: flex;
   justify-content: space-around;
-  padding-bottom: 0;
+  padding-top: $spacing;
 }
