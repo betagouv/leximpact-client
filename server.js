@@ -25,7 +25,7 @@ async function start() {
     const { token } = req.params;
     const popin = "confirmation-connexion";
     const query = { popin, token };
-    return app.render(req, res, "/", query);
+    return app.render(req, res, "/ir", query);
   });
   server.get("*", handle);
   /* ------------------------------------ */

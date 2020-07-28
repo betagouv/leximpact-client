@@ -1,9 +1,7 @@
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
@@ -50,12 +48,9 @@ const styles = theme => ({
 
 class EnSavoirPlus extends PureComponent {
   render() {
-    const { classes, onClosePopin } = this.props;
+    const { classes } = this.props;
     return (
       <div className={classes.container}>
-        <IconButton className={classes.closeButton} onClick={onClosePopin}>
-          <CloseIcon fontSize="small" />
-        </IconButton>
         <Grid
           container
           alignItems="flex-start"
@@ -132,7 +127,6 @@ class EnSavoirPlus extends PureComponent {
 
 EnSavoirPlus.propTypes = {
   classes: PropTypes.shape().isRequired,
-  onClosePopin: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(EnSavoirPlus);

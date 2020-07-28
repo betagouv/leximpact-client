@@ -2,7 +2,6 @@ import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import { flow } from "lodash";
 import Head from "next/head";
-import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { AppHeader } from "../components/common";
@@ -30,7 +29,11 @@ const styles = () => ({
   },
 });
 
-class ExamplePage extends PureComponent {
+interface Props {
+  classes: any;
+}
+
+class ExamplePage extends PureComponent<Props> {
   render() {
     const { classes } = this.props;
     return (
@@ -58,10 +61,6 @@ class ExamplePage extends PureComponent {
     );
   }
 }
-
-ExamplePage.propTypes = {
-  classes: PropTypes.shape().isRequired,
-};
 
 export default flow(
   withStyles(styles),

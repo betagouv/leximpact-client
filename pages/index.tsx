@@ -1,22 +1,22 @@
-import { flow } from "lodash";
 import Head from "next/head";
 import { Fragment, PureComponent } from "react";
 
 import { AppHeader } from "../components/common";
+import { HomeContent } from "../components/home";
 import withRoot from "../lib/withRoot";
 
-class VosRetoursPage extends PureComponent {
+class HomePage extends PureComponent {
   render() {
     return (
       <Fragment>
         <Head>
           <title>LexImpact</title>
         </Head>
-        <AppHeader showLoginButton={false} />
-        <h1>Vos retours sont précieux</h1>
+        <AppHeader showHomeButton={false} showLoginButton={false} />
+        <HomeContent />
       </Fragment>
     );
   }
 }
 
-export default flow(withRoot)(VosRetoursPage);
+export default withRoot(HomePage);

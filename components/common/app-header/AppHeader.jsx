@@ -6,9 +6,7 @@ import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import LoginButton from "./login-button";
-import LoginButtonMobile from "./login-button-mobile";
 import HeaderMenuButton from "./menu-button";
-import HeaderMenuButtonMobile from "./menu-button-mobile";
 
 const styles = () => ({
   bolderMobileTitle: {
@@ -49,13 +47,14 @@ const styles = () => ({
 class AppHeader extends PureComponent {
   render() {
     const {
-      classes, isUserLogged, showLoginButton, subTitle1, subTitle2, title, useMobileView,
+      classes, isUserLogged, showHomeButton, showLoginButton,
+      subTitle1, subTitle2, title, useMobileView,
     } = this.props;
     return (
       <AppBar position="relative">
         <Toolbar classes={{ root: classes.toolbarRoot }}>
-          {useMobileView && <HeaderMenuButtonMobile />}
-          {!useMobileView && <HeaderMenuButton />}
+          {showHomeButton && <HeaderMenuButton isMobile={useMobileView} />}
+          {!showHomeButton && <div />}
           {!useMobileView && (
             <Typography classes={{ root: classes.titleRoot }} component="div">
               <div>
@@ -81,8 +80,7 @@ class AppHeader extends PureComponent {
               </span>
             </Typography>
           )}
-          {showLoginButton && !useMobileView && <LoginButton isUserLogged={isUserLogged} />}
-          {showLoginButton && useMobileView && <LoginButtonMobile isUserLogged={isUserLogged} />}
+          {showLoginButton && <LoginButton isMobile={useMobileView} isUserLogged={isUserLogged} />}
           {!showLoginButton && <div />}
         </Toolbar>
       </AppBar>
@@ -91,6 +89,7 @@ class AppHeader extends PureComponent {
 }
 
 AppHeader.defaultProps = {
+  showHomeButton: true,
   subTitle1: null,
   subTitle2: null,
   title: null,
@@ -99,6 +98,7 @@ AppHeader.defaultProps = {
 AppHeader.propTypes = {
   classes: PropTypes.shape().isRequired,
   isUserLogged: PropTypes.bool.isRequired,
+  showHomeButton: PropTypes.bool,
   showLoginButton: PropTypes.bool.isRequired,
   subTitle1: PropTypes.string,
   subTitle2: PropTypes.string,
