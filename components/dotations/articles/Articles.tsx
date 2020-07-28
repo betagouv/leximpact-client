@@ -20,27 +20,9 @@ export class Articles extends PureComponent {
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
-            title="Montant des dotations">
+            title="Dotation de solidarité rurale (DSR)">
             <SecondaryExpandablePanel
               expanded
-              subTitle="Article L1613-1 du CGCT"
-              title="Montant de la dotation globale de fonctionnement (DGF)">
-              <MontantDgf />
-            </SecondaryExpandablePanel>
-            <SecondaryExpandablePanel
-              subTitle="Article L2334-1"
-              title="Montant de la DGF communes">
-              <MontantDgfCommunes />
-            </SecondaryExpandablePanel>
-            <SecondaryExpandablePanel
-              subTitle="Article L2334-13 du CGCT"
-              title="Montants de la DSR et de la DSU">
-              <MontantDsrDsu />
-            </SecondaryExpandablePanel>
-          </PrimaryExpandablePanel>
-          <PrimaryExpandablePanel
-            title="Dotation de solidarité rurale">
-            <SecondaryExpandablePanel
               subTitle="Article L2334-20 du CGCT"
               title="Périmètre général d&apos;éligibilité">
               <DsrEligibilite />
@@ -62,7 +44,7 @@ export class Articles extends PureComponent {
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
           <PrimaryExpandablePanel
-            title="Dotation de solidarité urbaine">
+            title="Dotation de solidarité urbaine (DSU)">
             <SecondaryExpandablePanel
               subTitle="Article L2334-16 du CGCT"
               title="Périmètre général d&apos;éligibilité">
@@ -77,6 +59,25 @@ export class Articles extends PureComponent {
               subTitle="Article L2334-17 du CGCT"
               title="Définition de l’indice synthétique">
               <DsuIndice />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            title="Montant des dotations">
+            <SecondaryExpandablePanel
+              expanded
+              subTitle="Article L1613-1 du CGCT"
+              title="Montant de la dotation globale de fonctionnement (DGF)">
+              <MontantDgf />
+            </SecondaryExpandablePanel>
+            {/* <SecondaryExpandablePanel
+              subTitle="Article L2334-1"
+              title="Montant de la DGF communes">
+              <MontantDgfCommunes />
+            </SecondaryExpandablePanel> */}
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-13 du CGCT"
+              title="Montants de la DSR et de la DSU">
+              <MontantDsrDsu />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
         </div>
