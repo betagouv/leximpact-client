@@ -1,5 +1,6 @@
 import { PureComponent } from "react";
 
+import { formatNumber } from "../../../../common";
 import styles from "./HabitantLabel.module.scss";
 
 interface Props {
@@ -11,7 +12,7 @@ export class HabitantLabel extends PureComponent<Props> {
     const { habitants } = this.props;
     return (
       <span className={styles.label}>
-        {habitants}
+        {formatNumber(habitants)}
         <span> hab.</span>
       </span>
     );

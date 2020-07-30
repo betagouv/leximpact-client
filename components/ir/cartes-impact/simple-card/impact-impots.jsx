@@ -1,24 +1,13 @@
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
 import { formatNumber, Parameter } from "../../../common";
-import styles2 from "./impact-impots.module.scss";
-
-const styles = () => ({
-  legende: {
-    color: "#909090",
-    fontFamily: "Lato",
-    fontSize: 12,
-    marginBottom: 10,
-  },
-});
+import styles from "./impact-impots.module.scss";
 
 class SimpleCardImpactImpots extends PureComponent {
   render() {
-    const { classes, isLoading, resultats } = this.props;
+    const { isLoading, resultats } = this.props;
 
     const DiffAmendPLF = (-resultats.apres + resultats.avant > 0 ? "+" : "-")
       + formatNumber(Math.round(Math.abs(-resultats.apres + resultats.plf)));
@@ -42,14 +31,14 @@ class SimpleCardImpactImpots extends PureComponent {
 
     return (
       <Fragment>
-        <Typography className={classes.legende}>
-          <span>Impôt sur le revenu par an</span>
-        </Typography>
+        <div className={styles.legend}>
+          Impôt sur le revenu par an
+        </div>
         {
           isLoading
             ? <CircularProgress color="secondary" />
             : (
-              <div className={styles2.result}>
+              <div className={styles.result}>
                 <Parameter
                   amendementTitle={amendementTitle}
                   amendementValue={-resultats.apres}
@@ -68,7 +57,6 @@ class SimpleCardImpactImpots extends PureComponent {
 }
 
 SimpleCardImpactImpots.propTypes = {
-  classes: PropTypes.shape().isRequired,
   isLoading: PropTypes.bool.isRequired,
   resultats: PropTypes.shape({
     apres: PropTypes.number.isRequired,
@@ -77,4 +65,4 @@ SimpleCardImpactImpots.propTypes = {
   }).isRequired,
 };
 
-export default withStyles(styles)(SimpleCardImpactImpots);
+export default SimpleCardImpactImpots;
