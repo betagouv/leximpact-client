@@ -44,7 +44,7 @@ class DotationPage extends PureComponent<PropsFromRedux> {
           showLoginButton={false}
           subTitle1="Dotations"
           subTitle2="Communes"
-          title="DSR"
+          title="DSR & DSU"
           topic="dotations"
         />
         <PopinManager />
