@@ -188,6 +188,7 @@ class SimpleCard extends React.Component {
     const { name } = descCasType;
     return (
       <Card
+        colored
         content1={(
           <Fragment>
             <div className={classes.iconsContainer}>

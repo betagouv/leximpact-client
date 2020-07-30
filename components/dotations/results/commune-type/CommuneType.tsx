@@ -35,6 +35,7 @@ class CommuneType extends PureComponent<Props> {
     } = this.props;
     return (
       <Card
+        colored
         content1={(
           <Fragment>
             <div className={styles.habitants}>

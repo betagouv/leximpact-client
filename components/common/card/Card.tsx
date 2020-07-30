@@ -1,11 +1,13 @@
 import Divider from "@material-ui/core/Divider";
 import CloseIcon from "@material-ui/icons/Close";
 import EditIcon from "@material-ui/icons/Edit";
+import classNames from "classnames";
 import { PureComponent } from "react";
 
 import styles from "./Card.module.scss";
 
 interface Props {
+  colored?: boolean;
   icon?: JSX.Element;
   title: string;
   subTitle?: string;
@@ -19,11 +21,14 @@ interface Props {
 export class Card extends PureComponent<Props> {
   render() {
     const {
-      content1, content2, content3, icon, onClose, onEdit, subTitle, title,
+      colored, content1, content2, content3, icon, onClose, onEdit, subTitle, title,
     } = this.props;
     return (
       <div className={styles.card}>
-        <div className={styles.header}>
+        <div className={classNames({
+          [styles.header]: true,
+          [styles.colored]: !!colored
+        })}>
           {icon && <div className={styles.icon}>{icon}</div>}
           <div className={styles.titles}>
             <div className={styles.title}>
@@ -40,7 +45,10 @@ export class Card extends PureComponent<Props> {
             {onClose && <CloseIcon fontSize="small" onClick={onClose} />}
           </div>
         </div>
-        <div className={styles.content1}>
+        <div className={classNames({
+          [styles.content1]: true,
+          [styles.colored]: !!colored
+        })}>
           {content1}
         </div>
         {content2 && <Divider />}
