@@ -69,7 +69,7 @@ const styles = () => ({
   revenusMensuelLegend: {
     color: "#909090",
     fontFamily: "Lato",
-    fontSize: 12,
+    fontSize: "0.8rem",
   },
   revenusMensuelValue: {
     color: "#000000",

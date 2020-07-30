@@ -50,7 +50,7 @@ class CommuneType extends PureComponent<Props> {
             : (
               <Fragment>
                 <div className={styles.resultCaption}>
-              Eligibilité et montant de la DSR
+                  Eligibilité et montant de la DSR
                 </div>
                 <div className={styles.eligibilite}>
                   <Eligibilite index={index} />

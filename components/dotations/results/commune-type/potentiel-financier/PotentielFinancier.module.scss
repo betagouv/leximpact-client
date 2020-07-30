@@ -1,13 +1,17 @@
-.text {
-  font-size: 18px;
-  font-weight: bold;
+@import 'styles/variables';
 
-  :last-child {
-    font-size: 14px;
-    font-weight: normal;
-  }
+.legend {
+  color: $light-grey-text-color;
+  font-family: $default-font-family;
+  font-size: 0.8rem;
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .icon {
   height: 30px;
+  margin-right: 3px;
 }
