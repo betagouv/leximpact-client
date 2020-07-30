@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 
-import styles from "./HabitantLabel.module.scss";
 import { formatNumber } from "../../../../common";
+import styles from "./HabitantLabel.module.scss";
 
 interface Props {
   habitants: number;

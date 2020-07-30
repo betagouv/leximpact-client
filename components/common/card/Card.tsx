@@ -27,7 +27,7 @@ export class Card extends PureComponent<Props> {
       <div className={styles.card}>
         <div className={classNames({
           [styles.header]: true,
-          [styles.colored]: !!colored
+          [styles.colored]: !!colored,
         })}>
           {icon && <div className={styles.icon}>{icon}</div>}
           <div className={styles.titles}>
@@ -47,7 +47,7 @@ export class Card extends PureComponent<Props> {
         </div>
         <div className={classNames({
           [styles.content1]: true,
-          [styles.colored]: !!colored
+          [styles.colored]: !!colored,
         })}>
           {content1}
         </div>
