@@ -54,6 +54,22 @@ interface ResponseBody {
           eligible: boolean;
           dotationParHab: number;
         }[]
+      },
+      dsu: {
+        eligibles: number;
+        strates: {
+          // Nombre de communes éligibles
+          eligibles: number;
+          // Dotation moyenne par habitant
+          dotationMoyenneParHab: number;
+          // Part des dotations accordées à cette strate dans la dotation totale.
+          partDotationTotale: number;
+        }[],
+        communes: {
+          code: string; // OR id, I'm ok with both.
+          eligible: boolean;
+          dotationParHab: number;
+        }[]
       }
     }
   }
@@ -62,6 +78,11 @@ interface ResponseBody {
   baseToAmendement: {
     communes: {
       dsr: {
+        nouvellementEligibles: number;
+        plusEligibles: number;
+        toujoursEligibles: number;
+      },
+      dsu: {
         nouvellementEligibles: number;
         plusEligibles: number;
         toujoursEligibles: number;
@@ -140,6 +161,12 @@ export const simulateDotations = () => (dispatch, getState) => {
         // eslint-disable-next-line no-param-reassign
         strate.partDotationTotale *= 100;
       });
+      // eslint-disable-next-line no-param-reassign
+      payload.amendement.communes.dsu = payload.amendement.communes.dsr;
+      // eslint-disable-next-line no-param-reassign
+      payload.base.communes.dsu = payload.base.communes.dsr;
+      // eslint-disable-next-line no-param-reassign
+      payload.baseToAmendement.communes.dsu = payload.baseToAmendement.communes.dsr;
       dispatch(simulateDotationsSuccess(payload));
     })
     .catch(err => dispatch(simulateDotationsFailure(err)));

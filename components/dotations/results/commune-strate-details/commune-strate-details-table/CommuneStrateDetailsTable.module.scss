@@ -40,9 +40,6 @@
   tbody {
     font-weight: bold;
 
-    tr:nth-child(odd) {
-      background-color: $light-grey-bg-color;
-    }  
 
     th[scope="row"] {
       color: $dark-grey-text-color;
@@ -62,11 +59,27 @@
 
 
   td {
-    height: 50px;
     text-align: center;
   }
 
   th, td {
     padding: 5px;
   }
+}
+
+
+.dsr {
+  tr:nth-child(odd) {
+    background-color: $light-grey-bg-color;
+  }
+}
+
+.dsrAndDsu {
+  tr:nth-child(4n+2) {
+    background-color: $light-grey-bg-color;
+  }  
+  
+  tr:nth-child(4n+1) {
+    background-color: $light-grey-bg-color;
+  }  
 }
