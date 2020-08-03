@@ -54,7 +54,7 @@ export class Articles extends PureComponent {
                 <DsuEligibilite />
               </SecondaryExpandablePanel>
               <SecondaryExpandablePanel
-                subTitle="Article L2334-18-2 du CGCT"
+                subTitle="Articles L2334-18-2 et L2334-18-4 du CGCT"
                 title="Répartition">
                 <DsuRepartition />
               </SecondaryExpandablePanel>

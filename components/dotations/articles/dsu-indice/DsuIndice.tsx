@@ -69,7 +69,7 @@ export class DsuIndice extends PureComponent {
         les logements locatifs appartenant aux organismes d&apos;habitations
         à loyer modéré, aux sociétés
         d&apos;économie mixte locales et aux filiales de la société ICADE,
-        à l&apos;exclusion des logements-foyers mentionnés au 5° de l&apos;article L. 351-2 du
+        à l&apos;exclusion des logements-foyers mentionnés au 5° de l&apos;article L. 831-1 du
         code de la construction et de l&apos;habitation. Sont aussi retenus comme
         des logements sociaux pour l&apos;application du présent article les logements
         de la Société nationale immobilière ou de ses filiales qui appartenaient
@@ -78,6 +78,10 @@ export class DsuIndice extends PureComponent {
         le dernier alinéa des articles L. 5214-23-2, L. 5215-35 et
         L. 5216-8-1 du présent code. Sont égalEment considérés comme des
         logements sociaux pour l&apos;application du présent article les logements
+        faisant l&apos;objet d&apos;une opération de requalification de copropriétés dégradées
+        reconnue d&apos;intérêt national selon les modalités définies à l&apos;article L. 741-2
+        du code de la construction et de l&apos;habitation. Sont également considérés comme
+        des logements sociaux pour l&apos;application du présent article les logements
         appartenant à l&apos;Entreprise minière et chimique et aux sociétés à
         participation majoritaire de l&apos;Entreprise minière et chimique,
         les logements appartenant aux houillères de bassin,
@@ -106,8 +110,7 @@ export class DsuIndice extends PureComponent {
         <ExpandableText caption="... en savoir plus">
         dans
         des conditions définies par décret en Conseil d&apos;État, les prestations prévues
-        aux articles L. 351-1 du code de la construction et de l&apos;habitation et L. 542-1
-        et L. 831-1 du code de la sécurité sociale.
+        à l&apos;article L. 821-1 du code de la construction et de l&apos;habitation.
         </ExpandableText>
         <br />
         <br />
@@ -121,17 +124,13 @@ export class DsuIndice extends PureComponent {
         L&apos;indice synthétique de ressources et de charges est obtenu par addition des
         rapports visés aux 1°, 2°, 3° et 4°,
         <br />
-        en pondérant le premier par 45 %,
+        en pondérant le premier par 30 %,
         <br />
         le deuxième par 15 %,
         <br />
-
-le troisième par 30 %
-
+        le troisième par 30 %
         <br />
-        et le quatrième par 10 %.
-
-
+        et le quatrième par 25 %.
         <br />
         <br />
         Toutefois, chacun des pourcentages de pondération peut être majoré ou
@@ -141,8 +140,6 @@ le troisième par 30 %
         <br />
         Les communes sont classées en fonction de la valeur décroissante
         de leur indice synthétique.
-
-
       </Fragment>
     );
   }
