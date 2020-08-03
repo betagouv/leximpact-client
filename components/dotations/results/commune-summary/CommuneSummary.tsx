@@ -6,26 +6,30 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
+// eslint-disable-next-line no-unused-vars
+import { DotationsState } from "../../../../redux/reducers/results";
 import {
   Card, ResultValues, SubCard,
 } from "../../../common";
 import { EligibiliteSpot } from "../common";
 import styles from "./CommuneSummary.module.scss";
 
-const mapStateToProps = ({ results }: RootState) => ({
+const mapStateToProps = ({ results }: RootState, { dotation }: { dotation: keyof DotationsState["communes"] }) => ({
   amendement: {
     nouvellementEligibles: results.baseToAmendement
-      .dotations.state?.communes.dsr.nouvellementEligibles,
-    plusEligibles: results.baseToAmendement.dotations.state?.communes.dsr.plusEligibles,
-    toujoursEligibles: results.baseToAmendement.dotations.state?.communes.dsr.toujoursEligibles,
+      .dotations.state?.communes[dotation].nouvellementEligibles,
+    plusEligibles: results.baseToAmendement.dotations.state?.communes[dotation].plusEligibles,
+    toujoursEligibles: results.baseToAmendement.dotations
+      .state?.communes[dotation].toujoursEligibles,
   },
   isFetching: results.amendement.dotations.isFetching
     || results.base.dotations.isFetching
     || results.plf.dotations.isFetching,
   plf: {
-    nouvellementEligibles: results.baseToPlf.dotations.state?.communes.dsr.nouvellementEligibles,
-    plusEligibles: results.baseToPlf.dotations.state?.communes.dsr.plusEligibles,
-    toujoursEligibles: results.baseToPlf.dotations.state?.communes.dsr.toujoursEligibles,
+    nouvellementEligibles: results.baseToPlf.dotations
+      .state?.communes[dotation].nouvellementEligibles,
+    plusEligibles: results.baseToPlf.dotations.state?.communes[dotation].plusEligibles,
+    toujoursEligibles: results.baseToPlf.dotations.state?.communes[dotation].toujoursEligibles,
   },
 });
 
@@ -33,7 +37,9 @@ const connector = connect(mapStateToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-type Props = PropsFromRedux & {}
+type Props = PropsFromRedux & {
+  dotation: keyof DotationsState["communes"];
+}
 
 function renderSubCardContent(plf: number|undefined, amendement: number|undefined): JSX.Element {
   return (
@@ -63,14 +69,16 @@ function renderSubCardContent(plf: number|undefined, amendement: number|undefine
 
 class CommuneSummary extends PureComponent<Props> {
   render() {
-    const { amendement, isFetching, plf } = this.props;
+    const {
+      amendement, dotation, isFetching, plf,
+    } = this.props;
     return (
       <Card
         content1={isFetching ? <CircularProgress /> : (
           <div>
             <div className={styles.total}>
               <ResultValues
-                path="dotations.state.communes.dsr.eligibles"
+                path={`dotations.state.communes.${dotation}.eligibles`}
               />
             </div>
           </div>
@@ -96,7 +104,7 @@ class CommuneSummary extends PureComponent<Props> {
           </SubCard>
         ) : null}
         icon={<img alt="" className={styles.image} src="/icons/picto-communes-eligibles.png" />}
-        title="Nombre de communes éligibles"
+        title={`Nombre de communes éligibles à la ${dotation.toLocaleUpperCase()}`}
       />
     );
   }

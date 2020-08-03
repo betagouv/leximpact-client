@@ -4,6 +4,11 @@ export interface DotationsDiffState {
       nouvellementEligibles: number;
       plusEligibles: number;
       toujoursEligibles: number;
+    },
+    dsu: {
+      nouvellementEligibles: number;
+      plusEligibles: number;
+      toujoursEligibles: number;
     }
   }
 }

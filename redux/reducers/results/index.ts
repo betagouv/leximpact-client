@@ -8,6 +8,8 @@ import casTypes from "./cas-types";
 import { plf } from "./plf";
 import totalPop from "./total-pop";
 
+export * from "./interfaces";
+
 export default combineReducers({
   amendement,
   base,
