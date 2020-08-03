@@ -1,18 +1,29 @@
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
 import styles from "./PrimaryExpandablePanel.module.scss";
 
-export class PrimaryExpandablePanel extends PureComponent {
+interface Props {
+  expanded?: boolean;
+  subTitle?: string;
+  title: string;
+  icon?: JSX.Element;
+}
+
+interface State {
+  expanded: boolean;
+  id: number;
+}
+
+export class PrimaryExpandablePanel extends PureComponent<Props, State> {
   static lastId = 0;
 
   constructor(props) {
     super(props);
     PrimaryExpandablePanel.lastId += 1;
     const { expanded } = this.props;
-    this.state = { expanded, id: PrimaryExpandablePanel.lastId };
+    this.state = { expanded: !!expanded, id: PrimaryExpandablePanel.lastId };
     this.onExpandedChange = this.onExpandedChange.bind(this);
   }
 
@@ -22,7 +33,9 @@ export class PrimaryExpandablePanel extends PureComponent {
   }
 
   render() {
-    const { children, subTitle, title } = this.props;
+    const {
+      children, icon, subTitle, title,
+    } = this.props;
     const { expanded, id } = this.state;
     return (
       <div>
@@ -33,17 +46,18 @@ export class PrimaryExpandablePanel extends PureComponent {
           className={styles.header}
           id={`primary-panel${id}-header`}
           role="button"
-          tabIndex="0"
+          tabIndex={0}
           onClick={this.onExpandedChange}
           onKeyDown={e => e.key === "Enter" && this.onExpandedChange()}>
           <div className={styles.text}>
+            {icon && <span className={styles.icon}>{icon}</span>}
             <span className={styles.title}>{title}</span>
             <span className={styles.subTitle}>
               {subTitle && ` - ${subTitle}`}
             </span>
           </div>
           <div>
-            <span aria-disabled="false" aria-hidden="true" className={styles.btn} type="button">
+            <span aria-disabled="false" aria-hidden="true" className={styles.btn}>
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </span>
           </div>
@@ -57,15 +71,3 @@ export class PrimaryExpandablePanel extends PureComponent {
     );
   }
 }
-
-PrimaryExpandablePanel.defaultProps = {
-  expanded: false,
-  subTitle: "",
-};
-
-PrimaryExpandablePanel.propTypes = {
-  children: PropTypes.node.isRequired,
-  expanded: PropTypes.bool,
-  subTitle: PropTypes.string,
-  title: PropTypes.string.isRequired,
-};

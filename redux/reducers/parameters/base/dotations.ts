@@ -73,6 +73,32 @@ export const BASE_DOTATIONS_DEFAULT_STATE: DotationsState = {
         },
       },
     },
+    dsu: {
+      eligibilite: {
+        // Article L2334-16 du CGCT
+        popMinSeuilBas: 5000,
+        popMinSeuilHaut: 10000,
+        rapportPotentielFinancier: 2.5,
+        pourcentageRangSeuilBas: 10,
+        pourcentageRangSeuilHaut: 67,
+        // Article L2334-17 du CGCT
+        indiceSynthetique: {
+          ponderationPotentielFinancier: 30,
+          ponderationLogementsSociaux: 15,
+          ponderationAideAuLogement: 30,
+          ponderationRevenu: 25,
+        },
+      },
+      // Article L2334-18-2 du CGCT
+      attribution: {
+        effortFiscalLimite: 1.3,
+        facteurClassementMax: 4.0,
+        facteurClassementMin: 0.5,
+        poidsSupplementaireZoneUrbaineSensible: 2.0,
+        poidsSupplementaireZoneFrancheUrbaine: 1.0,
+        augmentationMax: 4000000,
+      },
+    },
   },
 };
 
