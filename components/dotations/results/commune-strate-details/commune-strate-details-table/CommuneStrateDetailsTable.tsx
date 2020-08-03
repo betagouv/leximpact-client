@@ -28,6 +28,8 @@ type Props = PropsFromRedux & {
 class CommuneStrateDetailsTable extends PureComponent<Props> {
   render() {
     const { isFetching, strates } = this.props;
+    const url = new URLSearchParams(window.location.search);
+    const isDsuVisible = url.has("dsu");
     return (
       <div className={styles.container}>
         <table className={styles.table}>
@@ -58,12 +60,12 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
             </tr>
           </thead>
           {!isFetching && (
-            <tbody>
+            <tbody className={isDsuVisible ? styles.dsrAndDsu : styles.dsr}>
               {
                 strates.map((strate, index) => (
                   <Fragment>
                     <tr key={strate.habitants}>
-                      <th rowSpan={2} scope="row">
+                      <th rowSpan={isDsuVisible ? 2 : 1} scope="row">
                         {
                           strate.habitants === -1 ? (
                             <Fragment>
@@ -80,12 +82,12 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         }
 
                       </th>
-                      <td className={styles.light} rowSpan={2}>
+                      <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
                         {formatNumber(strate.partPopTotale, { decimals: 0 })}
                         {" "}
                         %
                       </td>
-                      <td className={styles.light} rowSpan={2}>
+                      <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
                         {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
                       </td>
                       <td>
@@ -110,29 +112,33 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         %
                       </td>
                     </tr>
-                    <tr key={strate.habitants}>
-                      <td>
-                        <LocationCityIcon />
-                      </td>
-                      <td>
-                        <ResultValues
-                          path={`dotations.state.communes.dsu.strates.${index}.eligibles`} />
-                      </td>
-                      <td>
-                        <ResultValues
-                          decimals={2}
-                          path={`dotations.state.communes.dsu.strates.${index}.dotationMoyenneParHab`} />
-                        {" "}
-                        €
-                      </td>
-                      <td>
-                        <ResultValues
-                          decimals={0}
-                          path={`dotations.state.communes.dsu.strates.${index}.partDotationTotale`} />
-                        {" "}
-                        %
-                      </td>
-                    </tr>
+                    {
+                      isDsuVisible && (
+                        <tr key={strate.habitants}>
+                          <td>
+                            <LocationCityIcon />
+                          </td>
+                          <td>
+                            <ResultValues
+                              path={`dotations.state.communes.dsu.strates.${index}.eligibles`} />
+                          </td>
+                          <td>
+                            <ResultValues
+                              decimals={2}
+                              path={`dotations.state.communes.dsu.strates.${index}.dotationMoyenneParHab`} />
+                            {" "}
+                            €
+                          </td>
+                          <td>
+                            <ResultValues
+                              decimals={0}
+                              path={`dotations.state.communes.dsu.strates.${index}.partDotationTotale`} />
+                            {" "}
+                            %
+                          </td>
+                        </tr>
+                      )
+                    }
                   </Fragment>
                 ))
               }
