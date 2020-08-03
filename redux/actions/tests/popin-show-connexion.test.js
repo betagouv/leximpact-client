@@ -15,7 +15,7 @@ describe("components | actions | showConnexionPopin", () => {
       const result = showConnexionPopin();
       expect(result).toStrictEqual(expected);
       expect(Router.push).toHaveBeenCalledTimes(1);
-      expect(Router.push).toHaveBeenCalledWith("/ir/?popin=connection");
+      expect(Router.push).toHaveBeenCalledWith("/ir?popin=connection");
     });
   });
 });

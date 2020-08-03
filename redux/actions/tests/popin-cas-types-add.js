@@ -15,7 +15,7 @@ describe("components | actions | showAddCasTypesPopin", () => {
       const result = showAddCasTypesPopin();
       expect(result).toStrictEqual(expected);
       expect(Router.push).toHaveBeenCalledTimes(1);
-      expect(Router.push).toHaveBeenCalledWith("/?popin=ajouter-carte-impact");
+      expect(Router.push).toHaveBeenCalledWith("/ir?popin=ajouter-carte-impact");
     });
   });
 });

@@ -1,7 +1,7 @@
 import Router from "next/router";
 
 const showLogoutPopin = () => {
-  Router.push("/?popin=logout");
+  Router.push("/ir?popin=logout");
   return { type: "showLogoutPopin" };
 };
 
