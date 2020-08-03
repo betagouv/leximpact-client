@@ -98,6 +98,12 @@ function convertRates(dotations: DotationsState): DotationsState {
     // "communes.dsr.perequation.attribution.pourcentageAttributionMax",
     "communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier",
     "communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu",
+    "communes.dsu.eligibilite.pourcentageRangSeuilBas",
+    "communes.dsu.eligibilite.pourcentageRangSeuilHaut",
+    "communes.dsu.eligibilite.indiceSynthetique.ponderationPotentielFinancier",
+    "communes.dsu.eligibilite.indiceSynthetique.ponderationLogementsSociaux",
+    "communes.dsu.eligibilite.indiceSynthetique.ponderationAideAuLogement",
+    "communes.dsu.eligibilite.indiceSynthetique.ponderationRevenu",
   ];
   paths.forEach((path) => {
     result = updateIn(result, path.split("."), rate => rate / 100);

@@ -1,5 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
+import { StateParameter } from "../../../common";
+
 export class DsuEligibilite extends PureComponent {
   render() {
     // Article L2334-20 du CGCT
@@ -16,9 +18,17 @@ export class DsuEligibilite extends PureComponent {
         &nbsp;:
         <br />
         <br />
-        1° Les [deux premiers tiers] 66 premiers % des communes de 10 000 habitants et plus,
-         classées, chaque année, en fonction d&apos;un indice synthétique de ressources
-         et de charges défini à
+        1° Les deux premiers tiers [ les premiers
+        {" "}
+        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut" />
+        {" "}
+        % ] des communes de
+        {" "}
+        <StateParameter editable path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        {" "}
+        habitants et plus,
+        classées, chaque année, en fonction d&apos;un indice synthétique de ressources
+        et de charges défini à
         {" "}
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000038834291&cidTexte=LEGITEXT000006070633&categorieLien=id&dateTexte="
@@ -29,8 +39,20 @@ export class DsuEligibilite extends PureComponent {
         </a>
         <br />
         <br />
-        2° Le [premier dixième] 10 premiers % des communes dont la population est
-        comprise entre 5 000 et 9 999 habitants, classées, chaque année,
+        2° Le premier dixième [ les premiers
+        {" "}
+        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas" />
+        {" "}
+        % ] des communes dont la population est
+        comprise entre
+        {" "}
+        <StateParameter editable path="dotations.communes.dsu.eligibilite.popMinSeuilBas" />
+        {" "}
+        et
+        {" "}
+        <StateParameter path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        {" "}
+        [exclu] habitants, classées, chaque année,
         en fonction d&apos;un indice synthétique de ressources
         et de charges défini à
         {" "}
@@ -44,9 +66,13 @@ export class DsuEligibilite extends PureComponent {
         <br />
         <br />
         Toutefois, ne peuvent être éligibles les communes dont le potentiel financier
-         par habitant est supérieur à [deux fois et demi] 2,5 le potentiel
-         financier moyen par habitant des communes de même groupe démographique
-         défini aux 1° et 2°.
+        par habitant est supérieur à [deux fois et demi]
+        {" "}
+        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.rapportPotentielFinancier" />
+        {" "}
+        le potentiel
+        financier moyen par habitant des communes de même groupe démographique
+        défini aux 1° et 2°.
       </Fragment>
     );
   }

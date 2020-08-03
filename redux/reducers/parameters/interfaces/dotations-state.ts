@@ -66,5 +66,28 @@ export interface DotationsState {
         }
       }
     }
+    dsu: {
+      eligibilite: {
+          popMinSeuilBas: number;
+          popMinSeuilHaut: number;
+          rapportPotentielFinancier: number;
+          pourcentageRangSeuilBas: number;
+          pourcentageRangSeuilHaut: number;
+          indiceSynthetique: {
+              ponderationPotentielFinancier: number;
+              ponderationLogementsSociaux: number;
+              ponderationAideAuLogement: number;
+              ponderationRevenu: number;
+          }
+      }
+      attribution: {
+          effortFiscalLimite: number;
+          facteurClassementMax: number;
+          facteurClassementMin: number;
+          poidsSupplementaireZoneUrbaineSensible: number;
+          poidsSupplementaireZoneFrancheUrbaine: number;
+          augmentationMax: number;
+      }
+    }
   }
 }
