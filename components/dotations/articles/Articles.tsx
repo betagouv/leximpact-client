@@ -1,3 +1,5 @@
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { Fragment, PureComponent } from "react";
 
 import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
@@ -22,6 +24,7 @@ export class Articles extends PureComponent {
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
+            icon={<LocalFloristIcon />}
             title="Dotation de solidarité rurale (DSR)">
             <SecondaryExpandablePanel
               expanded
@@ -47,6 +50,7 @@ export class Articles extends PureComponent {
           </PrimaryExpandablePanel>
           {isDsuVisible && (
             <PrimaryExpandablePanel
+              icon={<LocationCityIcon />}
               title="Dotation de solidarité urbaine (DSU)">
               <SecondaryExpandablePanel
                 subTitle="Article L2334-16 du CGCT"
