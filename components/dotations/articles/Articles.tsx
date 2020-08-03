@@ -12,7 +12,7 @@ import { DsuIndice } from "./dsu-indice";
 import { DsuRepartition } from "./dsu-repartition";
 // import { MontantDgf } from "./montant-dgf";
 // import { MontantDgfCommunes } from "./montant-dgf-communes";
-import { MontantDsrDsu } from "./montant-dsr-dsu";
+// import { MontantDsrDsu } from "./montant-dsr-dsu";
 
 export class Articles extends PureComponent {
   render() {
