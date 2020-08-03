@@ -40,7 +40,11 @@
   tbody {
     font-weight: bold;
 
-    tr:nth-child(odd) {
+    tr:nth-child(4n+2) {
+      background-color: $light-grey-bg-color;
+    }  
+    
+    tr:nth-child(4n+1) {
       background-color: $light-grey-bg-color;
     }  
 
@@ -62,7 +66,6 @@
 
 
   td {
-    height: 50px;
     text-align: center;
   }
 

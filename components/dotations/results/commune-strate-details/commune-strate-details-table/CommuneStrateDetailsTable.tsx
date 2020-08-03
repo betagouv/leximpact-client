@@ -1,4 +1,6 @@
 import CircularProgress from "@material-ui/core/CircularProgress";
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
@@ -37,6 +39,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                 {/* <br />
                 <span className={styles.link}>[replier ces colonnes]</span> */}
               </th>
+              <th />
               <th rowSpan={2}>
                 Nombre
                 <br />
@@ -58,51 +61,79 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
             <tbody>
               {
                 strates.map((strate, index) => (
-                  <tr key={strate.habitants}>
-                    <th scope="row">
-                      {
-                        strate.habitants === -1 ? (
-                          <Fragment>
-                            <div className={styles.lighter}>au-delà.</div>
-                          </Fragment>
-                        ) : (
-                          <Fragment>
-                            <div className={styles.lighter}>jusqu&apos;à</div>
-                            {formatNumber(strate.habitants)}
-                            {" "}
-                            h.
-                          </Fragment>
-                        )
-                      }
+                  <Fragment>
+                    <tr key={strate.habitants}>
+                      <th rowSpan={2} scope="row">
+                        {
+                          strate.habitants === -1 ? (
+                            <Fragment>
+                              <div className={styles.lighter}>au-delà.</div>
+                            </Fragment>
+                          ) : (
+                            <Fragment>
+                              <div className={styles.lighter}>jusqu&apos;à</div>
+                              {formatNumber(strate.habitants)}
+                              {" "}
+                              h.
+                            </Fragment>
+                          )
+                        }
 
-                    </th>
-                    <td className={styles.light}>
-                      {formatNumber(strate.partPopTotale, { decimals: 0 })}
-                      {" "}
-                      %
-                    </td>
-                    <td className={styles.light}>
-                      {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
-                    </td>
-                    <td>
-                      <ResultValues
-                        path={`dotations.state.communes.dsr.strates.${index}.eligibles`} />
-                    </td>
-                    <td>
-                      <ResultValues
-                        decimals={2}
-                        path={`dotations.state.communes.dsr.strates.${index}.dotationMoyenneParHab`} />
-                      {" "}
-                      €
-                    </td>
-                    <td>
-                      <ResultValues
-                        decimals={0}
-                        path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
-                      {" "}
-                      %
-                    </td>
-                  </tr>
+                      </th>
+                      <td className={styles.light} rowSpan={2}>
+                        {formatNumber(strate.partPopTotale, { decimals: 0 })}
+                        {" "}
+                        %
+                      </td>
+                      <td className={styles.light} rowSpan={2}>
+                        {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
+                      </td>
+                      <td>
+                        <LocalFloristIcon />
+                      </td>
+                      <td>
+                        <ResultValues
+                          path={`dotations.state.communes.dsr.strates.${index}.eligibles`} />
+                      </td>
+                      <td>
+                        <ResultValues
+                          decimals={2}
+                          path={`dotations.state.communes.dsr.strates.${index}.dotationMoyenneParHab`} />
+                        {" "}
+                        €
+                      </td>
+                      <td>
+                        <ResultValues
+                          decimals={0}
+                          path={`dotations.state.communes.dsr.strates.${index}.partDotationTotale`} />
+                        {" "}
+                        %
+                      </td>
+                    </tr>
+                    <tr key={strate.habitants}>
+                      <td>
+                        <LocationCityIcon />
+                      </td>
+                      <td>
+                        <ResultValues
+                          path={`dotations.state.communes.dsu.strates.${index}.eligibles`} />
+                      </td>
+                      <td>
+                        <ResultValues
+                          decimals={2}
+                          path={`dotations.state.communes.dsu.strates.${index}.dotationMoyenneParHab`} />
+                        {" "}
+                        €
+                      </td>
+                      <td>
+                        <ResultValues
+                          decimals={0}
+                          path={`dotations.state.communes.dsu.strates.${index}.partDotationTotale`} />
+                        {" "}
+                        %
+                      </td>
+                    </tr>
+                  </Fragment>
                 ))
               }
             </tbody>
