@@ -69,27 +69,25 @@ export class Articles extends PureComponent {
               </SecondaryExpandablePanel>
             </PrimaryExpandablePanel>
           )}
-          {isDsuVisible && (
-            <PrimaryExpandablePanel
-              title="Montant des dotations">
-              {/* <SecondaryExpandablePanel
+          {/* <PrimaryExpandablePanel
+            title="Montant des dotations">
+            <SecondaryExpandablePanel
               expanded
               subTitle="Article L1613-1 du CGCT"
               title="Montant de la dotation globale de fonctionnement (DGF)">
               <MontantDgf />
-            </SecondaryExpandablePanel> */}
-              {/* <SecondaryExpandablePanel
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
               subTitle="Article L2334-1"
               title="Montant de la DGF communes">
               <MontantDgfCommunes />
-            </SecondaryExpandablePanel> */}
-              <SecondaryExpandablePanel
-                subTitle="Article L2334-13 du CGCT"
-                title="Montants de la DSR et de la DSU">
-                <MontantDsrDsu />
-              </SecondaryExpandablePanel>
-            </PrimaryExpandablePanel>
-          )}
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-13 du CGCT"
+              title="Montants de la DSR et de la DSU">
+              <MontantDsrDsu />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel> */}
         </div>
       </Fragment>
     );
