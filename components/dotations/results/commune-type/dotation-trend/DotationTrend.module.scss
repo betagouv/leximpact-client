@@ -1,0 +1,24 @@
+@import "styles/variables";
+
+.container {
+  display: flex;
+
+  .icon {
+    margin-top: 10px;
+    margin-right: 15px;
+  }
+
+  .texts {
+    flex-grow: 1;
+
+    .title {
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .subTitle {
+      font-size: 0.8rem;
+      color: $light-grey-text-color;
+    }
+  }
+}
