@@ -34,9 +34,61 @@ export function dotations(
       state: null,
     };
   case "SIMULATE_DOTATIONS_SUCCESS":
+    const { base, baseToPlf, plf } = action.dotations;
+    if (!plf || !baseToPlf) {
+      return {
+        isFetching: false,
+        state: null,
+      };
+    }
+    const dsr: DotationsDiffState["communes"]["dsr"] = {
+      ...baseToPlf.communes.dsr,
+      communes: plf.communes.dsr.communes.map((commune, index) => ({
+        code: commune.code,
+        diffDotationParHab: (
+          plf.communes.dsr.communes[index].dotationParHab
+          - base.communes.dsr.communes[index].dotationParHab
+        ),
+      })),
+    };
+    const dsu: DotationsDiffState["communes"]["dsu"] = {
+      ...baseToPlf.communes.dsu,
+      communes: plf.communes.dsu.communes.map((commune, index) => ({
+        code: commune.code,
+        diffDotationParHab: (
+          plf.communes.dsu.communes[index].dotationParHab
+          - base.communes.dsu.communes[index].dotationParHab
+        ),
+      })),
+    };
     return {
       isFetching: false,
-      state: action.dotations.baseToPlf || null,
+      state: {
+        communes: {
+          dgf: {
+            communes: dsr.communes.map((commune, index) => ({
+              code: commune.code,
+              diffDotationParHab: (
+                dsr.communes[index].diffDotationParHab
+                + dsu.communes[index].diffDotationParHab
+              ),
+            })),
+            strates: plf.communes.dsr.strates.map((_, index) => ({
+              diffDotationMoyenneParHab:
+                (
+                  plf.communes.dsr.strates[index].dotationMoyenneParHab
+                  + plf.communes.dsu.strates[index].dotationMoyenneParHab
+                )
+                - (
+                  base.communes.dsr.strates[index].dotationMoyenneParHab
+                  + base.communes.dsu.strates[index].dotationMoyenneParHab
+                ),
+            })),
+          },
+          dsr,
+          dsu,
+        },
+      },
     };
   default:
     return state;

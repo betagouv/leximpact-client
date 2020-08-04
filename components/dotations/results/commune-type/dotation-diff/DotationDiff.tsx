@@ -14,10 +14,8 @@ interface Props {
 }
 
 const mapStateToProps = ({ results }: RootState, { dotation, index }: Props) => ({
-  diff: (results.amendement.dotations.state && results.base.dotations.state)
-    ? results.amendement.dotations.state.communes[dotation].communes[index].dotationParHab
-    - results.base.dotations.state.communes[dotation].communes[index].dotationParHab
-    : null,
+  diff: results.baseToAmendement.dotations
+    .state?.communes[dotation].communes[index].diffDotationParHab ?? null,
 });
 
 const connector = connect(mapStateToProps);

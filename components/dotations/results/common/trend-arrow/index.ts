@@ -1,0 +1,1 @@
+export { TrendArrow } from "./TrendArrow";

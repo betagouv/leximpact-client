@@ -11,7 +11,7 @@ export interface DotationsState {
         partDotationTotale: number;
       }[],
       communes: {
-        code: string; // OR id, I'm ok with both.
+        code: string;
         eligible: boolean;
         dotationParHab: number;
       }[]
@@ -27,7 +27,7 @@ export interface DotationsState {
         partDotationTotale: number;
       }[],
       communes: {
-        code: string; // OR id, I'm ok with both.
+        code: string;
         eligible: boolean;
         dotationParHab: number;
       }[]

@@ -13,6 +13,7 @@ import { Card } from "../../../common";
 import styles from "./CommuneType.module.scss";
 import { DotationDiff } from "./dotation-diff";
 import { DotationParHab } from "./dotation-par-hab";
+import { DotationTrend } from "./dotation-trend";
 import { Eligibilite } from "./eligibilite";
 import { HabitantLabel } from "./habitant-label";
 import { PotentielFinancier } from "./potentiel-financier";
@@ -55,6 +56,9 @@ class CommuneType extends PureComponent<Props> {
           isFetching ? <CircularProgress />
             : (
               <Fragment>
+                <div className={styles.trend}>
+                  <DotationTrend index={index} />
+                </div>
                 <div className={styles.dotation}>
                   <div className={styles.icons}>
                     <div>

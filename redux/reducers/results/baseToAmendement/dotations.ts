@@ -34,9 +34,55 @@ export function dotations(
       state: null,
     };
   case "SIMULATE_DOTATIONS_SUCCESS":
+    const { amendement, base, baseToAmendement } = action.dotations;
+    const dsr: DotationsDiffState["communes"]["dsr"] = {
+      ...baseToAmendement.communes.dsr,
+      communes: amendement.communes.dsr.communes.map((commune, index) => ({
+        code: commune.code,
+        diffDotationParHab: (
+          amendement.communes.dsr.communes[index].dotationParHab
+          - base.communes.dsr.communes[index].dotationParHab
+        ),
+      })),
+    };
+    const dsu: DotationsDiffState["communes"]["dsu"] = {
+      ...baseToAmendement.communes.dsu,
+      communes: amendement.communes.dsu.communes.map((commune, index) => ({
+        code: commune.code,
+        diffDotationParHab: (
+          amendement.communes.dsu.communes[index].dotationParHab
+          - base.communes.dsu.communes[index].dotationParHab
+        ),
+      })),
+    };
     return {
       isFetching: false,
-      state: action.dotations.baseToAmendement,
+      state: {
+        communes: {
+          dgf: {
+            communes: dsr.communes.map((commune, index) => ({
+              code: commune.code,
+              diffDotationParHab: (
+                dsr.communes[index].diffDotationParHab
+                + dsu.communes[index].diffDotationParHab
+              ),
+            })),
+            strates: amendement.communes.dsr.strates.map((_, index) => ({
+              diffDotationMoyenneParHab:
+                (
+                  amendement.communes.dsr.strates[index].dotationMoyenneParHab
+                  + amendement.communes.dsu.strates[index].dotationMoyenneParHab
+                )
+                - (
+                  base.communes.dsr.strates[index].dotationMoyenneParHab
+                  + base.communes.dsu.strates[index].dotationMoyenneParHab
+                ),
+            })),
+          },
+          dsr,
+          dsu,
+        },
+      },
     };
   default:
     return state;
