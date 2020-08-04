@@ -19,6 +19,7 @@ interface Props {
   className?: string;
   value: number;
   onChange: (value: number) => void;
+  onEnter?: () => void;
 }
 
 export class NumberInput extends PureComponent<Props, State> {
@@ -53,12 +54,13 @@ export class NumberInput extends PureComponent<Props, State> {
 
   render() {
     const { value } = this.state;
-    const { className } = this.props;
+    const { className, onEnter } = this.props;
     return (
       <input
         className={`${styles.value} ${className || ""}`}
         value={value}
-        onChange={this.handleChange} />
+        onChange={this.handleChange}
+        onKeyDown={e => e.key === "Enter" && onEnter && onEnter()} />
     );
   }
 }

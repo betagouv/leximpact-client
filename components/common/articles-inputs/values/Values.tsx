@@ -1,6 +1,11 @@
 import classNames from "classnames";
 import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+import { fetchSimPop, simulateCasTypes, simulateDotations } from "../../../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../redux/reducers";
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
 import { NumberInput } from "./number-input";
@@ -35,7 +40,42 @@ interface Props {
   plfValue?: number|null;
 }
 
-export class Values extends PureComponent<Props> {
+const mapStateToProps = ({ token }: RootState) => ({
+  isUserLogged: !!token,
+});
+
+const mapDispatchToProps = dispatch => ({
+  simulateDotations: () => dispatch(simulateDotations()),
+  simulateIRCasType: () => dispatch(simulateCasTypes()),
+  simulateIRPopulation: () => dispatch(fetchSimPop()),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+class Values extends PureComponent<Props & PropsFromRedux> {
+  constructor(props) {
+    super(props);
+    this.runSimulation = this.runSimulation.bind(this);
+  }
+
+  runSimulation() {
+    const { isUserLogged } = this.props;
+    const url = document.location;
+    if (url.href.includes("/dotations")) {
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.simulateDotations();
+    } else if (url.href.includes("/ir")) {
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.simulateIRCasType();
+      if (isUserLogged) {
+        // eslint-disable-next-line react/destructuring-assignment
+        this.props.simulateIRPopulation();
+      }
+    }
+  }
+
   render() {
     const {
       amendementInputSize, amendementTitle, amendementValue, baseValue,
@@ -91,7 +131,8 @@ export class Values extends PureComponent<Props> {
                   [styles.xlInput]: amendementInputSize === "xl",
                 })}
                 value={amendementValue}
-                onChange={onAmendementChange || (() => {})} />
+                onChange={onAmendementChange || (() => {})}
+                onEnter={this.runSimulation} />
             )
             : (
               <span className={classNames({
@@ -106,3 +147,7 @@ export class Values extends PureComponent<Props> {
     );
   }
 }
+
+const ConnectedValues = connector(Values);
+
+export { ConnectedValues as Values };
