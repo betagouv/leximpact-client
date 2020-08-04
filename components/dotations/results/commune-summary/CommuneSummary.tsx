@@ -11,8 +11,8 @@ import { DotationsState } from "../../../../redux/reducers/results";
 import {
   Card, ResultValues, SubCard,
 } from "../../../common";
-import { EligibiliteSpot } from "../common";
 import styles from "./CommuneSummary.module.scss";
+import { EligibiliteSpot } from "./eligibilite-spot";
 
 const mapStateToProps = ({ results }: RootState, { dotation }: { dotation: keyof DotationsState["communes"] }) => ({
   amendement: {

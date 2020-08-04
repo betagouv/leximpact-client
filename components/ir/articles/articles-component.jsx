@@ -8,9 +8,9 @@ import {
   BaseInputOutput,
   ExpandableText,
   FormulaOutput,
-  Parameter,
   PrimaryExpandablePanel,
   SecondaryExpandablePanel,
+  Values,
 } from "../../common";
 import fillArrayWith from "../../common/utils/array/fillArrayWith";
 import Alinea3 from "./article-alinea-3";
@@ -52,7 +52,7 @@ class ArticlesComponent extends React.Component {
           {
             "1. L'impôt est calculé en appliquant à la fraction de chaque part de revenu qui excède "
           }
-          <Parameter
+          <Values
             editable
             amendementValue={s[i]}
             baseValue={baseValue}
@@ -77,7 +77,7 @@ class ArticlesComponent extends React.Component {
           className={newTranche ? styles.newTranche : undefined}>
           –
           {" "}
-          <Parameter
+          <Values
             editable
             amendementInputSize="small"
             amendementValue={t[i - 1]}
@@ -90,7 +90,7 @@ class ArticlesComponent extends React.Component {
           <br />
           pour la fraction supérieure à
           {" "}
-          <Parameter
+          <Values
             amendementValue={s[i - 1]}
             baseValue={baseValue}
             editable={false}
@@ -115,7 +115,7 @@ class ArticlesComponent extends React.Component {
         className={newTranche ? styles.newTranche : undefined}>
         –
         {" "}
-        <Parameter
+        <Values
           editable
           amendementInputSize="small"
           amendementValue={t[i - 1]}
@@ -128,7 +128,7 @@ class ArticlesComponent extends React.Component {
         <br />
         pour la fraction supérieure à
         {" "}
-        <Parameter
+        <Values
           amendementValue={s[i - 1]}
           baseValue={baseValueminus1}
           editable={false}
@@ -139,7 +139,7 @@ class ArticlesComponent extends React.Component {
         <br />
         et inférieure ou égale à
         {" "}
-        <Parameter
+        <Values
           editable
           amendementValue={s[i]}
           baseValue={baseValue}

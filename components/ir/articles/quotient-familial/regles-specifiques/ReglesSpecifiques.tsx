@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText, StateParameter } from "../../../../common";
+import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../../common";
 
 export class ReglesSpecifiques extends PureComponent {
   render() {
@@ -33,7 +33,7 @@ export class ReglesSpecifiques extends PureComponent {
         <br />
         a)
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.zeroChargePrincipale.deuxPremiers"
@@ -41,7 +41,7 @@ export class ReglesSpecifiques extends PureComponent {
         {" "}
         part pour chacun des deux premiers et
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.zeroChargePrincipale.suivants"
@@ -53,7 +53,7 @@ export class ReglesSpecifiques extends PureComponent {
         <br />
         b)
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.unChargePrincipale.premier"
@@ -61,7 +61,7 @@ export class ReglesSpecifiques extends PureComponent {
         {" "}
         part pour le premier et
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.unChargePrincipale.suivants"
@@ -73,7 +73,7 @@ export class ReglesSpecifiques extends PureComponent {
         <br />
         c)
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.partsParPACChargePartagee.deuxOuPlusChargePrincipale.suivants"
@@ -94,7 +94,7 @@ export class ReglesSpecifiques extends PureComponent {
         II. Pour l&apos;imposition des contribuables célibataires ou divorcés qui vivent seuls,
         le nombre de parts prévu au I est augmenté de
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.bonusParentIsole.auMoinsUnChargePrincipale"
@@ -104,7 +104,7 @@ export class ReglesSpecifiques extends PureComponent {
         enfant.Lorsqu&apos;ils entretiennent uniquement des enfants dont la charge est réputée
         également partagée avec l&apos;autre parent, la majoration est de
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.bonusParentIsole.zeroChargePrincipaleUnPartage"
@@ -112,7 +112,7 @@ export class ReglesSpecifiques extends PureComponent {
         {" "}
         pour un seul enfant et de
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="impot_revenu.calculNombreParts.bonusParentIsole.zeroChargeprincipaleDeuxOuPlusPartage"

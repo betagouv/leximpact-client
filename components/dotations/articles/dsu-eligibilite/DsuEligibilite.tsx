@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { StateParameter } from "../../../common";
+import { ParameterValues } from "../../../common";
 
 export class DsuEligibilite extends PureComponent {
   render() {
@@ -20,11 +20,11 @@ export class DsuEligibilite extends PureComponent {
         <br />
         1° Les deux premiers tiers [ les premiers
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut" />
         {" "}
         % ] des communes de
         {" "}
-        <StateParameter editable path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues editable path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         habitants et plus,
         classées, chaque année, en fonction d&apos;un indice synthétique de ressources
@@ -41,16 +41,16 @@ export class DsuEligibilite extends PureComponent {
         <br />
         2° Le premier dixième [ les premiers
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas" />
         {" "}
         % ] des communes dont la population est
         comprise entre
         {" "}
-        <StateParameter editable path="dotations.communes.dsu.eligibilite.popMinSeuilBas" />
+        <ParameterValues editable path="dotations.communes.dsu.eligibilite.popMinSeuilBas" />
         {" "}
         et
         {" "}
-        <StateParameter path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         [exclu] habitants, classées, chaque année,
         en fonction d&apos;un indice synthétique de ressources
@@ -68,7 +68,7 @@ export class DsuEligibilite extends PureComponent {
         Toutefois, ne peuvent être éligibles les communes dont le potentiel financier
         par habitant est supérieur à [deux fois et demi]
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.rapportPotentielFinancier" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.rapportPotentielFinancier" />
         {" "}
         le potentiel
         financier moyen par habitant des communes de même groupe démographique

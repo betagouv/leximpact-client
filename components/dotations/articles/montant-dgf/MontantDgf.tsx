@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandableText, StateParameter } from "../../../common";
+import { ExpandableText, ParameterValues } from "../../../common";
 
 export class MontantDgf extends PureComponent {
   render() {
@@ -49,7 +49,7 @@ export class MontantDgf extends PureComponent {
         <br />
         En 2020, ce montant est égal à
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="xl"
           path="dotations.montants.dgf" />

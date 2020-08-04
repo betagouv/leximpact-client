@@ -4,7 +4,7 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
 import { getResultNumberValues } from "../../../../redux/utils";
-import { Parameter } from "./Parameter";
+import { Values } from "./Values";
 
 const mapStateToProps = ({ results }: RootState, { path }) => getResultNumberValues(results, path);
 
@@ -21,7 +21,7 @@ type Props = PropsFromRedux & {
 }
 
 function ResultValues(props: Props) {
-  return <Parameter {...props} />;
+  return <Values {...props} />;
 }
 
 const ConnectedResultValues = connector(ResultValues);

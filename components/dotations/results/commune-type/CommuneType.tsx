@@ -1,4 +1,6 @@
 import CircularProgress from "@material-ui/core/CircularProgress";
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
@@ -9,6 +11,7 @@ import { RootState } from "../../../../redux/reducers";
 import { Commune } from "../../../../redux/reducers/descriptions/dotations";
 import { Card } from "../../../common";
 import styles from "./CommuneType.module.scss";
+import { DotationDiff } from "./dotation-diff";
 import { DotationParHab } from "./dotation-par-hab";
 import { Eligibilite } from "./eligibilite";
 import { HabitantLabel } from "./habitant-label";
@@ -33,6 +36,8 @@ class CommuneType extends PureComponent<Props> {
     const {
       departement, habitants, index, isFetching, name, potentielFinancier,
     } = this.props;
+    const url = new URLSearchParams(window.location.search);
+    const isDsuVisible = url.has("dsu");
     return (
       <Card
         colored
@@ -50,13 +55,38 @@ class CommuneType extends PureComponent<Props> {
           isFetching ? <CircularProgress />
             : (
               <Fragment>
-                <div className={styles.resultCaption}>
-                  Eligibilité et montant de la DSR
+                <div className={styles.dotation}>
+                  <div className={styles.icons}>
+                    <div>
+                      <LocalFloristIcon />
+                    </div>
+                    <div>
+                      <DotationDiff dotation="dsr" index={index} />
+                    </div>
+                    <div />
+                  </div>
+                  <div className={styles.text}>
+                    <Eligibilite dotation="dsr" index={index} />
+                    <DotationParHab dotation="dsr" index={index} />
+                  </div>
                 </div>
-                <div className={styles.eligibilite}>
-                  <Eligibilite index={index} />
-                </div>
-                <DotationParHab index={index} />
+                {isDsuVisible && (
+                  <div className={styles.dotation}>
+                    <div className={styles.icons}>
+                      <div>
+                        <LocationCityIcon />
+                      </div>
+                      <div>
+                        <DotationDiff dotation="dsu" index={index} />
+                      </div>
+                      <div />
+                    </div>
+                    <div className={styles.text}>
+                      <Eligibilite dotation="dsu" index={index} />
+                      <DotationParHab dotation="dsu" index={index} />
+                    </div>
+                  </div>
+                )}
               </Fragment>
             )}
         subTitle={departement}

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Parameter } from "../parameter";
+import { Values } from "../values";
 
 const BaseInputOutputComponent = ({
   baseValue,
@@ -9,7 +9,7 @@ const BaseInputOutputComponent = ({
   newValue,
   plfValue,
 }) => (
-  <Parameter
+  <Values
     editable
     amendementValue={newValue}
     baseValue={baseValue}

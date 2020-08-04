@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, StateParameter } from "../../../common";
+import { ExpandablePanelSubTitle, ParameterValues } from "../../../common";
 import styles from "./DsrFractionCible.module.scss";
 
 export class DsrFractionCible extends PureComponent {
@@ -11,14 +11,14 @@ export class DsrFractionCible extends PureComponent {
         <ExpandablePanelSubTitle subTitle="§ 1 à 5" title="Éligibilité" />
         La troisième fraction de la dotation de solidarité rurale est attribuée aux [
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           path="dotations.communes.dsr.cible.eligibilite.premieresCommunes"
         />
         {" "}
         ] premières communes de moins de
         {" "}
-        <StateParameter
+        <ParameterValues
           path="dotations.communes.dsr.eligibilite.popMax"
         />
         {" "}
@@ -45,7 +45,7 @@ export class DsrFractionCible extends PureComponent {
         L&apos;indice synthétique est obtenu par addition des rapports définis aux a et b en
         pondérant le premier par
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier"
@@ -53,7 +53,7 @@ export class DsrFractionCible extends PureComponent {
         {" "}
         % et le deuxième par
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu"

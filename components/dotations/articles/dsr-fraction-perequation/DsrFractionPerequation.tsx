@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText, StateParameter } from "../../../common";
+import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../common";
 import styles from "./DsrFractionPerequation.module.scss";
 
 export class DsrFractionPerequation extends PureComponent {
@@ -24,7 +24,7 @@ export class DsrFractionPerequation extends PureComponent {
         <span className={styles.bold}>
         &nbsp;au double du [à
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.eligibilite.rapportPotentielFinancier"
@@ -43,7 +43,7 @@ export class DsrFractionPerequation extends PureComponent {
         <div className={styles.list1}>
         1° Pour
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancier"
@@ -57,7 +57,7 @@ export class DsrFractionPerequation extends PureComponent {
           <br />
         2° Pour
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationLongueurVoirie"
@@ -75,7 +75,7 @@ export class DsrFractionPerequation extends PureComponent {
           <br />
         3° Pour
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationNbreEnfants"
@@ -87,7 +87,7 @@ export class DsrFractionPerequation extends PureComponent {
           <br />
         4° Pour
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancierParHectare"
@@ -97,7 +97,7 @@ export class DsrFractionPerequation extends PureComponent {
         potentiel financier par hectare de la commune et le potentiel financier moyen
         par hectare des communes de moins de
           {" "}
-          <StateParameter
+          <ParameterValues
             path="dotations.communes.dsr.eligibilite.popMax"
           />
           {" "}

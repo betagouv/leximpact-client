@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText, StateParameter } from "../../../common";
+import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../common";
 
 
 export class DsuIndice extends PureComponent {
@@ -20,7 +20,7 @@ export class DsuIndice extends PureComponent {
         </a>
         &nbsp;pour les communes de
         {" "}
-        <StateParameter amendementInputSize="small" path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues amendementInputSize="small" path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         habitants
         et plus est constitué :
@@ -29,7 +29,7 @@ export class DsuIndice extends PureComponent {
         1° Du rapport entre le potentiel financier par habitant des communes
         de
         {" "}
-        <StateParameter amendementInputSize="small" path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues amendementInputSize="small" path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         habitants et plus et le potentiel financier par habitant
         de la commune, tel que défini à&nbsp;
@@ -47,7 +47,7 @@ export class DsuIndice extends PureComponent {
         des logements de la commune et la proportion de logements sociaux dans
         le total des logements des communes de
         {" "}
-        <StateParameter path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         habitants et plus ;
         <br />
@@ -58,7 +58,7 @@ export class DsuIndice extends PureComponent {
         total de logements de la commune et cette même proportion constatée
         dans l&apos;ensemble des communes de
         {" "}
-        <StateParameter path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         habitants et plus ;
         <br />
@@ -66,7 +66,7 @@ export class DsuIndice extends PureComponent {
         4° Du rapport entre le revenu moyen par habitant des communes
         de
         {" "}
-        <StateParameter path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
         habitants et plus et le revenu par habitant de la commune,
         calculé en prenant en compte la population définie au premier alinéa
@@ -145,25 +145,25 @@ export class DsuIndice extends PureComponent {
         <br />
         en pondérant le premier par
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationPotentielFinancier" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationPotentielFinancier" />
         {" "}
         %,
         <br />
         le deuxième par
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationLogementsSociaux" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationLogementsSociaux" />
         {" "}
         %,
         <br />
         le troisième par
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationAideAuLogement" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationAideAuLogement" />
         {" "}
         %
         <br />
         et le quatrième par
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationRevenu" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationRevenu" />
         {" "}
         %.
         <br />

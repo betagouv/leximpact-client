@@ -4,7 +4,7 @@ import { PureComponent } from "react";
 import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
 import { NumberInput } from "./number-input";
-import styles from "./Parameter.module.scss";
+import styles from "./Values.module.scss";
 
 function withTooltip(
   Tooltip: any, title: string|JSX.Element|undefined|null, element: JSX.Element,
@@ -35,7 +35,7 @@ interface Props {
   plfValue?: number|null;
 }
 
-export class Parameter extends PureComponent<Props> {
+export class Values extends PureComponent<Props> {
   render() {
     const {
       amendementInputSize, amendementTitle, amendementValue, baseValue,
