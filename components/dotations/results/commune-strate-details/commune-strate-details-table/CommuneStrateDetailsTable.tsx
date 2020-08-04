@@ -64,7 +64,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
               {
                 strates.map((strate, index) => (
                   <Fragment>
-                    <tr key={strate.habitants}>
+                    <tr key={strate.habitants * 2}>
                       <th rowSpan={isDsuVisible ? 2 : 1} scope="row">
                         {
                           strate.habitants === -1 ? (
@@ -114,7 +114,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                     </tr>
                     {
                       isDsuVisible && (
-                        <tr key={strate.habitants}>
+                        <tr key={strate.habitants * 2 + 1}>
                           <td>
                             <LocationCityIcon />
                           </td>
