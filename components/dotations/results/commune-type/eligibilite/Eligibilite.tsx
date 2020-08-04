@@ -6,7 +6,6 @@ import { connect, ConnectedProps } from "react-redux";
 import { RootState } from "../../../../../redux/reducers";
 import { getResultBoolValues } from "../../../../../redux/utils";
 import { Values } from "../../../../common";
-import { EligibiliteSpot } from "../../common";
 import styles from "./Eligibilite.module.scss";
 
 function getEligibilite(value: boolean|undefined): "éligible"|"non éligible"|undefined {
@@ -38,11 +37,6 @@ class Eligibilite extends PureComponent<Props> {
             baseValue={getEligibilite(baseValue) as any}
             plfValue={getEligibilite(plfValue) as any} />
         </div>
-        {
-          typeof amendementValue !== "undefined" && (
-            <EligibiliteSpot eligible={amendementValue} />
-          )
-        }
       </div>
 
     );
