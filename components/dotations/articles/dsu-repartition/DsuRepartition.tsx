@@ -1,6 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
 import { ExpandablePanelSubTitle, ParameterValues } from "../../../common";
+import styles from "./DsuRepartition.module.scss";
 
 export class DsuRepartition extends PureComponent {
   render() {
@@ -28,18 +29,30 @@ export class DsuRepartition extends PureComponent {
         Pour la détermination de la dotation revenant aux communes éligibles,
         s&apos;appliquent au produit défini au premier alinéa deux coefficients
         multiplicateurs supplémentaires, l&apos;un égal à un, augmenté du rapport
-        entre le double [ x
+        entre
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneUrbaineSensible" />
+        <span className={styles.bold}>
+          le double [ x
+          {" "}
+          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneUrbaineSensible" />
+          {" "}
+          fois ]
+        </span>
         {" "}
-        fois ] de la population des zones urbaines sensibles et, à
+        de la population des zones urbaines sensibles et, à
         compter de 2017, des quartiers prioritaires de la politique de la ville
         et la population totale de la commune, et l&apos;autre égal à un, augmenté du
-        rapport [ x
+        rapport
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneFrancheUrbaine" />
+        <span className={styles.bold}>
+          [ x
+          {" "}
+          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneFrancheUrbaine" />
+          {" "}
+          fois ]
+        </span>
         {" "}
-        fois ] entre la population des zones franches urbaines et la population
+        entre la population des zones franches urbaines et la population
         totale de la commune. En 2016, la population des zones urbaines sensibles
         et la population des zones franches urbaines - territoires entrepreneurs
         prises en compte sont authentifiées à l&apos;issue du dernier recensement de

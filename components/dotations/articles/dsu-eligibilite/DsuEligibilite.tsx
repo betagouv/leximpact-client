@@ -1,6 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
 import { ParameterValues } from "../../../common";
+import styles from "./DsuEligibilite.module.scss";
 
 export class DsuEligibilite extends PureComponent {
   render() {
@@ -18,11 +19,17 @@ export class DsuEligibilite extends PureComponent {
         &nbsp;:
         <br />
         <br />
-        1° Les deux premiers tiers [ les premiers
+        1°
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut" />
+        <span className={styles.bold}>
+          Les deux premiers tiers [ les premiers
+          {" "}
+          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut" />
+          {" "}
+          % ]
+        </span>
         {" "}
-        % ] des communes de
+        des communes de
         {" "}
         <ParameterValues editable path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
@@ -39,11 +46,17 @@ export class DsuEligibilite extends PureComponent {
         </a>
         <br />
         <br />
-        2° Le premier dixième [ les premiers
+        2°
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas" />
+        <span className={styles.bold}>
+          Le premier dixième [ les premiers
+          {" "}
+          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas" />
+          {" "}
+          % ]
+        </span>
         {" "}
-        % ] des communes dont la population est
+        des communes dont la population est
         comprise entre
         {" "}
         <ParameterValues editable path="dotations.communes.dsu.eligibilite.popMinSeuilBas" />
@@ -66,9 +79,15 @@ export class DsuEligibilite extends PureComponent {
         <br />
         <br />
         Toutefois, ne peuvent être éligibles les communes dont le potentiel financier
-        par habitant est supérieur à [deux fois et demi]
+        par habitant est supérieur à
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.rapportPotentielFinancier" />
+        <span className={styles.bold}>
+          deux fois et demi [
+          {" "}
+          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.rapportPotentielFinancier" />
+          {" "}
+          ]
+        </span>
         {" "}
         le potentiel
         financier moyen par habitant des communes de même groupe démographique
