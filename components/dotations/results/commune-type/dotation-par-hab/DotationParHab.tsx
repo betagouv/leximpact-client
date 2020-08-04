@@ -13,7 +13,7 @@ export class DotationParHab extends PureComponent<Props> {
     return (
       <div className={styles.text}>
         <ResultValues
-          decimals={2}
+          decimals={0}
           path={`dotations.state.communes.dsr.communes.${index}.dotationParHab`}
         />
         <span> € /hab.</span>
