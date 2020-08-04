@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, StateParameter } from "../../../common";
+import { ExpandablePanelSubTitle, ParameterValues } from "../../../common";
 
 export class DsuRepartition extends PureComponent {
   render() {
@@ -12,15 +12,15 @@ export class DsuRepartition extends PureComponent {
          de sa population par la valeur de l&apos;indice qui lui est attribué.
          Ce produit est pondéré par l&apos;effort fiscal dans la limite de
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.attribution.effortFiscalLimite" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.effortFiscalLimite" />
         {" "}
         et par un coefficient variant uniformément de
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.attribution.facteurClassementMax" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.facteurClassementMax" />
         {" "}
         à
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.attribution.facteurClassementMin" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.facteurClassementMin" />
         {" "}
         dans l&apos;ordre croissant du rang de classement des communes éligibles.
         <br />
@@ -30,14 +30,14 @@ export class DsuRepartition extends PureComponent {
         multiplicateurs supplémentaires, l&apos;un égal à un, augmenté du rapport
         entre le double [ x
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneUrbaineSensible" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneUrbaineSensible" />
         {" "}
         fois ] de la population des zones urbaines sensibles et, à
         compter de 2017, des quartiers prioritaires de la politique de la ville
         et la population totale de la commune, et l&apos;autre égal à un, augmenté du
         rapport [ x
         {" "}
-        <StateParameter editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneFrancheUrbaine" />
+        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.attribution.poidsSupplementaireZoneFrancheUrbaine" />
         {" "}
         fois ] entre la population des zones franches urbaines et la population
         totale de la commune. En 2016, la population des zones urbaines sensibles

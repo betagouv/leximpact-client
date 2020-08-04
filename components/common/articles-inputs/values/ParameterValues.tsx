@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { updateParameter } from "../../../../redux/actions/parameters/update-parameter";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { Parameter } from "./Parameter";
+import { Values } from "./Values";
 
 const mapStateToProps = ({ parameters }: RootState, { path }) => {
   const propertNames = path.split(".");
@@ -37,10 +37,10 @@ type Props = PropsFromRedux & {
   amendementTitle?: string|JSX.Element;
 }
 
-function StateParameter(props: Props) {
-  return <Parameter {...props} />;
+function ParameterValues(props: Props) {
+  return <Values {...props} />;
 }
 
-const ConnectedStateParameter = connector(StateParameter);
+const ConnectedParameterValues = connector(ParameterValues);
 
-export { ConnectedStateParameter as StateParameter };
+export { ConnectedParameterValues as ParameterValues };

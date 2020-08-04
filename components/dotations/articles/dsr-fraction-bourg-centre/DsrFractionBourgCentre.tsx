@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText, StateParameter } from "../../../common";
+import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../common";
 import styles from "./DsrFractionBourgCentre.module.scss";
 
 export class DsrFractionBourgCentre extends PureComponent {
@@ -13,7 +13,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         La première fraction de la dotation de solidarité rurale est attribuée aux communes
         dont la population représente au moins
         {" "}
-        <StateParameter
+        <ParameterValues
           editable
           amendementInputSize="small"
           path="dotations.communes.dsr.bourgCentre.eligibilite.partPopCantonMin"
@@ -34,7 +34,7 @@ export class DsrFractionBourgCentre extends PureComponent {
           <div className={styles.list2}>
         a) Représentant au moins
             {" "}
-            <StateParameter
+            <ParameterValues
               editable
               amendementInputSize="small"
               path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.partPopDepartementMin"
@@ -42,7 +42,7 @@ export class DsrFractionBourgCentre extends PureComponent {
             {" "}
         % de la population du département ou comptant plus de
             {" "}
-            <StateParameter
+            <ParameterValues
               editable
               path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.popMin"
             />
@@ -52,7 +52,7 @@ export class DsrFractionBourgCentre extends PureComponent {
             <br />
         b) Comptant une commune soit de plus de
             {" "}
-            <StateParameter
+            <ParameterValues
               editable
               path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.popCommuneMin"
             />
@@ -62,7 +62,7 @@ export class DsrFractionBourgCentre extends PureComponent {
           <br />
         2° Situées dans un canton dont la commune chef-lieu compte plus de
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.canton.popChefLieuMin"
           />
@@ -79,7 +79,7 @@ export class DsrFractionBourgCentre extends PureComponent {
             {" "}
         au double du [ à
             {" "}
-            <StateParameter
+            <ParameterValues
               editable
               amendementInputSize="small"
               path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.potentielFinancier.rapportPotentielFinancierMoyen"
@@ -93,7 +93,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         potentiel financier
         moyen par habitant des communes de moins de
           {" "}
-          <StateParameter
+          <ParameterValues
             path="dotations.communes.dsr.eligibilite.popMax"
           />
           {" "}
@@ -104,12 +104,12 @@ export class DsrFractionBourgCentre extends PureComponent {
         Bénéficient également de cette fraction les chefs-lieux d&apos;arrondissement au
         31 décembre 2014, dont la population est comprise entre
         {" "}
-        <StateParameter
+        <ParameterValues
           path="dotations.communes.dsr.eligibilite.popMax" />
         {" "}
         et
         {" "}
-        <StateParameter
+        <ParameterValues
           path="dotations.communes.dsr.eligibilite.popChefLieuMax" />
         {" "}
         habitants,
@@ -124,7 +124,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         <div className={styles.list1}>
         a) De la population prise en compte dans la limite de
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             path="dotations.communes.dsr.bourgCentre.attribution.popLimite"
           />
@@ -135,7 +135,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         b) De l&apos;écart entre le potentiel financier moyen par habitant des communes de moins
         de
           {" "}
-          <StateParameter
+          <ParameterValues
             path="dotations.communes.dsr.eligibilite.popMax"
           />
           {" "}
@@ -144,7 +144,7 @@ export class DsrFractionBourgCentre extends PureComponent {
           <br />
         c) De l&apos;effort fiscal pris en compte dans la limite de
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.bourgCentre.attribution.effortFiscalLimite"
@@ -155,7 +155,7 @@ export class DsrFractionBourgCentre extends PureComponent {
           <br />
         d) D&apos;un coefficient multiplicateur égal à
           {" "}
-          <StateParameter
+          <ParameterValues
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.bourgCentre.attribution.coefMultiplicateurRevitalisationRurale"

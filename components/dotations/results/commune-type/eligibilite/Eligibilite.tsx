@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
 import { getResultBoolValues } from "../../../../../redux/utils";
-import { Parameter } from "../../../../common";
+import { Values } from "../../../../common";
 import { EligibiliteSpot } from "../../common";
 import styles from "./Eligibilite.module.scss";
 
@@ -32,8 +32,8 @@ class Eligibilite extends PureComponent<Props> {
     return (
       <div className={styles.container}>
         <div>
-          {/* Hack: Parameter only accepts numbers */}
-          <Parameter
+          {/* Hack: Values only accepts numbers */}
+          <Values
             amendementValue={getEligibilite(amendementValue) as any}
             baseValue={getEligibilite(baseValue) as any}
             plfValue={getEligibilite(plfValue) as any} />

@@ -2,7 +2,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import PropTypes from "prop-types";
 import { Fragment, PureComponent } from "react";
 
-import { formatNumber, Parameter } from "../../../common";
+import { formatNumber, Values } from "../../../common";
 import styles from "./impact-impots.module.scss";
 
 class SimpleCardImpactImpots extends PureComponent {
@@ -39,7 +39,7 @@ class SimpleCardImpactImpots extends PureComponent {
             ? <CircularProgress color="secondary" />
             : (
               <div className={styles.result}>
-                <Parameter
+                <Values
                   amendementTitle={amendementTitle}
                   amendementValue={-resultats.apres}
                   baseValue={-resultats.avant}

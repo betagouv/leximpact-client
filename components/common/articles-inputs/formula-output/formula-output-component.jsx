@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-import { Parameter } from "../parameter";
+import { Values } from "../values";
 
 const FormulaOutputComponent = ({
   baseValue, newValue, plfValue,
 }) => (
-  <Parameter
+  <Values
     amendementValue={newValue}
     baseValue={baseValue}
     editable={false}

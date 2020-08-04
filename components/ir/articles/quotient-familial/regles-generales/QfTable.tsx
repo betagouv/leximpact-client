@@ -9,7 +9,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { addNewLineInParameterArray, removeLastLineInParameterArray } from "../../../../../redux/actions/parameters";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
-import { StateParameter } from "../../../../common";
+import { ParameterValues } from "../../../../common";
 import { Button } from "../../buttons";
 import styles from "./QfTable.module.scss";
 
@@ -64,7 +64,7 @@ const SubRow = (
       {description}
     </div>
     <div className={styles.value}>
-      <StateParameter
+      <ParameterValues
         editable
         amendementInputSize="small"
         path={`impot_revenu.calculNombreParts.partsSelonNombrePAC.${index}.${name}`}
@@ -80,7 +80,7 @@ const PartSupplementaireContent = () => (
     <br />
     d&apos;[une]
     {" "}
-    <StateParameter
+    <ParameterValues
       editable
       amendementInputSize="small"
       path="impot_revenu.calculNombreParts.partsParPACAuDela"
