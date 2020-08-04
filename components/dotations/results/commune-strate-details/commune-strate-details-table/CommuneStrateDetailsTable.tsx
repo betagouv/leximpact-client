@@ -97,7 +97,10 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         %
                       </td>
                       <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
-                        {formatNumber(strate.description.potentielFinancierMoyenParHab, { decimals: 2 })}
+                        {formatNumber(
+                          strate.description.potentielFinancierMoyenParHab,
+                          { decimals: 2 },
+                        )}
                       </td>
                       <td>
                         <LocalFloristIcon />
