@@ -8,13 +8,18 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
 import { formatNumber, ResultValues } from "../../../../common";
+import { TrendArrow } from "../../common";
 import styles from "./CommuneStrateDetailsTable.module.scss";
 
 const mapStateToProps = ({ descriptions, results }: RootState) => ({
   isFetching: results.amendement.dotations.isFetching
     || results.base.dotations.isFetching
     || results.plf.dotations.isFetching,
-  strates: descriptions.dotations.strates,
+  strates: descriptions.dotations.strates.map((description, index) => ({
+    baseToAmendement: results.baseToAmendement.dotations.state?.communes.dgf.strates[index],
+    description,
+  })),
+
 });
 
 const connector = connect(mapStateToProps);
@@ -36,6 +41,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
           <thead>
             <tr>
               <th rowSpan={2}>Strate démographique</th>
+              <th rowSpan={2} />
               <th colSpan={2}>
                 Informations générales
                 {/* <br />
@@ -64,17 +70,17 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
               {
                 strates.map((strate, index) => (
                   <Fragment>
-                    <tr key={strate.habitants * 2}>
+                    <tr key={strate.description.habitants * 2}>
                       <th rowSpan={isDsuVisible ? 2 : 1} scope="row">
                         {
-                          strate.habitants === -1 ? (
+                          strate.description.habitants === -1 ? (
                             <Fragment>
                               <div className={styles.lighter}>au-delà.</div>
                             </Fragment>
                           ) : (
                             <Fragment>
                               <div className={styles.lighter}>jusqu&apos;à</div>
-                              {formatNumber(strate.habitants)}
+                              {formatNumber(strate.description.habitants)}
                               {" "}
                               h.
                             </Fragment>
@@ -82,13 +88,16 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         }
 
                       </th>
+                      <td rowSpan={isDsuVisible ? 2 : 1}>
+                        <TrendArrow value={strate.baseToAmendement?.diffDotationMoyenneParHab} />
+                      </td>
                       <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
-                        {formatNumber(strate.partPopTotale, { decimals: 0 })}
+                        {formatNumber(strate.description.partPopTotale, { decimals: 0 })}
                         {" "}
                         %
                       </td>
                       <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
-                        {formatNumber(strate.potentielFinancierMoyenParHab, { decimals: 2 })}
+                        {formatNumber(strate.description.potentielFinancierMoyenParHab, { decimals: 2 })}
                       </td>
                       <td>
                         <LocalFloristIcon />
@@ -114,7 +123,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                     </tr>
                     {
                       isDsuVisible && (
-                        <tr key={strate.habitants * 2 + 1}>
+                        <tr key={strate.description.habitants * 2 + 1}>
                           <td>
                             <LocationCityIcon />
                           </td>
