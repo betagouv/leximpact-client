@@ -77,7 +77,7 @@ export class DsrFractionBourgCentre extends PureComponent {
         4° Dont le potentiel financier par habitant est supérieur
           <span className={styles.bold}>
             {" "}
-        au double du [ à
+            au double du [ à
             {" "}
             <ParameterValues
               editable
@@ -85,9 +85,8 @@ export class DsrFractionBourgCentre extends PureComponent {
               path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.potentielFinancier.rapportPotentielFinancierMoyen"
             />
             {" "}
-        fois le ]
+            fois le ]
             {" "}
-
           </span>
           {" "}
         potentiel financier

@@ -78,13 +78,17 @@ const PartSupplementaireContent = () => (
     et ainsi de suite, en augmentant
     {" "}
     <br />
-    d&apos;[une]
-    {" "}
-    <ParameterValues
-      editable
-      amendementInputSize="small"
-      path="impot_revenu.calculNombreParts.partsParPACAuDela"
-    />
+    <span className={styles.bold}>
+      d&apos;une [
+      {" "}
+      <ParameterValues
+        editable
+        amendementInputSize="small"
+        path="impot_revenu.calculNombreParts.partsParPACAuDela"
+      />
+      {" "}
+      ]
+    </span>
     {" "}
     part
     <br />
