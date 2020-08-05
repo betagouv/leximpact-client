@@ -5,14 +5,12 @@ import { connect, ConnectedProps } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
 import {
-  ExpandablePanelSubTitle, ExpandableText, formatNumber, ParameterValues,
+  ExpandablePanelSubTitle, ExpandableText, ParameterValues,
 } from "../../../common";
 import styles from "./DsrFractionBourgCentre.module.scss";
 
 const mapStateToProps = ({ parameters }: RootState) => ({
-  amendementPlafonnementPopulation: parameters.amendement.dotations
-    .communes.dsr.bourgCentre.attribution.plafonnementPopulation,
-  basePlafonnementPopulation: parameters.base.dotations
+  plafonnementPopulation: parameters.amendement.dotations
     .communes.dsr.bourgCentre.attribution.plafonnementPopulation,
 });
 
@@ -22,7 +20,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 class DsrFractionBourgCentre extends PureComponent<PropsFromRedux> {
   render() {
-    const { amendementPlafonnementPopulation, basePlafonnementPopulation } = this.props;
+    const { plafonnementPopulation } = this.props;
     // Article L2334-21 du CGCT
     return (
       <Fragment>
@@ -225,7 +223,7 @@ class DsrFractionBourgCentre extends PureComponent<PropsFromRedux> {
         <br />
         <div className={styles.list1}>
           {
-            amendementPlafonnementPopulation.map((_, index) => {
+            plafonnementPopulation.map((_, index) => {
               if (index === 0) {
                 return (
                   <Fragment>
@@ -268,22 +266,15 @@ class DsrFractionBourgCentre extends PureComponent<PropsFromRedux> {
                   {" "}
                   et
                   {" "}
-                  <span className={styles.bold}>
-                    {formatNumber(basePlafonnementPopulation[index].popMax - 1)}
-                    {" "}
-                    [
-                    {" "}
-                    <ParameterValues
-                      editable
-                      path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index}.popMax`}
-                    />
-                    {" "}
-                    exclu ]
-                  </span>
+                  <ParameterValues
+                    editable
+                    offset={-1}
+                    path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index}.popMax`}
+                  />
                   {" "}
                   habitants
                   {
-                    index !== amendementPlafonnementPopulation.length - 1 ? (
+                    index !== plafonnementPopulation.length - 1 ? (
                       <Fragment>
                         {" "}
                         ;
