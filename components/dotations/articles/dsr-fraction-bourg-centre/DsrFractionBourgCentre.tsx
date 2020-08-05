@@ -1,10 +1,26 @@
 import { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
-import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../common";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../../redux/reducers";
+import {
+  ExpandablePanelSubTitle, ExpandableText, ParameterValues,
+} from "../../../common";
 import styles from "./DsrFractionBourgCentre.module.scss";
 
-export class DsrFractionBourgCentre extends PureComponent {
+const mapStateToProps = ({ parameters }: RootState) => ({
+  plafonnementPopulation: parameters.amendement.dotations
+    .communes.dsr.bourgCentre.attribution.plafonnementPopulation,
+});
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+class DsrFractionBourgCentre extends PureComponent<PropsFromRedux> {
   render() {
+    const { plafonnementPopulation } = this.props;
     // Article L2334-21 du CGCT
     return (
       <Fragment>
@@ -206,16 +222,71 @@ export class DsrFractionBourgCentre extends PureComponent {
         <br />
         <br />
         <div className={styles.list1}>
-        – plafonnée à 500 habitants pour les communes dont la population issue du dernier
-        recensement est inférieure à 100 habitants ;
-          <br />
-          <br />
-        – plafonnée à 1 000 habitants pour les communes dont la population issue du dernier
-        recensement est comprise entre 100 et 499 habitants ;
-          <br />
-          <br />
-        – plafonnée à 2 250 habitants pour les communes dont la population issue du dernier
-        recensement est comprise entre 500 et 1 499 habitants.
+          {
+            plafonnementPopulation.map((_, index) => {
+              if (index === 0) {
+                return (
+                  <Fragment>
+                    – plafonnée à
+                    {" "}
+                    <ParameterValues
+                      editable
+                      path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index}.plafonnement`}
+                    />
+                    {" "}
+                    habitants pour les communes dont la population issue du dernier
+                    recensement est inférieure à
+                    {" "}
+                    <ParameterValues
+                      editable
+                      path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index}.popMax`}
+                    />
+                    {" "}
+                    habitants ;
+                    <br />
+                    <br />
+                  </Fragment>
+                );
+              }
+              return (
+                <Fragment>
+                  – plafonnée à
+                  {" "}
+                  <ParameterValues
+                    editable
+                    path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index}.plafonnement`}
+                  />
+                  {" "}
+                  habitants pour les communes dont la population issue du dernier
+                  recensement est comprise entre
+                  {" "}
+                  <ParameterValues
+                    path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index - 1}.popMax`}
+                  />
+                  {" "}
+                  et
+                  {" "}
+                  <ParameterValues
+                    editable
+                    offset={-1}
+                    path={`dotations.communes.dsr.bourgCentre.attribution.plafonnementPopulation.${index}.popMax`}
+                  />
+                  {" "}
+                  habitants
+                  {
+                    index !== plafonnementPopulation.length - 1 ? (
+                      <Fragment>
+                        {" "}
+                        ;
+                        <br />
+                        <br />
+                      </Fragment>
+                    ) : "."
+                  }
+                </Fragment>
+              );
+            })
+          }
         </div>
         <br />
         Ce plafond s&apos;applique uniquement à la population de la commune concernée et
@@ -224,3 +295,7 @@ export class DsrFractionBourgCentre extends PureComponent {
     );
   }
 }
+
+const ConnectedDsrFractionBourgCentre = connector(DsrFractionBourgCentre);
+
+export { ConnectedDsrFractionBourgCentre as DsrFractionBourgCentre };

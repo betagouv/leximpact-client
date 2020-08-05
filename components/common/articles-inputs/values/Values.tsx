@@ -36,6 +36,7 @@ interface Props {
   decimals?: number;
   editable?: boolean,
   onAmendementChange?: (value: number) => void,
+  offset?: number;
   plfTitle?: string|JSX.Element|null;
   plfValue?: number|null;
 }
@@ -81,6 +82,12 @@ class Values extends PureComponent<Props & PropsFromRedux> {
       amendementInputSize, amendementTitle, amendementValue, baseValue,
       decimals, editable, onAmendementChange, plfTitle, plfValue,
     } = this.props;
+
+    let { offset } = this.props;
+    if (offset === undefined) {
+      offset = 0;
+    }
+
     const equal = baseValue === amendementValue;
 
     function isDefined(value: number|null|undefined): value is number {
@@ -98,7 +105,9 @@ class Values extends PureComponent<Props & PropsFromRedux> {
           isDefined(plfValue) && withTooltip(
             PlfTooltip,
             plfTitle,
-            <span className={styles.plfValue}>{formatNumber(plfValue, { decimals })}</span>,
+            <span className={styles.plfValue}>
+              {formatNumber(plfValue + offset, { decimals })}
+            </span>,
           )
         }
         {
@@ -112,7 +121,7 @@ class Values extends PureComponent<Props & PropsFromRedux> {
               [styles.baseValue]: true,
               [styles.crossedOut]: amendementValue !== undefined,
             })}>
-              {formatNumber(baseValue, { decimals })}
+              {formatNumber(baseValue + offset, { decimals })}
             </span>
           )
         }
@@ -130,8 +139,11 @@ class Values extends PureComponent<Props & PropsFromRedux> {
                   [styles.smallInput]: amendementInputSize === "small",
                   [styles.xlInput]: amendementInputSize === "xl",
                 })}
-                value={amendementValue}
-                onChange={onAmendementChange || (() => {})}
+                value={amendementValue + offset}
+                onChange={onAmendementChange
+                  ? value => onAmendementChange(value - (offset as number))
+                  : (() => {})
+                }
                 onEnter={this.runSimulation} />
             )
             : (
@@ -139,7 +151,7 @@ class Values extends PureComponent<Props & PropsFromRedux> {
                 [styles.amendementValue]: true,
                 [styles.amendementValueModified]: !equal,
               })}>
-                {formatNumber(amendementValue, { decimals })}
+                {formatNumber(amendementValue + offset, { decimals })}
               </span>
             ))
         }

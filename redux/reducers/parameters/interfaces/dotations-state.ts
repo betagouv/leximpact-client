@@ -34,9 +34,10 @@ export interface DotationsState {
           coefMultiplicateurRevitalisationRurale: number;
           // pourcentageAttributionMin: number;
           // pourcentageAttributionMax: number;
-          // plafonnementPopulation: {
-          //   [recensement: number]: number;
-          // }
+          plafonnementPopulation: {
+            popMax: number;
+            plafonnement: number;
+          }[]
         }
       }
       // Article L2334-22 du CGCT

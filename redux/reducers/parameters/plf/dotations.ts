@@ -39,11 +39,11 @@ export const PLF_DOTATIONS_DEFAULT_STATE: DotationsState = {
           coefMultiplicateurRevitalisationRurale: 1.3,
           // pourcentageAttributionMin: 90,
           // pourcentageAttributionMax: 120,
-          // plafonnementPopulation: {
-          //   500: 100,
-          //   1000: 500,
-          //   2250: 1500,
-          // },
+          plafonnementPopulation: [
+            { plafonnement: 500, popMax: 100 },
+            { plafonnement: 1000, popMax: 500 },
+            { plafonnement: 2250, popMax: 1500 },
+          ],
         },
       },
       // Article L2334-22 du CGCT
