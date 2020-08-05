@@ -4,6 +4,8 @@
   background-color: #f9f7cb;
   padding: 10px 15px;
   border-radius: 7px;
+  font-size: 0.9rem;
+  font-family: $default-font-family;
 }
 
 .header {
@@ -19,8 +21,7 @@
     align-items: center;
 
     font-weight: bold;
-    font-size: 0.95rem;
-    font-family: $default-font-family;
+    font-size: 0.9rem;
   }
 
   .btn {
@@ -34,8 +35,5 @@
 
 
 .content {
-  font-family: $law-font-family;
-  font-size: $law-font-size;
-  line-height: $law-line-height;
   border-radius: 0 0 7px 7px;
 }
