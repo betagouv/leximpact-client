@@ -1,0 +1,41 @@
+@import 'styles/variables';
+
+.header, .content {
+  background-color: #f9f7cb;
+  padding: 10px 15px;
+  border-radius: 7px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  outline: none;
+
+  .text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 0.95rem;
+    font-family: $default-font-family;
+  }
+
+  .btn {
+    display: flex;
+  }
+}
+
+.expanded {
+  border-radius: 7px 7px 0 0;
+}
+
+
+.content {
+  font-family: $law-font-family;
+  font-size: $law-font-size;
+  line-height: $law-line-height;
+  border-radius: 0 0 7px 7px;
+}
