@@ -31,6 +31,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux & {
   editable?: boolean;
+  offset?: number;
   path: string;
   plfTitle?: string|JSX.Element;
   amendementInputSize?: "small"|"xl";
