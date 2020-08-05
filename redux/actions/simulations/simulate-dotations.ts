@@ -28,9 +28,104 @@ function simulateDotationsFailure(error: any): SimulateDotationsFailureAction {
   };
 }
 
+interface RequestDotationsState {
+  // Article L1613-1 du CGCT
+  montants: {
+    dgf: number;
+  }
+  communes: {
+    dsr: {
+      // Article L2334-20 du CGCT
+      eligibilite: {
+        popMax: number;
+        popChefLieuMax: number;
+      }
+      // Article L2334-21 du CGCT
+      bourgCentre: {
+        eligibilite: {
+          partPopCantonMin: number;
+          exclusion: {
+            agglomeration: {
+              partPopDepartementMin: number;
+              popMin: number;
+              popCommuneMin: number;
+            }
+            canton: {
+              popChefLieuMin: number;
+            }
+            potentielFinancier: {
+              rapportPotentielFinancierMoyen: number;
+            }
+          }
+        }
+        attribution: {
+          popLimite: number;
+          effortFiscalLimite: number;
+          coefMultiplicateurRevitalisationRurale: number;
+          // pourcentageAttributionMin: number;
+          // pourcentageAttributionMax: number;
+          plafonnementPopulation: {
+            [recensement: number]: number;
+          }
+        }
+      }
+      // Article L2334-22 du CGCT
+      perequation: {
+        eligibilite: {
+          rapportPotentielFinancier: number;
+        }
+        attribution: {
+          repartition: {
+            ponderationPotentielFinancier: number;
+            ponderationLongueurVoirie: number;
+            ponderationNbreEnfants: number;
+            ponderationPotentielFinancierParHectare: number;
+          }
+          // pourcentageAttributionMin: number;
+          // pourcentageAttributionMax: number;
+        }
+      }
+      // Article L2334-22-1 du CGCT
+      cible: {
+        eligibilite: {
+          premieresCommunes: number;
+          indiceSynthetique: {
+            ponderationPotentielFinancier: number;
+            ponderationRevenu: number;
+          }
+        }
+      }
+    }
+    dsu: {
+      eligibilite: {
+          popMinSeuilBas: number;
+          popMinSeuilHaut: number;
+          rapportPotentielFinancier: number;
+          pourcentageRangSeuilBas: number;
+          pourcentageRangSeuilHaut: number;
+          indiceSynthetique: {
+              ponderationPotentielFinancier: number;
+              ponderationLogementsSociaux: number;
+              ponderationAideAuLogement: number;
+              ponderationRevenu: number;
+          }
+      }
+      attribution: {
+          effortFiscalLimite: number;
+          facteurClassementMax: number;
+          facteurClassementMin: number;
+          poidsSupplementaireZoneUrbaineSensible: number;
+          poidsSupplementaireZoneFrancheUrbaine: number;
+          augmentationMax: number;
+      }
+    }
+  }
+}
+
+
 interface RequestBody {
   reforme: {
-    dotations: DotationsState;
+    dotations: RequestDotationsState;
   },
   descriptionCasTypes: { code: string }[];
   strates: { habitants: number }[];
@@ -104,7 +199,38 @@ function simulateDotationsSuccess(dotations: ResponseBody): SimulateDotationsSuc
   };
 }
 
-function convertRates(dotations: DotationsState): DotationsState {
+function convertPlafonnementPopulation(dotations: DotationsState): RequestDotationsState {
+  const requestPlafonnementPopulation: RequestDotationsState["communes"]["dsr"]["bourgCentre"]["attribution"]["plafonnementPopulation"] = {};
+  const { plafonnementPopulation } = dotations.communes.dsr.bourgCentre.attribution;
+  plafonnementPopulation.forEach(({ plafonnement, popMax }, index) => {
+    if (index === 0) {
+      requestPlafonnementPopulation["0"] = plafonnement;
+      return;
+    }
+    requestPlafonnementPopulation[plafonnementPopulation[index - 1].popMax] = plafonnement;
+    if (index === plafonnementPopulation.length - 1) {
+      requestPlafonnementPopulation[popMax] = 999999999;
+    }
+  });
+  return {
+    ...dotations,
+    communes: {
+      ...dotations.communes,
+      dsr: {
+        ...dotations.communes.dsr,
+        bourgCentre: {
+          ...dotations.communes.dsr.bourgCentre,
+          attribution: {
+            ...dotations.communes.dsr.bourgCentre.attribution,
+            plafonnementPopulation: requestPlafonnementPopulation,
+          },
+        },
+      },
+    },
+  };
+}
+
+function convertRates(dotations: RequestDotationsState): RequestDotationsState {
   let result = dotations;
   const paths: string[] = [
     "communes.dsr.bourgCentre.eligibilite.partPopCantonMin",
@@ -139,7 +265,9 @@ export const simulateDotations = () => (dispatch, getState) => {
   const body: RequestBody = {
     descriptionCasTypes: descriptions.dotations.communesTypes.map(({ code }) => ({ code })),
     reforme: {
-      dotations: convertRates(parameters.amendement.dotations),
+      dotations: convertRates(
+        convertPlafonnementPopulation(parameters.amendement.dotations),
+      ),
     },
     strates: descriptions.dotations.strates.map(({ habitants }) => ({ habitants })),
   };
