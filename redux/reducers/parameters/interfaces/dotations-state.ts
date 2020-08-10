@@ -2,6 +2,12 @@ export interface DotationsState {
   // Article L1613-1 du CGCT
   montants: {
     dgf: number;
+    dsr: {
+      variation: number;
+    },
+    dsu: {
+      variation: number;
+    }
   }
   communes: {
     dsr: {
