@@ -3,6 +3,9 @@ import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { Fragment, PureComponent } from "react";
 
 import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
+import { DfCasEpci } from "./df-cas-epci";
+import { DfEcretementPereque } from "./df-ecretement-pereque";
+import { DfReglesGenerales } from "./df-regles-generales";
 import { DsrEligibilite } from "./dsr-eligibilite";
 import { DsrFractionBourgCentre } from "./dsr-fraction-bourg-centre";
 import { DsrFractionCible } from "./dsr-fraction-cible";
@@ -46,6 +49,27 @@ export class Articles extends PureComponent {
               subTitle="Article L2334-22-1"
               title="Fraction &quot;cible&quot;">
               <DsrFractionCible />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            expanded
+            icon={<LocalFloristIcon />}
+            title="Dotation forfaitaire (DF)">
+            <SecondaryExpandablePanel
+              expanded
+              subTitle="III. de l'article L2334-7 du CGCT"
+              title="Règles générales de répartition">
+              <DfReglesGenerales />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="III. de l'article L2334-7 du CGCT"
+              title="Cas particuliers des EPCI">
+              <DfCasEpci />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="III. de l'article L2334-7 du CGCT"
+              title="Écrêtement péréqué">
+              <DfEcretementPereque />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
           {isDsuVisible && (

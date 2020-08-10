@@ -1,0 +1,1 @@
+export { DfEcretementPereque } from "./DfEcretementPereque";
