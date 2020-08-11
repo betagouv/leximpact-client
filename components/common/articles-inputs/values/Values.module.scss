@@ -2,16 +2,17 @@
 
 .baseValue {
   font-weight: bold;
-  text-decoration-color: $amendement-bg-color;
-}
-
-.crossedOut {
-  text-decoration-line: line-through;
+  text-decoration-color: $plf-color;
 }
 
 .plfValue {
   font-weight: bold;
   color: $plf-color;
+  text-decoration-color: $amendement-bg-color;
+}
+
+.crossedOut {
+  text-decoration-line: line-through;
 }
 
 .amendementInput {
@@ -28,9 +29,6 @@
 
 .amendementValue {
   font-weight: bold;
-}
-
-.amendementValueModified {
   padding: 0.1rem;
   margin: -0.1rem;
   background-color: $amendement-bg-color;
