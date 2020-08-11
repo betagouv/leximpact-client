@@ -8,8 +8,9 @@ export class DsuRepartition extends PureComponent {
     // Article L2334-20 du CGCT
     return (
       <Fragment>
-        <ExpandablePanelSubTitle subTitle="Articles L2334-18-2 §4 et L2334-18-4" title="Communes déjà éligibles" />
-        À compter de 2017, les communes éligibles au titre de&nbsp;
+        <ExpandablePanelSubTitle subTitle="Articles L2334-18-2 § 4 et L2334-18-4" title="Communes déjà éligibles" />
+        À compter de 2017, les communes éligibles au titre de
+        {" "}
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
           rel="noopener noreferrer"
@@ -17,9 +18,10 @@ export class DsuRepartition extends PureComponent {
         >
           l&apos;article L. 2334-16
         </a>
-        &nbsp;
+        {" "}
         perçoivent une dotation égale à celle perçue
-        l&apos;année précédente, majorée de l&apos;augmentation prévue à&nbsp;
+        l&apos;année précédente, majorée de l&apos;augmentation prévue à
+        {" "}
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814522&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
           rel="noopener noreferrer"
@@ -27,7 +29,8 @@ export class DsuRepartition extends PureComponent {
         >
           l&apos;article L. 2334-18-4
         </a>
-        .&nbsp;
+        .
+        {" "}
         <ExpandableText caption="Suite sur les communes nouvellement éligibles">
           Les communes qui n&apos;étaient pas éligibles
           à la dotation l&apos;année précédant l&apos;année de versement bénéficient
@@ -36,7 +39,8 @@ export class DsuRepartition extends PureComponent {
         <br />
         <br />
          L&apos;augmentation de la dotation, après répartition des attributions
-         calculées en application des articles&nbsp;
+         calculées en application des articles
+        {" "}
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814578&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
           rel="noopener noreferrer"
@@ -44,7 +48,9 @@ export class DsuRepartition extends PureComponent {
         >
           L. 2334-16
         </a>
-        &nbsp;à&nbsp;
+        {" "}
+        à
+        {" "}
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814534&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
           rel="noopener noreferrer"
@@ -58,7 +64,8 @@ export class DsuRepartition extends PureComponent {
         <br />
         <br />
         La part d&apos;augmentation est répartie entre les communes bénéficiaires
-        dans les conditions prévues aux deux premiers alinéas de&nbsp;
+        dans les conditions prévues aux deux premiers alinéas de
+        {" "}
         <a
           href="https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=77D4545E5B93968FCA804A193A0C9A54.tplgfr38s_3?idArticle=LEGIARTI000033814543&cidTexte=LEGITEXT000006070633&dateTexte=20170101"
           rel="noopener noreferrer"
