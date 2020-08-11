@@ -2,16 +2,20 @@
 
 .baseValue {
   font-weight: bold;
-  text-decoration-color: $plf-color;
 }
 
 .plfValue {
   font-weight: bold;
   color: $plf-color;
-  text-decoration-color: $amendement-bg-color;
 }
 
-.crossedOut {
+.replacedWithPlf {
+  text-decoration-color: $plf-color;
+  text-decoration-line: line-through;
+}
+
+.replacedWithAmendement {
+  text-decoration-color: $amendement-bg-color;
   text-decoration-line: line-through;
 }
 
