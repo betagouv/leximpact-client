@@ -61,14 +61,14 @@ export class Articles extends PureComponent {
               title="Règles générales de répartition">
               <DfReglesGenerales />
             </SecondaryExpandablePanel>
-            <SecondaryExpandablePanel
+            {/* <SecondaryExpandablePanel
               subTitle="III. de l'article L2334-7 du CGCT"
               title="Cas particuliers des EPCI">
               <DfCasEpci />
-            </SecondaryExpandablePanel>
+            </SecondaryExpandablePanel> */}
             <SecondaryExpandablePanel
               subTitle="III. de l'article L2334-7 du CGCT"
-              title="Écrêtement péréqué">
+              title="Règles de péréquation par écrêtement">
               <DfEcretementPereque />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
