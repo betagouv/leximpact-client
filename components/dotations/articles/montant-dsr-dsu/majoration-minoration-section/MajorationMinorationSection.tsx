@@ -26,6 +26,8 @@ class MajorationMinorationSection extends PureComponent<PropsFromRedux> {
           arePanelsVisible && (
             <div>
               <MajorationMinorationPanel type="majoration" />
+              <br />
+              <MajorationMinorationPanel type="minoration" />
             </div>
           )
         }
