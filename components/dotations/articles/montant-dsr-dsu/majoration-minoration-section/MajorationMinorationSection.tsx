@@ -8,8 +8,7 @@ import { MajorationMinorationPanel } from "./majoration-minoration-panel";
 import { MajorationMinorationText } from "./majoration-minoration-text";
 
 const mapStateToProps = ({ parameters }: RootState) => ({
-  arePanelsVisible: parameters.amendement.dotations.montants.dsr.variation === 0
-    && parameters.amendement.dotations.montants.dsr.variation === 0,
+  arePanelsVisible: parameters.amendement.dotations.montants.dsr.variation === 0,
 });
 
 const connector = connect(mapStateToProps);
@@ -26,7 +25,6 @@ class MajorationMinorationSection extends PureComponent<PropsFromRedux> {
           arePanelsVisible && (
             <div>
               <MajorationMinorationPanel type="majoration" />
-              <br />
               <MajorationMinorationPanel type="minoration" />
             </div>
           )

@@ -1,11 +1,14 @@
+import DeleteIcon from "@material-ui/icons/Delete";
 import classNames from "classnames";
-import { PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
+import { updateParameter } from "../../../../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../../redux/reducers";
 import { formatNumber } from "../../../../../common";
+import { Button } from "../../../../../ir/articles/buttons";
 import styles from "./MajorationMinorationText.module.scss";
 
 const mapStateToProps = ({ parameters }: RootState) => ({
@@ -13,15 +16,20 @@ const mapStateToProps = ({ parameters }: RootState) => ({
   plf: parameters.plf?.dotations.montants.dsr.variation ?? 0,
 });
 
-const connector = connect(mapStateToProps);
+const mapDispatchToProps = dispatch => ({
+  removeVariation: () => dispatch(
+    updateParameter("dotations.montants.dsr.variation", 0),
+  ),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 
 class MajorationMinorationText extends PureComponent<PropsFromRedux> {
   render() {
-    const { amendement, plf } = this.props;
-    // "Retirer ou remplacer cette majoration"
+    const { amendement, plf, removeVariation } = this.props;
     return (
       <div>
         {
@@ -93,6 +101,19 @@ class MajorationMinorationText extends PureComponent<PropsFromRedux> {
               {" "}
               chacun par rapport aux montants mis en répartition en 2020.
             </span>
+          )
+        }
+        {
+          amendement !== 0 && (
+            <Fragment>
+              <br />
+              <br />
+              <Button
+                caption="Retirer cette majoration/minoration"
+                icons={<DeleteIcon />}
+                onClick={removeVariation}
+              />
+            </Fragment>
           )
         }
       </div>
