@@ -55,7 +55,10 @@ class MajorationMinorationText extends PureComponent<PropsFromRedux> {
               {" "}
               {formatNumber(Math.sign(plf) * plf)}
               {" "}
-              millions d&apos;euros
+              million
+              {Math.abs(plf) > 1 ? "s" : ""}
+              {" "}
+              d&apos;euros
             </span>
           )
         }
@@ -72,7 +75,10 @@ class MajorationMinorationText extends PureComponent<PropsFromRedux> {
               {" "}
               {formatNumber(Math.sign(amendement) * amendement)}
               {" "}
-              millions d&apos;euros
+              million
+              {Math.abs(amendement) > 1 ? "s" : ""}
+              {" "}
+              d&apos;euros
             </span>
           )
         }
