@@ -9,10 +9,11 @@ export class DfReglesGenerales extends PureComponent {
       <Fragment>
         III. – À compter de 2015, la dotation forfaitaire de chaque commune
         est égale au montant perçu l&apos;année précédente au titre de cette dotation.
+        <br />
         Pour chaque commune, cette dotation est majorée ou minorée du produit
         de la différence entre sa population constatée au titre de l&apos;année
         de répartition et celle constatée au titre de l&apos;année précédant la
-        répartition par un montant compris entre 64,46 € et 128,93 € par
+        répartition par un montant compris entre !!!! 64,46 € !!!! et !!!! 128,93 € !!!! par
         habitant en fonction croissante de la population de la commune,
         dans des conditions définies par décret en Conseil d&apos;État.
         <br />
