@@ -1,7 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
 import { ExpandablePanelSubTitle, ExpandableText } from "../../../common";
-import { MajorationMinorationPanel } from "./majoration-minoration-panel";
+import { MajorationMinorationSection } from "./majoration-minoration-section";
 
 export class MontantDsrDsu extends PureComponent {
   render() {
@@ -54,9 +54,7 @@ export class MontantDsrDsu extends PureComponent {
         Cette augmentation est financée par les minorations prévues à l&apos;article L. 2334-7-1.
         <br />
         <br />
-        <MajorationMinorationPanel type="majoration" />
-        <br />
-        <MajorationMinorationPanel type="minoration" />
+        <MajorationMinorationSection />
         <br />
         À compter de 2012,
         {" "}

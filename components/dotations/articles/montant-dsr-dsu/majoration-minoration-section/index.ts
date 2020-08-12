@@ -1,0 +1,1 @@
+export { MajorationMinorationSection } from "./MajorationMinorationSection";

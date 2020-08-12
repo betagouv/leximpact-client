@@ -1,0 +1,1 @@
+export { MajorationMinorationText } from "./MajorationMinorationText";
