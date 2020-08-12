@@ -31,6 +31,7 @@ class MajorationMinorationText extends PureComponent<PropsFromRedux> {
               [styles.amendementValue]: plf === 0,
               [styles.replacedWithAmendement]: amendement === 0,
             })}>
+              <br />
               <span className={styles.bold}>
                 En 2021,
               </span>

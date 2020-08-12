@@ -52,8 +52,6 @@ export class MontantDsrDsu extends PureComponent {
         et de cohésion sociale et de la dotation de solidarité rurale augmentent au moins de
         90 millions d&apos;euros chacun par rapport aux montants mis en répartition en 2019.
         Cette augmentation est financée par les minorations prévues à l&apos;article L. 2334-7-1.
-        <br />
-        <br />
         <MajorationMinorationSection />
         <br />
         À compter de 2012,
