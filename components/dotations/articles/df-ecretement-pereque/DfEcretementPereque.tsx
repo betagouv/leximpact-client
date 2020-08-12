@@ -9,7 +9,7 @@ export class DfEcretementPereque extends PureComponent {
       <Fragment>
         <ExpandablePanelSubTitle
           subTitle="§5"
-          title="Communes concernées"
+          title="Périmètre des communes concernées"
         />
         À compter de 2015, les communes dont le potentiel fiscal par habitant
         est inférieur à 0,75 fois le potentiel fiscal moyen par habitant constaté
@@ -31,16 +31,17 @@ export class DfEcretementPereque extends PureComponent {
           title="Conditions d&apos;application"
         />
         Cette minoration ne peut être supérieure à 1 % des recettes réelles de
-        fonctionnement de leur budget principal, minorées des atténuations de produits,
+        fonctionnement de leur budget principal, minorées des&nbsp;
+        <ExpandableText>
+        atténuations de produits,
         des recettes exceptionnelles et du produit des mises à disposition de personnels
         facturées dans le cadre d&apos;une mutualisation de services entre
         l&apos;établissement public de coopération intercommunale à fiscalité propre et ses
         communes membres, telles que constatées au 1er janvier de l&apos;année de répartition
         dans les derniers comptes de gestion disponibles.
-        <br />
-        <br />
+          <br />
+          <br />
         Pour les communes membres de la métropole du Grand Paris,&nbsp;
-        <ExpandableText>
         les recettes réelles de fonctionnement sont en outre diminuées
         d&apos;un montant correspondant à la dotation individuelle versée au fonds de
         compensation des charges territoriales en application du H du XV de
