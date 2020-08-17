@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../redux/reducers";
-// import { CommuneSearch } from "./commune-search";
+import { CommuneSearch } from "./commune-search";
 import { CommuneStrateDetails } from "./commune-strate-details";
 import { CommuneSummary } from "./commune-summary";
 import { CommuneType } from "./commune-type";
@@ -54,9 +54,9 @@ class Results extends PureComponent<Props> {
               />
             </Grid>
           ))}
-          {/* <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSearch />
-          </Grid> */}
+          </Grid>
         </Grid>
       </div>
     );
