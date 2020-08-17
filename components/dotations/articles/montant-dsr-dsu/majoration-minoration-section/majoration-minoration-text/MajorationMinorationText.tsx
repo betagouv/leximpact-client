@@ -109,7 +109,7 @@ class MajorationMinorationText extends PureComponent<PropsFromRedux> {
               <br />
               <br />
               <Button
-                caption="Retirer cette majoration/minoration"
+                caption="Retirer ou modifier cette majoration/minoration"
                 icons={<DeleteIcon />}
                 onClick={removeVariation}
               />
