@@ -55,7 +55,7 @@ function renderSubCardContent(plf: number|undefined, amendement: number|undefine
           : null
       }
       {
-        typeof amendement === "number" && amendement !== 0
+        typeof amendement === "number" && amendement !== 0 && amendement !== plf
           ? (
             <div className={styles.amendement}>
               {amendement}

@@ -37,7 +37,9 @@ export function dotations(
   case "SIMULATE_DOTATIONS_SUCCESS":
     return {
       isFetching: false,
-      state: action.dotations.plf || null,
+      // TODO: remove this when the PLF is enabled.
+      // state: action.dotations.plf,
+      state: action.dotations.base,
     };
   default:
     return state;
