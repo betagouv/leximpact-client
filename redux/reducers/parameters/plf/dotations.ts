@@ -7,10 +7,7 @@ export const PLF_DOTATIONS_DEFAULT_STATE: DotationsState = {
   // Article L1613-1 du CGCT
   montants: {
     dgf: 26846874416,
-    dsr: {
-      variation: 0,
-    },
-    dsu: {
+    dsrAndDsu: {
       variation: 0,
     },
   },

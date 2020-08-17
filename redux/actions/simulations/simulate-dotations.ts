@@ -205,7 +205,9 @@ function simulateDotationsSuccess(dotations: ResponseBody): SimulateDotationsSuc
   };
 }
 
-function convertPlafonnementPopulation(dotations: DotationsState): RequestDotationsState {
+function convertPlafonnementPopulationAndVariation(
+  dotations: DotationsState,
+): RequestDotationsState {
   const requestPlafonnementPopulation: RequestDotationsState["communes"]["dsr"]["bourgCentre"]["attribution"]["plafonnementPopulation"] = {};
   const { plafonnementPopulation } = dotations.communes.dsr.bourgCentre.attribution;
   plafonnementPopulation.forEach(({ plafonnement, popMax }, index) => {
@@ -231,6 +233,15 @@ function convertPlafonnementPopulation(dotations: DotationsState): RequestDotati
             plafonnementPopulation: requestPlafonnementPopulation,
           },
         },
+      },
+    },
+    montants: {
+      dgf: dotations.montants.dgf,
+      dsr: {
+        variation: dotations.montants.dsrAndDsu.variation,
+      },
+      dsu: {
+        variation: dotations.montants.dsrAndDsu.variation,
       },
     },
   };
@@ -272,7 +283,7 @@ export const simulateDotations = () => (dispatch, getState) => {
     descriptionCasTypes: descriptions.dotations.communesTypes.map(({ code }) => ({ code })),
     reforme: {
       dotations: convertRates(
-        convertPlafonnementPopulation(parameters.amendement.dotations),
+        convertPlafonnementPopulationAndVariation(parameters.amendement.dotations),
       ),
     },
     strates: descriptions.dotations.strates.map(({ habitants }) => ({ habitants })),

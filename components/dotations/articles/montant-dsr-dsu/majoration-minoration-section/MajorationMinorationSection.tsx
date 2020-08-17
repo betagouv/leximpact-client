@@ -8,7 +8,7 @@ import { MajorationMinorationPanel } from "./majoration-minoration-panel";
 import { MajorationMinorationText } from "./majoration-minoration-text";
 
 const mapStateToProps = ({ parameters }: RootState) => ({
-  arePanelsVisible: parameters.amendement.dotations.montants.dsr.variation === 0,
+  arePanelsVisible: parameters.amendement.dotations.montants.dsrAndDsu.variation === 0,
 });
 
 const connector = connect(mapStateToProps);

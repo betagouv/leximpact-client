@@ -18,7 +18,7 @@ interface State {
 
 const mapDispatchToProps = dispatch => ({
   addVariation: value => dispatch(
-    updateParameter("dotations.montants.dsr.variation", value),
+    updateParameter("dotations.montants.dsrAndDsu.variation", value),
   ),
 });
 

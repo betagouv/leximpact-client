@@ -12,13 +12,13 @@ import { Button } from "../../../../../ir/articles/buttons";
 import styles from "./MajorationMinorationText.module.scss";
 
 const mapStateToProps = ({ parameters }: RootState) => ({
-  amendement: parameters.amendement.dotations.montants.dsr.variation,
-  plf: parameters.plf?.dotations.montants.dsr.variation ?? 0,
+  amendement: parameters.amendement.dotations.montants.dsrAndDsu.variation,
+  plf: parameters.plf?.dotations.montants.dsrAndDsu.variation ?? 0,
 });
 
 const mapDispatchToProps = dispatch => ({
   removeVariation: () => dispatch(
-    updateParameter("dotations.montants.dsr.variation", 0),
+    updateParameter("dotations.montants.dsrAndDsu.variation", 0),
   ),
 });
 
