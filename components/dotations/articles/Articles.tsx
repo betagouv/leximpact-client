@@ -24,6 +24,7 @@ export class Articles extends PureComponent {
         {/* Article header */}
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
+            expanded
             icon={<LocalFloristIcon />}
             title="Dotation de solidarité rurale (DSR)">
             <SecondaryExpandablePanel
@@ -71,7 +72,6 @@ export class Articles extends PureComponent {
           )}
           {isMontantsVisible && (
             <PrimaryExpandablePanel
-              expanded
               title="Montant des dotations">
               {/* <SecondaryExpandablePanel
                 expanded
