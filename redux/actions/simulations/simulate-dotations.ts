@@ -238,10 +238,10 @@ function convertPlafonnementPopulationAndVariation(
     montants: {
       dgf: dotations.montants.dgf,
       dsr: {
-        variation: dotations.montants.dsrAndDsu.variation,
+        variation: dotations.montants.dsrAndDsu.variation * 1000000,
       },
       dsu: {
-        variation: dotations.montants.dsrAndDsu.variation,
+        variation: dotations.montants.dsrAndDsu.variation * 1000000,
       },
     },
   };
