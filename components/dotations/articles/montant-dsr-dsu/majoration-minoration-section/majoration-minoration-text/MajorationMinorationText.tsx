@@ -13,7 +13,7 @@ import styles from "./MajorationMinorationText.module.scss";
 
 const mapStateToProps = ({ parameters }: RootState) => ({
   amendement: parameters.amendement.dotations.montants.dsrAndDsu.variation,
-  plf: parameters.plf?.dotations.montants.dsrAndDsu.variation ?? 0,
+  plf: parameters.plf.dotations.montants.dsrAndDsu.variation,
 });
 
 const mapDispatchToProps = dispatch => ({
