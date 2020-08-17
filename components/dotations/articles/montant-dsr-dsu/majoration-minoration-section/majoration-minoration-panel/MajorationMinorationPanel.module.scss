@@ -1,0 +1,22 @@
+@import 'styles/variables';
+
+.container {
+  display: flex;
+  justify-content: center;
+
+  .values {
+    text-align: center;
+    font-family: $law-font-family;
+    font-size: $law-font-size;
+    // margin-top: -12px;
+  }
+
+  .btn {
+    text-align: center;
+    
+    > * {
+      margin: 15px 0;
+    }
+  }
+
+}
