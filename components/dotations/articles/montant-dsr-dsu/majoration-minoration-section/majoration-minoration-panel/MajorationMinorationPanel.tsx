@@ -61,7 +61,8 @@ class MajorationMinorationPanel extends PureComponent<PropsFromRedux & Props, St
                   color="primary"
                   onChange={() => { }}
                 />
-                {`${type === "majoration" ? "majorer" : "minorer"} la dotation de solidarité rurale (DSR)`}
+                {`${type === "majoration" ? "majorer" : "minorer"}
+                la dotation de solidarité rurale (DSR)`}
               </div> */}
               <div className={styles.values}>
               de
@@ -81,7 +82,8 @@ class MajorationMinorationPanel extends PureComponent<PropsFromRedux & Props, St
                   color="primary"
                   onChange={() => { }}
                 />
-                {`${type === "majoration" ? "majorer" : "minorer"} la dotation de solidarité urbaine (DSU)`}
+                {`${type === "majoration" ? "majorer" : "minorer"}
+                la dotation de solidarité urbaine (DSU)`}
               </div>
               <div className={styles.values}>
               de
