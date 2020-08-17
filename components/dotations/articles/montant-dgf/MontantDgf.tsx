@@ -50,7 +50,6 @@ export class MontantDgf extends PureComponent {
         En 2020, ce montant est égal à
         {" "}
         <ParameterValues
-          editable
           amendementInputSize="xl"
           path="dotations.montants.dgf" />
         {" "}

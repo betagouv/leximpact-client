@@ -88,8 +88,6 @@ class Values extends PureComponent<Props & PropsFromRedux> {
       offset = 0;
     }
 
-    const equal = baseValue === amendementValue;
-
     function isDefined(value: number|null|undefined): value is number {
       // The "=== null" checks is still needed because there are .jsx files using defaultProps.
       return value !== null && value !== undefined;
@@ -102,40 +100,52 @@ class Values extends PureComponent<Props & PropsFromRedux> {
             && "-"
         }
         {
-          isDefined(plfValue) && withTooltip(
-            PlfTooltip,
-            plfTitle,
-            <span className={styles.plfValue}>
-              {formatNumber(plfValue + offset, { decimals })}
-            </span>,
-          )
-        }
-        {
-          isDefined(plfValue) && (isDefined(baseValue) || isDefined(amendementValue))
-            && <span>&nbsp;&nbsp;</span>
-        }
-        {
-          isDefined(baseValue) && !equal
-          && (
+          isDefined(baseValue) && baseValue !== plfValue && (
             <span className={classNames({
               [styles.baseValue]: true,
-              [styles.crossedOut]: amendementValue !== undefined,
+              [styles.replacedWithPlf]: plfValue !== baseValue,
+              [styles.replacedWithAmendement]: plfValue === baseValue
+                && amendementValue !== plfValue,
             })}>
               {formatNumber(baseValue + offset, { decimals })}
             </span>
           )
         }
         {
-          isDefined(baseValue) && isDefined(amendementValue) && !equal && <span>&nbsp;&nbsp;</span>
+          isDefined(baseValue)
+          && baseValue !== plfValue
+          && (isDefined(plfValue) || isDefined(amendementValue))
+            && <span>&nbsp;&nbsp;</span>
+        }
+        {
+          isDefined(plfValue) && amendementValue !== plfValue && withTooltip(
+            PlfTooltip,
+            plfTitle,
+            <span className={classNames({
+              [styles.baseValue]: baseValue === plfValue,
+              [styles.plfValue]: baseValue !== plfValue,
+              [styles.replacedWithAmendement]: amendementValue !== plfValue,
+            })}>
+              {formatNumber(plfValue + offset, { decimals })}
+            </span>,
+          )
+        }
+        {
+          isDefined(plfValue)
+          && amendementValue !== plfValue
+          && isDefined(amendementValue)
+          && <span>&nbsp;&nbsp;</span>
         }
         {
           isDefined(amendementValue) && withTooltip(ReformTooltip, amendementTitle, editable
             ? (
               <NumberInput
                 className={classNames({
+                  [styles.baseValue]: amendementValue === plfValue && plfValue === baseValue,
+                  [styles.plfValue]: amendementValue === plfValue && plfValue !== baseValue,
+                  [styles.amendementValue]: amendementValue !== plfValue,
+                  // Sizes
                   [styles.amendementInput]: true,
-                  [styles.amendementValue]: true,
-                  [styles.amendementValueModified]: !equal,
                   [styles.smallInput]: amendementInputSize === "small",
                   [styles.xlInput]: amendementInputSize === "xl",
                 })}
@@ -148,8 +158,9 @@ class Values extends PureComponent<Props & PropsFromRedux> {
             )
             : (
               <span className={classNames({
-                [styles.amendementValue]: true,
-                [styles.amendementValueModified]: !equal,
+                [styles.baseValue]: amendementValue === plfValue && plfValue === baseValue,
+                [styles.plfValue]: amendementValue === plfValue && plfValue !== baseValue,
+                [styles.amendementValue]: amendementValue !== plfValue,
               })}>
                 {formatNumber(amendementValue + offset, { decimals })}
               </span>
