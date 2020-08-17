@@ -13,7 +13,7 @@ interface Props {
   subTitle?: string;
   onClose?: () => void;
   onEdit?: () => void;
-  content1: JSX.Element;
+  content1?: JSX.Element;
   content2?: JSX.Element | null;
   content3?: JSX.Element | null;
 }
@@ -21,7 +21,7 @@ interface Props {
 export class Card extends PureComponent<Props> {
   render() {
     const {
-      colored, content1, content2, content3, icon, onClose, onEdit, subTitle, title,
+      children, colored, content1, content2, content3, icon, onClose, onEdit, subTitle, title,
     } = this.props;
     return (
       <div className={styles.card}>
@@ -49,7 +49,7 @@ export class Card extends PureComponent<Props> {
           [styles.content1]: true,
           [styles.colored]: !!colored,
         })}>
-          {content1}
+          {content1 || children}
         </div>
         {content2 && <Divider />}
         {content2 && (
