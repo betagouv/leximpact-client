@@ -45,7 +45,9 @@ export function communesTypes(
       action.commune,
     ];
   case "REMOVE_COMMUNE_TYPE":
-    return [...state].splice(action.index, 1);
+    const newState = [...state];
+    newState.splice(action.index, 1);
+    return newState;
   default:
     return state;
   }
