@@ -40,6 +40,9 @@ export function communesTypes(
 ): Commune[] {
   switch (action.type) {
   case "ADD_COMMUNE_TYPE":
+    if (state.find(commune => commune.code === action.commune.code)) {
+      return state;
+    }
     return [
       ...state,
       action.commune,

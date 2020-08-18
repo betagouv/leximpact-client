@@ -69,6 +69,13 @@ export class SearchInput extends PureComponent<Props, State> {
           name: "Dénestanville",
           potentielFinancier: 706.242647,
         },
+        {
+          code: "77186",
+          departement: "Seine-et-Marne",
+          habitants: 15417,
+          name: "Fontainebleau",
+          potentielFinancier: 1110.296193,
+        },
       ],
     });
   }
