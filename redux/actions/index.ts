@@ -1,5 +1,6 @@
 export { default as logOut } from "./log-out";
 export * from "./loading-etat";
+export * from "./descriptions";
 export * from "./display";
 export * from "./parameters";
 export * from "./simulations";

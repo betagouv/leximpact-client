@@ -1,9 +1,128 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import TextField from "@material-ui/core/TextField";
+import SearchIcon from "@material-ui/icons/Search";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import debounce from "lodash/debounce";
 import { PureComponent } from "react";
 
-export class SearchInput extends PureComponent {
+// eslint-disable-next-line no-unused-vars
+import { Commune } from "../../../../../redux/reducers/descriptions/dotations";
+// import request from "../../../../common/utils/request";
+
+function sleep(delay = 0) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, delay);
+  });
+}
+
+interface Props {
+  onChange: (commune: Commune) => void;
+}
+
+interface State {
+  open: boolean;
+  communes: Commune[] | null;
+  value: Commune | null;
+}
+
+// interface ResponseBody {
+//   communes: Commune[]
+// }
+
+export class SearchInput extends PureComponent<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      communes: [],
+      open: false,
+      value: null,
+    };
+    this.search = debounce(this.search.bind(this), 300);
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  async search(search: string): Promise<void> {
+    this.setState({ communes: null });
+
+    // await request
+    //   .get(`/dotations?search=${encodeURI(search)}`)
+    //   .then(({ communes }: ResponseBody) => {
+    //     this.setState({ communes });
+    //   })
+    //   .catch(() => {});
+
+    await sleep(1e3);
+    this.setState({
+      communes: [
+        {
+          code: "76384",
+          departement: "Seine-Maritime",
+          habitants: 9101,
+          name: "Lillebonne",
+          potentielFinancier: 2188.612857,
+        },
+        {
+          code: "76214",
+          departement: "Seine-Maritime",
+          habitants: 262,
+          name: "Dénestanville",
+          potentielFinancier: 706.242647,
+        },
+        {
+          code: "77186",
+          departement: "Seine-et-Marne",
+          habitants: 15417,
+          name: "Fontainebleau",
+          potentielFinancier: 1110.296193,
+        },
+      ],
+    });
+  }
+
   render() {
+    const { onChange } = this.props;
+    const { communes, open, value } = this.state;
     return (
-      <div />
+      <Autocomplete
+        freeSolo
+        getOptionLabel={option => `${option.name} (${option.code})`}
+        open={open}
+        options={communes || []}
+        renderInput={params => (
+          <TextField
+            {...params}
+            color="secondary"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {communes === null && <CircularProgress color="secondary" size={20} style={{ marginRight: 10 }} />}
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              ref: params.InputProps.ref,
+            }}
+            label="Nom de la commune"
+            margin="normal"
+            variant="filled"
+          />
+        )}
+        style={{ width: "100%" }}
+        value={value}
+        onChange={(event: any, commune: Commune | null) => {
+          if (commune) {
+            onChange(commune);
+            this.setState({ communes: [], value: commune });
+            // Small hack to clear the input.
+            setTimeout(() => this.setState({ value: null }), 0);
+          }
+        }}
+        onClose={() => this.setState({ open: false })}
+        onInputChange={(event, search) => {
+          this.search(search);
+        }}
+        onOpen={() => this.setState({ open: true })}
+      />
     );
   }
 }

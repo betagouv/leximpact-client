@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../redux/reducers";
-// import { CommuneSearch } from "./commune-search";
+import { CommuneSearch } from "./commune-search";
 import { CommuneStrateDetails } from "./commune-strate-details";
 import { CommuneSummary } from "./commune-summary";
 import { CommuneType } from "./commune-type";
@@ -26,6 +26,7 @@ class Results extends PureComponent<Props> {
     const { communesTypes } = this.props;
     const url = new URLSearchParams(window.location.search);
     const isDsuVisible = url.has("dsu");
+    const isSearchVisible = url.has("search");
     return (
       <div className={styles.container}>
         <Grid container spacing={3}>
@@ -54,9 +55,11 @@ class Results extends PureComponent<Props> {
               />
             </Grid>
           ))}
-          {/* <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
-            <CommuneSearch />
-          </Grid> */}
+          {isSearchVisible && (
+            <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+              <CommuneSearch />
+            </Grid>
+          )}
         </Grid>
       </div>
     );

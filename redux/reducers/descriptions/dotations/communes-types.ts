@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-unused-vars
+import { AddCommuneTypeAction, RemoveCommuneTypeAction } from "../../../actions";
+
 export interface Commune {
   code: string;
   name: string;
@@ -30,6 +33,25 @@ const DEFAULT_STATE: Commune[] = [
   },
 ];
 
-export function communesTypes(state: Commune[] = DEFAULT_STATE): Commune[] {
-  return state;
+type CommunesTypesAction = AddCommuneTypeAction | RemoveCommuneTypeAction;
+
+export function communesTypes(
+  state: Commune[] = DEFAULT_STATE, action: CommunesTypesAction,
+): Commune[] {
+  switch (action.type) {
+  case "ADD_COMMUNE_TYPE":
+    if (state.find(commune => commune.code === action.commune.code)) {
+      return state;
+    }
+    return [
+      ...state,
+      action.commune,
+    ];
+  case "REMOVE_COMMUNE_TYPE":
+    const newState = [...state];
+    newState.splice(action.index, 1);
+    return newState;
+  default:
+    return state;
+  }
 }

@@ -1,11 +1,14 @@
 import {
   // eslint-disable-next-line no-unused-vars
+  RemoveCommuneTypeAction,
+  // eslint-disable-next-line no-unused-vars
   SimulateDotationsFailureAction,
   // eslint-disable-next-line no-unused-vars
   SimulateDotationsRequestAction,
   // eslint-disable-next-line no-unused-vars
   SimulateDotationsSuccessAction,
 } from "../../../actions";
+import { removeCommuneTypeDiffResults } from "../common";
 // eslint-disable-next-line no-unused-vars
 import { AsyncState, DotationsDiffState } from "../interfaces";
 
@@ -17,7 +20,8 @@ const DEFAULT_STATE: AsyncState<DotationsDiffState> = {
 type DotationsAction =
   SimulateDotationsFailureAction |
   SimulateDotationsRequestAction |
-  SimulateDotationsSuccessAction;
+  SimulateDotationsSuccessAction |
+  RemoveCommuneTypeAction;
 
 export function dotations(
   state: AsyncState<DotationsDiffState> = DEFAULT_STATE, action: DotationsAction,
@@ -107,6 +111,14 @@ export function dotations(
           dsu,
         },
       },
+    };
+  case "REMOVE_COMMUNE_TYPE":
+    if (state.state === null) {
+      return state;
+    }
+    return {
+      isFetching: false,
+      state: removeCommuneTypeDiffResults(state.state, action.index),
     };
   default:
     return state;
