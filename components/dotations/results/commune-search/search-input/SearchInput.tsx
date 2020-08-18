@@ -23,6 +23,7 @@ interface Props {
 interface State {
   open: boolean;
   communes: Commune[] | null;
+  value: Commune | null;
 }
 
 // interface ResponseBody {
@@ -35,6 +36,7 @@ export class SearchInput extends PureComponent<Props, State> {
     this.state = {
       communes: [],
       open: false,
+      value: null,
     };
     this.search = debounce(this.search.bind(this), 300);
   }
@@ -73,7 +75,7 @@ export class SearchInput extends PureComponent<Props, State> {
 
   render() {
     const { onChange } = this.props;
-    const { communes, open } = this.state;
+    const { communes, open, value } = this.state;
     return (
       <Autocomplete
         freeSolo
@@ -99,11 +101,13 @@ export class SearchInput extends PureComponent<Props, State> {
           />
         )}
         style={{ width: "100%" }}
+        value={value}
         onChange={(event: any, commune: Commune | null) => {
           if (commune) {
             onChange(commune);
-            // Reset
-            this.setState({ communes: [] });
+            this.setState({ communes: [], value: commune });
+            // Small hack to clear the input.
+            setTimeout(() => this.setState({ value: null }), 0);
           }
         }}
         onClose={() => this.setState({ open: false })}
