@@ -8,6 +8,7 @@ import { PureComponent } from "react";
 
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../../redux/reducers/descriptions/dotations";
+// import request from "../../../../common/utils/request";
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -24,6 +25,10 @@ interface State {
   communes: Commune[] | null;
 }
 
+// interface ResponseBody {
+//   communes: Commune[]
+// }
+
 export class SearchInput extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
@@ -34,8 +39,17 @@ export class SearchInput extends PureComponent<Props, State> {
     this.search = debounce(this.search.bind(this), 300);
   }
 
+  // eslint-disable-next-line no-unused-vars
   async search(search: string): Promise<void> {
     this.setState({ communes: null });
+
+    // await request
+    //   .get(`/dotations?search=${encodeURI(search)}`)
+    //   .then(({ communes }: ResponseBody) => {
+    //     this.setState({ communes });
+    //   })
+    //   .catch(() => {});
+
     await sleep(1e3);
     this.setState({
       communes: [
