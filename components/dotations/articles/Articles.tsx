@@ -21,6 +21,7 @@ export class Articles extends PureComponent {
   render() {
     const url = new URLSearchParams(window.location.search);
     const isDsuVisible = url.has("dsu");
+    const isDfVisible = url.has("dsr");
     return (
       <Fragment>
         {/* Article header */}
@@ -51,27 +52,29 @@ export class Articles extends PureComponent {
               <DsrFractionCible />
             </SecondaryExpandablePanel>
           </PrimaryExpandablePanel>
-          <PrimaryExpandablePanel
-            expanded
-            icon={<LocalFloristIcon />}
-            title="Dotation forfaitaire (DF)">
-            <SecondaryExpandablePanel
+          {isDfVisible && (
+            <PrimaryExpandablePanel
               expanded
-              subTitle="III. de l'article L2334-7 du CGCT"
-              title="Répartition">
-              <DfReglesGenerales />
-            </SecondaryExpandablePanel>
-            {/* <SecondaryExpandablePanel
+              icon={<LocalFloristIcon />}
+              title="Dotation forfaitaire (DF)">
+              <SecondaryExpandablePanel
+                expanded
+                subTitle="III. de l'article L2334-7 du CGCT"
+                title="Répartition">
+                <DfReglesGenerales />
+              </SecondaryExpandablePanel>
+              {/* <SecondaryExpandablePanel
               subTitle="III. de l'article L2334-7 du CGCT"
               title="Cas particuliers des EPCI">
               <DfCasEpci />
             </SecondaryExpandablePanel> */}
-            <SecondaryExpandablePanel
-              subTitle="III. de l'article L2334-7 du CGCT"
-              title="Règles de péréquation par écrêtement">
-              <DfEcretementPereque />
-            </SecondaryExpandablePanel>
-          </PrimaryExpandablePanel>
+              <SecondaryExpandablePanel
+                subTitle="III. de l'article L2334-7 du CGCT"
+                title="Règles de péréquation par écrêtement">
+                <DfEcretementPereque />
+              </SecondaryExpandablePanel>
+            </PrimaryExpandablePanel>
+          )}
           {isDsuVisible && (
             <PrimaryExpandablePanel
               icon={<LocationCityIcon />}
