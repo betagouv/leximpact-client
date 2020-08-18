@@ -5,6 +5,7 @@ import { Fragment, PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
+import { removeCommuneType } from "../../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
 // eslint-disable-next-line no-unused-vars
@@ -24,7 +25,11 @@ const mapStateToProps = ({ results }: RootState) => ({
     || results.plf.dotations.isFetching,
 });
 
-const connector = connect(mapStateToProps);
+const mapDispatchToProps = dispatch => ({
+  remove: (index: number) => dispatch(removeCommuneType(index)),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
@@ -35,7 +40,7 @@ type Props = PropsFromRedux & Commune & {
 class CommuneType extends PureComponent<Props> {
   render() {
     const {
-      departement, habitants, index, isFetching, name, potentielFinancier,
+      departement, habitants, index, isFetching, name, potentielFinancier, remove,
     } = this.props;
     const url = new URLSearchParams(window.location.search);
     const isDsuVisible = url.has("dsu");
@@ -95,6 +100,7 @@ class CommuneType extends PureComponent<Props> {
             )}
         subTitle={departement}
         title={name}
+        onClose={() => remove(index)}
       />
     );
   }

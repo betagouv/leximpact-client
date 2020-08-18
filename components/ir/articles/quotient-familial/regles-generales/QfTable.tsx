@@ -167,6 +167,6 @@ class QfTable extends PureComponent<Props> {
   }
 }
 
-const ConnectedQfTable = connector(QfTable);
+const Component = connector(QfTable);
 
-export { ConnectedQfTable as QfTable };
+export { Component as QfTable };

@@ -59,7 +59,7 @@ const theme = createMuiTheme({
 
   palette: {
     background: {
-      paper: "rgba(255, 255, 255, 0.7)",
+      paper: "rgba(255, 255, 255, 1)",
       default: "rgba(255, 255, 255, 1)",
     },
     primary: {

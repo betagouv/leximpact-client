@@ -1,15 +1,38 @@
 import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
 
+import { addCommuneType } from "../../../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { Commune } from "../../../../redux/reducers/descriptions/dotations";
 import { Card } from "../../../common";
 import { SearchInput } from "./search-input";
 
-export class CommuneSearch extends PureComponent {
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = dispatch => ({
+  add: (commune: Commune) => dispatch(addCommuneType(commune)),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+class CommuneSearch extends PureComponent<PropsFromRedux> {
   render() {
+    const { add } = this.props;
     return (
       <Card
-        content1={<SearchInput />}
         title="Ajouter une nouvelle commune"
-      />
+      >
+        <div>
+          <SearchInput onChange={commune => add(commune)} />
+        </div>
+      </Card>
     );
   }
 }
+
+const Component = connector(CommuneSearch);
+
+export { Component as CommuneSearch };
