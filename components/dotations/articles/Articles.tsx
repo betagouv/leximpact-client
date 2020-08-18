@@ -58,7 +58,7 @@ export class Articles extends PureComponent {
             <SecondaryExpandablePanel
               expanded
               subTitle="III. de l'article L2334-7 du CGCT"
-              title="Règles générales de répartition">
+              title="Répartition">
               <DfReglesGenerales />
             </SecondaryExpandablePanel>
             {/* <SecondaryExpandablePanel
