@@ -21,7 +21,7 @@ export class Articles extends PureComponent {
   render() {
     const url = new URLSearchParams(window.location.search);
     const isDsuVisible = url.has("dsu");
-    const isDfVisible = url.has("dsr");
+    const isDfVisible = url.has("df");
     return (
       <Fragment>
         {/* Article header */}
