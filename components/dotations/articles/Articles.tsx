@@ -59,7 +59,7 @@ export class Articles extends PureComponent {
               title="Dotation forfaitaire (DF)">
               <SecondaryExpandablePanel
                 expanded
-                subTitle="III. de l'article L2334-7 du CGCT"
+                subTitle="Article L2334-7 du CGCT - III."
                 title="Répartition">
                 <DfReglesGenerales />
               </SecondaryExpandablePanel>
@@ -69,7 +69,7 @@ export class Articles extends PureComponent {
               <DfCasEpci />
             </SecondaryExpandablePanel> */}
               <SecondaryExpandablePanel
-                subTitle="III. de l'article L2334-7 du CGCT"
+                subTitle="Article L2334-7 du CGCT - III."
                 title="Règles de péréquation par écrêtement">
                 <DfEcretementPereque />
               </SecondaryExpandablePanel>

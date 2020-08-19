@@ -8,7 +8,7 @@ export class DfEcretementPereque extends PureComponent {
     return (
       <Fragment>
         <ExpandablePanelSubTitle
-          subTitle="§5"
+          subTitle="§ 5"
           title="Périmètre des communes concernées"
         />
         A compter de 2015, les communes dont le potentiel fiscal par habitant
@@ -34,7 +34,7 @@ export class DfEcretementPereque extends PureComponent {
         <br />
         <br />
         <ExpandablePanelSubTitle
-          subTitle="§5"
+          subTitle="§ 5"
           title="Conditions d&apos;application"
         />
         Cette minoration ne peut être supérieure à !!!! 1 % !!!! des recettes réelles de

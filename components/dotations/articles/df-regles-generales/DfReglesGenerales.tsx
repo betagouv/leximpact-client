@@ -63,8 +63,8 @@ export class DfReglesGenerales extends PureComponent {
         <br />
         <ExpandableText caption="En savoir plus sur le cas particulier des EPCI">
           <ExpandablePanelSubTitle
-            subTitle="§4"
-            title="Communes adhèrant  ou appartenant à un EPCI qui devient à fiscalité professionnelle unique (FPU) cette année."
+            subTitle="§ 4"
+            title="Communes adhérant  ou appartenant à un EPCI qui devient à fiscalité professionnelle unique (FPU) cette année."
           />
         Pour les communes membres d&apos;un établissement public de coopération
         intercommunale soumis pour la première fois aux dispositions de&nbsp;
@@ -110,7 +110,7 @@ export class DfReglesGenerales extends PureComponent {
           <br />
           <br />
           <ExpandablePanelSubTitle
-            subTitle="§4"
+            subTitle="§ 4"
             title="Commune quittant un groupement à fiscalité professionnelle unique (FPU) cette année"
           />
         Lorsqu&apos;une commune cesse d&apos;appartenir à un groupement de communes
