@@ -34,7 +34,7 @@ const DEFAULT_CAS_TYPES: CasType = {
     childs: [],
     parents: [{ ...DEFAULT_PERSON_VALUES, gender: randomGender() }],
   },
-  revenusNetMensuel: 500,
+  revenusNetMensuel: 1200,
 };
 
 const mapStateToProps = ({ descriptions }: RootState, { index }) => {

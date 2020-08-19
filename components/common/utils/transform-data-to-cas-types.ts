@@ -102,7 +102,7 @@ export const transformDataToCasTypes = (datas): CasType[] => datas.map((data) =>
     nbCouple,
     nbEnfants,
     persons: { childs, parents },
-    revenusNetMensuel: revenusAnnuel / 12,
+    revenusNetMensuel: Math.round(revenusAnnuel / 12),
   };
 });
 
