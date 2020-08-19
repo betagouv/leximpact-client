@@ -54,13 +54,9 @@ export class MontantDsrDsu extends PureComponent {
         Cette augmentation est financée par les minorations prévues à l&apos;article L. 2334-7-1.
         <MajorationMinorationSection />
         <br />
-        À compter de 2012,
-        {" "}
-        <ExpandableText caption="paragraphe caduc">
-        le montant mis en répartition au titre de la dotation
+        À compter de 2012, le montant mis en répartition au titre de la dotation
         nationale de péréquation est au moins égal à celui
         mis en répartition l&apos;année précédente.
-        </ExpandableText>
         <br />
         <br />
         Le comité des finances locales peut majorer le montant des dotations mentionnées
