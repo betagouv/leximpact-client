@@ -11,7 +11,7 @@ export class DfEcretementPereque extends PureComponent {
           subTitle="§5"
           title="Périmètre des communes concernées"
         />
-        À compter de 2015, les communes dont le potentiel fiscal par habitant
+        A compter de 2015, les communes dont le potentiel fiscal par habitant
         est inférieur à !!!! 0,75 !!!! fois le potentiel fiscal moyen par habitant constaté
         pour l&apos;ensemble des communes bénéficient d&apos;une attribution au titre de la
         dotation forfaitaire égale à celle calculée en application du présent III.
@@ -48,7 +48,7 @@ export class DfEcretementPereque extends PureComponent {
         dans les derniers comptes de gestion disponibles.
           <br />
           <br />
-        Pour les communes membres de la métropole du Grand Paris,&nbsp;
+        Pour les communes membres de la métropole du Grand Paris,
         les recettes réelles de fonctionnement sont en outre diminuées
         d&apos;un montant correspondant à la dotation individuelle versée au fonds de
         compensation des charges territoriales en application du H du XV de

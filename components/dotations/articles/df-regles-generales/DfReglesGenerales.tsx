@@ -7,7 +7,7 @@ export class DfReglesGenerales extends PureComponent {
     // Article L2334-20 du CGCT
     return (
       <Fragment>
-        III. – À compter de 2015, la dotation forfaitaire de chaque commune
+        III. – A compter de 2015, la dotation forfaitaire de chaque commune
         est égale au montant perçu l&apos;année précédente au titre de cette dotation.
         <br />
         Pour chaque commune, cette dotation est majorée ou minorée du produit
@@ -15,7 +15,7 @@ export class DfReglesGenerales extends PureComponent {
         de répartition et celle constatée au titre de l&apos;année précédant la
         répartition par un montant compris entre !!!! 64,46 € !!!! et !!!! 128,93 € !!!! par
         habitant en fonction croissante de la population de la commune,
-        dans des conditions définies par décret en Conseil d&apos;État.
+        dans des conditions définies par décret en Conseil d&apos;Etat.
         <br />
         <ExpandableText caption="En savoir plus sur la population prise en compte">
         La population de la commune prise en compte au titre de 2019 est celle
@@ -51,7 +51,7 @@ export class DfReglesGenerales extends PureComponent {
         fiscalité en application soit du dernier alinéa du II du présent article,
         soit du III de l&apos;article L. 2334-7-2, soit de l&apos;article L. 2334-7-3, soit
         du 2 du III de l&apos;article 29 de la loi de finances pour 2003
-        (n° 2002-1575du 30 décembre 2002),
+        (n° 2002-1575 du 30 décembre 2002),
         la dotation forfaitaire à prendre en compte pour l&apos;application des dispositions
         précédentes est égale au montant effectivement reçu en 2014 au titre de
         la dotation forfaitaire, minoré du montant prélevé en 2014 sur la fiscalité.
@@ -140,9 +140,9 @@ export class DfReglesGenerales extends PureComponent {
             rel="noopener noreferrer"
             target="_blank"
           >
-          l&apos;article 44 de la loi de finances pour 1999 précitée
+          l&apos;article 44 de la loi de finances pour 1999 précitée.
           </a>
-        &nbsp;pour 1999 précitée. Cette part est minorée, le cas échéant, en fonction de
+        &nbsp;Cette part est minorée, le cas échéant, en fonction de
         la part du prélèvement subi par le groupement en application du 1.2.4.2 de&nbsp;
           <a
             href="https://www.legifrance.gouv.fr/affichTexteArticle.do;jsessionid=D98BDF9FAF1BD9740A0AB439401BC420.tplgfr38s_3?idArticle=LEGIARTI000041469395&cidTexte=JORFTEXT000021557902&categorieLien=id"

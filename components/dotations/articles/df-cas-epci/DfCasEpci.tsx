@@ -85,9 +85,9 @@ export class DfCasEpci extends PureComponent {
           rel="noopener noreferrer"
           target="_blank"
         >
-          l&apos;article 44 de la loi de finances pour 1999 précitée
+          l&apos;article 44 de la loi de finances pour 1999 précitée.
         </a>
-        &nbsp;pour 1999 précitée. Cette part est minorée, le cas échéant, en fonction de
+        &nbsp;Cette part est minorée, le cas échéant, en fonction de
         la part du prélèvement subi par le groupement en application du 1.2.4.2 de&nbsp;
         <a
           href="https://www.legifrance.gouv.fr/affichTexteArticle.do;jsessionid=D98BDF9FAF1BD9740A0AB439401BC420.tplgfr38s_3?idArticle=LEGIARTI000041469395&cidTexte=JORFTEXT000021557902&categorieLien=id"
