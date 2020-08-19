@@ -1,6 +1,11 @@
 /* eslint-disable sort-keys */
 
 // eslint-disable-next-line no-unused-vars
+import { setIn } from "immutable";
+
+// eslint-disable-next-line no-unused-vars
+import { InitFakePlfAction } from "../../../actions";
+// eslint-disable-next-line no-unused-vars
 import { DotationsState } from "../interfaces";
 
 export const PLF_DOTATIONS_DEFAULT_STATE: DotationsState = {
@@ -105,4 +110,18 @@ export const PLF_DOTATIONS_DEFAULT_STATE: DotationsState = {
   },
 };
 
-export const dotations = (state = PLF_DOTATIONS_DEFAULT_STATE) => state;
+type DotationsType = InitFakePlfAction;
+
+export function dotations(
+  state: DotationsState = PLF_DOTATIONS_DEFAULT_STATE, action: DotationsType,
+): DotationsState {
+  switch (action.type) {
+  case "INIT_FAKE_PLF":
+    let newState: DotationsState = state;
+    newState = setIn(newState, ["communes", "dsr", "eligibilite", "popMax"], 8000);
+    newState = setIn(newState, ["communes", "dsr", "eligibilite", "popChefLieuMax"], 18000);
+    return newState;
+  default:
+    return state;
+  }
+}

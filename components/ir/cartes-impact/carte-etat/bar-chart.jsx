@@ -40,7 +40,7 @@ class BarChart extends PureComponent {
       result.push(resapres);
     }
 
-    return result;
+    return result.reverse();
   };
 
   render() {
