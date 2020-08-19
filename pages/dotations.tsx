@@ -10,9 +10,10 @@ import { SimulationPage } from "../components/common";
 import { Articles, Results } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
 import withRoot from "../lib/withRoot";
-import { simulateDotations } from "../redux/actions";
+import { initFakePlf, simulateDotations } from "../redux/actions";
 
 const mapDispatchToProps = dispatch => ({
+  addFakePlf: () => dispatch(initFakePlf()),
   simulate: () => dispatch(simulateDotations()),
 });
 
@@ -21,6 +22,14 @@ const connector = connect(null, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 class DotationPage extends PureComponent<PropsFromRedux> {
+  componentDidMount() {
+    const { addFakePlf } = this.props;
+    const url = new URLSearchParams(window.location.search);
+    if (url.has("fauxplf")) {
+      addFakePlf();
+    }
+  }
+
   render() {
     const { simulate } = this.props;
     return (

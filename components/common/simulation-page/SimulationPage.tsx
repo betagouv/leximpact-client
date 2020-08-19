@@ -48,11 +48,6 @@ export class SimulationPage extends PureComponent<Props, State> {
     this.state = { indextab: 0 };
   }
 
-  componentDidMount() {
-    const { initializeAppllicationStoreFromAPI } = this.props;
-    initializeAppllicationStoreFromAPI();
-  }
-
   handleOnChangeIndex = (event, indextab) => {
     this.setState({ indextab });
   };

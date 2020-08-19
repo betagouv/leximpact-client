@@ -13,7 +13,8 @@ import { Articles, CartesImpact as ImpactCards } from "../components/ir";
 import PopinManager from "../components/PopinManager";
 import withRoot from "../lib/withRoot";
 import {
-  disabledEtat, fetchSimPop, showAddCasTypesPopin, simulateCasTypes,
+  disabledEtat, fetchMetadataCasTypes,
+  fetchSimPop, showAddCasTypesPopin, simulateCasTypes,
 } from "../redux/actions";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../redux/reducers";
@@ -23,6 +24,7 @@ const mapStateToProps = ({ token }: RootState) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  init: () => dispatch(fetchMetadataCasTypes()).then(() => dispatch(simulateCasTypes())),
   showAddCasTypesPopin: () => dispatch(showAddCasTypesPopin()),
   simulateCasTypes: () => {
     dispatch(simulateCasTypes());
@@ -51,7 +53,12 @@ type Props = PropsFromRedux & {
 
 }
 
-class IndexPage extends PureComponent<Props> {
+class IRPage extends PureComponent<Props> {
+  componentDidMount() {
+    const { init } = this.props;
+    init();
+  }
+
   render() {
     const {
       // eslint-disable-next-line no-shadow
@@ -111,4 +118,4 @@ export default flow(
   withRouter,
   withRoot,
   connector,
-)(IndexPage);
+)(IRPage);
