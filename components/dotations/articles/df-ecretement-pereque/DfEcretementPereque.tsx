@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../common";
+import { ExpandablePanelSubTitle, ExpandableText } from "../../../common";
 
 export class DfEcretementPereque extends PureComponent {
   render() {

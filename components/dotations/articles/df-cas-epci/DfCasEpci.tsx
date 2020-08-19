@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { ExpandablePanelSubTitle, ExpandableText, ParameterValues } from "../../../common";
+import { ExpandablePanelSubTitle } from "../../../common";
 
 export class DfCasEpci extends PureComponent {
   render() {

@@ -3,7 +3,6 @@ import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { Fragment, PureComponent } from "react";
 
 import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
-import { DfCasEpci } from "./df-cas-epci";
 import { DfEcretementPereque } from "./df-ecretement-pereque";
 import { DfReglesGenerales } from "./df-regles-generales";
 import { DsrEligibilite } from "./dsr-eligibilite";
