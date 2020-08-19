@@ -117,7 +117,10 @@ export function dotations(
 ): DotationsState {
   switch (action.type) {
   case "INIT_FAKE_PLF":
-    return setIn(state, ["communes", "dsr", "eligibilite", "popMax"], 15000);
+    let newState: DotationsState = state;
+    newState = setIn(newState, ["communes", "dsr", "eligibilite", "popMax"], 8000);
+    newState = setIn(newState, ["communes", "dsr", "eligibilite", "popChefLieuMax"], 18000);
+    return newState;
   default:
     return state;
   }
