@@ -34,11 +34,10 @@ class Eligibilite extends PureComponent<Props & PropsFromRedux> {
     return (
       <div className={styles.container}>
         <div>
-          {/* Hack: Values only accepts numbers */}
           <Values
-            amendementValue={getEligibilite(amendementValue) as any}
-            baseValue={getEligibilite(baseValue) as any}
-            plfValue={getEligibilite(plfValue) as any} />
+            amendementValue={getEligibilite(amendementValue)}
+            baseValue={getEligibilite(baseValue)}
+            plfValue={getEligibilite(plfValue)} />
         </div>
       </div>
 
