@@ -30,6 +30,10 @@ $header-padding-left: 7px;
     font-family: $law-font-family;
   }
 
+  .btn {
+    display: flex;
+  }
+
 }
 
 .header:hover {

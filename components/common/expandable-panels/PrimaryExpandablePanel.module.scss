@@ -31,7 +31,10 @@ $padding-y: 15px;
       color: #696969;
       font-family: $law-font-family;
     }
+  }
 
+  .btn {
+    display: flex;
   }
 
 }

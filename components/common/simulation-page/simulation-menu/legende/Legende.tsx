@@ -1,5 +1,3 @@
-import OpenInNewIcon from "@material-ui/icons/OpenInNew";
-
 import styles from "./Legende.module.scss";
 
 export function Legende({ montrerPLF }: { montrerPLF: boolean }) {
@@ -12,10 +10,10 @@ export function Legende({ montrerPLF }: { montrerPLF: boolean }) {
         <span className={styles.initial}>Droit existant</span>
         {montrerPLF && (
           <span className={styles.plf}>
-            <a href="http://www.assemblee-nationale.fr/15/projets/pl2272.asp">
-              PLF 2020
-              <OpenInNewIcon className={styles.icon} />
-            </a>
+            {/* <a href="http://www.assemblee-nationale.fr/15/projets/pl2272.asp"> */}
+              PLF
+            {/* <OpenInNewIcon className={styles.icon} />
+            </a> */}
           </span>
         )}
         <span className={styles.reform}>Mon amendement</span>

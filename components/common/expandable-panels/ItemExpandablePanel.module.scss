@@ -1,0 +1,39 @@
+@import 'styles/variables';
+
+.header, .content {
+  background-color: #f9f7cb;
+  padding: 10px 15px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-family: $default-font-family;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  outline: none;
+
+  .text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    display: flex;
+  }
+}
+
+.expanded {
+  border-radius: 7px 7px 0 0;
+}
+
+
+.content {
+  border-radius: 0 0 7px 7px;
+}

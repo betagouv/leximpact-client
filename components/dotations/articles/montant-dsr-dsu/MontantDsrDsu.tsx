@@ -1,6 +1,7 @@
 import { Fragment, PureComponent } from "react";
 
 import { ExpandablePanelSubTitle, ExpandableText } from "../../../common";
+import { MajorationMinorationSection } from "./majoration-minoration-section";
 
 export class MontantDsrDsu extends PureComponent {
   render() {
@@ -51,13 +52,7 @@ export class MontantDsrDsu extends PureComponent {
         et de cohésion sociale et de la dotation de solidarité rurale augmentent au moins de
         90 millions d&apos;euros chacun par rapport aux montants mis en répartition en 2019.
         Cette augmentation est financée par les minorations prévues à l&apos;article L. 2334-7-1.
-        <br />
-        <br />
-        BOUTON Ajouter une majoration DSR/DSU en 2021
-        <br />
-        <br />
-        BOUTON Ajouter une minoration DSR/DSU en 2021
-        <br />
+        <MajorationMinorationSection />
         <br />
         À compter de 2012,
         {" "}
