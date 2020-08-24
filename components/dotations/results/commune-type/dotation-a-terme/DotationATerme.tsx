@@ -4,7 +4,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
-import { ResultValues, Values } from "../../../../common";
+import { ResultValues } from "../../../../common";
 import styles from "./DotationATerme.module.scss";
 
 interface Props {
