@@ -37,11 +37,12 @@ class DotationATerme extends PureComponent<PropsFromRedux & Props> {
         <div className={styles.text}>
           Point d&apos;arrivée en
           {" "}
-          <Values
+          {today + Math.max(amendement || 1, base || 1, plf || 1)}
+          {/* <Values
             amendementValue={amendement ? today + amendement : undefined}
             baseValue={base ? today + base : undefined}
             plfValue={plf ? today + plf : undefined}
-          />
+          /> */}
           {" "}
           :
         </div>
