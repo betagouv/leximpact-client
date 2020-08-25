@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
 import {
+  addCasType,
   closeCurrentPopin,
-  createCasType,
   simulateCasTypes,
   updateCasType,
 } from "../../../redux/actions";
@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch, { index }) => ({
     if (index >= 0) {
       dispatch(updateCasType(values, index));
     } else {
-      dispatch(createCasType(values));
+      dispatch(addCasType(values));
     }
     dispatch(closeCurrentPopin());
     dispatch(simulateCasTypes());

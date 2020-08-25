@@ -66,7 +66,7 @@ export const casTypes = (state: CasType[] = DEFAULT_STATE, action): CasType[] =>
     return transformDataToCasTypes(action.payload);
   case "onUpdateCasType":
     return updateCasType(state, action);
-  case "onCreateCasType":
+  case "ADD_CAS_TYPE":
     return createCasType(state, action);
   case "onRemoveCasType":
     return removeCasType(state, action);
