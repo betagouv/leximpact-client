@@ -52,7 +52,7 @@ const mapStateToProps = ({ descriptions }: RootState, { index }) => {
 const mapDispatchToProps = (dispatch, { index }) => ({
   onFormSubmitHandler: (values) => {
     if (index >= 0) {
-      dispatch(updateCasType(values, index));
+      dispatch(updateCasType(index, values));
     } else {
       dispatch(addCasType(values));
     }
