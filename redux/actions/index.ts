@@ -10,8 +10,6 @@ export { default as addTranche } from "./articles-add-tranche";
 export { default as removeTranche } from "./articles-remove-tranche";
 export { default as fetchSimPop } from "./api-simpop";
 export { default as fetchMetadataCasTypes } from "./api-metdata-cas-types";
-export { default as updateCasType } from "./cas-type-update";
-export { default as removeCasType } from "./cas-type-remove";
 export { default as updateReformeByName } from "./reforme-update-by-name";
 export { default as connexionTokenLogin } from "./connexion-token-login";
 export { default as connexionTokenLogout } from "./connexion-token-logout";

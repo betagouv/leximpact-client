@@ -1,6 +1,6 @@
-import { cloneDeep } from "lodash";
-
 import { transformDataToCasTypes } from "../../../../components/common/utils/transform-data-to-cas-types";
+// eslint-disable-next-line no-unused-vars
+import { AddCasTypeAction, RemoveCasTypeAction, UpdateCasTypeAction } from "../../../actions";
 
 interface Person {
   /* All are actually booleans. */
@@ -27,49 +27,32 @@ export interface CasType {
   revenusNetMensuel: number;
 }
 
-// le default state est rempli via les cookies
-// grace a la lib "redux-cookies-middleware"
-// voir le fichier "./pages/_app.jsx"
+// Cet état est initialisé via "redux-cookies-middleware" dans "./pages/_app.jsx".
 const DEFAULT_STATE: CasType[] = [];
 
-// lors de la connexion de l'user à la page
-// https://<domain>/connection/<token>
-// l'application va:
-// - enegistrer les tokens par défaut
-// - enregistrer le token de connection
-const removeCasType = (state, action) => {
-  const nextState = state.filter((obj, index) => index !== action.index);
-  return nextState;
-};
+type CasTypesAction =
+  AddCasTypeAction |
+  UpdateCasTypeAction |
+  RemoveCasTypeAction |
+  // TODO: remove this line and use proper types.
+  any;
 
-const updateCasType = (state, action) => {
-  const nextState = state.map((obj, index) => {
-    const shouldUpdateThisCasType = index === action.index;
-    if (!shouldUpdateThisCasType) return obj;
-    return action.data;
-  });
-  return nextState;
-};
 
-const createCasType = (state, action) => {
-  let nextState = cloneDeep(state);
-  nextState = [...nextState, action.data];
-  return nextState;
-};
-
-export const casTypes = (state: CasType[] = DEFAULT_STATE, action): CasType[] => {
+export const casTypes = (state: CasType[] = DEFAULT_STATE, action: CasTypesAction): CasType[] => {
   switch (action.type) {
   case "onConnexionTokenLogout":
     return [];
   case "onInitializeCasTypes":
     if (action.token) return state;
     return transformDataToCasTypes(action.payload);
-  case "onUpdateCasType":
-    return updateCasType(state, action);
   case "ADD_CAS_TYPE":
-    return createCasType(state, action);
-  case "onRemoveCasType":
-    return removeCasType(state, action);
+    return [...state, action.casType];
+  case "UPDATE_CAS_TYPE":
+    return state.map((casType, index) => (index === action.index ? action.casType : casType));
+  case "REMOVE_CAS_TYPE":
+    const newState = [...state];
+    newState.splice(action.index, 1);
+    return newState;
   default:
     return state;
   }

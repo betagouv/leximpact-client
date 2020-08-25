@@ -1,5 +1,7 @@
 import {
   // eslint-disable-next-line no-unused-vars
+  RemoveCasTypeAction,
+  // eslint-disable-next-line no-unused-vars
   SimulateCasTypesFailureAction,
   // eslint-disable-next-line no-unused-vars
   SimulateCasTypesRequestAction,
@@ -17,7 +19,8 @@ const DEFAULT_STATE: AsyncState<IRState> = {
 type IRAction =
   SimulateCasTypesFailureAction |
   SimulateCasTypesRequestAction |
-  SimulateCasTypesSuccessAction;
+  SimulateCasTypesSuccessAction |
+  RemoveCasTypeAction;
 
 export function ir(
   state: AsyncState<IRState> = DEFAULT_STATE, action: IRAction,
@@ -41,6 +44,18 @@ export function ir(
           impotAnnuel: Math.abs(action.data.res_brut.avant[key]),
           parts: action.data.nbreParts.avant[key],
         })),
+      },
+    };
+  case "REMOVE_CAS_TYPE":
+    if (state.state === null) {
+      return state;
+    }
+    const casTypes = [...state.state.casTypes];
+    casTypes.splice(action.index, 1);
+    return {
+      isFetching: false,
+      state: {
+        casTypes,
       },
     };
   default:
