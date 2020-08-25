@@ -69,7 +69,7 @@ function simulateCasTypesSuccess(data: ResponseBody): SimulateCasTypesSuccessAct
   };
 }
 
-const simulateCasTypes = () => (dispatch, getState) => {
+export const simulateCasTypes = () => (dispatch, getState) => {
   dispatch(simulateCasTypesRequest());
 
   const { descriptions, parameters } = getState() as RootState;
@@ -80,8 +80,6 @@ const simulateCasTypes = () => (dispatch, getState) => {
 
   return request
     .post("/calculate/compare", body)
-    .then(payload => dispatch(simulateCasTypesSuccess(payload.res_brut)))
+    .then(payload => dispatch(simulateCasTypesSuccess(payload)))
     .catch(err => dispatch(simulateCasTypesFailure(err)));
 };
-
-export default simulateCasTypes;
