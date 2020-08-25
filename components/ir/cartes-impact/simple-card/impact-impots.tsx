@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { formatNumber, ResultValues } from "../../../common";
+import { formatNumber, NeutralTooltip, ResultValues } from "../../../common";
 import styles from "./impact-impots.module.scss";
 
 interface Props {
@@ -31,25 +31,18 @@ class SimpleCardImpactImpots extends PureComponent<PropsFromRedux & Props> {
       amendement, base, index, isFetching, plf,
     } = this.props;
 
-    const DiffAmendPLF = (-(amendement ?? NaN) + (base ?? NaN) > 0 ? "+" : "-")
-      + formatNumber(Math.round(Math.abs(-(amendement ?? NaN) + (plf ?? NaN))));
-    const DiffPlFCodeEx = (-(plf ?? NaN) + (base ?? NaN) > 0 ? "+" : "-")
-      + formatNumber(Math.round(Math.abs(-(plf ?? NaN) + (base ?? NaN))));
-
-    const plfTitle = (
+    const title = (amendement !== undefined && plf !== undefined && base !== undefined) ? (
       <Fragment>
         {"Avec le PLF, ce foyer doit "}
-        <b>{`${DiffPlFCodeEx}€`}</b>
-        {" d'impôts/an qu'avec le code existant"}
-      </Fragment>
-    );
-    const amendementTitle = plf !== null ? (
-      <Fragment>
+        <strong>{`${formatNumber(plf - base, { sign: true })} €`}</strong>
+        {" d'impôts/an qu'avec le code existant."}
+        <br />
+        <br />
         {"Avec mon amendement, ce foyer doit "}
-        <b>{`${DiffAmendPLF}€`}</b>
-        {" d'impôts/an qu'avec le PLF 2020"}
+        <strong>{`${formatNumber(amendement - plf, { sign: true })} €`}</strong>
+        {" d'impôts/an qu'avec le PLF 2020."}
       </Fragment>
-    ) : undefined;
+    ) : null;
 
     return isFetching ? <CircularProgress color="secondary" /> : (
       <div className={styles.container}>
@@ -58,12 +51,16 @@ class SimpleCardImpactImpots extends PureComponent<PropsFromRedux & Props> {
             Impôt sur le revenu par an
           </div>
           <div className={styles.result}>
-            <ResultValues
-              amendementTitle={amendementTitle}
-              path={`ir.state.casTypes.${index}.impotAnnuel`}
-              plfTitle={plfTitle} />
-            {" "}
-            €
+            <NeutralTooltip
+              placement="bottom-start"
+              title={title || <span>caca</span>}>
+              <span>
+                <ResultValues
+                  path={`ir.state.casTypes.${index}.impotAnnuel`} />
+                {" "}
+                €
+              </span>
+            </NeutralTooltip>
           </div>
         </div>
         <div>
