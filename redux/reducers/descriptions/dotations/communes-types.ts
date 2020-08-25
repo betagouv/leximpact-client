@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { AddCommuneTypeAction, RemoveCommuneTypeAction } from "../../../actions";
+import { Action } from "../../../actions";
 
 export interface Commune {
   code: string;
@@ -33,10 +33,8 @@ const DEFAULT_STATE: Commune[] = [
   },
 ];
 
-type CommunesTypesAction = AddCommuneTypeAction | RemoveCommuneTypeAction;
-
 export function communesTypes(
-  state: Commune[] = DEFAULT_STATE, action: CommunesTypesAction,
+  state: Commune[] = DEFAULT_STATE, action: Action,
 ): Commune[] {
   switch (action.type) {
   case "ADD_COMMUNE_TYPE":

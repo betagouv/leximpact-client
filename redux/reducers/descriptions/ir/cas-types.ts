@@ -1,6 +1,6 @@
 import { transformDataToCasTypes } from "../../../../components/common/utils/transform-data-to-cas-types";
 // eslint-disable-next-line no-unused-vars
-import { AddCasTypeAction, RemoveCasTypeAction, UpdateCasTypeAction } from "../../../actions";
+import { Action } from "../../../actions";
 
 interface Person {
   /* All are actually booleans. */
@@ -30,15 +30,8 @@ export interface CasType {
 // Cet état est initialisé via "redux-cookies-middleware" dans "./pages/_app.jsx".
 const DEFAULT_STATE: CasType[] = [];
 
-type CasTypesAction =
-  AddCasTypeAction |
-  UpdateCasTypeAction |
-  RemoveCasTypeAction |
-  // TODO: remove this line and use proper types.
-  any;
-
-
-export const casTypes = (state: CasType[] = DEFAULT_STATE, action: CasTypesAction): CasType[] => {
+// TODO: use proper types for Action
+export const casTypes = (state: CasType[] = DEFAULT_STATE, action: Action | any): CasType[] => {
   switch (action.type) {
   case "onConnexionTokenLogout":
     return [];

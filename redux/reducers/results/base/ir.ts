@@ -1,12 +1,6 @@
 import {
   // eslint-disable-next-line no-unused-vars
-  RemoveCasTypeAction,
-  // eslint-disable-next-line no-unused-vars
-  SimulateCasTypesFailureAction,
-  // eslint-disable-next-line no-unused-vars
-  SimulateCasTypesRequestAction,
-  // eslint-disable-next-line no-unused-vars
-  SimulateCasTypesSuccessAction,
+  Action,
 } from "../../../actions";
 // eslint-disable-next-line no-unused-vars
 import { AsyncState, IRState } from "../interfaces";
@@ -16,14 +10,8 @@ const DEFAULT_STATE: AsyncState<IRState> = {
   state: null,
 };
 
-type IRAction =
-  SimulateCasTypesFailureAction |
-  SimulateCasTypesRequestAction |
-  SimulateCasTypesSuccessAction |
-  RemoveCasTypeAction;
-
 export function ir(
-  state: AsyncState<IRState> = DEFAULT_STATE, action: IRAction,
+  state: AsyncState<IRState> = DEFAULT_STATE, action: Action,
 ): AsyncState<IRState> {
   switch (action.type) {
   case "SIMULATE_CAS_TYPES_FAILURE":
