@@ -29,9 +29,12 @@ export class TrendHelpWindow extends PureComponent {
               quelque soit l’amplitude de l’impact.
             </li>
             <li>
-            quand il n’y a pas d’impact, il est indiqué “Pas d’évolution”.
-            Ce cas intervient lorsque que les montants avant et après impact sont
-            strico sensu identiques.
+              quand il n’y a pas d’impact, il est indiqué “Pas d’évolution”.
+              Ce cas intervient lorsque que les montants avant et après impact sont
+              {" "}
+              <em>strico sensu</em>
+              {" "}
+              identiques.
             </li>
           </ul>
         </div>

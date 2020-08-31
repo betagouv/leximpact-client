@@ -22,11 +22,15 @@ export class DsrHelpWindow extends PureComponent {
             <li>la seconde fraction, “de péréquation” ;</li>
             <li>la troisième fraction, “cible”.</li>
           </ul>
-          Selon l’article L2334-20 du CGCT, elle a pour objet de “tenir compte,
-          d&apos;une part, des charges qu&apos;ils [les communes et chefs-lieux
-          d’arrondissement éligibles] supportent pour contribuer au maintien de la
-          vie sociale en milieu rural, d&apos;autre part, de l&apos;insuffisance de
-          leurs ressources fiscales”.
+          Selon l’article L2334-20 du CGCT, elle a pour objet de “
+          <em>
+            tenir compte,
+            d&apos;une part, des charges qu&apos;ils [les communes et chefs-lieux
+            d’arrondissement éligibles] supportent pour contribuer au maintien de la
+            vie sociale en milieu rural, d&apos;autre part, de l&apos;insuffisance de
+            leurs ressources fiscales
+          </em>
+          ”.
           <br />
           <br />
           <img alt="DSR" src="/static/images/dsr.png" />

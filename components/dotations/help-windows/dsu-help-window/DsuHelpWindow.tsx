@@ -16,9 +16,13 @@ export class DsuHelpWindow extends PureComponent {
           , est une part de la dotation d’aménagement des communes.
           <br />
           <br />
-          Selon l’article L2334-15 du CGCT, elle “a pour objet de contribuer à l&apos;amélioration
-          des conditions de vie dans les communes urbaines confrontées à une insuffisance de
-          leurs ressources et supportant des charges élevées.”
+          Selon l’article L2334-15 du CGCT, elle “
+          <em>
+            a pour objet de contribuer à l&apos;amélioration
+            des conditions de vie dans les communes urbaines confrontées à une insuffisance de
+            leurs ressources et supportant des charges élevées.
+          </em>
+          ”.
           <br />
           <br />
           <img alt="DSU" src="/static/images/dsu.png" />

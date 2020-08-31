@@ -8,8 +8,12 @@ export class PotentielFinancierHelpWindow extends PureComponent {
     return (
       <HelpWindow name="potentiel financier" title="Qu’est-ce que le potentiel financier ?">
         <div className={styles.container}>
-          Le potentiel financier est un indicateur des ressources d&apos;une
-          collectivité locale. Celui-ci rend compte des différentes richesses
+          Le potentiel financier est un
+          {" "}
+          <strong>
+          indicateur des ressources d&apos;une collectivité locale
+          </strong>
+          . Celui-ci rend compte des différentes richesses
           perçues par la commune sur son territoire.
           <br />
           <br />
@@ -28,9 +32,11 @@ export class PotentielFinancierHelpWindow extends PureComponent {
           financier par habitant de XXX €.
           <br />
           <br />
-          Cette explication est volontairement simplifiée. Pour toute référence exacte,
-          il faut vous fier uniquement au Code Général des Collectivités Territoriales,
-          et/ou aux écrits de la DGCL.
+          <em>
+            Cette explication est volontairement simplifiée. Pour toute référence exacte,
+            il faut vous fier uniquement au Code Général des Collectivités Territoriales,
+            et/ou aux écrits de la DGCL.
+          </em>
         </div>
       </HelpWindow>
     );
