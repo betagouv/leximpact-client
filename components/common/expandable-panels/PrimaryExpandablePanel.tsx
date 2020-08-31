@@ -7,7 +7,7 @@ import styles from "./PrimaryExpandablePanel.module.scss";
 interface Props {
   expanded?: boolean;
   subTitle?: string;
-  title: string;
+  title: string|JSX.Element;
   icon?: JSX.Element;
 }
 

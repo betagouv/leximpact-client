@@ -1,0 +1,1 @@
+export { TrendHelpWindow } from "./TrendHelpWindow";
