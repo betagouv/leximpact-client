@@ -1,5 +1,6 @@
 import CloseIcon from "@material-ui/icons/Close";
-import { PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { createRef, PureComponent, RefObject } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
@@ -27,6 +28,13 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 class HelpWindow extends PureComponent<PropsFromRedux & Props> {
+  backgroundElement: RefObject<any>;
+
+  constructor(props) {
+    super(props);
+    this.backgroundElement = createRef();
+  }
+
   render() {
     const {
       children, close, isVisible, title,
@@ -37,7 +45,12 @@ class HelpWindow extends PureComponent<PropsFromRedux & Props> {
     }
 
     return (
-      <div className={styles.container}>
+      // eslint-disable-next-line
+      <div
+        ref={this.backgroundElement}
+        className={styles.container}
+        onClick={({ target }) => target === this.backgroundElement.current && close()}
+      >
         <div className={styles.window}>
           <div className={styles.header}>
             <span>{title}</span>
