@@ -5,14 +5,18 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../redux/reducers";
+import { InformationPanel } from "../../common";
 import { CommuneSearch } from "./commune-search";
 import { CommuneStrateDetails } from "./commune-strate-details";
 import { CommuneSummary } from "./commune-summary";
 import { CommuneType } from "./commune-type";
 import styles from "./Results.module.scss";
 
-const mapStateToProps = ({ descriptions }: RootState) => ({
+const INFORMATION_PANEL_NAME = "dotations";
+
+const mapStateToProps = ({ descriptions, display }: RootState) => ({
   communesTypes: descriptions.dotations.communesTypes,
+  isInformationPanelVisible: display.currentInformationPanels.includes(INFORMATION_PANEL_NAME),
 });
 
 const connector = connect(mapStateToProps);
@@ -23,12 +27,24 @@ type Props = PropsFromRedux & {}
 
 class Results extends PureComponent<Props> {
   render() {
-    const { communesTypes } = this.props;
+    const { communesTypes, isInformationPanelVisible } = this.props;
     const url = new URLSearchParams(window.location.search);
     const isDsuVisible = url.has("dsu");
     const isSearchVisible = url.has("search");
     return (
       <div className={styles.container}>
+        {isInformationPanelVisible && (
+          <Grid container spacing={3}>
+            <Grid item>
+              <InformationPanel name={INFORMATION_PANEL_NAME} title="Information">
+                Les montants des dotations calculées ci-dessous sont des estimations.
+                Elles s’appuient sur les données disponibles des années précédentes et
+                peuvent donc différer des montants effectivement perçus l’année prochaine.
+                Seuls les montants calculés par la DGCL feront foi.
+              </InformationPanel>
+            </Grid>
+          </Grid>
+        )}
         <Grid container spacing={3}>
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSummary dotation="dsr" />

@@ -8,15 +8,17 @@ import { GagnantsPerdantsCard } from "./gagnants-perdants";
 import styles from "./impact-component.module.scss";
 import SimpleCard from "./simple-card";
 
+export const INFORMATION_PANEL_NAME = "ir";
+
 class ImpactComponent extends PureComponent {
   render() {
-    const { casTypes, isUserLogged } = this.props;
+    const { casTypes, isInformationPanelVisible, isUserLogged } = this.props;
     return (
       <div className={styles.container}>
         <Grid container spacing={3}>
-          {isUserLogged && (
+          {isInformationPanelVisible && isUserLogged && (
             <Grid item xs={12}>
-              <InformationPanel name="ir" title="Epidémie de Covid-19">
+              <InformationPanel name={INFORMATION_PANEL_NAME} title="Epidémie de Covid-19">
                 L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qui
                 est à ce jour impossible à prévoir, les résultats que nous affichons sont
                 très probablement surestimés.
@@ -64,6 +66,7 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
+  isInformationPanelVisible: PropTypes.bool.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
 };
 

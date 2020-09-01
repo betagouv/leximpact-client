@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
-import React, { Fragment, PureComponent } from "react";
+import React, { PureComponent } from "react";
 // eslint-disable-next-line no-unused-vars
 import { connect, ConnectedProps } from "react-redux";
 
@@ -105,7 +105,7 @@ class InformationPanel extends PureComponent<PropsFromRedux & Props> {
     } = this.props;
 
     if (!isVisible) {
-      return <Fragment />;
+      return null;
     }
 
     return (
