@@ -6,13 +6,11 @@ import ImpactComponent from "./impact-component";
 
 const mapStateToProps = ({
   descriptions,
-  display,
   token,
 }: RootState) => {
   const isUserLogged = Boolean(token);
   return {
     casTypes: descriptions.ir.casTypes,
-    isInformationPanelVisible: display.isInformationPanelVisible,
     isUserLogged,
   };
 };

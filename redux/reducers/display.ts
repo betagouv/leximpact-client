@@ -3,12 +3,12 @@ import { HideHelpWindowAction, HideInformationPanelAction, ShowHelpWindowAction 
 
 interface State {
   currentHelpWindow: string|null;
-  isInformationPanelVisible: boolean;
+  currentInformationPanels: string[];
 }
 
 const DEFAULT_STATE: State = {
   currentHelpWindow: null,
-  isInformationPanelVisible: true,
+  currentInformationPanels: ["ir", "dotations"],
 };
 
 type DisplayAction =
@@ -31,7 +31,7 @@ export function display(state = DEFAULT_STATE, action: DisplayAction): State {
   case "HIDE_INFORMATION_PANEL":
     return {
       ...state,
-      isInformationPanelVisible: false,
+      currentInformationPanels: state.currentInformationPanels.filter(name => name !== action.name),
     };
   default:
     return state;

@@ -2,21 +2,30 @@ import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
+import { InformationPanel } from "../../common";
 import CarteEtat from "./carte-etat";
 import { GagnantsPerdantsCard } from "./gagnants-perdants";
 import styles from "./impact-component.module.scss";
-import InformationPanel from "./information-panel";
 import SimpleCard from "./simple-card";
 
 class ImpactComponent extends PureComponent {
   render() {
-    const { casTypes, isInformationPanelVisible, isUserLogged } = this.props;
+    const { casTypes, isUserLogged } = this.props;
     return (
       <div className={styles.container}>
         <Grid container spacing={3}>
-          {isInformationPanelVisible && isUserLogged && (
+          {isUserLogged && (
             <Grid item xs={12}>
-              <InformationPanel />
+              <InformationPanel name="ir" title="Epidémie de Covid-19">
+                L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qui
+                est à ce jour impossible à prévoir, les résultats que nous affichons sont
+                très probablement surestimés.
+                <br />
+                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
+                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
+                d&apos;années passées. Dès que nous aurons plus d&apos;informations,
+                nous recalibrerons le modèle en conséquence.
+              </InformationPanel>
             </Grid>
           )}
           {isUserLogged && (
@@ -55,7 +64,6 @@ ImpactComponent.propTypes = {
       revenu: PropTypes.number,
     }),
   ).isRequired,
-  isInformationPanelVisible: PropTypes.bool.isRequired,
   isUserLogged: PropTypes.bool.isRequired,
 };
 

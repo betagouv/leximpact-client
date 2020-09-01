@@ -2,16 +2,17 @@ import lightBulb from "@iconify/icons-twemoji/light-bulb";
 import { Icon } from "@iconify/react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import PropTypes from "prop-types";
-import React, { PureComponent } from "react";
+import React, { Fragment, PureComponent } from "react";
+// eslint-disable-next-line no-unused-vars
+import { connect, ConnectedProps } from "react-redux";
+
+import { hideInformationPanel } from "../../../redux/actions";
+// eslint-disable-next-line no-unused-vars
+import { RootState } from "../../../redux/reducers";
 
 const styles = () => ({
   cardContainer: {
@@ -75,14 +76,37 @@ const styles = () => ({
   },
 });
 
-class InformationPanel extends PureComponent {
+interface Props {
+  classes: any;
+  title: string;
+  name: string;
+}
+
+const mapStateToProps = ({ display }: RootState, { name }: Props) => ({
+  isVisible: display.currentInformationPanels.includes(name),
+});
+
+const mapDispatchToProps = (dispatch, { name }: Props) => ({
+  onClose: () => dispatch(hideInformationPanel(name)),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+class InformationPanel extends PureComponent<PropsFromRedux & Props> {
   render() {
     const {
+      children,
       classes,
+      isVisible,
       onClose,
+      title,
     } = this.props;
 
-    const isExpansionPanelVisible = false;
+    if (!isVisible) {
+      return <Fragment />;
+    }
 
     return (
       <Card className={classes.cardContainer}>
@@ -93,34 +117,11 @@ class InformationPanel extends PureComponent {
             </div>
             <div className={classes.divTitre}>
               <Typography className={classes.titleCard}>
-                Epidémie de Covid-19
+                {title}
               </Typography>
               <Typography className={classes.subtitleCard}>
-                L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qu&apos;il
-                est à ce jour impossible à prévoir, les résultats que nous affichons sont
-                très probablement surestimés.
-                <br />
-                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
-                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
-                d&apos;années passées. Dès que nous aurons plus d&apos;informations,
-                nous recalibrerons le modèle en conséquence.
+                {children}
               </Typography>
-
-              {isExpansionPanelVisible && (
-                <ExpansionPanel
-                  classes={{ root: classes.styleExpansionPanel }}>
-                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography className={classes.subtitleEnSavoirPlus}>
-                      En savoir plus
-                    </Typography>
-                  </ExpansionPanelSummary>
-                  <ExpansionPanelDetails>
-                    <Typography className={classes.subtitleEnSavoirPlus}>
-                      Texte de &quot;En savoir plus&quot;
-                    </Typography>
-                  </ExpansionPanelDetails>
-                </ExpansionPanel>
-              )}
             </div>
 
             <div className={classes.cardHeaderButtons}>
@@ -138,9 +139,7 @@ class InformationPanel extends PureComponent {
     );
   }
 }
-InformationPanel.propTypes = {
-  classes: PropTypes.shape().isRequired,
-  onClose: PropTypes.func.isRequired,
-};
 
-export default withStyles(styles)(InformationPanel);
+const Component = withStyles(styles as any)(connector(InformationPanel));
+
+export { Component as InformationPanel };

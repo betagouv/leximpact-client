@@ -4,6 +4,7 @@ export * from "./card";
 export * from "./expandable-panels";
 export * from "./help-button";
 export * from "./help-window";
+export * from "./information-panel";
 export { default as SimulationPage } from "./simulation-page";
 export * from "./tooltips";
 export * from "./utils";
