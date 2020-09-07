@@ -154,7 +154,7 @@ interface ResponseBody {
           code: string;
           eligible: boolean;
           dotationParHab: number;
-          dotationParHabATerme: number;
+          dotationParHabAnneeSuivante: number;
           dureeAvantTerme: number;
         }[]
       },

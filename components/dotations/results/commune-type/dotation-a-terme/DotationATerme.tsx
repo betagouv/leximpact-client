@@ -38,7 +38,7 @@ class DotationATerme extends PureComponent<PropsFromRedux & Props> {
         <div className={styles.dotationParHab}>
           <ResultValues
             decimals={0}
-            path={`dotations.state.communes.dsr.communes.${index}.dotationParHabATerme`}
+            path={`dotations.state.communes.dsr.communes.${index}.dotationParHab`}
           />
           <span>&nbsp;&nbsp;€ /hab.</span>
         </div>
