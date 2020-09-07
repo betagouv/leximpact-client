@@ -63,9 +63,9 @@ export class DsuEligibilite extends PureComponent {
         {" "}
         et
         {" "}
-        <ParameterValues path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
+        <ParameterValues offset={-1} path="dotations.communes.dsu.eligibilite.popMinSeuilHaut" />
         {" "}
-        [exclu] habitants, classées, chaque année,
+        habitants, classées, chaque année,
         en fonction d&apos;un indice synthétique de ressources
         et de charges défini à
         {" "}

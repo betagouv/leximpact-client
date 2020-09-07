@@ -29,7 +29,6 @@ class Results extends PureComponent<Props> {
   render() {
     const { communesTypes, isInformationPanelVisible } = this.props;
     const url = new URLSearchParams(window.location.search);
-    const isDsuVisible = url.has("dsu");
     const isSearchVisible = url.has("search");
     return (
       <div className={styles.container}>
@@ -49,11 +48,9 @@ class Results extends PureComponent<Props> {
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSummary dotation="dsr" />
           </Grid>
-          {isDsuVisible && (
             <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
               <CommuneSummary dotation="dsu" />
             </Grid>
-          )}
           <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
             <CommuneStrateDetails />
           </Grid>
