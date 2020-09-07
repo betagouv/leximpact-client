@@ -36,7 +36,7 @@ const DEFAULT_STATE: Commune[] = [
     departement: "Ain",
     habitants: 330,
     name: "Aranc",
-    potentielFinancier: 315797,
+    potentielFinancier: 956.960606,
   },
 ];
 
