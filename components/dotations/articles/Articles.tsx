@@ -20,7 +20,6 @@ import { MontantDsrDsu } from "./montant-dsr-dsu";
 export class Articles extends PureComponent {
   render() {
     const url = new URLSearchParams(window.location.search);
-    const isDsuVisible = url.has("dsu");
     const isDfVisible = url.has("df");
     const isMontantsVisible = url.has("montants");
     return (
@@ -71,27 +70,25 @@ export class Articles extends PureComponent {
               </SecondaryExpandablePanel>
             </PrimaryExpandablePanel>
           )}
-          {isDsuVisible && (
-            <PrimaryExpandablePanel
-              icon={<LocationCityIcon />}
-              title="Dotation de solidarité urbaine (DSU)">
-              <SecondaryExpandablePanel
-                subTitle="Article L2334-16 du CGCT"
-                title="Périmètre général d&apos;éligibilité">
-                <DsuEligibilite />
-              </SecondaryExpandablePanel>
-              <SecondaryExpandablePanel
-                subTitle="Articles L2334-18-2 et L2334-18-4 du CGCT"
-                title="Répartition">
-                <DsuRepartition />
-              </SecondaryExpandablePanel>
-              <SecondaryExpandablePanel
-                subTitle="Article L2334-17 du CGCT"
-                title="Définition de l’indice synthétique">
-                <DsuIndice />
-              </SecondaryExpandablePanel>
-            </PrimaryExpandablePanel>
-          )}
+          <PrimaryExpandablePanel
+            icon={<LocationCityIcon />}
+            title="Dotation de solidarité urbaine (DSU)">
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-16 du CGCT"
+              title="Périmètre général d&apos;éligibilité">
+              <DsuEligibilite />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Articles L2334-18-2 et L2334-18-4 du CGCT"
+              title="Répartition">
+              <DsuRepartition />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-17 du CGCT"
+              title="Définition de l’indice synthétique">
+              <DsuIndice />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel>
           {isMontantsVisible && (
             <PrimaryExpandablePanel
               title="Montant des dotations">

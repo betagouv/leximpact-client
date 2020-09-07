@@ -42,8 +42,6 @@ class CommuneType extends PureComponent<Props> {
     const {
       departement, habitants, index, isFetching, name, potentielFinancier, remove,
     } = this.props;
-    const url = new URLSearchParams(window.location.search);
-    const isDsuVisible = url.has("dsu");
     return (
       <Card
         colored
@@ -79,23 +77,21 @@ class CommuneType extends PureComponent<Props> {
                     <DotationParHab dotation="dsr" index={index} />
                   </div>
                 </div>
-                {isDsuVisible && (
-                  <div className={styles.dotation}>
-                    <div className={styles.icons}>
-                      <div>
-                        <LocationCityIcon />
-                      </div>
-                      <div>
-                        <DotationDiff dotation="dsu" index={index} />
-                      </div>
-                      <div />
+                <div className={styles.dotation}>
+                  <div className={styles.icons}>
+                    <div>
+                      <LocationCityIcon />
                     </div>
-                    <div className={styles.text}>
-                      <Eligibilite dotation="dsu" index={index} />
-                      <DotationParHab dotation="dsu" index={index} />
+                    <div>
+                      <DotationDiff dotation="dsu" index={index} />
                     </div>
+                    <div />
                   </div>
-                )}
+                  <div className={styles.text}>
+                    <Eligibilite dotation="dsu" index={index} />
+                    <DotationParHab dotation="dsu" index={index} />
+                  </div>
+                </div>
               </Fragment>
             )}
         subTitle={departement}
