@@ -41,7 +41,7 @@ type Props = PropsFromRedux & Commune & {
 class CommuneType extends PureComponent<Props> {
   render() {
     const {
-      departement, habitants, index, isFetching, name, potentielFinancier, remove,
+      departement, habitants, index, isFetching, name, potentielFinancierParHab, remove,
     } = this.props;
     return (
       <Card
@@ -52,7 +52,7 @@ class CommuneType extends PureComponent<Props> {
               <HabitantLabel habitants={habitants} />
             </div>
             <PotentielFinancier
-              potentielFinancier={potentielFinancier}
+              potentielFinancier={potentielFinancierParHab}
             />
           </Fragment>
         )}

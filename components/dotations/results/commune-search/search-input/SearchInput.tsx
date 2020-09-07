@@ -8,13 +8,7 @@ import { PureComponent } from "react";
 
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../../redux/reducers/descriptions/dotations";
-// import request from "../../../../common/utils/request";
-
-function sleep(delay = 0) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, delay);
-  });
-}
+import request from "../../../../common/utils/request";
 
 interface Props {
   onChange: (commune: Commune) => void;
@@ -26,9 +20,7 @@ interface State {
   value: Commune | null;
 }
 
-// interface ResponseBody {
-//   communes: Commune[]
-// }
+type ResponseBody = Commune[];
 
 export class SearchInput extends PureComponent<Props, State> {
   constructor(props) {
@@ -45,39 +37,16 @@ export class SearchInput extends PureComponent<Props, State> {
   async search(search: string): Promise<void> {
     this.setState({ communes: null });
 
-    // await request
-    //   .get(`/dotations?search=${encodeURI(search)}`)
-    //   .then(({ communes }: ResponseBody) => {
-    //     this.setState({ communes });
-    //   })
-    //   .catch(() => {});
+    if (!search) {
+      return;
+    }
 
-    await sleep(1e3);
-    this.setState({
-      communes: [
-        {
-          code: "76384",
-          departement: "Seine-Maritime",
-          habitants: 9101,
-          name: "Lillebonne",
-          potentielFinancier: 2188.612857,
-        },
-        {
-          code: "76214",
-          departement: "Seine-Maritime",
-          habitants: 262,
-          name: "Dénestanville",
-          potentielFinancier: 706.242647,
-        },
-        {
-          code: "77186",
-          departement: "Seine-et-Marne",
-          habitants: 15417,
-          name: "Fontainebleau",
-          potentielFinancier: 1110.296193,
-        },
-      ],
-    });
+    await request
+      .get(`/search?commune=${encodeURI(search)}`)
+      .then((communes: ResponseBody) => {
+        this.setState({ communes });
+      })
+      .catch(() => {});
   }
 
   render() {
