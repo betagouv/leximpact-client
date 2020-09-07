@@ -14,6 +14,8 @@ export interface DotationsState {
         code: string;
         eligible: boolean;
         dotationParHab: number;
+        dotationParHabAnneeSuivante: number;
+        dureeAvantTerme: number;
       }[]
     }
     dsu: {

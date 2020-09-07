@@ -151,9 +151,11 @@ interface ResponseBody {
           partDotationTotale: number;
         }[],
         communes: {
-          code: string; // OR id, I'm ok with both.
+          code: string;
           eligible: boolean;
           dotationParHab: number;
+          dotationParHabAnneeSuivante: number;
+          dureeAvantTerme: number;
         }[]
       },
       dsu: {
@@ -167,7 +169,7 @@ interface ResponseBody {
           partDotationTotale: number;
         }[],
         communes: {
-          code: string; // OR id, I'm ok with both.
+          code: string;
           eligible: boolean;
           dotationParHab: number;
         }[]
