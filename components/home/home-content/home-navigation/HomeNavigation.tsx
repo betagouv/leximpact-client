@@ -18,7 +18,7 @@ export class HomeNavigation extends PureComponent {
         </button>
         <button type="button" onClick={() => Router.push("/dotations")}>
           <img alt="" src="/icons/picto-dotations-communes.png" />
-          sur les dotations aux collectivités territoriales
+          sur les dotations aux communes
         </button>
       </div>
     );
