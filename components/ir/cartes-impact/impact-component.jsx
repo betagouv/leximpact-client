@@ -17,16 +17,13 @@ class ImpactComponent extends PureComponent {
       <div className={styles.container}>
         <Grid container spacing={3}>
           {isInformationPanelVisible && isUserLogged && (
-            <Grid item xs={12}>
-              <InformationPanel name={INFORMATION_PANEL_NAME} title="Epidémie de Covid-19">
+            <Grid item lg={8} md={12} sm={12} xl={9} xs={12}>
+              <InformationPanel name={INFORMATION_PANEL_NAME} title="Incidence de la crise sanitaire sur les résultats">
                 L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qui
-                est à ce jour impossible à prévoir, les résultats que nous affichons sont
-                très probablement surestimés.
-                <br />
-                Les estimations de Leximpact des effets sur le budget de l&apos;État sont
-                calculées à partir de données recalibrées s&apos;appuyant sur des enquêtes
-                d&apos;années passées. Dès que nous aurons plus d&apos;informations,
-                nous recalibrerons le modèle en conséquence.
+                est à ce jour difficile à prévoir, les résultats que nous affichons sont
+                très probablement surestimés. Les estimations de Leximpact des effets sur
+                le budget de l&apos;État sont calculées à partir de données recalibrées
+                s&apos;appuyant sur des enquêtes d&apos;années passées.
               </InformationPanel>
             </Grid>
           )}

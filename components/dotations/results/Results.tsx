@@ -34,12 +34,14 @@ class Results extends PureComponent<Props> {
       <div className={styles.container}>
         {isInformationPanelVisible && (
           <Grid container spacing={3}>
-            <Grid item>
-              <InformationPanel name={INFORMATION_PANEL_NAME} title="Information">
-                Les montants des dotations calculées ci-dessous sont des estimations.
-                Elles s’appuient sur les données disponibles des années précédentes et
+            <Grid item lg={8} md={12} sm={12} xl={9} xs={12}>
+              <InformationPanel
+                name={INFORMATION_PANEL_NAME}
+                title="Les montants des dotations calculées ci-dessous sont des estimations."
+              >
+                Les dotations de LexImpact s’appuient sur les données de l’année 2019. Elles
                 peuvent donc différer des montants effectivement perçus l’année prochaine.
-                Seuls les montants calculés par la DGCL feront foi.
+                Seuls les montants calculés par la DGCL font foi.
               </InformationPanel>
             </Grid>
           </Grid>
