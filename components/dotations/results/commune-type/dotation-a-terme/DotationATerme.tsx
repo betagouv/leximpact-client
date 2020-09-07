@@ -26,8 +26,6 @@ class DotationATerme extends PureComponent<PropsFromRedux & Props> {
     const {
       amendement, base, index, plf,
     } = this.props;
-    const today = new Date().getFullYear();
-    // TODO: remove "|| base === undefined" once the server API is implemented.
     if (amendement === plf && plf === base && (base === 1 || base === undefined)) {
       return <div />;
     }
@@ -35,16 +33,7 @@ class DotationATerme extends PureComponent<PropsFromRedux & Props> {
     return (
       <div className={styles.container}>
         <div className={styles.text}>
-          Point d&apos;arrivée en
-          {" "}
-          {today + Math.max(amendement || 1, base || 1, plf || 1)}
-          {/* <Values
-            amendementValue={amendement ? today + amendement : undefined}
-            baseValue={base ? today + base : undefined}
-            plfValue={plf ? today + plf : undefined}
-          /> */}
-          {" "}
-          :
+          Montant à terme :
         </div>
         <div className={styles.dotationParHab}>
           <ResultValues
