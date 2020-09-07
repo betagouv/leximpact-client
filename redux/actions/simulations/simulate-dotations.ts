@@ -237,14 +237,14 @@ function convertPlafonnementPopulationAndVariation(
     },
     montants: {
       dgf: dotations.montants.dgf,
-      // dsr: {
-      //   variation: dotations.montants.dsrAndDsu.variation * 1000000,
-      // },
-      // dsu: {
-      //   variation: dotations.montants.dsrAndDsu.variation * 1000000,
-      // },
+      dsr: {
+        variation: dotations.montants.dsrAndDsu.variation * 1000000,
+      },
+      dsu: {
+        variation: dotations.montants.dsrAndDsu.variation * 1000000,
+      },
     },
-  } as any;
+  };
 }
 
 function convertRates(dotations: RequestDotationsState): RequestDotationsState {
