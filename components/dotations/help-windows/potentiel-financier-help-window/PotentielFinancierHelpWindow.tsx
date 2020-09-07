@@ -28,8 +28,8 @@ export class PotentielFinancierHelpWindow extends PureComponent {
           <br />
           L&apos;indicateur peut être donné pour la commune, ou rapporté à son nombre
           d&apos;habitants, comme nous le faisons sur LexImpact. Par exemple, la commune
-          de XXXX à un potentiel financier de XXXX €, ce qui représente un potentiel
-          financier par habitant de XXX €.
+          d&apos;Aranc a un potentiel financier de 315 797 €, ce qui représente un potentiel
+          financier par habitant de 820 €.
           <br />
           <br />
           <em>
