@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { Commune } from "../../reducers/descriptions/dotations";
+import { Commune } from "../../../reducers/descriptions/dotations";
 
 export interface AddCommuneTypeAction {
   type: "ADD_COMMUNE_TYPE";
