@@ -15,7 +15,7 @@ export class PotentielFinancier extends PureComponent<Props> {
         <div className={styles.legend}>
           Potentiel financier
         </div>
-        <div>
+        <div className={styles.potentielFinancier}>
           <span className={styles.text}>
             {formatNumber(potentielFinancier, { decimals: 0 })}
             <span> € /hab.</span>

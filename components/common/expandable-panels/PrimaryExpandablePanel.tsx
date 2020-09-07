@@ -64,7 +64,7 @@ export class PrimaryExpandablePanel extends PureComponent<Props, State> {
             </span>
             {
               help && (
-                <span ref={this.helpButtonRef}>
+                <span ref={this.helpButtonRef} className={styles.help}>
                   <HelpButton name={help} />
                 </span>
               )

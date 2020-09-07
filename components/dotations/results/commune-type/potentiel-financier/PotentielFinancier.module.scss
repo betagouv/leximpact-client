@@ -6,6 +6,14 @@
   font-size: 0.8rem;
 }
 
+.potentielFinancier {
+  display: flex;
+
+  :last-child {
+    margin-left: 2px;
+  }
+}
+
 .text {
   font-size: 1rem;
   font-weight: bold;
