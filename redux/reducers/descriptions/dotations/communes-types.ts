@@ -31,6 +31,13 @@ const DEFAULT_STATE: Commune[] = [
     name: "Fontainebleau",
     potentielFinancier: 1110.296193,
   },
+  {
+    code: "01012",
+    departement: "Ain",
+    habitants: 330,
+    name: "Aranc",
+    potentielFinancier: 956.960606,
+  },
 ];
 
 export function communesTypes(

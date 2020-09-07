@@ -67,14 +67,7 @@
   }
 }
 
-
-.dsr {
-  tr:nth-child(odd) {
-    background-color: $light-grey-bg-color;
-  }
-}
-
-.dsrAndDsu {
+.twolines {
   tr:nth-child(4n+2) {
     background-color: $light-grey-bg-color;
   }  

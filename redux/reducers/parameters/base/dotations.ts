@@ -8,7 +8,7 @@ export const BASE_DOTATIONS_DEFAULT_STATE: DotationsState = {
   montants: {
     dgf: 26846874416,
     dsrAndDsu: {
-      variation: 0,
+      variation: 90,
     },
   },
   communes: {
@@ -83,7 +83,7 @@ export const BASE_DOTATIONS_DEFAULT_STATE: DotationsState = {
         popMinSeuilHaut: 10000,
         rapportPotentielFinancier: 2.5,
         pourcentageRangSeuilBas: 10,
-        pourcentageRangSeuilHaut: 67,
+        pourcentageRangSeuilHaut: 66.6,
         // Article L2334-17 du CGCT
         indiceSynthetique: {
           ponderationPotentielFinancier: 30,

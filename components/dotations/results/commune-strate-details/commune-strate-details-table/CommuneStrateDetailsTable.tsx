@@ -33,8 +33,6 @@ type Props = PropsFromRedux & {
 class CommuneStrateDetailsTable extends PureComponent<Props> {
   render() {
     const { isFetching, strates } = this.props;
-    const url = new URLSearchParams(window.location.search);
-    const isDsuVisible = url.has("dsu");
     return (
       <div className={styles.container}>
         <table className={styles.table}>
@@ -66,12 +64,12 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
             </tr>
           </thead>
           {!isFetching && (
-            <tbody className={isDsuVisible ? styles.dsrAndDsu : styles.dsr}>
+            <tbody className={styles.twolines}>
               {
                 strates.map((strate, index) => (
                   <Fragment>
                     <tr key={strate.description.habitants * 2}>
-                      <th rowSpan={isDsuVisible ? 2 : 1} scope="row">
+                      <th rowSpan={2} scope="row">
                         {
                           strate.description.habitants === -1 ? (
                             <Fragment>
@@ -88,15 +86,15 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         }
 
                       </th>
-                      <td rowSpan={isDsuVisible ? 2 : 1}>
+                      <td rowSpan={2}>
                         <TrendArrow value={strate.baseToAmendement?.diffDotationMoyenneParHab} />
                       </td>
-                      <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
+                      <td className={styles.light} rowSpan={2}>
                         {formatNumber(strate.description.partPopTotale, { decimals: 0 })}
                         {" "}
                         %
                       </td>
-                      <td className={styles.light} rowSpan={isDsuVisible ? 2 : 1}>
+                      <td className={styles.light} rowSpan={2}>
                         {formatNumber(
                           strate.description.potentielFinancierMoyenParHab,
                           { decimals: 2 },
@@ -124,33 +122,29 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                         %
                       </td>
                     </tr>
-                    {
-                      isDsuVisible && (
-                        <tr key={strate.description.habitants * 2 + 1}>
-                          <td>
-                            <LocationCityIcon />
-                          </td>
-                          <td>
-                            <ResultValues
-                              path={`dotations.state.communes.dsu.strates.${index}.eligibles`} />
-                          </td>
-                          <td>
-                            <ResultValues
-                              decimals={2}
-                              path={`dotations.state.communes.dsu.strates.${index}.dotationMoyenneParHab`} />
-                            {" "}
-                            €
-                          </td>
-                          <td>
-                            <ResultValues
-                              decimals={0}
-                              path={`dotations.state.communes.dsu.strates.${index}.partDotationTotale`} />
-                            {" "}
-                            %
-                          </td>
-                        </tr>
-                      )
-                    }
+                    <tr key={strate.description.habitants * 2 + 1}>
+                      <td>
+                        <LocationCityIcon />
+                      </td>
+                      <td>
+                        <ResultValues
+                          path={`dotations.state.communes.dsu.strates.${index}.eligibles`} />
+                      </td>
+                      <td>
+                        <ResultValues
+                          decimals={2}
+                          path={`dotations.state.communes.dsu.strates.${index}.dotationMoyenneParHab`} />
+                        {" "}
+                        €
+                      </td>
+                      <td>
+                        <ResultValues
+                          decimals={0}
+                          path={`dotations.state.communes.dsu.strates.${index}.partDotationTotale`} />
+                        {" "}
+                        %
+                      </td>
+                    </tr>
                   </Fragment>
                 ))
               }
