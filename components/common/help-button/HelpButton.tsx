@@ -26,7 +26,6 @@ class HelpButton extends PureComponent<PropsFromRedux & Props> {
     return (
       <HelpOutlineIcon
         className={styles.btn}
-        fontSize="small"
         onClick={showHelp} />
     );
   }
