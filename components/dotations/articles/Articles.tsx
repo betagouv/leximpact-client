@@ -71,26 +71,26 @@ export class Articles extends PureComponent {
               </SecondaryExpandablePanel>
             </PrimaryExpandablePanel>
           )}
-            <PrimaryExpandablePanel
-              help="dsu"
-              icon={<LocationCityIcon />}
-              title="Dotation de solidarité urbaine (DSU)">
-              <SecondaryExpandablePanel
-                subTitle="Article L2334-16 du CGCT"
-                title="Périmètre général d&apos;éligibilité">
-                <DsuEligibilite />
-              </SecondaryExpandablePanel>
-              <SecondaryExpandablePanel
-                subTitle="Articles L2334-18-2 et L2334-18-4 du CGCT"
-                title="Répartition">
-                <DsuRepartition />
-              </SecondaryExpandablePanel>
-              <SecondaryExpandablePanel
-                subTitle="Article L2334-17 du CGCT"
-                title="Définition de l’indice synthétique">
-                <DsuIndice />
-              </SecondaryExpandablePanel>
-            </PrimaryExpandablePanel>
+          <PrimaryExpandablePanel
+            help="dsu"
+            icon={<LocationCityIcon />}
+            title="Dotation de solidarité urbaine (DSU)">
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-16 du CGCT"
+              title="Périmètre général d&apos;éligibilité">
+              <DsuEligibilite />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Articles L2334-18-2 et L2334-18-4 du CGCT"
+              title="Répartition">
+              <DsuRepartition />
+            </SecondaryExpandablePanel>
+            <SecondaryExpandablePanel
+              subTitle="Article L2334-17 du CGCT"
+              title="Définition de l’indice synthétique">
+              <DsuIndice />
+            </SecondaryExpandablePanel>
+          </PrimaryExpandablePanel>
           {isMontantsVisible && (
             <PrimaryExpandablePanel
               title="Montant des dotations">
