@@ -48,9 +48,9 @@ class Results extends PureComponent<Props> {
           <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
             <CommuneSummary dotation="dsr" />
           </Grid>
-            <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
-              <CommuneSummary dotation="dsu" />
-            </Grid>
+          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+            <CommuneSummary dotation="dsu" />
+          </Grid>
           <Grid item lg={8} md={12} sm={6} xl={6} xs={12}>
             <CommuneStrateDetails />
           </Grid>
