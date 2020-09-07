@@ -3,7 +3,7 @@ import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { Fragment, PureComponent } from "react";
 
-import { HelpButton, PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
+import { PrimaryExpandablePanel, SecondaryExpandablePanel } from "../../common";
 import { DfEcretementPereque } from "./df-ecretement-pereque";
 import { DfReglesGenerales } from "./df-regles-generales";
 import { DsrEligibilite } from "./dsr-eligibilite";
@@ -29,15 +29,9 @@ export class Articles extends PureComponent {
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
+            help="dsr"
             icon={<LocalFloristIcon />}
-            title={(
-              <Fragment>
-                Dotation de solidarité rurale (DSR)
-                {" "}
-                <HelpButton name="dsr" />
-                {" "}
-              </Fragment>
-            )}>
+            title="Dotation de solidarité rurale (DSR)">
             <SecondaryExpandablePanel
               expanded
               subTitle="Article L2334-20 du CGCT"
@@ -80,15 +74,9 @@ export class Articles extends PureComponent {
           )}
           {isDsuVisible && (
             <PrimaryExpandablePanel
+              help="dsu"
               icon={<LocationCityIcon />}
-              title={(
-                <Fragment>
-                  Dotation de solidarité urbaine (DSU)
-                  {" "}
-                  <HelpButton name="dsu" />
-                  {" "}
-                </Fragment>
-              )}>
+              title="Dotation de solidarité urbaine (DSU)">
               <SecondaryExpandablePanel
                 subTitle="Article L2334-16 du CGCT"
                 title="Périmètre général d&apos;éligibilité">
