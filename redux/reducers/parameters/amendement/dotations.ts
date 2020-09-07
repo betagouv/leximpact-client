@@ -8,15 +8,7 @@ import { BASE_DOTATIONS_DEFAULT_STATE } from "../base";
 import { DotationsState } from "../interfaces";
 import { PLF_DOTATIONS_DEFAULT_STATE } from "../plf";
 
-const AMENDEMENT_DOTATIONS_DEFAULT_STATE: DotationsState = {
-  ...cloneDeep(PLF_DOTATIONS_DEFAULT_STATE),
-  montants: {
-    dgf: 26846874416,
-    dsrAndDsu: {
-      variation: 90,
-    },
-  },
-};
+const AMENDEMENT_DOTATIONS_DEFAULT_STATE: DotationsState = cloneDeep(PLF_DOTATIONS_DEFAULT_STATE);
 
 type DotationsAction =
  ResetAmendementToBaseAction |
