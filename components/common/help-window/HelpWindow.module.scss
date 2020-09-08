@@ -1,0 +1,45 @@
+@import 'styles/variables';
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(171, 171, 171, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .window {
+    background-color: #D2DFFF;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2), 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 3px -3px rgba(0,0,0,.12);
+    margin-top: 64px;
+
+    .header, .content {
+      padding: 20px;
+    }
+
+    .header {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+
+      .close {
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      background-color: white;
+      max-height: 600px;
+      overflow: scroll;
+      line-height: 1.3;
+    }
+
+  }
+}
