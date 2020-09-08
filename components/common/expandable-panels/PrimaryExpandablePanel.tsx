@@ -1,7 +1,8 @@
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { PureComponent } from "react";
+import { createRef, PureComponent } from "react";
 
+import { HelpButton } from "../help-button";
 import styles from "./PrimaryExpandablePanel.module.scss";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   subTitle?: string;
   title: string;
   icon?: JSX.Element;
+  help?: string;
 }
 
 interface State {
@@ -19,6 +21,8 @@ interface State {
 export class PrimaryExpandablePanel extends PureComponent<Props, State> {
   static lastId = 0;
 
+  helpButtonRef = createRef<HTMLSpanElement>();
+
   constructor(props) {
     super(props);
     PrimaryExpandablePanel.lastId += 1;
@@ -27,14 +31,17 @@ export class PrimaryExpandablePanel extends PureComponent<Props, State> {
     this.onExpandedChange = this.onExpandedChange.bind(this);
   }
 
-  onExpandedChange() {
+  onExpandedChange(event) {
     const { expanded } = this.state;
+    if (this.helpButtonRef.current?.contains(event.target)) {
+      return;
+    }
     this.setState({ expanded: !expanded });
   }
 
   render() {
     const {
-      children, icon, subTitle, title,
+      children, help, icon, subTitle, title,
     } = this.props;
     const { expanded, id } = this.state;
     return (
@@ -48,13 +55,20 @@ export class PrimaryExpandablePanel extends PureComponent<Props, State> {
           role="button"
           tabIndex={0}
           onClick={this.onExpandedChange}
-          onKeyDown={e => e.key === "Enter" && this.onExpandedChange()}>
+          onKeyDown={e => e.key === "Enter" && this.onExpandedChange(e)}>
           <div className={styles.text}>
             {icon && <span className={styles.icon}>{icon}</span>}
             <span className={styles.title}>{title}</span>
             <span className={styles.subTitle}>
               {subTitle && ` - ${subTitle}`}
             </span>
+            {
+              help && (
+                <span ref={this.helpButtonRef} className={styles.help}>
+                  <HelpButton name={help} />
+                </span>
+              )
+            }
           </div>
           <div>
             <span aria-disabled="false" aria-hidden="true" className={styles.btn}>

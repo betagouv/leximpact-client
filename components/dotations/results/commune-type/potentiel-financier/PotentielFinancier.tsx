@@ -1,6 +1,6 @@
 import { Fragment, PureComponent } from "react";
 
-import { formatNumber } from "../../../../common";
+import { formatNumber, HelpButton } from "../../../../common";
 import styles from "./PotentielFinancier.module.scss";
 
 interface Props {
@@ -15,9 +15,12 @@ export class PotentielFinancier extends PureComponent<Props> {
         <div className={styles.legend}>
           Potentiel financier
         </div>
-        <div className={styles.text}>
-          {formatNumber(potentielFinancier, { decimals: 0 })}
-          <span> € /hab.</span>
+        <div className={styles.potentielFinancier}>
+          <span className={styles.text}>
+            {formatNumber(potentielFinancier, { decimals: 0 })}
+            <span> € /hab.</span>
+          </span>
+          <HelpButton name="potentiel financier" />
         </div>
         <div>
           {new Array(Math.trunc(potentielFinancier / 1500) + 1).fill(true).map(() => (

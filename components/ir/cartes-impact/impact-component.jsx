@@ -2,11 +2,13 @@ import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
 import { PureComponent } from "react";
 
+import { InformationPanel } from "../../common";
 import CarteEtat from "./carte-etat";
 import { GagnantsPerdantsCard } from "./gagnants-perdants";
 import styles from "./impact-component.module.scss";
-import InformationPanel from "./information-panel";
 import SimpleCard from "./simple-card";
+
+export const INFORMATION_PANEL_NAME = "ir";
 
 class ImpactComponent extends PureComponent {
   render() {
@@ -15,8 +17,14 @@ class ImpactComponent extends PureComponent {
       <div className={styles.container}>
         <Grid container spacing={3}>
           {isInformationPanelVisible && isUserLogged && (
-            <Grid item xs={12}>
-              <InformationPanel />
+            <Grid item lg={8} md={12} sm={12} xl={9} xs={12}>
+              <InformationPanel name={INFORMATION_PANEL_NAME} title="Incidence de la crise sanitaire sur les résultats">
+                L&apos;épidémie actuelle affectant l&apos;économie dans une mesure qui
+                est à ce jour difficile à prévoir, les résultats que nous affichons sont
+                très probablement surestimés. Les estimations de Leximpact des effets sur
+                le budget de l&apos;État sont calculées à partir de données recalibrées
+                s&apos;appuyant sur des enquêtes d&apos;années passées.
+              </InformationPanel>
             </Grid>
           )}
           {isUserLogged && (

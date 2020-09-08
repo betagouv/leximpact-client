@@ -102,6 +102,35 @@ export interface AsyncState<T> {
 - ... # Composants spécifiques à la page ...
 ```
 
+## Ajouter d'un composant avec un état
+
+```typescript
+interface Props {
+
+}
+
+const mapStateToProps = (state: RootState) => ({
+  // ...
+});
+
+const mapDispatchToProps = (dispatch, { name }: Props) => ({
+  // ...
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+class Foobar extends PureComponent<PropsFromRedux & Props> {
+  // ...
+}
+
+const Component = connector(Foobar);
+
+export { Component as Foobar };
+
+```
+
 ## How to use
 
 To install and launch the client in developer mode, run the following commands:
