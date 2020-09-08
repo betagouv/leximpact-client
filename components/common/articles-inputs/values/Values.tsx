@@ -117,7 +117,6 @@ class Values extends PureComponent<Props & PropsFromRedux> {
           && <span>&nbsp;&nbsp;</span>
         }
         {
-          // eslint-disable-next-line no-nested-ternary
           isDefined(amendementValue) && (
             <span>
               {
