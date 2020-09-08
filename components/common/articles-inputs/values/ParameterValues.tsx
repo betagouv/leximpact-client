@@ -34,6 +34,7 @@ type Props = PropsFromRedux & {
   offset?: number;
   path: string;
   amendementInputSize?: "small"|"xl";
+  symbol?: string;
 }
 
 function ParameterValues(props: Props) {

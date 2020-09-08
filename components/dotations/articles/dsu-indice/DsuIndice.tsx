@@ -145,27 +145,37 @@ export class DsuIndice extends PureComponent {
         <br />
         en pondérant le premier par
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationPotentielFinancier" />
-        {" "}
-        %,
+        <ParameterValues
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationPotentielFinancier"
+          symbol="%" />
         <br />
         le deuxième par
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationLogementsSociaux" />
-        {" "}
-        %,
+        <ParameterValues
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationLogementsSociaux"
+          symbol="%" />
+        ,
         <br />
         le troisième par
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationAideAuLogement" />
-        {" "}
-        %
+        <ParameterValues
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationAideAuLogement"
+          symbol="%" />
         <br />
         et le quatrième par
         {" "}
-        <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationRevenu" />
-        {" "}
-        %.
+        <ParameterValues
+          editable
+          amendementInputSize="small"
+          path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationRevenu"
+          symbol="%" />
+        .
         <br />
         <br />
         Toutefois, chacun des pourcentages de pondération peut être majoré ou

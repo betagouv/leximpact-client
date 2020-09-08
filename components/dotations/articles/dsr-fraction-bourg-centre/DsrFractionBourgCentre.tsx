@@ -33,9 +33,10 @@ class DsrFractionBourgCentre extends PureComponent<PropsFromRedux> {
           editable
           amendementInputSize="small"
           path="dotations.communes.dsr.bourgCentre.eligibilite.partPopCantonMin"
+          symbol="%"
         />
         {" "}
-        % de la population du canton, aux communes
+        de la population du canton, aux communes
         sièges des bureaux centralisateurs, ainsi qu&apos;aux communes chefs-lieux de canton
         au 1er janvier 2014 ;
         <br />
@@ -54,9 +55,10 @@ class DsrFractionBourgCentre extends PureComponent<PropsFromRedux> {
               editable
               amendementInputSize="small"
               path="dotations.communes.dsr.bourgCentre.eligibilite.exclusion.agglomeration.partPopDepartementMin"
+              symbol="%"
             />
             {" "}
-        % de la population du département ou comptant plus de
+            de la population du département ou comptant plus de
             {" "}
             <ParameterValues
               editable
