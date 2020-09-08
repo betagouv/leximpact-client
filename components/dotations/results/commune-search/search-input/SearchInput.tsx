@@ -16,8 +16,9 @@ interface Props {
 
 interface State {
   open: boolean;
-  communes: Commune[] | null;
+  communes: Commune[];
   value: Commune | null;
+  loading: boolean;
 }
 
 type ResponseBody = Commune[];
@@ -27,37 +28,45 @@ export class SearchInput extends PureComponent<Props, State> {
     super(props);
     this.state = {
       communes: [],
+      loading: false,
       open: false,
       value: null,
     };
-    this.search = debounce(this.search.bind(this), 300);
+    this.search = debounce(this.search.bind(this), 500);
   }
 
   // eslint-disable-next-line no-unused-vars
   async search(search: string): Promise<void> {
-    this.setState({ communes: null });
+    this.setState({ communes: [] });
 
-    if (!search) {
+    if (!search || search.length < 3) {
       return;
     }
+
+    this.setState({ loading: true });
 
     await request
       .get(`/search?commune=${encodeURI(search)}`)
       .then((communes: ResponseBody) => {
-        this.setState({ communes });
+        this.setState({
+          communes,
+          loading: false,
+        });
       })
       .catch(() => {});
   }
 
   render() {
     const { onChange } = this.props;
-    const { communes, open, value } = this.state;
+    const {
+      communes, loading, open, value,
+    } = this.state;
     return (
       <Autocomplete
         freeSolo
         getOptionLabel={option => `${option.name} (${option.code})`}
         open={open}
-        options={communes || []}
+        options={communes}
         renderInput={params => (
           <TextField
             {...params}
@@ -65,7 +74,7 @@ export class SearchInput extends PureComponent<Props, State> {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {communes === null && <CircularProgress color="secondary" size={20} style={{ marginRight: 10 }} />}
+                  {loading && <CircularProgress color="secondary" size={20} style={{ marginRight: 10 }} />}
                   <SearchIcon />
                 </InputAdornment>
               ),
