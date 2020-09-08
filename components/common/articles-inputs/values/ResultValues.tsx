@@ -15,9 +15,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & {
   decimals?: number;
   path: string;
-  plfTitle?: string|JSX.Element;
   amendementInputSize?: "small"|"xl";
-  amendementTitle?: string|JSX.Element;
 }
 
 function ResultValues(props: Props) {

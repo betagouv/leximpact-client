@@ -1,5 +1,26 @@
 @import 'styles/variables';
 
+.container {
+  display: flex;
+  flex-direction: row;
+
+  > div:first-child {
+    flex: 1;
+  }
+
+  > div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.part {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
 .result {
   font-size: 40px;
   font-family: $default-font-family;

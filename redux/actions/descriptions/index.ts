@@ -1,2 +1,2 @@
-export * from "./add-commune-type";
-export * from "./remove-commune-type";
+export * from "./dotations";
+export * from "./ir";

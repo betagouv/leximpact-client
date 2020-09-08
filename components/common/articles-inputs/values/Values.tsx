@@ -6,38 +6,19 @@ import { connect, ConnectedProps } from "react-redux";
 import { fetchSimPop, simulateCasTypes, simulateDotations } from "../../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../redux/reducers";
-import { PlfTooltip, ReformTooltip } from "../../tooltips";
 import { formatNumber } from "../../utils";
 import { NumberInput } from "./number-input";
 import styles from "./Values.module.scss";
 
-function withTooltip(
-  Tooltip: any, title: string|JSX.Element|undefined|null, element: JSX.Element|null,
-): JSX.Element|null {
-  if (title == null || title === undefined) {
-    return element;
-  }
-
-  return (
-    <Tooltip
-      placement="bottom-start"
-      title={title}>
-      {element}
-    </Tooltip>
-  );
-}
-
 /* The |null are added because we have JS files using this component. */
 interface Props {
   amendementInputSize?: "small"|"xl"|null;
-  amendementTitle?: string|JSX.Element|null;
   amendementValue?: number|string;
   baseValue?: number|string|null;
   decimals?: number;
   editable?: boolean,
   onAmendementChange?: (value: number) => void,
   offset?: number;
-  plfTitle?: string|JSX.Element|null;
   plfValue?: number|string|null;
 }
 
@@ -79,8 +60,8 @@ class Values extends PureComponent<Props & PropsFromRedux> {
 
   render() {
     const {
-      amendementInputSize, amendementTitle, amendementValue, baseValue,
-      decimals, editable, onAmendementChange, plfTitle, plfValue,
+      amendementInputSize, amendementValue, baseValue,
+      decimals, editable, onAmendementChange, plfValue,
     } = this.props;
 
     let { offset } = this.props;
@@ -118,16 +99,14 @@ class Values extends PureComponent<Props & PropsFromRedux> {
             && <span>&nbsp;&nbsp;</span>
         }
         {
-          isDefined(plfValue) && amendementValue !== plfValue && withTooltip(
-            PlfTooltip,
-            plfTitle,
+          isDefined(plfValue) && amendementValue !== plfValue && (
             <span className={classNames({
               [styles.baseValue]: baseValue === plfValue,
               [styles.plfValue]: baseValue !== plfValue,
               [styles.replacedWithAmendement]: amendementValue !== plfValue,
             })}>
               {typeof plfValue === "string" ? plfValue : formatNumber(plfValue + offset, { decimals })}
-            </span>,
+            </span>
           )
         }
         {
@@ -138,7 +117,7 @@ class Values extends PureComponent<Props & PropsFromRedux> {
         }
         {
           // eslint-disable-next-line no-nested-ternary
-          isDefined(amendementValue) && withTooltip(ReformTooltip, amendementTitle, editable
+          isDefined(amendementValue) && (editable
             ? (
               typeof amendementValue === "number" ? (
                 <NumberInput
