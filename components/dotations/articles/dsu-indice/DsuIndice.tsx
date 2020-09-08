@@ -150,6 +150,7 @@ export class DsuIndice extends PureComponent {
           amendementInputSize="small"
           path="dotations.communes.dsu.eligibilite.indiceSynthetique.ponderationPotentielFinancier"
           symbol="%" />
+          ,
         <br />
         le deuxième par
         {" "}
