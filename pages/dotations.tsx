@@ -38,7 +38,7 @@ class DotationPage extends PureComponent<PropsFromRedux> {
     return (
       <Fragment>
         <Head>
-          <title>LexImpact - Dotations aux collectivités territoriales</title>
+          <title>LexImpact - Dotations aux communes</title>
         </Head>
         <SimulationPage
           parameters={<Articles />}
