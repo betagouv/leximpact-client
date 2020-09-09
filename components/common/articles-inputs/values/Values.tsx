@@ -20,6 +20,7 @@ interface Props {
   onAmendementChange?: (value: number) => void,
   offset?: number;
   plfValue?: number|string|null;
+  symbol?: string;
 }
 
 const mapStateToProps = ({ token }: RootState) => ({
@@ -61,7 +62,7 @@ class Values extends PureComponent<Props & PropsFromRedux> {
   render() {
     const {
       amendementInputSize, amendementValue, baseValue,
-      decimals, editable, onAmendementChange, plfValue,
+      decimals, editable, onAmendementChange, plfValue, symbol,
     } = this.props;
 
     let { offset } = this.props;
@@ -116,37 +117,41 @@ class Values extends PureComponent<Props & PropsFromRedux> {
           && <span>&nbsp;&nbsp;</span>
         }
         {
-          // eslint-disable-next-line no-nested-ternary
-          isDefined(amendementValue) && (editable
-            ? (
-              typeof amendementValue === "number" ? (
-                <NumberInput
-                  className={classNames({
+          isDefined(amendementValue) && (
+            <span>
+              {
+              // eslint-disable-next-line no-nested-ternary
+                editable ? (
+                  typeof amendementValue === "number" ? (
+                    <NumberInput
+                      className={classNames({
+                        [styles.baseValue]: amendementValue === plfValue && plfValue === baseValue,
+                        [styles.plfValue]: amendementValue === plfValue && plfValue !== baseValue,
+                        [styles.amendementValue]: amendementValue !== plfValue,
+                        // Sizes
+                        [styles.amendementInput]: true,
+                        [styles.smallInput]: amendementInputSize === "small",
+                        [styles.xlInput]: amendementInputSize === "xl",
+                      })}
+                      value={amendementValue + offset}
+                      onChange={onAmendementChange
+                        ? value => onAmendementChange(value - (offset as number))
+                        : (() => {})
+                      }
+                      onEnter={this.runSimulation} />
+                  ) : null
+                ) : (
+                  <span className={classNames({
                     [styles.baseValue]: amendementValue === plfValue && plfValue === baseValue,
                     [styles.plfValue]: amendementValue === plfValue && plfValue !== baseValue,
                     [styles.amendementValue]: amendementValue !== plfValue,
-                    // Sizes
-                    [styles.amendementInput]: true,
-                    [styles.smallInput]: amendementInputSize === "small",
-                    [styles.xlInput]: amendementInputSize === "xl",
-                  })}
-                  value={amendementValue + offset}
-                  onChange={onAmendementChange
-                    ? value => onAmendementChange(value - (offset as number))
-                    : (() => {})
-                  }
-                  onEnter={this.runSimulation} />
-              ) : null
-            )
-            : (
-              <span className={classNames({
-                [styles.baseValue]: amendementValue === plfValue && plfValue === baseValue,
-                [styles.plfValue]: amendementValue === plfValue && plfValue !== baseValue,
-                [styles.amendementValue]: amendementValue !== plfValue,
-              })}>
-                {typeof amendementValue === "string" ? amendementValue : formatNumber(amendementValue + offset, { decimals })}
-              </span>
-            ))
+                  })}>
+                    {typeof amendementValue === "string" ? amendementValue : formatNumber(amendementValue + offset, { decimals })}
+                  </span>
+                )}
+              {symbol && ` ${symbol}`}
+            </span>
+          )
         }
       </span>
     );

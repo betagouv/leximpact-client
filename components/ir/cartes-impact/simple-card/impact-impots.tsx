@@ -53,12 +53,11 @@ class SimpleCardImpactImpots extends PureComponent<PropsFromRedux & Props> {
           <div className={styles.result}>
             <NeutralTooltip
               placement="bottom-start"
-              title={title || <span>caca</span>}>
+              title={title || <span />}>
               <span>
                 <ResultValues
-                  path={`ir.state.casTypes.${index}.impotAnnuel`} />
-                {" "}
-                €
+                  path={`ir.state.casTypes.${index}.impotAnnuel`}
+                  symbol="€" />
               </span>
             </NeutralTooltip>
           </div>
