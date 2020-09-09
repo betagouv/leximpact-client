@@ -3,7 +3,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import debounce from "lodash/debounce";
-import { createRef, Fragment, PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../../redux/reducers/descriptions/dotations";
