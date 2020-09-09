@@ -24,9 +24,13 @@ export class DsuEligibilite extends PureComponent {
         <span className={styles.bold}>
           Les deux premiers tiers [ les premiers
           {" "}
-          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut" />
+          <ParameterValues
+            editable
+            amendementInputSize="small"
+            path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilHaut"
+            symbol="%" />
           {" "}
-          % ]
+          ]
         </span>
         {" "}
         des communes de
@@ -51,9 +55,13 @@ export class DsuEligibilite extends PureComponent {
         <span className={styles.bold}>
           Le premier dixième [ les premiers
           {" "}
-          <ParameterValues editable amendementInputSize="small" path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas" />
+          <ParameterValues
+            editable
+            amendementInputSize="small"
+            path="dotations.communes.dsu.eligibilite.pourcentageRangSeuilBas"
+            symbol="%" />
           {" "}
-          % ]
+          ]
         </span>
         {" "}
         des communes dont la population est

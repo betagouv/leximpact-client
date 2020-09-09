@@ -16,6 +16,7 @@ type Props = PropsFromRedux & {
   decimals?: number;
   path: string;
   amendementInputSize?: "small"|"xl";
+  symbol?: string;
 }
 
 function ResultValues(props: Props) {

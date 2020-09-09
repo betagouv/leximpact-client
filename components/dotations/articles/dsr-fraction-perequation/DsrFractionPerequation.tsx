@@ -47,9 +47,10 @@ export class DsrFractionPerequation extends PureComponent {
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancier"
+            symbol="%"
           />
           {" "}
-        % de son montant, en fonction de la population pondérée par
+        de son montant, en fonction de la population pondérée par
         l&apos;écart entre le potentiel financier par habitant de la commune et le
         potentiel financier moyen par habitant des communes appartenant au même
         groupe démographique ainsi que par l&apos;effort fiscal plafonné à 1,2 ;
@@ -61,9 +62,10 @@ export class DsrFractionPerequation extends PureComponent {
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationLongueurVoirie"
+            symbol="%"
           />
           {" "}
-        % de son montant, proportionnellement à la longueur de la voirie
+        de son montant, proportionnellement à la longueur de la voirie
         classée dans le domaine public communal ; pour les communes situées en zone
         de montagne ou pour les communes insulaires, la longueur de la voirie est
         doublée. Pour l&apos;application du présent article, une commune insulaire
@@ -79,9 +81,10 @@ export class DsrFractionPerequation extends PureComponent {
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationNbreEnfants"
+            symbol="%"
           />
           {" "}
-        % de son montant, proportionnellement au nombre d&apos;enfants de
+        de son montant, proportionnellement au nombre d&apos;enfants de
         trois à seize ans domiciliés dans la commune, établi lors du dernier recensement.
           <br />
           <br />
@@ -91,9 +94,10 @@ export class DsrFractionPerequation extends PureComponent {
             editable
             amendementInputSize="small"
             path="dotations.communes.dsr.perequation.attribution.repartition.ponderationPotentielFinancierParHectare"
+            symbol="%"
           />
           {" "}
-        % de son montant au maximum, en fonction de l&apos;écart entre le
+        de son montant au maximum, en fonction de l&apos;écart entre le
         potentiel financier par hectare de la commune et le potentiel financier moyen
         par hectare des communes de moins de
           {" "}

@@ -49,17 +49,18 @@ export class DsrFractionCible extends PureComponent {
           editable
           amendementInputSize="small"
           path="dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationPotentielFinancier"
+          symbol="%"
         />
         {" "}
-        % et le deuxième par
+        et le deuxième par
         {" "}
         <ParameterValues
           editable
           amendementInputSize="small"
           path="dotations.communes.dsr.cible.eligibilite.indiceSynthetique.ponderationRevenu"
+          symbol="%"
         />
-        {" "}
-        %.
+        .
         <br />
         <br />
         <ExpandablePanelSubTitle subTitle="§ 6" title="Répartition" />
