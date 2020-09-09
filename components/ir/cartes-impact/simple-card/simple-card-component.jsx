@@ -183,7 +183,7 @@ class SimpleCard extends React.Component {
   render() {
     const {
       classes, descCasType, handleRemoveCasType,
-      handleShowEditCasTypesPopin, index, isLoading, resultats,
+      handleShowEditCasTypesPopin, index,
     } = this.props;
     const { name } = descCasType;
     return (
@@ -198,7 +198,9 @@ class SimpleCard extends React.Component {
             <div>{this.renderRevenuMensuel()}</div>
           </Fragment>
         )}
-        content2={<SimpleCardImpactImpots isLoading={isLoading} resultats={resultats} />}
+        content2={(
+          <SimpleCardImpactImpots index={index} />
+        )}
         title={name}
         onClose={handleRemoveCasType(index)}
         onEdit={handleShowEditCasTypesPopin(index)} />
@@ -212,12 +214,6 @@ SimpleCard.propTypes = {
   handleRemoveCasType: PropTypes.func.isRequired,
   handleShowEditCasTypesPopin: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  resultats: PropTypes.shape({
-    apres: PropTypes.number.isRequired,
-    avant: PropTypes.number.isRequired,
-    plf: PropTypes.number,
-  }).isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);

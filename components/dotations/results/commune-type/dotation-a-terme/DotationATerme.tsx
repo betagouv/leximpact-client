@@ -4,7 +4,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
-import { ResultValues } from "../../../../common";
+import { HelpButton, ResultValues } from "../../../../common";
 import styles from "./DotationATerme.module.scss";
 
 interface Props {
@@ -33,7 +33,9 @@ class DotationATerme extends PureComponent<PropsFromRedux & Props> {
     return (
       <div className={styles.container}>
         <div className={styles.text}>
-          Montant à terme :
+          <span>Montant à terme</span>
+          <HelpButton name="montants dsr" />
+          :
         </div>
         <div className={styles.dotationParHab}>
           <ResultValues

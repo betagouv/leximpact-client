@@ -4,6 +4,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 // eslint-disable-next-line no-unused-vars
 import { RootState } from "../../../../../redux/reducers";
+import { HelpButton } from "../../../../common";
 import { TrendArrow } from "../../common";
 import styles from "./DotationTrend.module.scss";
 
@@ -48,6 +49,8 @@ class DotationTrend extends PureComponent<Props & PropsFromRedux> {
         <div className={styles.texts}>
           <div className={styles.title}>
             {this.getText()}
+            {" "}
+            <HelpButton name="trend" />
           </div>
           <div className={styles.subTitle}>
             du montant total

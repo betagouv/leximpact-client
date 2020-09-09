@@ -28,6 +28,7 @@ export class Articles extends PureComponent {
         <div style={{ marginRight: "1em" }}>
           <PrimaryExpandablePanel
             expanded
+            help="dsr"
             icon={<LocalFloristIcon />}
             title="Dotation de solidarité rurale (DSR)">
             <SecondaryExpandablePanel
@@ -71,6 +72,7 @@ export class Articles extends PureComponent {
             </PrimaryExpandablePanel>
           )}
           <PrimaryExpandablePanel
+            help="dsu"
             icon={<LocationCityIcon />}
             title="Dotation de solidarité urbaine (DSU)">
             <SecondaryExpandablePanel

@@ -8,6 +8,12 @@
   color: $light-grey-text-color;
   margin-bottom: 5px;
   font-size: 0.9rem;
+  display: flex;
+  align-content: center;
+
+  > * {
+    margin-right: 2px;
+  }
 }
 
 .dotationParHab {

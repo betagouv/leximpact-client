@@ -1,20 +1,39 @@
-import { HIDE_INFORMATION_PANEL } from "../actions";
+// eslint-disable-next-line no-unused-vars
+import { HideHelpWindowAction, HideInformationPanelAction, ShowHelpWindowAction } from "../actions";
 
-const initialState = {
-  isInformationPanelVisible: true,
+interface State {
+  currentHelpWindow: string|null;
+  currentInformationPanels: string[];
+}
+
+const DEFAULT_STATE: State = {
+  currentHelpWindow: null,
+  currentInformationPanels: ["ir", "dotations"],
 };
 
-const display = (state = initialState, action) => {
+type DisplayAction =
+  HideHelpWindowAction |
+  HideInformationPanelAction |
+  ShowHelpWindowAction;
+
+export function display(state = DEFAULT_STATE, action: DisplayAction): State {
   switch (action.type) {
-  case HIDE_INFORMATION_PANEL:
+  case "HIDE_HELP_WINDOW":
     return {
       ...state,
-      isInformationPanelVisible: false,
+      currentHelpWindow: null,
+    };
+  case "SHOW_HELP_WINDOW":
+    return {
+      ...state,
+      currentHelpWindow: action.window,
+    };
+  case "HIDE_INFORMATION_PANEL":
+    return {
+      ...state,
+      currentInformationPanels: state.currentInformationPanels.filter(name => name !== action.name),
     };
   default:
     return state;
   }
-};
-
-
-export default display;
+}

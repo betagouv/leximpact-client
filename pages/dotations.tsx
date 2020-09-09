@@ -7,7 +7,10 @@ import { Fragment, PureComponent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import { SimulationPage } from "../components/common";
-import { Articles, Results } from "../components/dotations";
+import {
+  Articles, DsrHelpWindow,
+  DsuHelpWindow, MontantsDsrHelpWindow, PotentielFinancierHelpWindow, Results, TrendHelpWindow,
+} from "../components/dotations";
 import PopinManager from "../components/PopinManager";
 import withRoot from "../lib/withRoot";
 import { initFakePlf, simulateDotations } from "../redux/actions";
@@ -57,6 +60,11 @@ class DotationPage extends PureComponent<PropsFromRedux> {
           topic="dotations"
         />
         <PopinManager />
+        <DsrHelpWindow />
+        <DsuHelpWindow />
+        <MontantsDsrHelpWindow />
+        <PotentielFinancierHelpWindow />
+        <TrendHelpWindow />
       </Fragment>
     );
   }
