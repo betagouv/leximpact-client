@@ -8,7 +8,7 @@ import { BASE_DOTATIONS_DEFAULT_STATE } from "../base";
 import { DotationsState } from "../interfaces";
 import { PLF_DOTATIONS_DEFAULT_STATE } from "../plf";
 
-const AMENDEMENT_DOTATIONS_DEFAULT_STATE = cloneDeep(PLF_DOTATIONS_DEFAULT_STATE);
+const AMENDEMENT_DOTATIONS_DEFAULT_STATE: DotationsState = cloneDeep(PLF_DOTATIONS_DEFAULT_STATE);
 
 export function dotations(
   state: DotationsState = AMENDEMENT_DOTATIONS_DEFAULT_STATE, action: Action,
