@@ -33,9 +33,8 @@ type Props = PropsFromRedux & {
   editable?: boolean;
   offset?: number;
   path: string;
-  plfTitle?: string|JSX.Element;
   amendementInputSize?: "small"|"xl";
-  amendementTitle?: string|JSX.Element;
+  symbol?: string;
 }
 
 function ParameterValues(props: Props) {

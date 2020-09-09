@@ -3,11 +3,7 @@ import { combineReducers } from "redux";
 
 import {
   // eslint-disable-next-line no-unused-vars
-  AddNewLineInParameterArrayAction,
-  // eslint-disable-next-line no-unused-vars
-  RemoveLastLineInParameterArrayAction,
-  // eslint-disable-next-line no-unused-vars
-  UpdateParameterAction,
+  Action,
 } from "../../../actions";
 // eslint-disable-next-line no-unused-vars
 import { ParametersState } from "../interfaces";
@@ -40,12 +36,7 @@ const removeLastLineInParameterArray = (state: ParametersState, path: string): P
   return setIn(state, propertyNames, newArray);
 };
 
-type AmendementAction =
-  UpdateParameterAction |
-  AddNewLineInParameterArrayAction |
-  RemoveLastLineInParameterArrayAction;
-
-export function amendement(state: ParametersState, action: AmendementAction): ParametersState {
+export function amendement(state: ParametersState, action: Action): ParametersState {
   // state2 might be equal to state.
   const state2 = combineReducers({
     dotations,

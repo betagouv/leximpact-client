@@ -57,10 +57,11 @@ class ArticlesComponent extends React.Component {
             amendementValue={s[i]}
             baseValue={baseValue}
             plfValue={plfValue}
+            symbol="€"
             onAmendementChange={value => handleArticleChange(value, `seuil${i}`)}
           />
           {" "}
-          € le taux de&nbsp;:
+          le taux de&nbsp;:
         </div>
       );
     }
@@ -83,10 +84,9 @@ class ArticlesComponent extends React.Component {
             amendementValue={t[i - 1]}
             baseValue={baseValuet}
             plfValue={plfValuet}
+            symbol="%"
             onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
           />
-          {" "}
-          %
           <br />
           pour la fraction supérieure à
           {" "}
@@ -95,9 +95,9 @@ class ArticlesComponent extends React.Component {
             baseValue={baseValue}
             editable={false}
             plfValue={plfValue}
+            symbol="€"
           />
-          {" "}
-          €.
+          .
         </div>
       );
     }
@@ -121,10 +121,9 @@ class ArticlesComponent extends React.Component {
           amendementValue={t[i - 1]}
           baseValue={baseValuet}
           plfValue={plfValuet}
+          symbol="%"
           onAmendementChange={value => handleArticleChange(value, `taux${i - 1}`)}
         />
-        {" "}
-        %
         <br />
         pour la fraction supérieure à
         {" "}
@@ -133,9 +132,8 @@ class ArticlesComponent extends React.Component {
           baseValue={baseValueminus1}
           editable={false}
           plfValue={plfValueminus1}
+          symbol="€"
         />
-        {" "}
-        €
         <br />
         et inférieure ou égale à
         {" "}
@@ -144,10 +142,11 @@ class ArticlesComponent extends React.Component {
           amendementValue={s[i]}
           baseValue={baseValue}
           plfValue={plfValue}
+          symbol="€"
           onAmendementChange={value => handleArticleChange(value, `seuil${i}`)}
         />
         {" "}
-        € ;
+        ;
       </div>
     );
   };

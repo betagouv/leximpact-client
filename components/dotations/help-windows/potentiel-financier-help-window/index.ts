@@ -1,0 +1,1 @@
+export { PotentielFinancierHelpWindow } from "./PotentielFinancierHelpWindow";

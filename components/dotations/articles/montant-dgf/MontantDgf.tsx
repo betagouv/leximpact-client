@@ -51,9 +51,9 @@ export class MontantDgf extends PureComponent {
         {" "}
         <ParameterValues
           amendementInputSize="xl"
-          path="dotations.montants.dgf" />
-        {" "}
-        €.
+          path="dotations.montants.dgf"
+          symbol="€" />
+        .
       </Fragment>
     );
   }
