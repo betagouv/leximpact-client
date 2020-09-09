@@ -23,8 +23,6 @@ interface State {
 type ResponseBody = Commune[];
 
 export class SearchInput extends PureComponent<Props, State> {
-  inputRef = createRef();
-
   constructor(props) {
     super(props);
     this.state = {
@@ -91,7 +89,6 @@ export class SearchInput extends PureComponent<Props, State> {
                 <SearchIcon />
               </InputAdornment>
             ),
-            ref: this.inputRef,
           }}
           label="Nom de la commune"
           margin="normal"
