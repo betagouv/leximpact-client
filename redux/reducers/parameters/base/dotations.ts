@@ -8,7 +8,7 @@ export const BASE_DOTATIONS_DEFAULT_STATE: DotationsState = {
   montants: {
     dgf: 26846874416,
     dsrAndDsu: {
-      variation: 90,
+      variation: 0,
     },
   },
   communes: {
