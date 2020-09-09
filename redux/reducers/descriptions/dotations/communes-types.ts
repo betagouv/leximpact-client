@@ -6,7 +6,7 @@ export interface Commune {
   name: string;
   departement: string;
   habitants: number;
-  potentielFinancier: number;
+  potentielFinancierParHab: number;
 }
 
 const DEFAULT_STATE: Commune[] = [
@@ -14,29 +14,29 @@ const DEFAULT_STATE: Commune[] = [
     code: "76384",
     departement: "Seine-Maritime",
     habitants: 9101,
-    name: "Lillebonne",
-    potentielFinancier: 2188.612857,
+    name: "LILLEBONNE",
+    potentielFinancierParHab: 2188.612857,
   },
   {
     code: "76214",
     departement: "Seine-Maritime",
     habitants: 262,
-    name: "Dénestanville",
-    potentielFinancier: 706.242647,
+    name: "DÉNESTANVILLE",
+    potentielFinancierParHab: 706.242647,
   },
   {
     code: "77186",
     departement: "Seine-et-Marne",
     habitants: 15417,
-    name: "Fontainebleau",
-    potentielFinancier: 1110.296193,
+    name: "FONTAINEBLEAU",
+    potentielFinancierParHab: 1110.296193,
   },
   {
     code: "01012",
     departement: "Ain",
     habitants: 330,
-    name: "Aranc",
-    potentielFinancier: 956.960606,
+    name: "ARANC",
+    potentielFinancierParHab: 820.251948,
   },
 ];
 

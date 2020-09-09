@@ -31,7 +31,6 @@ export class Articles extends PureComponent {
             icon={<LocalFloristIcon />}
             title="Dotation de solidarité rurale (DSR)">
             <SecondaryExpandablePanel
-              expanded
               subTitle="Article L2334-20 du CGCT"
               title="Périmètre général d&apos;éligibilité">
               <DsrEligibilite />
@@ -71,6 +70,7 @@ export class Articles extends PureComponent {
             </PrimaryExpandablePanel>
           )}
           <PrimaryExpandablePanel
+            expanded
             help="dsu"
             icon={<LocationCityIcon />}
             title="Dotation de solidarité urbaine (DSU)">

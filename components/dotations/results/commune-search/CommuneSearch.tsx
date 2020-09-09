@@ -6,6 +6,7 @@ import { addCommuneType } from "../../../../redux/actions";
 // eslint-disable-next-line no-unused-vars
 import { Commune } from "../../../../redux/reducers/descriptions/dotations";
 import { Card } from "../../../common";
+import styles from "./CommuneSearch.module.scss";
 import { SearchInput } from "./search-input";
 
 const mapStateToProps = () => ({});
@@ -25,7 +26,7 @@ class CommuneSearch extends PureComponent<PropsFromRedux> {
       <Card
         title="Ajouter une nouvelle commune"
       >
-        <div>
+        <div className={styles.container}>
           <SearchInput onChange={commune => add(commune)} />
         </div>
       </Card>

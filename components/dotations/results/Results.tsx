@@ -28,8 +28,6 @@ type Props = PropsFromRedux & {}
 class Results extends PureComponent<Props> {
   render() {
     const { communesTypes, isInformationPanelVisible } = this.props;
-    const url = new URLSearchParams(window.location.search);
-    const isSearchVisible = url.has("search");
     return (
       <div className={styles.container}>
         {isInformationPanelVisible && (
@@ -66,15 +64,13 @@ class Results extends PureComponent<Props> {
                 habitants={communeType.habitants}
                 index={index}
                 name={communeType.name}
-                potentielFinancier={communeType.potentielFinancier}
+                potentielFinancierParHab={communeType.potentielFinancierParHab}
               />
             </Grid>
           ))}
-          {isSearchVisible && (
-            <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
-              <CommuneSearch />
-            </Grid>
-          )}
+          <Grid item lg={4} md={6} sm={6} xl={3} xs={12}>
+            <CommuneSearch />
+          </Grid>
         </Grid>
       </div>
     );
