@@ -42,14 +42,14 @@ export class SearchInput extends PureComponent<Props, State> {
       value,
     });
 
-    this.fetchCommunes(value);
-  }
-
-  async fetchCommunes(value: string): Promise<void> {
     if (value.length < 3) {
       return;
     }
 
+    this.fetchCommunes(value);
+  }
+
+  async fetchCommunes(value: string): Promise<void> {
     this.setState({ loading: true });
 
     await request
