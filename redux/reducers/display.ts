@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { HideHelpWindowAction, HideInformationPanelAction, ShowHelpWindowAction } from "../actions";
+import { Action } from "../actions";
 
 interface State {
   currentHelpWindow: string|null;
@@ -11,12 +11,7 @@ const DEFAULT_STATE: State = {
   currentInformationPanels: ["ir", "dotations"],
 };
 
-type DisplayAction =
-  HideHelpWindowAction |
-  HideInformationPanelAction |
-  ShowHelpWindowAction;
-
-export function display(state = DEFAULT_STATE, action: DisplayAction): State {
+export function display(state = DEFAULT_STATE, action: Action): State {
   switch (action.type) {
   case "HIDE_HELP_WINDOW":
     return {

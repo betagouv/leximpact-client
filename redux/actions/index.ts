@@ -7,6 +7,11 @@ import {
   UpdateCasTypeAction,
 } from "./descriptions";
 import {
+  HideHelpWindowAction,
+  HideInformationPanelAction,
+  ShowHelpWindowAction,
+} from "./display";
+import {
   AddNewLineInParameterArrayAction,
   InitFakePlfAction,
   RemoveLastLineInParameterArrayAction,
@@ -60,4 +65,7 @@ export type Action =
   SimulateDotationsSuccessAction |
   SimulateCasTypesFailureAction |
   SimulateCasTypesRequestAction |
-  SimulateCasTypesSuccessAction;
+  SimulateCasTypesSuccessAction |
+  HideHelpWindowAction |
+  HideInformationPanelAction |
+  ShowHelpWindowAction;
