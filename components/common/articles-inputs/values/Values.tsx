@@ -75,11 +75,13 @@ class Values extends PureComponent<Props & PropsFromRedux> {
       return value !== null && value !== undefined;
     }
 
-    function isEqual(value1: number|string|null|undefined, value2: number|string|null|undefined): boolean {
-      if (typeof value1 === 'number' && typeof value2 === 'number') {
+    function isEqual(
+      value1: number|string|null|undefined, value2: number|string|null|undefined,
+    ): boolean {
+      if (typeof value1 === "number" && typeof value2 === "number") {
         return formatNumber(value1, { decimals }) === formatNumber(value2, { decimals });
       }
-      return value1 === value2
+      return value1 === value2;
     }
 
     return (
@@ -132,8 +134,10 @@ class Values extends PureComponent<Props & PropsFromRedux> {
                   typeof amendementValue === "number" ? (
                     <NumberInput
                       className={classNames({
-                        [styles.baseValue]: isEqual(amendementValue, plfValue) && isEqual(plfValue, baseValue),
-                        [styles.plfValue]: isEqual(amendementValue, plfValue) && !isEqual(plfValue, baseValue),
+                        [styles.baseValue]: isEqual(amendementValue, plfValue)
+                          && isEqual(plfValue, baseValue),
+                        [styles.plfValue]: isEqual(amendementValue, plfValue)
+                          && !isEqual(plfValue, baseValue),
                         [styles.amendementValue]: !isEqual(amendementValue, plfValue),
                         // Sizes
                         [styles.amendementInput]: true,
@@ -149,8 +153,10 @@ class Values extends PureComponent<Props & PropsFromRedux> {
                   ) : null
                 ) : (
                   <span className={classNames({
-                    [styles.baseValue]: isEqual(amendementValue, plfValue) && isEqual(plfValue, baseValue),
-                    [styles.plfValue]: isEqual(amendementValue, plfValue) && !isEqual(plfValue, baseValue),
+                    [styles.baseValue]: isEqual(amendementValue, plfValue)
+                      && isEqual(plfValue, baseValue),
+                    [styles.plfValue]: isEqual(amendementValue, plfValue)
+                      && !isEqual(plfValue, baseValue),
                     [styles.amendementValue]: !isEqual(amendementValue, plfValue),
                   })}>
                     {typeof amendementValue === "string" ? amendementValue : formatNumber(amendementValue + offset, { decimals })}
