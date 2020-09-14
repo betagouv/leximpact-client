@@ -108,7 +108,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                       <td>
                         <ResultValues
                           decimals={0}
-                          path={`dotations.state.communes.dsr.strates.${index}.proportionEligibles`}
+                          path={`dotations.state.communes.dsr.strates.${index}.partEligibles`}
                           symbol="%" />
                       </td>
                       <td>
@@ -131,7 +131,7 @@ class CommuneStrateDetailsTable extends PureComponent<Props> {
                       <td>
                         <ResultValues
                           decimals={0}
-                          path={`dotations.state.communes.dsu.strates.${index}.proportionEligibles`}
+                          path={`dotations.state.communes.dsu.strates.${index}.partEligibles`}
                           symbol="%" />
                       </td>
                       <td>

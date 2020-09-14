@@ -5,7 +5,7 @@ export interface DotationsState {
       strates: {
         // Nombre de communes éligibles
         eligibles: number;
-        proportionEligibles: number;
+        partEligibles: number;
         // Dotation moyenne par habitant
         dotationMoyenneParHab: number;
         // Part des dotations accordées à cette strate dans la dotation totale.
@@ -24,7 +24,7 @@ export interface DotationsState {
       strates: {
         // Nombre de communes éligibles
         eligibles: number;
-        proportionEligibles: number;
+        partEligibles: number;
         // Dotation moyenne par habitant
         dotationMoyenneParHab: number;
         // Part des dotations accordées à cette strate dans la dotation totale.
