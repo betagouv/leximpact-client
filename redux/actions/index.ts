@@ -2,6 +2,7 @@
 import {
   AddCasTypeAction,
   AddCommuneTypeAction,
+  InitCommunesTypesAction,
   RemoveCasTypeAction,
   RemoveCommuneTypeAction,
   UpdateCasTypeAction,
@@ -68,4 +69,5 @@ export type Action =
   SimulateCasTypesSuccessAction |
   HideHelpWindowAction |
   HideInformationPanelAction |
-  ShowHelpWindowAction;
+  ShowHelpWindowAction |
+  InitCommunesTypesAction;
