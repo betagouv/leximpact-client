@@ -37,7 +37,7 @@ class Results extends PureComponent<Props> {
                 name={INFORMATION_PANEL_NAME}
                 title="Les montants des dotations calculées ci-dessous sont des estimations."
               >
-                Les dotations de LexImpact s’appuient sur les données de l’année 2019. Elles
+                Les dotations de LexImpact s’appuient sur les données de l’année 2020. Elles
                 peuvent donc différer des montants effectivement perçus l’année prochaine.
                 Seuls les montants calculés par la DGCL font foi.
               </InformationPanel>
