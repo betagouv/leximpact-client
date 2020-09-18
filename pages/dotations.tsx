@@ -13,9 +13,10 @@ import {
 } from "../components/dotations";
 import PopinManager from "../components/PopinManager";
 import withRoot from "../lib/withRoot";
-import { initFakePlf, simulateDotations } from "../redux/actions";
+import { initCommunesTypes, initFakePlf, simulateDotations } from "../redux/actions";
 
 const mapDispatchToProps = dispatch => ({
+  addCommunesTypes: () => dispatch(initCommunesTypes()),
   addFakePlf: () => dispatch(initFakePlf()),
   simulate: () => dispatch(simulateDotations()),
 });
@@ -26,11 +27,12 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 class DotationPage extends PureComponent<PropsFromRedux> {
   componentDidMount() {
-    const { addFakePlf } = this.props;
+    const { addCommunesTypes, addFakePlf } = this.props;
     const url = new URLSearchParams(window.location.search);
     if (url.has("fauxplf")) {
       addFakePlf();
     }
+    addCommunesTypes();
   }
 
   render() {

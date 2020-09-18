@@ -41,21 +41,31 @@ const DEFAULT_STATE: Commune[] = [
 ];
 
 export function communesTypes(
-  state: Commune[] = DEFAULT_STATE, action: Action,
+  state: Commune[] = [], action: Action,
 ): Commune[] {
+  let communes: Commune[];
   switch (action.type) {
   case "ADD_COMMUNE_TYPE":
     if (state.find(commune => commune.code === action.commune.code)) {
       return state;
     }
-    return [
+    communes = [
       ...state,
       action.commune,
     ];
+    localStorage.setItem("communesTypes", JSON.stringify(communes));
+    return communes;
   case "REMOVE_COMMUNE_TYPE":
-    const newState = [...state];
-    newState.splice(action.index, 1);
-    return newState;
+    communes = [...state];
+    communes.splice(action.index, 1);
+    localStorage.setItem("communesTypes", JSON.stringify(communes));
+    return communes;
+  case "INIT_COMMUNES_TYPES":
+    const jsonCommunes = localStorage.getItem("communesTypes");
+    if (jsonCommunes) {
+      return JSON.parse(jsonCommunes);
+    }
+    return DEFAULT_STATE;
   default:
     return state;
   }

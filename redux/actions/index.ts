@@ -2,10 +2,16 @@
 import {
   AddCasTypeAction,
   AddCommuneTypeAction,
+  InitCommunesTypesAction,
   RemoveCasTypeAction,
   RemoveCommuneTypeAction,
   UpdateCasTypeAction,
 } from "./descriptions";
+import {
+  HideHelpWindowAction,
+  HideInformationPanelAction,
+  ShowHelpWindowAction,
+} from "./display";
 import {
   AddNewLineInParameterArrayAction,
   InitFakePlfAction,
@@ -60,4 +66,8 @@ export type Action =
   SimulateDotationsSuccessAction |
   SimulateCasTypesFailureAction |
   SimulateCasTypesRequestAction |
-  SimulateCasTypesSuccessAction;
+  SimulateCasTypesSuccessAction |
+  HideHelpWindowAction |
+  HideInformationPanelAction |
+  ShowHelpWindowAction |
+  InitCommunesTypesAction;
