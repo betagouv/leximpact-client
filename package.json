@@ -47,7 +47,7 @@
     "isomorphic-fetch": "^2.2.1",
     "js-cookie": "2.2.1",
     "jss": "^9.8.7",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "material-ui-icons": "^1.0.0-beta.36",
     "next": "^7.0.2",
     "next-cookies": "^1.1.2",
