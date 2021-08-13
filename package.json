@@ -49,7 +49,7 @@
     "jss": "^9.8.7",
     "lodash": "^4.17.15",
     "material-ui-icons": "^1.0.0-beta.36",
-    "next": "^7.0.2",
+    "next": "^11.1.0",
     "next-cookies": "^1.1.2",
     "next-images": "^1.1.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
